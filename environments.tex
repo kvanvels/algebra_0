@@ -1,0 +1,104 @@
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\tcbuselibrary{breakable}
+\tcbuselibrary{skins}
+
+\newenvironment{solution}
+{\begin{proof}[Solution]}{\end{proof}}
+
+\newcounter{mycounter}[section]
+\def\themycounter{\arabic{chapter}.\arabic{section}.\arabic{mycounter}}
+
+\makeatletter
+\renewcommand{\theequation}
+{\textcolor{purple}{\sffamily{\arabic{chapter}.\arabic{section}.\arabic{equation}}}}
+\@addtoreset{equation}{chapter}
+\makeatother
+
+\tcbset{
+  defstyle/.style={
+    breakable,
+    before upper={\parindent15pt\noindent},
+    label separator=,
+    fonttitle=\sffamily\bfseries\upshape,
+    fontupper=\upshape,
+    colframe=\thmColor,
+    colback=white,
+    colupper=black
+  }
+}
+
+\newtcbtheorem[
+  use counter*=mycounter,
+  crefname={theorem}{theorems},
+  Crefname={Theorem}{Theorems}
+]%
+{thm}{Theorem}{defstyle}{}
+
+\newtcbtheorem[
+  use counter from=thm,
+  crefname={axiom}{axioms},
+  Crefname={Axiom}{Axioms}
+]%
+{axm}{Axiom}{defstyle}{}
+
+\newtcbtheorem[
+  use counter from=thm,
+  crefname={lemma}{lemmata},
+  Crefname={Lemma}{Lemmata}
+]%
+{lem}{Lemma}{defstyle}{}
+
+\newtcbtheorem[
+  use counter from=thm,
+  crefname={proposition}{propositions},
+  Crefname={Proposition}{Propositions}
+]%
+{prop}{Proposition}{defstyle}{}
+
+\newtcbtheorem[
+  use counter from=thm,
+  crefname={corollary}{corollaries},
+  Crefname={Corollary}{Corollaries}
+]%
+{coro}{Corollary}{defstyle}{}
+
+\newtcbtheorem[
+  use counter from=thm,
+  crefname={remark}{remarks},
+  Crefname={Remark}{Remarks}
+]%
+{rem}{Remark}{defstyle,colframe=\remarkColor}{}
+
+\newtcbtheorem[
+  use counter from=thm,
+  crefname={definition}{definitions},
+  Crefname={Definition}{Definitions}
+]%
+{defn}{Definition}{defstyle,colframe=\defnColor}{}
+
+\newtcbtheorem[
+  use counter from=thm,
+  crefname={fact}{facts},
+  Crefname={Fact}{Facts}
+]{fact}{Fact}{defstyle, colframe=\factColor}{}
+
+\newtcbtheorem[
+  use counter from=thm,
+  crefname={exercise}{exercises},
+  Crefname={Exercise}{Exercises}
+]%
+{exer}{Exercise}{defstyle, colframe=\exerColor}{}
+
+\newtcbtheorem[
+  use counter from=thm,
+  crefname={example}{examples},
+  Crefname={Example}{Examples}
+]%
+{exam}{Example}{defstyle, colframe=\examColor}{}
+
+\newenvironment{hint}{%
+  \noindent\textbf{Hint:} \bgroup\itshape%
+}{%
+  \egroup\par%
+}

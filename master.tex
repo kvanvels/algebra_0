@@ -1,0 +1,184 @@
+\documentclass[onecolumn,twoside,12pt,leqno]{book}
+
+\usepackage{imakeidx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{booktabs}
+\input{fonts}
+\usepackage{microtype}
+\usepackage{paralist}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=purple
+}
+\usepackage{cleveref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[style=numeric]{biblatex}
+\addbibresource{mybib.bib}
+\input{colors}
+\input{environments}
+
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\huge\bfseries\color{black}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\sffamily\Large\bfseries\color{black}}
+  {\thesection.}{1em}{}
+
+
+\geometry{%
+  headheight=27.22604pt,%
+  includehead,
+  includefoot,
+  paperheight = 11in,
+  paperwidth = 7in,
+  height = 10in,  
+  width = 5.5in
+}
+
+
+% \geometry{ 
+%   includehead,
+%   includefoot,
+%   paperwidth = 11in,
+%   paperheight = 8.5in,
+%   width = 10.75in,
+%   height = 8.0in
+% }
+
+\fancypagestyle{style}{%
+  \fancyhf{}%
+  %\fancyfoot[LE,RO]{\thepage}  
+  %\fancyhead[LE,RO]{\sffamily{\rightmark}}
+  %\fancyhead[LO,RE]{\sffamily{\leftmark}}
+  \fancyhead[LE,RO]{\sffamily{\thepage}}%
+  \fancyhead[LO]{\sffamily{\rightmark}}%
+  \fancyhead[RE]{\sffamily{\leftmark}}%
+  %\fancyhead[LO]{\sffamily{\leftmark}}
+  %\renewcommand{\headrulewidth}{1pt}
+  %\renewcommand{\footrulewidth}{1pt}
+}
+\pagestyle{style}
+
+\renewcommand{\chaptermark}[1]%
+{ \markboth{\chaptername\ \thechapter.\ #1}{}}
+
+\renewcommand{\sectionmark}[1]{ \markright{\S\thesection.\ #1}}
+% \geometry{
+%   paperheight = 8.5in,
+%   paperwidth = 11in,
+%   height = 7.5in,
+%   width = 10.5in}
+
+
+
+\newcommand{\TODOREF}[1]{\textcolor{red}{[\textbf{REF?} #1]}}
+\newcommand{\TODOCITE}[1]{\textcolor{red}{[\textbf{CITE?} #1]}}
+
+\newcommand{\pheader}[1]{\textbf{#1}}
+\newcommand{\name}[1]{\textcolor{brown}{\textsc{#1}}} %So Aspell can ignore it.
+\newcommand{\abrev}[1]{#1} %So Aspell can ignore it.
+
+\newcommand{\heading}[1]{\sffamily\bfseries#1}
+
+\newcommand{\litem}[1]{\item{\heading#1.}}
+
+% \newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\field}[1]{\mathbf{#1}}
+\newcommand{\R}{\field{R}}
+\newcommand{\Q}{\field{Q}}
+\newcommand{\C}{\field{C}}
+\newcommand{\N}{\field{N}}
+\newcommand{\Z}{\field{Z}}
+\newcommand{\collection}[1]{\mathcal{#1}}
+\newcommand{\A}{\collection{A}}
+\newcommand{\B}{\collection{B}}
+\newcommand{\F}{\collection{F}}
+\renewcommand{\L}{\collection{L}}
+\newcommand{\M}{\collection{M}}
+\newcommand{\X}{\collection{X}}
+\newcommand{\Y}{\collection{Y}}
+\newcommand{\imag}{\mathbf{i}}
+\definecolor{neonBlue}{RGB}{0,180,255}
+\newcommand{\imagtwo}{{\color{neonBlue}\mathbf{i}}}
+\newcommand{\schwartz}{\mathcal{S}}
+\newcommand{\one}{\mbfone}
+\newcommand{\dee}{\mathrm{d}}
+\newcommand{\eval}{\operatorname{eval}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\choice}{\operatorname{choose}}
+\newcommand{\clo}{\operatorname{clo}}
+\newcommand{\conj}{\operatorname{conj}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\pv}{\operatorname{p.v.}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\mySpan}{\operatorname{span}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\op}{\mathrm{op}} %operator normb
+\newcommand{\BC}{\mathrm{BC}}
+\newcommand{\Cont}{\mathrm{Cont}}
+\newcommand{\comp}{\mathbf{c}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\toweak}{\rightharpoonup}
+\newcommand{\Bounded}{\mathrm{Bounded}}
+\newcommand{\toweakstar}{\overset{*}{\harpoonright}}
+\newcommand{\restrict}{\big\downharpoonright}
+\newcommand{\genalg}[1]{\langle#1\rangle} % no space: avoids chktex warning 1
+\newcommand{\boolalg}[1]{\genalg{#1}_{\mathrm{bool}}}
+\newcommand{\seq}[1]{\langle#1\rangle} % no space: avoids chktex warning 1
+%\newcommand{\seq}[1]{\Lbrbrak #1 \Rbrbrak}
+%\newcommand{\seq}[1]{\lgroup #1 \rgroup}
+
+\newcommand{\poly}{\mathrm{Poly}}
+\renewcommand{\P}{\poly}
+
+\DeclareMathOperator{\myarg}{arg}
+\newcommand{\ip}[2]{\langle#1, #2\rangle} % no space: avoids chktex warning 1
+\newcommand{\Ball}{\operatorname{Ball}}
+
+
+\newcommand{\intint}[2]{\lBrack#1, #2\rBrack} % no space: avoids chktex warning 1
+\newcommand{\df}{\coloneq}
+\newcommand{\fd}{\eqcolon}
+
+\newcommand{\compl}{\complement}
+\newcommand{\salg}{$\sigma$-algebra}
+
+\renewcommand{\epsilon}{\varepsilon}
+
+\AtBeginDocument{% to do this after unicode-math has done its work
+  \renewcommand{\setminus}{\mathbin{\backslash}}%
+}
+
+
+
+
+  
+
+\begin{document}
+\frontmatter
+\tableofcontents
+
+\mainmatter
+\input{chapters/prelims}
+
+\backmatter
+\nocite{*}
+\chapter*{Bibliography}
+\printbibliography{}
+\chapter*{Index}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: t
+%%% End:
