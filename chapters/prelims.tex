@@ -106,7 +106,7 @@ element of S is an element of T , in symbols,
 S \subseteq  T.
 By convention, S \subset  T means the same thing: that is (unlike < vs. \leq ), it does not
 exclude the possibility that S and T may be equal. To avoid any confusion, I will
-consistently use \subseteq  in this book. One adopts S  T to mean that S is `properly'
+consistently use \subseteq  in this book. One adopts S ? T to mean that S is `properly'
 contained in T : that is, S \subseteq  T and S = T .
 We can think of `inclusion of sets' in terms of logic: S \subseteq  T means that
 s \in  S \implies  s \in  T
@@ -128,30 +128,30 @@ Once we have a few sets to play with, we can
 obtain more by applying certain standard operations. Here are a few:
 \bullet  \cup : the union;
 \bullet  \cap : the intersection;
-\bullet  : the difference;
-\bullet  : the disjoint union;
+\bullet  \setminus : the difference;
+\bullet  \sqcup : the disjoint union;
 \bullet  \times : the (Cartesian) product;
 \bullet  and the important notion of `quotient by an equivalence relation'.
 Most of these operations should be familiar to the reader: for example,
 {1, 2, 4} \cup  {3, 4, 5} = {1, 2, 3, 4, 5}
 while
-{1, 2, 4}  {3, 4, 5} = {1, 2}.
+{1, 2, 4} \setminus  {3, 4, 5} = {1, 2}.
 In terms of Venn diagrams of infamous `new math' memory:
 S
  T
 S \cup  T
  S \cap  T
- S  T
+ S \setminus  T
 (the solid black contour indicates the set included in the operation).
 Several of these operations may be written out in a transparent way in terms
 of logic: thus, for example,
 s \in  S \cap  T \iff  (s \in  S and s \in  T ).
 Two sets S and T are disjoint if S \cap  T = \emptyset , that is, if no element is `simulta-
 neously' in both of them.
-The complement of a subset T in a set S is the difference set S  T consisting
+The complement of a subset T in a set S is the difference set S \setminus  T consisting
 of all elements of S which are not in T . Thus, for example, the complement of the
 set of even integers in Z is the set of odd integers.
-The operations , \times , and quotients by equivalence relations are slightly more
+The operations \sqcup , \times , and quotients by equivalence relations are slightly more
 mysterious, and it is very instructive to contemplate them carefully. We will look
 at them in a particularly naive way first and come back to them in a short while
 when we have acquired more language and can view them from a more sophisticated
@@ -163,15 +163,15 @@ One problem with these operations is that their
 output may not be defined as a set, but rather as a set up to isomorphisms of sets,
 that is, up to bijections. To make sense out of this, we have to talk about functions,
 and we will do that in a moment.
-Roughly speaking, the disjoint union of two sets S and T is a set S T obtained
- by first producing `copies' S and T of the sets S and T , with the property that
-S  \cap  T  = \emptyset , and then taking the (ordinary) union of S  and T  . The careful reader
+Roughly speaking, the disjoint union of two sets S and T is a set S \sqcup T obtained
+\setminus  \setminus by first producing `copies' S and T of the sets S and T , with the property that
+S \setminus  \cap  T \setminus  = \emptyset , and then taking the (ordinary) union of S \setminus  and T \setminus  . The careful reader
 will feel uneasy, since this `recipe' does not define one set: whatever it means to
 produce a `copy' of a set, surely there are many ways to do so. This ambiguity will
 be clarified below.
-Nevertheless, note that we can say something about S  T even on these very
+Nevertheless, note that we can say something about S \sqcup  T even on these very
 shaky grounds: for example, if S consists of 3 elements and T consists of 4 elements,
-the reader should expect (correctly) that S  T consists of 7 elements.
+the reader should expect (correctly) that S \sqcup  T consists of 7 elements.
 Products are marred by the same kind of ambiguity, but fortunately there is
 a convenient convention that allows us to write down `one' set representing the
 product of two sets S and T : given S and T , we let S \times  T be the set whose
@@ -186,13 +186,13 @@ coordinates. Incidentally, it is common to denote these sets R2 , Z2 ; and simil
 the product A \times  A of a set by itself is often denoted A2 .
 If S and T are finite sets, clearly |S \times  T | = |S| |T |.
 Also note that we can use products to obtain explicit `copies' of sets as needed
-for the disjoint union: for example, we could let S  = {0} \times  S, T  = {1} \times  T ,
- guaranteeing that S and T are disjoint (why?); and there is an evident way to
- `identify' S and S , T and T . Again, making this precise requires a little more
+for the disjoint union: for example, we could let S \setminus  = {0} \times  S, T \setminus  = {1} \times  T ,
+\setminus  \setminus guaranteeing that S and T are disjoint (why?); and there is an evident way to
+\setminus  \setminus `identify' S and S , T and T . Again, making this precise requires a little more
 vocabulary.
-The operations \cup , \cap , , \times  extend to operations on whole `families' of sets: for
+The operations \cup , \cap , \sqcup , \times  extend to operations on whole `families' of sets: for
 example, if S1, . . . , Sn are sets, we write
-
+?
  n
 Si = S1 \cap  S2 \cap  \dots  \cap  Sn
 i=1
@@ -214,10 +214,10 @@ language of functions. However, all such statements do turn out to be true, as
 the reader probably expects; by virtue of this fortunate circumstance, we can be
 somewhat cavalier and gloss over such subtleties.
 More generally, if S is a set of sets, we may consider sets
-
- 
- 
- 
+\setminus 
+ ?
+ ?
+ ?
 S,
  S,
  S,
@@ -229,12 +229,12 @@ S\in S
 for the union, intersection, disjoint union, product of all sets in S . There are
 important subtleties concerning
  these definitions: for example, if all S \in  S are
-nonempty, does it follow that S is nonempty? The reader probably thinks
+?nonempty, does it follow that S is nonempty? The reader probably thinks
 S\in Sso, but (if S is infinite) this is a rather thorny issue, amounting to the axiom of
 choice.
 By and large, such subtleties do not affect the material in this course; we will
 partly come to terms with them in due time5 , when they become more relevant to
-the issues at hand (cf. \SV.3).
+the issues at hand (cf. \S{}V.3).
 
 \subsection{Equivalence relations, partitions, quotients}
 Intuitively, a relation on
@@ -266,7 +266,7 @@ if \sim  denotes for a moment the relation = of equality, then \sim  satisfies
 That is, every a is equal to itself; if a is equal to b, then b is equal to a; etc.
 Definition 1.1. An equivalence relation on a set S is any relation \sim  satisfying
 these three properties.
- 
+ ?
 In terms of the corresponding subset R of S \times  S, `reflexivity' says that the
 diagonal is contained in R; `symmetry' says that R is unchanged if flipped about
 the diagonal (that is, if every (a, b) is interchanged with (b, a)); while unfortunately
@@ -286,45 +286,45 @@ Conversely (Exercise 1.3) every partition P is the partition corresponding in
 this fashion to an equivalence relation. Therefore, the notions of `equivalence rela-
 tion on S' and `partition of S' are really equivalent.
 Now we can view P\sim  as a set (whose elements are the equivalence classes with
-respect to \sim ). This is the quotient operation mentioned in \S1.3.
+respect to \sim ). This is the quotient operation mentioned in \S{}1.3.
 Definition 1.2. The quotient of the set S with respect to the equivalence relation \sim 
 is the set
 S/\sim  := P\sim 
 of equivalence classes of elements of S with respect to \sim .
- 
+ ?
 Example 1.3. Take S = Z, and let \sim  be the relation defined by
 a \sim  b \iff  a - b is even.
 Then Z/\sim  consists of two equivalence classes:
 Z/\sim  = {[0]\sim  , [1]\sim  }.
 Indeed, every integer b is either even (and hence b-0 is even, so b \sim  0, and b \in  [0]\sim  )
 or odd (and hence b-1 is even, so b \sim  1, and b \in  [1]\sim  ). This is of course the starting
-point of modular arithmetic, which we will cover in due detail later on (\SII.2.3). 
+point of modular arithmetic, which we will cover in due detail later on (\S{}II.2.3). ?
 One way to think about this operation is that the equivalence relation `becomes
 equality in the quotient': that is, two elements of the quotient S/\sim  are equal if and
 only if the corresponding elements in S are related by \sim . In other words, taking a
 quotient is a way to turn any equivalence relation into an equality. This observation
-will be further formalized in `categorical terms' in a short while (\S5.3).
+will be further formalized in `categorical terms' in a short while (\S{}5.3).
 
 \subsection*{Exercises}
 
-Exercises marked with a  are referred to from the text; exercises marked with a
+Exercises marked with a ? are referred to from the text; exercises marked with a
 \lnot  are referred to from other exercises. These referring exercises and sections are
 listed in brackets following the current exercise; see the introduction for further
 clarifications, if necessary.
 1.1. Locate a discussion of Russell's paradox, and understand it.
-1.2.  Prove that if \sim  is an equivalence relation on a set S, then the corresponding
-family P\sim  defined in \S1.5 is indeed a partition of S: that is, its elements are
-nonempty, disjoint, and their union is S. [\S1.5]
-1.3.  Given a partition P on a set S, show how to define a relation \sim  on S such
-that P is the corresponding partition. [\S1.5]
+1.2. ? Prove that if \sim  is an equivalence relation on a set S, then the corresponding
+family P\sim  defined in \S{}1.5 is indeed a partition of S: that is, its elements are
+nonempty, disjoint, and their union is S. [\S{}1.5]
+1.3. ? Given a partition P on a set S, show how to define a relation \sim  on S such
+that P is the corresponding partition. [\S{}1.5]
 1.4. How many different equivalence relations may be defined on the set {1, 2, 3}?
 1.5. Give an example of a relation that is reflexive and symmetric but not transitive.
 What happens if you attempt to use this relation to define a partition on the set?
 (Hint: Thinking about the second question will help you answer the first one.)
-1.6.  Define a relation \sim  on the set R of real numbers by setting a \sim  b \iff  b-a \in 
+1.6. ? Define a relation \sim  on the set R of real numbers by setting a \sim  b \iff  b-a \in 
 Z. Prove that this is an equivalence relation, and find a `compelling' description
 for R/\sim . Do the same for the relation \approx  on the plane R \times  R defined by declaring
-(a1, a2) \approx  (b1 , b2) \iff  b1 - a1 \in  Z and b2 - a2 \in  Z. [\SII.8.1, II.8.10]
+(a1, a2) \approx  (b1 , b2) \iff  b1 - a1 \in  Z and b2 - a2 \in  Z. [\S{}II.8.1, II.8.10]
 
 \section{Functions between sets}
 
@@ -360,7 +360,7 @@ A
  / B.
 The action of a function f : A \to  B on an element a \in  A is sometimes indicated by
 a `decorated' arrow, as in
-a \to  f (a).
+a ?\to  f (a).
 The collection of all functions from a set A to a set B is itself a set7 , denoted B A .
 If we take seriously the notion that a function is really the same thing as its graph,
 then we can view BA as a (special) subset of the power set of A \times  B.
@@ -382,15 +382,15 @@ S \to  B defined by
 f
  together with the information of the source A and the
 target B of f . These are part of the data of the function.
-7 This is another `operation among sets', not listed in \S1.3. Can you see why we use BA for
+7 This is another `operation among sets', not listed in \S{}1.3. Can you see why we use BA for
 this set? (Cf. Exercise 2.10.)
-That is, f |S is the composition (in the sense explained in \S2.3) f \circ i, where i : S \to  A
+That is, f |S is the composition (in the sense explained in \S{}2.3) f \circ i, where i : S \to  A
 is the inclusion. Note that f (S) = im(f |S ).
 
 \subsection{Examples: Multisets, indexed sets}
 The `multisets' mentioned briefly
 
-in \S1.1 are a simple example of a notion easily formalized by means of functions.
+in \S{}1.1 are a simple example of a notion easily formalized by means of functions.
 A multiset may be defined by giving a function from a (regular) set A to the
 set N\ast  of positive8 integers; if m : A \to  N\ast  is such a function, the corresponding
 multiset consists of the elements a \in  A, each taken m(a) times. Thus, the multiset
@@ -409,7 +409,7 @@ elements ai. For example, this allows us to consider a0 and a1 as distinct eleme
 of {ai }i\in N , even if by coincidence a0 = a1 as elements of the target set A.
 It is easy to miss such subtleties, and some abuse of notation is common and
 usually harmless. These distinctions play a role in (for example) discussions of
-linear independence of sets of vectors; cf. \SVI.1.2.
+linear independence of sets of vectors; cf. \S{}VI.1.2.
 
 \subsection{Composition of functions}
 Functions may be composed: if f : A \to  B and
@@ -431,8 +431,8 @@ A f
 g\circ f @
  @ @
  @ @
- @ @ @ 
- 
+ @ @ @ ?
+ \sqcup 
  g
 C
 Such graphical representations of collections of (for example) sets connected by
@@ -449,7 +449,7 @@ h\circ g
 f
  g
  h
- #
+ \#
 A
  / B
  /7 C
@@ -478,12 +478,12 @@ Special kinds of functions deserve high-
 
 lighting:
 \bullet  A function f : A \to  B is injective (or an injection or one-to-one) if
-(\forall a \in  A) (\forall a \in  A) a = a \implies  f (a ) = f (a ) :
+(\forall a\setminus  \in  A) (\forall a\setminus \setminus  \in  A) a\setminus  = a\setminus \setminus  \implies  f (a\setminus  ) = f (a\setminus \setminus  ) :
 that is, if f sends different elements to different elements9 .
 \bullet  A function f : A \to  B is surjective (or a surjection or onto) if
 (\forall b \in  B) (\exists a \in  A) b = f (a) :
 that is, if f `covers the whole of B'; more precisely, if im f = B.
-Injections are often drawn \to ; surjections are often drawn .
+Injections are often drawn \setminus \to ; surjections are often drawn \setminus .
 If f is both injective and surjective, we say it is bijective (or a bijection or a
 one-to-one correspondence or an isomorphism of sets.) In this case we often write
 f : A \to  \sim 
@@ -499,11 +499,11 @@ of A with the corresponding elements f (a) of B. For example, if A is a finite s
 and A = \sim 
  B, then B is necessarily also a finite set and |A| = |B|.
 This terminology allows us to make better sense of the considerations on `dis-
-joint union' given in \S1.3: the `copies' A , B  of the given sets A, B should simply
+joint union' given in \S{}1.3: the `copies' A\setminus  , B \setminus  of the given sets A, B should simply
 9 Often one checks this definition in the contrapositive (hence equivalent) formulation, that is,
-(\forall a \in  A) (\forall a \in  A)
- f (a ) = f (a ) \implies  a = a .
-be isomorphic sets to A, B, respectively. The proposal given at the end of \S1.4 to
+(\forall a? \in  A) (\forall a?? \in  A)
+ f (a? ) = f (a?? ) \implies  a? = a?? .
+be isomorphic sets to A, B, respectively. The proposal given at the end of \S{}1.4 to
 produce such disjoint `copies' works, because (for example) the function
 f : A \to  {0} \times  A
 defined by
@@ -518,7 +518,7 @@ If f : A \to  B is a bijection, then we can `flip its graph' and define a functi
 g : B \to  A :
 that is, we can let a = g(b) precisely when b = f (a). (The fact that f is both
 injective and surjective guarantees that the flip of \Gamma f is the graph of a function
-according to the definition given in \S2.1. Check this!)
+according to the definition given in \S{}2.1. Check this!)
 This function g has a very interesting property: graphically,
 A
  f
@@ -542,14 +542,14 @@ Proposition 2.1. Assume A = \emptyset , and let f : A \to  B be a function. Then
 (2) f has a right-inverse if and only if it is surjective.
 Proof. Let's prove (1).
 ( \implies  ) If f : A \to  B has a left-inverse, then there exists a g : B \to  A such that
-g \circ  f = idA . Now assume that a = a are arbitrary different elements in A; then
-     g(f (a )) = idA(a ) = a = a = idA (a ) = g(f (a ));
-that is, g sends f (a) and f (a ) to different elements. This forces f (a ) and f (a)
+g \circ  f = idA . Now assume that a\setminus  = a\setminus \setminus  are arbitrary different elements in A; then
+\setminus  \setminus  \setminus  \setminus \setminus  \setminus \setminus  \setminus \setminus g(f (a )) = idA(a ) = a = a = idA (a ) = g(f (a ));
+that is, g sends f (a\setminus ) and f (a\setminus \setminus  ) to different elements. This forces f (a\setminus  ) and f (a\setminus \setminus )
 to be different, showing that f is injective.
 ( \Leftarrow = ) Now assume f : A \to  B is injective. In order to construct a function
 g : B \to  A, we have to assign a unique value g(b) \in  A for each element b \in  B. For
 this, choose any fixed element s \in  A (which we can do because A = \emptyset ); then set
-
+?
 a if b = f (a) for some a \in  A,
 g(b) :=
 s if b \in  im f .
@@ -566,19 +566,19 @@ Finally, the function g : B \to  A is a left-inverse of f . Indeed, if a \in  A,
 b = f (a) is of the first type, so it is sent back to a by g; that is, g \circ f (a) = a = idA(a)
 for all a \in  A, as needed.
 The proof of (2) is left as an exercise (Exercise 2.2).
- 
+ ?
 Corollary 2.2. A function f : A \to  B is a bijection if and only if it has a (two-
 sided) inverse.
 This is not completely innocent: if f has both a left-inverse and a right-inverse,
 why should it have one inverse that works as both on the left and on the right?
-Try to prove this by yourself now. We will come back to this issue soon (in \S4).
+Try to prove this by yourself now. We will come back to this issue soon (in \S{}4).
 If a function is injective but not surjective, then it will not have a right-inverse,
 and if the source has at least two elements, it will necessarily have more than one
 left-inverse (this should be clear from the argument given in the proof of Proposi-
 tion 2.1). Similarly, a surjective function will in general have many right-inverses;
 they are often called sections.
 Proposition 2.1 hints that something deep is going on here. The definition
-of injective and surjective maps given in \S2.4 relied crucially on working directly
+of injective and surjective maps given in \S{}2.4 relied crucially on working directly
 with the elements of our sets; Proposition 2.1 shows that in fact these properties
 are detected by the way functions are `organized' among sets. Even if we did not
 know what `elements' means, still we could make sense of the notions of injectivity
@@ -605,35 +605,35 @@ There is yet another way to express
 injectivity and surjectivity, which appears at first more complicated than what we
 have seen so far but which is in fact even more basic.
 A function f : A \to  B is a monomorphism (or monic) if the following holds:
-for all sets Z and all functions \alpha  , \alpha  : Z \to  A
-f \circ  \alpha  = f \circ  \alpha  \implies  \alpha  = \alpha  .
+for all sets Z and all functions \alpha \setminus  , \alpha \setminus \setminus  : Z \to  A
+f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus  \implies  \alpha \setminus  = \alpha \setminus \setminus  .
 Proposition 2.3. A function is injective if and only if it is a monomorphism.
 Proof. ( \implies  ) By Proposition 2.1, if a function f : A \to  B is injective, then it
-has a left-inverse g : B \to  A. Now assume that \alpha  , \alpha  are arbitrary functions from
+has a left-inverse g : B \to  A. Now assume that \alpha \setminus  , \alpha \setminus \setminus  are arbitrary functions from
 another set Z to A and that
-f \circ  \alpha  = f \circ  \alpha ;
+f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus ;
 compose on the left by g, and use associativity of composition:
-(g \circ  f ) \circ  \alpha  = g \circ  (f \circ  \alpha  ) = g \circ  (f \circ  \alpha  ) = (g \circ  f ) \circ  \alpha   ;
+(g \circ  f ) \circ  \alpha \setminus  = g \circ  (f \circ  \alpha \setminus  ) = g \circ  (f \circ  \alpha \setminus \setminus  ) = (g \circ  f ) \circ  \alpha  \setminus \setminus  ;
 since g is a left-inverse of f , this says
-idA \circ  \alpha  = idA \circ  \alpha   ,
+idA \circ  \alpha \setminus  = idA \circ  \alpha  \setminus \setminus  ,
 and therefore
- \alpha  = \alpha  ,
+\setminus  \setminus \setminus \alpha  = \alpha  ,
 as needed to conclude that f is a monomorphism.
 ( \Leftarrow = ) Now assume that f is a monomorphism. This says something about
 arbitrary sets Z and arbitrary functions Z \to  A; we are going to use a microscopic
 portion of this information, choosing Z to be any singleton {p}. Then assigning
-functions \alpha  , \alpha  : Z \to  A amounts to choosing to which elements a = \alpha (p),
-a = \alpha  (p) we should send the single element p of Z. For this particular choice
-of Z, the property defining monomorphisms, f \circ  \alpha  = f \circ  \alpha  \implies  \alpha  = \alpha  , becomes
-f \circ  \alpha   (p) = f \circ  \alpha (p) \implies  \alpha  = \alpha  ,
+functions \alpha \setminus  , \alpha \setminus \setminus  : Z \to  A amounts to choosing to which elements a\setminus  = \alpha \setminus (p),
+a\setminus \setminus  = \alpha \setminus \setminus  (p) we should send the single element p of Z. For this particular choice
+of Z, the property defining monomorphisms, f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus  \implies  \alpha \setminus  = \alpha \setminus \setminus  , becomes
+f \circ  \alpha  \setminus  (p) = f \circ  \alpha \setminus \setminus (p) \implies  \alpha \setminus  = \alpha \setminus \setminus  ,
 that is,
-f (a ) = f (a ) \implies  \alpha  = \alpha  .
+f (a\setminus  ) = f (a\setminus \setminus  ) \implies  \alpha \setminus  = \alpha \setminus \setminus  .
 Now two functions from Z = {p} to A are equal if and only if they send p to the
 same element, so this says
-f (a ) = f (a) \implies  a = a  .
-This has to be true for all \alpha  , \alpha   , that is, for all choices of distinct a , a in A. In
+f (a\setminus  ) = f (a\setminus \setminus ) \implies  a\setminus  = a \setminus \setminus  .
+This has to be true for all \alpha \setminus  , \alpha  \setminus \setminus  , that is, for all choices of distinct a\setminus  , a\setminus \setminus  in A. In
 other words, f has to be injective, as was to be shown.
- 
+ ?
 The reader should now expect that there be a definition in the style of the one
 given for monomorphisms and which will turn out to be equivalent to `surjective'.
 This is the case: such a notion is called epimorphism. Finding it, and proving
@@ -647,42 +647,42 @@ The basic operations on sets provided us with several im-
 
 portant examples of injective and surjective functions.
 Example 2.4. Let A, B be sets. Then there are natural projections \pi A , \pi B :
-\pi A 
-  
- 
- A  \times  < B
+\pi A ???
+ ? ??
+ ??
+ A ? \times  < B
  < < < < \pi 
  < <
  B
-  
+ ? ?
 A
  B
 defined by
 \pi A ((a, b)) := a,
  \pi B ((a, b)) := b
 for all (a, b) \in  A \times  B. Both of these maps are (clearly) surjective.
-
+?
 Example 2.5. Similarly, there are natural injections from A and B to the disjoint
 union:
-A < < n
+A ?< < n
  <
  < <
  < <
-  
- 
- 
- 
+ ? ???
+ ??
+ ?
+ ??
  pP B
-A  B
+A \sqcup  B
 obtained by sending a \in  A (resp., b \in  B) to the corresponding element in the
-isomorphic copy A of A (resp., B  of B) in A  B.
- 
+isomorphic copy A\setminus  of A (resp., B \setminus  of B) in A \sqcup  B.
+ ?
 Example 2.6. If \sim  is an equivalence relation on a set A, there is a (clearly surjec-
 tive) canonical projection
 A
  / / A/\sim 
 obtained by sending every a \in  A to its equivalence class [a]\sim  .
- 
+ ?
 
 \subsection{Canonical decomposition}
 The reason why we focus our attention on in-
@@ -690,8 +690,8 @@ The reason why we focus our attention on in-
 jective and surjective maps is that they provide the basic `bricks' out of which any
 function may be constructed.
 To see this, we observe that every function f : A \to  B determines an equivalence
-relation \sim  on A as follows: for all a, a \in  A,
-a \sim  a \iff  f (a) = f (a ).
+relation \sim  on A as follows: for all a\setminus , a\setminus \setminus  \in  A,
+a\setminus  \sim  a\setminus \setminus  \iff  f (a\setminus ) = f (a\setminus \setminus  ).
 (The reader should check that this is indeed an equivalence relation.)
 Theorem 2.7. Let f : A \to  B be any function, and define \sim  as above. Then f
 decomposes as follows:
@@ -700,7 +700,7 @@ A
 f
 \sim 
 f \widetilde{}
-/ im f  
+/ im f ? ?
 (/
  B
 where the first function is the canonical projection A \to  A/\sim  (as in Example 2.6),
@@ -722,26 +722,26 @@ We encode this type of situation by saying that we have to verify that f \wideti
 well-defined. We will often have to check that the operations we consider are well-
 defined, in contexts very similar to the one epitomized here.
 Proof. Spelling out the first item discussed above, we have to verify that, for
-all a , a in A,
-[a ]\sim  = [a ]\sim  \implies  f (a ) = f (a ).
-Now [a
- ]\sim  = [a
- ]\sim  means that a \sim  a , and the definition of \sim  has been engineered
-precisely so that this would mean f (a ) = f (a ) as required here. So f \widetilde{} is indeed
+all a\setminus  , a\setminus \setminus  in A,
+[a\setminus  ]\sim  = [a\setminus \setminus  ]\sim  \implies  f (a\setminus  ) = f (a\setminus \setminus  ).
+Now [a\setminus 
+ ]\sim  = [a\setminus \setminus 
+ ]\sim  means that a\setminus  \sim  a\setminus \setminus  , and the definition of \sim  has been engineered
+precisely so that this would mean f (a\setminus  ) = f (a\setminus \setminus  ) as required here. So f \widetilde{} is indeed
 well-defined.
 To verify the second item, that is, that f \widetilde{} : A/\sim  \to  im f is a bijection, we check
 explicitly that f \widetilde{} is injective and surjective.
-Injective: If f \widetilde{} ([a ]\sim ) = f \widetilde{} ([a ]\sim  ), then f (a ) = f (a) by definition of f \widetilde{} ; hence
-a
- \sim  a by definition of \sim , and then [a ]\sim  = [a ]\sim  . Therefore
-f \widetilde{} ([a ]\sim  ) = f \widetilde{} ([a ]\sim  ) \implies  [a  ]\sim  = [a ]\sim 
+Injective: If f \widetilde{} ([a\setminus  ]\sim ) = f \widetilde{} ([a\setminus \setminus  ]\sim  ), then f (a\setminus  ) = f (a\setminus \setminus ) by definition of f \widetilde{} ; hence
+a\setminus 
+ \sim  a\setminus \setminus  by definition of \sim , and then [a\setminus  ]\sim  = [a\setminus \setminus  ]\sim  . Therefore
+f \widetilde{} ([a\setminus  ]\sim  ) = f \widetilde{} ([a\setminus \setminus  ]\sim  ) \implies  [a \setminus  ]\sim  = [a\setminus \setminus  ]\sim 
 proving injectivity.
 Surjective: Given any b \in  im f , there is an element a \in  A such that f (a) = b.
 Then
 f \widetilde{} ([a]\sim ) = f (a) = b
 by definition of f \widetilde{} . Since b was arbitrary in im f , this shows that f \widetilde{} is surjective, as
 needed.
- 
+ ?
 Theorem 2.7 shows that every function is the composition of a surjection, fol-
 lowed by an isomorphism, followed by an injection. While its proof is trivial, this is
 a result of some importance, since it is the prototype of a situation that will occur
@@ -750,17 +750,17 @@ as `the first isomorphism theorem'.
 
 \subsection{Clarification}
 
-unions, products, and quotients, made in \S1.4. Our definition of A  B was the
-(conventional) union of two disjoint sets A , B  isomorphic to A, B, respectively.
+unions, products, and quotients, made in \S{}1.4. Our definition of A \sqcup  B was the
+(conventional) union of two disjoint sets A\setminus  , B \setminus  isomorphic to A, B, respectively.
 It is easy to provide a way to effectively produce such isomorphic copies (as we did
-in \S1.4); but it is in fact a little too easy---many other choices are possible, and
+in \S{}1.4); but it is in fact a little too easy---many other choices are possible, and
 one does not look any better than any other. It is in fact more sensible not to
 make a fixed choice once and for all and simply accept the fact that all of them
-produce acceptable candidates for A  B. From this egalitarian standpoint, the
-result of the operation A  B is not `well-defined' as a set in the sense specified
-above. However, it is easy to see (Exercise 2.9) that A  B is well-defined up to
-isomorphism: that is, that any two choices for the copies A , B  lead to isomorphic
-candidates for A  B. The same considerations apply to products and quotients.
+produce acceptable candidates for A \sqcup  B. From this egalitarian standpoint, the
+result of the operation A \sqcup  B is not `well-defined' as a set in the sense specified
+above. However, it is easy to see (Exercise 2.9) that A \sqcup  B is well-defined up to
+isomorphism: that is, that any two choices for the copies A\setminus  , B \setminus  lead to isomorphic
+candidates for A \sqcup  B. The same considerations apply to products and quotients.
 The main feature of sets obtained by taking disjoint unions, products, or quo-
 tients is not really `what elements they contain' but rather `their relationship with
 all other sets'. This will be (even) clearer when we revisit these operations and
@@ -768,40 +768,40 @@ others12 in the context of categories.
 
 \subsection*{Exercises}
 
-2.1.  How many different bijections are there between a set S with n elements
-and itself? [\SII.2.1]
-2.2.  Prove statement (2) in Proposition 2.1. You may assume that given a family
+2.1. ? How many different bijections are there between a set S with n elements
+and itself? [\S{}II.2.1]
+2.2. ? Prove statement (2) in Proposition 2.1. You may assume that given a family
 of disjoint nonempty subsets of a set, there is a way to choose one element in each
-member of the family13 . [\S2.5, V.3.3]
+member of the family13 . [\S{}2.5, V.3.3]
 2.3. Prove that the inverse of a bijection is a bijection and that the composition
 of two bijections is a bijection.
-2.4.  Prove that `isomorphism' is an equivalence relation (on any set of sets).
-[\S4.1]
-2.5.  Formulate a notion of epimorphism, in the style of the notion of monomor-
-phism seen in \S2.6, and prove a result analogous to Proposition 2.3, for epimor-
-phisms and surjections. [\S2.6, \S4.2]
+2.4. ? Prove that `isomorphism' is an equivalence relation (on any set of sets).
+[\S{}4.1]
+2.5. ? Formulate a notion of epimorphism, in the style of the notion of monomor-
+phism seen in \S{}2.6, and prove a result analogous to Proposition 2.3, for epimor-
+phisms and surjections. [\S{}2.6, \S{}4.2]
 2.6. With notation as in Example 2.4, explain how any function f : A \to  B
 determines a section of \pi A .
 2.7. Let f : A \to  B be any function. Prove that the graph \Gamma f of f is isomorphic
 to A.
 2.8. Describe as explicitly as you can all terms in the canonical decomposition
-(cf. \S2.8) of the function R \to  C defined by r \to  e2\pi ir . (This exercise matches one
+(cf. \S{}2.8) of the function R \to  C defined by r ?\to  e2\pi ir . (This exercise matches one
 assigned previously. Which one?)
-2.9.  Show that if A \sim 
- = A and B  \sim 
- = B  , and further A \cap B  = \emptyset  and A \cap B  = \emptyset ,
-then A
- \cup  B  \sim  = A
- \cup  B
- . Conclude that the operation A  B (as described in \S1.4)
-is well-defined up to isomorphism (cf. \S2.9). [\S2.9, 5.7]
-2.10.  Show that if A and B are finite sets, then |B A | = |B||A|. [\S2.1, 2.11, \SII.4.1]
+2.9. ? Show that if A\setminus  \sim 
+ = A\setminus \setminus  and B \setminus  \sim 
+ = B \setminus \setminus  , and further A\setminus  \cap B \setminus  = \emptyset  and A\setminus \setminus  \cap B \setminus \setminus  = \emptyset ,
+then A\setminus 
+ \cup  B \setminus  \sim  = A\setminus \setminus 
+ \cup  B\setminus \setminus 
+ . Conclude that the operation A \sqcup  B (as described in \S{}1.4)
+is well-defined up to isomorphism (cf. \S{}2.9). [\S{}2.9, 5.7]
+2.10. ? Show that if A and B are finite sets, then |B A | = |B||A|. [\S{}2.1, 2.11, \S{}II.4.1]
 12 The reader should also be aware that there are important variations on the operations we
 have seen so far---particularly important are the fibered flavors of products and disjoint unions.
-13 This (reasonable) statement is the axiom of choice; cf. \SV.3.
-2.11.  In view of Exercise 2.10, it is not unreasonable to use 2A to denote the set
+13 This (reasonable) statement is the axiom of choice; cf. \S{}V.3.
+2.11. ? In view of Exercise 2.10, it is not unreasonable to use 2A to denote the set
 of functions from an arbitrary set A to a set with 2 elements (say {0, 1}). Prove
-that there is a bijection between 2A and the power set of A (cf. \S1.2). [\S1.2, III.2.3]
+that there is a bijection between 2A and the power set of A (cf. \S{}1.2). [\S{}1.2, III.2.3]
 
 \section{Categories}
 
@@ -849,7 +849,7 @@ Definition 3.1. A category C consists of
 \bullet  a class Obj(C) of objects of the category; and
 \bullet  for every two objects A, B of C, a set HomC(A, B) of morphisms, with the
 properties listed below.
- 
+ ?
 As a prototype to keep in mind, think of the objects as `sets' and of morphisms
 as `functions'. This one example should make the defining properties of morphisms
 look natural and easy to remember:
@@ -885,7 +885,7 @@ understood, one may safely drop the index C, or even use arrows as we do with
 set-functions: f : A \to  B. This also allows us to draw diagrams of morphisms in
 any category; a diagram is said to `commute' (or to be a `commutative' diagram) if
 all ways to traverse it lead to the same results of composing morphisms along the
-way, just as explained for diagrams of functions of sets in \S2.3.
+way, just as explained for diagrams of functions of sets in \S{}2.3.
 16 I will often use the term `set-function' to emphasize that we are dealing with a function in
 the context of sets.
 In fact, I will now feel free to use diagrams as possible objects of categories.
@@ -916,11 +916,11 @@ and many amusing variations on these themes. We will use `sans-serif' fonts to
 denote categories; thus, Set will denote the category of sets. Thus
 \bullet  Obj(Set) = the class of all sets;
 \bullet  for A, B in Obj(Set) (that is, for A, B sets) HomSet (A, B) = B A.
-Note that the presence of the operations recalled in \S\S1.3--1.5 is not part of the
+Note that the presence of the operations recalled in \S{}\S{}1.3--1.5 is not part of the
 definition of category: these operations highlight interesting features of Set, which
 may or may not be shared by other categories. We will soon come back to some of
 these operations and understand more precisely what they say about Set.
- 
+ ?
 Example 3.3. Here is a completely different example.
 Suppose S is a set and \sim  is a relation on S satisfying the reflexive and transitive
 properties. Then we can encode this data into a category:
@@ -937,7 +937,7 @@ You should give it your best try before seeking professional help.
 Note that (unlike in Set) there are very few morphisms: at most one for any pair
 of objects, and no morphisms at all between `unrelated' objects.
 We have to define `composition of morphisms' and verify that the conditions
-specified in \S3.1 are satisfied. First of all, do we have `identities' ? If a is an object
+specified in \S{}3.1 are satisfied. First of all, do we have `identities' ? If a is an object
 (that is, if a \in  S), we need to find an element
 1a \in  Hom(a, a).
 This is precisely why we are assuming that \sim  is reflexive: this tells us that \forall a,
@@ -975,8 +975,8 @@ the relation \leq . For example,
 2 >
  > >
  > >
- > > > / 3
-  13 p
+ > > > /? 3
+ \sqcup  13 p
  p p p
  p p // p 4
  p p
@@ -992,10 +992,10 @@ to 3, since 4 \leq  3.
 These categories are very special---for example, every diagram drawn in them
 is necessarily commutative, and this is very far from being the case in, e.g., Set.
 Also note that these categories are all small.
- 
+ ?
 Example 3.4. Here is another18 example of a small category.
 Let S again be a set. Define a category \hat{S} by setting
-\bullet  Obj(\hat{S}) = P(S), the power set S (cf. \S1.2 and Exercise 2.11);
+\bullet  Obj(\hat{S}) = P(S), the power set S (cf. \S{}1.2 and Exercise 2.11);
 \bullet  for A, B objects of \hat{S} (that is, A \subseteq  S and B \subseteq  S) let Hom\hat{S} (A, B) be the pair
 (A, B) if A \subseteq  B, and let Hom\hat{S} (A, B) = \emptyset  otherwise.
 The identity 1A consists of the pair (A, A) (which is one, and in fact the only
@@ -1004,12 +1004,12 @@ inclusions: if there are morphisms
 A \to  B,
  B \to  C
 in \hat{S}, then A \subseteq  B and B \subseteq  C; hence A \subseteq  C and there is a morphism A \to  C.
-Checking the axioms specified in \S3.1 should be routine (make sure this is the
+Checking the axioms specified in \S{}3.1 should be routine (make sure this is the
 case!).
 Examples in this style (but employing more sophisticated structures, such as
 the family of open subsets of a topological space) are hugely important in well-
 established fields such as algebraic geometry.
- 
+ ?
 Example 3.5. The next example is very abstract, but thinking about it will make
 you rather comfortable with everything we have seen so far; and it is a very common
 construction, variations of which will abound in the course.
@@ -1022,7 +1022,7 @@ CA is an arrow Z \to  f
  A in C; these are often drawn `top-down', as in
 Z
 f
-
+\sqcup 
 A
 What are morphisms in CA going to be? There really is only one sensible way to
 assign morphisms to a category with objects as above. The brave reader will want
@@ -1040,8 +1040,8 @@ Z1
  Z2
 f1
  f2
-
- 
+\sqcup 
+ \sqcup 
 A
  A
 in C. Morphisms f1 \to  f 2 are defined to be commutative diagrams
@@ -1050,19 +1050,19 @@ Z1 \sigma
  5 5
 f1 5 5
  f2
- 
+? ?
 A
 in the `ambient' category C.
 That is, morphisms f1 \to  f2 correspond precisely to those morphisms \sigma  : Z1 \to  Z2
 in C such that f1 = f2\sigma .
 Once you understand what morphisms have to be, checking that they satisfy
-the axioms spelled out in \S3.1 is straightforward. The identities are inherited from
+the axioms spelled out in \S{}3.1 is straightforward. The identities are inherited from
 the identities in C: for f : Z \to  A in CA , the identity 1f corresponds to the diagram
 Z 1Z
  / Z
 f 3 3
  f
- 
+? ?
 A
 which commutes by virtue of the fact that C is a category. Composition is also a
 subproduct of composition in C. Two morphisms f1 \to  f2 \to  f3 in CA correspond
@@ -1074,7 +1074,7 @@ C
  C C C
  C f
  C 2
- !  }{
+ ! \sqcup  }{
  {
  {{
  f3
@@ -1101,7 +1101,7 @@ also commutes. Check all this(!), and verify that composition in CA is associati
 (again, this follows immediately from the fact that composition is associative in C).
 Categories constructed in this fashion are called slice categories in the literature;
 they are particular cases of comma categories.
- 
+ ?
 Example 3.6. For the sake of concreteness, let's apply the construction given in
 Example 3.5 to the category constructed in Example 3.3, say for S = Z and \sim  the
 relation \leq . Call C this category, and choose an object A of C---that is, an integer,
@@ -1110,13 +1110,13 @@ is, pairs (n, 3) \in  Z \times  Z with n \leq  3. There is a morphism
 (m, 3) \to  (n, 3)
 if and only if m \leq  n. In this case CA may be harmlessly identified with the
 `subcategory' of integers \leq  3, with `the same' morphisms as in C.
- 
+ ?
 Example 3.7. An entirely similar example to the one explored in Example 3.5 may
 be obtained by considering morphisms in a category C from a fixed object A to all
 objects in C, again with morphisms defined by suitable commutative diagrams. This
 leads to coslice categories. The reader should provide details of this construction
 (Exercise 3.7).
- 
+ ?
 Example 3.8. As a `concrete' instance of a category as in Example 3.7, let C = Set
 and A = a fixed singleton {\ast }. Call the resulting category Set\ast  .
 An object in Set\ast  is then a morphism f : {\ast } \to  S in Set, where S is any set.
@@ -1131,10 +1131,10 @@ this!) to a set-function \sigma  : S \to  T such that \sigma (s) = t.
 in this book will be pointed sets. For example (as we will see) a `group' is a set G
 with, among other requirements, a distinguished element eG (its `identity'); `group
 homomorphisms' will be functions which, among other properties, send identities to
-identities; thus, they are morphisms of pointed sets in the sense considered above.
+identities; thus, they are morphisms of pointed sets in the sense considered above.?
 Example 3.9. It is useful to contemplate a few more `abstract' examples in the
 style of Examples 3.5 and 3.7. These will be essential ingredients in the promised
-revisitation of some of the operations mentioned in \S1.3. Their definition will appear
+revisitation of some of the operations mentioned in \S{}1.3. Their definition will appear
 disappointedly simple-minded to the reader who has mastered Examples 3.5 and 3.7.
 This time we start from a given category C and two objects A, B of C. We
 can define a new category CA,B by essentially the same procedure that we used in
@@ -1198,7 +1198,7 @@ f1 = f2 \sigma
 `simultaneously'.
 Flipping most of the arrows gives an analogous variation of Example 3.7, pro-
 ducing a category which we may19 denote CA,B ; details are left to the reader.
- 
+ ?
 Example 3.10. As a final variation on these examples, we conclude by considering
 the fibered version of CA,B (and CA,B ). Take this as a test to see if you have really
 understood CA,B ---experts would tell you that this looks fairly sophisticated for
@@ -1256,57 +1256,57 @@ this point the reader should have no difficulties formalizing it (that is, expla
 how composition works, what identities are, etc.).
 Also left to the reader is the construction of the `mirror' example C\alpha ,\beta  , starting
 from two morphisms \alpha  : C \to  A, \beta  : C \to  B with common source.
- 
+ ?
 
 \subsection*{Exercises}
 
-3.1.  Let C be a category. Consider a structure Cop with
+3.1. ? Let C be a category. Consider a structure Cop with
 \bullet  Obj(Cop ) := Obj(C);
 \bullet  for A, B objects of Cop (hence objects of C), HomCop (A, B) := HomC (B, A).
 Show how to make this into a category (that is, define composition of morphisms
-in Cop and verify the properties listed in \S3.1).
+in Cop and verify the properties listed in \S{}3.1).
 Intuitively, the `opposite' category Cop is simply obtained by `reversing all the
-arrows' in C. [5.1, \SVIII.1.1, \SIX.1.2, IX.1.10]
+arrows' in C. [5.1, \S{}VIII.1.1, \S{}IX.1.2, IX.1.10]
 3.2. If A is a finite set, how large is EndSet (A)?
-3.3.  Formulate precisely what it means to say that 1a is an identity with respect
-to composition in Example 3.3, and prove this assertion. [\S3.2]
+3.3. ? Formulate precisely what it means to say that 1a is an identity with respect
+to composition in Example 3.3, and prove this assertion. [\S{}3.2]
 3.4. Can we define a category in the style of Example 3.3 using the relation < on
 the set Z?
-3.5.  Explain in what sense Example 3.4 is an instance of the categories considered
-in Example 3.3. [\S3.2]
-3.6.  (Assuming some familiarity with linear algebra.) Define a category V by
+3.5. ? Explain in what sense Example 3.4 is an instance of the categories considered
+in Example 3.3. [\S{}3.2]
+3.6. ? (Assuming some familiarity with linear algebra.) Define a category V by
 taking Obj(V) = N and letting HomV(n, m) = the set of m \times  n matrices with real
 entries, for all n, m \in  N. (I will leave the reader the task of making sense of a
 matrix with 0 rows or columns.) Use product of matrices to define composition.
-Does this category `feel' familiar? [\SVI.2.1, \SVIII.1.3]
-3.7.  Define carefully objects and morphisms in Example 3.7, and draw the dia-
-gram corresponding to composition. [\S3.2]
-3.8.  A subcategory C of a category C consists of a collection of objects of C with
-sets of morphisms HomC (A, B) \subseteq  HomC (A, B) for all objects A, B in Obj(C ), such
-that identities and compositions in C make C into a category. A subcategory C is
-full if HomC (A, B) = HomC(A, B) for all A, B in Obj(C ). Construct a category
+Does this category `feel' familiar? [\S{}VI.2.1, \S{}VIII.1.3]
+3.7. ? Define carefully objects and morphisms in Example 3.7, and draw the dia-
+gram corresponding to composition. [\S{}3.2]
+\setminus 3.8. ? A subcategory C of a category C consists of a collection of objects of C with
+sets of morphisms HomC? (A, B) \subseteq  HomC (A, B) for all objects A, B in Obj(C\setminus  ), such
+that identities and compositions in C make C\setminus  into a category. A subcategory C\setminus  is
+\setminus full if HomC? (A, B) = HomC(A, B) for all A, B in Obj(C ). Construct a category
 of infinite sets and explain how it may be viewed as a full subcategory of Set. [4.4,
-\SVI.1.1, \SVIII.1.3]
-3.9.  An alternative to the notion of multiset introduced in \S2.2 is obtained by
+\S{}VI.1.1, \S{}VIII.1.3]
+3.9. ? An alternative to the notion of multiset introduced in \S{}2.2 is obtained by
 considering sets endowed with equivalence relations; equivalent elements are taken
 to be multiple instances of elements `of the same kind'. Define a notion of morphism
 between such enhanced sets, obtaining a category MSet containing (a `copy' of) Set
 as a full subcategory. (There may be more than one reasonable way to do this!
 This is intentionally an open-ended exercise.) Which objects in MSet determine
-ordinary multisets as defined in \S2.2 and how? Spell out what a morphism of
+ordinary multisets as defined in \S{}2.2 and how? Spell out what a morphism of
 multisets would be from this point of view. (There are several natural notions
 of morphisms of multisets. Try to define morphisms in MSet so that the notion
 you obtain for ordinary multisets captures your intuitive understanding of these
-objects.) [\S2.2, \S3.2, 4.5]
+objects.) [\S{}2.2, \S{}3.2, 4.5]
 3.10. Since the objects of a category C are not (necessarily interpreted as) sets,
 it is not clear how to make sense of a notion of `subobject' in general. In some
 situations it does make sense to talk about subobjects, and the subobjects of any
 given object A in C are in one-to-one correspondence with the morphisms A \to  \Omega 
 for a fixed, special object \Omega  of C, called a subobject classifier. Show that Set has a
 subobject classifier.
-3.11.  Draw the relevant diagrams and define composition and identities for the
+3.11. ? Draw the relevant diagrams and define composition and identities for the
 category CA,B mentioned in Example 3.9. Do the same for the category C\alpha ,\beta 
-mentioned in Example 3.10. [\S5.5, 5.12]
+mentioned in Example 3.10. [\S{}5.5, 5.12]
 
 \section{Morphisms}
 
@@ -1316,7 +1316,7 @@ should note that defining qualities of morphisms by their actions on `elements' 
 not an option in the general setting, because objects of an arbitrary category do
 not (in general) have `elements'.
 This is why we spent some time analyzing injectivity, etc., from different view-
-points in \S\S2.4-2.6. It turns out that the other viewpoints on these notions do
+points in \S{}\S{}2.4-2.6. It turns out that the other viewpoints on these notions do
 transfer nicely into the categorical setting.
 
 \subsection{Isomorphisms}
@@ -1326,8 +1326,8 @@ Definition 4.1. A morphism f \in  HomC (A, B) is an isomorphism if it has a (two
 sided) inverse under composition: that is, if \exists g \in  Hom C (B, A) such that
 gf = 1A,
  f g = 1B .
- 
-Recall that in \S2.5 the inverse of a bijection of sets f was defined `elementwise';
+ ?
+Recall that in \S{}2.5 the inverse of a bijection of sets f was defined `elementwise';
 in particular, there was no ambiguity in its definition, and we introduced the nota-
 -1tion f for this function. By contrast, the `inverse' g produced in Definition 4.1
 does not appear to have this uniqueness explicitly built into its definition. Luckily,
@@ -1340,7 +1340,7 @@ by the other one; then apply associativity. The whole argument can be compressed
 into one line:
 g1 = g1 1B = g1 (f g2 ) = (g1f )g2 = 1A g2 = g2
 as needed.
- 
+ ?
 Note that the argument really proves that if f is a morphism with a left-
 inverse g1 and a right-inverse g2 , then necessarily f is an isomorphism, g1 = g2 ,
 and this morphism is the (unique) inverse of f . Look back at Corollary 2.2.
@@ -1355,7 +1355,7 @@ Proof. These all `prove themselves'. For example, it is immediate to verify that
 f -1 g -1 is a left-inverse of gf : indeed20 ,
 (f -1 g-1 )(gf ) = f -1 ((g -1g)f ) = f -1 (1B f ) = f -1f = 1A .
 The verification that f -1 g-1 is also a right-inverse of gf is analogous.
- 
+ ?
 Note that taking the inverse reverses the order of composition: (gf )-1 =
 -1 -1
 f
@@ -1365,8 +1365,8 @@ f : A \to  B. An immediate corollary of Proposition 4.3 is that `isomorphism' is
 equivalence relation21 . If two objects A, B are isomorphic, one writes A \sim 
  = B.
 Example 4.4. Of course, the isomorphisms in the category Set are precisely the
-bijections; this was observed at the beginning of \S2.5.
- 
+bijections; this was observed at the beginning of \S{}2.5.
+ ?
 Example 4.5. As noted in Proposition 4.3, identities are isomorphisms. They
 may be the only isomorphisms in a category: for example, this is the case in
 the category C obtained from the relation \leq  on Z, as in Example 3.3. Indeed,
@@ -1378,11 +1378,11 @@ any category.
 morphism g : b \to  a only if a \leq  b and b \leq  a, that is, if a = b. So an isomorphism
 in C necessarily acts from an object a to itself; but in C there is only one such
 morphism, that is, 1a .
- 
+ ?
 Example 4.6. On the other hand, there are categories in which every morphism is
 an isomorphism; such categories are called groupoids. The reader `already knows'
 many examples of groupoids; cf. Exercise 4.2.
- 
+ ?
 An automorphism of an object A of a category C is an isomorphism from A to
 itself. The set of automorphisms of A is denoted AutC (A); it is a subset of EndC (A).
 By Proposition 4.3, composition confers on AutC (A) a remarkable structure:
@@ -1398,33 +1398,33 @@ We will soon devote all our attention to groups!
 As pointed out above, we do not
 
 have the option of defining for morphisms of an arbitrary category a notion such
-as `injective' in the same way as we do for set-functions in \S2.4: that definition
+as `injective' in the same way as we do for set-functions in \S{}2.4: that definition
 requires a notion of `element', and in general no such notion is available for objects
 of a category. But nothing prevents us from defining monomorphisms as we did in
-\S2.6, in an arbitrary category:
+\S{}2.6, in an arbitrary category:
 Definition 4.7. Let C be a category. A morphism f \in  HomC (A, B) is a monomor-
 phism if the following holds:
-for all objects Z of C and all morphisms \alpha , \alpha  \in  HomC (Z, A),
-f \circ  \alpha  = f \circ  \alpha  \implies  \alpha  = \alpha  .
- 
+for all objects Z of C and all morphisms \alpha \setminus , \alpha \setminus \setminus  \in  HomC (Z, A),
+f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus  \implies  \alpha \setminus  = \alpha \setminus \setminus  .
+ ?
 Similarly, epimorphisms are defined as follows:
 Definition 4.8. Let C be a category. A morphism f \in  HomC (A, B) is an epimor-
 phism if the following holds:
-for all objects Z of C and all morphisms \beta  , \beta   \in  HomC(B, Z),
-\beta   \circ  f = \beta   \circ  f \implies  \beta   = \beta  .
- 
+for all objects Z of C and all morphisms \beta  \setminus , \beta  \setminus \setminus  \in  HomC(B, Z),
+\beta  \setminus  \circ  f = \beta  \setminus \setminus  \circ  f \implies  \beta  \setminus  = \beta  \setminus \setminus .
+ ?
 Example 4.9. As proven in Proposition 2.3, in the category Set the monomor-
 phisms are precisely the injective functions. The reader should have by now checked
 that, likewise, in Set the epimorphisms are precisely the surjective functions (cf. Ex-
-ercise 2.5). Thus, while the definitions given in \S2.6 may have looked counterintu-
+ercise 2.5). Thus, while the definitions given in \S{}2.6 may have looked counterintu-
 itive at first, they work as natural `categorical counterparts' of the ordinary notions
 of injective/surjective functions.
- 
+ ?
 Example 4.10. In the categories of Example 3.3, every morphism is both a
 monomorphism and an epimorphism. Indeed, recall that there is at most one mor-
 phism between any two objects in these categories; hence the conditions defining
 monomorphisms and epimorphisms are vacuous.
- 
+ ?
 Contemplating Example 4.10 reveals a few unexpected twists in these defini-
 tions, which defy our intuition as set-theorists. For instance, in Set, a function is
 an isomorphism if and only if it is both injective and surjective, hence if and only
@@ -1432,7 +1432,7 @@ if it is both a monomorphism and an epimorphism. But in the category defined
 by \leq  on Z, every morphism is both a monomorphism and an epimorphism, while
 the only isomorphisms are the identities (Example 4.5). Thus this property is a
 special feature of Set, and we should not expect it to hold automatically in every
-category; it will not hold in the category Ring of rings (cf. \SIII.2.3). It will hold in
+category; it will not hold in the category Ring of rings (cf. \S{}III.2.3). It will hold in
 every abelian category (of which Set is not an example!), but that is a story for a
 very distant future (Lemma IX.1.9).
 Similarly, in Set a function is an epimorphism, that is, surjective, if and only if
@@ -1441,7 +1441,7 @@ categories such as the category Grp of groups (cf. Exercise II.8.24).
 
 \subsection*{Exercises}
 
-4.1.  Composition is defined for two morphisms. If more than two morphisms are
+4.1. ? Composition is defined for two morphisms. If more than two morphisms are
 given, e.g.,
 A
  f
@@ -1461,10 +1461,10 @@ so that at every step one is only composing two morphisms. Prove that the result
 of any such nested composition is independent of the placement of the parentheses.
 (Hint: Use induction on n to show that any such choice for fn fn-1 \dots  f1 equals
 ((\dots  ((fn fn-1 )fn-2 ) \dots  )f1 ).
-Carefully working out the case n = 5 is helpful.) [\S4.1, \SII.1.3]
-4.2.  In Example 3.3 we have seen how to construct a category from a set endowed
+Carefully working out the case n = 5 is helpful.) [\S{}4.1, \S{}II.1.3]
+4.2. ? In Example 3.3 we have seen how to construct a category from a set endowed
 with a relation, provided this latter is reflexive and transitive. For what types of
-relations is the corresponding category a groupoid (cf. Example 4.6)? [\S4.1]
+relations is the corresponding category a groupoid (cf. Example 4.6)? [\S{}4.1]
 4.3. Let A, B be objects of a category C, and let f \in  HomC(A, B) be a morphism.
 \bullet  Prove that if f has a right-inverse, then f is an epimorphism.
 \bullet  Show that the converse does not hold, by giving an explicit example of a cate-
@@ -1482,7 +1482,7 @@ of morphism you defined in that exercise!)
 
 \section{Universal properties}
 
-The `abstract' examples in \S3 may have left the reader with the impression that
+The `abstract' examples in \S{}3 may have left the reader with the impression that
 one can produce at will a large number of minute variations of the same basic ideas,
 without really breaking any new ground. This may be fun in itself, but why do we
 really want to explore this territory?
@@ -1490,11 +1490,11 @@ Categories offer a rich unifying language, giving us a bird's eye view of many
 constructions in algebra (and other fields). In this course, this will be most apparent
 in the steady appearance of constructions satisfying suitable universal properties.
 For instance, we will see in a moment that products and disjoint unions (as reviewed
-in \S1.3 and following) are characterized by certain universal properties having to
+in \S{}1.3 and following) are characterized by certain universal properties having to
 do with the categories CA,B and CA,B considered in Example 3.9.
 Many of the concepts introduced in this course will have an explicit description
-(such as the definition of product of sets given in \S1.4) and an accompanying de-
-scription in terms of a universal property (such as the one we will see in \S5.4). The
+(such as the definition of product of sets given in \S{}1.4) and an accompanying de-
+scription in terms of a universal property (such as the one we will see in \S{}5.4). The
 `explicit' description may be very useful in concrete computations or arguments,
 but as a rule it is the universal property that clarifies the true nature of the con-
 struction. In some cases (such as for the disjoint union) the explicit description may
@@ -1506,7 +1506,7 @@ Also, deeper relationships become apparent when the constructions are viewed
 in terms of their universal properties. For example, we will see that products of
 sets and disjoint unions of sets are really `mirror' constructions (in the sense that
 reversing arrows transforms the universal property for one into that for the other).
-This is not so clear (to this writer, anyway) from the explicit descriptions in \S1.4.
+This is not so clear (to this writer, anyway) from the explicit descriptions in \S{}1.4.
 
 \subsection{Initial and final objects}
 
@@ -1518,7 +1518,7 @@ We say that an object F of C is final in C if for every object A of C there exis
 exactly one morphism A \to  F in C:
 \forall A \in  Obj(C) :
  HomC (A, F ) is a singleton.
- 
+ ?
 One may use terminal to denote either possibility, but in general I would advise
 the reader to be explicit about which `end' of C one is considering.
 A category need not have initial or final objects, as the following example shows.
@@ -1529,7 +1529,7 @@ Similarly, a final object would be an integer f larger than every integer, and t
 is no such thing.
 By contrast, the category considered in Example 3.6 does have a final object,
 namely the pair (3, 3); it still has no initial object.
- 
+ ?
 Also, initial and final objects, when they exist, may or may not be unique:
 Example 5.3. In Set, the empty set \emptyset  is initial (the `empty graph' defines the
 unique function from \emptyset  to any given object!), and clearly it is the unique set that
@@ -1537,7 +1537,7 @@ fits this requirement (Exercise 5.2).
 Set also has final objects: for every set A, there is a unique function from A
 to a singleton {p} (that is, the `constant' function). Every singleton is final in Set;
 thus, final objects are not unique in this category.
- 
+ ?
 However, I claim that if initial/final objects exist, then they are unique up
 to a unique isomorphism. I will invoke this fact frequently, so here is its official
 statement and its (immediate) proof:
@@ -1559,7 +1559,7 @@ since I1 is initial. By the same token
 f g = 1I2
 since I2 is initial. This proves that f : I 1 \to  I2 is an isomorphism, as needed.
 The proof for final objects is entirely analogous (Exercise 5.3).
-
+?
 Proposition 5.4 ``explains'' why, while not unique, the final objects in Set are
 all isomorphic: no singleton is more `special' than any other singleton; this is the
 typical situation. There may be psychological reasons why one initial or final object
@@ -1571,7 +1571,7 @@ in how these objects sit in their category.
 The most natural context in which to introduce uni-
 
 versal properties requires a good familiarity with the language of functors, which we
-will only introduce at a later stage (cf. \SVIII.1.1). For the purpose of the examples
+will only introduce at a later stage (cf. \S{}VIII.1.1). For the purpose of the examples
 we will run across in (most of) this book, the following `working definition' should
 suffice.
 We say that a construction satisfies a universal property (or `is the solution to
@@ -1607,7 +1607,7 @@ A
  \phi 
  / Z
 with Z any set, satisfying the property
-a \sim  a \implies  \phi (a ) = \phi (a).
+a\setminus  \sim  a\setminus \setminus  \implies  \phi (a\setminus  ) = \phi (a\setminus \setminus ).
 These morphisms are objects of a category (very similar to the category defined in
 Example 3.7); for convenience, let's denote such an object by (\phi , Z). The only rea-
 sonable way to define morphisms (\phi 1 , Z1 ) \to  (\phi 2 , Z2 ) is as commutative diagrams
@@ -1644,7 +1644,7 @@ Hence, all we have to check is that \phi  is well-defined, that is, that if [a1 
 [a2]\sim  , then \phi (a1 ) = \phi (a2 ); and indeed
 [a1 ]\sim  = [a2 ]\sim  \implies  a1 \sim  a2 \implies  \phi (a1 ) = \phi (a2 ).
 This is precisely the condition that morphisms in our category satisfy.
- 
+ ?
 Note the several levels of sloppiness in the assertion considered above: it does
 not tell us very explicitly what category to consider; it does not tell us that we
 should especially pay attention to initial objects in this category. Worst of all,
@@ -1662,17 +1662,17 @@ considered above is supremely uninteresting (what is it? cf. Exercise 5.5), so s
 we must have meant the initial one.
 What do we learn by viewing quotients in terms of their universal property?
 For example, suppose \sim  is the equivalence relation defined starting from a function
-f : A \to  B, as in \S2.8. Then the reader will realize easily that im f also satisfies
+f : A \to  B, as in \S{}2.8. Then the reader will realize easily that im f also satisfies
 the universal property given above for A/\sim ; therefore (by Proposition 5.4) im f
 and A/\sim  must be isomorphic. This is precisely the content of Theorem 2.7; thus,
 the universal property sheds some light on the `canonical decomposition' studied
-in \S2.8.
+in \S{}2.8.
 
 \subsection{Products}
 It is also a very good exercise to stare at a familiar construction
 
 and try to see the universal property which may be behind it. I will now encourage
-you, dear reader, to contemplate the notion of the product of two sets given in \S1.4
+you, dear reader, to contemplate the notion of the product of two sets given in \S{}1.4
 and to see if the universal property it satisfies jumps out at you. Spoiler follows,
 so this is a good time to stop reading these notes and to try on your own.
 Here is the universal property. Let A, B be sets, and consider the product A\times B,
@@ -1716,13 +1716,13 @@ This function22 manifestly makes the diagram commute: \forall z \in  Z
 showing that \pi A \sigma  = fA and similarly \pi B \sigma  = fB .
 Further, the definition is forced by the commutativity of the diagram; so \sigma  is
 unique, as claimed.
- 
+ ?
 In other words, products of sets (or, more precisely, products of sets together
 with the information of their natural projections to the factors) are final objects in
 the category CA,B considered in Example 3.9, for C = Set.
 What is the advantage of viewing products this way? The main advantage
 is that the universal property may be stated in any category, while the definition
-of products given in \S1.4 only makes sense in Set (and possibly in other categories
+of products given in \S{}1.4 only makes sense in Set (and possibly in other categories
 where one has a notion of `elements'). We say that a category C has (finite) products,
 or is a category `with (finite) products', if for all objects A, B in C the category CA,B
 considered in Example 3.9 has final objects. Such a final object consists of the data
@@ -1752,9 +1752,9 @@ ering morphisms in C with common source, whose targets are A and B, coproducts
 will be initial objects in the categories23 CA,B of morphisms with common tar-
 get, whose sources are A and B. Dear reader, look away and spell this universal
 property out before we do.
-Here it is. Let A, B be objects of a category C. A coproduct A  B of A
-and B will be an object of C, endowed with two morphisms iA : A \to  A  B,
-iB : B \to  A  B and satisfying the following universal property: for all objects Z
+Here it is. Let A, B be objects of a category C. A coproduct A \sqcup  B of A
+and B will be an object of C, endowed with two morphisms iA : A \to  A \sqcup  B,
+iB : B \to  A \sqcup  B and satisfying the following universal property: for all objects Z
 23These categories were also considered in Example 3.9; cf. Exercise 3.11.
 and morphisms
 A L L L f
@@ -1766,7 +1766,7 @@ r r r
  r r 9
  Z
 B
-there exists a unique morphism \sigma  : A  B \to  Z such that the diagram
+there exists a unique morphism \sigma  : A \sqcup  B \to  Z such that the diagram
 fA
 A P P P P i
  P A P
@@ -1778,7 +1778,7 @@ n n n
  iB
  n n n
  A
- 7  B
+ 7 \sqcup  B
  /:
  Z
 B
@@ -1789,31 +1789,31 @@ apparent. We say that a category C has coproducts if this universal problem has 
 solution for all pairs of objects A and B.
 Is the reader familiar with any coproduct? Yes!
 Proposition 5.6. The disjoint union is a coproduct in Set.
-Proof. Recall (\S1.4) that the disjoint union A  B is defined as the union of two
-disjoint isomorphic copies A , B  of A, B, respectively; for example, we may let
-A = {0} \times  A, B  = {1} \times  B. The functions iA , iB are defined by
+Proof. Recall (\S{}1.4) that the disjoint union A \sqcup  B is defined as the union of two
+disjoint isomorphic copies A\setminus  , B \setminus  of A, B, respectively; for example, we may let
+A\setminus  = {0} \times  A, B \setminus  = {1} \times  B. The functions iA , iB are defined by
 iA (a) = (0, a),
  iB (b) = (1, b),
 where we view these elements as elements of ({0} \times  A) \cup  ({1} \times  B).
 Now let fA : A \to  Z, fB : B \to  Z be arbitrary morphisms to a common target.
 Define
-\sigma  : A  B = ({0} \times  A) \cup  ({1} \times  B) \to  Z
+\sigma  : A \sqcup  B = ({0} \times  A) \cup  ({1} \times  B) \to  Z
 by
- 
+ ?
 fA (a) if c = (0, a) \in  {0} \times  A,
 \sigma (c) =
 fB (b)
  if c = (1, b) \in  {1} \times  B.
 This definition makes the relevant diagram commute and is in fact forced upon us
 by this commutativity, proving that \sigma  exists and is unique.
- 
+ ?
 This observation tells us that the category Set has coproducts and further sheds
 considerable light on the mysteries of disjoint unions. For example, there was an
 element of arbitrariness in our choice of `a' disjoint union, although different choices
 led to isomorphic notions. Now we see why: terminal objects of a category are not
 unique in general, although they are unique up to isomorphism (Proposition 5.4);
 there is not a `most beautiful' disjoint union of two sets just as there is not a `most
-beautiful' singleton in Set (cf. \S5.1).
+beautiful' singleton in Set (cf. \S{}5.1).
 Also, an unexpected `symmetry' between products and disjoint unions becomes
 suddenly apparent from the point of view of universal properties.
 The reader is invited to contemplate the notion of coproduct in the other cat-
@@ -1825,16 +1825,16 @@ two objects (i.e., integers) a, b is simply the maximum of a and b.
 
 5.1. Prove that a final object in a category C is initial in the opposite category Cop
 (cf. Exercise 3.1).
-5.2.  Prove that \emptyset  is the unique initial object in Set. [\S5.1]
-5.3.  Prove that final objects are unique up to isomorphism. [\S5.1]
+5.2. ? Prove that \emptyset  is the unique initial object in Set. [\S{}5.1]
+5.3. ? Prove that final objects are unique up to isomorphism. [\S{}5.1]
 5.4. What are initial and final objects in the category of `pointed sets' (Exam-
 ple 3.8)? Are they unique?
-5.5.  What are the final objects in the category considered in \S5.3? [\S5.3]
-5.6.  Consider the category corresponding to endowing (as in Example 3.3) the
+5.5. ? What are the final objects in the category considered in \S{}5.3? [\S{}5.3]
+5.6. ? Consider the category corresponding to endowing (as in Example 3.3) the
 set Z+ of positive integers with the divisibility relation. Thus there is exactly one
 morphism d \to  m in this category if and only if d divides m without remainder;
 there is no morphism between d and m otherwise. Show that this category has
-products and coproducts. What are their `conventional' names? [\SVII.5.1]
+products and coproducts. What are their `conventional' names? [\S{}VII.5.1]
 5.7. Redo Exercise 2.9, this time using Proposition 5.4.
 5.8. Show that in every category C the products A \times  B and B \times  A are isomorphic,
 if they exist. (Hint: Observe that they both satisfy the universal property for the
@@ -1847,12 +1847,12 @@ property. Deduce that (A \times  B) \times  C and A \times  (B \times  C) are ne
 for families (i.e., indexed sets) of objects of a category.
 Do these exist in Set?
 It is common to denote the product A \times  \dots  \times  A by An .
-n times
+?n times
 5.11. Let A, resp. B be a set, endowed with an equivalence relation \sim A , resp. \sim B .
 Define a relation \sim  on A \times  B by setting
 (a1 , b1 ) \sim  (a2, b2 ) \iff  a1 \sim A a2 and b1 \sim B b2 .
 (This is immediately seen to be an equivalence relation.)
-\bullet  Use the universal property for quotients (\S5.3) to establish that there are func-
+\bullet  Use the universal property for quotients (\S{}5.3) to establish that there are func-
 tions (A \times  B)/\sim  \to  A/\sim A, (A \times  B)/\sim  \to  B/\sim B .
 \bullet  Prove that (A\times B)/\sim , with these two functions, satisfies the universal property
 for the product of A/\sim A and B/\sim B .
