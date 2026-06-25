@@ -1,4 +1,5 @@
 \chapter{Preliminaries: Set theory and categories}
+\label{chap:prelims}
 
 \emph{Set theory} is a mathematical field in itself, and its proper treatment
 (say via the famous `\name{Zermelo}-\name{Fr\"ankel}' axioms) goes
@@ -19,9 +20,11 @@ the notion of `universal property', which will be a constant refrain
 throughout this book.
 
 \section{Naive set theory}
+\label{sec:prelims:naive-set-theory}
 
 
 \subsection{Sets}
+\label{subsec:prelims:sets}
 The notion of set formalizes the intuitive idea of `collection of
 objects'.  A set is determined by the \emph{elements} it contains: two
 sets $A, B$ are equal (written $A = B$) if and only if they contain
@@ -41,17 +44,17 @@ elements:
   of the two sides and could just as well be written `='; the extra :
   is a psychologically convenient decoration inherited from computer
   science.} the set consisting of the integers $1$, $2$, and $3$. By
-convention, the order\footnote{Ordered lists are denoted with round parentheses: $(1, 2, 3)$ is not the same as
-$(1, 3, 2)$.} in which the elements are listed, or repetitions
-in the list, are immaterial to the definition.  Thus, the same set may
-be written out in many ways:
+convention, the order\footnote{Ordered lists are denoted with round
+  parentheses: $(1, 2, 3)$ is not the same as $(1, 3, 2)$.} in which
+the elements are listed, or repetitions in the list, are immaterial to
+the definition.  Thus, the same set may be written out in many ways:
 ${1, 2, 3} = {1, 3, 2} = {1, 2, 1, 3, 3, 2, 3, 1, 1, 2, 1, 3}$.  This
 way of denoting sets may be quite cumbersome and in any case will only
-really work for \emph{finite sets}. For infinite sets, a popular way around
-this problem is to write a list in which some of the elements are
-understood as being part of a pattern---for example, the set of even
-integers may be written $E = {\dots , -2, 0, 2, 4, 6, \dots }$, but
-such a definition is inherently ambiguous, so this leaves room for
+really work for \emph{finite sets}. For infinite sets, a popular way
+around this problem is to write a list in which some of the elements
+are understood as being part of a pattern---for example, the set of
+even integers may be written $E = {\dots , -2, 0, 2, 4, 6, \dots }$,
+but such a definition is inherently ambiguous, so this leaves room for
 misinterpretation. Further, some sets are simply `too big' to be
 listed, even in principle: for example (as one hopefully learns in
 advanced calculus) there are simply too many real numbers to be able
@@ -60,15 +63,17 @@ to `list' them as one may `list' the integers.
 It is often better to adopt definitions that express the elements of a
 set as elements $s$ of some larger (and already known) set $S$
 satisfying some property $P$.  One may then write
-$A = \{s \in S | s \mathrm{satisfies} P \}$ ($\in$ means element of\dots) and
+$A = \{s \in S\ |\ s\ \mathrm{satisfies}\ P \}$ ($\in$ means element of\dots) and
 this is in general precise and unambiguous\footnote{But note that
   there exist pathologies such as \name{Russell}'s paradox, showing that even
   this style of definitions can lead to nonsense. All is well so long
-  as $S$ is indeed known to be a set to begin with.}.  We will
+  as $S$ is indeed known to be a set to begin with.}.
+
+We will
 occasionally encounter a variation on the notion of set, called
 `multiset'.  A multiset is a set in which the elements are allowed to
-appear `with multiplicity': that is, a notion for which ${2, 2}$ would
-be distinct from ${2}$. The correct way to define a multiset is by
+appear `with multiplicity': that is, a notion for which $\{2, 2\}$ would
+be distinct from $\{2\}$. The correct way to define a multiset is by
 means of functions, which we will encounter soon (see CHECKExample
 2.2).  A few famous sets are
 \begin{itemize}
@@ -81,38 +86,44 @@ means of functions, which we will encounter soon (see CHECKExample
 \end{itemize}
 Also, the term \emph{singleton} is used to refer to any set consisting
 of precisely one element. Thus ${1}$, ${2}$, ${3}$ are different sets,
-but they are all singletons.  Here are a few useful symbols (called
+but they are all singletons.
+
+Here are a few useful symbols (called
 quantifiers):
 \begin{itemize}
 \item $\exists$  means \emph{there exists}\ldots (the existential quantifier);
 \item  $\forall$  means \emph{for all}\ldots (the universal quantifier).
 \end{itemize}
 Also, $\exists !$ is used to mean there exists a unique\ldots
+
 For example, the set of even integers may be written as
 \[E = \{a \in Z | (\exists n \in Z) a = 2n\}:\] in words, ``all
 integers $a$ such that there exists an integer $n$ for which $a =
 2n$''. In this case we could replace $\exists$ by $\exists !$ without
 changing the set---but that has to do with properties of $Z$, not with
 mathematical syntax. Also, it is common to adopt the shorthand
-$E = \{2n | n \in Z\}$, in which the existential quantifier is
+\[E = \{2n | n \in Z\], in which the existential quantifier is
 understood.  Being able to parse such strings of symbols effortlessly,
 and being able to write them out fluently, is extremely important. The
 reader of this book is assumed to have already acquired this skill.
-Note that the order in which things are written may make a big
+
+Note that the \emph{order} in which things are written may make a big
 difference. For example, the statement
-\[(\forall a \in  Z) (\exists b \in  Z) b = 2a\]
+\[(\forall a \in  Z) (\exists b \in  Z)\, b = 2a\]
 is true: it says that the result of doubling an arbitrary integer yields an
 integer; but
 \[(\exists b \in Z) (\forall a \in Z) b = 2a\] is false: it says that
 there exists a fixed integer $b$ which is `simultaneously' twice as
-much as every integer---there is no such thing.  Note also that
-writing simply
+much as every integer---there is no such thing.
+
+Note also that writing simply
 \[b = 2a\] by itself does not convey enough information, unless the
 context makes it completely clear what quantifiers are attached to $a$
 and $b$: indeed, as we have just seen, different quantifiers may make
 this into a true or a false statement.
 
 \subsection{Inclusion of sets}
+\label{subsec:prelims:inclusion-of-sets}
 As mentioned above, two sets are equal if and only if they contain the
 same elements. We say that a set $S$ is a subset of a set $T$ if every
 element of $S$ is an element of $T$ , in symbols, $S \subseteq T$.  By
@@ -135,11 +146,12 @@ this number is finite; otherwise, one writes $|S| = \infty$. If $S$
 and $T$ are finite, then $S \subseteq T \implies |S| \leq |T |$.  The
 subsets of a set $S$ form a set, called the power set, or the set of
 parts of $S$. For example, the power set of the empty set $\emptyset$
-consists of one element: {\emptyset }. The power set of $S$ is denoted
+consists of one element: $\emptyset$. The power set of $S$ is denoted
 $\mathcal{P}(S)$; a popular alternative is $2^S$, and indeed
 $|P(S)| = 2^{|S|}$ if $S$ is finite (cf. CHECKExercise 2.11).
 
 \subsection{Operations between sets}
+\label{subsec:prelims:operations-between-sets}
 Once we have a few sets to play with, we can
 obtain more by applying certain standard operations. Here are a few:
 \begin{itemize}
@@ -181,7 +193,8 @@ obtain more by applying certain standard operations. Here are a few:
 % when we have acquired more language and can view them from a more sophisticated
 % viewpoint.
 
-% \subsection{Disjoint unions, products}
+\subsection{Disjoint unions, products}
+\label{subsec:prelims:disjoint-unions-products}
 % One problem with these operations is that their
 
 % output may not be defined as a set, but rather as a set up to isomorphisms of
@@ -383,7 +396,7 @@ obtain more by applying certain standard operations. Here are a few:
 % observation
 % will be further formalized in `categorical terms' in a short while (\S{}5.3).
 
-% \subsection*{Exercises}
+\subsection*{Exercises}
 
 % Exercises marked with a ? are referred to from the text; exercises marked with a
 % \lnot  are referred to from other exercises. These referring exercises
@@ -416,10 +429,12 @@ obtain more by applying certain standard operations. Here are a few:
 % (a1, a2) \approx  (b1 , b2) \iff  b1 - a1 \in  Z and b2 - a2 \in  Z.
 % [\S{}II.8.1, II.8.10]
 
-% \section{Functions between sets}
+\section{Functions between sets}
+\label{sec:prelims:functions-between-sets}
 
 
-% \subsection{Definition}
+\subsection{Definition}
+\label{subsec:prelims:definition}
 
 % introduced in this book will be to try to understand both the type of structures
 % and the ways in which different instances of a given structure may interact.
@@ -492,7 +507,8 @@ obtain more by applying certain standard operations. Here are a few:
 % where i : S \to  A
 % is the inclusion. Note that f (S) = im(f |S ).
 
-% \subsection{Examples: Multisets, indexed sets}
+\subsection{Examples: Multisets, indexed sets}
+\label{subsec:prelims:examples-multisets-indexed-sets}
 % The `multisets' mentioned briefly
 
 % in \S{}1.1 are a simple example of a notion easily formalized by means of
@@ -528,7 +544,8 @@ obtain more by applying certain standard operations. Here are a few:
 % usually harmless. These distinctions play a role in (for example) discussions of
 % linear independence of sets of vectors; cf. \S{}VI.1.2.
 
-% \subsection{Composition of functions}
+\subsection{Composition of functions}
+\label{subsec:prelims:composition-of-functions}
 % Functions may be composed: if f : A \to  B and
 
 % g : B \to  C are functions, then so is the operation g \circ  f defined by
@@ -596,7 +613,8 @@ obtain more by applying certain standard operations. Here are a few:
 %  f
 % commute.
 
-% \subsection{Injections, surjections, bijections}
+\subsection{Injections, surjections, bijections}
+\label{subsec:prelims:injections-surjections-bijections}
 % Special kinds of functions deserve high-
 
 % lighting:
@@ -643,7 +661,8 @@ obtain more by applying certain standard operations. Here are a few:
 % (\forall a \in  A) f (a) = (0, a)
 % is manifestly a bijection.
 
-% \subsection{Injections, surjections, bijections: Second viewpoint}
+\subsection{Injections, surjections, bijections: Second viewpoint}
+\label{subsec:prelims:injections-surjections-bijections-second-viewpoint}
 % There is an al-
 
 % ternative and instructive way to think about these notions.
@@ -771,7 +790,8 @@ obtain more by applying certain standard operations. Here are a few:
 % nicely
 % with the notation of `inverse' mentioned above.
 
-% \subsection{Monomorphisms and epimorphisms}
+\subsection{Monomorphisms and epimorphisms}
+\label{subsec:prelims:monomorphisms-and-epimorphisms}
 % There is yet another way to express
 
 % injectivity and surjectivity, which appears at first more complicated than what
@@ -834,7 +854,8 @@ obtain more by applying certain standard operations. Here are a few:
 % write out all
 % the gory details carefully.
 
-% \subsection{Basic examples}
+\subsection{Basic examples}
+\label{subsec:prelims:basic-examples}
 % The basic operations on sets provided us with several im-
 
 % portant examples of injective and surjective functions.
@@ -880,7 +901,8 @@ obtain more by applying certain standard operations. Here are a few:
 % obtained by sending every a \in  A to its equivalence class [a]\sim  .
 %  ?
 
-% \subsection{Canonical decomposition}
+\subsection{Canonical decomposition}
+\label{subsec:prelims:canonical-decomposition}
 % The reason why we focus our attention on in-
 
 % jective and surjective maps is that they provide the basic `bricks' out of which
@@ -971,7 +993,8 @@ obtain more by applying certain standard operations. Here are a few:
 % such
 % as `the first isomorphism theorem'.
 
-% \subsection{Clarification}
+\subsection{Clarification}
+\label{subsec:prelims:clarification}
 
 % unions, products, and quotients, made in \S{}1.4. Our definition of A \sqcup  B
 % was the
@@ -1000,7 +1023,7 @@ obtain more by applying certain standard operations. Here are a few:
 % and
 % others12 in the context of categories.
 
-% \subsection*{Exercises}
+\subsection*{Exercises}
 
 % 2.1. ? How many different bijections are there between a set S with n elements
 % and itself? [\S{}II.2.1]
@@ -1050,7 +1073,8 @@ obtain more by applying certain standard operations. Here are a few:
 % that there is a bijection between 2A and the power set of A (cf. \S{}1.2).
 % [\S{}1.2, III.2.3]
 
-% \section{Categories}
+\section{Categories}
+\label{sec:prelims:categories}
 
 % The language of categories is affectionately known as abstract nonsense, so
 % named
@@ -1080,7 +1104,8 @@ obtain more by applying certain standard operations. Here are a few:
 % all sets, since there will be analogs of `functions' among the things it
 % contains.
 
-% \subsection{Definition}
+\subsection{Definition}
+\label{subsec:prelims:definition}
 
 % gist of it may be summarized quickly: a category consists of a collection of
 % `objects',
@@ -1180,7 +1205,8 @@ obtain more by applying certain standard operations. Here are a few:
 % repre-
 % sentation of a diagram are of course irrelevant.
 
-% \subsection{Examples}
+\subsection{Examples}
+\label{subsec:prelims:examples}
 % The reader should note that 90% of the definition of the notion
 
 % of category goes into explaining the properties of its morphisms; it is fair to
@@ -1620,7 +1646,7 @@ obtain more by applying certain standard operations. Here are a few:
 % from two morphisms \alpha  : C \to  A, \beta  : C \to  B with common source.
 %  ?
 
-% \subsection*{Exercises}
+\subsection*{Exercises}
 
 % 3.1. ? Let C be a category. Consider a structure Cop with
 % \bullet  Obj(Cop ) := Obj(C);
@@ -1691,7 +1717,8 @@ obtain more by applying certain standard operations. Here are a few:
 % ,\beta
 % mentioned in Example 3.10. [\S{}5.5, 5.12]
 
-% \section{Morphisms}
+\section{Morphisms}
+\label{sec:prelims:morphisms}
 
 % Just as in Set we highlight certain types of functions (injective, surjective,
 % bijective),
@@ -1707,7 +1734,8 @@ obtain more by applying certain standard operations. Here are a few:
 % notions do
 % transfer nicely into the categorical setting.
 
-% \subsection{Isomorphisms}
+\subsection{Isomorphisms}
+\label{subsec:prelims:isomorphisms}
 % Let C be a category.
 
 % Definition 4.1. A morphism f \in  HomC (A, B) is an isomorphism if it has a
@@ -1803,7 +1831,8 @@ obtain more by applying certain standard operations. Here are a few:
 % In other words, AutC (A) is a group, for all objects A of all categories C.
 % We will soon devote all our attention to groups!
 
-% \subsection{Monomorphisms and epimorphisms}
+\subsection{Monomorphisms and epimorphisms}
+\label{subsec:prelims:monomorphisms-and-epimorphisms}
 % As pointed out above, we do not
 
 % have the option of defining for morphisms of an arbitrary category a notion such
@@ -1865,7 +1894,7 @@ obtain more by applying certain standard operations. Here are a few:
 % respectable
 % categories such as the category Grp of groups (cf. Exercise II.8.24).
 
-% \subsection*{Exercises}
+\subsection*{Exercises}
 
 % 4.1. ? Composition is defined for two morphisms. If more than two morphisms are
 % given, e.g.,
@@ -1914,7 +1943,8 @@ obtain more by applying certain standard operations. Here are a few:
 % notion
 % of morphism you defined in that exercise!)
 
-% \section{Universal properties}
+\section{Universal properties}
+\label{sec:prelims:universal-properties}
 
 % The `abstract' examples in \S{}3 may have left the reader with the impression
 % that
@@ -1958,7 +1988,8 @@ obtain more by applying certain standard operations. Here are a few:
 % This is not so clear (to this writer, anyway) from the explicit descriptions in
 % \S{}1.4.
 
-% \subsection{Initial and final objects}
+\subsection{Initial and final objects}
+\label{subsec:prelims:initial-and-final-objects}
 
 % Definition 5.1. Let C be a category. We say that an object I of C is initial in
 % C
@@ -2037,7 +2068,8 @@ obtain more by applying certain standard operations. Here are a few:
 % role
 % in how these objects sit in their category.
 
-% \subsection{Universal properties}
+\subsection{Universal properties}
+\label{subsec:prelims:universal-properties}
 % The most natural context in which to introduce uni-
 
 % versal properties requires a good familiarity with the language of functors,
@@ -2081,7 +2113,8 @@ obtain more by applying certain standard operations. Here are a few:
 % examples
 % that follow.
 
-% \subsection{Quotients}
+\subsection{Quotients}
+\label{subsec:prelims:quotients}
 % Let \sim  be an equivalence relation defined on a set A. Let's parse
 
 % the assertion:
@@ -2177,7 +2210,8 @@ obtain more by applying certain standard operations. Here are a few:
 % the universal property sheds some light on the `canonical decomposition' studied
 % in \S{}2.8.
 
-% \subsection{Products}
+\subsection{Products}
+\label{subsec:prelims:products}
 % It is also a very good exercise to stare at a familiar construction
 
 % and try to see the universal property which may be behind it. I will now
@@ -2273,7 +2307,8 @@ obtain more by applying certain standard operations. Here are a few:
 % different
 % contexts.
 
-% \subsection{Coproducts}
+\subsection{Coproducts}
+\label{subsec:prelims:coproducts}
 % The prefix co- usually indicates that one is `reversing all ar-
 
 % rows'. Just as products are final objects in the categories CA,B obtained by
@@ -2364,7 +2399,7 @@ obtain more by applying certain standard operations. Here are a few:
 % of
 % two objects (i.e., integers) a, b is simply the maximum of a and b.
 
-% \subsection*{Exercises}
+\subsection*{Exercises}
 
 % 5.1. Prove that a final object in a category C is initial in the opposite
 % category Cop
