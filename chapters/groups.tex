@@ -1,0 +1,4722 @@
+\chapter{Groups, first encounter}
+
+In this chapter we introduce groups, we observe they form a category (called
+Grp),
+and we study `general' features of this category: what are the monomorphisms and
+the epimorphisms in this category? what is the appropriate notion of
+`equivalence
+relation' and `quotients' for a group? does a `decomposition theorem' hold in
+Grp?
+and other analogous questions.
+In Chapter III we will acquire a similar degree of familiarity with rings and
+modules. A more object-oriented analysis of Grp (for example, a treatment of the
+famous Sylow theorems, `composition series', or the classification of finite
+abelian
+groups) is deferred to Chapter IV.
+
+\section{Definition of group}
+
+
+\subsection{Groups and groupoids}
+
+Joke 1.1. Definition: A group is a groupoid with a single object.
+?
+This is actually a perfectly viable definition, since groupoids have been
+defined
+already (in Example I.4.6); but most mathematicians would find it ludicrous to
+introduce groups in this fashion, or they will at the very least politely
+express
+doubts on the pedagogical effectiveness of doing so. In order to redeem myself,
+I
+will parse this definition right away to show what it really says. If \ast  is
+the lone
+object of such a groupoid G,
+HomG (\ast , \ast ) = AutG (\ast )
+(because G is a groupoid!), and this set carries all the information about G.
+Call
+this set G. Then (by definition of category) there is an associative operation
+on G,
+with an identity 1\ast  , and (by definition of groupoid, which says that every
+morphism
+in G is an isomorphism) every g \in  G has an inverse g -1 \in  G.
+That is what a group is1 : a set G with a composition law satifsying a few key
+axioms, i.e., associativity, existence of identity, and existence of inverses.
+
+\subsection{Definition}
+Now for the official definition. Let G be a nonempty set, endowed
+
+with a binary operation, that is, a `multiplication' map
+\bullet  : G \times  G \to  G.
+Our notation will be
+\bullet (g, h) =: g \bullet  h
+or simply gh if the name of the operation can be understood. The careful reader
+may have expected that we should write h \bullet  g, in the style of what we
+have done
+for categories, but this is what common conventions dictate2 .
+Definition 1.2. The set G, endowed with the binary operation \bullet  (briefly,
+(G, \bullet ),
+or simply G if the operation can be understood) is a group if
+(i) the operation \bullet  is associative, that is,
+(\forall g, h, k \in  G) :
+ (g \bullet  h) \bullet  k = g \bullet  (h \bullet  k);
+(ii) there exists an identity element eG for \bullet , that is,
+(\exists eG \in  G) (\forall g \in  G) :
+ g \bullet  eG = g = eG \bullet  g;
+(iii) every element in G has an inverse with respect to \bullet , that is,
+(\forall g \in  G) (\exists h \in  G) :
+ g \bullet  h = eG = h \bullet  g.
+ ?
+Example 1.3. Since we explicitly require G to be nonempty, the most economical
+way to concoct a group is by letting G = {e} be a singleton. There is only one
+function G \times  G \to  G in this case, so there is only one possible binary
+operation
+on G, defined by
+e \bullet  e := e.
+The three axioms trivially hold for this example, so {e} is equipped with a
+unique
+group structure.
+This is usually called the trivial group; purists should call any such group a
+trivial group, since every singleton gives rise to one.
+ ?
+Example 1.4. The reader should check carefully (cf. Exercise 1.2) that (Z, +),
+(Q, +), (R, +), (C, +), and several variations using \cdot  (for example, the
+subset
+{+1, -1} of Z, with ordinary multiplication) all give examples of groups. While
+very interesting in themselves, these examples do not really capture at any
+intuitive
+level `what' a group really is, because they are too special. For example, all
+these
+examples are commutative (see \S{}1.5).
+ ?
+1 From this perspective, Joke 1.1 is a little imprecise: the group is not the
+groupoid G, but
+rather the set of isomorphisms in G, endowed with the operation of composition
+of morphisms.
+2 Not without exceptions; see for example permutation groups, discussed in
+\S{}2.
+Example 1.5. My readers are likely familiar with an extremely important non-
+commutative example, namely the group of invertible, n\times n matrices with
+(say) real
+entries, n \geq  2. I will generally shy away from this class of examples in
+these early
+chapters, since we will have ample opportunities to think about matrices when we
+approach linear algebra (starting in Chapter VI). But we may occasionally borrow
+a matrix or two before then. The reader should now check that 2 \times  2
+matrices
+a
+ b
+c
+ d
+with real entries, and such that ad-bc = 0, form a group under the ordinary
+matrix
+multiplication:
+a1
+ b1
+ a 2
+ b2
+ a1a2 + b1c2
+ a1 b2 + b1d2
+\cdot 
+ =
+ .
+c1
+ d1
+ c2
+ d2
+ c1 a2 + d1c2
+ c1b2 + d1 d2
+(The condition ad - bc = 0 guarantees that the matrix is invertible. What is its
+inverse?) Since, for example,
+1 1
+ 1 0
+ 1 1
+ 1 0
+ 1 1
+=
+ =
+ =
+ ,
+0 1
+ 1 1
+ 1 2
+ 1 1
+ 0 1
+this group is indeed not commutative.
+The group of invertible n \times  n matrices with real entries is denoted GLn
+(R). ?
+We will encounter more representative examples in \S{}2.
+
+\subsection{Basic properties}
+From the `groupoid' point of view, the identity eG would
+
+be denoted 1\ast  . It is not uncommon to omit G from the notation (when the
+group
+is understood) and to use different symbols rather than e to denote this
+element:
+1 and 0 are popular alternatives, depending on the context. In any case, for any
+given group G this element is unique. That is, no other element of G can work as
+an identity:
+Proposition 1.6. If h \in  G is an identity of G, then h = eG .
+Incidentally, this makes groups pointed sets in the sense of Example I.3.8:
+every
+group has a well-defined distinguished element.
+Proof. Using first that eG is an identity and then that h is an identity, one
+gets3
+h = eG h = eG .
+(Amusingly, this argument only uses that eG is a `left' identity and h is a
+`right'
+identity.)
+ ?
+Proposition 1.7. The inverse is also unique: if h1 , h2 are both inverses of g
+in G,
+then h1 = h2 .
+3 As previously announced, we may omit the symbol \bullet  for the operation,
+since for the time
+being we are only considering one operation. This will be done without warning
+in the future.
+Proof. This actually follows from Proposition I.4.2 (by viewing G as the set of
+isomorphisms of a groupoid with a single object). The reader should construct
+a stand-alone proof, using the same trick, but carefully hiding any reference to
+morphisms.
+ ?
+Proposition 1.7 authorizes us to give a name to the inverse of g: this is
+usually4
+-1denoted g .
+One more notational item is in order. The definition of a group only contem-
+plates the `product' of two elements; in multiplying a string of elements, one
+may in
+principle have a choice as to the order in which products are executed. For
+example,
+(g1 \bullet  g2) \bullet  g3
+stands for: apply the operation \bullet  to g1 and g2 , and then apply \bullet
+again to the result
+of this operation and g3 ; while
+g1 \bullet  (g2 \bullet  g3 )
+stands for: apply \bullet  to g2 and g3 , and then apply it again to g1 and to
+the result of
+this operation.
+Associativity tells us precisely that the result of the operation on three
+elements
+does not depend on the way in which we perform it. With this in mind, we are
+authorized to write
+g1 \bullet  g2 \bullet  g3 ;
+this expression is not ambiguous, by associativity. What about four or more ele-
+ments? The reader should have checked in Exercise I.4.1 that all ways to
+associate
+any number of elements leads to the same result. So we are also authorized to
+write
+things like
+g1 \bullet  g2 \bullet  g3 \bullet  \dots  \bullet  g17 ;
+this is also unambiguous. The reader should keep in mind, however, that of
+course
+the order in which the elements are listed is important: in general,
+g1 \bullet  g2 \bullet  g3 \bullet  \dots  \bullet  g17 = g2 \bullet  g1 \bullet
+g3 \bullet  \dots  \bullet  g17 .
+Of course no such care is necessary if all gi coincide; the conventional `power'
+notation can then be used5 : g0 = eG , and for a positive integer n
+gn = g \dots  \cdot  \cdot  g ,
+ g -n = g -1 \dots  \cdot  \cdot  g-1 .
+?
+ ?
+n times
+ n times
+It is easy to check that then \forall g \in  G and \forall m, n \in  Z
+g m+n = gm g n .
+4 But note the `abelian' case, discussed in \S{}1.5.
+5 In the abelian case one uses `multiples'; cf. \S{}1.5.
+
+\subsection{Cancellation}
+`Cancellation' holds in groups. That is,
+
+Proposition 1.8. Let G be a group. Then \forall a, g, h \in  G
+ga = ha \implies  g = h,
+ ag = ah \implies  g = h.
+Proof. Both statements are proven by multiplying (on the appropriate side) by
+a-1
+and applying associativity. For example,
+ga = ha \implies  (ga)a-1 = (ha)a -1 \implies  g(aa-1) = h(aa-1 ) \implies  geG
+= heG
+\implies  g = h.
+The proof for the other implication follows the same pattern.
+ ?
+Examples of operations which do not satisfy cancellation, and hence do not
+define groups, abound. For instance, the operation of ordinary multiplication
+does
+not make the set R of real numbers into a group: indeed, 0 `cannot be cancelled'
+since 1 \cdot  0 = 2 \cdot  0 even if 1 = 2. Of course, the problem here is that
+0 does not
+have an inverse in R, with respect to multiplication. As it happens, this is the
+only
+problem with this example: ordinary multiplication does make
+R\ast  := R \setminus  {0}
+into a group, as the reader should check immediately.
+
+\subsection{Commutative groups}
+One axiom not appearing in the definition of group
+
+is commutativity: we say that the operation \bullet  is `commutative' if
+(iv) (\forall g, h \in  G) :
+ g \bullet  h = h \bullet  g.
+We say that two elements g, h `commute' if gh = hg. Thus, in a commutative
+group any two elements commute.
+`Commutative groups' are important objects: they arise naturally in several
+contexts, especially as `modules over the ring Z' (about which we will have a
+lot to
+say in Chapter III and beyond). When they do so, they are usually called abelian
+groups.
+The notation used in treating abelian groups differs somewhat from the stan-
+dard notation for groups. This is to emphasize the `Z-module structure', and it
+is
+helpful when an abelian group coexists with other operations---a situation which
+we will encounter frequently.
+Thus, the operation in an abelian group A is, as a rule, denoted by + and is
+called `addition'; the identity is then called 0A ; and the inverse of an
+element a \in  A
+is denoted -a (and maybe should be called the `opposite' ?). The `power'
+notation
+is of course replaced by `multiple': 0a = 0, and for a positive integer n
+na = a + \dots  + a,
+ (-n)a = (-a) + \dots  (-a) .
+?
+ ?
+n times
+ n times
+The reader should keep in mind that at this stage `na' is a notation, not the
+result of applying a binary operation to two elements n, a of A. Indeed, n \in
+Z may
+very well not be an element of A in any reasonable sense. Moreover, it may very
+well be that na = ma even if n = m, in spite of the fact that `cancellation'
+works
+in groups.
+The qualifier `abelian' and the notation 0A , -a, etc., are mostly used for com-
+mutative groups arising in certain standard situations: for example, the notions
+of rings, modules, vector spaces are defined by suitably enriching a commutative
+group, which is then promoted to `abelian' for notational convenience.
+There are other situations in which commutative groups arise naturally, without
+triggering the `abelian' notation. For example, the group (R\ast  , \cdot )
+mentioned at the
+end of \S{}1.4 is commutative, but its operation is indicated by \cdot  (if at
+all), and its
+identity element is written 1. History, rather than logic, is often the main
+factor
+determining notation.
+
+\subsection{Order}
+
+Definition 1.9. An element g of a group G has finite order if 6 gn = e for some
+positive integer n. In this case, the order |g| is the smallest positive n such
+that
+gn = e. One writes |g| = \infty  if g does not have finite order.
+ ?
+By definition, if gn = e for some positive integer n, then |g| \leq  n. One can
+be
+more precise:
+Lemma 1.10. If gn = e for some positive integer n, then |g| is a divisor of n.
+Proof. As observed, n \geq  |g| by definition of order, that is, n - |g| \geq
+0. There must
+then exist7 a positive integer m such that
+r = n - |g| \cdot  m \geq  0 and
+ n - |g| \cdot  (m + 1) < 0,
+that is, r < |g|. Note that
+g r = g n-|g|\cdot m = g n \cdot  (g|g|)-m = e \cdot  e-m = e.
+By definition of order, |g| is the smallest positive integer such that g|g| = e.
+Since
+r is smaller than |g| and gr = e, r cannot be positive; hence r = 0 necessarily.
+This
+says
+0 = n - |g| \cdot  m,
+that is, n = |g|\cdot m, proving that n is indeed an integer multiple of |g| as
+claimed.
+ ?
+This lemma has the following immediate and useful consequence, which we
+encourage the reader to keep firmly in mind:
+Corollary 1.11. Let g be an element of finite order, and let N \in  Z. Then
+gN = e \iff  N is a multiple of |g|.
+6Of course in an abelian group we would write the following prescription as ng =
+0.
+7 Purists may object that here I am surreptitiously using fairly sophisticated
+information
+about Z, namely the `division algorithm', hence essentially the fact that Z is a
+Euclidean domain!
+This is material that will have to wait until Chapter V to be given some
+justice. I may as well
+be open about it and admit that yes, I am assuming that my readers have already
+acquired a
+thorough familiarity with the operations of addition and multiplication among
+integers. Shame
+on me!
+Definition 1.12. If G is finite as a set, its order |G| is the number of its
+elements;
+we write |G| = \infty  if G is infinite.
+ ?
+Cancellation implies that |g| \leq  |G| for all g \in  G. Indeed, this is
+vacuously true
+if |G| = \infty ; if G is finite, consider the |G| + 1 powers
+g0 = e, g, g2 , g3, . . . , g |G|
+of g. These cannot all be distinct; hence
+(\exists i, j) 0 \leq  i < j \leq  |G| such that g i = g j .
+By cancellation (that is, multiplying on the right by g-i )
+gj-i = e,
+showing |g| \leq  (j - i) \leq  |G|.
+We will soon be able to formulate a much more precise statement concerning
+the relation between the order of a group and the order of its elements: if g
+\in  G
+and |G| is finite, then the order of g divides the order of G. This will be an
+immediate consequence of Lagrange's theorem; cf. Example 8.15.
+Another general remark concerning orders is that their behavior with respect
+to the operation of the group is not always predictable: it may very well happen
+that g, h have finite order in a group G, and yet |gh| = \infty , or |gh| = your
+favorite
+positive integer: work out Exercise 1.12 and Exercise 2.6 if you don't believe
+it.
+On the other hand, the situation is more constrained if g and h commute. In
+the extreme case in which g = h, it is easy to obtain a very precise statement:
+Proposition 1.13. Let g \in  G be an element of finite order. Then g m has
+finite
+order \forall m \geq  0, and in fact8
+lcm(m, |g|)
+ |g|
+|gm | =
+ =
+ .
+m
+ gcd(m, |g|)
+lcm(m,|g|)
+ |g|
+Proof. The equality of the two numbers and follows from ele-
+m
+ gcd(m,|g|)
+mentary properties of gcd and lcm: lcm(a, b) = ab/ gcd(a, b) for all a and b. So
+we
+only need to prove that |g m | = lcm(m,|g|)
+ m
+ .
+The order of gm is the least positive d for which
+g md = e,
+that is (by Corollary 1.11) for which md is a multiple of |g|. In other words,
+m|g m |
+is the smallest multiple of m which is also a multiple of |g|:
+m|gm | = lcm(m, |g|).
+The stated formula follows immediately from this.
+ ?
+In general, for commuting elements,
+Proposition 1.14. If gh = hg, then |gh| divides lcm(|g|, |h|).
+8 The notation lcm stands for `least common multiple'. I am also assuming that
+the reader is
+familiar with simple properties of gcd and lcm.
+Proof. Let |g| = m, |h| = n. If N is any common multiple of m and n, then
+gN = hN = e by Corollary 1.11. Since g and h commute,
+(gh)N = (gh)(gh) \dots  \cdot  \cdot  (gh) = gg \dots  \cdot  \cdot  g \cdot  hh
+ \dots  \cdot  \cdot  h = g N hN
+ = e.
+?
+ ?
+ ?N times
+ N times
+ N times
+As this holds for every common multiple N of m and n, in particular
+(gh)lcm(m,n) = e.
+The statement then follows from Lemma 1.10.
+ ?
+One cannot say more about |gh| in general, even if g and h commute (Exer-
+cise 1.13). But see Exercise 1.14 for an important special case.
+
+\subsection*{Exercises}
+
+1.1. ? Write a careful proof that every group is the group of isomorphisms of a
+groupoid. In particular, every group is the group of automorphisms of some
+object
+in some category. [\S{}2.1]
+1.2. ? Consider the `sets of numbers' listed in \S{}1.1, and decide which are
+made into
+groups by conventional operations such as + and \cdot . Even if the answer is
+negative
+(for example, (R, \cdot ) is not a group), see if variations on the definition
+of these sets
+lead to groups (for example, (R\ast  , \cdot ) is a group; cf. \S{}1.4).
+[\S{}1.2]
+1.3. Prove that (gh)-1 = h-1 g-1 for all elements g, h of a group G.
+1.4. Suppose that g 2 = e for all elements g of a group G; prove that G is
+commu-
+tative.
+1.5. The `multiplication table' of a group is an array compiling the results of
+all
+multiplications g \bullet  h:
+\bullet 
+ e
+ \cdot \cdot \cdot 
+ h
+ \cdot \cdot \cdot 
+e
+ e
+ \cdot \cdot \cdot 
+ h
+ \cdot \cdot \cdot 
+\cdot \cdot \cdot 
+ \cdot \cdot \cdot 
+ \cdot \cdot \cdot 
+ \cdot \cdot \cdot 
+ \cdot \cdot \cdot 
+g
+ g
+ \cdot \cdot \cdot 
+ g \bullet  h
+ \cdot \cdot \cdot 
+\cdot \cdot \cdot 
+ \cdot \cdot \cdot 
+ \cdot \cdot \cdot 
+ \cdot \cdot \cdot 
+ \cdot \cdot \cdot 
+(Here e is the identity element. Of course the table depends on the order in
+which
+the elements are listed in the top row and leftmost column.) Prove that every
+row
+and every column of the multiplication table of a group contains all elements of
+the
+group exactly once (like Sudoku diagrams!).
+1.6. \lnot  Prove that there is only one possible multiplication table for G if
+G has
+exactly 1, 2, or 3 elements. Analyze the possible multiplication tables for
+groups
+with exactly 4 elements, and show that there are two distinct tables, up to re-
+ordering the elements of G. Use these tables to prove that all groups with \leq
+4
+elements are commutative.
+(You are welcome to analyze groups with 5 elements using the same technique,
+but you will soon know enough about groups to be able to avoid such brute-force
+approaches.) [2.19]
+1.7. Prove Corollary 1.11.
+1.8. \lnot  Let G be a finite abelian group with exactly one element f of order
+2. Prove
+?
+that g = f . [4.16]
+g\in G1.9. Let G be a finite group, of order n, and let m be the number of
+elements g \in  G
+of order exactly 2. Prove that n - m is odd. Deduce that if n is even, then
+G necessarily contains elements of order 2.
+1.10. Suppose the order of g is odd. What can you say about the order of g2 ?
+1.11. Prove that for all g, h in a group G, |gh| = |hg|. (Hint: Prove that
+|aga-1 | =
+|g| for all a, g in G.)
+1.12. ? In the group of invertible 2 \times  2 matrices, consider
+0 -1
+g =
+ ,
+ h =
+ .
+ -1 -1
+Verify that |g| = 4, |h| = 3, and |gh| = \infty . [\S{}1.6]
+1.13. ? Give an example showing that |gh| is not necessarily equal to lcm(|g|,
+|h|),
+even if g and h commute. [\S{}1.6, 1.14]
+1.14. ? As a counterpoint to Exercise 1.13, prove that if g and h commute and
+gcd(|g|, |h|) = 1, then |gh| = |g| |h|. (Hint: Let N = |gh|; then gN = (h-1)N .
+What
+can you say about this element?) [\S{}1.6, 1.15, \S{}IV.2.5]
+1.15. \lnot  Let G be a commutative group, and let g \in  G be an element of
+maximal
+finite order, that is, such that if h \in  G has finite order, then |h| \leq
+|g|. Prove that
+in fact if h has finite order in G, then |h| divides |g|. (Hint: Argue by
+contradiction.
+If |h| is finite but does not divide |g|, then there is a prime integer p such
+that |g| =
+pm r, |h| = pn s, with r and s relatively prime to p and m < n. Use Exercise
+1.14 to
+m
+compute the order of gp hs .) [\S{}2.1, 4.11, IV.6.15]
+
+\section{Examples of groups}
+
+
+\subsection{Symmetric groups}
+In \S{}I.4.1 we have already observed that every object A
+
+of every category C determines a group, called AutC (A), namely the group of
+auto-
+morphisms of A. In a somewhat artificial sense it is clear that every group
+arises in
+this fashion (cf. Exercise 1.1); this fact is true in more `meaningful' ways,
+which will
+become apparent when we discuss group actions (\S{}9): cf. especially Theorem
+9.5
+and Exercise 9.17.
+In any case, this observation provides the reader with an infinite class of very
+important examples:
+Definition 2.1. Let A be a set. The symmetric group, or group of permutations
+of A, denoted SA , is the group AutSet (A). The group of permutations of the set
+{1, . . . , n} is denoted by Sn .
+ ?
+The terminology is easily justified: the automorphisms of a set A are the set-
+isomorphisms, that is, the bijections, from A to itself; applying such a
+bijection
+amounts precisely to permuting (`scrambling') the elements of A. This operation
+may be viewed as a transformation of A which does not change it (as a set),
+hence
+a `symmetry'.
+The groups SA are famously large: as the reader checked in Exercise I.2.1,
+|Sn| = n!. For example, |S70 | > 10100 , which is substantially larger than the
+estimated number of elementary particles in the observable universe.
+Potentially confusing point: The various conventions clash in the way the op-
+eration in SA should be written. From the `automorphism' point of view, elements
+of SA are functions and should be composed as such; thus, if f, g \in  SA =
+AutSet(A),
+then the `product' of f and g should be written g \circ  f and should act as
+follows:
+(\forall p \in  A) :
+ g \circ  f (p) = g(f (p)).
+But the prevailing style of notation in group theory would write this element
+as f g, apparently reversing the order in which the operation is performed.
+Everything would fall back into agreement if we adopted the convention of writ-
+ing functions after the elements on which they act rather than before: (p)f
+rather
+than f (p). But one cannot change century-old habits, so we have no alternative
+but to live with both conventions and to state carefully which one we are using
+at
+any given time.
+Contemplating the groups Sn for small values of n is an exercise of inestimable
+value. Of course S1 is a trivial group; S2 consists of the two possible
+permutations:
+?
+ ?
+1 ?\to  1
+ 1 ?\to  2
+and
+2 ?\to  2
+ 2 ?\to  1
+which we could call e (identity) and f (flip), with operation
+ee = f f = e,
+ ef = f e = f.
+In practice we cannot give a new name to every different element of every
+permuta-
+tion group, so we have to develop a more flexible notation. There are in fact
+several
+possible choices for this; for the time being, we will indicate an element
+\sigma  \in  Sn by
+listing the effect of applying \sigma  underneath the list 1, . . . , n, as a
+matrix9. Thus the
+elements e, f in S2 may be denoted by
+ 1 2
+e =
+ ,
+ f =
+ .
+ 2 1
+9 This is only a notational device---these matrices should not be confused with
+the matrices
+appearing in linear algebra.
+In the same notational style, S3 consists of
+?\setminus 
+ ? \setminus 
+ ? \setminus 
+ ? \setminus 
+ ? \setminus 
+ ? \setminus 
+ ??
+,
+ ,
+ ,
+ ,
+ ,
+ .
+For the multiplication, I will adopt the sensible (but not very standard)
+convention
+mentioned above and have permutations act `on the right': thus, for example,
+1 2 3
+ 2 3
+ 1 2 3
+ = 2
+ = 1
+2 1 3
+ 1 2
+ 3 1 2
+and similarly
+1 2 3
+ 1 2 3
+ 1 2 3
+ 1 2 3
+ = 3,
+ = 2.
+2 1 3
+ 3 1 2
+ 2 1 3
+ 3 1 2
+That is,
+1 2 3
+ 1 2 3
+ 1 2 3
+=
+2 1 3
+ 3 1 2
+ 1 3 2
+since the permutations on both sides of the equal sign act in the same way on
+1, 2, 3. The reader should now check that
+1 2 3
+ 1 2 3
+ 1 2 3
+=
+ .
+3 1 2
+ 2 1 3
+ 3 2 1
+That is, letting
+1 2 3
+ 1 2 3
+x =
+ ,
+ y =
+ ,
+2 1 3
+ 3 1 2
+then
+yx = xy,
+showing that the operation in S3 does not satisfy the commutative axiom. Thus,
+S3 is a noncommutative group; the reader will immediately realize that in fact
+Sn is
+noncommutative for all n \geq  3.
+While the commutation relation does not hold, other interesting relations do
+hold in S3. For example,
+x2 = e, y3 = e,
+showing that S3 contains elements of order 1 (the identity e), 2 (the element
+x),
+and 3 (the element y); cf. Exercise 2.2. (Incidentally, this shows that the
+result
+of Exercise 1.15 does require the commutativity hypothesis.) Also,
+1 2 3
+yx =
+ = xy2
+3 2 1
+as the reader may check. Using these relations, we see that every product of any
+assortment of x and y, xi1 y i2 xi3 yi4 \dots  , may be reduced to a product xi
+yj with
+0 \leq  i \leq  1, 0 \leq  j \leq  2, that is, to one of the six elements
+e,
+ y,
+ y2,
+ x,
+ xy,
+ xy 2 :
+for example,
+y 7 x13 y 5 = (y 3 )2y(x2 )6 xy3 y2 = (yx)y2 = (xy2 )y 2 = xy 3 y = xy.
+On the other hand, these six elements are all distinct---this may be checked by
+cancellation and order considerations10 . For example, if we had xy2 = y, then
+we
+would get x = y-1 by cancellation, and this cannot be since the relations tell
+us
+that x has order 2 and y-1 has order 3.
+The conclusion is that the six products displayed above must be all six elements
+of S3 :
+S3 = {e, x, y, xy, y 2 , xy 2 }.
+In the process we have verified that S3 may also be described as the group
+`gener-
+ated' by two elements x and y, with the `relations' x2 = e, y 3 = e, yx = xy 2 .
+More generally, a subset A of a group G `generates' G if every element of G
+may be written as a product of elements of A and of inverses of elements of A.
+We
+will deal with this notion more formally in \S{}6.3 and with descriptions of
+groups in
+terms of generators and relations in \S{}8.2.
+
+\subsection{Dihedral groups}
+A `symmetry' is a transformation which preserves a struc-
+
+ture. This is of course just a loose way to talk about automorphisms, when we
+may
+be too lazy to define rigorously the relevant category. As automorphisms of
+objects
+of a category, symmetries will naturally form groups.
+One context in which this notion may be visualized vividly is that of `geometric
+figures' such as polygons in the plane or polyhedra in space. The relevant
+category
+could be defined as follows: let the objects be subsets of an ordinary plane R2
+and
+let morphisms between two subsets A, B consist of the `rigid motions' of the
+plane
+(such as translations, rotations, or reflections about a line) which map A to a
+subset
+of B. A rigorous treatment of these notions would be too distracting at this
+point,
+so I will appeal to the intuition of the reader, as I do every now and then.
+From this perspective, the `symmetries' of a subset of the plane are the rigid
+motions which map it onto itself; they clearly form a group.
+The dihedral groups may be defined as these groups of symmetries for the
+regular polygons. Placing the polygon so that it is centered at the origin
+(thereby
+excluding translations as possible symmetries), we see that the dihedral group
+for
+a regular n-sided polygon consists of the n rotations by 2\pi /n radians about
+the
+origin and the n distinct reflections about lines through the origin and a
+vertex or a
+midpoint of a side. Thus, the dihedral group for a regular n-sided polygon
+consists
+of 2n elements; I will denote11 this group by the symbol D2n .
+Again, contemplating these groups, at least for small values of n, is a wonder-
+ful exercise. There is a simple way to relate the dihedral groups to the
+symmetric
+groups of \S{}2.1, capturing the fact that a symmetry of a regular polygon P is
+de-
+termined by the fate of the vertices of P . For example, label the vertices of
+an
+equilateral triangle clockwise by 1, 2, 3; then a counterclockwise rotation by
+an
+angle of 2\pi /3 sends vertex 1 to vertex 3, 3 to 2, and 2 to 1, and no other
+symmetry
+of the triangle does the same.
+10 It may of course also be checked by explicit computation of the corresponding
+permutations,
+but I am trying to illustrate the fact that the relations are `all we need to
+know'.
+11 Unfortunately there does not seem to be universal agreement on this notation:
+some ref-
+erences use the symbol Dn for what I call D2n here.
+Visually, this looks like
+In other words, we can associate with the counterclockwise rotation of an
+equilateral
+triangle by 2\pi /3 the permutation
+1 2 3
+\in  S3 .
+3 1 2
+Such a labeling defines a function
+D6 \to  S3 ;
+further, this function is injective (since a symmetry is determined by the
+permuta-
+tion of vertices it induces). In fancier language, which we will master in due
+time,
+we say that D6 acts (faithfully) on the set {1, 2, 3}.
+It is clear that this can be done in several ways (for example, we could label
+the
+vertices in different ways). However, any such assignment will have the property
+that composition of symmetries in D2n corresponds to composition of permutations
+in Sn ; the reader should carefully work this out for several examples involving
+D6 \to  S3 and D8 \to  S 4 .
+A concise way to describe the situation is that these functions are (group)
+homomorphisms (cf. \S{}4). Since both D6 and S3 have 6 elements and the function
+D6 \to  S3 given above is injective, it must also be surjective. Thus there are
+bijective
+homomorphisms between D6 and S 3 ; we say that these groups are isomorphic
+(cf. \S{}4.3). We will study these concepts very carefully in the next several
+sections.
+As an alternative (and more abstract) way to draw the same conclusion, denote
+by y the counterclockwise rotation considered above and by x the reflection
+about
+the line through the center and vertex 3 of our equilateral triangle:
+Reflecting twice gives the identity, as does rotating three times; thus
+x2 = e,
+ y3 = e.
+Further, yx (rotating counterclockwise by 2\pi /3, then flipping about the
+slanted
+line) is the same symmetry as xy2 (flipping first, then rotating clockwise by
+2\pi /3).
+That is,
+yx = xy 2 .
+In other words, the group D6 is also generated by two elements x, y, subject to
+the
+relations x2 = e, y3 = e, yx = xy2 ---precisely as we found for S3. Since D6 and
+S3
+admit matching descriptions in terms of generators and relations (that is,
+matching
+presentations; cf. \S{}8.2), `of course' they are isomorphic.
+
+\subsection{Cyclic groups and modular arithmetic}
+Let n be a positive integer. Con-
+
+sider the equivalence relation on Z defined by12
+(\forall a, b \in  Z) :
+ a \equiv  b mod n \iff  n | (b - a).
+This is called congruence modulo n. We have encountered this relation already,
+for
+n = 2, in Example I.1.3. It is very easy to check that it is an equivalence
+relation,
+for all n; the set of equivalence classes is often denoted by Zn , Z/(n), Z/nZ,
+or Fn .
+We will opt for Z/nZ, which is not preempted by other notions13 . I will denote
+by [a]n the equivalence class of the integer a modulo n, or simply [a] if no
+ambiguity
+arises.
+The reader should check carefully that Z/nZ consists of exactly n elements,
+namely
+[0]n , [1]n , \dots  , [n - 1]n .
+We can use the group structure on Z to induce an (abelian) group structure on
+Z/nZ. In order to do this, we define an operation + on Z/nZ, by setting \forall
+a, b \in  Z
+[a] + [b] := [a + b].
+Of course we have to check that this prescription is well-defined; luckily, this
+is
+very easy: the following small lemma does the job, as it shows that the result
+of
+the operation does not depend on the representatives chosen for the classes.
+Lemma 2.2. If a \equiv  a\setminus  mod n and b \equiv  b \setminus  mod n, then
+(a + b) \equiv  (a\setminus  + b\setminus )
+ mod n.
+Proof. By hypothesis n | (a\setminus  - a) and n | (b\setminus  - b); therefore
+\exists k, \in  Z such that
+(a\setminus  - a) = kn,
+ (b\setminus  - b) = n.
+Then
+(a\setminus  + b\setminus  ) - (a + b) = (a\setminus  - a) + (b\setminus  - b) =
+kn + n = (k + )n,
+proving that n divides (a\setminus  + b\setminus  ) - (a + b), as needed.
+ ?
+Therefore, we have a binary operation + on Z/nZ. It is immediately checked
+that the resulting structure is a group. Associativity is inherited from Z:
+([a] + [b]) + [c] = [a + b] + [c] = [(a + b) + c] = [a + (b + c)] = [a] + [b +
+c] = [a] + ([b] + [c]);
+and so are the identity [0] and `inverse' -[a] = [-a].
+It is also immediately checked that the resulting groups Z/nZ are commutative,
+as the abelian-style notation suggests:
+[a] + [b] = [a + b] = [b + a] = [b] + [a].
+12 The notation n | m stands for n is a divisor of m; that is, m = nk for some
+integer k.
+13 When n = p is prime, Z
+p is the official notation for `p-adic integers', which are a completely
+different concept; see Exercise VIII.1.19.
+I trust that this material is not new to the reader, who should in any case
+check
+all these assertions carefully.
+The abelian groups thus obtained, together with Z, are called cyclic groups;
+a popular alternative notation for the group (Z/nZ, +) is Cn . This is adopted
+especially when one wants to use the `multiplicative' rather than `additive'
+notation;
+thus we can say that Cn is generated by one element x, with the relation xn = e.
+Cyclic groups are tremendously important, and we will come back to them in
+later sections. For the time being we record the fact that the element
+[1]n \in  Z/nZ
+generates the group, in the sense that every other element may be obtained as a
+multiple of this element. For example, if m \geq  0 is an integer, then
+[m]n = [1
+ + \dots  + 1]n = [1]
+n + \dots  + [1]n = m \cdot  [1]n .
+? ?
+m times
+ m times
+Equivalently, we may phrase this fact by observing that the order of [1]n in
+Z/nZ
+is n: this implies that the n multiples 0 \cdot  [1]n , 1 \cdot  [1]n , . . . ,
+(n - 1) \cdot  [1]n must all be
+distinct, and hence they must fill up Z/nZ.
+Proposition 2.3. The order of [m]n in Z/nZ is 1 if n | m, and more generally
+n
+|[m]n | =
+ .
+gcd(m, n)
+Proof. If n | m, then [m]n = [0]n . If n does not divide m, observe again that
+[m]n = m [1]n and apply Proposition 1.13.
+ ?
+Remark 2.4. As a consequence, the order of every element of Z/nZ divides n =
+|Z/nZ|, the order of the group. We will see later (Example 8.15) that this is a
+general feature of the order of elements in any finite group.
+ ?
+Corollary 2.5. The class [m]n generates Z/nZ if and only if gcd(m, n) = 1.
+This simple result is quite important. For example, if n = p is a prime integer,
+it shows that every nonzero class in the group Z/pZ generates it. In any case,
+it allows us to construct more examples of interesting groups. The reader should
+check (or recall; cf. Exercise 2.14) that there also is a well-defined
+multiplication
+on Z/nZ, given by
+[a]n \cdot  [b]n := [ab]n .
+This operation does not define a group structure on Z/nZ: indeed, the class [0]n
+does not have a multiplicative inverse. On the other hand, for any positive n
+denote
+by (Z/nZ)\ast  the subset of Z/nZ consisting of classes [m]n such that gcd(m, n)
+= 1:
+(Z/nZ)\ast  := {[m]n \in  Z/nZ | gcd(m, n) = 1}.
+This subset is clearly well-defined: if m \equiv  m\setminus  mod n, then gcd(m,
+n) = 1 \iff
+gcd(m\setminus  , n) = 1 (Exercise 2.17), so the defining property of classes in
+(Z/nZ)\ast  is
+independent of representatives.
+Proposition 2.6. Multiplication makes (Z/nZ)\ast  into a group.
+Proof. Simple properties of gcd's show that if gcd(m1 , n) = gcd(m2 , n) = 1,
+then
+gcd(m1m2 , n) = 1. (For example, if a prime integer divided both n and m1m2 ,
+then
+it would necessarily divide m1 or m2 , and one of the two gcd's would not be 1.)
+Therefore, the product of two elements in (Z/nZ)\ast  is an element of
+(Z/nZ)\ast  , and
+\cdot  does define a binary operation
+(Z/nZ)\ast  \times  (Z/nZ)\ast  \to  (Z/nZ)\ast  .
+It is clear that this operation is associative (because multiplication is
+associative
+in Z); [1]n is an element of (Z/nZ)\ast  and is an identity with respect to
+multiplication;
+so all we have to check is that elements of (Z/nZ)\ast  have multiplicative
+inverses
+in (Z/nZ)\ast  .
+This follows from Corollary 2.5. If gcd(m, n) = 1, then [m]n generates the
+additive group Z/nZ, and hence some multiple of [m]n must equal [1]n :
+(\exists a \in  Z) :
+ a \cdot  [m]n = [1]n ;
+this implies
+[a]n [m]n = [1]n .
+Therefore [m]n does have a multiplicative inverse in Z/nZ, namely [a]n. The
+reader
+will verify that gcd(a, n) = 1, completing the proof.
+ ?
+For instance, [8]15 has a multiplicative inverse in (Z/15Z)\ast  . Tracing the
+argu-
+ment given in the proof,
+2 \cdot  8 + (-1) \cdot  15 = 1,
+and hence [2]15 \cdot  [8]15 = [1]15 : the multiplicative inverse of [8]15 is
+[2]15 .
+For n = p a positive prime integer, the group ((Z/pZ)\ast  , \cdot ) has order
+(p - 1).
+We will have more to say about these groups in later sections (cf. Example 4.6).
+
+\subsection*{Exercises}
+
+2.1. \lnot  One can associate an n \times  n matrix M\sigma  with a permutation
+\sigma  \in  Sn by letting the entry at (i, (i)\sigma ) be 1 and letting all other entries be 0.
+For example, the matrix corresponding to the permutation
+1 2 3
+\sigma  =
+ \in  S3
+3 1 2
+would be
+ (
+ )
+0 0 1
+M\sigma  = (1 0 0).
+0 1 0
+Prove that, with this notation,
+M\sigma \tau  = M\sigma  M\tau 
+for all \sigma , \tau  \in  Sn , where the product on the right is the ordinary
+product of matrices.
+[IV.4.13]
+2.2. ? Prove that if d \leq  n, then Sn contains elements of order d. [\S{}2.1]
+2.3. For every positive integer n find an element of order n in SN .
+2.4. Define a homomorphism D8 \to  S4 by labeling vertices of a square, as we
+did
+for a triangle in \S{}2.2. List the 8 permutations in the image of this
+homomorphism.
+2.5. ? Describe generators and relations for all dihedral groups D2n . (Hint:
+Let x be
+the reflection about a line through the center of a regular n-gon and a vertex,
+and let
+y be the counterclockwise rotation by 2\pi /n. The group D2n will be generated
+by x
+and y, subject to three relations14 . To see that these relations really
+determine D2n ,
+use them to show that any product xi1 yi2 xi3 y i4 \dots  equals xi yj for some
+i, j with
+0 \leq  i \leq  1, 0 \leq  j < n.) [8.4, \S{}IV.2.5]
+2.6. ? For every positive integer n construct a group containing elements g, h
+such
+that |g| = 2, |h| = 2, and |gh| = n. (Hint: For n > 1, D2n will do.) [\S{}1.6]
+2.7. \lnot  Find all elements of D2n that commute with every other element. (The
+parity of n plays a role.) [IV.1.2]
+2.8. Find the orders of the groups of symmetries of the five `platonic solids'.
+2.9. Verify carefully that `congruence mod n' is an equivalence relation.
+2.10. Prove that Z/nZ consists of precisely n elements.
+2.11. ? Prove that the square of every odd integer is congruent to 1 modulo 8.
+[\S{}VII.5.1]
+2.12. Prove that there are no nonzero integers a, b, c such that a2 +b2 = 3c 2 .
+(Hint:
+By studying the equation [a]24 + [b]24 = 3[c]24 in Z/4Z, show that a, b, c would
+all
+have to be even. Letting a = 2k, b = 2 , c = 2m, you would have k2 + 2 = 3m2 .
+What's wrong with that?)
+2.13. ? Prove that if gcd(m, n) = 1, then there exist integers a and b such that
+am + bn = 1.
+(Use Corollary 2.5.) Conversely, prove that if am+bn = 1 for some integers a and
+b,
+then gcd(m, n) = 1. [2.15, \S{}V.2.1, V.2.4]
+2.14. ? State and prove an analog of Lemma 2.2, showing that the multiplication
+on Z/nZ is a well-defined operation. [\S{}2.3, \S{}III.1.2]
+2.15. \lnot  Let n > 0 be an odd integer.
+\bullet  Prove that if gcd(m, n) = 1, then gcd(2m + n, 2n) = 1. (Use Exercise 2.13.)
+\bullet  Prove that if gcd(r, 2n) = 1, then gcd( r+n
+ 2 , n) = 1. (Ditto.)
+\bullet  Conclude that the function [m]n \to  [2m + n]2n is a bijection between (Z/nZ)\ast 
+and (Z/2nZ)\ast .
+14Two relations are evident. To `see' the third one, hold your right hand in
+front of and
+away from you, pointing your fingers at the vertices of an imaginary regular
+pentagon. Flip the
+pentagon by turning the hand toward you; rotate it counterclockwise w.r.t. the
+line of sight by 72\circ  ;
+flip it again by pointing it away from you; and rotate it counterclockwise a
+second time. This
+returns the hand to the initial position. What does this tell you?
+The number \varphi (n) of elements of (Z/nZ)\ast  is Euler's \varphi -function.
+The reader has just
+proved that if n is odd, then \varphi (2n) = \varphi (n). Much more general
+formulas will be
+given later on (cf. Exercise V.6.8). [VII.5.11]
+2.16. Find the last digit of 123823718238456 . (Work in Z/10Z.)
+2.17. ? Show that if m \equiv  m\setminus  mod n, then gcd(m, n) = 1 if and only
+if gcd(m\setminus  , n) =
+1. [\S{}2.3]
+2.18. For d \leq  n, define an injective function Z/dZ \to  Sn preserving the
+operation,
+that is, such that the sum of equivalence classes in Z/dZ corresponds to the
+product
+of the corresponding permutations.
+2.19. ? Both (Z/5Z)\ast  and (Z/12Z)\ast  consist of 4 elements. Write their
+multiplica-
+tion tables, and prove that no re-ordering of the elements will make them match.
+(Cf. Exercise 1.6.) [\S{}4.3]
+
+\section{The category Grp}
+
+Groups will be the objects of the category Grp. In this section we define the
+morphisms in the category and deal with simple properties of these morphisms.
+
+\subsection{Group homomorphisms}
+As we know, a group consists of two distinct
+
+types of information: a set G and an operation15
+mG : G \times  G \to  G
+satisfying certain properties. For two groups (G, mG) and (H, mH ), a group
+homo-
+morphism
+\phi  : (G, mG ) \to  (H, mH )
+is first of all a function (usually given the same name, \phi  in this case)
+between the
+underlying sets; but this function must `know about' the operations mG on G, mH
+on H. What is the most natural requirement of this sort?
+Note that the set-function \phi  : G \to  H determines a function
+(\phi  \times  \phi ) : G \times  G \to  H \times  H :
+we could invoke the universal property of products to obtain this function (cf.
+Ex-
+ercise 3.1), but since we are dealing with sets, there is no need for fancy
+language
+here---just define the function by
+(\forall (a, b) \in  G \times  G) :
+ (\phi  \times  \phi )(a, b) = (\phi (a), \phi (b)).
+There is a diagram combining all these maps:
+G \times  G
+ \phi \times \phi 
+ / H \times  H
+mG
+ mH
+\sqcup 
+ \sqcup 
+G
+ / H
+\phi 
+15 In \S{}1, m
+G was denoted \bullet ; here we need to keep track of operations on different
+groups, so
+for a moment I will use a symbol recording the group (and evoking
+`multiplication').
+What requirement could be more natural than asking that this diagram commute?
+Definition 3.1. The set-function \phi  : G \to  H defines a group homomorphism
+if the
+diagram displayed above commutes.
+ ?
+This is a seemingly complicated way of saying something simple: since \phi  and
+mG , mH are functions of sets, commutativity means the following. For all a, b
+\in  G,
+the two ways to travel through the diagram give
+(a, b)
+ (a, b) ?
+ / (\phi (a), \phi (b))
+_
+ _
+\sqcup 
+ \sqcup 
+a \cdot  b ?
+ / \phi (a \cdot  b)
+ \phi (a) \cdot  \phi (b)
+where I now write \cdot  for both operations: in G on the left, in H on the
+right.
+Commutativity of the diagram means that we must get the same result in both
+cases; therefore, Definition 3.1 can be rephrased as
+the set-function \phi  : G \to  H is a group homomorphism if \forall a, b \in  G
+\phi (a \cdot  b) = \phi (a) \cdot  \phi (b).
+In other words, \phi  is a homomorphism if it `preserves the structure'. This
+may
+sound more familiar to our reader. As usual, the reason to bring in diagrams (as
+in Definition 3.1) is that this would make it easy to transfer part of the
+discussion
+to other categories.
+If the context is clear, one may simply write `homomorphism', omitting the
+qualifier `group'.
+
+\subsection{Grp: Definition}
+For G, H groups16 we define
+
+HomGrp (G, H)
+to be the set of group homomorphisms G \to  H.
+If G, H, K are groups and \phi  : G \to  H, \psi  : H \to  K are two group homo-
+morphisms, it is easy to check that the composition \psi  \circ  \phi  : G \to
+K is a group
+homomorphism: from the diagram point of view, this amounts to observing that
+the `outer rectangle' in
+(\psi \circ \phi )\times (\psi \circ \phi )
++
+G \times  G
+ / H \times  H
+ / K \times  K
+\phi \times \phi 
+ \psi \times \psi 
+mG
+ mH
+ mK
+\sqcup 
+ \phi 
+ \sqcup 
+ \psi 
+ \sqcup 
+G
+ / H
+ /5 K
+\psi \circ \phi 
+16 I am yielding to the usual abuse of language that lets us omit explicit
+mention of the
+operation.
+must commute if the two `inner rectangles' commute. For arbitrary a, b \in  G,
+this
+means,
+(\psi  \circ  \phi )(a \cdot  b) = \psi (\phi (a \cdot  b)) (1)
+ = \psi (\phi (a) \cdot  \phi (b)) (2)
+ = \psi (\phi (a)) \cdot  \psi (\phi (b))
+= (\psi  \circ  \phi )(a) \cdot  (\psi  \circ  \phi )(b)
+where (1) holds because \phi  is a homomorphism and (2) holds because \psi  is a
+homo-
+morphism.
+Further, it is clear that composition is associative (because it is for
+set-functions)
+and that the identity function idG : G \to  G is a group homomorphism.
+Therefore,
+Grp is indeed a category.
+
+\subsection{Pause for reflection}
+The careful reader might raise an objection: the group
+
+axioms prescribe the existence of an identity element eG and of an `inverse',
+that
+is, a specific function
+\iota G : G \to  G,
+ \iota G (g) := g-1 .
+Shouldn't the definition of morphism in Grp keep track of this type of data? The
+definition we have given only keeps track of the multiplication map mG.
+The reason why we can get away with this is that preserving m automatically
+preserves e and \iota :
+Proposition 3.2. Let \phi  : G \to  H be a group homomorphism. Then
+\bullet  \phi (eG ) = eH ;
+\bullet  \forall g \in  G, \phi (g-1 ) = \phi (g) -1 .
+In terms of diagrams, the second assertion amounts to saying that
+G
+ \phi 
+ / H
+\iota G
+ \iota H
+\sqcup 
+ \sqcup 
+G
+ / H
+\phi 
+must commute.
+Proof. The first item follows from the definition of homomorphism and cancella-
+tion: since eH = eH \cdot  eH ,
+eH \cdot  \phi (eG ) = \phi (eG) = \phi (eG \cdot  eG ) = \phi (eG ) \cdot  \phi
+(eG ),
+which implies eH = \phi (eG ) by `cancelling \phi (eG )'.
+The proof of the second assertion is similar: \forall g \in  G,
+\phi (g -1 ) \cdot  \phi (g) = \phi (g -1 \cdot  g) = \phi (eG ) = eH = \phi (g)-1 \cdot  \phi (g),
+implying \phi (g -1 ) = \phi (g)-1 by cancellation.
+ ?
+
+\subsection{Products et al.}
+The categories Grp and Set look rather alike at first: given
+
+a group, we can `forget' the information of multiplication and we are left with
+a set;
+given a group homomorphism, we can forget that it preserves the multiplication
+and we are left with a set-function. A concise way to express this fact is that
+there
+is a `functor' Grp ; Set (called in fact a `forgetful' functor); we will deal
+with
+functors more extensively much later on, starting in Chapter VIII.
+However, there are important differences between these two categories. For
+example, recall that Set has a unique initial object (that is, \emptyset ) and
+this is not the
+same as the final objects (that is, the singletons). Also recall that a trivial
+group
+is a group consisting of a single element (Example 1.3).
+Proposition 3.3. Trivial groups are both initial and final in Grp.
+This makes trivial groups `zero-objects' of the category Grp.
+Proof. It should be clear that trivial groups are final: there is only one
+function
+from a set to a singleton, that is, the constant function; this is vacuously a
+group
+homomorphism.
+To see that trivial groups are initial, let T = {e} be a trivial group; for any
+group G, define \phi  : T \to  G by T (e) = eG . This is clearly a group
+homomorphism,
+and it is the only possible one since every group homomorphism must send the
+identity to the identity (Proposition 3.2).
+ ?
+Here is a similarity: Grp has products; in fact, the product of two groups G, H
+is supported on the product G \times  H of the underlying sets.
+To see this, we need to define a multiplication on G \times  H; the catchword
+here
+is componentwise: define the operation in G \times  H by performing the
+operation on
+each component separately. Explicitly, define \forall g1 , g2 \in  G, \forall
+h1, h2 \in  H
+(g1 , h1 ) \cdot  (g2 , h2 ) := (g1 g2 , h1 h2 ).
+This operation defines a group structure on G \times  H: the operation is
+associative, the
+identity is (eG , eH ), and the inverse of (g, h) is (g-1 , h-1 ). All needed
+verifications
+are left to the reader. The group G \times  H is called the direct product of
+the groups G
+and H.
+Also note that the natural projections
+\pi G uu
+ G \times  H J
+ J J J \pi H
+ J $
+zuuu
+G
+ H
+(defined as set-functions as in \S{}I.2.4) are group homomorphisms: again, this
+follows
+immediately from the definitions.
+Proposition 3.4. With operation defined componentwise, G \times  H is a product
+in Grp.
+Proof. Recall (\S{}I.5.4) that this means that G \times  H satisfies the
+following universal
+property: for any group A and any choice of group homomorphisms \phi G : A \to
+G,
+\phi H : A \to  H, there exists a unique group homomorphism \phi G \times  \phi H making the
+diagram
+\phi G\times \phi H
+ \phi  G
+ o
+ o o o
+ \pi G o o
+ o o
+ o
+ o
+ o o .7
+ G
+A
+ / G \times  H
+\phi H
+ O O O
+ O \pi H O O
+ O O
+ O O O
+ O O'
+/ H
+commute.
+Now, a unique set-function \phi G \times  \phi H exists making the diagram
+commute,
+because the set G \times  H is a product of G and H in Set. So we only need to
+check
+that \phi G \times  \phi  H is a group homomorphism, and this is immediate (if
+cumbersome):
+\forall a, b \in  A,
+\phi G \times  \phi H (ab) = (\phi G (ab), \phi H (ab)) = (\phi G (a)\phi G (b), \phi H (a)\phi H (b))
+= (\phi G(a), \phi H (a))(\phi G(b), \phi H (b)) = (\phi G \times  \phi H
+(a))(\phi G \times  \phi H (b)).
+?
+What about coproducts? They do exist in Grp, but their construction requires
+handling presentations more proficiently than we do right now, and general
+coprod-
+ucts of groups will not be used in the rest of the book; so the reader will have
+to
+deal with them on his or her own. For an important example, see Exercise 3.8;
+more will show up in Exercises 5.6 and 5.7, since free groups are themselves
+par-
+ticular cases of coproducts. The reader will finally produce the coproduct of
+any
+two groups explicitly in Exercise 8.7. For now, just realize that the disjoint
+union,
+which works as a coproduct in Set (Proposition I.5.6), is not an option in Grp:
+there
+is no reasonable group structure on the disjoint union. The coproduct of G and H
+in Grp is denoted G \ast  H and is called the free product of G and H.
+
+\subsection{Abelian groups}
+The category Ab whose objects are abelian groups, and
+
+whose morphisms are group homomorphisms, will in a sense be more important for
+us than the category Grp. In many ways, as we will see, Ab is a `nicer'
+category17
+than Grp. Again the trivial groups are both initial and final (that is, `zero')
+objects;
+products exist and coincide with products in Grp. But here is a difference:
+unlike
+in Grp, coproducts in Ab coincide with products. That is, if G and H are abelian
+groups, then the product G\times H (with the two natural homomorphisms G \to
+G\times H,
+H \to  G \times  H) satisfies the universal property for coproducts in Ab (cf.
+Exercise 3.3).
+When working as a coproduct, the product G \times  H of two abelian groups is
+often
+called their direct sum and is denoted G \oplus  H.
+There is a pretty subtlety here, which may highlight the power of the language:
+even if G and H are commutative, the product G \times  H does not (necessarily)
+satisfy
+17 As we will see in due time (Proposition III.5.3), Ab is one instance of a
+general class of
+categories of `modules over a commutative ring R' (for R = Z). Unlike Grp, these
+categories are
+abelian, which makes them very well-behaved. We will learn two or three things
+about abelian
+categories in Chapter IX.
+the universal property for coproducts in Grp, even if it does in Ab. For an
+explicit
+example, see Exercise 3.6.
+
+\subsection*{Exercises}
+
+3.1. ? Let \phi  : G \to  H be a morphism in a category C with products. Explain
+why
+there is a unique morphism (\phi  \times  \phi ) : G \times  G \to  H \times  H
+compatible in the evident
+way with the natural projections.
+(This morphism is defined explicitly for C = Set in \S{}3.1.) [\S{}3.1, 3.2]
+3.2. Let \phi  : G \to  H, \psi  : H \to  K be morphisms in a category with
+products, and
+consider morphisms between the products G \times  G, H \times  H, K \times  K as
+in Exercise 3.1.
+Prove that
+(\psi \phi ) \times  (\psi \phi ) = (\psi  \times  \psi )(\phi  \times  \phi ).
+(This is part of the commutativity of the diagram displayed in \S{}3.2.)
+3.3. ? Show that if G, H are abelian groups, then G \times  H satisfies the
+universal
+property for coproducts in Ab (cf. \S{}I.5.5). [\S{}3.5, 3.6, \S{}III.6.1]
+3.4. Let G, H be groups, and assume that G = \sim 
+ H \times  G. Can you conclude that H
+is trivial? (Hint: No. Can you construct a counterexample?)
+3.5. Prove that Q is not the direct product of two nontrivial groups.
+3.6. ? Consider the product of the cyclic groups C2, C3 (cf. \S{}2.3): C2 \times
+C3 . By
+Exercise 3.3, this group is a coproduct of C2 and C3 in Ab. Show that it is not
+a
+coproduct of C2 and C3 in Grp, as follows:
+\bullet  find injective homomorphisms C2 \to  S3 , C 3 \to  S3;
+\bullet  arguing by contradiction, assume that C2 \times  C3 is a coproduct of C2 , C3 , and
+deduce that there would be a group homomorphism C2 \times  C3 \to  S3 with
+certain
+properties;
+\bullet  show that there is no such homomorphism.
+[\S{}3.5]
+3.7. Show that there is a surjective homomorphism Z \ast  Z \to  C2 \ast  C3.
+(\ast  denotes
+coproduct in Grp; cf. \S{}3.4.)
+One can think of Z \ast  Z as a group with two generators x, y, subject to no
+relations whatsoever. (We will study a general version of such groups in \S{}5;
+see
+Exercise 5.6.)
+3.8. ? Define a group G with two generators x, y, subject (only) to the
+relations
+x2 = e G, y3 = e G. Prove that G is a coproduct of C2 and C3 in Grp. (The reader
+will obtain an even more concrete description for C2 \ast  C3 in Exercise 9.14;
+it is
+called the modular group.) [\S{}3.4, 9.14]
+3.9. Show that fiber products and coproducts exist in Ab. (Cf. Exercise I.5.12.
+For
+coproducts, you may have to wait until you know about quotients.)
+
+\section{Group homomorphisms}
+
+
+\subsection{Examples}
+For any two groups G, H, the set HomGrp (G, H) is certainly
+
+nonempty: at the very least we can define a homomorphism G \to  H by sending
+every element of G to the identity eH of H. Thus, HomGrp (G, H) is a `pointed
+set'
+(cf. Example I.3.8).
+There is a purely categorical way to think about this: since Grp has zero-
+objects {\ast } (recall that trivial groups are both initial and final in Grp;
+cf. Proposi-
+tion 3.3), there are unique morphisms
+G \to  {\ast },
+ {\ast } \to  H
+in Grp; their composition is the distinguished element of HomGrp (G, H)
+mentioned
+above; we will call this element the trivial morphism.
+More `meaningful' examples can be constructed by considering the groups en-
+countered in \S{}2: for instance, the function D6 \to  S3 defined in \S{}2.2 is
+a homomor-
+phism. Such examples will likely all be instances of the notion of group action.
+In
+general, an `action' of a group G on an object A of a category C is a
+homomorphism
+G \to  AutC (A);
+that is, a group G `acts' on an object if the elements of G determine
+isomorphisms
+of that object to itself, in a way compatible with compositions. If C = Set,
+this
+means that elements of G determine specific permutations of the set A. For exam-
+ple, the symmetries of an equilateral triangle (that is, elements of D6 )
+determine
+permutations of the vertices of that triangle (that is, permutations of a set
+with
+three elements), and they do so compatibly with composition; this is what gives
+us homomorphisms D6 \to  S3 . We say that D6 `acts on the set of vertices' of
+the
+triangle.
+The reader can (and should) construct many more examples of this kind. We
+will have much more to say about actions of groups and other algebraic entities
+in
+later sections.
+Here is an example with a different flavor: the exponential function is a homo-
+morphism from (R, +) to the group (R>0 , \cdot ) of positive real numbers, with
+ordinary
+multiplication as operation. Indeed, ea+b = ea eb . A similar (and very
+important)
+class of examples may be obtained as follows: let G be any group and g \in  G
+any
+element of G; define an `exponential map' ?g : Z \to  G by
+(\forall a \in  Z) :
+ ?g (a) := g a .
+Then ?g is (clearly) a group homomorphism. The element g generates G if and only
+if ? g is surjective.
+One concrete instance of this homomorphism (in the abelian environment, thus
+using multiples rather than powers) is the `quotient' function \pi n : Z \to
+Z/nZ,
+a ?\to  a \cdot  [1]n = [a]n :
+with the notation introduced above, this is ?[1]n . This function is surjective;
+hence
+[1]n generates Z/nZ. In fact, as observed in \S{}2.3 (Corollary 2.5), [m]n
+gener-
+ates Z/nZ if and only if gcd(m, n) = 1.
+If m | n, there is a homomorphism
+\pi m
+ n
+ : Z/nZ \to  Z/mZ
+making the diagram
+\pi n
+Z \sqcup 
+ I I
+ I I
+ I I \pi m
+ I I
+ I I
+ $
+Z/nZ
+ n
+ / Z/mZ
+\pi m
+commute: that is,
+\pi m
+ n
+ ([a]n ) = [a]m ;
+the reader should check carefully that this function is well-defined (Exercise
+4.1).
+If m1 and m2 are both divisors of n, we have homomorphisms \pi m
+ n
+ , \pi m
+ n
+ from
+Z/nZ to both Z/m1 Z and Z/m2 Z and hence to their direct product. For instance,
+since 6 = 2 \cdot  3, there is a homomorphism
+Z/6Z \to  Z/2Z \times  Z/3Z
+(or, in `multiplicative notation', C6 \to  C2 \times  C3 ). Explicitly,
+[0]6 ?\to  ([0]2 , [0]3),
+ [1]6 ?\to  ([1]2 , [1]3 ),
+ [2]6 ?\to  ([0]2 , [2]3 ),
+[3]6 ?\to  ([1]2 , [0]3),
+ [4]6 ?\to  ([0]2 , [1]3 ),
+ [5]6 ?\to  ([1]2 , [2]3 ).
+Note that this homomorphism is a bijection; as we will see in a moment
+(\S{}4.3), this
+makes it an isomorphism; in particular, C6 is also a product of C2 and C3 in
+Grp.
+One can concoct a homomorphism Z/nZ \to  Z/mZ also if n | m: for example,
+the function Z/2Z \to  Z/4Z defined by
+[0]2 \to  [0]4 ,
+ [1]2 \to  [2]4
+is clearly a group homomorphism. Unlike \pi m
+ n
+ , this homomorphism is not nicely
+compatible18
+ with the homomorphisms \pi n .
+On the other hand, is there a nontrivial group homomorphism (for example)
+C4 \to  C7 ? Note that there are 74 = 2,401 set-functions from C4 to C7 (cf. Ex-
+ercise I.2.10); the question is whether any of these functions (besides the
+trivial
+homomorphism sending everything to e) preserves the operation. We already know
+that a homomorphism must send the identity to the identity (Proposition 3.2),
+and
+that already rules out all but 343 functions (why?); still, it is unrealistic to
+write
+all of them out explicitly to see if any is a homomorphism.
+The reader should think about this before we spill the beans in the next sub-
+section.
+18 Also, note that while \pi  m preserves multiplication as well as sum, this
+new homomorphism
+n
+does not; that is, it is not a `ring homomorphism'. This is immediately visible
+in the given
+example: [1]2 \cdot  [1]2 = [1]2 , but [2]4 \cdot  [2]4 = [0]4.
+
+\subsection{Homomorphisms and order}
+Group homomorphisms are set-functions pre-
+
+serving the group structure; as such, they must preserve many features of the
+the-
+ory. Proposition 3.2 is an instance of this principle: group homomorphisms must
+preserve identities and inverses. It is also clear that if \phi  : G \to  H is a
+group homo-
+morphism and g is an element of finite order in G, then \phi (g) must be an
+element
+of finite order in H: indeed, if g n = eG for some n > 0, then
+\phi (g)n = \phi (gn ) = \phi (eG) = eH .
+In fact, this observation establishes a more precise statement:
+Proposition 4.1. Let \phi  : G \to  H be a group homomorphism, and let g \in  G
+be an
+element of finite order. Then |\phi (g)| divides |g|.
+Proof. As observed, \phi (g)|g| = e H ; applying Lemma 1.10 gives the statement.
+ ?
+Example 4.2. There are no nontrivial homomorphisms Z/nZ \to  Z: indeed, the
+image of every element of Z/nZ must have finite order, and the only element with
+finite order in (Z, +) is 0.
+There are no nontrivial homomorphisms \phi  : C4 \to  C7 . Indeed, the orders of
+elements in C4 divide 4 (cf. Proposition 2.3), and the orders of elements in C7
+divides 7. Thus, the order of each \phi (g) must divide both 4 and 7; this
+forces
+|\phi (g)| = 1 for all g, that is, \phi (g) = e for all g \in  C4 .
+ ?
+Of course the order itself is not preserved: for example, 1 \in  Z has infinite
+order, while [1]n = \pi n (1) \in  Z/nZ has order n (with notation as in
+\S{}4.1). Order is
+preserved through isomorphisms, as we will see in a moment.
+
+\subsection{Isomorphisms}
+An isomorphism of groups \phi  : G \to  H is (of course) an
+
+isomorphism in Grp, that is, a group homomorphism admitting an inverse
+\phi -1 : H \to  G
+which is also a group homomorphism. Taking our cue from Set, if a homomorphism
+of groups is an isomorphism, then it must in particular be a bijection between
+the
+underlying sets. Luckily, the converse also holds:
+Proposition 4.3. Let \phi  : G \to  H be a group homomorphism. Then \phi  is an
+isomorphism of groups if and only if it is a bijection.
+Proof. One implication is immediate, as pointed out above. For the other impli-
+cation, assume \phi  : G \to  H is a bijective group homomorphism. As a
+bijection, \phi
+has an inverse in Set:
+\phi -1 : H \to  G;
+we simply need to check that this is a group homomorphism. Let h1 , h2 be
+elements
+of H, and let g1 = \phi -1 (h1 ), g2 = \phi -1 (h2 ) be the corresponding
+elements of G. Then
+\phi -1 (h1 \cdot  h2 ) = \phi -1(\phi (g 1 ) \cdot  \phi (g2 )) = \phi -1(\phi (g1 \cdot  g2)) = g1 \cdot  g2 = \phi -1(h1) \cdot  \phi -1 (h2 )
+as needed.
+ ?
+Example 4.4. The function D6 \to  S3 defined in \S{}2.2 is an isomorphism of
+groups,
+since it is a bijective group homomorphism. So is the exponential function (R,
++) \to
+(R>0 , \cdot ) mentioned in \S{}4.1. If the exponential function ?g : Z \to  G
+determined by
+an element g \in  G (as in \S{}4.1) is an isomorphism, we say that G is an
+`infinite cyclic'
+group.
+The function \pi 2 6 \times  \pi 3 6 : C6 \to  C2 \times  C3 studied
+(`additively') in \S{}4.1 is an
+isomorphism.
+ ?
+Definition 4.5. Two groups G, H are isomorphic if they are isomorphic in Grp
+in the sense of \S{}I.4.1, that is (by Proposition 4.3), if there is a bijective
+group
+homomorphism G \to  H.
+ ?
+We have observed once and for all in \S{}I.4.1 that `isomorphic' is
+automatically
+an equivalence relation. We write G \sim 
+ = H if G and H are isomorphic.
+Automorphisms of a group G are isomorphisms G \to  G; these form a group
+AutGrp (G) (cf. \S{}I.4.1), usually denoted Aut(G).
+Example 4.6. We have introduced our template of cyclic groups in \S{}2.3. The
+notion of isomorphism allows us to give a formal definition:
+Definition 4.7. A group G is cyclic if it is isomorphic to Z or to Cn = Z/nZ for
+some19 n.
+ ?
+Thus, C2 \times  C3 is cyclic, of order 6, since C2 \times  C3 \sim 
+ = C6 . More generally
+(Exercise 4.9) Cm \times  Cn is cyclic if gcd(m, n) = 1.
+The reader will check easily (Exercise 4.3) that a group of order n is cyclic if
+and only if it contains an element of order n.
+There is a somewhat surprising source of cyclic groups: if p is prime, the
+group ((Z/pZ)\ast  , \cdot ) is cyclic. We will prove a more general statement
+when we have
+accumulated more machinery (Theorem IV.6.10), but the adventurous reader can
+already enjoy a proof by working out Exercise 4.11. This is a relatively deep
+fact;
+note that, for example, (Z/12Z)\ast  is not cyclic (cf. Exercise 2.19 and
+Exercise 4.10).
+The fact that (Z/pZ)\ast  is cyclic for p prime means that there must be
+integers a
+such that every nonmultiple of p is congruent to a power of a; the usual proofs
+of
+this fact are not constructive, that is, they do not explicitly produce an
+integer with
+this property. There is a very pretty connection between the order of an element
+of
+the cyclic group (Z/pZ)\ast  and the so-called `cyclotomic polynomials'; but
+that will
+have to wait for a little field theory (cf. Exercise VII.5.15).
+As we have seen, the groups D6 and S3 are isomorphic. Are C6 and S3 iso-
+morphic? There are 46,656 functions between the sets C6 and S3, of which 720 are
+bijections and 120 are bijections preserving the identity. The reader is welcome
+to
+list all 120 and attempt to verify by hand if any of them is a homomorphism. But
+maybe there is a better strategy to answer such questions. . . .
+ ?
+Isomorphic objects of a category are essentially indistinguishable in that cate-
+gory. Thus, isomorphic groups share every group-theoretic structure. In
+particular,
+19This includes the possibility that n = 1, that is, trivial groups are cyclic.
+Proposition 4.8. Let \phi  : G \to  H be an isomorphism.
+\bullet  (\forall g \in  G) : |\phi (g)| = |g|;
+\bullet  G is commutative if and only if H is commutative.
+Proof. The first assertion follows from Proposition 4.1: the order of \phi (g)
+divides
+the order of g, and on the other hand the order of g = \phi -1 (\phi (g)) must
+divide the
+order of \phi (g); thus the two orders must be equal.
+The proof of the second assertion is left to the reader.
+ ?
+Further instances of this principle will be assumed without explicit mention.
+Example 4.9. C6 \sim 
+ = S3 , since one is commutative and the other is not. Here is
+another reason: in C6 there is 1 element of order one, 1 of order two, 2 of
+order
+three, and 2 of order six; in S3 the situation is different: 1 element of order
+one, 3
+of order two, 2 of order three. Thus, none of the 120 bijections C6 \to  S3
+preserving
+the identity is a group homomorphism.
+Note: Two finite commutative groups are isomorphic if and only if they have
+the same number of elements of any given order, but we are not yet in a position
+to prove this; the reader will verify this fact in due time (Exercise IV.6.13).
+The
+commutativity hypothesis is necessary: there do exist pairs of nonisomorphic
+finite
+groups with the same number of elements of any given order (same exercise).
+ ?
+
+\subsection{Homomorphisms of abelian groups}
+I have already mentioned that Ab
+
+is in some ways `better behaved' than Grp, and I am ready to highlight another
+instance of this observation. As we have seen, HomGrp (G, H) is a pointed set
+for
+any two groups G, H. In Ab, we can say much more: HomAb (G, H) is a group (in
+fact, an abelian group) for any two abelian groups G, H.
+The operation in HomAb (G, H) is `inherited' from the operation in H: if \phi ,
+\psi  :
+G \to  H are two group homomorphisms, let \phi  + \psi  be the function defined
+by
+(\forall a \in  G) :
+ (\phi  + \psi )(a) := \phi (a) + \psi (a).
+Is \phi  + \psi  a group homomorphism? Yes, because \forall a, b \in  G
+(\phi  + \psi )(a + b) = \phi (a + b) + \psi (a + b) = (\phi (a) + \phi (b)) +
+(\psi (a) + \psi (b))
+!
+= (\phi (a) + \psi (a)) + (\phi (b) + \psi (b)) = (\phi  + \psi )(a) + (\phi  +
+\psi )(b).
+Note that the equality marked by ! uses crucially the fact that H is
+commutative.
+With this operation, HomAb(G, H) is clearly a group: the associativity of + is
+inherited from that of the operation in H; the trivial homomorphism is the
+identity
+element, and the inverse20 of \phi  : G \to  H is defined (not surprisingly) by
+(\forall a \in  G) :
+ (-\phi )(a) = -\phi (a).
+In fact, note that these conclusions may be drawn as soon as H is commutative:
+HomGrp (G, H) is a group if H is commutative (even if G is not). In fact, if H
+is
+20 Unfortunate clash of terminology! I mean the `inverse' as in `group inverse',
+not as a
+possible function H \to  G.
+a commutative group, then H A = HomSet (A, H) is a commutative group for all
+sets A; we will come back to this group in \S{}5.4.
+
+\subsection*{Exercises}
+
+4.1. ? Check that the function \pi m
+ n
+ defined in \S{}4.1 is well-defined and makes the
+diagram commute. Verify that it is a group homomorphism. Why is the hypothe-
+sis m | n necessary? [\S{}4.1]
+4.2. Show that the homomorphism \pi 2 4 \times  \pi 2 4 : C4 \to  C2 \times  C 2
+is not an isomorphism.
+In fact, is there any isomorphism C4 \to  C2 \times  C2 ?
+4.3. ? Prove that a group of order n is isomorphic to Z/nZ if and only if it
+contains
+an element of order n. [\S{}4.3]
+4.4. Prove that no two of the groups (Z, +), (Q, +), (R, +) are isomorphic to
+one
+another. Can you decide whether (R, +), (C, +) are isomorphic to one another?
+(Cf. Exercise VI.1.1.)
+4.5. Prove that the groups (R \setminus  {0}, \cdot ) and (C \setminus  {0},
+\cdot ) are not isomorphic.
+4.6. We have seen that (R, +) and (R>0 , \cdot ) are isomorphic (Example 4.4).
+Are the
+groups (Q, +) and (Q>0 , \cdot ) isomorphic?
+4.7. Let G be a group. Prove that the function G \to  G defined by g ?\to  g -1
+is a
+homomorphism if and only if G is abelian. Prove that g ?\to  g2 is a
+homomorphism
+if and only if G is abelian.
+4.8. \lnot  Let G be a group, and let g \in  G. Prove that the function \gamma g
+: G \to  G defined
+by (\forall a \in  G) : \gamma g (a) = gag -1 is an automorphism of G. (The
+automorphisms \gamma g are
+called `inner' automorphisms of G.) Prove that the function G \to  Aut(G)
+defined
+by g ?\to  \gamma g is a homomorphism. Prove that this homomorphism is trivial
+if and
+only if G is abelian. [6.7, 7.11, IV.1.5]
+4.9. ? Prove that if m, n are positive integers such that gcd(m, n) = 1, then
+Cmn \sim 
+ = Cm \times  Cn . [\S{}4.3, 4.10, \S{}IV.6.1, V.6.8]
+4.10. ? Let p = q be odd prime integers; show that (Z/pqZ)\ast  is not cyclic.
+(Hint:
+Use Exercise 4.9 to compute the order N of (Z/pqZ)\ast , and show that no
+element
+can have order N .) [\S{}4.3]
+4.11. ? In due time we will prove the easy fact that if p is a prime integer,
+then
+the equation xd = 1 can have at most d solutions in Z/pZ. Assume this fact, and
+prove that the multiplicative group G = (Z/pZ)\ast  is cyclic. (Hint: Let g \in
+G be an
+element of maximal order; use Exercise 1.15 to show that h|g| = 1 for all h \in
+G.
+Therefore. . . .) [\S{}4.3, 4.15, 4.16, \S{}IV.6.3]
+4.12. \lnot  \bullet  Compute the order of [9]31 in the group (Z/31Z)\ast  .
+\bullet  Does the equation x3 - 9 = 0 have solutions in Z/31Z? (Hint: Plugging in
+all 31 elements of Z/31Z is too laborious and will not teach you much. Instead,
+use the result of the first part: if c is a solution of the equation, what can
+you say
+about |c|?) [VII.5.15]
+4.13. \lnot  Prove that AutGrp (Z/2Z \times  Z/2Z) \sim 
+ = S3 . [IV.5.14]
+4.14. ? Prove that the order of the group of automorphisms of a cyclic group Cn
+is
+the number of positive integers r \leq  n that are relatively prime to n. (This
+is called
+Euler's \varphi -function; cf. Exercise 6.14.) [\S{}IV.1.4, IV.1.22, \S{}IV.2.5]
+4.15. \lnot  Compute the group of automorphisms of (Z, +). Prove that if p is
+prime,
+then AutGrp (Cp) \sim 
+ = Cp-1 . (Use Exercise 4.11.) [IV.5.12]
+4.16. \lnot  Prove Wilson's theorem: an integer p > 1 is prime if and only if
+(p - 1)! \equiv  -1 mod p.
+(For one direction, use Exercises 1.8 and 4.11. For the other, assume d is a
+proper
+divisor of p, and note that d divides (p - 1)!; therefore. . . .) [IV.4.11]
+4.17. For a few small (but not too small) primes p, find a generator of
+(Z/pZ)\ast  .
+4.18. Prove the second part of Proposition 4.8.
+
+\section{Free groups}
+
+
+\subsection{Motivation}
+Having become more familiar with homomorphisms, we can
+
+now contemplate one fancier example of a group. The motivation underlying this
+new construction may be summarized as follows: given a set A, whose elements
+have no special `group-theoretic' property, we want to construct a group F (A)
+containing A `in the most efficient way'.
+For example, if A = \emptyset , then a trivial group will do. If A = {a} is a
+singleton,
+then a trivial group will not do: because although a trivial group {a} would
+itself
+be a singleton, that one element a in it would have to be the identity, and that
+is certainly a very special group-theoretic property. Instead, I propose that we
+construct an infinite cyclic group ?a? whose elements are `formal powers' an, n
+\in  Z,
+and we identify a with the power a1 :
+?a? := {\dots  , a-2 , a-1, a0 = e, a1 = a, a2 , a3, \dots  };
+we take all these powers to be distinct and define multiplication in the evident
+way---so that the exponential map
+?a : Z \to  ?a?,
+ ?a (n) := an
+is an isomorphism. The fact that `all powers are distinct' is the formal way to
+implement the fact that there is nothing special about a: in the group F ({a}) =
+?a?,
+a obeys no condition other than the inevitable a0 = e.
+Summarizing: if A is a singleton, then we may take F (A) to be an infinite
+cyclic group.
+The task is to formalize the heuristic motivation given above and construct a
+group F (A) for every set A. As I often do, I will now ask the reader to put
+away
+this book and to try to figure out on his or her own what this may mean and how
+it may be accomplished.
+
+\subsection{Universal property}
+Hoping that the reader has now acquired an individual
+
+viewpoint on the issue, here is the standard answer: the heuristic motivation is
+formalized by means of a suitable universal property. Given a set A, our group F
+(A)
+will have to `contain' A; therefore it is natural to consider the category F A
+whose
+objects are pairs (j, G), where G is a group and
+j : A \to  G
+is a set-function21 from A to G and morphisms
+(j1 , G1 ) \to  (j2 , G2 )
+are commutative diagrams of set-functions
+G1
+ \phi 
+ / G2
+j1
+ O { { { { { j
+ {
+ {
+ { =
+A
+in which \phi  is required to be a group homomorphism.
+The reader will be reminded of the categories we considered in Example I.3.7:
+the only difference here is that we are mixing objects and morphisms of one
+cate-
+gory (that is, Grp) with objects and morphisms of another (related) category
+(that
+is, Set). The fact that we are considering all possible functions A \to  G is a
+way to
+implement the fact that we have no a priori group-theoretic information about A:
+we do not want to put any restriction on what may happen to the elements of A
+once they are mapped to a group G; hence we consider all possibilities at once.
+A free group F (A) on A will be (the group component of) an initial object
+in F A . This choice implements the fact that A should map to F (A) in the `most
+efficient way': any other way to map A to a group can be reconstructed from
+this one, by composing with a group homomorphism. In the language of universal
+properties, we can state this as follows: F (A) is a free group on the set A if
+there is a
+set-function j : A \to  F (A) such that, for all groups G and set-functions f :
+A \to  G,
+there exists a unique group homomorphism \phi  : F (A) \to  G such that the
+diagram
+F (A)
+ \phi 
+ / G
+j
+ O
+ z z
+ z
+ z z z f
+ z
+ z
+ z =
+A
+commutes. By general nonsense (Proposition I.5.4), this universal property de-
+fines F (A) up to isomorphism, if this group exists. But does F (A) exist?
+Before giving a `concrete' construction of F (A), let's check that if A = {a} is
+a singleton, then F (A) \sim 
+ = Z, as proposed in \S{}5.1. The function j : A \to  Z will send
+a to 1 \in  Z. For any group G, giving a set-function f : A \to  G amounts to
+choosing
+21 We could assume that j is injective, identifying A with a subset of G; the
+construction
+would be completely analogous, and the resulting group would be the same.
+However, considering
+arbitrary functions leads to a stronger, more useful, universal property.
+one element g = f (a) \in  G. Now there is a unique homomorphism \phi  : Z \to
+G
+making the diagram
+j
+ Z O
+ }
+ }
+ } \phi 
+ } } f
+ }
+ }
+ } / >
+ G
+{a}
+commute: because this forces \phi (1) = \phi  \circ  j(a) = f (a) = g, and then
+the homo-
+morphism condition forces \phi (n) = g n . That is, \phi  is necessarily the
+exponential
+map ?g considered in \S{}4.1. Therefore, infinite cyclic groups do satisfy the
+universal
+property for free groups over a singleton.
+
+\subsection{Concrete construction}
+As we know, terminal objects of a category need
+
+not exist. So I have to convince the reader that free groups F (A) exist, for
+every
+set A.
+Given any set A, we are going to think of A as an `alphabet' and construct
+`words' whose letters are elements of A or `inverses' of elements of A. To
+formalize
+this, consider a set A\setminus  isomorphic to A and disjoint from it; call a-1
+the element
+in A\setminus  corresponding to a \in  A. A word on the set A is an ordered list
+(a1 , a2 , \dots  , an ),
+which we denote by the juxtaposition
+w = a1 a2 \dots  an ,
+where each `letter' ai is either an element a \in  A or an element a-1 \in
+A\setminus  . I will
+denote the set of words on A by W (A); the number n of letters is the `length'
+of w;
+I include in W (A) the `empty word' w = ( ), consisting of no letters.
+For example, if A = {a} is a singleton, then an element of W (A) may look like
+a-1a-1aaaa-1aa-1 .
+An element of W ({x, y}) may look like
+xxx-1 yy -1 xxy-1 x-1 yy -1 xy -1 x.
+Now the notation I have chosen hints that elements in W (A) may be redundant:
+for example,
+xyy -1x
+ and
+ xx
+are distinct words, but they ought to end up being the same element of a group
+having to do with words. Therefore, we want to have a process of `reduction'
+which
+takes a word and cleans it up by performing all cancellations. Note that we have
+to do this `by hand', since we have not come close yet to defining an operation
+or
+-1making formal sense of considering a to be the `inverse' of a.
+Describing the reduction process is invariably awkward---it is a completely ev-
+ident procedure, but writing it down precisely and elegantly is a challenge. I
+will
+settle for the following.
+\bullet  Define an `elementary' reduction r : W (A) \to  W (A): given w \in  W (A), search
+for the first occurrence (from left to right) of a pair aa-1 or a-1 a, and let
+r(w) be the word obtained by removing such a pair. In the two examples
+given above,
+r(a-1a-1aaaa-1aa-1 ) = a-1 aaa-1aa-1 ,
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1r(xxx yy xxy x yy xy x) = xyy xxy x yy xy x.
+\bullet  Note that r(w) = w precisely when `no cancellation is possible'; We say that
+w is a `reduced word' in this case.
+Lemma 5.1. If w \in  W (A) has length n, then22 r? n
+ 2 (w) is a reduced word.
+Proof. Indeed, either r(w) = w or the length of r(w) is less than the length of
+w;
+but one cannot decrease the length of w more than n/2 times, since each non-
+identity application of r decreases the length by two.
+ ?
+\bullet  Now define the `reduction' R : W (A) \to  W (A) by setting R(w) = r ? n
+ 2 (w),
+where n is the length of w. By the lemma, R(w) is always a reduced word.
+For example, R(a-1a-1aaaa-1aa-1 ) is the empty word, since
+r4(a-1 a-1 aaaa-1 aa-1) = r3 (a-1 aaa-1 aa-1 ) = r 2 (aa-1 aa-1 ) = r(aa-1) = (
+);
+and R(xxx-1yy-1 xxy-1 x-1yy-1 xy -1 x) = xxxy -1y -1 x, as the reader may
+check.
+Let F (A) be the set of reduced words on A, that is, the image of the reduction
+map R we have just defined.
+We are ready to (finally) define free groups `concretely'. Define a binary oper-
+ation on F (A) by juxtaposition & reduction: for reduced words w, w\setminus  ,
+define w \cdot  w\setminus
+\setminus as the reduction of the juxtaposition of w and w ,
+w \cdot  w\setminus  := R(ww\setminus  ).
+It is essentially evident that F (A) is a group under this operation:
+\bullet  The operation is associative.
+\bullet  The empty word e = ( ) is the identity in F (A), since ew = we = w (no
+reduction is necessary).
+\bullet  If w is a reduced word, the inverse of w is obtained by reversing the order of
+the letters of w and replacing each a \in  A by a-1 \in  A\setminus  and each
+a-1 by a.
+The most cumbersome of these statements to prove formally is associativity; it
+follows easily from (for example) Exercise 5.4.
+There is a function j : A \to  F (A), defined by sending the element a \in  A to
+the
+word consisting of the single `letter' a.
+Proposition 5.2. The pair (j, F (A)) satisfies the universal property for free
+groups
+on A.
+22 ?q? denotes the largest integer \leq  q.
+Proof. This is also essentially evident, once one has absorbed all the notation.
+Any function f : A \to  G to a group extends uniquely to a map \phi  : F (A) \to
+G, determined by the homomorphism condition and by the requirement that the
+diagram commutes, which fixes its value on one-letter words a \in  A (as well as
+on a-1 \in  A\setminus ).
+To check more formally that \phi  exists as a homomorphism, one can proceed as
+follows. If f : A \to  G is any function, we can extend f to a set-function
+\tilde{\phi } : W (A) \to  G
+by insisting that on one-letter words a or a-1 (for a \in  A),
+\tilde{\phi }(a) = f (a),
+ \tilde{\phi }(a -1 ) = f (a)-1,
+and that \tilde{\phi } is compatible with juxtaposition:
+\tilde{\phi }(ww\setminus  ) = \tilde{\phi }(w)\tilde{\phi }(w\setminus  )
+for any two words w, w\setminus  . The key point now is that reduction is
+invisible for \tilde{\phi }:
+\tilde{\phi }(R(w)) = \tilde{\phi }(w),
+since this is clearly the case for elementary reductions; therefore, since \phi
+: F (A) \to
+G agrees with \tilde{\phi } on reduced words, we have for w, w\setminus  \in  F
+(A)
+\phi (w \cdot  w\setminus  ) = \tilde{\phi }(w \cdot  w \setminus ) = \tilde{\phi }(R(ww\setminus  )) = \tilde{\phi }(ww\setminus  ) = \tilde{\phi }(w)\tilde{\phi }(w\setminus  ) = \phi (w)\phi (w\setminus  ) :
+that is, \phi  is a homomorphism, as needed.
+ ?
+Example 5.3. It is easy to `visualize' F ({a}) \sim 
+ = Z; but it is already somewhat
+challenging for the free group on two generators, F ({x, y}). The best I can do
+is
+the following: behold the infinite graph23
+23This is an example of the Cayley graph of a group (cf. Exercise 8.6): a graph
+whose vertices
+correspond to the elements of the group and whose edges connect vertices
+according to the action
+of generators.
+obtained by starting at a point (the center of the picture), then branching out
+in
+four directions by a length of 1, then branching out similarly by a length of
+1/2, then
+by 1/4, then by 1/8, then. . . (and I stopped there, to avoid cluttering the
+picture
+too much). Then every element of F ({x, y}) corresponds in a rather natural way
+to
+exactly one dot in this diagram. Indeed, we can place the empty word at the
+center;
+and we can agree that every x in a word takes us one step to the right, every
+x-1
+to the left, every y up, and every y -1 down. For example, the word yx-1 yx
+takes
+us here:
+yx-1 yx
+The reader will surely encounter this group elsewhere: it is the fundamental
+group of the `figure 8'.
+ ?
+
+\subsection{Free abelian groups}
+We can pose in Ab the same question answered above
+
+for Grp: that is, ask for the abelian group F ab (A) which most efficiently
+contains
+the set A, provided that we do not have any additional information on the
+elements
+of A. Of course we do know something about the elements of A this time: they
+will have to commute with each other in F ab (A). This plays no role if A = {a}
+is
+a singleton, and therefore F ab ({a}) = F ({a}) = \sim 
+ Z; but the requirement is different
+for larger sets, so we should expect a different answer in general.
+The formalization of the heuristic requirement is precisely the same universal
+property that gave us free groups, but (of course) stated in Ab: F ab (A) is a
+free
+abelian group on the set A if there is a set-function j : A \to  F ab (A) such
+that,
+for all abelian groups G and set-functions f : A \to  G, there exists a unique
+group
+homomorphism \phi  : F ab(A) \to  G such that the following diagram commutes:
+F ab (A)
+ \phi 
+ / G
+j
+ O
+ x x
+ x x x x
+ f
+ x
+ x
+ x x
+ <
+A
+Again, Proposition I.5.4 guarantees that F ab (A) is unique up to isomorphism,
+if it exists; but we have to prove it exists! This is in some way simpler than
+for Grp,
+in the sense that F ab (A) is easier to understand, at least for finite sets A.
+To fix ideas, I will first describe the answer for a finite set, say A = {1,
+\dots  , n}.
+I will denote by Z\oplus n the direct sum
+Z \oplus  \dots  \oplus  Z;
+?
+n-times
+recall (\S{}3.5) that this group `is the same as' the product24 Zn (but we view
+it as a
+coproduct). There is a function j : A \to  Z\oplus n , defined by
+j(i) := (0, \dots  , 0,
+ , 0, \dots  , 0) \in  Z\oplus n .
+i-th place
+Claim 5.4. For A = {1, \dots  , n}, Z\oplus n is a free abelian group on A.
+Proof.
+ Note that every element of Z\oplus n can be written uniquely in the form
+?n
+i=1 mi j(i): indeed,
+(m1 , \dots  , mn ) = (m1 , 0, \dots  , 0) + (0, m2 , 0, \dots  , 0) + \dots  +
+(0, \dots  , 0, mn )
+= m1(1, 0, \dots  , 0) + m2 (0, 1, 0, \dots  , 0) + \dots  + mn (0, \dots  , 0,
+1)
+= m1 j(1) + \dots  + mn j(n),
+and (m1 , \dots  , mn ) = (0, \dots  , 0) if and only if all mi are 0.
+Now let f : A \to  G be any function from A = {1, \dots  , n} to an abelian
+group G.
+I define \phi  : Z\oplus n \to  G by
+? ?
+?
+ n
+ ?
+ n
+\phi 
+ mi j(i) :=
+ mi f (i) :
+i=1
+ i=1
+indeed, we have no choice---this definition is forced by the needed
+commutativity
+of the diagram
+Z\oplus n
+ j
+ O
+ {
+ {
+ { { \phi 
+ { f
+ {
+ {
+ { / =
+ G
+A
+and by the homomorphism condition. Thus \phi  is certainly uniquely determined,
+and
+we just have to check that it is a homomorphism. This is where the commutativity
+of G enters:
+? ?
+ ? ?
+?
+ n
+ ?
+ n
+ ?
+ n
+ ?
+ n
+ ?
+ n
+? ?? ? ?? !
+ ? ??\phi 
+ mi j(i)
+ + \phi 
+ mi j(i)
+ =
+ mi f (i) +
+ mi f (i) =
+ (mi + mi )f (i)
+i=1
+ i=1
+ i=1
+ i=1
+ i=1
+because G is commutative,
+? ?
+ ? ?
+?
+ n
+ ?
+ n
+ ?
+ n
+\setminus 
+ \setminus \setminus 
+ \setminus 
+ \setminus \setminus 
+= \phi 
+ (mi + mi ) j(i) = \phi 
+ mi j(i) +
+ mi j(i)
+i=1
+ i=1
+ i=1
+as needed.
+ ?
+24 Indeed, it is common to denote this group by Zn, omitting the \oplus . No
+confusion is likely,
+but I will try to distinguish the two to emphasize that they play different
+categorical roles.
+Remark 5.5. A less hands-on, more high-brow argument can be given by contem-
+plating the universal property defining free abelian groups vis-\`{a}-vis the
+universal
+property for coproducts; cf. Exercise 5.7.
+ ?
+Now for the general case: let A be any set. As we have seen, H A = HomSet (A, H)
+has a natural abelian group structure if H is an abelian group (\S{}4.4);
+elements
+of H A are arbitrary set-functions \alpha  : A \to  H. We can define a subset H
+\oplus A of H A
+as follows:
+H \oplus A := {\alpha  : A \to  H | \alpha (a) = eH for only finitely many
+elements a \in  A}.
+A \oplus A \oplus AThe operation in H induces an operation in H , which makes H
+into a
+group25 .
+\oplus A AThe reader should note that H is the whole of H if A is a finite set; and
+that Z\oplus A \sim 
+ = Z\oplus n if A = {1, \dots  , n}: indeed, (m1 , \dots  , mn ) \in  Z\oplus n
+ may be identified
+with the function {1, \dots  , n} \to  Z sending i to mi .
+For H = Z there is a natural function j : A \to  Z \oplus A, obtained by sending
+a \in  A
+to the function ja : A \to  Z defined by
+(\forall x \in  A) :
+j a(x):=
+?
+10if x = a,
+if x = a.
+Note that for A = {1, \dots  , n} and identifying Z\oplus A = \sim 
+ Z\oplus n , this function j is the
+same function denoted j earlier.
+Proposition 5.6. For every set A, F ab(A) \sim 
+ = Z\oplus A .
+Proof. The key point is again that every element of Z\oplus A may be written
+uniquely
+as a finite sum
+?
+maa\in A
+j(a),
+ma = 0 for only finitely many a;
+once this is understood, the argument is precisely the same as for Claim 5.4.
+ ?
+25 Thus H \oplus A is a subgroup of H A; cf. \S{}6.
+
+\subsection*{Exercises}
+
+5.1. Does the category F A defined in \S{}5.2 have final objects? If so, what
+are they?
+5.2. Since trivial groups T are initial in Grp, one may be led to think that (e,
+T )
+should be initial in F A , for every A: e would be defined by sending every
+element
+of A to the (only) element in T ; and for any other group G, there is a unique
+homomorphism T \to  G. Explain why (e, T ) is not initial in F A (unless A =
+\emptyset ).
+5.3. ? Use the universal property of free groups to prove that the map j : A \to
+F (A)
+is injective, for all sets A. (Hint: It suffices to show that for every two
+elements
+a, b of A there is a group G and a set-function f : A \to  G such that f (a) = f
+(b).
+Why? How do you construct f and G?) [\S{}III.6.3]
+5.4. ? In the `concrete' construction of free groups, one can try to reduce
+words
+by performing cancellations in any order; the process of `elementary reductions'
+used in the text (that is, from left to right) is only one possibility. Prove
+that the
+result of iterating cancellations on a word is independent of the order in which
+the
+cancellations are performed. Deduce the associativity of the product in F (A)
+from
+this. [\S{}5.3]
+\oplus A5.5. Verify explicitly that H is a group.
+5.6. ? Prove that the group F ({x, y}) (visualized in Example 5.3) is a
+coproduct
+Z\ast Z of Z by itself in the category Grp. (Hint: With due care, the universal
+property
+for one turns into the universal property for the other.) [\S{}3.4, 3.7, 5.7]
+5.7. ? Extend the result of Exercise 5.6 to free groups F ({x 1 , . . . , xn })
+and to free
+abelian groups F ab ({x1 , . . . , xn }). [\S{}3.4, \S{}5.4]
+5.8. Still more generally, prove that F (A\sqcup B) = F (A)\ast F (B) and that F
+ab (A\sqcup B) =
+F ab(A) \oplus  F ab (B) for all sets A, B. (That is, the constructions F , F ab
+`preserve
+coproducts'.)
+5.9. Let G = Z\oplus N . Prove that G \times  G \sim 
+ = G.
+5.10. \lnot  Let F = F ab (A).
+\bullet  Define an equivalence relation \sim  on F by setting f \setminus  \sim  f if and only if f -f \setminus  = 2g
+for some g \in  F . Prove that F/\sim  is a finite set if and only if A is
+finite, and in
+that case |F/\sim | = 2|A|.
+\bullet  Assume F ab(B) \sim 
+ = F ab (A). If A is finite, prove that B is also, and that A = \sim 
+ B
+as sets. (This result holds for free groups as well, and without any finiteness
+hypothesis. See Exercises 7.13 and VI.1.20.)
+[7.4, 7.13]
+
+\section{Subgroups}
+
+
+\subsection{Definition}
+Let (G, \cdot ) be a group, and let (H, \bullet ) be another group, whose
+
+underlying set H is a subset of G.
+Definition 6.1. (H, \bullet ) is a subgroup of G if the inclusion function i : H
+\setminus \to  G is a
+group homomorphism.
+ ?
+For example, the trivial group consisting of the single element eG is a subgroup
+of G.
+If (H, \bullet ) is a subgroup of (G, \cdot ), then \forall h1 , h2 \in  H:
+(*)
+ i(h1 \bullet  h2 ) = i(h1 ) \cdot  i(h2).
+We say that the operation \bullet  on H is `induced' from the operation \cdot
+on G; in practice
+one omits explicit mention of i and of the operations, and (*) guarantees that
+no
+ambiguity will arise from this.
+The subgroup condition may be streamlined. A subset H of a group G deter-
+mines a subgroup if the operation \cdot  in G induces (by (*)) a binary
+operation in H
+(we say that H is closed with respect to the operation in G), satisfying the
+group
+axioms. Since the identity and inverses are preserved through homomorphisms
+(Proposition 3.2), the identity eH of H will have to coincide with the identity
+eG
+of G and the inverse of an element h \in  H has to be the same as the inverse of
+that
+element in G. The most economical way to say all this is
+Proposition 6.2. A nonempty subset H of a group G is a subgroup if and only if
+(\forall a, b \in  H) :
+ ab-1 \in  H.
+Proof. It is clear that if H is a subgroup, then the stated condition holds:
+indeed,
+if b \in  H, then the inverse of b must also be in H and H is closed under the
+operation
+of G.
+Conversely, assume the stated condition holds; we have to check that H is
+closed under the operation of G, the induced operation on H is associative, and
+it admits an identity element and inverses (that is, it contains eG and is
+closed
+under taking inverses in G). Since H is nonempty, we can find an element h \in
+H.
+Choosing a = b = h, we see that
+eG = hh-1 = ab-1 \in  H;
+thus H contains the identity. Given any h \in  H, choosing a = eG and b = h
+shows
+that
+h-1 = eG h-1 = ab-1 \in  H;
+thus H contains the inverse of any of its elements. Given any h1 , h2 \in  H,
+choose
+-1
+a = h1 , b = h2 ; the stated condition says that
+h1 h2 = h1 ((h2 )-1 )-1 = ab-1 \in  H,
+proving that H is closed under the operation.
+Finally, the fact that the operation is associative in G implies immediately
+that
+the induced operation is associative in H, concluding the proof that H, with the
+induced operation, is a group.
+ ?
+This criterion makes it particularly straightforward to check simple facts con-
+cerning subgroups. For example,
+Lemma 6.3. If {H\alpha  }\alpha \in A is any family of subgroups of a group G,
+then
+?
+H =
+ H\alpha 
+\alpha \in A
+is a subgroup of G.
+Proof. This follows right away from Proposition 6.2: H is nonempty, because
+e \in  H\alpha  for all \alpha , so e \in  H; and
+a, b \in  H \implies  (\forall \alpha  \in  A) : a, b \in  H\alpha  \implies
+(\forall \alpha  \in  A) : ab-1 \in  H\alpha  \implies  ab-1 \in  H,
+proving that H is a subgroup of G.
+ ?
+Similarly,
+Lemma 6.4. Let \phi  : G \to  G\setminus  be a group homomorphism, and let H
+\setminus  be a subgroup
+of G\setminus . Then \phi -1(H \setminus  ) is a subgroup of G.
+Proof. Recall (end of \S{}I.2.5) that \phi -1(H \setminus  ) consists of all g
+\in  G such that \phi (g) \in
+H \setminus . Since \phi (eG ) = eG? \in  H \setminus  , this set is nonempty.
+If a, b \in  \phi -1(H \setminus  ), then \phi (a)
+\setminus and \phi (b) are in H , and hence
+\phi (ab-1 ) = \phi (a)\phi (b)-1 \in  H \setminus  :
+thus, ab-1 \in  \phi -1 (H \setminus  ). This implies that \phi -1 (H \setminus
+) is a subgroup of G, by Proposi-
+tion 6.2.
+ ?
+
+\subsection{Examples: Kernel and image}
+Every group homomorphism \phi  : G \to  G\setminus 
+
+determines two interesting subgroups:
+\bullet  the kernel of \phi , ker \phi  \subseteq  G; and
+\bullet  the image of \phi , im \phi  \subseteq  G\setminus  .
+Definition 6.5. The kernel of \phi  : G \to  G\setminus  is the subset of G
+consisting of elements
+mapping to the identity in G\setminus  :
+ker \phi  := {g \in  G | \phi (g) = eG? } = \phi -1 (eG? ).
+ ?
+Since {eG? } is a subgroup of G\setminus  , Lemma 6.4 shows that ker \phi  is
+indeed a sub-
+group of G. For an (even) more explicit argument, note that ker \phi  is
+nonempty,
+since eG \in  ker \phi ; and if a, b are in ker \phi , then
+\phi (ab-1 ) = \phi (a)\phi (b)-1 = e G? e-1
+ G? = eG? ,
+proving that ab-1 \in  ker \phi . This shows that ker \phi  is a subgroup of G,
+by Proposi-
+tion 6.2.
+The verification that im \phi  is a subgroup is left to the reader. In fact, the
+reader
+should check that the image of any subgroup of G is a subgroup of G\setminus  .
+We will soon (\S{}7.1) see that kernels are `special' subgroups. As with most
+constructions of importance in algebra, they satisfy a universal property, which
+may be expressed as follows.
+Proposition 6.6. Let \phi  : G \to  G\setminus  be a homomorphism. Then the
+inclusion i :
+ker \phi  \setminus \to  G is final in the category26 of group homomorphisms
+\alpha  : K \to  G such that
+\phi  \circ  \alpha  is the trivial map.
+In other words, every group homomorphism \alpha  : K \to  G such that \phi
+\circ  \alpha  is the
+trivial homomorphism (denoted `0' in the diagram) factors uniquely through ker
+\phi :
+K / G
+ (/
+ G\setminus 
+D \exists !\alpha  D D
+ D \alpha  D
+ D
+ D D
+ " ? ?
+ O \phi 
+ker \phi 
+Proof. If \alpha  : K \to  G is such that \phi  \circ  \alpha  is the trivial
+map, then \forall k \in  K
+\phi  \circ  \alpha (k) = \phi (\alpha (k)) = eG? ,
+that is, \alpha (k) \in  ker \phi . We can (and must) then let \alpha  : K \to
+ker \phi  simply be \alpha  itself,
+with restricted target.
+ ?
+Proposition 6.6 indicates how one might define a notion analogous to `kernel' in
+very general settings. This viewpoint will be championed much later in this
+book,
+especially in Chapter IX.
+Remark 6.7. The argument shows that in fact kernels of group homomorphisms
+satisfy a somewhat stronger universal property: any set-function \alpha  : K \to
+G
+such that the image of \phi  \circ  \alpha  is the identity in G\setminus  must
+factor (as a set-function)
+through ker \phi .
+ ?
+
+\subsection{Example: Subgroup generated by a subset}
+If A \subseteq  G is any subset, we
+
+have a unique group homomorphism
+\phi A : F (A) \to  G
+extending this inclusion, by the universal property of free groups. The image of
+this homomorphism is a subgroup of G, the subgroup generated by A in G, often
+denoted27 ?A?.
+Of course, if G is abelian, then \phi A factors through F ab (A), so we may
+replace
+F (A) by F ab (A) in this case.
+The `concrete' description of free groups (\S{}5.3) leads to the following
+description
+of ?A?: it consists of all products in G of the form
+a1 a2 a3 \dots  an
+where each ai is either an element of A, the inverse of an element of A, or the
+identity. This is clearly the most `economical' way to manufacture a subgroup
+of G, given the elements of A.
+26 The reader should specify what the morphisms are in this category.
+27 If A = {g1
+ , . . . , gr
+ } is a finite set, one writes
+ g1 , . . . , gr .
+The reader who has not (yet) developed a taste for free groups may prefer
+the following alternative description: ?A? is the intersection of all subgroups
+of G
+containing A,
+ ?
+?A? =
+ H.
+H subgroup of G, H \supseteq  A
+Indeed, the intersection on the right-hand side is a subgroup of G by Lemma 6.3,
+it contains A, and it is clearly the smallest subgroup satisfying this
+condition.
+If A = {g} consists of a single element, then F (A) = Z and \phi A : Z \to  G is
+nothing but the `exponential map' ?g (cf. \S{}4.1); ?A? = ?g? is then the image
+of this
+map:
+?g? = im(?g ) = {. . . , g-2 , g -1 , e, g, g 2 , . . . }.
+The subgroup ?g? is the `cyclic subgroup generated by g': indeed, ?g? is cyclic
+in the
+sense of Definition 4.7; the reader can easily check this fact already (Exercise
+6.4); it
+will also be recovered as an immediate consequence of the construction of
+quotients
+(cf. \S{}7.5).
+Definition 6.8. A group G is finitely generated if there exists a finite subset
+A \subseteq  G
+such that G = ?A?.
+ ?
+For examples, cyclic groups are finitely generated (in fact, they are generated
+by a singleton). By definition, a group is finitely generated if and only if
+there is a
+surjective homomorphism
+F ({1, . . . , n}) \setminus  G
+for some n. One of the most memorable results proven in this book will give
+a classification of finitely generated abelian groups: we will be able to prove
+that
+every such group is a direct sum of cyclic groups (Theorem IV.6.6, Exercise
+VI.2.19,
+and the generalization given in Theorem VI.5.6). The situation for general
+groups
+is considerably more complex. The classification of finite (simple) groups is
+one of
+the major achievements of twentieth-century mathematics, and it is spread over
+at
+least 10,000 pages of research articles. To appreciate the difference in
+complexity,
+note that there are 42 abelian groups of order 1024 up to isomorphism (as the
+reader will be able to establish in due time: Exercise IV.6.6); allegedly, there
+are
+49,487,365,402 if we count noncommutative ones as well28 .
+
+\subsection{Example: Subgroups of cyclic groups}
+We are ready to determine all
+
+subgroups of all cyclic groups, that is, all subgroups of Z and of Z/nZ, for all
+n > 0
+(because every cyclic group is isomorphic to one of these; cf. Definition 4.7).
+The
+result is easy to remember: subgroups of cyclic groups are themselves cyclic
+groups.
+It is convenient to start from Z. For d \in  Z we let
+dZ := ?d? = {m \in  Z | \exists q \in  Z, m = dq};
+that is, dZ denotes the set of integer multiples of d. Of course this is nothing
+but
+the `cyclic subgroup of Z generated by d'.
+Proposition 6.9. Let G \subseteq  Z be a subgroup. Then G = dZ for some d \geq
+0.
+28 This comparison is a little unfair, however, since it so happens that more
+than 99% of all
+groups of order < 2000 have order 1024.
+The proof will actually show that if G \subseteq  Z is nontrivial, then d is the
+smallest
+positive element of G, and the reader is invited to remember this useful fact.
+Remark 6.10. By Proposition 6.9, every nontrivial subgroup of Z is in fact iso-
+morphic to Z. Putting this a little strangely, it says that every subgroup of
+the
+free group on one generator is free. It is in fact true that every subgroup of a
+(finitely generated) free group is free; we will not prove this fact, although
+the dili-
+gent reader will get a taste of the argument in Exercise 9.16. In any case,
+beware
+that free groups on two generators already contain subgroups isomorphic to free
+groups on arbitrarily many generators. Indeed, the commutator subgroup (cf. Ex-
+ercise 7.12) [F, F ] for F = F ({x, y}) is isomorphic to a free group on
+infinitely many
+generators (unfortunately, we will not prove this beautiful statement either).
+ ?
+Proof of Proposition 6.9. If G = {0}, then G = 0Z. If not, note that G must
+contain positive integers: indeed, if a \in  G and a < 0, then -a \in  G and -a
+> 0.
+We can then let d be the smallest positive integer 29 in G, and I claim G = dZ.
+The inclusion dZ \subseteq  G is clear. To verify the inclusion G \subseteq  dZ,
+let m \in  G, and
+apply `division with remainder' to write
+m = dq + r,
+with 0 \leq  r < d. Since m \in  G and dZ \subseteq  G and since G is a
+subgroup, we see that
+r = m - dq \in  G.
+But d is the smallest positive integer in G, and r \in  G is smaller than d; so
+r cannot
+be positive. This shows r = 0, that is, m = qd \in  dZ; G \subseteq  dZ follows,
+and we are
+done.
+ ?
+The `quotient' homomorphism \pi n : Z \to  Z/nZ (cf. \S{}4.1) allows us to
+establish
+the analogous result for finite cyclic groups:
+Proposition 6.11. Let n > 0 be an integer and let G \subseteq  Z/nZ be a
+subgroup. Then
+G is the cyclic subgroup of Z/nZ generated by [d]n , for some divisor d of n.
+Proof. Let \pi  n : Z \to  Z/nZ be the quotient map, and consider G\setminus  :=
+\pi n -1(G). By
+Lemma 6.4, G\setminus  is a subgroup of Z; by Proposition 6.9, G\setminus  is a
+cyclic subgroup of Z,
+generated by a nonnegative integer d. It follows that
+G = \pi n (G\setminus ) = \pi n (?d?) = ?[d]n ?;
+thus G is indeed a cyclic subgroup of Z/nZ, generated by a class [d]n. Further,
+since
+n \in  G\setminus  (because \pi n(n) = [n]n = [0]n \in  G) and G\setminus  = dZ,
+we see that d divides n, as
+claimed.
+ ?
+As a consequence of Proposition 6.11, there is a bijection between the set of
+subgroups of Z/nZ and the set of positive divisors of n. For example, Z/12Z has
+29 I am secretly appealing to the `well-ordering principle'. That every set of
+positive integers
+should have a smallest element is one of those fact about Z---like the
+availability of division-with-
+remainder---that I am assuming the reader is already familiar with.
+exactly 6 subgroups, because 12 has 6 positive divisors: 1, 2, 3, 4, 6, and 12.
+Here
+is the corresponding list of subgroups:
+?[1]12 ? = {[0]12, [1]12 , [2]12 , [3]12, [4]12, [5]12 , [6]12 , [7]12, [8]12 ,
+[9]12 , [10]12 , [11]12 },
+?[2]12 ? = {[0]12, [2]12 , [4]12 , [6]12, [8]12, [10]12},
+?[3]12 ? = {[0]12, [3]12 , [6]12 , [9]12},
+?[4]12 ? = {[0]12, [4]12 , [8]12 },
+?[6]12 ? = {[0]12, [6]12 },
+?[12]12 ? = {[0]12}.
+Also note that if d1 , d2 are both divisors of n, and d1 | d2 , then ?[d1 ]n ?
+\supseteq  ?[d2]n ?.
+That is, the correspondence between subgroups of Z/nZ and divisors of n
+preserves
+the natural lattice structure carried by these sets. We can draw these lattices
+for Z/6Z as follows:
+ {[0], [1], [2], [3], [4], [5]}
+{[0], [2], [4]}
+{[0], [3]}
+ {[0]}
+where lines connect multiples in one picture and subsets in the other. The
+reader
+will draw the lattice of subgroups of S3 , noting that it looks completely
+different
+from the one for Z/6Z.
+Contemplating subgroups of cyclic groups has pretty (and useful) `number-
+theoretic' consequences; cf. Exercise 6.14.
+
+\subsection{Monomorphisms}
+I end this section with some categorical considerations.
+
+If H is a subgroup of G, the inclusion H \setminus \to  G is an example of a
+monomorphism
+in Grp in the `categorical' sense of \S{}I.4.2. In fact, it is easy to
+characterize all
+monomorphisms \phi  \in  HomGrp (G, G\setminus  ) (where G, G\setminus  are any
+groups):
+Proposition 6.12. The following are equivalent:
+(a) \phi  is a monomorphism;
+(b) ker \phi  = {e G};
+(c) \phi  : G \to  G\setminus  is injective (as a set-function).
+Proof. (a) \implies  (b): Assume (a) holds, and consider the two parallel
+compositions
+ker \phi 
+ i
+ // G
+ \phi 
+ / G\setminus  ,
+e
+where i is the inclusion and e is the trivial map. Both \phi  \circ  i and \phi
+\circ  e are the trivial
+map; since \phi  is a monomorphism, this implies i = e. But i = e implies that
+ker \phi
+is trivial, that is, (b) holds.
+(b) \implies  (c): Assume ker \phi  = {eG }. Then
+-1 -1\phi (g1) = \phi (g2) \implies  \phi (g1 )\phi (g2) = eG? \implies  \phi
+(g1 g2 ) = eG?
+\implies  g1 g2 -1 \in  ker \phi  \implies  g1 g2 -1 = eG \implies  g1 = g2 .
+This shows that \phi  is injective, as needed.
+(c) \implies  (a): If \phi  is injective, then it satisfies the defining
+property for monomor-
+phisms in Set: that is, for any set Z and any two set-functions \alpha \setminus
+, \alpha  \setminus \setminus  : Z \to  G,
+\phi  \circ  \alpha  \setminus  = \phi  \circ  \alpha \setminus \setminus  \iff  \alpha \setminus  = \alpha \setminus \setminus  .
+This must hold in particular if Z has a group structure and \alpha \setminus  ,
+\alpha \setminus \setminus  are group
+homomorphisms, so \phi  is a monomorphism in Grp.
+ ?
+The equivalence (a) \iff  (c) may lead the reader to think that from the point
+of view of monomorphisms, Grp and Set are pretty much alike. This is not quite
+so:
+while it is true that homomorphisms with a left-inverse are necessarily monomor-
+phisms, as in Set (cf. Exercise 6.15), the converse is not true in Grp (cf.
+Exer-
+cise 6.16).
+
+\subsection*{Exercises}
+
+6.1. \lnot  (If you know about matrices.) The group of invertible n \times  n
+matrices with
+entries in R is denoted GLn (R) (Example 1.5). Similarly, GLn (C) denotes the
+group
+of n \times  n invertible matrices with complex entries. Consider the following
+sets of
+matrices:
+\bullet  SLn (R) = {M \in  GLn(R) | det(M ) = 1};
+\bullet  SLn (C) = {M \in  GLn(C) | det(M ) = 1};
+\bullet  On(R) = {M \in  GLn (R) | M M t = M t M = In };
+\bullet  SOn (R) = {M \in  On (R) | det(M ) = 1};
+\bullet  U(n) = {M \in  GLn (C) | M M \dagger  = M \dagger  M = In };
+\bullet  SU(n) = {M \in  U(n) | det(M ) = 1}.
+Here In stands for the n \times  n identity matrix, M t is the transpose of M ,
+M \dagger  is the
+conjugate transpose of M , and det(M ) denotes the determinant 30 of M . Find
+all
+possible inclusions among these sets, and prove that in every case the smaller
+set
+is a subgroup of the larger one.
+These sets of matrices have compelling geometric interpretations: for example,
+SO3 (R) is the group of `rotations' in R3 . [8.8, 9.1, III.1.4, VI.6.16]
+30If you are not familiar with some of these notions, that's ok: leave this
+exercise and similar
+ones alone if that is the case. We will come back to linear algebra and matrices
+in Chapter VI
+and following.
+6.2. \lnot  Prove that the set of 2 \times  2 matrices
+a
+ b
+ d
+with a, b, d in C and ad = 0 is a subgroup of GL2 (C). More generally, prove
+that the
+set of n \times  n complex matrices (aij )1\leq i,j\leq n with aij = 0 for i > j
+and a11 \dots  ann = 0
+is a subgroup of GLn (C). (These matrices are called `upper triangular', for
+evident
+reasons.) [IV.1.20]
+6.3. \lnot  Prove that every matrix in SU(2) may be written in the form
+a + bi
+ c + di
+-c + di
+ a - bi
+where a, b, c, d \in  R and a2 + b2 + c2 + d2 = 1. (Thus, SU(2) may be realized
+as
+a three-dimensional sphere embedded in R4 ; in particular, it is simply
+connected.)
+[8.9, III.2.5]
+6.4. ? Let G be a group, and let g \in  G. Verify that the image of the
+exponential
+map ?g : Z \to  G is a cyclic group (in the sense of Definition 4.7). [\S{}6.3,
+\S{}7.5]
+6.5. Let G be a commutative group, and let n > 0 be an integer. Prove that
+{g n | g \in  G} is a subgroup of G. Prove that this is not necessarily the case
+if G is
+not commutative.
+6.6. Prove that the union of a family of subgroups of a group G is not
+necessarily
+a subgroup of G. In fact:
+\bullet  Let H, H \setminus  be subgroups of a group G. Prove that H \cup  H \setminus  is a subgroup of G
+only if H \subseteq  H \setminus  or H \setminus  \subseteq  H.
+\bullet  On the
+ other hand, let H0 \subseteq  H1 \subseteq  H2 \subseteq  \dots  be subgroups
+ of a group G. Prove
+?that i\geq 0 Hi is a subgroup of G.
+6.7. \lnot  Show that inner automorphisms (cf. Exercise 4.8) form a subgroup of
+Aut(G); this subgroup is denoted Inn(G). Prove that Inn(G) is cyclic if and only
+if Inn(G) is trivial if and only if G is abelian. (Hint: Assume that Inn(G) is
+cyclic;
+with notation as in Exercise 4.8, this means that there exists an element a \in
+G
+such that \forall g \in  G \exists n \in  Z \gamma g = \gamma a n . In
+particular, gag -1 = an aa-n = a. Thus a
+commutes with every g in G. Therefore. . . .) Deduce that if Aut(G) is cyclic,
+then
+G is abelian. [7.10, IV.1.5]
+6.8. Prove that an abelian group G is finitely generated if and only if there is
+a
+surjective homomorphism
+Z
+ \oplus  \cdot \cdot \cdot  \oplus  Z \setminus  G
+?n times
+for some n.
+6.9. Prove that every finitely generated subgroup of Q is cyclic. Prove that Q
+is
+not finitely generated.
+Exercises
+6.10. \lnot  The set of 2 \times  2 matrices with integer entries and
+determinant 1 is denoted
+SL2(Z):
+?
+ ?
+a b
+SL2 (Z) =
+ such that a, b, c, d \in  Z , ad - bc = 1 .
+c d
+Prove that SL2 (Z) is generated by the matrices
+0 -1
+ 1 1
+s =
+ and
+ t =
+ .
+ 0 1
+(Hint: This is a little tricky. Let H be the subgroup generated by s and t.
+Given a
+a b
+matrix m =
+ in SL2 (Z), it suffices to show that you can obtain the identity
+c d
+1 -q
+by multiplying m by suitably chosen elements of H. Prove that
+ and
+1 0
+are in H, and note that
+-q 1
+\setminus 
+ ?\setminus 
+ ?
+ \setminus 
+ ?
+ \setminus 
+ ?\setminus 
+ ?
+ \setminus 
+ ?
+a
+ b
+ -q
+ a
+ b - qa
+ a
+ b
+ a - qb
+ b
+=
+ and
+ =
+ .
+c
+ d
+ c
+ d - qc
+ c
+ d
+ -q
+ c - qd
+ d
+Note that if c and d are both nonzero, one of these two operations may be used
+to decrease the absolute value of one of them. Argue that suitable applications
+of
+these operations reduce to the case in which c = 0 or d = 0. Prove directly that
+m \in  H in that case.) [7.5]
+6.11. Since direct sums are coproducts in Ab, the classification theorem for
+abelian
+groups mentioned in the text says that every finitely generated abelian group is
+a
+coproduct of cyclic groups in Ab. The reader may be tempted to conjecture that
+every finitely generated group is a coproduct in Grp. Show that this is not the
+case,
+by proving that S3 is not a coproduct of cyclic groups.
+6.12. Let m, n be positive integers, and consider the subgroup ?m, n? of Z they
+generate. By Proposition 6.9,
+?m, n? = dZ
+for some positive integer d. What is d, in relation to m, n?
+6.13. \lnot  Draw and compare the lattices of subgroups of C2 \times  C2 and C4
+. Draw the
+lattice of subgroups of S3 , and compare it with the one for C6 . [7.1]
+6.14. ? If m is a positive integer, denote by \varphi (m) the number of positive
+integers
+r \leq  m that are relatively prime to m (that is, for which the gcd of r and m
+is 1);
+this is called Euler's \varphi - (or `totient') function. For example, \varphi
+(12) = 4. In other
+words, \varphi (m) is the order of the group (Z/mZ)\ast  ; cf. Proposition 2.6.
+Put together the following observations:
+\bullet  \varphi (m) = the number of generators of Cm ,
+\bullet  every element of Cn generates a subgroup of Cn ,
+\bullet  the discussion following Proposition 6.11 (in particular, every subgroup of Cn
+is isomorphic to Cm, for some m | n),
+to obtain a proof of the formula
+?
+\varphi (m) = n.
+m>0,m|n
+(For example, \varphi (1) + \varphi (2) + \varphi (3) + \varphi (4) + \varphi
+(6) + \varphi (12) = 1 + 1 + 2 + 2 + 2 + 4 = 12.)
+[4.14, \S{}6.4, 8.15, V.6.8, \S{}VII.5.2]
+6.15. ? Prove that if a group homomorphism \phi  : G \to  G\setminus  has a
+left-inverse,
+that is, a group homomorphism \psi  : G\setminus  \to  G such that \psi  \circ
+\phi  = idG, then \phi  is a
+monomorphism. [\S{}6.5, 6.16]
+6.16. ? Counterpoint to Exercise 6.15: the homomorphism \phi  : Z/3Z \to  S3
+given
+by
+1 2 3
+ 1 2 3
+ 1 2 3
+\phi ([0]) =
+ , \phi ([1]) =
+ , \phi ([2]) =
+1 2 3
+ 3 1 2
+ 2 3 1
+is a monomorphism; show that it has no left-inverse in Grp. (Knowing about
+normal
+subgroups will make this problem particularly easy.) [\S{}6.5]
+
+\section{Quotient groups}
+
+
+\subsection{Normal subgroups}
+Before tackling `quotient groups', I should clarify in
+
+what sense kernels are special subgroups, as claimed in \S{}6.2.
+Definition 7.1. A subgroup N of a group G is normal if \forall g \in  G, \forall
+n \in  N ,
+gng-1 \in  N.
+ ?
+Note that every subgroup of a commutative group is normal (because then \forall
+g \in
+G, gng -1 = n \in  N ). However, in general not all subgroups are normal:
+examples
+may be found already in S3 (cf. Exercise 7.1). There exist noncommutative groups
+in which every subgroup is normal (one example is the `quaternionic group' Q8 ;
+cf. Exercise III.1.12 (iv)), but they are very rare.
+Lemma 7.2. If \phi  : G \to  G\setminus  is any group homomorphism, then ker
+\phi  is a normal
+subgroup of G.
+Proof. We already know that ker \phi  is a subgroup of G; to verify it is normal
+note
+that \forall g \in  G, \forall n \in  ker \phi 
+\phi (gng -1 ) = \phi (g)\phi (n)\phi (g-1 ) = \phi (g)eG? \phi (g)-1 = eG? ,
+proving that gng-1 \in  ker \phi .
+ ?
+Loosely speaking, therefore, kernel \implies  normal. In fact more is true, as
+we
+will see in a little while; for now I don't want to spoil the surprise for the
+reader.
+(Can the reader guess?)
+There is a convenient shorthand to express conditions such as normality: if
+g \in  G and A \subseteq  G is any subset, we denote by gA, Ag, respectively,
+the following
+subsets of G:
+gA := {h \in  G | (\exists a \in  A) : h = ga},
+Ag := {h \in  G | (\exists a \in  A) : h = ag}.
+Then the normality condition can be expressed by
+(\forall g \in  G) :
+ gN g -1 \subseteq  N,
+or in a number of other ways:
+gN g -1 = N
+ or
+ gN \subseteq  N g
+ or
+ gN = N g
+for all g \in  G. The reader should check that these are indeed equivalent
+conditions
+(Exercise 7.3) and keep in mind that `gN = N g' does not mean that g commutes
+with every element of N ; it means that if n \in  N , then there are elements
+n\setminus  , n\setminus \setminus  \in  N ,
+in general different from n, such that gn = n\setminus  g (so that gN \subseteq
+N g) and ng = gn\setminus \setminus
+(so that N g \subseteq  gN ).
+
+\subsection{Quotient group}
+Recall that we have the notion of a quotient of a set by
+
+an equivalence relation (\S{}I.1.5) and that this notion satisfies a universal
+property
+(clumsily stated in \S{}I.5.3). It is natural to investigate this notion in Grp.
+We consider then an equivalence relation \sim  on (the set underlying) a group
+G;
+we seek a group G/\sim  and a group homomorphism \pi  : G \to  G/\sim
+satisfying the ap-
+propriate universal property, that is, initial with respect to group
+homomorphisms
+\phi  : G \to  G\setminus  such that a \sim  b \implies  \phi (a) = \phi (b).
+It is natural to try to construct the group G/\sim  by defining an operation
+\bullet  on the
+set G/\sim . The situation is tightly constrained by the requirement that the
+quotient
+map \pi  : G \to  G/\sim  (as in \S{}I.2.6) be a group homomorphism: for if [a]
+= \pi (a),
+[b] = \pi (b) are elements of G/\sim  (that is, equivalence classes with respect
+to \sim ),
+then the homomorphism condition forces
+[a] \bullet  [b] = \pi (a) \bullet  \pi (b) = \pi (ab) = [ab].
+But is this operation well-defined? This amounts to conditions on the
+equivalence
+relation, which we proceed to unearth.
+For the operation to be well-defined `in the first factor', it is necessary that
+if
+[a] = [a\setminus  ], then [ab] = [a\setminus b] regardless of what b is; that
+is,
+(\forall g \in  G) :
+ a \sim  a\setminus  \implies  ag \sim  a\setminus g.
+Similarly, for the operation to be well-defined in the second factor we need
+(\forall g \in  G) :
+ a \sim  a\setminus  \implies  ga \sim  ga\setminus  .
+Luckily, this is all that there is to it:
+Proposition 7.3. With notation as above, the operation
+[a] \bullet  [b] := [ab]
+defines a group structure on G/\sim  if and only if \forall a, a\setminus , g
+\in  G
+a \sim  a\setminus  \implies  ga \sim  ga\setminus  and ag \sim  a\setminus  g.
+In this case the quotient function \pi  : G \to  G/\sim  is a homomorphism and
+is universal
+with respect to homomorphisms \phi  : G \to  G\setminus  such that a \sim
+a\setminus  \implies  \phi (a) = \phi (a\setminus  ).
+Proof. We have already noted that the condition is necessary. To prove it is
+sufficient, with the stated consequences, assume \forall a, a\setminus  , g \in
+G
+a \sim  a\setminus  \implies  ga \sim  ga\setminus  and ag \sim  a\setminus  g.
+Then the operation
+[a] \bullet  [b] := [ab]
+is well-defined, and we have to verify that it defines a group structure on
+G/\sim . The
+associativity of \bullet  is inherited from the associativity of G: \forall a,
+b, c \in  G
+([a] \bullet  [b]) \bullet  [c] = [ab] \bullet  [c] = [(ab)c] = [a(bc)] = [a]
+\bullet  [bc] = [a] \bullet  ([b] \bullet  [c]).
+The class [eG ] is an identity with respect to this operation: \forall g \in  G
+[g] \bullet  [eG ] = [geG ] = [g],
+ [eG ] \bullet  [g] = [eG g] = [g].
+The class [g
+-1
+ ] is the inverse of [g]:
+[g -1] \bullet  [g] = [g-1 g] = [eG ],
+ [g] \bullet  [g -1] = [gg -1 ] = [eG ].
+This shows G/\sim  is indeed a group, and we have already observed that \pi  : G
+\to  G/\sim
+is a homomorphism: this is what led us to the definition of \bullet .
+To prove that G/\sim  satisfies the universal property, assume
+\phi  : G \to  G\setminus 
+is a group homomorphism such that a \sim  a\setminus  \implies  \phi (a) = \phi
+(a\setminus ). Since (cf. \S{}I.5.3)
+the set G/\sim  satisfies the corresponding universal property in Set, we know
+that
+there exists a unique set-function
+\tilde{\phi } : G/\sim  \to  G\setminus  ,
+defined31 by \tilde{\phi }([a]) := \phi (a). So we only need to check that this
+function \tilde{\phi } is in fact
+a group homomorphism, and this is immediate:
+\tilde{\phi }([a] \bullet  [b]) = \tilde{\phi }([ab]) = \phi (ab) = \phi (a)\phi (b) = \tilde{\phi }([a])\tilde{\phi }([b])
+for all [a], [b] \in  G/\sim , as needed.
+ ?
+I will say that \sim  is compatible with the group structure of G if the
+condition given
+in Proposition 7.3 holds. Since the operation \bullet  on the quotient G/\sim
+is uniquely
+determined by the operation on G, I yield to the usual abuse of language and
+omit
+it. If \sim  is compatible, I will call G/\sim  the quotient group of G by \sim
+.
+
+\subsection{Cosets}
+The conditions obtained in Proposition 7.3,
+
+(\dagger )
+ (\forall g \in  G) :
+ a \sim  b \implies  ga \sim  gb,
+(\dagger \dagger )
+ (\forall g \in  G) :
+ a \sim  b \implies  ag \sim  bg,
+lead to a complete description of all compatible relations on a group G. In
+fact,
+each of these two conditions leads to a description of the relations satisfying
+it, and
+we will analyze them separately; the reader should keep in mind that we have a
+group structure on G/\sim  only if both are satisfied.
+Let's begin with (\dagger ). Here is the description:
+31 The point of \S{}I.5.3 is precisely that this function is well-defined.
+Proposition 7.4. Let \sim  be an equivalence relation on a group G, satisfying
+(\dagger ).
+Then
+\bullet  the equivalence class of eG is a subgroup H of G; and
+\bullet  a \sim  b \iff  a-1b \in  H \iff  aH = bH.
+Proof. Let H \subseteq  G be the equivalence class of the identity; H =
+\emptyset  as eG \in  H. For
+a, b \in  H, we have eG \sim  b and hence b-1 \sim  eG (applying (\dagger ),
+multiplying on the left
+by b-1 ); hence ab-1 \sim  a (by (\dagger ) again, multiplying on the left by
+a); and hence
+ab-1 \sim  a \sim  eG
+by the transitivity of \sim  and since a \in  H. This shows that ab-1 \in  H for
+all a, b \in  H,
+proving that H is a subgroup (by Proposition 6.2).
+Next, assume a, b \in  G and a \sim  b. Multiplying on the left by a-1 ,
+(\dagger ) implies
+eG \sim  a-1b, that is, a-1b \in  H. Since H is closed under the operation, this
+implies
+a-1 bH \subseteq  H, hence bH \subseteq  aH; as \sim  is symmetric, the same
+reasoning gives aH \subseteq
+bH; and hence aH = bH. Thus, we have proved
+a \sim  b \implies  a-1b \in  H \implies  aH = bH.
+Finally, assume aH = bH. Then a = aeG \in  bH, and hence a-1 b \in  H. By
+definition
+of H, this means eG \sim  a-1b. Multiplying on the left by a shows (by (\dagger
+) again)
+that a \sim  b, completing the proof.
+ ?
+Proposition 7.4 shows that the equivalence classes of an equivalence relation
+satisfying (\dagger ) are in fact all of the form
+aH
+for a fixed subgroup H, as a ranges in G. These important subsets determined by
+a subgroup H deserve a name.
+Definition 7.5. The left-cosets of a subgroup H in a group G are the sets aH,
+for
+a \in  G. The right-cosets of H are the sets Ha, a \in  G.
+ ?
+Now, a `converse' to Proposition 7.4 holds:
+Proposition 7.6. If H is any subgroup of a group G, the relation \sim L defined
+by
+(\forall a, b \in  G) :
+ a \sim L b \iff  a-1 b \in  H
+is an equivalence relation satisfying (\dagger ).
+Proof. This is straightforward and is mostly left to the reader (Exercise 7.8).
+To
+see that the relation satisfies (\dagger ), note that
+a \sim L b \implies  a-1 b \in  H \implies  a-1 (g-1 g)b \in  H \implies  (ga)-1
+(gb) \in  H \implies  ga \sim L gb
+for all g \in  G.
+ ?
+Taken together, Propositions 7.4 and 7.6 show
+Proposition 7.7. There is a one-to-one correspondence between subgroups of G
+and equivalence relations on G satisfying (\dagger ); for the relation \sim L
+corresponding to
+a subgroup H, G/\sim L may be described as the set of left-cosets aH of H.
+The reader should have no difficulty producing the mirror statements (and
+proofs) giving a similarly exhaustive description of all equivalence relations
+satisfy-
+ing (\dagger \dagger ). The end result will be
+Proposition 7.8. There is a one-to-one correspondence between subgroups of G
+and equivalence relations on G satisfying (\dagger \dagger ); for the relation
+\sim R corresponding to
+a subgroup H, G/\sim R may be described as the set of right-cosets Ha of H.
+The relation corresponding to H in this second way is defined by
+a \sim R b \iff  ab-1 \in  H \iff  Ha = Hb.
+What may be surprising at first is that the relations \sim L and \sim R
+corresponding
+to the same subgroup H may very well not be the same relation. That is,
+left-cosets
+and right-cosets of a subgroup need not coincide. Of course eH = He = H, and
+more generally
+(\forall h \in  H) : hH = Hh = H.
+Further
+(\forall a \in  G) : a \in  aH \cap  Ha;
+hence, if aH = Hb for any b, then in fact necessarily aH = Ha. This is of course
+automatically true if G is commutative, but it is simply not the case in
+general.
+Example 7.9. Let G = S3 , and let H be the subgroup consisting of the identity
+and the 1 \leftrightarrow  2 switch:
+?
+ ?
+1 2 3
+ 1 2 3
+H =
+ ,
+ .
+1 2 3
+ 2 1 3
+Then
+ ?
+ ?
+1 2 3
+ 2 3
+ 1 2 3
+H =
+ ,
+ ,
+3 1 2
+ 1 2
+ 3 2 1
+while
+ ?
+ ?
+1 2 3
+ 2 3
+ 1 2 3
+H
+ =
+ ,
+ .
+3 1 2
+ 1 2
+ 1 3 2
+This state of affairs simply reflects the fact that the two conditions (\dagger
+) and (\dagger \dagger )
+are different: there is no reason to expect that if one holds, the other one
+should
+also hold (unless G is commutative, of course). Once more, keep in mind that
+both
+have to hold for the quotient G/\sim  to be a group, compatibly with the
+operation
+in G; cf. Proposition 7.3.
+
+\subsection{Quotient by normal subgroups}
+To stress the main point again, an arbi-
+
+trary subgroup H of G leads to two partitions of G, which we have denoted
+G/\sim L = {aH | a \in  G},
+ G/\sim R = {Ha | a \in  G}.
+The relation \sim L satisfies property (\dagger ) listed at the beginning of
+\S{}7.3; \sim R satisfies
+(\dagger \dagger ). A priori, these relations, and hence the corresponding
+partitions, are different.
+The condition that \sim L and \sim R coincide (as is necessarily the case, for
+example,
+if G is commutative) translates into a condition on H: for such `special'
+subgroups,
+(\dagger ) and (\dagger \dagger ) get back together. The good news is that this
+condition is easy to
+identify and is not new to the reader.
+Proposition 7.10. The relations \sim L , \sim R corresponding to a subgroup H
+coincide
+if and only if H is normal.
+Proof. Two relations coincide if the corresponding partitions agree. Therefore
+\sim L =\sim  R \iff  left- and right-cosets of H coincide \iff  (\forall g \in  G) : gH = Hg.
+But this is one of the equivalent conditions defining the notion of normal
+subgroup
+(cf \S{}7.1), proving the statement.
+ ?
+The innocent-looking Proposition 7.10 is of fundamental importance. If H is
+normal, then the one equivalence relation \sim =\sim L =\sim R corresponding to
+H satisfies
+both (\dagger ) and (\dagger \dagger ) (by Proposition 7.4 and its mirror
+statement), and hence (by
+Proposition 7.3) the quotient
+G/\sim  = {aH | a \in  G} = {Ha | a \in  G}
+has a natural group structure.
+Definition 7.11. Let H be a normal subgroup of a group G. The quotient group
+of G modulo H, denoted32 G/H, is the group G/\sim  obtained from the relation
+\sim
+defined above. In terms of (left-) cosets, the product in G/H is defined by
+(aH)(bH) := (ab)H.
+The identity element eG/H of the quotient group G/H is the coset of the
+identity,
+eG H = H.
+ ?
+By Proposition 7.3, the quotient function
+\pi  : G \to  G/H
+sending g \in  G to gH = Hg is a group homomorphism and is universal with
+respect
+to group homomorphisms \phi  : G \to  G\setminus  such that aH = bH \implies
+\phi (a) = \phi (b). This
+universal property is extremely useful, so I will grace it with theorem status:
+Theorem 7.12. Let H be a normal subgroup of a group G. Then for every group
+homomorphism \phi  : G \to  G\setminus  such that H \subseteq  ker \phi  there
+exists a unique group
+homomorphism \tilde{\phi } : G/H \to  G\setminus  so that the diagram
+G \phi 
+ / G\setminus 
+=
+ = \pi  =
+ = =
+ = =
+ ?
+ \exists !\tilde{\phi }
+ @
+G/H
+commutes.
+Proof. We only need to match the stated universal property with the one we
+proved in Proposition 7.3, and indeed,
+H \subseteq  ker \phi  \iff  (\forall h \in  H) : \phi (h) = eG?
+is equivalent to
+(\forall a, b \in  G) : ab-1 \in  H \implies  \phi (ab-1 ) = eG?
+32 GIn a large display I sometime use the full `fraction' notation .
+H
+that is, to
+(\forall a, b \in  G) : ab-1 \in  H \implies  \phi (a) = \phi (b)
+and finally, keeping in mind how the relation \sim  corresponding to H is
+defined,
+(\forall a, b \in  G) : a \sim  b \implies  \phi (a) = \phi (b),
+the condition giving the universal property in Proposition 7.3.
+?
+
+\subsection{Example}
+The reader is already very familiar with an important class of
+
+examples: the cyclic groups Z/nZ. Indeed, in \S{}2.3 we defined Z/nZ as the set
+of
+equivalence classes in Z with respect to the congruence equivalence relation
+(\forall a, b \in  Z) :
+ a \equiv  b mod n \iff  n | (b - a).
+Now we recognize that n | (b - a) is equivalent to
+b - a \in  nZ,
+which is the relation \sim L corresponding (in `abelian' notation) to the
+subgroup nZ
+of Z. This subgroup is of course normal, since Z is abelian. The `congruence
+classes
+mod n' are nothing but the cosets of the subgroup nZ in Z; using abelian
+notation
+for cosets, we could write
+[a]n = a + (nZ).
+Of course the operation defined on Z/nZ in \S{}2.3 matches precisely the one
+defined
+above for quotient groups. This justifies the notation Z/nZ introduced in
+\S{}2.3.
+The reader can already appreciate in this simple context the usefulness of The-
+orem 7.12. Let g \in  G be an element of order n and consider the exponential
+map
+?g : Z \to  G,
+ N ?\to  g N .
+By Corollary 1.11,
+ker ?g = {N \in  Z | N is a multiple of |g|} = nZ.
+Theorem 7.12 then implies right away that ?g factors through the quotient:
+Z =
+ \pi n = =
+ = =
+ = =
+ ?
+ g
+Z/nZ
+/ G
+@
+\exists !\tilde{g}
+That is, there is an induced map
+Z/nZ \to  ?g?.
+In fact, the `canonical decomposition' of \S{}I.2.8 implies that this is an
+isomorphism
+(verifying that ?g? is cyclic in the sense of Definition 4.7, as the reader
+should have
+checked `by hand' already in Exercise 6.4). We will formalize this observation
+in
+general in the next section.
+Also note that |g| = n = |?g?| in this case.
+
+\subsection{\texorpdfstring{kernel $\Leftrightarrow$ normal}{kernel iff normal}}
+If H is a normal subgroup, we have now constructed
+
+in gory detail a group G/H and a surjective homomorphism
+\pi  : G \to  G/H.
+What is the kernel of \pi ? The identity of G/H is the coset eG H, that is, H
+itself.
+Therefore
+ker \pi  = {g \in  G | gH = H} = H.
+This observation completes the circle of ideas begun in \S{}7.1: there we had
+noticed
+that every kernel (of a group homomorphism) is a normal subgroup; and now
+we have verified that every normal subgroup is in fact a kernel (of some group
+homomorphism). I encapsulate this in the slogan
+kernel \iff  normal :
+in group theory33 , `kernel' and `normal subgroup' are equivalent concepts.
+For example, every subgroup in an abelian group is the kernel of some homo-
+morphism: yet another indication that life is simpler in Ab than in Grp.
+
+\subsection*{Exercises}
+
+7.1. ? List all subgroups of S3 (cf. Exercise 6.13) and determine which
+subgroups
+are normal and which are not normal. [\S{}7.1]
+7.2. Is the image of a group homomorphism necessarily a normal subgroup of the
+target?
+7.3. ? Verify that the equivalent conditions for normality given in \S{}7.1 are
+indeed
+equivalent. [\S{}7.1]
+7.4. Prove that the relation defined in Exercise 5.10 on a free abelian group F
+=
+F ab(A) is compatible with the group structure. Determine the quotient F/\sim
+as a
+better known group.
+7.5. \lnot  Define an equivalence relation \sim  on SL2 (Z) by letting A \sim
+A\setminus  \iff  A\setminus  =
+\pm A. Prove that \sim  is compatible with the group structure. The quotient SL2(Z)/\sim 
+is denoted PSL2 (Z) and is called the modular group; it would be a serious
+contender
+in a contest for `the most important group in mathematics', due to its role in
+algebraic geometry and number theory. Prove that PSL2 (Z) is generated by the
+(cosets of the) matrices
+0 -1
+ 1 -1
+and
+ .
+(You will not need to work very hard, if you use the result of Exercise 6.10.)
+Note
+that the first has order 2 in PSL2 (Z), the second has order 3, and their
+product has
+infinite order. [9.14]
+33 We will run into analogous observations in ring theory, where we will verify
+that kernels
+and ideals coincide, and for modules, as kernels and submodules again coincide.
+7.6. Let G be a group, and let n be a positive integer. Consider the relation
+a \sim  b \iff  (\exists g \in  G) ab-1 = g n .
+\bullet  Show that in general \sim  is not an equivalence relation.
+\bullet  Prove that \sim  is an equivalence relation if G is commutative, and determine the
+corresponding subgroup of G.
+7.7. Let G be a group, n a positive integer, and let H \subseteq  G be the
+subgroup
+generated by all elements of order n in G. Prove that H is normal.
+7.8. ? Prove Proposition 7.6. [\S{}7.3]
+7.9. State and prove the `mirror' statements of Propositions 7.4 and 7.6,
+leading
+to the description of relations satisfying (\dagger \dagger ).
+7.10. \lnot  Let G be a group, and H \subseteq  G a subgroup. With notation as
+in Exercise 6.7,
+show that H is normal in G if and only if \forall \gamma  \in  Inn(G), \gamma
+(H) \subseteq  H.
+Conclude that if H is normal in G, then there is an interesting homomorphism
+Inn(G) \to  Aut(H). [8.25]
+7.11. ? Let G be a group, and let [G, G] be the subgroup of G generated by all
+elements of the form aba-1 b-1 . (This is the commutator subgroup of G; we will
+return to it in \S{}IV.3.3.) Prove that [G, G] is normal in G. (Hint: With
+notation
+as in Exercise 4.8, g \cdot  aba -1 b-1 \cdot  g-1 = \gamma g (aba-1 b-1 ).)
+Prove that G/[G, G] is
+commutative. [7.12, \S{}IV.3.3]
+7.12. ? Let F = F (A) be a free group, and let f : A \to  G be a set-function
+from the set A to a commutative group G. Prove that f induces a unique homo-
+morphism F/[F, F ] \to  G, where [F, F ] is the commutator subgroup of F defined
+in Exercise 7.11. (Use Theorem 7.12.) Conclude that F/[F, F ] = \sim 
+ F ab (A). (Use
+Proposition I.5.4.) [\S{}6.4, 7.13, VI.1.20]
+7.13. \lnot  Let A, B be sets and F (A), F (B) the corresponding free groups.
+Assume
+F (A) \sim 
+ = F (B). If A is finite, prove that B is also and A = \sim 
+ B. (Use Exercise 7.12
+to upgrade Exercise 5.10.) [5.10, VI.1.20]
+7.14. Let G be a group. Prove that Inn(G) is a normal subgroup of Aut(G).
+
+\section{Canonical decomposition and Lagrange's theorem}
+
+I will collect in this section a number of observations on the structure of
+quotient
+groups. All these results are straightforward, given the background work done so
+far. Some of them are often given fancy names such as first isomorphism theorem
+in the literature; I am not too fond of such terminology: the universal property
+proven in Theorem 7.12 is really the only thing I need to take along, and it
+serves
+me wonderfully well. The `isomorphism theorems' are all immediate applications
+of this universal property.
+
+\subsection{Canonical decomposition}
+The first observation comes from the canoni-
+
+cal decomposition for set-functions, obtained in \S{}I.2.8: every set-functions
+may be
+viewed as the composition of a surjective map, followed by a bijective map,
+followed
+by an injective map. We now know enough to state the corresponding (very useful)
+results in Grp:
+Theorem 8.1. Every group homomorphism \phi  : G \to  G\setminus  may be
+decomposed as
+follows:
+\phi 
+G
+/ / G/ ker \phi 
+\sim 
+\tilde{\phi }
+/ im \phi  ? ?
+(/
+ G\setminus 
+where the isomorphism \tilde{\phi } in the middle is the homomorphism induced by
+\phi  (as in
+Theorem 7.12).
+It is important that the reader agree that we have already proved anything
+that deserves to be proven here. We know that the projection on the left and the
+inclusion on the right are homomorphisms and \tilde{\phi } comes from Theorem
+7.12. The
+decomposition is the same one obtained at the level of set-functions in
+\S{}I.2.8; in
+particular, the function in the middle is a bijection. Since bijective
+homomorphisms
+are isomorphisms (Proposition 4.3), it is an isomorphism.
+Theorem 8.1 should induce the following Pavlovian reaction: exposed to any
+group homomorphism \phi  : G \to  G\setminus  , the reader should
+instantaneously view G/ ker \phi
+as (canonically identified with) a subgroup of G\setminus  . What is usually
+called the `first
+isomorphism theorem' is the particular case corresponding to surjective homomor-
+phisms:
+Corollary 8.2. Suppose \phi  : G \to  G\setminus  is a surjective group
+homomorphism. Then
+G\setminus  \sim 
+ =
+ G
+ .
+ker \phi 
+Proof. im\phi  = G\setminus  in Theorem 8.1.
+ ?
+This result is very useful---it comes in extremely handy when proving that two
+groups are isomorphic, both in theoretical contexts (as we will see in the rest
+of
+this section) and in concrete instances.
+Example 8.3. If H1 \subseteq  G1 and H2 \subseteq  G2 , then the product H1
+\times  H2 may be
+viewed as a subset of G1 \times  G2. It is clear that if G1 , G2 are groups and
+H1 , H2
+are subgroups, then H1 \times  H2 is a subgroup of G1 \times  G2 . The following
+claim is a
+prototype application of Corollary 8.2:
+Claim 8.4. If H1 \subseteq  G1 and H2 \subseteq  G2 are normal subgroups, then
+H1 \times  H2 is a
+normal subgroup of the group G1 \times  G2 and
+G1 \times  G2 \sim  =
+ G1
+ \times 
+ G2
+ .
+H1 \times  H2
+ H1
+ H2
+Indeed, composing the projections
+\pi 1 : G1 \times  G2 \to  G1 ,
+\pi 2 : G1 \times  G 2 \to  G2
+with the morphisms to the quotients gives surjective homomorphisms
+G 1
+ G2
+\pi 1 : G1 \times  G2 \to 
+ ,
+ \pi 2 : G1 \times  G 2 \to 
+H1
+ H2
+and hence a homomorphism
+G1
+ G2
+\pi  : G1 \times  G2 \to 
+ \times 
+H1
+ H2
+by the universal property of products. Explicitly,
+\pi (g1 , g2 ) = (g1 H1, g2 H2 ) :
+in particular, \pi  is surjective and
+ker \pi  = {(g1 , g2 ) \in  G1 \times  G2 | (g1 H1 , g2 H2 ) = (H1 , H2 )}
+= {(g1 , g2 ) \in  G1 \times  G2 | g1 \in  H1 , g2 \in  H2 }
+= H1 \times  H2 .
+The claim then follows immediately from Corollary 8.2.
+The result (of course) extends to more factors in the product. Any such check
+should become second nature and is usually left to the reader.
+ ?
+Example 8.5. As a particular case of Claim 8.4, take H1 = {eG1 } \subseteq  G1
+and
+H2 = G2 \subseteq  G2:
+G1 \times  G2 G1
+ G2\sim  =
+ \times 
+ \sim 
+ = G1 ,
+G2
+ {eG1 } G2
+where on the left we identify G2 with the subgroup {eG1 } \times  G2. For
+instance34
+(cf. \S{}4.1)
+C6 C2 \times  C3\sim  =
+ \sim 
+ = C2 .
+ ?
+C3
+ C3
+Example 8.6. The cyclic group C3 may be viewed as a subgroup of the dihedral
+group D6 : the rotations of a triangle give a copy of C3 inside D6 . Then C3 is
+normal in D6 , and
+D6 \sim 
+ = C2 .
+C3
+This can of course be checked `by hand'. But note that there is an evident
+surjective
+homomorphism D6 \to  C2 , whose kernel is C3: map an element \sigma  of D6 to
+the
+identity in C2 if it does not flip the triangle (that is, precisely when \sigma
+\in  C 3 ),
+and map it to the other element if it does. Corollary 8.2 implies the stated
+facts
+immediately.
+ ?
+Example 8.7. One can give a circle (denoted S 1 ) a group structure by
+identifying
+its points with rotations of a plane about a point and adding them accordingly.
+The function
+\rho  : R1 \to  S 1
+34 Abuses of language such as the formula which follows---in which one is not
+explicitly spec-
+ifying how to realize C3 as a subgroup of C6 , because there is really only one
+way to do it---are
+unfortunately commonplace.
+mapping a number r to the result of a rotation by 2\pi r radians is then a
+surjective
+group homomorphism; this is the identity precisely when we rotate by an integer
+multiple of 2\pi . Hence
+ker \rho  = Z \subseteq  R.
+By Corollary 8.2, therefore,
+R 1
+\sim  = S .
+Z
+(Cf. Exercise I.1.6.) Geometrically, this amounts to `wrapping' R infinitely
+many
+times around the circle, realizing R as the `universal cover' of S 1 ; here, Z
+plays the
+role of `fundamental group' of S 1 .
+ ?
+
+\subsection{Presentations}
+Every group is a quotient of a free group, and every abelian
+
+group is a quotient of a free abelian group. Indeed, every group G can be
+surjected
+upon by a free group, and in many ways (at the very least, F (G) will do!).
+Abelian
+groups may be likewise surjected upon by free abelian groups. Then Corollary 8.2
+produces the needed isomorphism of G with a quotient of a free group.
+A presentation of a group G is an explicit isomorphism
+G \sim 
+ =
+ F (A)
+R
+where A is a set and R is a subgroup of `relations'. In other words, a
+presentation
+is an explicit surjection
+\rho  : F (A) \setminus  G
+of which R is the kernel. This is especially useful if A is small, and R may be
+described very explicitly; usually this is done by listing `enough' relations,
+that is,
+a set R of words r\alpha  \in  R = ker \rho  generating it in the sense that R
+is the smallest
+normal subgroup35 of F (A) containing R.
+Thus, a presentation of a group G is usually encoded as a pair (A|R), where A
+is a set and R \subseteq  F (A) is a set of words, such that G \sim 
+ = F (A)/R with R as above.
+A group is finitely presented if it admits a presentation (A|R) in which both
+A and R are finite. Finitely presented groups are not (necessarily) `small': for
+example, the free group on finitely many generators is (trivially) finitely
+presented.
+We have already run into several examples of presentations. For instance,
+the free group F (A) is presented by (A|\emptyset ). More interestingly, the
+description
+of S3 given in \S{}2.1 `presents' S3 as a quotient of the free group F ({x, y})
+(cf. Ex-
+ample 5.3) by the smallest normal subgroup containing x2, y 3 , and yx = xy 2 :
+(x, y|x2 , y3 , xyxy) in shorthand. From this point of view, it is clear that
+groups
+admitting the same presentation (example: S3 and D6 ) are isomorphic.
+The situation is less idyllic than it may seem at first, though: even if a
+presen-
+tation of a group G is known, it may be very hard to establish whether two
+explicit
+35 Note that this is a different requirement than the one adopted in \S{}6.3, in
+which normality
+plays no role.
+combinations of the generators coincide in G. This is known as the word problem,
+and it has been shown to be undecidable in general36 .
+In any case, now that we know about presentations of groups, finding coprod-
+ucts in Grp should be straightforward: see Exercise 8.7.
+There is a `mirror' statement analogous to the fact that all groups are
+quotients
+of free groups: every group may be realized as a subgroup of a symmetric group.
+This elementary observation goes under the name of Cayley's theorem; its natural
+place is within the discussion of group actions (cf. Theorem 9.5).
+
+\subsection{Subgroups of quotients}
+The lattice of subgroups (cf. \S{}6.4) of a quo-
+
+tient G/H can be described very explicitly in terms of the lattice of subgroups
+of the group G: simply keep the part of the lattice of subgroups of G
+corresponding
+to subgroups which contain H.
+Example 8.8. Here is the effect of this operation on the lattice of subgroups of
+C12 \sim 
+ = Z/12Z (labeled by generators; cf. \S{}6.4), after quotienting by H = ?[6]? =
+ \sim
+ C2 :
+[1]
+[3]
+ [2]
+[6]
+ [4]
+[0]
+The result matches the lattice of subgroups of C6 \sim 
+ = C12/C2 .
+ ?
+Here is why this works. First note that if H \subseteq  K are subgroups of a
+group G
+and H is normal in G, then H is normal in K.
+Proposition 8.9. Let H be a normal subgroup of a group G. Then for every
+subgroup K of G containing H, K/H may be identified with a subgroup of G/H.
+The function
+u : {subgroups K of G containing H} \to  {subgroups of G/H}
+defined by u(K) = K/H is a bijection preserving inclusions.
+Proof. The group K/H consists of the cosets aH \in  G/H with a \in  K, and in
+this sense it is a subset (and clearly a subgroup) of G/H. It is also clear that
+if
+H \subseteq  K \subseteq  L, then u(K) = K/H \subseteq  L/H = u(L); that is, u
+preserves inclusions.
+36 That is, there is no general algorithm that, given a presentation of a group
+G and two
+words in the generators, will establish (in a finite time) whether those two
+words represent the
+same element of G.
+Thus we simply have to verify that u is a bijection, and for this it suffices to
+produce an inverse function
+v : {subgroups of G/H} \to  {subgroups K of G containing H}.
+\setminus  \setminus Then let K be a subgroup of G/H; define v(K ) to be the subset of G:
+K := \pi -1 (K \setminus  ) = {a \in  G | aH \in  K \setminus  },
+where \pi  : G \to  G/H is the canonical projection. Then K is a subgroup of G
+(by
+Lemma 6.4) and contains H (because H = \pi  -1(e) and e \in  K \setminus ). The
+reader will
+check that u and v are inverses of each other.
+ ?
+In fact, the correspondence is even nicer, in the sense that it preserves
+normal-
+ity. The following statement is often called the third isomorphism theorem:
+Proposition 8.10. Let H be a normal subgroup of a group G, and let N be a
+subgroup of G containing H. Then N/H is normal in G/H if and only if N is
+normal in G, and in this case
+G/H \sim  = G
+ .
+N/H
+ N
+Proof. If N is normal, then consider the projection
+G
+G \to 
+ :
+N
+the subgroup H is contained in N , which is the kernel of this homomorphism, so
+we get (by the universal property of quotients, Theorem 7.12) an induced homo-
+morphism
+G
+ G
+\to  .
+H
+ N
+The subgroup N/H of G/H is the kernel of this homomorphism; therefore it is
+normal.
+Conversely, if N/H is normal in G/H, consider the composition
+G
+ G/H
+G \setminus 
+ \setminus 
+ .
+H
+ N/H
+The kernel of this homomorphism is N ; therefore N is normal. Further, this ho-
+momorphism is surjective; hence the stated isomorphism (G/H)/(N/H) \sim 
+ = G/N
+follows immediately from Corollary 8.2.
+ ?
+
+\subsection{\texorpdfstring{HK/H vs.\ K/(H $\cap$ K)}{HK/H vs. K/(H cap K)}}
+Section 8.3 deals with two `nested' subgroups H \subseteq  K
+
+of a group G. What if H, K are not nested?
+The notation introduced in \S{}7.1 extends to subsets of G: if A \subseteq  G, B
+\subseteq  G,
+then AB denotes the subset
+AB := {ab | a \in  A, b \in  B}.
+It would be nice if HK were guaranteed to be a subgroup of G as soon as H and K
+are subgroups, but this is simply not the case in general, if G is not
+commutative.
+It is, however, the case if one of the subgroups is normal. The following is
+often
+called the second isomorphism theorem.
+Proposition 8.11. Let H, K be subgroups of a group G, and assume that H is
+normal in G. Then
+\bullet  HK is a subgroup of G, and H is normal in HK;
+\bullet  H \cap  K is normal in K, and
+HK \sim  =
+ K
+ .
+H
+ H \cap  K
+Proof. To verify that HK is a subgroup of G when H is normal, note that HK is
+the union of all cosets Hk, with k \in  K; that is,
+-1HK = \pi  (\pi (K)),
+where \pi  : G \to  G/H is the canonical projection. Since \pi (K) is a subgroup
+of G/H,
+HK is a subgroup by Lemma 6.4. It is clear that H is normal in HK.
+For the second part, consider the homomorphism
+\phi  : K \to  HK/H
+sending k \in  K to the coset Hk (that is, the inclusion K \setminus \to  HK
+followed by the
+canonical projection to the quotient). This is surjective: indeed, every element
+of
+HK/H may be written as a coset
+Hhk,
+ h \in  H, k \in  K;
+but Hhk = Hk, so Hhk = \phi (k) is in the image of \phi . By the omnipresent
+Corol-
+lary 8.2,
+HK \sim  =
+ K
+ .
+H
+ ker \phi 
+What is ker \phi ?
+ker \phi  = {k \in  K | \phi (k) = e} = {k \in  K | Hk = H} = {k \in  K | k \in
+H} = H \cap  K,
+with the stated result.
+ ?
+
+\subsection{The index and Lagrange's theorem}
+
+the set of left-cosets 37 of H, even when H is not normal in G. Thus G/H is a
+set
+in general, and it is a group when H is in fact normal in G.
+Definition 8.12. The index of H in G, denoted [G : H], is the number of elements
+|G/H| of G/H, when this is finite, and \infty  otherwise.
+ ?
+Thus, [G : H] (if finite) denotes the number of left-cosets of H in G,
+regardless
+of whether H is normal in G.
+Lemma 8.13. Let H be a subgroup of a group G. Then \forall g \in  G the
+functions
+H \to  gH,
+ h ?\to  gh,
+H \to  Hg,
+ h ?\to  hg
+are bijections.
+37 This may seem an arbitrary choice (why not right-cosets?). It is. Writing
+from left to right
+gives us a bias towards left-actions, and G acts nicely on the left on the set
+of left-cosets; this will
+make better sense when we get to Example 9.4. In any case, there is a bijection
+between the set
+of left-cosets and the set of right-coset: Exercise 9.10.
+Proof. Both functions are surjective by definition of coset. Cancellation
+implies
+that they are injective.
+ ?
+Corollary 8.14 (Lagrange's theorem). If G is a finite group and H \subseteq  G
+is a
+subgroup, then |G| = [G : H] \cdot  |H|. In particular, |H| is a divisor of |G|.
+Proof. Indeed, G is the disjoint union of |G/H| distinct cosets gH, and |gH| =
+|H|
+by Lemma 8.13.
+ ?
+Lagrange's theorem is more useful than it may appear at first.
+Example 8.15. The order |g| of any element g of a finite group G is a divisor
+of |G|: indeed, |g| equals the order of the subgroup ?g? generated by g.
+Note: Therefore, g |G| = eG for all finite groups G, all g \in  G.
+ ?
+Example 8.16. If |G| is a prime integer p, then necessarily G \sim 
+ = Z/pZ.
+Indeed, let g \in  G be any element other than the identity; then ?g? is a
+subgroup
+of G, of order > 1. By Lagrange's theorem, |?g?| = p = |G|; that is, G \sim 
+ = ?g? is
+cyclic of order p, as claimed.
+ ?
+Example 8.17 (Fermat's little theorem). Let p be a prime integer, and let a be
+any integer. Then ap \equiv  a mod p.
+Indeed, this is immediate if a is a multiple of p; if a is not a multiple of p,
+then
+the class [a]p modulo p is nonzero, so it is an element of the group (Z/pZ)\ast
+, which
+has order p - 1. Thus
+[a]p-1
+ p
+ = [1]p
+(Example 8.15); hence [a]p p
+ = [a]p as claimed.
+ ?
+Warning: However, do not ask too much of Lagrange's theorem. For example,
+it does not say that if d is a divisor of |G|, then there exists a subgroup of G
+of
+order d (the smallest counterexample is A4, a group of order 12, which does not
+contain subgroups of order 6; the reader will verify this in Exercise IV.4.17);
+it
+does not even say that if p is a prime divisor of |G|, then there is an element
+of
+order p in G. This latter statement happens to be true, but for `deeper'
+reasons.
+The abelian case is easy (cf. Exercise 8.17). The general case is called
+Cauchy's
+theorem, and we will deal with it later on (cf. Theorem IV.2.1).
+The index is a well-behaved invariant. It is clearly multiplicative, in the
+sense
+that if H \subseteq  K are subgroups of G, then
+[G : H] = [G : K] \cdot  [K : H],
+provided that these numbers are finite. Also, if H and K are subgroups of G and
+H
+is normal (so that HK is a subgroup as well; cf. Proposition 8.11), then
+|H| \cdot  |K|
+|HK| =
+|H \cap  K|
+(again, provided this has a chance of making sense, that is, if the orders are
+finite):
+this follows immediately from the isomorphism in Proposition 8.11 and index con-
+siderations. In fact, the formula holds even without assuming that one of the
+subgroups is normal in G. Do you see why? (Exercise 8.21.)
+Further, if H and G are finite, then Lemma 8.13 implies immediately that the
+index of H in G, defined as the number of left-cosets of H in G, also equals the
+number of right-cosets of H. It is in fact easy to show that there always is a
+bijection
+between the set G/H of left-cosets and the set of right-cosets (cf. Exercise
+9.10),
+regardless of finiteness hypotheses. The set of right-cosets of H in G is often
+(reasonably) denoted H\G.
+
+\subsection{Epimorphisms and cokernels}
+The reader may expect that a mirror state-
+
+ment to Proposition 6.12 should hold for group epimorphisms. This is almost
+true:
+a homomorphism \phi  : G \to  H is an epimorphism (in the category Grp) if and
+only
+if it is surjective. However, while one implication is easy, the proofs I know
+for
+epimorphism \implies  surjective in Grp are somewhat cumbersome.
+The situation is leaner (as usual) in Ab: there is in Ab a good notion of
+cokernel;
+this is part of what makes Ab an `abelian category'.
+As is often the case, the reader may now want to pause a moment and try
+to guess the right definition. Keeping in mind the universal property for
+kernels
+(Proposition 6.6), can the reader come up with the universal property defining
+`cokernels' ? Can the reader prove that these exist in Ab and detect
+epimorphisms?
+Don't look ahead!
+Here is how the story goes. The universal property is (of course) obtained by
+reversing the arrows in the property for kernels: given a homomorphism \phi  : G
+\to  G\setminus
+of abelian groups, we want an abelian group coker \phi  equipped with a
+homomorphism
+\pi  : G\setminus  \to  coker \phi 
+which is initial with respect to all morphisms \alpha  such that \alpha  \circ
+\phi  = 0. That is, every
+homomorphism \alpha  : G\setminus  \to  L such that \alpha  \circ \phi  is the
+trivial map must factor (uniquely)
+through coker \phi :
+G
+ / G\setminus 
+ (/
+ L
+\phi 
+ \sqcup  \pi 
+ x x x x \alpha 
+ x
+ \exists !\alpha 
+ x
+ x
+ x
+ x
+ <coker \phi 
+Cokernels exist in Ab: because the image of \phi  is a subgroup of G\setminus ,
+hence a normal
+subgroup of G\setminus  since G\setminus  is abelian; the condition that \alpha
+\circ  \phi  is trivial says that
+im \phi  \subseteq  ker \alpha , and hence
+G\setminus \sim 
+ = coker \phi 
+im \phi 
+satisfies the universal property, by Theorem 7.12.
+The `problem' in Grp is that im \phi  is not guaranteed to be normal in
+G\setminus ; thus
+the situation is more complex.
+Also note that, in the abelian case, G\setminus  / im \phi  automatically
+satisfies a stronger
+universal property: as stated, but with respect to any set-function G\setminus
+\to  L which
+is constant on cosets of im \phi .
+We can now state a true mirror of Proposition 6.12, in Ab:
+Proposition 8.18. Let \phi  : G \to  G\setminus  be a homomorphism of abelian
+groups. The
+following are equivalent:
+(a) \phi  is an epimorphism;
+(b) coker \phi  is trivial;
+(c) \phi  : G \to  G\setminus  is surjective (as a set-function).
+Proof. (a) \implies  (b): Assume (a) holds, and consider the two parallel
+compositions
+G
+ \phi 
+ / G\setminus 
+ \pi 
+ // coker \phi ,
+e
+where \pi  is the canonical projection and e is the trivial map. Both \pi  \circ
+\phi  and e\circ \phi  are
+the trivial map; since \phi  is an epimorphism, this implies \pi  = e. But \pi
+= e implies
+that coker \phi  is trivial, that is, (b) holds.
+(b) \implies  (c): If coker \phi  = G\setminus / im \phi  is trivial, then im
+\phi  = G\setminus  ; hence \phi  is
+surjective.
+(c) \implies  (a): If \phi  is surjective, then it satisfies the universal
+property for epi-
+morphisms in Set: for any set Z and any two set-functions \alpha \setminus  and
+\alpha \setminus \setminus  : G\setminus  \to  Z,
+\alpha \setminus  \circ  \phi  = \alpha \setminus \setminus  \circ  \phi  \iff  \alpha \setminus  = \alpha \setminus \setminus  .
+This must hold in particular if Z is endowed with a group structure and \alpha
+\setminus , \alpha  \setminus \setminus  are
+group homomorphisms, so \phi  is an epimorphism in Grp.
+ ?
+A cokernel may be defined in Grp: the universal property for the cokernel
+of \phi  : G \to  G\setminus  is satisfied by G\setminus  /N , where N is the
+smallest 38 normal subgroup
+of G\setminus  containing im \phi  (Exercise 8.22). But Proposition 8.18 fails,
+because the
+implication (b) \implies  (c) does not hold: in Grp it is no longer true that
+only surjective
+homomorphisms have trivial cokernel (cf. Exercise 8.23).
+
+\subsection*{Exercises}
+
+8.1. If a group H may be realized as a subgroup of two groups G1 and G2 and if
+G1 \sim  =
+ G2
+ ,
+H
+ H
+does it follows that G1 \sim 
+ = G2 ? Give a proof or a counterexample.
+8.2. \lnot  Extend Example 8.6 as follows. Suppose G is a group and H \subseteq
+G is a
+subgroup of index 2, that is, such that there are precisely two (say, left-)
+cosets
+of H in G. Prove that H is normal in G. [9.11, IV.1.16]
+8.3. Prove that every finite group is finitely presented.
+38 The intersection of any family of normal subgroups is normal, as the reader
+may readily
+check, so this subgroup exists.
+8.4. Prove that (a, b|a2 , b2, (ab)n ) is a presentation of the dihedral group
+D2n .
+(Hint: With respect to the generators defined in Exercise 2.5, set a = x and
+b = xy; prove you can get the relations given here from the ones you obtained
+in Exercise 2.5, and conversely.)
+8.5. Let a, b be distinct elements of order 2 in a group G, and assume that ab
+has
+finite order n \geq  3. Prove that the subgroup generated by a and b in G is
+isomorphic
+to the dihedral group D2n . (Use the previous exercise.)
+8.6. \lnot  Let G be a group, and let A be a set of generators for G; assume A
+is
+finite. The corresponding Cayley graph 39 is a directed graph whose set of
+vertices
+is in one-to-one correspondence with G, and two vertices g1 , g2 are connected
+by
+an edge if g2 = g1 a for an a \in  A; this edge may be labeled a and oriented
+from g1
+to g2. For example, the graph drawn in Example 5.3 for the free group F ({x, y})
+on two generators x, y is the corresponding Cayley graph (with the convention
+that
+horizontal edges are labeled x and point to the right and vertical edges are
+labeled y
+and point up).
+Prove that if a Cayley graph of a group is a tree, then the group is free.
+Conversely, prove that free groups admit Cayley graphs that are trees. [\S{}5.3,
+9.15]
+8.7. ? Let (A|R), resp., (A\setminus  |R \setminus  ), be a presentation for a
+group G, resp., G\setminus  (cf. \S{}8.2);
+we may assume that A, A\setminus  are disjoint. Prove that the group G \ast
+G\setminus  presented by
+(A \cup  A\setminus  | R \cup  R \setminus )
+satisfies the universal property for the coproduct of G and G\setminus  in Grp.
+(Use the
+universal properties of both free groups and quotients to construct natural
+homo-
+morphisms G \to  G \ast  G\setminus  , G\setminus  \to  G \ast  G\setminus  .)
+[\S{}3.4, \S{}8.2, 9.14]
+8.8. \lnot  (If you know about matrices (cf. Exercise 6.1).) Prove that SL n(R)
+is
+a normal subgroup of GLn (R), and `compute' GLn (R)/ SL n(R) as a well-known
+group. [VI.3.3]
+8.9. \lnot  (Ditto.) Prove that SO3 (R) = \sim 
+ SU(2)/{\pm I2 }, where I2 is the identity matrix.
+(Hint: It so happens that every matrix in SO3 (R) can be written in the form
+( )
+a2
+ + b2 - c2 - d2
+ 2(bc - ad)
+ 2(ac + bd)
+( 2(ad + bc)
+ a2 - b2 + c2 - d2
+ 2(cd - ab) )
+2(bd - ac)
+ 2(ab + cd)
+ a2
+ - b2 - c2 + d2
+where a, b, c, d \in  R and a2 +b2 +c2 +d2 = 1. Proving this fact is not hard,
+but at this
+stage you will probably find it computationally demanding. Feel free to assume
+this,
+and use Exercise 6.3 to construct a surjective homomorphism SU(2) \to  SO3 (R);
+compute the kernel of this homomorphism.)
+If you know a little topology, you can now conclude that the fundamental
+group40 of SO3(R) is C2 . [9.1, VI.1.3]
+39 Warning: This is one of several alternative conventions.
+40 If you really want to believe this fact, remember that SO3
+(R) parametrizes rotations in R3 .
+Hold a tray with a glass of water on top of your extended right hand. You should
+be able to rotate
+the tray clockwise by a full 360\circ  without spilling the water, and your
+muscles will tell you that
+the corresponding loop in SO3 (R) is not trivial. But then you will be able to
+rotate the tray again
+8.10. View Z \times  Z as a subgroup of R \times  R:
+Describe the quotient
+R \times  R
+Z \times  Z
+in terms analogous to those used in Example 8.7. (Can you `draw a picture' of
+this
+group? Cf. Exercise I.1.6.)
+8.11. (Notation as in Proposition 8.10.) Prove `by hand' (that is, without
+invoking
+universal properties) that N is normal in G if and only if N/H is normal in G/H.
+8.12. (Notation as in Proposition 8.11.) Prove `by hand' (that is, by using
+Propo-
+sition 6.2) that HK is a subgroup of G if H is normal.
+8.13. \lnot  Let G be a finite group, and assume |G| is odd. Prove that every
+element
+of G is a square. [8.14]
+8.14. Generalize the result of Exercise 8.13: if G is a group of order n and k
+is an
+integer relatively prime to n, then the function G \to  G, g ?\to  gk is
+surjective.
+8.15. Let a, n be positive integers, with a > 1. Prove that n divides \varphi
+(an - 1),
+where \varphi  is Euler's \varphi -function; see Exercise 6.14. (Hint: Example
+8.15.)
+8.16. Generalize Fermat's little theorem to congruences modulo arbitrary (that
+is,
+possibly nonprime) integers. Note that it is not true that an \equiv  a mod n
+for all
+a and n: for example, 24 is not congruent to 2 modulo 4. What is true? (This
+generalization is known as Euler's theorem.)
+8.17. ? Assume G is a finite abelian group, and let p be a prime divisor of |G|.
+Prove that there exists an element in G of order p. (Hint: Let g be any element
+of G, and consider the subgroup ?g?; use the fact that this subgroup is cyclic
+to
+show that there is an element h \in  ?g? in G of prime order q. If q = p, you
+are done;
+otherwise, use the quotient G/?h? and induction.) [\S{}8.5, 8.18, 8.20,
+\S{}IV.2.1]
+8.18. Let G be an abelian group of order 2n, where n is odd. Prove that G has
+exactly one element of order 2. (It has at least one, for example by Exercise
+8.17.
+Use Lagrange's theorem to establish that it cannot have more than one.) Does the
+same conclusion hold if G is not necessarily commutative?
+a full 360\circ  clockwise without spilling any water, taking it back to the
+original position. Thus, the
+square of the loop is (homotopically) trivial, as it should be if the
+fundamental group is cyclic of
+order 2.
+8.19. Let G be a finite group, and let d be a proper divisor of |G|. Is it
+necessarily
+true that there exists an element of G of order d? Give a proof or a
+counterexample.
+8.20. ? Assume G is a finite abelian group, and let d be a divisor of |G|. Prove
+that there exists a subgroup H \subseteq  G of order d. (Hint: induction; use
+Exercise 8.17.)
+[\S{}IV.2.2]
+8.21. ? Let H, K be subgroups of a group G. Construct a bijection between the
+set of cosets hK with h \in  H and the set of left-cosets of H \cap  K in H. If
+H and K
+are finite, prove that
+|H| \cdot  |K|
+|HK| =
+ .
+|H \cap  K|
+[\S{}8.5, \S{}IV.4.4]
+8.22. ? Let \phi  : G \to  G\setminus  be a group homomorphism, and let N be the
+smallest
+normal subgroup containing im \phi . Prove that G\setminus  /N satisfies the
+universal property
+of coker \phi  in Grp. [\S{}8.6]
+8.23. ? Consider the subgroup
+?
+ ?
+1 2 3
+ 1 2 3
+H =
+ ,
+1 2 3
+ 2 1 3
+of S3 . Show that the cokernel of the inclusion H \setminus \to  S3 is trivial,
+although H \setminus \to  S3
+is not surjective. [\S{}8.6]
+8.24. ? Show that epimorphisms in Grp do not necessarily have right-inverses.
+[\S{}I.4.2]
+8.25. Let H be a commutative normal subgroup of G. Construct an interesting
+homomorphism from G/H to Aut(H). (Cf. Exercise 7.10.)
+
+\section{Group actions}
+
+
+\subsection{Actions}
+As mentioned in \S{}4.1, an action of a group G on an object A of a
+
+category C is simply a homomorphism
+\sigma  : G \to  AutC (A).
+The way to interpret this is that every element g \in  G determines a
+`transformation
+of A into itself', i.e., an isomorphism of A in C, and this happens compatibly
+with
+the operation of G and composition in C.
+In a rather strong sense, we really only care about groups because they act on
+things: knowing that G acts on A tells us something about A; group actions are
+one key tool in the study of geometric and algebraic entities.
+In fact, group actions are one key tool in the study of groups themselves: one
+of the best ways to `understand' a group is to let it act on an object A, hoping
+that the corresponding homomorphism \sigma  is an isomorphism, or at least an
+injective
+monomorphism. For example, we were lucky with D6 in \S{}2.2: we let D6 act on a
+set with three elements (the vertices of an equilateral triangle) and observed
+that
+the resulting \sigma  is an isomorphism. Thus D6 = \sim 
+ S3 . We would be almost as lucky
+by letting D8 act on the vertices of a square: then \sigma  would at least
+realize D8 as
+an explicit subgroup of S4 , which simplifies its analysis.
+Definition 9.1. An action of a group G on an object A of a category C is
+faithful
+(or effective) if the corresponding \sigma  : G \to  AutC(A) is injective.
+ ?
+The case C = Set is already very rich, and we focus on it in this chapter.
+
+\subsection{Actions on sets}
+Spelling out our definition of action in case A is a set, so
+
+that AutC(A) is the symmetric group SA , we get the following:
+Definition 9.2. An action of a group G on a set A is a set-function
+\rho  : G \times  A \to  A
+such that \rho (eG , a) = a for all a \in  A and
+(\forall g, h \in  G), (\forall a \in  A) :
+ \rho (gh, a) = \rho (g, \rho (h, a)).
+ ?
+Indeed, given a function \rho  satisfying these conditions, we can define \sigma
+: G \to
+HomSet (A, A) by \sigma (g)(a) = \rho (g, a). (This defines \sigma (g) as a
+set-function A \to  A, as
+needed.) This function preserves the operation, because
+\sigma (gh)(a) = \rho (gh, a) = \rho (g, \rho (h, a)) = \sigma (g)(\rho (h, a)) = \sigma (g)(\sigma (h)(a))
+= \sigma (g) \circ  \sigma (h)(a).
+In particular, this verifies that \sigma (g -1 ) acts as the inverse of \sigma
+(g): because (\forall a \in  A)
+\sigma (g -1 ) \circ  \sigma (g)(a) = \sigma (g-1 g)(a) = \sigma (eG )(a) = \rho (eG , a) = a.
+Thus the image of \sigma  consists of invertible set-functions; \sigma  is
+acting as a function
+\sigma  : G \to  SA ,
+and we have verified that this is a homomorphism, as needed.
+Conversely, given a homomorphism \sigma  : G \to  SA , define \rho  : G \times
+A \to  A by
+\rho (g, a) = \sigma (g)(a); the same argument (read backwards) shows that \rho  satisfies the
+needed properties.
+It is unpleasant to carry \rho  along. In practice, one just writes ga for \rho
+(g, a); the
+requirements in Definition 9.2 amount then to e Ga = a for all a \in  A and
+(\forall g, h \in  G), (\forall a \in  A) :
+ (gh)a = g(ha),
+`as if' \rho  defined an associative operation.
+If G acts on A, then eG a = a for all a \in  A; the action of a group G on a set
+A
+is faithful if and only if the identity eG is the only element g of G such that
+ga = a
+for all a \in  A, that is, `fixing' every element of A. An action is free if the
+identity eG
+is the only element fixing any element of A.
+Example 9.3. Every group G acts in a natural way on the underlying set G. The
+function \rho  : G \times  G \to  G is simply the operation in the group:
+(\forall g, a \in  G) :
+ \rho (g, a) = ga.
+In this case the defining property really is associativity. This is referred to
+as the
+action by left-multiplication 41 of G on itself. There is (at least) another
+very natural
+way to act with G on itself, by conjugation: define \rho  : G \times  G \to  G
+by
+-1\rho (g, h) = ghg .
+This is indeed an action: \forall g, h, k \in  G,
+\rho (g, \rho (h, k)) = g\rho (h, k)g-1 = g(hkh-1)g-1 = (gh)k(gh)-1 = \rho (gh, k).
+ ?
+Example 9.4. More generally, G acts by left-multiplication on the set G/H of
+left-cosets (cf. \S{}8.5) of any subgroup H: act by g \in  G on aH \in  G/H by
+sending it
+to (ga)H.
+ ?
+These examples of actions are extremely useful in studying groups, as we will
+see
+in Chapter IV. For instance, an immediate consequence is the following
+counterpart
+to \S{}8.2:
+Theorem 9.5 (Cayley's theorem). Every group acts faithfully on some set. That
+is, every group may be realized as a subgroup of a permutation group.
+Proof. Indeed, simply observe that the left-multiplication action of G on itself
+is
+manifestly faithful.
+ ?
+The notion defined in Definition 9.2 is, for the sake of precision, called a
+left-
+action. A right-action would associate to each pair (g, a) with g \in  G and a
+\in  A an
+element ag \in  A; our make-believe associativity would now say
+a(gh) = (ag)h
+for all a \in  A and g, h \in  G. This is a different requirement than the one
+given in
+Definition 9.2; multiplication on the right in a group G gives a prototypical
+example
+of a right-action of G (on itself).
+Every right-action may be turned into a left-action with due care (cf. Exer-
+cise 9.3). Therefore it is not restrictive to just consider left-actions; from
+now on,
+an `action' will be understood to be a left-action, unless stated otherwise.
+
+\subsection{Transitive actions and the category G-Set}
+
+Definition 9.6. An action of a group G on a (nonempty) set A is transitive if
+\forall a, b \in  A \exists g \in  G such that b = ga.
+ ?
+For example, the left-multiplication action of a group on itself is transitive.
+Transitive actions are the basic ingredients making up every action; this is
+seen by
+means of the following important concepts.
+Definition 9.7. The orbit of a \in  A under an action of a group G is the set
+OG(a) := {ga | g \in  G}.
+ ?
+41 This is left-multiplication in the sense that the `acting' element g of G is
+placed to the left
+of the element a `acted upon'.
+Definition 9.8. Let G act on a set A, and let a \in  A. The stabilizer subgroup
+of
+a consists of the elements of G which fix a:
+StabG(a) := {g \in  G | ga = a}.
+ ?
+Orbits of an action of a group G on a set A form a partition of A; and we
+have an induced, transitive action of G on each orbit. Therefore we can, in a
+sense, `understand' all actions if we understand transitive actions. This will
+be
+accomplished in a moment, by studying actions related to stabilizers.
+For any group G, sets endowed with a (left) G-action form in a natural way
+a category G-Set: objects are pairs (\rho , A), where \rho  : G \times  A \to  A
+is an action (as
+in Definition 9.2) and morphisms between two objects are set-functions which are
+compatible with the actions. That is, a morphism
+(\rho , A) \to  (\rho \setminus  , A\setminus  )
+in G-Set amounts to a set-function \phi  : A \to  A\setminus  such that the
+diagram
+G \times  A
+ idG \times \phi 
+ / G \times  A\setminus 
+\rho 
+\sqcup 
+A
+\phi 
+/?
+\rho \sqcup 
+A\setminus 
+commutes. In the usual shorthand notation omitting the \rho 's, this means that
+\forall g \in  G, \forall a \in  A,
+g\phi (a) = \phi (ga);
+that is, the action `commutes' with \phi . Such functions are called
+(G-)equivariant.
+We therefore have a notion of isomorphism of G-sets (defined as in \S{}I.4.1);
+the
+reader should expect (and should verify) that these are nothing but the
+equivariant
+bijections.
+Among G-sets we single out the sets G/H of left-cosets of subgroups H of G;
+as noted in Example 9.4, G acts on G/H by left-multiplication.
+Proposition 9.9. Every transitive left-action of G on a nonempty set A is
+isomor-
+phic to the left-multiplication of G on G/H, for H = the stabilizer of any a \in
+A.
+Proof. Let G act transitively on a set A, let a \in  A be any element, and let
+H = StabG (a). I claim that there is an equivariant bijection
+\phi  : G/H \to  A
+defined by
+\phi (gH) := ga
+for all g \in  G.
+Indeed, first of all \phi  is well-defined: if g1H = g2 H, then g1 -1 g2 \in  H,
+hence
+-1
+(g1 g2 )a = a, and it follows that g1a = g2 a as needed. To verify that \phi  is
+bijective,
+define a function \psi  : A \to  G/H by sending an element ga of A to gH; \psi
+is well-
+defined because if g1 a = g2 a, then g1 -1 (g2a) = a, so g1 -1 g2 \in  H and g1H
+= g2 H. It
+is clear that \phi  and \psi  are inverses of each other; hence \phi  is a
+bijection.
+Equivariance is immediate: \phi (g \setminus (gH)) = g \setminus  ga = g
+\setminus  \phi (gH).
+ ?
+Corollary 9.10. If O is an orbit of the action of a finite group G on a set A,
+then
+O is a finite set and
+|O|
+ divides
+ |G|.
+Proof. By Proposition 9.9 there is a bijection between O and G/ StabG (a) for
+any
+element a \in  O; thus
+|O| \cdot  | StabG(a)| = |G|
+by Corollary 8.14.
+ ?
+Corollary 9.10 upgrades Lagrange's theorem to orbits of any action; it is ex-
+tremely useful, as it provides a very strong constraint on group actions.
+Example 9.11. There are no transitive actions of S3 on a set with 5 elements.
+Indeed, 5 does not divide 6.
+ ?
+Ultimately, almost everything we will prove in Chapter IV on the structure of
+finite groups will be a consequence of `counting arguments' stemming from
+applica-
+tions of Corollary 9.10 to actions of a group by conjugation or
+left-multiplication.
+There may seem to be an element of arbitrariness in the statement of Propo-
+sition 9.9: what if we change the element a of which we are taking the
+stabilizer?
+The stabilizer may change, but it does so in a controlled way:
+Proposition 9.12. Suppose a group G acts on a set A, and let a \in  A, g \in  G,
+b = ga. Then
+-1StabG (b) = g StabG (a)g .
+Proof. Indeed, assume h \in  StabG (a); then
+-1 -1(ghg )(b) = gh(g g)a = gha = ga = b :
+thus ghg-1 \in  StabG (b). This proves the \supseteq  inclusion; \subseteq
+follows by the same argu-
+ment, noting that a = g-1 b.
+ ?
+For example, if StabG (a) happens to be normal, then it is really independent
+of a (in any given orbit). In any case, there is an isomorphism of G-sets beween
+-1G/H and G/(gHg ), as follows from these considerations (and as the reader will
+independently check in Exercise 9.13).
+
+\subsection*{Exercises}
+
+9.1. (Once more, if you are already familiar with a little linear algebra. . . )
+The
+matrix groups listed in Exercise 6.1 all come with evident actions on a vector
+space: if M is an n \times  n matrix with (say) real entries, multiplication to
+the right by
+a column n-vector v returns a column n-vector M v, and this defines a
+left-action
+on Rn viewed as the space of column n-vectors.
+\bullet  Prove that, through this action, matrices M \in  On (R) preserve lengths and
+angles in Rn.
+\bullet  Find an interesting action of SU(2) on R3 . (Hint: Exercise 8.9.)
+9.2. The effect of the matrices
+1 0
+,
+0 -1
+ -1
+on the plane is to respectively flip the plane about the y-axis and to rotate it
+90\circ
+clockwise about the origin. With this in mind, construct an action of D8 on R2 .
+9.3. If G = (G, \cdot ) is a group, we can define an `opposite' group G\circ  =
+(G, \bullet )
+supported on the same set G, by prescribing
+(\forall g, h \in  G) :
+ g \bullet  h := h \cdot  g.
+\bullet  Verify that G\circ 
+ is indeed a group.
+\bullet  Show that the `identity': G\circ  \to  G, g ?\to  g is an isomorphism if and only if G is
+commutative.
+\bullet  Show that G\circ  \sim 
+ = G (even if G is not commutative!).
+\bullet  Show that giving a right-action of G on a set A is the same as giving a homo-
+morphism G\circ  \to  SA , that is, a left-action of G\circ  on A.
+\bullet  Show that the notions of left- and right-actions coincide `on the nose' for com-
+mutative groups. (That is, if (g, a) ?\to  ag defines a right-action of a
+commutative
+group G on a set A, then setting ga = ag defines a left-action).
+\bullet  For any group G, explain how to turn a right-action of G into a left-action
+of G. (Note that the simple `flip' ga = ag does not work in general if G is not
+commutative.)
+9.4. As mentioned in the text, right-multiplication defines a right-action of a
+group
+on itself. Find another natural right-action of a group on itself.
+9.5. Prove that the action by left-multiplication of a group on itself is free.
+9.6. Let O be an orbit of an action of a group G on a set. Prove that the
+induced
+action of G on O is transitive.
+9.7. Prove that stabilizers are indeed subgroups.
+9.8. For G a group, verify that G-Set is indeed a category, and verify that the
+isomorphisms in G-Set are precisely the equivariant bijections.
+9.9. Prove that G-Set has products and coproducts and that every object of G-Set
+is a coproduct of objects of the type G/H = {left-cosets of H}, where H is a
+subgroup of G and G acts on G/H by left-multiplication.
+9.10. Let H be any subgroup of a group G. Prove that there is a bijection
+between
+the set G/H of left-cosets of H and the set H\G of right-cosets of H in G.
+(Hint:
+G acts on the right on the set of right-cosets; use Exercise 9.3 and Proposition
+9.9.)
+9.11. \lnot  Let G be a finite group, and let H be a subgroup of index p, where
+p is
+the smallest prime dividing |G|. Prove that H is normal in G, as follows:
+\bullet  Interpret the action of G on G/H by left-multiplication as a homomorphism
+\sigma  : G \to  Sp .
+\bullet  Then G/ ker \sigma  is (isomorphic to) a subgroup of Sp . What does this say about
+the index of ker \sigma  in G?
+\bullet  Show that ker \sigma  \subseteq  H.
+\bullet  Conclude that H = ker \sigma , by index considerations.
+Thus H is a kernel, proving that it is normal. (This exercise generalizes the
+result
+of Exercise 8.2.) [9.12]
+9.12. \lnot  Generalize the result of Exercise 9.11, as follows. Let G be a
+group, and
+let H \subseteq  G be a subgroup of index n. Prove that H contains a subgroup K
+that is
+normal in G and such that [G : K] divides the gcd of |G| and n!. (In particular,
+[G : K] \leq  n!.) [IV.2.23]
+9.13. ? Prove `by hand' that for all subgroups H of a group G and \forall g \in
+G, G/H and
+-1G/(gHg ) (endowed with the action of G by left-multiplication) are isomorphic
+in G-Set. [\S{}9.3]
+9.14. \lnot  Prove that the modular group PSL2(Z) is isomorphic to the coproduct
+ C2 \ast 
+? ?0 -1C3 . ? (Recall
+ ?
+ that
+ the
+ modular
+ group
+ PSL
+ (Z)
+ is
+ generated
+ by
+ x
+ =
+ 1 0
+ and
+y = 1 1 -1 0 , satisfying the relations x2 = y 3 = e in PSL2 (Z) (Exercise 7.5).
+The
+task is to prove that x and y satisfy no other relation: this will show that
+PSL2 (Z)
+is presented by (x, y | x2 , y 3 ), and we have agreed that this is a
+presentation for
+C2 \ast  C3 (Exercise 3.8 or 8.7). Reduce this to verifying that no products
+(y \pm 1 x)(y \pm 1x) \dots  (y\pm 1 x)
+ or
+ (y\pm 1 x)(y\pm 1 x) \dots  (y \pm 1 x)y\pm 1
+with one or more factors can equal the identity. This latter verification is
+tradi-
+tionally carried out by cleverly exploiting an action42 . Let the modular group
+act
+on the set of irrational real numbers by
+a b
+ ar + b
+(r) =
+ .
+c d
+ cr + d
+Check that this does define an action of PSL2 (Z), and note that
+ r
+y(r) = 1 - , y -1 (r) =
+ , yx(r) = 1 + r, y -1 x(r) =
+ .
+r
+ 1 - r
+ 1+ r
+42 The modular group acts on C \cup  {\infty } by M\"obius transformations. The
+observation that it
+suffices to act on R \setminus  Q for the purpose of this verification is due to
+Roger Alperin.
+Now complete the verification with a case-by-case analysis. For example, a
+product
+(y \pm 1x)(y \pm 1x) \dots  (y\pm 1 x)y cannot equal the identity in PSL2 (Z)
+because if it did, it
+would act as the identity on R \setminus  Q, while if r < 0, then y(r) > 0, and
+both yx and
+-1y x send positive irrationals to positive irrationals.) [3.8]
+9.15. \lnot  Prove that every (finitely generated) group G acts freely on any
+corre-
+sponding Cayley graph. (Cf. Exercise 8.6. Actions on a directed graph are
+defined
+as actions on the set of vertices preserving incidence: if the vertices v1 , v2
+are
+connected by an edge, then so must be gv1 , gv2 for every g \in  G.) In
+particular,
+conclude that every free group acts freely on a tree. [9.16]
+9.16. ? The converse of the last statement in Exercise 9.15 is also true: only
+free
+groups can act freely on a tree. Assuming this, prove that every subgroup of a
+free
+group (on a finite set) is free. [\S{}6.4]
+9.17. ? Consider G as a G-set, by acting with left-multiplication. Prove that
+AutG-Set (G) \sim 
+ = G. [\S{}2.1]
+9.18. Show how to construct a groupoid carrying the information of the action of
+a group G on a set A. (Hint: A will be the set of objects of the groupoid. What
+will be the morphisms?)
+
+\section{Group objects in categories}
+
+
+\subsection{Categorical viewpoint}
+The definition of group (Definition 1.2) is firmly
+
+grounded on the category Set: A group is a set G endowed with a binary opera-
+tion. . . . However, we have noticed along the way (for example, in \S{}3) that
+what is
+really behind it is a pair of functions:
+m : G \times  G \to  G,
+ \iota  : G \to  G
+satisfying certain properties (which translate into associativity, existence of
+inverses,
+etc.). Much of what we have seen could be expressed exclusively in terms of
+these
+functions, systematically replacing considerations on `elements' by suitable
+commu-
+tative diagrams and enforcing universal properties as a means to define key
+notions
+such as the quotient of a group by a subgroup. For example, homomorphisms may
+be defined purely in terms of the commutativity of a diagram: cf. Definition
+3.1.
+This point of view may be transferred easily to categories other than Set, and
+the corresponding notions are very important in modern mathematics.
+Definition 10.1. Let C be a category with (finite) products and with a final
+object 1.
+A group object in C consists of an object G of C and of morphisms
+m : G \times  G \to  G,
+ e : 1 \to  G,
+ \iota  : G \to  G
+in C such that the diagrams
+(G \times  G) \times  G
+\sim 
+ =
+\sqcup 
+G \times  (G \times  G)
+m\times idG
+idG \times m
+/ G \times  G
+/ G \times  G
+m
+m
+//G
+G
+1 \times  G L
+ L L e\times idG
+ L
+ = \sim 
+ L L L
+ L L / L G L %
+ \times  \sqcup 
+ m
+ G
+G
+G \times  1 L
+ L L idG L
+ = \sim 
+ L L \times e
+ L
+ L L / L G L %
+ \times  \sqcup 
+ m
+ G
+G
+G
+ \Delta 
+ / G \times  G idG \times \iota  / G \times  G
+m
+\sqcup 
+ e
+ \sqcup 
+ / G
+commute.
+G
+ \Delta 
+ / G \times  G
+ \iota \times idG
+ / G \times  G
+m
+\sqcup 
+ e
+ \sqcup 
+ / G
+?
+Comments. The morphism \Delta  = idG \times  idG is the `diagonal' morphism G
+\to
+G \times  G induced by the universal property for products and the identity
+map(s)
+G \to  G. Likewise, the other unnamed morphisms in these diagrams are all
+uniquely
+determined by suitable universal properties. For example, there is a unique mor-
+phism ? : G \to  1 because 1 is final. The composition with the projection
+G
+ \times idG
+ / 1 \times  G
+ / G
+is the identity; so is
+1 \times  G
+ / G
+ \times idG
+ / 1 \times  G
+(why?); therefore the projection 1 \times  G \to  G is indeed an isomorphism, as
+indicated.
+The reader will hopefully realize immediately (Exercise 10.2) that our original
+definition of groups given in \S{}1 is precisely equivalent to the definition of
+group
+object in Set: the commutativity of the given diagrams codifies associativity
+and
+the existence of two-sided identity and inverses.
+Most interesting categories the reader will encounter (not necessarily in this
+book), such as the category of topological spaces, differentiable manifolds,
+algebraic
+varieties, schemes, etc., will carry `their own' notion of group object. For
+example,
+a topological group is a group object in the category of topological spaces; a
+Lie
+group is a group object in the category of differentiable manifolds, etc.
+
+\subsection*{Exercises}
+
+10.1. Define all the unnamed maps appearing in the diagrams in the definition of
+group object, and prove they are indeed isomorphisms when so indicated. (For the
+projection 1 \times  G \to  G, what is left to prove is that the composition
+1 \times  G \to  G \to  1 \times  G
+is the identity, as mentioned in the text.)
+10.2. ? Show that groups, as defined in \S{}1.2, are `group objects in the
+category of
+sets'. [\S{}10.1]
+10.3. Let (G, \cdot ) be a group, and suppose \circ  : G \times  G \to  G is a
+group homomorphism
+(w.r.t. \cdot ) such that (G, \circ ) is also a group. Prove that \circ  and
+\cdot  coincide. (Hint: First
+prove that the identity with respect to the two operations must be the same.)
+10.4. Prove that every abelian group has exactly one structure of group object
+in
+the category Ab.
+10.5. By the previous exercise, a group object in Ab is nothing other than an
+abelian group. What is a group object in Grp?
