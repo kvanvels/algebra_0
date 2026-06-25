@@ -301,9 +301,8 @@ when they become more relevant to the issues at hand (cf.~\S{}V.3).
 Intuitively, a relation on elements of a set $S$ is some special affinity
 among selections of elements of $S$. For example, the relation $<$ on the
 set $\Z$ is a way to compare the size of two integers: since $2 < 5$, $2$
-`is related to' $5$ in this sense, while $5$ is not related to $2$ in the
-same sense.
-For all practical purposes, what a relation `means' is completely captured
+ `is related to' $5$ in this sense, while $5$ is not related to $2$ in the
+same sense. For all practical purposes, what a relation `means' is completely captured
 by which elements are related to which elements in the set. We would really
 know all there is to know about $<$ on $\Z$ if we had a complete list of
 all pairs $(a, b)$ of integers such that $a < b$. For example, $(2, 5)$ is
@@ -397,220 +396,213 @@ short while (\S{}5.3).
 
 \subsection*{Exercises}
 
-% Exercises marked with a ? are referred to from the text; exercises marked with a
-% \lnot  are referred to from other exercises. These referring exercises
-%        and sections are
-% listed in brackets following the current exercise; see the introduction for
-% further
-% clarifications, if necessary.
-% 1.1. Locate a discussion of Russell's paradox, and understand it.
-% 1.2. ? Prove that if \sim  is an equivalence relation on a set S, then the
-% corresponding
-% family P\sim  defined in \S{}1.5 is indeed a partition of S: that is, its
-% elements are
-% nonempty, disjoint, and their union is S. [\S{}1.5]
-% 1.3. ? Given a partition P on a set S, show how to define a relation \sim  on S
-% such
-% that P is the corresponding partition. [\S{}1.5]
-% 1.4. How many different equivalence relations may be defined on the set {1, 2,
-% 3}?
-% 1.5. Give an example of a relation that is reflexive and symmetric but not
-% transitive.
-% What happens if you attempt to use this relation to define a partition on the
-% set?
-% (Hint: Thinking about the second question will help you answer the first one.)
-% 1.6. ? Define a relation \sim  on the set R of real numbers by setting a \sim  b
-% \iff  b-a \in
-% Z. Prove that this is an equivalence relation, and find a `compelling'
-% description
-% for R/\sim . Do the same for the relation \approx  on the plane R \times  R
-% defined by declaring
-% (a1, a2) \approx  (b1 , b2) \iff  b1 - a1 \in  Z and b2 - a2 \in  Z.
-% [\S{}II.8.1, II.8.10]
+Exercises marked with a \exerused are referred to from the text; exercises marked with a
+\lnot  are referred to from other exercises. These referring exercises
+       and sections are
+listed in brackets following the current exercise; see the introduction for
+further
+clarifications, if necessary.
+\begin{exer}{}{}
+Locate a discussion of Russell's paradox, and understand it.
+\end{exer}{}{}
+\begin{exer}{}{} Prove that if $\sim$ is an equivalence relation on a
+  set $S$, then the corresponding family $P_\sim$ defined in
+  \cref{subsec:prelims:equivalence-relations} is indeed a partition of
+  $S$: that is, its elements are nonempty, disjoint, and their union
+  is $S$. [\S{}1.5]
+\end{exer}
+\begin{exer}{}{}
+  \exerused Given a partition $P$ on a set $S$, show how to define a
+  relation $\sim$ on $S$ such that $P$ is the corresponding
+  partition. [\S{}1.5]
+\end{exer}
+\begin{exer}{}{}
+  How many different equivalence relations may be defined on the set $\{1, 2,
+   3\}$?
+\end{exer}
+\begin{exer}{}{}
+  Give an example of a relation that is reflexive and symmetric but not
+  transitive.
+  What happens if you attempt to use this relation to define a partition on the
+   set?
+  Hint: Thinking about the second question will help you answer the first one.
+\end{exer}
+\begin{exer}{}{}
+  Define a relation $\sim$ on the set $\R$ of real numbers by setting
+$a \sim b \iff b-a \in \Z$. Prove that this is an equivalence
+relation, and find a `compelling' description for
+$\quot{\R}{\sim}$. Do the same for the relation $\approx$ on the plane
+$\R \times \R$ defined by declaring $(a_1, a_2) \approx (b_1 , b_2)
+\iff b_1 - a_1 \in \Z \text{ and } b_2 - a_2 \in \Z$.  [\S{}II.8.1,
+II.8.10]p
+\end{exer}
 
 \section{Functions between sets}
 \label{sec:prelims:functions-between-sets}
 
-
 \subsection{Definition}
 \label{subsec:prelims:functions:definition}
+A common thread we will follow for just about every structure
+introduced in this book will be to try to understand both the type of structures
+and the ways in which different instances of a given structure may interact.
 
-% introduced in this book will be to try to understand both the type of structures
-% and the ways in which different instances of a given structure may interact.
-% Sets interact with each other through functions. It is tempting to think of a
-% function f from a set A to a set B in `dynamic' terms, as a way to `go from A
-% to B'. Similarly to the business with relations, it is straightforward to
-% formalize
-% this notion in ways that do not need to invoke any deep `meaning' of any given f
-% :
-% everything that can be known about a function f is captured by the information
-% of
-% which element b of B is the image of any given element a of A. This information
-% is nothing but a subset of A \times  B:
-% \Gamma f := {(a, b) \in  A \times  B | b = f (a)} \subseteq  A \times  B.
-% This set \Gamma f is the graph of f ; officially, a function really `is' its
-% graph6 .
-% Not all subsets \Gamma  \subseteq  A \times  B correspond to (`are') functions:
-% we need to put one
-% requirement on the graphs of functions, which can be expressed as follows:
-% (\forall a \in  A) (\exists !b \in  B)
-%  (a, b) \in  \Gamma f ,
-% or (`in functional notation')
-% (\forall a \in  A) (\exists !b \in  B)
-%  f (a) = b.
-% That is, a function must send each element a of A \sqrt 
-%  to exactly one element of B,
-% depending on a. `Multivalued functions' such as \pm  x (which are very important
-% in, e.g., the study of Riemann surfaces) are not functions in this sense.
-% To announce that f is a function from a set A to a set B, one writes f : A \to
-% B
-% or draws the following picture (`diagram'):
-% A
-%  f
-%  / B.
-% The action of a function f : A \to  B on an element a \in  A is sometimes
-% indicated by
-% a `decorated' arrow, as in
-% a ?\to  f (a).
-% The collection of all functions from a set A to a set B is itself a set7 ,
-% denoted B A .
-% If we take seriously the notion that a function is really the same thing as its
-% graph,
-% then we can view BA as a (special) subset of the power set of A \times  B.
-% Every set A comes equipped with a very special function, whose graph is the
-% diagonal in A \times  A: the identity function on A
-% idA : A \to  A
-% defined by (\forall a \in  A) idA(a) = a. More generally, the inclusion of any
-% subset S of a
-% set A determines a function S \to  A, simply sending every element s of S to
-% `itself'
-% in A.
-% If S is a subset of A, we denote by f (S) the subset of B defined by
-% f (S) := {b \in  B | (\exists a \in  S) b = f (a)}.
-% That is, f (S) is the subset of B consisting of all elements that are images of
-% elements
-% of S by the function f . The largest such subset, that is, f (A), is called the
-% image
-% of f , denoted `im f '.
-% Also, f |S denotes the `restriction' of f to the subset S: this is the function
-% S \to  B defined by
-% (\forall s \in  S) : f |S (s) = f (s).
-% 6 To be precise, it is the graph \Gamma 
-% f
-%  together with the information of the source A and the
-% target B of f . These are part of the data of the function.
-% 7 This is another `operation among sets', not listed in \S{}1.3. Can you see why
-% we use BA for
-% this set? (Cf. Exercise 2.10.)
-% That is, f |S is the composition (in the sense explained in \S{}2.3) f \circ i,
-% where i : S \to  A
-% is the inclusion. Note that f (S) = im(f |S ).
+Sets interact with each other through functions. It is tempting to think of a
+function $f$ from a set $A$ to a set $B$ in `dynamic' terms, as a way to `go from $A$
+to $B$'. Similarly to the business with relations, it is straightforward to
+formalize
+this notion in ways that do not need to invoke any deep `meaning' of any given f
+:
+everything that can be known about a function $f$ is captured by the information
+of
+which element $b$ of $B$ is the image of any given element $a$ of $A$. This information
+is nothing but a subset of $A \times  B$:
+\[\Gamma_f := \{(a, b) \in  A \times  B \mid b = f (a)\}
+  \subseteq  A \times  B.\]
+This set $\Gamma_f$ is the graph of $f$; officially, a function really `is' its
+graph.\footnote{To be precise, it is the graph $\Gamma_f$
+ together with the information of the source $A$ and the
+ target $B$ of $f$. These are part of the data of the function.}
+
+Not all subsets $\Gamma  \subseteq  A \times  B$ correspond to (`are') functions:
+we need to put one
+requirement on the graphs of functions, which can be expressed as follows:
+\[(\forall a \in  A) (\exists !b \in  B)\ \ 
+ (a, b) \in  \Gamma_f,\]
+or (`in functional notation')
+\[(\forall a \in  A) (\exists !b \in  B)\ \ f (a) = b.\]
+That is, a function must send each element $a$ of $A$  
+ to exactly one element of $B$,
+depending on $a$. `Multivalued functions' such as $\pm  \sqrt{x}$ (which are very important
+in, e.g., the study of \name{Riemann} surfaces) are not functions in this sense.
+
+To announce that $f$ is a function from a set $A$ to a set $B$, one writes $f : A \to
+B$
+or draws the following picture (`diagram'):
+\[A\overset{f}{\to}  B.\]
+The action of a function $f : A \to  B$ on an element $a \in  A$ is sometimes
+indicated by
+a `decorated' arrow, as in
+\[a \mapsto  f (a).\]
+
+The collection of all functions from a set $A$ to a set $B$ is itself
+a set\footnote{This is another `operation among sets', not listed in
+  \S{}1.3. Can you see why we use $B^A$ for this set?  (Cf. Exercise
+  2.10.)}, denoted $B^A$. If we take seriously the notion that a
+function is really the same thing as its graph, then we can view $B^A$
+as a (special) subset of the power set of $A \times B$.
+
+Every set $A$ comes equipped with a very special function, whose graph is the
+diagonal in $A \times  A$: the identity function on $A$
+\[\id_A : A \to  A\]
+defined by $(\forall a \in A) \id_A(a) = a$. More generally, the
+inclusion of any subset $S$ of a set $A$ determines a function
+$S \to A$, simply sending every element $s$ of $S$ to `itself' in $A$.
+
+If $S$ is a subset of $A$, we denote by $f (S)$ the subset of $B$ defined by
+\[f (S) := \{b \in B | (\exists a \in S) b = f (a)\}.\] That is,
+$f (S)$ is the subset of B consisting of all elements that are images
+of elements of $S$ by the function $f$. The largest such subset, that
+is, $f (A)$, is called the image of $f$, denoted $\image f$.
+
+Also, $f\big|_S$ denotes the `restriction' of $f$ to the subset $S$:
+this is the function $S \to B$ defined by
+\[(\forall s \in S) : f\big|_S (s) = f (s).\] That is, $f\big|_S$ is
+the composition (in the sense explained in \Cref{XX}) $f \circ i$, where
+$i : S \to A$ is the inclusion. Note that $f (S) = \image(f\big|_S)$.
 
 \subsection{Examples: Multisets, indexed sets}
 \label{subsec:prelims:examples-multisets-indexed-sets}
-% The `multisets' mentioned briefly
+The `multisets' mentioned briefly in \S{}1.1 are a simple example of a
+notion easily formalized by means of functions.  A multiset may be
+defined by giving a function from a (regular) set $A$ to the set $N^*$
+of positive\footnote{Some references allow 0 as a possible
+  multiplicity.} integers; if $m : A \to N^*$ is such a function, the
+corresponding multiset consists of the elements $a \in A$, each taken
+$m(a)$ times. Thus, the multiset $\{a, a, a, b, b, b, b, b, c\}$ is
+really the function $m : {a, b, c} \to N^*$ for which $m(a) = 3$,
+$m(b) = 5$, $m(c) = 1$. As with ordinary sets, the order in which the
+elements are listed is not part of the information carried by a
+multiset. Simple set-theoretic notions such as inclusion, union, etc.,
+extend in a straightforward way to multisets.  For another viewpoint
+on multisets, see \cref{XX}.
 
-% in \S{}1.1 are a simple example of a notion easily formalized by means of
-% functions.
-% A multiset may be defined by giving a function from a (regular) set A to the
-% set N\ast  of positive8 integers; if m : A \to  N\ast  is such a function, the
-% corresponding
-% multiset consists of the elements a \in  A, each taken m(a) times. Thus, the
-% multiset
-% {a, a, a, b, b, b, b, b, c} is really the function m : {a, b, c} \to  N\ast  for
-% which m(a) = 3,
-% m(b) = 5, m(c) = 1. As with ordinary sets, the order in which the elements are
-% listed is not part of the information carried by a multiset. Simple
-% set-theoretic
-% notions such as inclusion, union, etc., extend in a straightforward way to
-% multisets.
-% For another viewpoint on multisets, see Exercise 3.9.
-% Another example is given by the use of `indices'. If we write let a1 , . . . ,
-% an
-% be integers. . . , we really mean consider a function a : {1, . . . , n} \to  Z.
-% . . , with
-% the understanding that ai is shorthand for the value a(i) (for i = 1, . . . ,
-% n). It is
-% tempting to think of an indexed set {ai }i\in I simply as a set whose elements
-% happen
-% to be denoted ai, for i ranging over some `set of indices' I; but such an
-% indexed set
-% is more properly a function I \to  A, where A is some set from which we draw the
-% elements ai. For example, this allows us to consider a0 and a1 as distinct
-% elements
-% of {ai }i\in N , even if by coincidence a0 = a1 as elements of the target set A.
-% It is easy to miss such subtleties, and some abuse of notation is common and
-% usually harmless. These distinctions play a role in (for example) discussions of
-% linear independence of sets of vectors; cf. \S{}VI.1.2.
+Another example is given by the use of `indices'. If we write let
+$a_1,\dots ,a_n$
+
+be integers \dots, we really mean consider a function
+$a : \{1,\dots , n\} \to \Z\dots$, with the understanding that $a_i$
+is shorthand for the value $a(i)$ (for $i = 1, \dots,n)$. It is
+tempting to think of an indexed set $\{a_i\}_{i\in I}$ simply as a set
+whose elements happen to be denoted $a_i$, for $i$ ranging over some
+`set of indices' $I$; but such an indexed set is more properly a
+function $I \to A$, where $A$ is some set from which we draw the
+elements $a_i$. For example, this allows us to consider $a_0$ and
+$a_1$ as distinct elements of $\{a_i\}_{i\in \N}$ , even if by
+coincidence $a_0 = a_1$ as elements of the target set $A$.
+
+It is easy to miss such subtleties, and some abuse of notation is common and
+usually harmless. These distinctions play a role in (for example) discussions of
+linear independence of sets of vectors; cf. \S{}VI.1.2.
 
 \subsection{Composition of functions}
 \label{subsec:prelims:composition-of-functions}
-% Functions may be composed: if f : A \to  B and
+Functions may be composed: if $f : A \to  B$ and
+$g : B \to  C$ are functions, then so is the operation $g \circ  f$ defined by
+\begin{equation}
+  \label{eq:comp-def}
+  (\forall a \in  A)\quad (g \circ  f )(a) := g(f (a)) :
+\end{equation}
+that is, we use $f$ to go from $A$ to $B$, then apply $g$ to reach $C$.
+Graphically we may draw pictures such as
+\[
+\begin{tikzcd}
+  A \arrow[r, "f"] \arrow[rr, bend right, "g \circ f"'] & B \arrow[r, "g"] & C
+\end{tikzcd}
+\qquad
+\begin{tikzcd}
+  A \arrow[r,"f"] \arrow[rd,"g \circ f"'] & B \arrow[d,"g"]\\
+  & C
+\end{tikzcd}
+\]
+Such graphical representations of collections of (for example) sets connected by
+functions are called \emph{diagrams}. We will draw many diagrams, and in contexts substantially more general than the one at hand right now.
 
-% g : B \to  C are functions, then so is the operation g \circ  f defined by
-% (*)
-%  (\forall a \in  A) (g \circ  f )(a) := g(f (a)) :
-% that is, we use f to go from A to B, then apply g to reach C. Graphically we may
-% draw pictures such as
-% A
-%  f
-%  / B
-%  g
-%  /7 C
-% g\circ f
-% or
-% A f
-%  / B
-% g\circ f @
-%  @ @
-%  @ @
-%  @ @ @ ?
-%  \sqcup 
-%  g
-% C
-% Such graphical representations of collections of (for example) sets connected by
-% functions are called diagrams. We will draw many diagrams, and in contexts sub-
-% stantially more general than the one at hand right now.
-% We say that the diagrams drawn above `commute', or `are commutative', mean-
-% ing that if we start from A and travel to C in either of the two possible ways
-% pre-
-% scribed by the diagram, the result of applying the functions one encounters is
-% the
-% same. This is precisely the content of the statement (*).
-% 8Some references allow 0 as a possible multiplicity.
-% Composition is associative: that is, if f : A \to  B, g : B \to  C, and h : C
-% \to  D
-% are functions, then h \circ  (g \circ  f ) = (h \circ  g) \circ  f .
-% Graphically, the diagram
-% h\circ g
-% f
-%  g
-%  h
-%  \#
-% A
-%  / B
-%  /7 C
-%  / D
-% g\circ f
-% commutes. This important observation should be completely evident from the
-% definition of composition.
-% The identity function is very special with respect to compositions: if f : A \to
-% B
-% is any function, then idB \circ  f = f and f \circ  idA = f . Graphically, the
-% diagrams
-% A
-%  f
-%  / B
-%  id B
-%  /7 B ,
-%  A
-%  idA
-%  / A
-%  f
-%  /7 B
-% f
-%  f
-% commute.
+We say that the diagrams drawn above `commute', or `are commutative', mean-
+ing that if we start from $A$ and travel to $C$ in either of the two possible ways
+pre-
+scribed by the diagram, the result of applying the functions one encounters is
+the
+same. This is precisely the content of the statement \eqref{eq:comp-def}.
+
+Composition is associative: that is, if $f : A \to  B$, $g : B \to  C$, and $h : C
+\to  D$
+are functions, then $h \circ  (g \circ  f ) = (h \circ  g) \circ  f$.
+Graphically, the diagram
+\[
+  \begin{tikzcd}
+    A \arrow[r,"f"] \arrow[rr,bend right, "g\circ f" description]
+    & B \arrow[r,"g"] \arrow[rr,bend left, "h\circ g" description]
+    & C \arrow[r,"h"]
+    & D
+  \end{tikzcd}
+\]
+commutes. This important observation should be completely evident from the
+definition of composition.
+
+The identity function is very special with respect to compositions: if $f : A \to
+B$
+is any function, then $\id_B \circ f = f$ and $f \circ \id_A = f$. Graphically, the
+diagrams
+\[
+  \begin{tikzcd}
+    A \arrow[r,"f"] \arrow[rr,bend right,"f"']& B \arrow[r,"\id_B"] & B
+  \end{tikzcd}
+  \qquad
+  \begin{tikzcd}
+    A \arrow[r,"\id_A"] \arrow[rr,bend right,"f"']& A \arrow[r,"f"]& B
+  \end{tikzcd}
+\]
+commute.
 
 \subsection{Injections, surjections, bijections}
 \label{subsec:prelims:injections-surjections-bijections}
