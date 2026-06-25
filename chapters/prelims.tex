@@ -434,7 +434,7 @@ relation, and find a `compelling' description for
 $\quot{\R}{\sim}$. Do the same for the relation $\approx$ on the plane
 $\R \times \R$ defined by declaring $(a_1, a_2) \approx (b_1 , b_2)
 \iff b_1 - a_1 \in \Z \text{ and } b_2 - a_2 \in \Z$.  [\S{}II.8.1,
-II.8.10]p
+II.8.10]
 \end{exer}
 
 \section{Functions between sets}
@@ -446,43 +446,38 @@ A common thread we will follow for just about every structure
 introduced in this book will be to try to understand both the type of structures
 and the ways in which different instances of a given structure may interact.
 
-Sets interact with each other through functions. It is tempting to think of a
-function $f$ from a set $A$ to a set $B$ in `dynamic' terms, as a way to `go from $A$
-to $B$'. Similarly to the business with relations, it is straightforward to
-formalize
-this notion in ways that do not need to invoke any deep `meaning' of any given f
-:
-everything that can be known about a function $f$ is captured by the information
-of
-which element $b$ of $B$ is the image of any given element $a$ of $A$. This information
-is nothing but a subset of $A \times  B$:
-\[\Gamma_f := \{(a, b) \in  A \times  B \mid b = f (a)\}
-  \subseteq  A \times  B.\]
+Sets interact with each other through functions. It is tempting to think
+of a function $f$ from a set $A$ to a set $B$ in `dynamic' terms, as a
+way to `go from $A$ to $B$'. Similarly to the business with relations,
+it is straightforward to formalize this notion in ways that do not need
+to invoke any deep `meaning' of any given $f$: everything that can be
+known about a function $f$ is captured by the information of which
+element $b$ of $B$ is the image of any given element $a$ of $A$. This
+information is nothing but a subset of $A \times B$:
+\[\Gamma_f := \{(a, b) \in A \times B \mid b = f(a)\}
+  \subseteq A \times B.\]
 This set $\Gamma_f$ is the graph of $f$; officially, a function really `is' its
 graph.\footnote{To be precise, it is the graph $\Gamma_f$
  together with the information of the source $A$ and the
  target $B$ of $f$. These are part of the data of the function.}
 
-Not all subsets $\Gamma  \subseteq  A \times  B$ correspond to (`are') functions:
-we need to put one
-requirement on the graphs of functions, which can be expressed as follows:
-\[(\forall a \in  A) (\exists !b \in  B)\ \ 
- (a, b) \in  \Gamma_f,\]
+Not all subsets $\Gamma \subseteq A \times B$ correspond to (`are')
+functions: we need to put one requirement on the graphs of functions,
+which can be expressed as follows:
+\[(\forall a \in A) (\exists !b \in B)\quad (a, b) \in \Gamma_f,\]
 or (`in functional notation')
-\[(\forall a \in  A) (\exists !b \in  B)\ \ f (a) = b.\]
-That is, a function must send each element $a$ of $A$  
- to exactly one element of $B$,
-depending on $a$. `Multivalued functions' such as $\pm  \sqrt{x}$ (which are very important
-in, e.g., the study of \name{Riemann} surfaces) are not functions in this sense.
+\[(\forall a \in A) (\exists !b \in B)\quad f(a) = b.\]
+That is, a function must send each element $a$ of $A$ to exactly one
+element of $B$, depending on $a$. `Multivalued functions' such as
+$\pm \sqrt{x}$ (which are very important in, e.g., the study of
+\name{Riemann} surfaces) are not functions in this sense.
 
-To announce that $f$ is a function from a set $A$ to a set $B$, one writes $f : A \to
-B$
-or draws the following picture (`diagram'):
-\[A\overset{f}{\to}  B.\]
-The action of a function $f : A \to  B$ on an element $a \in  A$ is sometimes
-indicated by
-a `decorated' arrow, as in
-\[a \mapsto  f (a).\]
+To announce that $f$ is a function from a set $A$ to a set $B$, one
+writes $f : A \to B$ or draws the following picture (`diagram'):
+\[A \overset{f}{\to} B.\]
+The action of a function $f : A \to B$ on an element $a \in A$ is
+sometimes indicated by a `decorated' arrow, as in
+\[a \mapsto f(a).\]
 
 The collection of all functions from a set $A$ to a set $B$ is itself
 a set\footnote{This is another `operation among sets', not listed in
@@ -492,17 +487,17 @@ function is really the same thing as its graph, then we can view $B^A$
 as a (special) subset of the power set of $A \times B$.
 
 Every set $A$ comes equipped with a very special function, whose graph is the
-diagonal in $A \times  A$: the identity function on $A$
-\[\id_A : A \to  A\]
+diagonal in $A \times A$: the identity function on $A$
+\[\id_A : A \to A\]
 defined by $(\forall a \in A) \id_A(a) = a$. More generally, the
 inclusion of any subset $S$ of a set $A$ determines a function
 $S \to A$, simply sending every element $s$ of $S$ to `itself' in $A$.
 
 If $S$ is a subset of $A$, we denote by $f (S)$ the subset of $B$ defined by
-\[f (S) := \{b \in B | (\exists a \in S) b = f (a)\}.\] That is,
-$f (S)$ is the subset of B consisting of all elements that are images
-of elements of $S$ by the function $f$. The largest such subset, that
-is, $f (A)$, is called the image of $f$, denoted $\image f$.
+\[f(S) := \{b \in B \mid (\exists a \in S)\ b = f(a)\}.\] That is,
+$f(S)$ is the subset of $B$ consisting of all elements that are images
+of elements of $S$ by the function $f$. The largest such subset,
+$f(A)$, is called the image of $f$, denoted $\image f$.
 
 Also, $f\big|_S$ denotes the `restriction' of $f$ to the subset $S$:
 this is the function $S \to B$ defined by
@@ -514,12 +509,12 @@ $i : S \to A$ is the inclusion. Note that $f (S) = \image(f\big|_S)$.
 \label{subsec:prelims:examples-multisets-indexed-sets}
 The `multisets' mentioned briefly in \S{}1.1 are a simple example of a
 notion easily formalized by means of functions.  A multiset may be
-defined by giving a function from a (regular) set $A$ to the set $N^*$
+defined by giving a function from a (regular) set $A$ to the set $\N^*$
 of positive\footnote{Some references allow 0 as a possible
-  multiplicity.} integers; if $m : A \to N^*$ is such a function, the
+  multiplicity.} integers; if $m : A \to \N^*$ is such a function, the
 corresponding multiset consists of the elements $a \in A$, each taken
 $m(a)$ times. Thus, the multiset $\{a, a, a, b, b, b, b, b, c\}$ is
-really the function $m : {a, b, c} \to N^*$ for which $m(a) = 3$,
+really the function $m : \{a, b, c\} \to \N^*$ for which $m(a) = 3$,
 $m(b) = 5$, $m(c) = 1$. As with ordinary sets, the order in which the
 elements are listed is not part of the information carried by a
 multiset. Simple set-theoretic notions such as inclusion, union, etc.,
@@ -527,9 +522,7 @@ extend in a straightforward way to multisets.  For another viewpoint
 on multisets, see \cref{XX}.
 
 Another example is given by the use of `indices'. If we write let
-$a_1,\dots ,a_n$
-
-be integers \dots, we really mean consider a function
+$a_1,\dots ,a_n$ be integers \dots, we really mean consider a function
 $a : \{1,\dots , n\} \to \Z\dots$, with the understanding that $a_i$
 is shorthand for the value $a(i)$ (for $i = 1, \dots,n)$. It is
 tempting to think of an indexed set $\{a_i\}_{i\in I}$ simply as a set
@@ -537,7 +530,7 @@ whose elements happen to be denoted $a_i$, for $i$ ranging over some
 `set of indices' $I$; but such an indexed set is more properly a
 function $I \to A$, where $A$ is some set from which we draw the
 elements $a_i$. For example, this allows us to consider $a_0$ and
-$a_1$ as distinct elements of $\{a_i\}_{i\in \N}$ , even if by
+$a_1$ as distinct elements of $\{a_i\}_{i\in \N}$, even if by
 coincidence $a_0 = a_1$ as elements of the target set $A$.
 
 It is easy to miss such subtleties, and some abuse of notation is common and
@@ -546,11 +539,11 @@ linear independence of sets of vectors; cf. \S{}VI.1.2.
 
 \subsection{Composition of functions}
 \label{subsec:prelims:composition-of-functions}
-Functions may be composed: if $f : A \to  B$ and
-$g : B \to  C$ are functions, then so is the operation $g \circ  f$ defined by
+Functions may be composed: if $f : A \to B$ and $g : B \to C$ are
+functions, then so is the operation $g \circ f$ defined by
 \begin{equation}
   \label{eq:comp-def}
-  (\forall a \in  A)\quad (g \circ  f )(a) := g(f (a)) :
+  (\forall a \in A)\quad (g \circ f)(a) := g(f(a)) :
 \end{equation}
 that is, we use $f$ to go from $A$ to $B$, then apply $g$ to reach $C$.
 Graphically we may draw pictures such as
@@ -564,20 +557,20 @@ Graphically we may draw pictures such as
   & C
 \end{tikzcd}
 \]
-Such graphical representations of collections of (for example) sets connected by
-functions are called \emph{diagrams}. We will draw many diagrams, and in contexts substantially more general than the one at hand right now.
+Such graphical representations of collections of (for example) sets
+connected by functions are called \emph{diagrams}. We will draw many
+diagrams, and in contexts substantially more general than the one at
+hand right now.
 
-We say that the diagrams drawn above `commute', or `are commutative', mean-
-ing that if we start from $A$ and travel to $C$ in either of the two possible ways
-pre-
-scribed by the diagram, the result of applying the functions one encounters is
-the
-same. This is precisely the content of the statement \eqref{eq:comp-def}.
+We say that the diagrams drawn above `commute', or `are commutative',
+meaning that if we start from $A$ and travel to $C$ in either of the
+two possible ways prescribed by the diagram, the result of applying
+the functions one encounters is the same. This is precisely the
+content of the statement \eqref{eq:comp-def}.
 
-Composition is associative: that is, if $f : A \to  B$, $g : B \to  C$, and $h : C
-\to  D$
-are functions, then $h \circ  (g \circ  f ) = (h \circ  g) \circ  f$.
-Graphically, the diagram
+Composition is associative: that is, if $f : A \to B$, $g : B \to C$,
+and $h : C \to D$ are functions, then
+$h \circ (g \circ f) = (h \circ g) \circ f$. Graphically, the diagram
 \[
   \begin{tikzcd}
     A \arrow[r,"f"] \arrow[rr,bend right, "g\circ f" description]
@@ -589,10 +582,9 @@ Graphically, the diagram
 commutes. This important observation should be completely evident from the
 definition of composition.
 
-The identity function is very special with respect to compositions: if $f : A \to
-B$
-is any function, then $\id_B \circ f = f$ and $f \circ \id_A = f$. Graphically, the
-diagrams
+The identity function is very special with respect to compositions: if
+$f : A \to B$ is any function, then $\id_B \circ f = f$ and
+$f \circ \id_A = f$. Graphically, the diagrams
 \[
   \begin{tikzcd}
     A \arrow[r,"f"] \arrow[rr,bend right,"f"']& B \arrow[r,"\id_B"] & B
@@ -606,51 +598,49 @@ commute.
 
 \subsection{Injections, surjections, bijections}
 \label{subsec:prelims:injections-surjections-bijections}
-% Special kinds of functions deserve high-
+Special kinds of functions deserve highlighting:
+\begin{enumerate}
+\item A function $f : A \to B$ is injective (or an injection or
+  one-to-one) if
+  \[\kforall_{a' \in A}\ \kforall_{a'' \in A}\
+    a' = a'' \Rightarrow f(a') = f(a'')\]
+  that is, if $f$ sends different elements to different elements
+  \footnote{Often one checks this definition in the contrapositive
+    (hence equivalent) formulation, that is,
+    $(\forall a' \in A)(\forall a'' \in A)
+    \quad f(a') = f(a'') \Rightarrow a' = a''$.}.
+\item A function $f : A \to B$ is surjective (or a surjection or onto)
+  if
+  \[\kforall_{b \in B}\ \kexists_{a \in A}\ b = f(a):\]
+  that is, if $f$ `covers the whole of $B$'; more precisely, if
+  $\image f = B$.
+\end{enumerate}
 
-% lighting:
-% \item  A function f : A \to  B is injective (or an injection or one-to-one) if
-% (\forall a\setminus  \in  A) (\forall a\setminus \setminus  \in  A) a\setminus
-% = a\setminus \setminus  \Rightarrow  f (a\setminus  ) = f (a\setminus \setminus  )
-% :
-% that is, if f sends different elements to different elements9 .
-% \item  A function f : A \to  B is surjective (or a surjection or onto) if
-% (\forall b \in  B) (\exists a \in  A) b = f (a) :
-% that is, if f `covers the whole of B'; more precisely, if im f = B.
-% Injections are often drawn \setminus \to ; surjections are often drawn \setminus
-% .
-% If f is both injective and surjective, we say it is bijective (or a bijection or
-% a
-% one-to-one correspondence or an isomorphism of sets.) In this case we often
-% write
-% f : A \to  \sim 
-%  B, or
-% A \sim 
-%  = B,
-% and we say that A and B are `isomorphic' sets.
-% Of course the identity function id A : A \to  A is a bijection.
-% If A = \sim 
-%  B, that is, if there is a bijection f : A \to  B, then the sets A and B may
-% be `identified' through f , in the sense that we can match precisely the
-% elements a
-% of A with the corresponding elements f (a) of B. For example, if A is a finite
-% set
-% and A = \sim 
-%  B, then B is necessarily also a finite set and |A| = |B|.
-% This terminology allows us to make better sense of the considerations on `dis-
-% joint union' given in \S{}1.3: the `copies' A\setminus  , B \setminus  of the
-% given sets A, B should simply
-% 9 Often one checks this definition in the contrapositive (hence equivalent)
-% formulation, that is,
-% (\forall a? \in  A) (\forall a?? \in  A)
-%  f (a? ) = f (a?? ) \Rightarrow  a? = a?? .
-% be isomorphic sets to A, B, respectively. The proposal given at the end of
-% \S{}1.4 to
-% produce such disjoint `copies' works, because (for example) the function
-% f : A \to  {0} \times  A
-% defined by
-% (\forall a \in  A) f (a) = (0, a)
-% is manifestly a bijection.
+Injections are often drawn $\hookrightarrow$; surjections are often drawn
+$\twoheadrightarrow$.
+
+If $f$ is both injective and surjective, we say it is bijective (or a
+bijection or a one-to-one correspondence or an isomorphism of sets.)
+In this case we often write $f : A \xrightarrow{\sim} B$, or
+\[A \overset{\sim}{=} B,\]
+and we say that $A$ and $B$ are `isomorphic' sets.
+
+Of course the identity function $\id_A : A \to A$ is a bijection.
+
+If $A \overset{\sim}{=} B$, that is, if there is a bijection
+$f : A \to B$, then the sets $A$ and $B$ may be `identified' through
+$f$, in the sense that we can match precisely the elements $a$ of $A$
+with the corresponding elements $f(a)$ of $B$. For example, if $A$ is
+a finite set and $A \overset{\sim}{=} B$, then $B$ is necessarily
+also a finite set and $|A| = |B|$.
+
+This terminology allows us to make better sense of the considerations
+on `disjoint union' given in \S{}1.3: the `copies' $A'$, $B'$ of the
+given sets $A$, $B$ should simply be isomorphic sets to $A$, $B$,
+respectively. The proposal given at
+the end of \S{}1.4 to produce such disjoint `copies' works, because
+(for example) the function $f : A \to \{0\} \times A$ defined by
+$\kforall_{a \in A} f (a) = (0, a)$ is manifestly a bijection.
 
 \subsection{Injections, surjections, bijections: Second viewpoint}
 \label{subsec:prelims:injections-surjections-bijections-second-viewpoint}
@@ -691,7 +681,7 @@ commute.
 % Proof. Let's prove (1).
 % ( \Rightarrow  ) If f : A \to  B has a left-inverse, then there exists a g : B \to
 % A such that
-% g \circ  f = idA . Now assume that a\setminus  = a\setminus \setminus  are
+% g \circ  f = idA . Now assume that a'  = a' '  are
 % arbitrary different elements in A; then
 % \setminus  \setminus  \setminus  \setminus \setminus  \setminus
 %            \setminus  \setminus \setminus g(f (a )) = idA(a ) = a = a
