@@ -62,7 +62,8 @@ to `list' them as one may `list' the integers.
 It is often better to adopt definitions that express the elements of a
 set as elements $s$ of some larger (and already known) set $S$
 satisfying some property $P$.  One may then write
-$A = \{s \in S\ |\ s\ \mathrm{satisfies}\ P \}$ ($\in$ means element of\dots) and
+$A = \{s \in S \mid s\ \mathrm{satisfies}\ P\}$
+($\in$ means element of\dots) and
 this is in general precise and unambiguous\footnote{But note that
   there exist pathologies such as \name{Russell}'s paradox, showing that even
   this style of definitions can lead to nonsense. All is well so long
@@ -336,61 +337,63 @@ then $\sim$ satisfies
 \end{itemize}
 That is, every $a$ is equal to itself; if $a$ is equal to $b$, then $b$
 is equal to $a$; etc.
-% Definition 1.1. An equivalence relation on a set S is any relation \sim
-% satisfying
-% these three properties.
-%  ?
-% In terms of the corresponding subset R of S \times  S, `reflexivity' says that
-% the
-% diagonal is contained in R; `symmetry' says that R is unchanged if flipped about
-% the diagonal (that is, if every (a, b) is interchanged with (b, a)); while
-% unfortunately
-% `transitivity' does not have a similarly nice pictorial translation.
-% The datum of an equivalence relation on S turns out to be equivalent to a type
-% of information which looks a little different at first, that is, a partition of
-% S. A
-% partition of S is a family of disjoint nonempty subsets of S, whose union is S:
-% for
-% example,
-% P = {{1, 4, 7}, {2, 5, 8}, {3, 6}, {9}}
-% is a partition of the set
-% {1, 2, 3, 4, 5, 6, 7, 8, 9}.
-% Here is how to get a partition of S from a relation \sim  on S: for every
-% element
-% a \in  S, the equivalence class of a (w.r.t. \sim ) is the subset of S defined
-% by
-% [a]\sim  := {b \in  S | b \sim  a};
-% then the equivalence classes form a partition P\sim  of S (Exercise 1.2).
-% Conversely (Exercise 1.3) every partition P is the partition corresponding in
-% this fashion to an equivalence relation. Therefore, the notions of `equivalence
-% rela-
-% tion on S' and `partition of S' are really equivalent.
-% Now we can view P\sim  as a set (whose elements are the equivalence classes with
-% respect to \sim ). This is the quotient operation mentioned in \S{}1.3.
-% Definition 1.2. The quotient of the set S with respect to the equivalence
-% relation \sim
-% is the set
-% S/\sim  := P\sim 
-% of equivalence classes of elements of S with respect to \sim .
-%  ?
-% Example 1.3. Take S = Z, and let \sim  be the relation defined by
-% a \sim  b \iff  a - b is even.
-% Then Z/\sim  consists of two equivalence classes:
-% Z/\sim  = {[0]\sim  , [1]\sim  }.
-% Indeed, every integer b is either even (and hence b-0 is even, so b \sim  0, and
-% b \in  [0]\sim  )
-% or odd (and hence b-1 is even, so b \sim  1, and b \in  [1]\sim  ). This is of
-% course the starting
-% point of modular arithmetic, which we will cover in due detail later on
-% (\S{}II.2.3). ?
-% One way to think about this operation is that the equivalence relation `becomes
-% equality in the quotient': that is, two elements of the quotient S/\sim  are
-% equal if and
-% only if the corresponding elements in S are related by \sim . In other words,
-% taking a
-% quotient is a way to turn any equivalence relation into an equality. This
-% observation
-% will be further formalized in `categorical terms' in a short while (\S{}5.3).
+\begin{defn}{Equivalence relation}{def:prelims:equivalence-relation}
+An \emph{equivalence relation} on a set $S$ is any relation $\sim$
+satisfying these three properties.
+\end{defn}
+
+In terms of the corresponding subset $R$ of $S \times S$, `reflexivity'
+says that the diagonal is contained in $R$; `symmetry' says that $R$ is
+unchanged if flipped about the diagonal (that is, if every $(a, b)$ is
+interchanged with $(b, a)$); while unfortunately `transitivity' does not
+have a similarly nice pictorial translation.
+
+The datum of an equivalence relation on $S$ turns out to be equivalent to
+a type of information which looks a little different at first, that is, a
+partition of $S$. A partition of $S$ is a family of disjoint nonempty
+subsets of $S$, whose union is $S$: for example,
+\[\mathcal{P} = \{\{1, 4, 7\}, \{2, 5, 8\}, \{3, 6\}, \{9\}\}\]
+is a partition of the set $\{1, 2, 3, 4, 5, 6, 7, 8, 9\}$.
+
+Here is how to get a partition of $S$ from a relation $\sim$ on $S$: for
+every element $a \in S$, the equivalence class of $a$ (w.r.t.\ $\sim$) is
+the subset of $S$ defined by
+\[ [a]_\sim \df \{b \in S \mid b \sim a\};\]
+then the equivalence classes form a partition $P_\sim$ of $S$ (Exercise 1.2).
+
+Conversely (Exercise 1.3) every partition $P$ is the partition corresponding in
+this fashion to an equivalence relation. Therefore, the notions of `equivalence
+relation on $S$' and `partition of $S$' are really equivalent.
+
+Now we can view $P_\sim$ as a set (whose elements are the equivalence
+classes with respect to $\sim$). This is the quotient operation mentioned
+in \cref{subsec:prelims:operations-between-sets}.
+
+\begin{defn}{Quotient of set}{def:prelims:quotient-set}
+The \emph{quotient} of the set $S$ with respect to the equivalence
+relation $\sim$ is the set
+\[\quot{S}{\sim} \df P_\sim\]
+of equivalence classes of elements of $S$ with respect to $\sim$.
+\end{defn}
+
+\begin{exam}{}{}
+  Take $S = \Z$, and let $\sim$ be the relation defined by
+  \[a \sim b \iff a - b \text{ is even.} \] Then $\quot{\Z}{\sim}$ consists of
+  two equivalence classes: $\quot{\Z}{\sim} = \{[0]_\sim, [1]_\sim\}$.
+  Indeed, every integer $b$ is either even (and hence $b-0$ is even,
+  so $b \sim 0$, and $b \in [0]_\sim$) or odd (and hence $b-1$ is
+  even, so $b \sim 1$, and $b \in [1]_\sim$). This is of course the
+  starting point of modular arithmetic, which we will cover in due
+  detail later on (\S{}II.2.3).
+\end{exam}
+
+One way to think about this operation is that the equivalence relation
+`becomes equality in the quotient': that is, two elements of the
+quotient $\quot{S}{\sim}$ are equal if and only if the corresponding elements
+in $S$ are related by $\sim$. In other words, taking a quotient is a
+way to turn any equivalence relation into an equality. This
+observation will be further formalized in `categorical terms' in a
+short while (\S{}5.3).
 
 \subsection*{Exercises}
 
