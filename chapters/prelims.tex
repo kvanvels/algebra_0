@@ -1,13 +1,13 @@
 \chapter{Preliminaries: Set theory and categories}
 \label{chap:prelims}
 
-\emph{Set theory} is a mathematical field in itself, and its proper treatment
-(say via the famous `\name{Zermelo}-\name{Fr\"ankel}' axioms) goes
-well beyond the scope of this book and the competence of this
-writer. We will only deal with so-called `naive' set theory, which is
-little more than a system of notation and terminology enabling us to
-express precisely mathematical definitions, statements, and their
-proofs.
+\emph{Set theory} is a mathematical field in itself, and its proper
+treatment (say via the famous `\name{Zermelo}-\name{Fr\"ankel}'
+axioms) goes well beyond the scope of this book and the competence of
+this writer. We will only deal with so-called `naive' set theory,
+which is little more than a system of notation and terminology
+enabling us to express precisely mathematical definitions, statements,
+and their proofs.
 
 Familiarity with this language is essential in approaching a
 subject such as algebra, and indeed the reader is assumed to have been
@@ -21,7 +21,6 @@ throughout this book.
 
 \section{Naive set theory}
 \label{sec:prelims:naive-set-theory}
-
 
 \subsection{Sets}
 \label{subsec:prelims:sets}
@@ -134,7 +133,7 @@ this book. One adopts $S \subsetneq T$ to mean that $S$ is `properly'
 contained in $T$ : that is, $S \subseteq T$ and $S \ne T$.
 
 We can think of `inclusion of sets' in terms of logic: $S \subseteq T$
-means that $s \in S \implies s \in T$ (the quantifier $\forall s$ is
+means that $s \in S \Rightarrow s \in T$ (the quantifier $\forall s$ is
 understood); that is, `if $s$ is an element of $S$, then $s$ is an
 element of $T$'; that is, all elements of $S$ are elements of $T$;
 that is, $S \subseteq T$ as promised.
@@ -143,7 +142,7 @@ Note that for all sets $S$, $\emptyset \subseteq S$ and
 $S \subseteq S$.  If $S \subseteq T$ and $T \subseteq S$, then
 $S = T$.  The symbol $|S|$ denotes the number of elements of $S$, if
 this number is finite; otherwise, one writes $|S| = \infty$. If $S$
-and $T$ are finite, then $S \subseteq T \implies |S| \leq |T |$.  The
+and $T$ are finite, then $S \subseteq T \Rightarrow |S| \leq |T |$.  The
 subsets of a set $S$ form a set, called the power set, or the set of
 parts of $S$. For example, the power set of the empty set $\emptyset$
 consists of one element: $\emptyset$. The power set of $S$ is denoted
@@ -158,15 +157,16 @@ obtain more by applying certain standard operations. Here are a few:
 \item $\cup$ : the union;
 \item $\cap$ : the intersection;
 \item $\setminus$ : the difference;
-\item $\sqcup$ : the disjoint union;
+\item $\amalg$ : the disjoint union;
 \item $\times$ : the (Cartesian) product; 
 \item  and the important notion of `quotient by an equivalence relation'.
 \end{itemize}
 
-% Most of these operations should be familiar to the reader: for example,
-% ${1, 2, 4} \cup  {3, 4, 5} = {1, 2, 3, 4, 5}$
-% while
-% ${1, 2, 4} \setminus  {3, 4, 5} = {1, 2}$.
+Most of these operations should be familiar to the reader: for example,
+$\{1, 2, 4\} \cup  \{3, 4, 5\} = \{1, 2, 3, 4, 5\}$
+while
+$\{1, 2, 4\} \setminus  \{3, 4, 5\} = \{1, 2\}$.
+TODO: Venn Diagrams
 % In terms of \name{Venn} diagrams of infamous `new math' memory:
 % S
 %  T
@@ -174,172 +174,168 @@ obtain more by applying certain standard operations. Here are a few:
 %  S \cap  T
 %  S \setminus  T
 % (the solid black contour indicates the set included in the operation).
-% Several of these operations may be written out in a transparent way in terms
-% of logic: thus, for example,
-% s \in  S \cap  T \iff  (s \in  S and s \in  T ).
-% Two sets S and T are disjoint if S \cap  T = \emptyset , that is, if no element
-% is `simulta-
-% neously' in both of them.
-% The complement of a subset T in a set S is the difference set S \setminus  T
-% consisting
-% of all elements of S which are not in T . Thus, for example, the complement of
-% the
-% set of even integers in Z is the set of odd integers.
-% The operations \sqcup , \times , and quotients by equivalence relations are
-% slightly more
-% mysterious, and it is very instructive to contemplate them carefully. We will
-% look
-% at them in a particularly naive way first and come back to them in a short while
-% when we have acquired more language and can view them from a more sophisticated
-% viewpoint.
+Several of these operations may be written out in a transparent way in terms
+of logic: thus, for example,
+\[
+  s \in  S \cap  T \iff  (s \in  S\ \mathrm{and\ } s \in  T ).
+\]
+
+
+
+Two sets $S$ and $T$ are disjoint if $S \cap T = \emptyset$, that is, if
+no element is `simultaneously' in both of them.
+
+The \emph{complement} of a subset $T$ in a set $S$ is the difference
+set $S \setminus T$ consisting of all elements of $S$ which are not
+in$T$. Thus, for example, the complement of the set of even integers
+in $\Z$ is the set of odd integers.
+
+The operations $\amalg$ , $\times$ , and quotients by equivalence
+relations are slightly more mysterious, and it is very instructive to
+contemplate them carefully. We will look at them in a particularly
+naive way first and come back to them in a short while when we have
+acquired more language and can view them from a more sophisticated
+viewpoint.
 
 \subsection{Disjoint unions, products}
 \label{subsec:prelims:disjoint-unions-products}
-% One problem with these operations is that their
+One problem with these operations is that their output may not be defined as a
+set, but rather as a set up to isomorphisms of sets, that is, up to bijections.
+To make sense out of this, we have to talk about functions, and we will do that
+in a moment.
 
-% output may not be defined as a set, but rather as a set up to isomorphisms of
-% sets,
-% that is, up to bijections. To make sense out of this, we have to talk about
-% functions,
-% and we will do that in a moment.
-% Roughly speaking, the disjoint union of two sets S and T is a set S \sqcup T
-% obtained
-% \setminus  \setminus by first producing `copies' S and T of the sets
-%            S and T , with the property that
-% S \setminus  \cap  T \setminus  = \emptyset , and then taking the (ordinary)
-% union of S \setminus  and T \setminus  . The careful reader
-% will feel uneasy, since this `recipe' does not define one set: whatever it means
-% to
-% produce a `copy' of a set, surely there are many ways to do so. This ambiguity
-% will
-% be clarified below.
-% Nevertheless, note that we can say something about S \sqcup  T even on these
-% very
-% shaky grounds: for example, if S consists of 3 elements and T consists of 4
-% elements,
-% the reader should expect (correctly) that S \sqcup  T consists of 7 elements.
-% Products are marred by the same kind of ambiguity, but fortunately there is
-% a convenient convention that allows us to write down `one' set representing the
-% product of two sets S and T : given S and T , we let S \times  T be the set
-% whose
-% elements are the ordered pairs 4 (s, t) of elements of S and T :
-% S \times  T := {(s, t) such that s \in  S, t \in  T }.
-% Thus, if S = {1, 2, 3} and T = {3, 4}, then
-% S \times  T = {(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)}.
-% For a more sophisticated example, R \times  R is the set of pairs of real
-% numbers, which
-% (as we learn in calculus) is a good way to represent a plane. The set Z \times
-% Z could
-% be represented by considering the points in this plane that happen to have
-% integer
-% coordinates. Incidentally, it is common to denote these sets R2 , Z2 ; and
-% similarly,
-% the product A \times  A of a set by itself is often denoted A2 .
-% If S and T are finite sets, clearly |S \times  T | = |S| |T |.
-% Also note that we can use products to obtain explicit `copies' of sets as needed
-% for the disjoint union: for example, we could let S \setminus  = {0} \times  S,
-% T \setminus  = {1} \times  T ,
-% \setminus  \setminus guaranteeing that S and T are disjoint (why?);
-%            and there is an evident way to
-% \setminus  \setminus `identify' S and S , T and T . Again, making
-%            this precise requires a little more
-% vocabulary.
-% The operations \cup , \cap , \sqcup , \times  extend to operations on whole
-% `families' of sets: for
-% example, if S1, . . . , Sn are sets, we write
-% ?
-%  n
-% Si = S1 \cap  S2 \cap  \dots  \cap  Sn
-% i=1
-% 4 One can define the ordered pair (s, t) as a set by setting (s, t) = {s, {s,
-% t}}: this carries the
-% information of the elements s, t, as well as conveying the fact that s is
-% special (= the first element
-% of the pair).
-% for the set whose elements are those elements which are simultaneously elements
-% of
-% all sets S1 , . . . , Sn ; and similarly for the other operations. But note that
-% while it is
-% clear from the definitions that, for example,
-% S1 \cup  S2 \cup  S3 = (S1 \cup  S2 ) \cup  S3 = S1 \cup  (S2 \cup  S3 ),
-% it is not so clear in what sense the sets
-% S1 \times  S2 \times  S3 ,
-%  (S1 \times  S2 ) \times  S3 ,
-%  S1 \times  (S2 \times  S3 )
-% should be `identified' (where we can define the leftmost set as the set of
-% `ordered
-% triples' of elements of S1 , S2 , S3 , by analogy with the definition for two
-% sets). In
-% fact, again, we can really make sense of such statements only after we acquire
-% the
-% language of functions. However, all such statements do turn out to be true, as
-% the reader probably expects; by virtue of this fortunate circumstance, we can be
-% somewhat cavalier and gloss over such subtleties.
-% More generally, if S is a set of sets, we may consider sets
-% \setminus 
-%  ?
-%  ?
-%  ?
-% S,
-%  S,
-%  S,
-%  S,
-% S\in S
-%  S\in S
-%  S\in S
-%  S\in S
-% for the union, intersection, disjoint union, product of all sets in S . There
-% are
-% important subtleties concerning
-%  these definitions: for example, if all S \in  S are
-% ?nonempty, does it follow that S is nonempty? The reader probably thinks
-% S\in Sso, but (if S is infinite) this is a rather thorny issue, amounting to the
-% axiom of
-% choice.
-% By and large, such subtleties do not affect the material in this course; we will
-% partly come to terms with them in due time5 , when they become more relevant to
-% the issues at hand (cf. \S{}V.3).
+Roughly speaking, the disjoint union of two sets $S$ and $T$ is a set
+$S \amalg T$ obtained by first producing `copies' $S'$ and $T'$ of the sets $S$
+and $T$, with the property that $S' \cap T' = \emptyset$, and then taking the
+(ordinary) union of $S'$ and $T'$. The careful reader will feel uneasy, since
+this `recipe' does not define one set: whatever it means to produce a `copy' of
+a set, surely there are many ways to do so. This ambiguity will be clarified
+below.
 
-% \subsection{Equivalence relations, partitions, quotients}
-% Intuitively, a relation on
+Nevertheless, note that we can say something about $S \amalg T$ even on these
+very shaky grounds: for example, if $S$ consists of 3 elements and $T$ consists
+of 4 elements, the reader should expect (correctly) that $S \amalg T$ consists
+of 7 elements.
 
-% elements of a set S is some special affinity among selections of elements of S.
-% For
-% example, the relation < on the set Z is a way to compare the size of two
-% integers:
-% since 2 < 5, 2 `is related to' 5 in this sense, while 5 is not related to 2 in
-% the same
-% sense.
-% For all practical purposes, what a relation `means' is completely captured by
-% which elements are related to which elements in the set. We would really know
-% all
-% there is to know about < on Z if we had a complete list of all pairs (a, b) of
-% integers
-% such that a < b. For example, (2, 5) is such a pair, while (5, 2) is not.
-% This leads to a completely straightforward definition of the notion of relation:
-% a relation on a set S is simply a subset R of the product S \times  S. If (a, b)
-% \in  R, we
-% say that a and b are `related by R' and write
-% a R b.
-% Often we use fancier symbols for relations, such as <, \leq , =, \sim , . . . .
-% 5 The reader will have to employ the axiom of choice in some exercises every now
-% and then,
-% even before we come back to these issues, but this will probably happen below
-% the awareness level,
-% and so it should.
-% The prototype of a well-behaved relation is `=', which corresponds to the `di-
-% agonal'
-% {(a, b) \in  S \times  S | a = b} = {(a, a) | a \in  S} \subseteq  S \times  S.
-% Three properties of this very special relation turn out to be particularly
-% important:
-% if \sim  denotes for a moment the relation = of equality, then \sim  satisfies
-% \item  reflexivity: (\forall a \in  S) a \sim  a;
-% \item  symmetry: (\forall a \in  S) (\forall b \in  S) a \sim  b
-%          \implies  b \sim  a;
-% \item  transitivity: (\forall a \in  S) (\forall b \in  S) (\forall c
-%          \in  S), (a \sim  b and b \sim  c) \implies  a \sim  c.
-% That is, every a is equal to itself; if a is equal to b, then b is equal to a;
-% etc.
+Products are marred by the same kind of ambiguity, but fortunately there is
+a convenient convention that allows us to write down `one' set representing
+the product of two sets $S$ and $T$: given $S$ and $T$, we let $S \times T$
+be the set whose elements are the ordered
+pairs\footnote{One can define the ordered pair $(s, t)$ as a set by setting
+$(s, t) = \{s, \{s, t\}\}$: this carries the information of the elements
+$s$, $t$, as well as conveying the fact that $s$ is special (= the first
+element of the pair).} $(s, t)$ of elements of $S$ and $T$:
+\[
+  S \times T := \{(s, t) \mid s \in S,\, t \in T\}.
+\]
+Thus, if $S = \{1, 2, 3\}$ and $T = \{3, 4\}$, then
+$S \times T = \{(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)\}$.
+For a more sophisticated example, $\R \times \R$ is the set of pairs of real
+numbers, which (as we learn in calculus) is a good way to represent a plane.
+The set $\Z \times \Z$ could be represented by considering the points in this
+plane that happen to have integer coordinates. Incidentally, it is common to
+denote these sets $\R^2$, $\Z^2$; and similarly, the product $A \times A$ of
+a set by itself is often denoted $A^2$.
+
+If $S$ and $T$ are finite sets, clearly $|S \times T| = |S||T|$.
+
+Also note that we can use products to obtain explicit `copies' of sets as
+needed for the disjoint union: for example, we could let
+$S' = \{0\} \times S$, $T' = \{1\} \times T$, guaranteeing that $S'$ and
+$T'$ are disjoint (why?); and there is an evident way to `identify' $S$ and
+$S'$, $T$ and $T'$. Again, making this precise requires a little more
+vocabulary.
+The operations $\cup$, $\cap$, $\amalg$, $\times$ extend to operations on
+whole `families' of sets: for example, if $S_1, \dots, S_n$ are sets, we
+write
+\[
+  \bigcap_{i=1}^{n} S_i = S_1 \cap S_2 \cap \dots \cap S_n
+\]
+for the set whose elements are those elements which are simultaneously
+elements of all sets $S_1, \dots, S_n$; and similarly for the other
+operations. But note that while it is clear from the definitions that, for
+example,
+\[
+  S_1 \cup S_2 \cup S_3
+  = (S_1 \cup S_2) \cup S_3
+  = S_1 \cup (S_2 \cup S_3),
+\]
+it is not so clear in what sense the sets
+\[
+  S_1 \times S_2 \times S_3, \quad
+  (S_1 \times S_2) \times S_3, \quad
+  S_1 \times (S_2 \times S_3)
+\]
+should be `identified' (where we can define the leftmost set as the set of
+`ordered triples' of elements of $S_1$, $S_2$, $S_3$, by analogy with the
+definition for two sets). In fact, again, we can really make sense of such
+statements only after we acquire the language of functions. However, all such
+statements do turn out to be true, as the reader probably expects; by virtue
+of this fortunate circumstance, we can be somewhat cavalier and gloss over
+such subtleties.
+More generally, if $\mathcal{S}$ is a set of sets, we may consider sets
+\[
+  \bigcup_{S \in \mathcal{S}} S, \quad
+  \bigcap_{S \in \mathcal{S}} S, \quad
+  \coprod_{S \in \mathcal{S}} S, \quad
+  \prod_{S \in \mathcal{S}} S
+\]
+for the union, intersection, disjoint union, product of all sets in
+$\mathcal{S}$. There are important subtleties concerning these definitions:
+for example, if all $S \in \mathcal{S}$ are nonempty, does it follow that
+$\prod_{S \in \mathcal{S}} S$ is nonempty? The reader probably thinks so,
+but (if $\mathcal{S}$ is infinite) this is a rather thorny issue, amounting
+to the axiom of choice.
+
+By and large, such subtleties do not affect the material in this course; we
+will partly come to terms with them in due
+time\footnote{The reader will have to employ the axiom of choice in some
+exercises every now and then, even before we come back to these issues, but
+this will probably happen below the awareness level, and so it should.},
+when they become more relevant to the issues at hand (cf.~\S{}V.3).
+
+\subsection{Equivalence relations, partitions, quotients}
+\label{subsec:prelims:equivalence-relations}
+
+Intuitively, a relation on elements of a set $S$ is some special affinity
+among selections of elements of $S$. For example, the relation $<$ on the
+set $\Z$ is a way to compare the size of two integers: since $2 < 5$, $2$
+`is related to' $5$ in this sense, while $5$ is not related to $2$ in the
+same sense.
+For all practical purposes, what a relation `means' is completely captured
+by which elements are related to which elements in the set. We would really
+know all there is to know about $<$ on $\Z$ if we had a complete list of
+all pairs $(a, b)$ of integers such that $a < b$. For example, $(2, 5)$ is
+such a pair, while $(5, 2)$ is not.
+This leads to a completely straightforward definition of the notion of
+relation: a relation on a set $S$ is simply a subset $R$ of the product
+$S \times S$. If $(a, b) \in R$, we say that $a$ and $b$ are `related by
+$R$' and write
+\[
+  a \mathrel{R} b.
+\]
+Often we use fancier symbols for relations, such as $<$, $\leq$, $=$,
+$\sim$, \dots.
+The prototype of a well-behaved relation is `=', which corresponds to the
+`diagonal'
+\[
+  \{(a, b) \in S \times S \mid a = b\}
+  = \{(a, a) \mid a \in S\}
+  \subseteq S \times S.
+\]
+Three properties of this very special relation turn out to be particularly
+important: if $\sim$ denotes for a moment the relation $=$ of equality,
+then $\sim$ satisfies
+\begin{itemize}
+\item reflexivity: $(\forall a \in S)\; a \sim a$;
+\item symmetry: $(\forall a \in S)\; (\forall b \in S)\; a \sim b
+  \Rightarrow b \sim a$;
+\item transitivity: $(\forall a \in S)\; (\forall b \in S)\;
+  (\forall c \in S),\; (a \sim b \text{ and } b \sim c)
+  \Rightarrow a \sim c$.
+\end{itemize}
+That is, every $a$ is equal to itself; if $a$ is equal to $b$, then $b$
+is equal to $a$; etc.
 % Definition 1.1. An equivalence relation on a set S is any relation \sim
 % satisfying
 % these three properties.
@@ -620,7 +616,7 @@ obtain more by applying certain standard operations. Here are a few:
 % lighting:
 % \item  A function f : A \to  B is injective (or an injection or one-to-one) if
 % (\forall a\setminus  \in  A) (\forall a\setminus \setminus  \in  A) a\setminus
-% = a\setminus \setminus  \implies  f (a\setminus  ) = f (a\setminus \setminus  )
+% = a\setminus \setminus  \Rightarrow  f (a\setminus  ) = f (a\setminus \setminus  )
 % :
 % that is, if f sends different elements to different elements9 .
 % \item  A function f : A \to  B is surjective (or a surjection or onto) if
@@ -652,7 +648,7 @@ obtain more by applying certain standard operations. Here are a few:
 % 9 Often one checks this definition in the contrapositive (hence equivalent)
 % formulation, that is,
 % (\forall a? \in  A) (\forall a?? \in  A)
-%  f (a? ) = f (a?? ) \implies  a? = a?? .
+%  f (a? ) = f (a?? ) \Rightarrow  a? = a?? .
 % be isomorphic sets to A, B, respectively. The proposal given at the end of
 % \S{}1.4 to
 % produce such disjoint `copies' works, because (for example) the function
@@ -698,7 +694,7 @@ obtain more by applying certain standard operations. Here are a few:
 % (1) f has a left-inverse if and only if it is injective.
 % (2) f has a right-inverse if and only if it is surjective.
 % Proof. Let's prove (1).
-% ( \implies  ) If f : A \to  B has a left-inverse, then there exists a g : B \to
+% ( \Rightarrow  ) If f : A \to  B has a left-inverse, then there exists a g : B \to
 % A such that
 % g \circ  f = idA . Now assume that a\setminus  = a\setminus \setminus  are
 % arbitrary different elements in A; then
@@ -800,10 +796,10 @@ obtain more by applying certain standard operations. Here are a few:
 % A function f : A \to  B is a monomorphism (or monic) if the following holds:
 % for all sets Z and all functions \alpha \setminus  , \alpha \setminus \setminus
 % : Z \to  A
-% f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus  \implies
+% f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus  \Rightarrow
 % \alpha \setminus  = \alpha \setminus \setminus  .
 % Proposition 2.3. A function is injective if and only if it is a monomorphism.
-% Proof. ( \implies  ) By Proposition 2.1, if a function f : A \to  B is
+% Proof. ( \Rightarrow  ) By Proposition 2.1, if a function f : A \to  B is
 % injective, then it
 % has a left-inverse g : B \to  A. Now assume that \alpha \setminus  , \alpha
 % \setminus \setminus  are arbitrary functions from
@@ -827,16 +823,16 @@ obtain more by applying certain standard operations. Here are a few:
 % a\setminus \setminus  = \alpha \setminus \setminus  (p) we should send the
 % single element p of Z. For this particular choice
 % of Z, the property defining monomorphisms, f \circ  \alpha \setminus  = f \circ
-% \alpha \setminus \setminus  \implies  \alpha \setminus  = \alpha \setminus
+% \alpha \setminus \setminus  \Rightarrow  \alpha \setminus  = \alpha \setminus
 % \setminus  , becomes
 % f \circ  \alpha  \setminus  (p) = f \circ  \alpha \setminus \setminus (p)
-% \implies  \alpha \setminus  = \alpha \setminus \setminus  ,
+% \Rightarrow  \alpha \setminus  = \alpha \setminus \setminus  ,
 % that is,
-% f (a\setminus  ) = f (a\setminus \setminus  ) \implies  \alpha \setminus  =
+% f (a\setminus  ) = f (a\setminus \setminus  ) \Rightarrow  \alpha \setminus  =
 % \alpha \setminus \setminus  .
 % Now two functions from Z = {p} to A are equal if and only if they send p to the
 % same element, so this says
-% f (a\setminus  ) = f (a\setminus \setminus ) \implies  a\setminus  = a \setminus
+% f (a\setminus  ) = f (a\setminus \setminus ) \Rightarrow  a\setminus  = a \setminus
 % \setminus  .
 % This has to be true for all \alpha \setminus  , \alpha  \setminus \setminus  ,
 % that is, for all choices of distinct a\setminus  , a\setminus \setminus  in A.
@@ -955,7 +951,7 @@ obtain more by applying certain standard operations. Here are a few:
 % defined, in contexts very similar to the one epitomized here.
 % Proof. Spelling out the first item discussed above, we have to verify that, for
 % all a\setminus  , a\setminus \setminus  in A,
-% [a\setminus  ]\sim  = [a\setminus \setminus  ]\sim  \implies  f (a\setminus  ) =
+% [a\setminus  ]\sim  = [a\setminus \setminus  ]\sim  \Rightarrow  f (a\setminus  ) =
 % f (a\setminus \setminus  ).
 % Now [a\setminus 
 %  ]\sim  = [a\setminus \setminus 
@@ -974,7 +970,7 @@ obtain more by applying certain standard operations. Here are a few:
 %  \sim  a\setminus \setminus  by definition of \sim , and then
 %   [a\setminus  ]\sim  = [a\setminus \setminus  ]\sim  . Therefore
 % f \widetilde{} ([a\setminus  ]\sim  ) = f \widetilde{} ([a\setminus \setminus
-% ]\sim  ) \implies  [a \setminus  ]\sim  = [a\setminus \setminus  ]\sim
+% ]\sim  ) \Rightarrow  [a \setminus  ]\sim  = [a\setminus \setminus  ]\sim
 % proving injectivity.
 % Surjective: Given any b \in  im f , there is an element a \in  A such that f (a)
 % = b.
@@ -1287,7 +1283,7 @@ obtain more by applying certain standard operations. Here are a few:
 % in this category that means that a \sim  b, and f is in fact the element (a, b)
 % of S \times  S.
 % Similarly, g \in  Hom(b, c) tells us b \sim  c and g = (b, c). Now
-% a \sim  b and b \sim  c \implies  a \sim  c
+% a \sim  b and b \sim  c \Rightarrow  a \sim  c
 % since we are assuming that \sim  is transitive. This tells us that Hom(a, c)
 % consists of
 % the single element (a, c). Thus we again have no choice: we must let
@@ -1846,7 +1842,7 @@ obtain more by applying certain standard operations. Here are a few:
 % phism if the following holds:
 % for all objects Z of C and all morphisms \alpha \setminus , \alpha \setminus
 % \setminus  \in  HomC (Z, A),
-% f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus  \implies
+% f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus  \Rightarrow
 % \alpha \setminus  = \alpha \setminus \setminus  .
 %  ?
 % Similarly, epimorphisms are defined as follows:
@@ -1855,7 +1851,7 @@ obtain more by applying certain standard operations. Here are a few:
 % for all objects Z of C and all morphisms \beta  \setminus , \beta  \setminus
 % \setminus  \in  HomC(B, Z),
 % \beta  \setminus  \circ  f = \beta  \setminus \setminus  \circ  f
-%   \implies  \beta  \setminus  = \beta  \setminus \setminus .
+%   \Rightarrow  \beta  \setminus  = \beta  \setminus \setminus .
 %  ?
 % Example 4.9. As proven in Proposition 2.3, in the category Set the monomor-
 % phisms are precisely the injective functions. The reader should have by now
@@ -2127,7 +2123,7 @@ obtain more by applying certain standard operations. Here are a few:
 %  \phi 
 %  / Z
 % with Z any set, satisfying the property
-% a\setminus  \sim  a\setminus \setminus  \implies  \phi (a\setminus  ) = \phi
+% a\setminus  \sim  a\setminus \setminus  \Rightarrow  \phi (a\setminus  ) = \phi
 % (a\setminus \setminus ).
 % These morphisms are objects of a category (very similar to the category defined
 % in
@@ -2172,7 +2168,7 @@ obtain more by applying certain standard operations. Here are a few:
 % Hence, all we have to check is that \phi  is well-defined, that is, that if [a1
 % ]\sim  =
 % [a2]\sim  , then \phi (a1 ) = \phi (a2 ); and indeed
-% [a1 ]\sim  = [a2 ]\sim  \implies  a1 \sim  a2 \implies  \phi (a1 ) = \phi (a2 ).
+% [a1 ]\sim  = [a2 ]\sim  \Rightarrow  a1 \sim  a2 \Rightarrow  \phi (a1 ) = \phi (a2 ).
 % This is precisely the condition that morphisms in our category satisfy.
 %  ?
 % Note the several levels of sloppiness in the assertion considered above: it does
