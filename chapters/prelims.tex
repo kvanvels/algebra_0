@@ -829,370 +829,336 @@ the gory details carefully.} (Exercise 2.5).
 \label{subsec:prelims:basic-examples}
 The basic operations on sets provided us with several important
 examples of injective and surjective functions.
-Example 2.4. Let A, B be sets. Then there are natural projections \pi A , \pi B
-:
-% \pi A ???
-%  ? ??
-%  ??
-%  A ? \times  < B
-%  < < < < \pi 
-%  < <
-%  B
-%  ? ?
-% A
-%  B
-% defined by
-% \pi A ((a, b)) := a,
-%  \pi B ((a, b)) := b
-% for all (a, b) \in  A \times  B. Both of these maps are (clearly) surjective.
-% ?
-% Example 2.5. Similarly, there are natural injections from A and B to the
-% disjoint
-% union:
-% A ?< < n
-%  <
-%  < <
-%  < <
-%  ? ???
-%  ??
-%  ?
-%  ??
-%  pP B
-% A \sqcup  B
-% obtained by sending a \in  A (resp., b \in  B) to the corresponding element in
-% the
-% isomorphic copy A\setminus  of A (resp., B \setminus  of B) in A \sqcup  B.
-%  ?
-% Example 2.6. If \sim  is an equivalence relation on a set A, there is a (clearly
-% surjec-
-% tive) canonical projection
-% A
-%  / / A/\sim 
-% obtained by sending every a \in  A to its equivalence class [a]\sim  .
-%  ?
+
+\begin{exam}{}{}
+  Let $A$, $B$ be sets. Then there are natural \emph{projections} $\pi_A$, $\pi_B$:
+  \[
+    \begin{tikzcd}
+      & A \times B \arrow[dl, "\pi_A"'] \arrow[dr, "\pi_B"] & \\
+      A & & B
+    \end{tikzcd}
+  \]
+  defined by
+  \[ \pi_A((a,b)) := a, \quad \pi_B((a,b)) := b \]
+  for all $(a,b) \in A \times B$. Both of these maps are (clearly) surjective.
+\end{exam}
+
+\begin{exam}{}{}
+  Similarly, there are natural injections from $A$ and $B$ to the disjoint union:
+  \[
+    \begin{tikzcd}
+      A \arrow[dr, hook] & & B \arrow[dl, hook'] \\
+      & A \sqcup B &
+    \end{tikzcd}
+  \]
+  obtained by sending $a \in A$ (resp., $b \in B$) to the corresponding element in
+  the isomorphic copy $A'$ of $A$ (resp., $B'$ of $B$) in $A \sqcup B$.
+\end{exam}
+
+\begin{exam}{}{}
+  If $\sim$ is an equivalence relation on a set $A$, there is a (clearly
+  surjective) canonical projection
+  \[ A \twoheadrightarrow A/{\sim} \]
+  obtained by sending every $a \in A$ to its equivalence class $[a]_\sim$.
+\end{exam}
 
 \subsection{Canonical decomposition}
 \label{subsec:prelims:canonical-decomposition}
-% The reason why we focus our attention on in-
+The reason why we focus our attention on injective and surjective maps is that
+they provide the basic `bricks' out of which any function may be constructed.
 
-% jective and surjective maps is that they provide the basic `bricks' out of which
-% any
-% function may be constructed.
-% To see this, we observe that every function f : A \to  B determines an
-% equivalence
-% relation \sim  on A as follows: for all a\setminus , a\setminus \setminus  \in
-% A,
-% a\setminus  \sim  a\setminus \setminus  \iff  f (a\setminus ) = f (a\setminus
-% \setminus  ).
-% (The reader should check that this is indeed an equivalence relation.)
-% Theorem 2.7. Let f : A \to  B be any function, and define \sim  as above. Then f
-% decomposes as follows:
-% A
-% / / (A/\sim )
-% f
-% \sim 
-% f \widetilde{}
-% / im f ? ?
-% (/
-%  B
-% where the first function is the canonical projection A \to  A/\sim  (as in
-% Example 2.6),
-% the third function is the inclusion im f \subseteq  B, and the bijection f
-% \widetilde{} in the middle is
-% defined by
-% f \widetilde{} ([a]\sim ) := f (a)
-% for all a \in  A.
-% The formula defining f \widetilde{} shows immediately that the diagram commutes;
-% so all
-% we have to verify in order to prove this theorem is that
-% \item  that formula does define a function;
-% \item  that function is in fact a bijection.
-% The first item is an instance of a class of verifications of the utmost
-% importance.
-% The formula given for f \widetilde{} has a colossal built-in ambiguity: the same
-% element in A/\sim
-% may be the equivalence class of many elements of A; applying the formula for f
-% \widetilde{}
-% requires choosing one of these elements and applying f to it. We have to prove
-% that the result of this operation is independent from this choice: that is, that
-% all
-% possible choices of representatives for that equivalence class lead to the same
-% result.
-% We encode this type of situation by saying that we have to verify that f
-% \widetilde{} is
-% well-defined. We will often have to check that the operations we consider are
-% well-
-% defined, in contexts very similar to the one epitomized here.
-% Proof. Spelling out the first item discussed above, we have to verify that, for
-% all a\setminus  , a\setminus \setminus  in A,
-% [a\setminus  ]\sim  = [a\setminus \setminus  ]\sim  \Rightarrow  f (a\setminus  ) =
-% f (a\setminus \setminus  ).
-% Now [a\setminus 
-%  ]\sim  = [a\setminus \setminus 
-%  ]\sim  means that a\setminus  \sim  a\setminus \setminus  , and the definition
-%  of \sim  has been engineered
-% precisely so that this would mean f (a\setminus  ) = f (a\setminus \setminus  )
-% as required here. So f \widetilde{} is indeed
-% well-defined.
-% To verify the second item, that is, that f \widetilde{} : A/\sim  \to  im f is a
-% bijection, we check
-% explicitly that f \widetilde{} is injective and surjective.
-% Injective: If f \widetilde{} ([a\setminus  ]\sim ) = f \widetilde{} ([a\setminus
-% \setminus  ]\sim  ), then f (a\setminus  ) = f (a\setminus \setminus ) by
-% definition of f \widetilde{} ; hence
-% a\setminus 
-%  \sim  a\setminus \setminus  by definition of \sim , and then
-%   [a\setminus  ]\sim  = [a\setminus \setminus  ]\sim  . Therefore
-% f \widetilde{} ([a\setminus  ]\sim  ) = f \widetilde{} ([a\setminus \setminus
-% ]\sim  ) \Rightarrow  [a \setminus  ]\sim  = [a\setminus \setminus  ]\sim
-% proving injectivity.
-% Surjective: Given any b \in  im f , there is an element a \in  A such that f (a)
-% = b.
-% Then
-% f \widetilde{} ([a]\sim ) = f (a) = b
-% by definition of f \widetilde{} . Since b was arbitrary in im f , this shows
-% that f \widetilde{} is surjective, as
-% needed.
-%  ?
-% Theorem 2.7 shows that every function is the composition of a surjection, fol-
-% lowed by an isomorphism, followed by an injection. While its proof is trivial,
-% this is
-% a result of some importance, since it is the prototype of a situation that will
-% occur
-% several times in this book. It will resurface every now and then, with names
-% such
-% as `the first isomorphism theorem'.
+To see this, we observe that every function $f : A \to B$ determines an
+equivalence relation $\sim$ on $A$ as follows: for all $a', a'' \in A$,
+\[ a' \sim a'' \iff f(a') = f(a''). \]
+(The reader should check that this is indeed an equivalence relation.)
+
+\begin{thm}{}{thm:canonical-decomposition}
+  Let $f : A \to B$ be any function, and define $\sim$ as above. Then $f$
+  decomposes as follows:
+  \[
+    \begin{tikzcd}
+      A \arrow[r, two heads] \arrow[rrr, bend left=20, "f"] &
+      (A/{\sim}) \arrow[r, "\tilde{f}", "\sim"'] &
+      \image f \arrow[r, hook] &
+      B
+    \end{tikzcd}
+  \]
+  where the first function is the canonical projection $A \to A/{\sim}$ (as in
+  Example~2.6), the third function is the inclusion $\image f \subseteq B$, and
+  the bijection $\tilde{f}$ in the middle is defined by
+  \[ \tilde{f}([a]_\sim) := f(a) \]
+  for all $a \in A$.
+\end{thm}
+
+The formula defining $\tilde{f}$ shows immediately that the diagram commutes; so
+all we have to verify in order to prove this theorem is that
+\begin{itemize}
+\item that formula does define a function;
+\item that function is in fact a bijection.
+\end{itemize}
+The first item is an instance of a class of verifications of the utmost
+importance. The formula given for $\tilde{f}$ has a colossal built-in ambiguity:
+the same element in $A/{\sim}$ may be the equivalence class of many elements of
+$A$; applying the formula for $\tilde{f}$ requires choosing one of these elements
+and applying $f$ to it. We have to prove that the result of this operation is
+independent from this choice: that is, that all possible choices of
+representatives for that equivalence class lead to the same result.
+
+We encode this type of situation by saying that we have to verify that $\tilde{f}$
+is \emph{well-defined}. We will often have to check that the operations we
+consider are well-defined, in contexts very similar to the one epitomized here.
+
+\begin{proof}
+  Spelling out the first item discussed above, we have to verify that, for all
+  $a', a''$ in $A$,
+  \[ [a']_\sim = [a'']_\sim \implies f(a') = f(a''). \]
+  Now $[a']_\sim = [a'']_\sim$ means that $a' \sim a''$, and the definition of
+  $\sim$ has been engineered precisely so that this would mean $f(a') = f(a'')$
+  as required here. So $\tilde{f}$ is indeed well-defined.
+
+  To verify the second item, that $\tilde{f} : A/{\sim} \to \image f$ is a
+  bijection, we check explicitly that $\tilde{f}$ is injective and surjective.
+
+  \emph{Injective:} If $\tilde{f}([a']_\sim) = \tilde{f}([a'']_\sim)$, then
+  $f(a') = f(a'')$ by definition of $\tilde{f}$; hence $a' \sim a''$ by
+  definition of $\sim$, and then $[a']_\sim = [a'']_\sim$. Therefore
+  \[ \tilde{f}([a']_\sim) = \tilde{f}([a'']_\sim) \implies [a']_\sim = [a'']_\sim, \]
+  proving injectivity.
+
+  \emph{Surjective:} Given any $b \in \image f$, there is an element $a \in A$
+  such that $f(a) = b$. Then
+  \[ \tilde{f}([a]_\sim) = f(a) = b \]
+  by definition of $\tilde{f}$. Since $b$ was arbitrary in $\image f$, this shows
+  that $\tilde{f}$ is surjective, as needed.
+\end{proof}
+
+\Cref{thm:canonical-decomposition} shows that every function is the composition
+of a surjection, followed by an isomorphism, followed by an injection. While its
+proof is trivial, this is a result of some importance, since it is the prototype
+of a situation that will occur several times in this book. It will resurface every
+now and then, with names such as `the first isomorphism theorem'.
 
 \subsection{Clarification}
 \label{subsec:prelims:clarification}
 
-% unions, products, and quotients, made in \S{}1.4. Our definition of A \sqcup  B
-% was the
-% (conventional) union of two disjoint sets A\setminus  , B \setminus  isomorphic
-% to A, B, respectively.
-% It is easy to provide a way to effectively produce such isomorphic copies (as we
-% did
-% in \S{}1.4); but it is in fact a little too easy---many other choices are
-% possible, and
-% one does not look any better than any other. It is in fact more sensible not to
-% make a fixed choice once and for all and simply accept the fact that all of them
-% produce acceptable candidates for A \sqcup  B. From this egalitarian standpoint,
-% the
-% result of the operation A \sqcup  B is not `well-defined' as a set in the sense
-% specified
-% above. However, it is easy to see (Exercise 2.9) that A \sqcup  B is
-% well-defined up to
-% isomorphism: that is, that any two choices for the copies A\setminus  , B
-% \setminus  lead to isomorphic
-% candidates for A \sqcup  B. The same considerations apply to products and
-% quotients.
-% The main feature of sets obtained by taking disjoint unions, products, or quo-
-% tients is not really `what elements they contain' but rather `their relationship
-% with
-% all other sets'. This will be (even) clearer when we revisit these operations
-% and
-% others12 in the context of categories.
+Finally, we can begin to clarify one comment about disjoint unions, products,
+and quotients, made in \S{}1.4. Our definition of $A \sqcup B$ was the
+(conventional) union of two disjoint sets $A'$, $B'$ isomorphic to $A$, $B$,
+respectively. It is easy to provide a way to effectively produce such isomorphic
+copies (as we did in \S{}1.4); but it is in fact a little too easy---many other
+choices are possible, and one does not look any better than any other. It is in
+fact more sensible not to make a fixed choice once and for all and simply accept
+the fact that all of them produce acceptable candidates for $A \sqcup B$. From
+this egalitarian standpoint, the result of the operation $A \sqcup B$ is not
+`well-defined' as a set in the sense specified above. However, it is easy to see
+(Exercise~2.9) that $A \sqcup B$ is well-defined up to isomorphism: that is,
+that any two choices for the copies $A'$, $B'$ lead to isomorphic candidates for
+$A \sqcup B$. The same considerations apply to products and quotients.
+
+The main feature of sets obtained by taking disjoint unions, products, or
+quotients is not really `what elements they contain' but rather `their
+relationship with all other sets'. This will be (even) clearer when we revisit
+these operations and others\footnote{The reader should also be aware that there
+  are important variations on the operations we have seen so far---particularly
+  important are the \emph{fibered} flavors of products and disjoint unions.} in
+the context of categories.
 
 \subsection*{Exercises}
 
-% 2.1. ? How many different bijections are there between a set S with n elements
-% and itself? [\S{}II.2.1]
-% 2.2. ? Prove statement (2) in Proposition 2.1. You may assume that given a
-% family
-% of disjoint nonempty subsets of a set, there is a way to choose one element in
-% each
-% member of the family13 . [\S{}2.5, V.3.3]
-% 2.3. Prove that the inverse of a bijection is a bijection and that the
-% composition
-% of two bijections is a bijection.
-% 2.4. ? Prove that `isomorphism' is an equivalence relation (on any set of sets).
-% [\S{}4.1]
-% 2.5. ? Formulate a notion of epimorphism, in the style of the notion of monomor-
-% phism seen in \S{}2.6, and prove a result analogous to Proposition 2.3, for
-% epimor-
-% phisms and surjections. [\S{}2.6, \S{}4.2]
-% 2.6. With notation as in Example 2.4, explain how any function f : A \to  B
-% determines a section of \pi A .
-% 2.7. Let f : A \to  B be any function. Prove that the graph \Gamma f of f is
-% isomorphic
-% to A.
-% 2.8. Describe as explicitly as you can all terms in the canonical decomposition
-% (cf. \S{}2.8) of the function R \to  C defined by r ?\to  e2\pi ir . (This
-% exercise matches one
-% assigned previously. Which one?)
-% 2.9. ? Show that if A\setminus  \sim 
-%  = A\setminus \setminus  and B \setminus  \sim 
-%  = B \setminus \setminus  , and further A\setminus  \cap B \setminus  =
-%  \emptyset  and A\setminus \setminus  \cap B \setminus \setminus  = \emptyset ,
-% then A\setminus 
-%  \cup  B \setminus  \sim  = A\setminus \setminus 
-%  \cup  B\setminus \setminus 
-%  . Conclude that the operation A \sqcup  B (as described in \S{}1.4)
-% is well-defined up to isomorphism (cf. \S{}2.9). [\S{}2.9, 5.7]
-% 2.10. ? Show that if A and B are finite sets, then |B A | = |B||A|. [\S{}2.1,
-% 2.11, \S{}II.4.1]
-% 12 The reader should also be aware that there are important variations on the
-% operations we
-% have seen so far---particularly important are the fibered flavors of products
-% and disjoint unions.
-% 13 This (reasonable) statement is the axiom of choice; cf. \S{}V.3.
-% 2.11. ? In view of Exercise 2.10, it is not unreasonable to use 2A to denote the
-% set
-% of functions from an arbitrary set A to a set with 2 elements (say {0, 1}).
-% Prove
-% that there is a bijection between 2A and the power set of A (cf. \S{}1.2).
-% [\S{}1.2, III.2.3]
+\begin{exer}{}{}
+  \exerused How many different bijections are there between a set $S$ with $n$
+  elements and itself? [\S{}II.2.1]
+\end{exer}
+
+\begin{exer}{}{}
+  \exerused Prove statement~(2) in \Cref{prop:inv-inj-sur}. You may assume that
+  given a family of disjoint nonempty subsets of a set, there is a way to choose
+  one element in each member of the family.\footnote{This (reasonable) statement
+    is the \emph{axiom of choice}; cf.\ \S{}V.3.} [\S{}2.5, V.3.3]
+\end{exer}
+
+\begin{exer}{}{}
+  Prove that the inverse of a bijection is a bijection and that the composition of
+  two bijections is a bijection.
+\end{exer}
+
+\begin{exer}{}{}
+  \exerused Prove that `isomorphism' is an equivalence relation (on any set of
+  sets). [\S{}4.1]
+\end{exer}
+
+\begin{exer}{}{}
+  \exerused Formulate a notion of \emph{epimorphism}, in the style of the notion
+  of monomorphism seen in \S{}2.6, and prove a result analogous to
+  \Cref{prop:old-2.3}, for epimorphisms and surjections. [\S{}2.6, \S{}4.2]
+\end{exer}
+
+\begin{exer}{}{}
+  With notation as in Example~2.4, explain how any function $f : A \to B$
+  determines a section of $\pi_A$.
+\end{exer}
+
+\begin{exer}{}{}
+  Let $f : A \to B$ be any function. Prove that the graph $\Gamma_f$ of $f$ is
+  isomorphic to $A$.
+\end{exer}
+
+\begin{exer}{}{}
+  Describe as explicitly as you can all terms in the canonical decomposition
+  (cf.\ \S{}2.8) of the function $\R \to \C$ defined by $r \mapsto e^{2\pi i r}$.
+  (This exercise matches one assigned previously. Which one?)
+\end{exer}
+
+\begin{exer}{}{}
+  \exerused Show that if $A' \cong A''$ and $B' \cong B''$, and further
+  $A' \cap B' = \emptyset$ and $A'' \cap B'' = \emptyset$, then
+  $A' \cup B' \cong A'' \cup B''$. Conclude that the operation $A \sqcup B$ (as
+  described in \S{}1.4) is well-defined up to isomorphism (cf.\ \S{}2.9).
+  [\S{}2.9, 5.7]
+\end{exer}
+
+\begin{exer}{}{}
+  \exerused Show that if $A$ and $B$ are finite sets, then $|B^A| = |B|^{|A|}$.
+  [\S{}2.1, 2.11, \S{}II.4.1]
+\end{exer}
+
+\begin{exer}{}{}
+  \exerused In view of Exercise~2.10, it is not unreasonable to use $2^A$ to
+  denote the set of functions from an arbitrary set $A$ to a set with 2 elements
+  (say $\{0,1\}$). Prove that there is a bijection between $2^A$ and the power
+  set of $A$ (cf.\ \S{}1.2). [\S{}1.2, III.2.3]
+\end{exer}
 
 \section{Categories}
 \label{sec:prelims:categories}
 
-% The language of categories is affectionately known as abstract nonsense, so
-% named
-% by Norman Steenrod. This term is essentially accurate and not necessarily
-% deroga-
-% tory: categories refer to nonsense in the sense that they are all about the
-% `structure',
-% and not about the `meaning', of what they represent. The emphasis is less on how
-% you run into a specific set you are looking at and more on how that set may sit
-% in relationship with all other sets. Worse (or better) still, the emphasis is
-% less on
-% studying sets, and functions between sets, than on studying `things, and things
-% that go from things to things' without necessarily being explicit about what
-% these
-% things are: they may be sets, or groups, or rings, or vector spaces, or modules,
-% or
-% other objects that are so exotic that the reader has no right whatsoever to know
-% about them (yet).
-% `Categories' will intuitively look like sets at first, and in multiple ways.
-% Cat-
-% egories may make you think of sets, in that they are `collections of objects',
-% and
-% further there will be notions of `functions from categories to categories'
-% (called func-
-% tors 14). At the same time, every category may make you think of the collection
-% of
-% all sets, since there will be analogs of `functions' among the things it
-% contains.
+The language of categories is affectionately known as \emph{abstract nonsense},
+so named by \name{Norman Steenrod}. This term is essentially accurate and not
+necessarily derogatory: categories refer to nonsense in the sense that they are
+all about the `structure', and not about the `meaning', of what they represent.
+The emphasis is less on how you run into a specific set you are looking at and
+more on how that set may sit in relationship with all other sets. Worse (or
+better) still, the emphasis is less on studying sets, and functions between sets,
+than on studying `things, and things that go from things to things' without
+necessarily being explicit about what these things are: they may be sets, or
+groups, or rings, or vector spaces, or modules, or other objects that are so
+exotic that the reader has no right whatsoever to know about them (yet).
+
+`Categories' will intuitively look like sets at first, and in multiple ways.
+Categories may make you think of sets, in that they are `collections of objects',
+and further there will be notions of `functions from categories to categories'
+(called \emph{functors}\footnote{However, we will not consider functors until
+  later chapters: our first formal encounter with functors will be in Chapter
+  VIII.}). At the same time, every category may make you think of the collection
+of all sets, since there will be analogs of `functions' among the things it
+contains.
 
 \subsection{Definition}
 \label{subsec:prelims:categories:definition}
 
-% gist of it may be summarized quickly: a category consists of a collection of
-% `objects',
-% and of `morphisms' between these objects, satisfying a list of natural
-% conditions.
-% The reader will note that I refrained from writing a set of objects, opting for
-% the more generic `collection'. This is an annoying, but unavoidable, difficulty:
-% for
-% example, we want to have a `category of sets', in which the `objects' are sets
-% and
-% the `morphisms' are functions between sets, and the problem is that there simply
-% is not a set of all sets15 . In a sense, the collection of all sets is `too big'
-% to be a set.
-% There are however ways to deal with such `collections', and the technical name
-% for
-% them is class. There is a `class' of all sets (and there will be classes taking
-% care of
-% groups, rings, etc.).
-% An alternative would be to define a large enough set (called a universe) and
-% then agree that all objects of all categories will be chosen from this gigantic
-% entity.
-% In any case, all the reader needs to know about this is that there is a way to
-% make it work. We will use the term `class' in the definition, but this will not
-% affect
-% any proof or any other definition in this book. Further, in some of the examples
-% considered below the class in question is a set (we say that the category is
-% small
-% in this case), so the reader will feel perfectly at home when contemplating
-% these
-% examples.
-% 14 However, we will not consider functors until later chapters: our first formal
-% encounter with
-% functors will be in Chapter VIII.
-% 15That is one thing we learn from Russell's paradox.
-% Definition 3.1. A category C consists of
-% \bullet  a class Obj(C) of objects of the category; and
-% \bullet  for every two objects A, B of C, a set HomC(A, B) of
-%          morphisms, with the
-% properties listed below.
-%  ?
-% As a prototype to keep in mind, think of the objects as `sets' and of morphisms
-% as `functions'. This one example should make the defining properties of
-% morphisms
-% look natural and easy to remember:
-% \bullet  For every object A of C, there exists (at least) one morphism
-%          1A \in  HomC (A, A),
-% the `identity' on A.
-% \bullet  One can compose morphisms: two morphisms f \in  HomC (A, B) and g \in 
-% HomC(B, C) determine a morphism gf \in  HomC (A, C). That is, for every
-% triple of objects A, B, C of C there is a function (of sets)
-% HomC (A, B) \times  HomC(B, C) \to  HomC (A, C),
-% and the image of the pair (f, g) is denoted gf .
-% \bullet  This `composition law' is associative: if f \in  HomC (A, B),
-%          g \in  HomC (B, C),
-% and h \in  HomC(C, D), then
-% (hg)f = h(gf ).
-% \bullet  The identity morphisms are identities with respect to
-%          composition: that is,
-% for all f \in  HomC (A, B) we have
-% f 1A = f,
-%  1B f = f.
-% This is really a mouthful, but again, to remember all this, just think of
-% functions
-% of sets. One further requirement is that the sets
-% HomC (A, B),
-%  HomC (C, D)
-% be disjoint unless A = C, B = D; this is something you do not usually think
-% about,
-% but again it holds for ordinary set-functions16 . That is, if two functions are
-% one and
-% the same, then necessarily they have the same source and the same target: source
-% and target are part of the datum of a set-function.
-% A morphism of an object A of a category C to itself is called an endomorphism;
-% HomC(A, A) is denoted EndC (A). One of the axioms of a category tells us that
-% this is a `pointed' set, as 1A \in  EndC (A). The reader should note that
-% composition
-% defines an `operation' on End C (A): if f, g are elements of EndC (A), so is
-% their
-% composition gf .
-% Writing `f \in  HomC (A, B)' gets tiresome in the long run. If the category is
-% understood, one may safely drop the index C, or even use arrows as we do with
-% set-functions: f : A \to  B. This also allows us to draw diagrams of morphisms
-% in
-% any category; a diagram is said to `commute' (or to be a `commutative' diagram)
-% if
-% all ways to traverse it lead to the same results of composing morphisms along
-% the
-% way, just as explained for diagrams of functions of sets in \S{}2.3.
-% 16 I will often use the term `set-function' to emphasize that we are dealing
-% with a function in
-% the context of sets.
-% In fact, I will now feel free to use diagrams as possible objects of categories.
-% The official definition of a diagram in this context would be a set of objects
-% of a
-% category C, along with prescribed morphisms between these objects; the diagram
-% commutes if it does in the sense specified above. The specifics of the visual
-% repre-
-% sentation of a diagram are of course irrelevant.
+The definition of a category looks complicated at first, but the gist of it may
+be summarized quickly: a category consists of a collection of `objects', and of
+`morphisms' between these objects, satisfying a list of natural conditions.
+
+The reader will note that I refrained from writing a \emph{set} of objects,
+opting for the more generic `collection'. This is an annoying, but unavoidable,
+difficulty: for example, we want to have a `category of sets', in which the
+`objects' are sets and the `morphisms' are functions between sets, and the
+problem is that there simply is not a set of all
+sets\footnote{That is one thing we learn from Russell's paradox.}. In a sense,
+the collection of all sets is `too big' to be a set. There are however ways to
+deal with such `collections', and the technical name for them is \emph{class}.
+There is a `class' of all sets (and there will be classes taking care of groups,
+rings, etc.).
+
+An alternative would be to define a large enough set (called a \emph{universe})
+and then agree that all objects of all categories will be chosen from this
+gigantic entity.
+
+In any case, all the reader needs to know about this is that there is a way to
+make it work. We will use the term `class' in the definition, but this will not
+affect any proof or any other definition in this book. Further, in some of the
+examples considered below the class in question is a set (we say that the
+category is \emph{small} in this case), so the reader will feel perfectly at
+home when contemplating these examples.
+
+\begin{defn}{}{defn:category}
+  A \emph{category} $\mathsf{C}$ consists of
+  \begin{itemize}
+  \item a class $\operatorname{Obj}(\mathsf{C})$ of \emph{objects} of the
+    category; and
+  \item for every two objects $A$, $B$ of $\mathsf{C}$, a set
+    $\operatorname{Hom}_{\mathsf{C}}(A, B)$ of \emph{morphisms},
+  \end{itemize}
+  with the properties listed below.
+\end{defn}
+
+As a prototype to keep in mind, think of the objects as `sets' and of morphisms
+as `functions'. This one example should make the defining properties of morphisms
+look natural and easy to remember:
+\begin{itemize}
+\item For every object $A$ of $\mathsf{C}$, there exists (at least) one morphism
+  $1_A \in \operatorname{Hom}_{\mathsf{C}}(A, A)$, the `identity' on $A$.
+\item One can compose morphisms: two morphisms
+  $f \in \operatorname{Hom}_{\mathsf{C}}(A, B)$ and
+  $g \in \operatorname{Hom}_{\mathsf{C}}(B, C)$ determine a morphism
+  $gf \in \operatorname{Hom}_{\mathsf{C}}(A, C)$. That is, for every triple of
+  objects $A$, $B$, $C$ of $\mathsf{C}$ there is a function (of sets)
+  \[ \operatorname{Hom}_{\mathsf{C}}(A, B) \times \operatorname{Hom}_{\mathsf{C}}(B, C)
+    \to \operatorname{Hom}_{\mathsf{C}}(A, C), \]
+  and the image of the pair $(f, g)$ is denoted $gf$.
+\item This `composition law' is associative: if $f \in \operatorname{Hom}_{\mathsf{C}}(A, B)$,
+  $g \in \operatorname{Hom}_{\mathsf{C}}(B, C)$, and
+  $h \in \operatorname{Hom}_{\mathsf{C}}(C, D)$, then $(hg)f = h(gf)$.
+\item The identity morphisms are identities with respect to composition: that
+  is, for all $f \in \operatorname{Hom}_{\mathsf{C}}(A, B)$ we have
+  \[ f 1_A = f, \qquad 1_B f = f. \]
+\end{itemize}
+
+This is really a mouthful, but again, to remember all this, just think of
+functions of sets. One further requirement is that the sets
+$\operatorname{Hom}_{\mathsf{C}}(A, B)$ and $\operatorname{Hom}_{\mathsf{C}}(C, D)$
+be disjoint unless $A = C$, $B = D$; this is something you do not usually think
+about, but again it holds for ordinary set-functions.\footnote{I will often use
+  the term `set-function' to emphasize that we are dealing with a function in
+  the context of sets.} That is, if two functions are one and the same, then
+necessarily they have the same source and the same target: source and target are
+part of the datum of a set-function.
+
+A morphism of an object $A$ of a category $\mathsf{C}$ to itself is called an
+\emph{endomorphism}; $\operatorname{Hom}_{\mathsf{C}}(A, A)$ is denoted
+$\operatorname{End}_{\mathsf{C}}(A)$. One of the axioms of a category tells us
+that this is a `pointed' set, as $1_A \in \operatorname{End}_{\mathsf{C}}(A)$.
+The reader should note that composition defines an `operation' on
+$\operatorname{End}_{\mathsf{C}}(A)$: if $f$, $g$ are elements of
+$\operatorname{End}_{\mathsf{C}}(A)$, so is their composition $gf$.
+
+Writing `$f \in \operatorname{Hom}_{\mathsf{C}}(A, B)$' gets tiresome in the
+long run. If the category is understood, one may safely drop the index
+$\mathsf{C}$, or even use arrows as we do with set-functions: $f : A \to B$.
+This also allows us to draw \emph{diagrams} of morphisms in any category; a
+diagram is said to `commute' (or to be a `commutative' diagram) if all ways to
+traverse it lead to the same results of composing morphisms along the way, just
+as explained for diagrams of functions of sets in \S{}2.3.
+
+In fact, I will now feel free to use diagrams as possible objects of categories.
+The official definition of a diagram in this context would be a set of objects
+of a category $\mathsf{C}$, along with prescribed morphisms between these
+objects; the diagram commutes if it does in the sense specified above. The
+specifics of the visual representation of a diagram are of course irrelevant.
 
 \subsection{Examples}
 \label{subsec:prelims:examples}
-% The reader should note that 90% of the definition of the notion
-
-% of category goes into explaining the properties of its morphisms; it is fair to
-% say
-% that the morphisms are the important constituents of a category. Nevertheless,
-% it is psychologically irresistible to think of a category in terms of its
-% objects: for
-% example, one talks about the `category of sets'. The point is that usually the
-% kind
-% of `morphisms' one may consider are (psychologically at least) determined by the
-% objects: if one is talking about sets, what can one possibly mean for `morphism'
-% other than a function of sets? In other situations (cf. Example 3.5 below or
-% Exer-
-% cise 3.9) it is a little less clear what the morphisms should be, and looking
-% for the
-% `right' notion may be an interesting project.
+The reader should note that 90\% of the definition of the notion of category
+goes into explaining the properties of its morphisms; it is fair to say that the
+morphisms are the important constituents of a category. Nevertheless, it is
+psychologically irresistible to think of a category in terms of its objects: for
+example, one talks about the `category of sets'. The point is that usually the
+kind of `morphisms' one may consider are (psychologically at least) determined
+by the objects: if one is talking about sets, what can one possibly mean for
+`morphism' other than a function of sets? In other situations (cf.\ Example~3.5
+below or Exercise~3.9) it is a little less clear what the morphisms should be,
+and looking for the `right' notion may be an interesting project.
 % Example 3.2. It is hopefully crystal clear by now that sets (as objects),
 % together
 % with set-functions (as morphisms), form a category; if not, the reader must stop
