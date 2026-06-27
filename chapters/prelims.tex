@@ -640,208 +640,197 @@ given sets $A$, $B$ should simply be isomorphic sets to $A$, $B$,
 respectively. The proposal given at
 the end of \S{}1.4 to produce such disjoint `copies' works, because
 (for example) the function $f : A \to \{0\} \times A$ defined by
-$\kforall_{a \in A} f (a) = (0, a)$ is manifestly a bijection.
+\[\kforall_{a \in A} f (a) = (0, a)\] is manifestly a bijection.
 
 \subsection{Injections, surjections, bijections: Second viewpoint}
 \label{subsec:prelims:injections-surjections-bijections-second-viewpoint}
-% There is an al-
+There is an alternative and instructive way to think about these notions.
+If $f : A \to  B$ is a bijection, then we can `flip its graph' and define a
+function
+$g : B \to  A$ :
+that is, we can let $a = g(b)$ precisely when $b = f (a)$. (The fact that $f$ is both
+injective and surjective guarantees that the flip of $\Gamma_f$ is the graph of a
+function
+according to the definition given in \S{}2.1. Check this!)
+This function $g$ has a very interesting property: graphically,
+\[
+  \begin{tikzcd}
+    A \arrow[r,"f"] \arrow[rr,bend right,"\id_A" description]& B\arrow[r,"g"] &A
+  \end{tikzcd}
+  \quad
+    \begin{tikzcd}
+     B\arrow[r,"g"]\arrow[rr,bend right,"\id_B" description] &A\arrow[r,"f"]&B
+  \end{tikzcd}
+\] commute; that is, $g \circ f = \id_A$ and $f \circ g = \id_B$. The
+first identity tells us that $g$ is a `left-inverse'\footnote{Never
+  mind that $g$ is drawn to the right of $f$ in the diagram---we say
+  that $g$ is a left-inverse of $f$ because it is written to the left
+  of $f : g \circ f = \id_A$} of $f$; the second tells us that $g$ is
+a `right-inverse' of $f$. We simply say that it is the inverse of $f$, denoted $f^{-1}$. Thus, `bijections have inverses'.
 
-% ternative and instructive way to think about these notions.
-% If f : A \to  B is a bijection, then we can `flip its graph' and define a
-% function
-% g : B \to  A :
-% that is, we can let a = g(b) precisely when b = f (a). (The fact that f is both
-% injective and surjective guarantees that the flip of \Gamma f is the graph of a
-% function
-% according to the definition given in \S{}2.1. Check this!)
-% This function g has a very interesting property: graphically,
-% A
-%  f
-%  / B
-%  g
-%  /7 A ,
-%  B
-%  g
-%  / A
-%  f
-%  /7 B
-% idA
-%  idB
-% commute; that is, g \circ  f = idA and f \circ  g = idB . The first identity
-% tells us that g is
-% a `left-inverse'10 of f ; the second tells us that g is a `right-inverse' of f .
-% We simply
-% -1say that it is the inverse of f , denoted f . Thus, `bijections have
-% inverses'.
-% What about the converse? If a function has an inverse, is it a bijection? This
-% is true, but in fact we can be much more precise.
-% Proposition 2.1. Assume A = \emptyset , and let f : A \to  B be a function. Then
-% (1) f has a left-inverse if and only if it is injective.
-% (2) f has a right-inverse if and only if it is surjective.
-% Proof. Let's prove (1).
-% ( \Rightarrow  ) If f : A \to  B has a left-inverse, then there exists a g : B \to
-% A such that
-% g \circ  f = idA . Now assume that a'  = a' '  are
-% arbitrary different elements in A; then
-% \setminus  \setminus  \setminus  \setminus \setminus  \setminus
-%            \setminus  \setminus \setminus g(f (a )) = idA(a ) = a = a
-%            = idA (a ) = g(f (a ));
-% that is, g sends f (a\setminus ) and f (a\setminus \setminus  ) to different
-% elements. This forces f (a\setminus  ) and f (a\setminus \setminus )
-% to be different, showing that f is injective.
-% ( \Leftarrow = ) Now assume f : A \to  B is injective. In order to construct a
-% function
-% g : B \to  A, we have to assign a unique value g(b) \in  A for each element b
-% \in  B. For
-% this, choose any fixed element s \in  A (which we can do because A = \emptyset
-% ); then set
-% ?
-% a if b = f (a) for some a \in  A,
-% g(b) :=
-% s if b \in  im f .
-% 10 Never mind that g is drawn to the right of f in the diagram---we say that g
-% is a left-inverse
-% of f because it is written to the left of f : g \circ  f = idA .
-% In words, if b is the image of an element a of A, send it back to a; otherwise,
-% send
-% it to your fixed element s.
-% The given assignment defines a function, precisely because f is injective:
-% indeed,
-% this guarantees that every b that is the image of some a \in  A by f is the
-% image of a
-% unique a (two distinct elements of A cannot be simultaneously sent to b by f ,
-% since
-% f is injective). Thus every b \in  B is sent to a unique well-defined element of
-% A, as
-% is required of functions.
-% Finally, the function g : B \to  A is a left-inverse of f . Indeed, if a \in  A,
-% then
-% b = f (a) is of the first type, so it is sent back to a by g; that is, g \circ f
-% (a) = a = idA(a)
-% for all a \in  A, as needed.
-% The proof of (2) is left as an exercise (Exercise 2.2).
-%  ?
-% Corollary 2.2. A function f : A \to  B is a bijection if and only if it has a
-% (two-
-% sided) inverse.
-% This is not completely innocent: if f has both a left-inverse and a
-% right-inverse,
-% why should it have one inverse that works as both on the left and on the right?
-% Try to prove this by yourself now. We will come back to this issue soon (in
-% \S{}4).
-% If a function is injective but not surjective, then it will not have a
-% right-inverse,
-% and if the source has at least two elements, it will necessarily have more than
-% one
-% left-inverse (this should be clear from the argument given in the proof of
-% Proposi-
-% tion 2.1). Similarly, a surjective function will in general have many
-% right-inverses;
-% they are often called sections.
-% Proposition 2.1 hints that something deep is going on here. The definition
-% of injective and surjective maps given in \S{}2.4 relied crucially on working
-% directly
-% with the elements of our sets; Proposition 2.1 shows that in fact these
-% properties
-% are detected by the way functions are `organized' among sets. Even if we did not
-% know what `elements' means, still we could make sense of the notions of
-% injectivity
-% and surjectivity (and hence of isomorphisms of sets) by exclusively referring to
-% properties of functions.
-% This is a more `mature' point of view and one that will be championed when we
-% talk about categories. To some extent, it should cure the reader from the
-% discomfort
-% of talking about `elements', as we did in our informal introduction to sets,
-% without
-% defining what these mysterious entities are supposed to be.
-% -1The standard notation for the inverse of a bijection f is f . This symbol is
-% also used for functions that are not bijections, but in a slightly different
-% context: if
-% f : A \to  B is any function and T \subseteq  B is a subset of B, then f -1 (T )
-% denotes the
-% subset of A of `all elements that map to T '; that is,
-% f -1(T ) = {a \in  A | f (a) \in  T }.
-% If T = {q} consists of a single element of B, f -1(T ) (abbreviated f -1 (q)) is
-% called
-% the fiber of f over q. Thus a function f : A \to  B is a bijection if it has
-% nonempty
-% fibers over all elements of B (that is, f is surjective), and these fibers are
-% in fact
-% -1singletons (that is, f is injective). In this case, this notation f matches
-% nicely
-% with the notation of `inverse' mentioned above.
+What about the converse? If a function has an inverse, is it a bijection? This
+is true, but in fact we can be much more precise.
+
+\begin{prop}{}{prop:inv-inj-sur}
+  Assume $A \ne\emptyset$, and let $f : A \to  B$ be a function. Then
+  \begin{itemize}
+  \item $f$ has a left-inverse if and only if it is injective.
+  \item $f$ has a right-inverse if and only if it is surjective.
+  \end{itemize}
+\end{prop}
+\begin{proof}
+  ( $\Rightarrow$  ) If $f : A \to  B$ has a left-inverse, then
+  there exists a $g : B \to
+A$ such that
+$g \circ  f = id_A$ . Now assume that $a' \ne a''$  are
+arbitrary different elements in $A$ then
+\[  
+  g(f(a') = \id_A(a') = a' \ne a'' = \id_A(a'') = g(f(a''))
+\]           
+that is, $g$ sends $f (a\setminus)$ and $f (a'' )$ to different
+elements. This forces $f (a')$ and $f (a'')$
+to be different, showing that $f$ is injective.
+
+( $\Leftarrow$ ) Now assume $f : A \to  B$ is injective. In order to construct a
+function
+$g : B \to  A$, we have to assign a unique value $g(b) \in  A$ for each element  $b
+\in  B$. For
+this, choose any fixed element $s \in  A$ (which we can do because $A \ne \emptyset$
+); then set
+\[
+  g(b) :=
+  \begin{cases}
+    a & \text{if } b = f(a) \text{ for some } a \in A,\\
+    s & \text{if } b \not\in \image f.
+  \end{cases}
+\]
+In words, if $b$ is the image of an element $a$ of $A$, send it back
+to $a$; otherwise, send it to your fixed element $s$.
+
+The given assignment defines a function, precisely because $f$ is
+injective: indeed, this guarantees that every $b$ that is the image of
+some $a \in A$ by $f$ is the image of a unique a (two distinct
+elements of A cannot be simultaneously sent to $b$ by $f$, since $f$
+is injective). Thus every $b \in B$ is sent to a unique well-defined
+element of $A$, as is required of functions.  Finally, the function
+$g : B \to A$ is a left-inverse of $f$ . Indeed, if $a \in A$, then
+$b = f (a)$ is of the first type, so it is sent back to a by $g$; that
+is, $g \circ f(a) = a = \id_A(a)$ for all $a \in A$, as needed.  The
+proof of (2) is left as an exercise (Exercise 2.2).
+\end{proof}
+
+\begin{coro}{}{}
+  A function $f : A \to  B$ is a bijection if and only if it has a
+  (two-sided) inverse.
+\end{coro}
+
+This is not completely innocent: if $f$ has both a left-inverse and a
+right-inverse, why should it have one inverse that works as both on
+the left and on the right?  Try to prove this by yourself now. We will
+come back to this issue soon (in \S{}4).
+
+If a function is injective but not surjective, then it will not have a
+right-inverse, and if the source has at least two elements, it will
+necessarily have more than one left-inverse (this should be clear from
+the argument given in the proof of Proposition 2.1). Similarly, a
+surjective function will in general have many right-inverses; they are
+often called sections.
+
+\Cref{prop:inv-inj-sur} hints that something deep is going on
+here. The definition of injective and surjective maps given in \S{}2.4
+relied crucially on working directly with the elements of our sets;
+\Cref{prop:inv-inj-sur} shows that in fact these properties are
+detected by the way functions are `organized' among sets. Even if we
+did not know what `elements' means, still we could make sense of the
+notions of injectivity and surjectivity (and hence of isomorphisms of
+sets) by exclusively referring to properties of functions.
+
+This is a more `mature' point of view and one that will be championed
+when we talk about categories. To some extent, it should cure the
+reader from the discomfort of talking about `elements', as we did in
+our informal introduction to sets, without defining what these
+mysterious entities are supposed to be.
+
+The standard notation for \emph{the} inverse of a bijection $f$ is
+$f^{-1}$. This symbol is also used for functions that are not
+bijections, but in a slightly different context: if $f : A \to B$ is
+any function and $T \subseteq B$ is a subset of $B$, then $f^{-1} (T)$
+denotes the subset of $A$ of `all elements that map to $T$'; that is,
+$f^{-1}(T) = \{a \in A \mid f (a) \in T \}$.  If $T = {q}$ consists of
+a single element of $B$, $f^{-1}(T)$ (abbreviated $f^{-1}(q)$) is
+called the \emph{fiber} of $f$ over $q$. Thus a function $f : A \to B$
+is a bijection if it has nonempty fibers over all elements of $B$
+(that is, $f$ is surjective), and these fibers are in fact singletons
+(that is, $f$ is injective). In this case, this notation $f$ matches
+nicely with the notation of `inverse' mentioned above.
 
 \subsection{Monomorphisms and epimorphisms}
 \label{subsec:prelims:functions:monomorphisms-and-epimorphisms}
-% There is yet another way to express
+There is yet another way to express injectivity and surjectivity, which
+appears at first more complicated than what
+we have seen so far but which is in fact even more basic.
 
-% injectivity and surjectivity, which appears at first more complicated than what
-% we
-% have seen so far but which is in fact even more basic.
-% A function f : A \to  B is a monomorphism (or monic) if the following holds:
-% for all sets Z and all functions \alpha \setminus  , \alpha \setminus \setminus
-% : Z \to  A
-% f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus  \Rightarrow
-% \alpha \setminus  = \alpha \setminus \setminus  .
-% Proposition 2.3. A function is injective if and only if it is a monomorphism.
-% Proof. ( \Rightarrow  ) By Proposition 2.1, if a function f : A \to  B is
-% injective, then it
-% has a left-inverse g : B \to  A. Now assume that \alpha \setminus  , \alpha
-% \setminus \setminus  are arbitrary functions from
-% another set Z to A and that
-% f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus ;
-% compose on the left by g, and use associativity of composition:
-% (g \circ  f ) \circ  \alpha \setminus  = g \circ  (f \circ  \alpha \setminus  )
-% = g \circ  (f \circ  \alpha \setminus \setminus  ) = (g \circ  f ) \circ  \alpha
-% \setminus \setminus  ;
-% since g is a left-inverse of f , this says
-% idA \circ  \alpha \setminus  = idA \circ  \alpha  \setminus \setminus  ,
-% and therefore
-% \setminus  \setminus \setminus \alpha  = \alpha  ,
-% as needed to conclude that f is a monomorphism.
-% ( \Leftarrow = ) Now assume that f is a monomorphism. This says something about
-% arbitrary sets Z and arbitrary functions Z \to  A; we are going to use a
-% microscopic
-% portion of this information, choosing Z to be any singleton {p}. Then assigning
-% functions \alpha \setminus  , \alpha \setminus \setminus  : Z \to  A amounts to
-% choosing to which elements a\setminus  = \alpha \setminus (p),
-% a\setminus \setminus  = \alpha \setminus \setminus  (p) we should send the
-% single element p of Z. For this particular choice
-% of Z, the property defining monomorphisms, f \circ  \alpha \setminus  = f \circ
-% \alpha \setminus \setminus  \Rightarrow  \alpha \setminus  = \alpha \setminus
-% \setminus  , becomes
-% f \circ  \alpha  \setminus  (p) = f \circ  \alpha \setminus \setminus (p)
-% \Rightarrow  \alpha \setminus  = \alpha \setminus \setminus  ,
-% that is,
-% f (a\setminus  ) = f (a\setminus \setminus  ) \Rightarrow  \alpha \setminus  =
-% \alpha \setminus \setminus  .
-% Now two functions from Z = {p} to A are equal if and only if they send p to the
-% same element, so this says
-% f (a\setminus  ) = f (a\setminus \setminus ) \Rightarrow  a\setminus  = a \setminus
-% \setminus  .
-% This has to be true for all \alpha \setminus  , \alpha  \setminus \setminus  ,
-% that is, for all choices of distinct a\setminus  , a\setminus \setminus  in A.
-% In
-% other words, f has to be injective, as was to be shown.
-%  ?
-% The reader should now expect that there be a definition in the style of the one
-% given for monomorphisms and which will turn out to be equivalent to
-% `surjective'.
-% This is the case: such a notion is called epimorphism. Finding it, and proving
-% the equivalence with the ordinary definition of `surjective', is left to the
-% reader11
-% (Exercise 2.5).
-% 11 This is a particularly important exercise, and I recommend that the reader
-% write out all
-% the gory details carefully.
+A function $f : A \to  B$ is a monomorphism (or monic) if the following holds:
+for all sets $Z$ and all functions $\alpha', \alpha'' Z \to  A$
+\[f \circ  \alpha' = f \circ  \alpha''  \Rightarrow
+  \alpha'  = \alpha''.\]
+\begin{prop}{}{prop:old-2.3}
+  A function is injective if and only if it is a monomorphism.
+\end{prop}
+\begin{proof}
+ ( \Rightarrow  ) By Proposition 2.1 \Cref{XX}, if a function $f : A \to  B$ is
+injective, then it
+has a left-inverse $g : B \to  A$. Now assume that $\alpha'  ,\alpha''$  are arbitrary functions from
+another set $Z$ to $A$ and that
+\[f \circ  \alpha'  = f \circ  \alpha'' ;\]
+compose on the left by $g$, and use associativity of composition:
+\[(g \circ  f ) \circ  \alpha'  = g \circ  (f \circ  \alpha')
+= g \circ  (f \circ  \alpha''  ) = (g \circ  f ) \circ  \alpha'' ;\] since $g$ is a left-inverse of $f$ , this says
+\[\id_A \circ  \alpha'  = \id_A \circ  \alpha'',\]
+and therefore
+\[\alpha'  = \alpha'',\]
+as needed to conclude that $f$ is a monomorphism.
+
+( \Leftarrow = ) Now assume that $f$ is a monomorphism. This says something about
+arbitrary sets $Z$ and arbitrary functions $Z \to  A$; we are going to use a
+microscopic
+portion of this information, choosing $Z$ to be any singleton ${p}$. Then assigning
+functions $\alpha' , \alpha'' : Z \to  A$ amounts to
+choosing to which elements $a' = \alpha ' (p)$,
+$a''  = \alpha''(p)$ we should send the
+single element $p$ of $Z$. For this particular choice
+of $Z$, the property defining monomorphisms, $f \circ  \alpha'  = f \circ
+\alpha''  \Rightarrow  \alpha '  = \alpha'$
+  , becomes
+\[f \circ  \alpha'(p) = f \circ  \alpha'' (p)
+\Rightarrow  \alpha'  = \alpha''\],
+that is,
+$f (a') = f (a'') \Rightarrow  \alpha'  =
+\alpha''$.
+
+Now two functions from $Z = {p}$ to $A$ are equal if and only if they send $p$ to the
+same element, so this says
+\[f (a') = f (a'') \Rightarrow  a'  = a''  .\]
+This has to be true for all $\alpha', \alpha''$,
+that is, for all choices of distinct $a', a''$  in $A$.
+In
+other words, $f$ has to be injective, as was to be shown.
+\end{proof}
+The reader should now expect that there be a definition in the style
+of the one given for monomorphisms and which will turn out to be
+equivalent to `surjective'.  This is the case: such a notion is called
+epimorphism. Finding it, and proving the equivalence with the ordinary
+definition of `surjective', is left to the reader\footnote{This is a particularly important exercise, and I recommend that the reader
+write out all
+the gory details carefully.} (Exercise 2.5).
+
 
 \subsection{Basic examples}
 \label{subsec:prelims:basic-examples}
-% The basic operations on sets provided us with several im-
-
-% portant examples of injective and surjective functions.
-% Example 2.4. Let A, B be sets. Then there are natural projections \pi A , \pi B
-% :
+The basic operations on sets provided us with several important
+examples of injective and surjective functions.
+Example 2.4. Let A, B be sets. Then there are natural projections \pi A , \pi B
+:
 % \pi A ???
 %  ? ??
 %  ??
