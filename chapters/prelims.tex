@@ -1557,116 +1557,135 @@ and looking for the `right' notion may be an interesting project.
 \section{Morphisms}
 \label{sec:prelims:morphisms}
 
-% Just as in Set we highlight certain types of functions (injective, surjective,
-% bijective),
-% it is useful to try to do the same for morphisms in an arbitrary category. The
-% reader
-% should note that defining qualities of morphisms by their actions on `elements'
-% is
-% not an option in the general setting, because objects of an arbitrary category
-% do
-% not (in general) have `elements'.
-% This is why we spent some time analyzing injectivity, etc., from different view-
-% points in \S{}\S{}2.4-2.6. It turns out that the other viewpoints on these
-% notions do
-% transfer nicely into the categorical setting.
+Just as in $\mathsf{Set}$ we highlight certain types of functions (injective,
+surjective, bijective), it is useful to try to do the same for morphisms in an
+arbitrary category. The reader should note that defining qualities of morphisms
+by their actions on `elements' is not an option in the general setting, because
+objects of an arbitrary category do not (in general) have `elements'.
+
+This is why we spent some time analyzing injectivity, etc., from different
+viewpoints in \S{}\S{}2.4--2.6. It turns out that the other viewpoints on these
+notions do transfer nicely into the categorical setting.
 
 \subsection{Isomorphisms}
 \label{subsec:prelims:isomorphisms}
-% Let C be a category.
+Let $\mathsf{C}$ be a category.
 
-% Definition 4.1. A morphism f \in  HomC (A, B) is an isomorphism if it has a
-% (two-
-% sided) inverse under composition: that is, if \exists g \in  Hom C (B, A) such
-% that
-% gf = 1A,
-%  f g = 1B .
-%  ?
-% Recall that in \S{}2.5 the inverse of a bijection of sets f was defined
-% `elementwise';
-% in particular, there was no ambiguity in its definition, and we introduced the
-% nota-
-% -1tion f for this function. By contrast, the `inverse' g produced in Definition
-% 4.1
-% does not appear to have this uniqueness explicitly built into its definition.
-% Luckily,
-% its defining property does guarantee its uniqueness, but this requires a
-% verification:
-% Proposition 4.2. The inverse of an isomorphism is unique.
-% Proof. We have to verify that if both g1 and g2 : B \to  A act as inverses of a
-% given isomorphism f : A \to  B, then g1 = g2 . The standard trick for this kind
-% of
-% verification is to compose f on the left by one of the morphisms, and on the
-% right
-% by the other one; then apply associativity. The whole argument can be compressed
-% into one line:
-% g1 = g1 1B = g1 (f g2 ) = (g1f )g2 = 1A g2 = g2
-% as needed.
-%  ?
-% Note that the argument really proves that if f is a morphism with a left-
-% inverse g1 and a right-inverse g2 , then necessarily f is an isomorphism, g1 =
-% g2 ,
-% and this morphism is the (unique) inverse of f . Look back at Corollary 2.2.
-% Since the inverse of f is uniquely determined by f , there is no ambiguity in
-% -1denoting it by f .
-% Proposition 4.3. With notation as above:
-% \bullet  Each identity 1A is an isomorphism and is its own inverse.
-% \bullet  If f is an isomorphism, then f -1 is an isomorphism and
-%          further (f -1)-1 = f .
-% \bullet  If f \in  HomC (A, B), g \in  HomC (B, C) are isomorphisms,
-%          then the composition
-% gf is an isomorphism and (gf )-1 = f -1 g-1 .
-% Proof. These all `prove themselves'. For example, it is immediate to verify that
-% f -1 g -1 is a left-inverse of gf : indeed20 ,
-% (f -1 g-1 )(gf ) = f -1 ((g -1g)f ) = f -1 (1B f ) = f -1f = 1A .
-% The verification that f -1 g-1 is also a right-inverse of gf is analogous.
-%  ?
-% Note that taking the inverse reverses the order of composition: (gf )-1 =
-% -1 -1
-% f
-%  g .
-% Two objects A, B of a category are isomorphic if there is an isomorphism
-% f : A \to  B. An immediate corollary of Proposition 4.3 is that `isomorphism' is
-% an
-% equivalence relation21 . If two objects A, B are isomorphic, one writes A \sim 
-%  = B.
-% Example 4.4. Of course, the isomorphisms in the category Set are precisely the
-% bijections; this was observed at the beginning of \S{}2.5.
-%  ?
-% Example 4.5. As noted in Proposition 4.3, identities are isomorphisms. They
-% may be the only isomorphisms in a category: for example, this is the case in
-% the category C obtained from the relation \leq  on Z, as in Example 3.3. Indeed,
-% for a, b objects of C (that is, a, b \in  Z), there is a morphism f : a \to  b
-% and a
-% 20 Associativity of composition implies that parentheses may be shuffled at will
-% in longer
-% expressions, as done here (cf. Exercise 4.1).
-% 21 The reader should have checked this in Exercise 2.4, for Set; the same proof
-% will work in
-% any category.
-% morphism g : b \to  a only if a \leq  b and b \leq  a, that is, if a = b. So an
-% isomorphism
-% in C necessarily acts from an object a to itself; but in C there is only one
-% such
-% morphism, that is, 1a .
-%  ?
-% Example 4.6. On the other hand, there are categories in which every morphism is
-% an isomorphism; such categories are called groupoids. The reader `already knows'
-% many examples of groupoids; cf. Exercise 4.2.
-%  ?
-% An automorphism of an object A of a category C is an isomorphism from A to
-% itself. The set of automorphisms of A is denoted AutC (A); it is a subset of
-% EndC (A).
-% By Proposition 4.3, composition confers on AutC (A) a remarkable structure:
-% \bullet  the composition of two elements f, g \in  AutC (A) is an
-%          element gf \in  AutC (A);
-% \bullet  composition is associative;
-% \bullet  AutC (A) contains the element 1A , which is an identity for
-%          composition (that
-% is, f 1A = 1A f = f );
-% \bullet  every element f \in  AutC (A) has an inverse f -1 \in  AutC (A).
-% In other words, AutC (A) is a group, for all objects A of all categories C.
-% We will soon devote all our attention to groups!
+\begin{defn}{Isomorphism}{defn:prelims:isomorphism}
+A morphism $f \in \operatorname{Hom}_{\mathsf{C}}(A,B)$ is an
+\textbf{isomorphism} if it has a (two-sided) inverse under composition: that
+is, if $\exists\, g \in \operatorname{Hom}_{\mathsf{C}}(B,A)$ such that
+\[
+  g \circ f = 1_A, \qquad f \circ g = 1_B.
+\]
+\end{defn}
+
+Recall that in \S{}2.5 the inverse of a bijection of sets $f$ was defined
+`elementwise'; in particular, there was no ambiguity in its definition, and we
+introduced the notation $f^{-1}$ for this function. By contrast, the `inverse'
+$g$ produced in \Cref{defn:prelims:isomorphism} does not appear to have this
+uniqueness explicitly built into its definition. Luckily, its defining property
+does guarantee its uniqueness, but this requires a verification:
+
+\begin{prop}{The inverse of an isomorphism is unique.}{prop:prelims:iso-unique-inverse}
+\end{prop}
+\begin{proof}
+We have to verify that if both $g_1$ and $g_2 \colon B \to A$ act as inverses
+of a given isomorphism $f \colon A \to B$, then $g_1 = g_2$. The standard
+trick for this kind of verification is to compose $f$ on the left by one of the
+morphisms, and on the right by the other; then apply associativity. The whole
+argument can be compressed into one line:\footnote{Associativity of composition
+implies that parentheses may be shuffled at will in longer expressions, as done
+here (cf.\ \Cref{exer:4.1}).}
+\[
+  g_1 = g_1 \circ 1_B = g_1 \circ (f \circ g_2) = (g_1 \circ f) \circ g_2
+      = 1_A \circ g_2 = g_2,
+\]
+as needed.
+\end{proof}
+
+Note that the argument really proves that if $f$ is a morphism with a
+left-inverse $g_1$ and a right-inverse $g_2$, then necessarily $f$ is an
+isomorphism, $g_1 = g_2$, and this morphism is the (unique) inverse of $f$.
+Look back at Corollary~2.2. Since the inverse of $f$ is uniquely determined by
+$f$, there is no ambiguity in denoting it by $f^{-1}$.
+
+\begin{prop}{}{prop:prelims:iso-props}
+With notation as above:
+\begin{itemize}
+  \item Each identity $1_A$ is an isomorphism and is its own inverse.
+  \item If $f$ is an isomorphism, then $f^{-1}$ is an isomorphism and
+        $(f^{-1})^{-1} = f$.
+  \item If $f \in \operatorname{Hom}_{\mathsf{C}}(A,B)$ and
+        $g \in \operatorname{Hom}_{\mathsf{C}}(B,C)$ are isomorphisms, then
+        $g \circ f$ is an isomorphism and $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
+\end{itemize}
+\end{prop}
+\begin{proof}
+These all `prove themselves'. For example, it is immediate to verify that
+$f^{-1} \circ g^{-1}$ is a left-inverse of $g \circ f$: indeed,
+\[
+  (f^{-1} \circ g^{-1}) \circ (g \circ f)
+    = f^{-1} \circ \bigl((g^{-1} \circ g) \circ f\bigr)
+    = f^{-1} \circ (1_B \circ f)
+    = f^{-1} \circ f = 1_A.
+\]
+The verification that $f^{-1} \circ g^{-1}$ is also a right-inverse of
+$g \circ f$ is analogous.
+\end{proof}
+
+Note that taking the inverse reverses the order of composition:
+$(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
+
+Two objects $A$, $B$ of a category are \textbf{isomorphic} if there is an
+isomorphism $f \colon A \to B$. An immediate corollary of
+\Cref{prop:prelims:iso-props} is that `isomorphic' is an equivalence
+relation.\footnote{The reader should have checked this in \Cref{exer:2.4}, for
+$\mathsf{Set}$; the same proof will work in any category.} If two objects $A$,
+$B$ are isomorphic, one writes $A \cong B$.
+
+\begin{exam}{}{}
+Of course, the isomorphisms in the category $\mathsf{Set}$ are precisely the
+bijections; this was observed at the beginning of \S{}2.5.
+\end{exam}
+
+\begin{exam}{}{}
+As noted in \Cref{prop:prelims:iso-props}, identities are isomorphisms. They
+may be the only isomorphisms in a category: for example, this is the case in
+the category $\mathsf{C}$ obtained from the relation $\leq$ on $\mathbb{Z}$,
+as in \Cref{exam:prelims:category-leq}. Indeed, for $a$, $b$ objects of
+$\mathsf{C}$ (that is, $a, b \in \mathbb{Z}$), there is a morphism
+$f \colon a \to b$ and a morphism $g \colon b \to a$ only if $a \leq b$ and
+$b \leq a$, that is, if $a = b$. So an isomorphism in $\mathsf{C}$ necessarily
+acts from an object $a$ to itself; but in $\mathsf{C}$ there is only one such
+morphism, that is, $1_a$.
+\end{exam}
+
+\begin{exam}{}{}
+On the other hand, there are categories in which every morphism is an
+isomorphism; such categories are called \textbf{groupoids}. The reader
+`already knows' many examples of groupoids; cf.\ \Cref{exer:4.2}.
+\end{exam}
+
+An \textbf{automorphism} of an object $A$ of a category $\mathsf{C}$ is an
+isomorphism from $A$ to itself. The set of automorphisms of $A$ is denoted
+$\operatorname{Aut}_{\mathsf{C}}(A)$; it is a subset of
+$\operatorname{End}_{\mathsf{C}}(A)$. By \Cref{prop:prelims:iso-props},
+composition confers on $\operatorname{Aut}_{\mathsf{C}}(A)$ a remarkable
+structure:
+\begin{itemize}
+  \item the composition of two elements $f, g \in \operatorname{Aut}_{\mathsf{C}}(A)$
+        is an element $g \circ f \in \operatorname{Aut}_{\mathsf{C}}(A)$;
+  \item composition is associative;
+  \item $\operatorname{Aut}_{\mathsf{C}}(A)$ contains the element $1_A$, which
+        is an identity for composition (that is,
+        $f \circ 1_A = 1_A \circ f = f$);
+  \item every element $f \in \operatorname{Aut}_{\mathsf{C}}(A)$ has an inverse
+        $f^{-1} \in \operatorname{Aut}_{\mathsf{C}}(A)$.
+\end{itemize}
+In other words, $\operatorname{Aut}_{\mathsf{C}}(A)$ is a group, for all
+objects $A$ of all categories $\mathsf{C}$. We will soon devote all our
+attention to groups!
 
 \subsection{Monomorphisms and epimorphisms}
 \label{subsec:prelims:morphisms:monomorphisms-and-epimorphisms}
