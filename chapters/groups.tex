@@ -779,18 +779,20 @@ Of course we have to check that this prescription is well-defined; luckily,
 this is very easy: the following small lemma does the job, as it shows that the
 result of the operation does not depend on the representatives chosen for the
 classes.
-% Lemma 2.2. If a \equiv  a\setminus  mod n and b \equiv  b \setminus  mod n, then
-% (a + b) \equiv  (a\setminus  + b\setminus )
-%  mod n.
-% Proof. By hypothesis n | (a\setminus  - a) and n | (b\setminus  - b); therefore
-% \exists k, \in  Z such that
-% (a\setminus  - a) = kn,
-%  (b\setminus  - b) = n.
-% Then
-% (a\setminus  + b\setminus  ) - (a + b) = (a\setminus  - a) + (b\setminus  - b) =
-% kn + n = (k + )n,
-% proving that n divides (a\setminus  + b\setminus  ) - (a + b), as needed.
-%  ?
+\begin{lem}{If $a \equiv a' \pmod{n}$ and $b \equiv b' \pmod{n}$, then $(a+b) \equiv (a'+b') \pmod{n}$.}{lem:groups:congruence-addition}
+\end{lem}
+\begin{proof}
+By hypothesis $n \mid (a'-a)$ and $n \mid (b'-b)$; therefore $\exists\, k, \ell
+\in \mathbb{Z}$ such that
+\[
+  (a'-a) = kn, \quad (b'-b) = \ell n.
+\]
+Then
+\[
+  (a'+b') - (a+b) = (a'-a) + (b'-b) = kn + \ell n = (k+\ell)n,
+\]
+proving that $n$ divides $(a'+b') - (a+b)$, as needed.
+\end{proof}
 % Therefore, we have a binary operation + on Z/nZ. It is immediately checked
 % that the resulting structure is a group. Associativity is inherited from Z:
 % ([a] + [b]) + [c] = [a + b] + [c] = [(a + b) + c] = [a + (b + c)] = [a] + [b +
