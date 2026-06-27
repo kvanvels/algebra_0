@@ -630,45 +630,28 @@ sends $a_k$ to $x_k$.
 \begin{prop}{}{prop:rings:poly-universal}
 $(i, \Z[x_1, \ldots, x_n])$ is initial in $\mathscr{R}_A$.
 \end{prop}
-% Proof. Let (j, R) be an arbitrary object of RA ; we have to show that there is a
-% unique morphism (i, Z[x1 , \dots  , xn ]) \to  (j, R), that is, there exists
-% exactly one ring
-% homomorphism \phi  : Z[x1 , \dots  , xn ] \to  R such that
-% Z[x1 , i
-%  \cdot  \cdot  O
-%  \cdot  s , s
-%  xn]
-%  s
-%  s
-%  s s s j
-%  s s
-%  \phi 
-%  s
-%  s
-%  s 9/
-%  R
-% A
-% commutes.
-% As usual in these verifications, the key point is that the requirements posed
-% on \phi  force its definition. The postulated commutativity of the diagram means
-% that
-% \phi (xk ) = j(ak ) for k = 1, \dots  , n. Then, since \phi  must be a ring homomorphism,
-% necessarily
-% ?
-%  ?
-% \phi (
-%  mi1 \cdot \cdot \cdot in xi 1 1 \dots  xi n n ) =
-%  \phi (mi1 \cdot \cdot \cdot in )\phi (x1 )i1 \dots  \phi (xn )in
-% ?
-% =
-%  \iota (mi1 \cdot \cdot \cdot in )j(a1 )i1 \dots  j(an )in ,
-% where \iota  : Z \to  R is the unique ring homomorphism (as Z is initial in
-% Ring).
-% Thus, if \phi  exists, then it is unique. On the other hand, the formula we just
-% obtained clearly6 preserves the operations and sends 1 to 1, so it does define a
-% ring
-% homomorphism, concluding the proof.
-%  ?
+\begin{proof}
+Let $(j, R)$ be an arbitrary object of $\mathscr{R}_A$; we have to show that there is a
+unique morphism $(i, \Z[x_1, \ldots, x_n]) \to (j, R)$, that is, there exists exactly one ring
+homomorphism $\varphi : \Z[x_1, \ldots, x_n] \to R$ such that
+\[
+  \begin{tikzcd}
+    \Z[x_1, \cdots, x_n] \arrow[rr, "\varphi"] & & R \\
+    & A \arrow[ul, "i"] \arrow[ur, "j"']
+  \end{tikzcd}
+\]
+commutes.
+
+As usual in these verifications, the key point is that the requirements posed on $\varphi$ force its definition. The postulated commutativity of the diagram means that $\varphi(x_k) = j(a_k)$ for $k = 1, \ldots, n$. Then, since $\varphi$ must be a ring homomorphism, necessarily
+\begin{align*}
+  \varphi\Bigl(\sum m_{i_1 \cdots i_n} x_1^{i_1} \cdots x_n^{i_n}\Bigr) &= \sum \varphi(m_{i_1 \cdots i_n}) \varphi(x_1)^{i_1} \cdots \varphi(x_n)^{i_n} \\
+  &= \sum \iota(m_{i_1 \cdots i_n}) j(a_1)^{i_1} \cdots j(a_n)^{i_n},
+\end{align*}
+where $\iota : \Z \to R$ is the unique ring homomorphism (as $\Z$ is initial in $\mathsf{Ring}$).
+
+Thus, if $\varphi$ exists, then it is unique. On the other hand, the formula we just obtained clearly\footnote{Well, it is really clear that it preserves addition; multiplication requires a bit of work, which the reader would be well advised to perform. This is where the commutativity of $R$ is used.} preserves the operations and sends $1$ to $1$, so it does define a ring
+homomorphism, concluding the proof.
+\end{proof}
 % Example 2.2. For n = 1, Proposition 2.1 says that if s is any element of a ring
 % S,
 % then there is a unique ring homomorphism Z[x] \to  S sending x to s and
