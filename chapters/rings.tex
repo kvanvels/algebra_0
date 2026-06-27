@@ -724,28 +724,20 @@ $\mathsf{Set}$, $\mathsf{Grp}$, and $\mathsf{Ab}$, epimorphisms need not be surj
 \[
   \iota : \Z \hookrightarrow \Q\,;
 \]
-% \iota  is not surjective, and hence it is not an epimorphism in Set or Ab (can the reader
-% `describe' coker \iota ? Exercise 2.12); but it is an epimorphism of rings.
-% Indeed, if \alpha 1 ,
-% \alpha 2 are parallel ring homomorphisms
-% Z ?
-%  ? \iota  /
-%  Q
-%  \alpha 1
-%  // R
-% \alpha 2
-% and \alpha 1 , \alpha 2 agree9
-%  on Z, say \alpha  = \alpha 1 |Z = \alpha 2 |Z , then they must agree on Q:
-%  because
-% for p, q \in  Z, q = 0,
-% p
-% -1 -1
-% \alpha i
-%  = \alpha i (p)\alpha i(q ) = \alpha (p)\alpha (q) (i = 1, 2)
-% q
-% is the same for both10 . Thus, \iota  satisfies the categorical requirement for
-% epimor-
-% phisms (cf. \S{}I.2.6).
+$\iota$ is not surjective, and hence it is not an epimorphism in $\mathsf{Set}$ or $\mathsf{Ab}$ (can the reader
+`describe' $\operatorname{coker}\iota$? Exercise~2.12); but it \emph{is} an epimorphism of rings.
+Indeed, if $\alpha_1$, $\alpha_2$ are parallel ring homomorphisms
+\[
+  \begin{tikzcd}
+    \Z \arrow[r, hook, "\iota"] & \Q \arrow[r, shift left, "\alpha_1"] \arrow[r, shift right, "\alpha_2"'] & R
+  \end{tikzcd}
+\]
+and $\alpha_1$, $\alpha_2$ agree\footnote{As they must, since $\Z$ is initial.} on $\Z$, say $\alpha = \alpha_1|_{\Z} = \alpha_2|_{\Z}$, then they must agree on $\Q$: because
+for $p, q \in \Z$, $q \neq 0$,
+\[
+  \alpha_i\!\left(\frac{p}{q}\right) = \alpha_i(p)\alpha_i(q^{-1}) = \alpha(p)\alpha(q)^{-1} \qquad (i = 1, 2)
+\]
+is the same for both.\footnote{Note that $\alpha(q)$ must have a double-sided inverse in $R$ since $q$ has one in $\Q$, namely $1/q$. In particular, $\alpha_1(q^{-1}) = \alpha_2(q^{-1})$ must agree, since they must equal this unique inverse of $\alpha(q)$; cf.\ \cref{prop:rings:units}.} Thus, $\iota$ satisfies the categorical requirement for epimorphisms (cf.\ \S{}I.2.6).
 % Warning: Thus, in Ring, a homomorphism may well be both a monomorphism
 % and an epimorphism without being an isomorphism!
 
