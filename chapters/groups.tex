@@ -349,36 +349,34 @@ the operation of the group is not always predictable: it may very well happen
 that $g$, $h$ have finite order in a group $G$, and yet $|gh| = \infty$, or
 $|gh|$ equals your favorite positive integer: work out Exercise~1.12 and
 Exercise~2.6 if you don't believe it.
-% On the other hand, the situation is more constrained if g and h commute. In
-% the extreme case in which g = h, it is easy to obtain a very precise statement:
-% Proposition 1.13. Let g \in  G be an element of finite order. Then g m has
-% finite
-% order \forall m \geq  0, and in fact8
-% lcm(m, |g|)
-%  |g|
-% |gm | =
-%  =
-%  .
-% m
-%  gcd(m, |g|)
-% lcm(m,|g|)
-%  |g|
-% Proof. The equality of the two numbers and follows from ele-
-% m
-%  gcd(m,|g|)
-% mentary properties of gcd and lcm: lcm(a, b) = ab/ gcd(a, b) for all a and b. So
-% we
-% only need to prove that |g m | = lcm(m,|g|)
-%  m
-%  .
-% The order of gm is the least positive d for which
-% g md = e,
-% that is (by Corollary 1.11) for which md is a multiple of |g|. In other words,
-% m|g m |
-% is the smallest multiple of m which is also a multiple of |g|:
-% m|gm | = lcm(m, |g|).
-% The stated formula follows immediately from this.
-%  ?
+On the other hand, the situation is more constrained if $g$ and $h$ commute.
+In the extreme case in which $g = h$, it is easy to obtain a very precise
+statement:
+
+\begin{prop}{}{prop:groups:order-power}
+Let $g \in G$ be an element of finite order. Then $g^m$ has finite order for
+all $m \geq 0$, and in fact\footnote{The notation $\operatorname{lcm}$ stands
+for `least common multiple'. I am also assuming that the reader is familiar with
+simple properties of $\gcd$ and $\operatorname{lcm}$.}
+\[
+  |g^m| = \frac{\operatorname{lcm}(m,|g|)}{m} = \frac{|g|}{\gcd(m,|g|)}.
+\]
+\end{prop}
+\begin{proof}
+The equality of the two numbers $\dfrac{\operatorname{lcm}(m,|g|)}{m}$ and
+$\dfrac{|g|}{\gcd(m,|g|)}$ follows from elementary properties of $\gcd$ and
+$\operatorname{lcm}$: $\operatorname{lcm}(a,b) = ab/\gcd(a,b)$ for all $a$ and
+$b$. So we only need to prove that
+$|g^m| = \dfrac{\operatorname{lcm}(m,|g|)}{m}$.
+
+The order of $g^m$ is the least positive $d$ for which $g^{md} = e$, that is
+(by Corollary~1.11) for which $md$ is a multiple of $|g|$. In other words,
+$m|g^m|$ is the smallest multiple of $m$ which is also a multiple of $|g|$:
+\[
+  m|g^m| = \operatorname{lcm}(m,|g|).
+\]
+The stated formula follows immediately from this.
+\end{proof}
 % In general, for commuting elements,
 % Proposition 1.14. If gh = hg, then |gh| divides lcm(|g|, |h|).
 % 8 The notation lcm stands for `least common multiple'. I am also assuming that
