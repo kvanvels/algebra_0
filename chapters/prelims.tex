@@ -1159,428 +1159,306 @@ by the objects: if one is talking about sets, what can one possibly mean for
 `morphism' other than a function of sets? In other situations (cf.\ Example~3.5
 below or Exercise~3.9) it is a little less clear what the morphisms should be,
 and looking for the `right' notion may be an interesting project.
-% Example 3.2. It is hopefully crystal clear by now that sets (as objects),
-% together
-% with set-functions (as morphisms), form a category; if not, the reader must stop
-% here and go no further until this assertion sheds any residual mystery17 .
-% There is no universally accepted, official notation for this important category.
-% It is customary to write the word `Set' or `Sets', with some fancy decoration
-% for
-% emphasis. For example, in the literature one may encounter Set, Sets, Set,
-% (Sets),
-% and many amusing variations on these themes. We will use `sans-serif' fonts to
-% denote categories; thus, Set will denote the category of sets. Thus
-% \bullet  Obj(Set) = the class of all sets;
-% \bullet  for A, B in Obj(Set) (that is, for A, B sets) HomSet (A, B) = B A.
-% Note that the presence of the operations recalled in \S{}\S{}1.3--1.5 is not
-% part of the
-% definition of category: these operations highlight interesting features of Set,
-% which
-% may or may not be shared by other categories. We will soon come back to some of
-% these operations and understand more precisely what they say about Set.
-%  ?
-% Example 3.3. Here is a completely different example.
-% Suppose S is a set and \sim  is a relation on S satisfying the reflexive and
-% transitive
-% properties. Then we can encode this data into a category:
-% \bullet  objects: the elements of S;
-% \bullet  morphisms: if a, b are objects (that is, if a, b \in  S), then
-%          let Hom(a, b) be the
-% set consisting of the element (a, b) \in  S \times  S if a \sim  b, and let
-% Hom(a, b) = \emptyset
-% otherwise.
-% 17 I will give the reader such prompts every now and then: at key times, it is
-% more useful
-% to take stock of what one knows than blindly march forward hoping for the best.
-% A difficulty at
-% this time signals the need to reread the previous material carefully. If the
-% mystery persists, that's
-% what office hours are there for. But typically you should be able to find your
-% way out on your
-% own, based on the information I have given you, and you will most likely learn
-% more this way.
-% You should give it your best try before seeking professional help.
-% Note that (unlike in Set) there are very few morphisms: at most one for any pair
-% of objects, and no morphisms at all between `unrelated' objects.
-% We have to define `composition of morphisms' and verify that the conditions
-% specified in \S{}3.1 are satisfied. First of all, do we have `identities' ? If a
-% is an object
-% (that is, if a \in  S), we need to find an element
-% 1a \in  Hom(a, a).
-% This is precisely why we are assuming that \sim  is reflexive: this tells us
-% that \forall a,
-% a \sim  a; that is, Hom(a, a) consists of the single element (a, a). So we have
-% no choice:
-% we must let
-% 1a = (a, a) \in  Hom(a, a).
-% As for composition, let a, b, c be objects (that is, elements of S) and
-% f \in  Hom(a, b),
-%  g \in  Hom(b, c);
-% we have to define a corresponding morphism gf \in  Hom(a, c). Now,
-% f \in  Hom(a, b)
-% tells us that Hom(a, b) is nonempty, and according to the definition of
-% morphisms
-% in this category that means that a \sim  b, and f is in fact the element (a, b)
-% of S \times  S.
-% Similarly, g \in  Hom(b, c) tells us b \sim  c and g = (b, c). Now
-% a \sim  b and b \sim  c \Rightarrow  a \sim  c
-% since we are assuming that \sim  is transitive. This tells us that Hom(a, c)
-% consists of
-% the single element (a, c). Thus we again have no choice: we must let
-% gf := (a, c) \in  Hom(a, c).
-% Is this operation associative? If f \in  Hom(a, b), g \in  Hom(b, c), and h \in
-% Hom(c, d),
-% then necessarily
-% f = (a, b), g = (b, c), h = (c, d)
-% and
-% gf = (a, c),
-%  hg = (b, d)
-% and hence
-% h(gf ) = (a, d) = (hg)f,
-% proving associativity.
-% The reader will have no difficulties checking that 1a is an identity with
-% respect
-% to this composition, as needed (Exercise 3.3).
-% The most trivial instance of this construction is the category obtained from a
-% set S taken with the equivalence relation `='; that is, the only morphisms are
-% the
-% identity morphisms. These categories are called discrete.
-% As another example, consider the category corresponding to endowing Z with
-% the relation \leq . For example,
-% 2 >
-%  > >
-%  > >
-%  > > > /? 3
-%  \sqcup  13 p
-%  p p p
-%  p p // p 4
-%  p p
-%  p
-%  p
-%  p
-%  p p /
-% 7@ 7
-% is a (randomly chosen) commutative diagram in this category. It would still be a
-% (commutative) diagram in this category if we reversed the vertical arrow 3 \to
-% 3 or
-% if we added an arrow from 3 to 4, while we are not allowed to draw an arrow from
-% 4
-% to 3, since 4 \leq  3.
-% These categories are very special---for example, every diagram drawn in them
-% is necessarily commutative, and this is very far from being the case in, e.g.,
-% Set.
-% Also note that these categories are all small.
-%  ?
-% Example 3.4. Here is another18 example of a small category.
-% Let S again be a set. Define a category \hat{S} by setting
-% \bullet  Obj(\hat{S}) = P(S), the power set S (cf. \S{}1.2 and Exercise 2.11);
-% \bullet  for A, B objects of \hat{S} (that is, A \subseteq  S and B
-%          \subseteq  S) let Hom\hat{S} (A, B) be the pair
-% (A, B) if A \subseteq  B, and let Hom\hat{S} (A, B) = \emptyset  otherwise.
-% The identity 1A consists of the pair (A, A) (which is one, and in fact the only
-% one, morphism from A to A, since A \subseteq  A). Composition is obtained by
-% stringing
-% inclusions: if there are morphisms
-% A \to  B,
-%  B \to  C
-% in \hat{S}, then A \subseteq  B and B \subseteq  C; hence A \subseteq  C and
-% there is a morphism A \to  C.
-% Checking the axioms specified in \S{}3.1 should be routine (make sure this is
-% the
-% case!).
-% Examples in this style (but employing more sophisticated structures, such as
-% the family of open subsets of a topological space) are hugely important in well-
-% established fields such as algebraic geometry.
-%  ?
-% Example 3.5. The next example is very abstract, but thinking about it will make
-% you rather comfortable with everything we have seen so far; and it is a very
-% common
-% construction, variations of which will abound in the course.
-% Let C be a category, and let A be an object of C. We are going to define a
-% category CA whose objects are certain morphisms in C and whose morphisms are
-% certain diagrams of C (surprise!).
-% \bullet  Obj(CA ) = all morphisms from any object of C to A; thus, an
-%          object of CA is
-% a morphism f \in  HomC (Z, A) for some object Z of C. Pictorially, an object of
-% CA is an arrow Z \to  f
-%  A in C; these are often drawn `top-down', as in
-% Z
-% f
-% \sqcup 
-% A
-% What are morphisms in CA going to be? There really is only one sensible way to
-% assign morphisms to a category with objects as above. The brave reader will want
-% to stop reading here and continue only after having come up with the definition
-% independently. There will be many similar examples lurking behind constructions
-% 18 Actually, this is again an instance of the categories considered in Example
-% 3.3. Do you see
-% why? (Exercise 3.5.)
-% we will encounter in this book, and ideally speaking, they should appear
-% completely
-% natural when the time comes. A bit of effort devoted now to understanding this
-% prototype situation will have ample reward in the future. Spoiler follows, so
-% put
-% these notes away now and jot down the definition of morphism in CA .
-% Welcome back.
-% \bullet  Let f1, f2 be objects of CA, that is, two arrows
-% Z1
-%  Z2
-% f1
-%  f2
-% \sqcup 
-%  \sqcup 
-% A
-%  A
-% in C. Morphisms f1 \to  f 2 are defined to be commutative diagrams
-% Z1 \sigma 
-%  / Z2
-%  5 5
-% f1 5 5
-%  f2
-% ? ?
-% A
-% in the `ambient' category C.
-% That is, morphisms f1 \to  f2 correspond precisely to those morphisms \sigma  :
-% Z1 \to  Z2
-% in C such that f1 = f2\sigma .
-% Once you understand what morphisms have to be, checking that they satisfy
-% the axioms spelled out in \S{}3.1 is straightforward. The identities are
-% inherited from
-% the identities in C: for f : Z \to  A in CA , the identity 1f corresponds to the
-% diagram
-% Z 1Z
-%  / Z
-% f 3 3
-%  f
-% ? ?
-% A
-% which commutes by virtue of the fact that C is a category. Composition is also a
-% subproduct of composition in C. Two morphisms f1 \to  f2 \to  f3 in CA
-% correspond
-% to putting two commutative diagrams side-by-side:
-% Z1 \sigma 
-%  / Z2 \tau  / Z3
-% C
-%  C f1 C
-%  C C C
-%  C f
-%  C 2
-%  ! \sqcup  }{
-%  {
-%  {{
-%  f3
-%  {{
-% {{A
-% and then it follows (again because C is a category!) that the diagram obtained
-% by
-% removing the central arrow, i.e.,
-% Z1 \tau \sigma 
-%  / Z3
-% B
-%  f1 B B
-%  B B
-%  B
-%  B B
-%  !
-%  }|
-%  |
-%  || ||
-%  f3
-%  |
-%  |
-% A
-% also commutes. Check all this(!), and verify that composition in CA is
-% associative
-% (again, this follows immediately from the fact that composition is associative
-% in C).
-% Categories constructed in this fashion are called slice categories in the
-% literature;
-% they are particular cases of comma categories.
-%  ?
-% Example 3.6. For the sake of concreteness, let's apply the construction given in
-% Example 3.5 to the category constructed in Example 3.3, say for S = Z and \sim
-% the
-% relation \leq . Call C this category, and choose an object A of C---that is, an
-% integer,
-% for example, A = 3. Then the objects of CA are morphisms in C with target 3,
-% that
-% is, pairs (n, 3) \in  Z \times  Z with n \leq  3. There is a morphism
-% (m, 3) \to  (n, 3)
-% if and only if m \leq  n. In this case CA may be harmlessly identified with the
-% `subcategory' of integers \leq  3, with `the same' morphisms as in C.
-%  ?
-% Example 3.7. An entirely similar example to the one explored in Example 3.5 may
-% be obtained by considering morphisms in a category C from a fixed object A to
-% all
-% objects in C, again with morphisms defined by suitable commutative diagrams.
-% This
-% leads to coslice categories. The reader should provide details of this
-% construction
-% (Exercise 3.7).
-%  ?
-% Example 3.8. As a `concrete' instance of a category as in Example 3.7, let C =
-% Set
-% and A = a fixed singleton {\ast }. Call the resulting category Set\ast  .
-% An object in Set\ast  is then a morphism f : {\ast } \to  S in Set, where S is
-% any set.
-% \ast The information of an object in Set consists therefore of the choice
-%      of a nonempty
-% set S and of an element s \in  S---that is, the element f (\ast ): this element
-% determines,
-% and is determined by, f .
-% Thus, we may denote objects of Set\ast  as pairs (S, s), where S is any set and
-% s \in  S is any element of S.
-% A morphism between two such objects, (S, s) \to  (T, t), corresponds then (check
-% this!) to a set-function \sigma  : S \to  T such that \sigma (s) = t.
-% \ast Objects of Set are called `pointed sets'. Many of the structures we
-%      will study
-% in this book will be pointed sets. For example (as we will see) a `group' is a
-% set G
-% with, among other requirements, a distinguished element eG (its `identity');
-% `group
-% homomorphisms' will be functions which, among other properties, send identities
-% to
-% identities; thus, they are morphisms of pointed sets in the sense considered
-% above.?
-% Example 3.9. It is useful to contemplate a few more `abstract' examples in the
-% style of Examples 3.5 and 3.7. These will be essential ingredients in the
-% promised
-% revisitation of some of the operations mentioned in \S{}1.3. Their definition
-% will appear
-% disappointedly simple-minded to the reader who has mastered Examples 3.5 and
-% 3.7.
-% This time we start from a given category C and two objects A, B of C. We
-% can define a new category CA,B by essentially the same procedure that we used in
-% order to define CA:
-% \bullet  Obj(CA,B ) = diagrams
-% r
-%  r
-%  f r
-%  r
-%  r r 9
-%  A
-% Z L L
-%  g L L L
-%  L %
-% B
-% in C; and
-% \bullet  morphisms
-% r f1
-%  r
-%  r
-%  r
-%  r r 9
-%  A
-%  r f2
-%  r
-%  r
-%  r
-%  r r 9
-%  A
-% Z1 g1 L L L
-%  L L %
-%  /
-%  Z2 L
-%  g2 L L L
-%  L L %
-% L
-% B
-%  B
-% are commutative diagrams
-% f1
-%  , A
-% \sigma 
-%  r f2
-%  r
-%  r
-%  r
-%  r r 9
-% Z1
-%  / Z2
-%  L g2 L L
-%  L
-%  L L %
-% 2 B
-% g1
-% I will leave to the reader the task of formalizing this rough description. This
-% example
-% is really nothing more than a mixture of CA and CB , where the two structures
-% interact because of the stringent requirement that the same \sigma  must make
-% both
-% sides of the diagram commute:
-% f1 = f2 \sigma 
-%  and g1 = g2 \sigma 
-% `simultaneously'.
-% Flipping most of the arrows gives an analogous variation of Example 3.7, pro-
-% ducing a category which we may19 denote CA,B ; details are left to the reader.
-%  ?
-% Example 3.10. As a final variation on these examples, we conclude by considering
-% the fibered version of CA,B (and CA,B ). Take this as a test to see if you have
-% really
-% understood CA,B ---experts would tell you that this looks fairly sophisticated
-% for
-% students just learning categories, so don't get disheartened if it does not flow
-% too
-% well at first (but pat yourself on the shoulder if it does!). Start with a given
-% category C, and this time choose two fixed morphisms \alpha  : A \to  C, \beta
-% : B \to  C in C,
-% with the same target C. We can then consider a category C\alpha ,\beta  as
-% follows:
-% \bullet  Obj(C\alpha ,\beta  ) = commutative diagrams
-% r
-%  r
-%  f r
-%  r
-%  r r 9
-%  A L L
-%  L L \alpha  L
-%  L %
-% Z L L
-%  g L L L
-%  L %
-%  r r r
-%  r
-%  \beta 
-%  r r 9
-%  C
-% B
-% in C, and
-% 19 There does not seem to be an established notation for these commonplace
-% categories.
-% \bullet  morphisms correspond to commutative diagrams
-% f1
-%  ,
-%  A\sigma 
-%  r f2
-%  r r
-%  r
-%  r
-%  r 9 K K K\alpha 
-%  K K K
-%  %
-% Z1
-%  / Z2
-%  L g2
-%  L L
-%  L L L
-%  % s s
-%  s
-%  s
-%  \beta 
-%  s
-%  s
-%  C
-% 92 B
-% g1
-% A solid understanding of Example 3.9 will make this example look just as tame;
-% at
-% this point the reader should have no difficulties formalizing it (that is,
-% explaining
-% how composition works, what identities are, etc.).
-% Also left to the reader is the construction of the `mirror' example C\alpha
-% ,\beta  , starting
-% from two morphisms \alpha  : C \to  A, \beta  : C \to  B with common source.
-%  ?
+\begin{exam}{}{}
+  It is hopefully crystal clear by now that sets (as objects), together with
+  set-functions (as morphisms), form a category; if not, the reader must stop
+  here and go no further until this assertion sheds any residual
+  mystery.\footnote{I will give the reader such prompts every now and then: at
+    key times, it is more useful to take stock of what one knows than blindly
+    march forward hoping for the best. A difficulty at this time signals the need
+    to reread the previous material carefully. If the mystery persists, that's
+    what office hours are there for. But typically you should be able to find
+    your way out on your own, based on the information I have given you, and you
+    will most likely learn more this way. You should give it your best try before
+    seeking professional help.}
+
+  There is no universally accepted, official notation for this important
+  category. It is customary to write the word `Set' or `Sets', with some fancy
+  decoration for emphasis. For example, in the literature one may encounter
+  $\mathbf{Set}$, $\underline{\mathbf{Sets}}$, $\mathfrak{Set}$, $(Sets)$, and
+  many amusing variations on these themes. We will use `sans-serif' fonts to
+  denote categories; thus, $\mathsf{Set}$ will denote the category of sets. Thus
+  \begin{itemize}
+  \item $\operatorname{Obj}(\mathsf{Set}) = $ the class of all sets;
+  \item for $A$, $B$ in $\operatorname{Obj}(\mathsf{Set})$ (that is, for $A$,
+    $B$ sets) $\operatorname{Hom}_{\mathsf{Set}}(A, B) = B^A$.
+  \end{itemize}
+  Note that the presence of the operations recalled in \S{}\S{}1.3--1.5 is not
+  part of the definition of category: these operations highlight interesting
+  features of $\mathsf{Set}$, which may or may not be shared by other
+  categories. We will soon come back to some of these operations and understand
+  more precisely what they say about $\mathsf{Set}$.
+\end{exam}
+\begin{exam}{}{}
+  Here is a completely different example. Suppose $S$ is a set and $\sim$ is a
+  relation on $S$ satisfying the reflexive and transitive properties. Then we can
+  encode this data into a category:
+  \begin{itemize}
+  \item \emph{objects}: the elements of $S$;
+  \item \emph{morphisms}: if $a$, $b$ are objects (that is, if $a, b \in S$),
+    then let $\operatorname{Hom}(a, b)$ be the set consisting of the element
+    $(a, b) \in S \times S$ if $a \sim b$, and let $\operatorname{Hom}(a, b) =
+    \emptyset$ otherwise.
+  \end{itemize}
+  Note that (unlike in $\mathsf{Set}$) there are very few morphisms: at most one
+  for any pair of objects, and no morphisms at all between `unrelated' objects.
+
+  We have to define `composition of morphisms' and verify that the conditions
+  specified in \S{}3.1 are satisfied. First of all, do we have `identities'? If
+  $a$ is an object (that is, if $a \in S$), we need to find an element
+  $1_a \in \operatorname{Hom}(a, a)$. This is precisely why we are assuming that
+  $\sim$ is reflexive: this tells us that $\forall a$, $a \sim a$; that is,
+  $\operatorname{Hom}(a, a)$ consists of the single element $(a, a)$. So we have
+  no choice: we must let
+  \[ 1_a = (a, a) \in \operatorname{Hom}(a, a). \]
+  As for composition, let $a$, $b$, $c$ be objects (that is, elements of $S$)
+  and $f \in \operatorname{Hom}(a, b)$, $g \in \operatorname{Hom}(b, c)$; we
+  have to define a corresponding morphism $gf \in \operatorname{Hom}(a, c)$.
+  Now, $f \in \operatorname{Hom}(a, b)$ tells us that $\operatorname{Hom}(a, b)$
+  is nonempty, and according to the definition of morphisms in this category that
+  means $a \sim b$, and $f$ is in fact the element $(a, b)$ of $S \times S$.
+  Similarly, $g \in \operatorname{Hom}(b, c)$ tells us $b \sim c$ and $g =
+  (b, c)$. Now
+  \[ a \sim b \text{ and } b \sim c \implies a \sim c \]
+  since we are assuming that $\sim$ is transitive. This tells us that
+  $\operatorname{Hom}(a, c)$ consists of the single element $(a, c)$. Thus we
+  again have no choice: we must let
+  \[ gf := (a, c) \in \operatorname{Hom}(a, c). \]
+  Is this operation associative? If $f \in \operatorname{Hom}(a, b)$, $g \in
+  \operatorname{Hom}(b, c)$, and $h \in \operatorname{Hom}(c, d)$, then
+  necessarily $f = (a,b)$, $g = (b,c)$, $h = (c,d)$, and
+  $gf = (a,c)$, $hg = (b,d)$, and hence $h(gf) = (a,d) = (hg)f$,
+  proving associativity. The reader will have no difficulties checking that $1_a$
+  is an identity with respect to this composition, as needed (Exercise~3.3).
+
+  The most trivial instance of this construction is the category obtained from a
+  set $S$ taken with the equivalence relation `$=$'; that is, the only morphisms
+  are the identity morphisms. These categories are called \emph{discrete}.
+
+  As another example, consider the category corresponding to endowing $\Z$ with
+  the relation $\leq$. For example,
+  \[
+    \begin{tikzcd}
+      2 \arrow[r] & 3 \arrow[r] \arrow[d, "1_3"'] & 5 \arrow[r] & 7 \\
+      & 3 \arrow[urr] \arrow[r] & 4 \arrow[ur] &
+    \end{tikzcd}
+  \]
+  is a (randomly chosen) commutative diagram in this category. It would still be
+  a (commutative) diagram in this category if we reversed the vertical arrow
+  $3 \to 3$ or if we added an arrow from $3$ to $4$, while we are not allowed to
+  draw an arrow from $4$ to $3$, since $4 \not\leq 3$.
+
+  These categories are very special---for example, every diagram drawn in them is
+  necessarily commutative, and this is very far from being the case in, e.g.,
+  $\mathsf{Set}$. Also note that these categories are all small.
+\end{exam}
+\begin{exam}{}{}
+  Here is another\footnote{Actually, this is again an instance of the categories
+    considered in Example~3.3. Do you see why? (Exercise~3.5.)} example of a
+  small category. Let $S$ again be a set. Define a category $\hat{\mathsf{S}}$
+  by setting
+  \begin{itemize}
+  \item $\operatorname{Obj}(\hat{\mathsf{S}}) = \mathscr{P}(S)$, the power set
+    of $S$ (cf.\ \S{}1.2 and Exercise~2.11);
+  \item for $A$, $B$ objects of $\hat{\mathsf{S}}$ (that is, $A \subseteq S$
+    and $B \subseteq S$) let $\operatorname{Hom}_{\hat{\mathsf{S}}}(A, B)$ be
+    the pair $(A, B)$ if $A \subseteq B$, and let
+    $\operatorname{Hom}_{\hat{\mathsf{S}}}(A, B) = \emptyset$ otherwise.
+  \end{itemize}
+  The identity $1_A$ consists of the pair $(A, A)$ (which is one, and in fact
+  the only one, morphism from $A$ to $A$, since $A \subseteq A$). Composition is
+  obtained by stringing inclusions: if there are morphisms $A \to B$, $B \to C$
+  in $\hat{\mathsf{S}}$, then $A \subseteq B$ and $B \subseteq C$; hence $A
+  \subseteq C$ and there is a morphism $A \to C$. Checking the axioms specified
+  in \S{}3.1 should be routine (make sure this is the case!).
+
+  Examples in this style (but employing more sophisticated structures, such as
+  the family of open subsets of a topological space) are hugely important in
+  well-established fields such as algebraic geometry.
+\end{exam}
+\begin{exam}{}{}
+  The next example is very abstract, but thinking about it will make you rather
+  comfortable with everything we have seen so far; and it is a very common
+  construction, variations of which will abound in the course.
+
+  Let $\mathsf{C}$ be a category, and let $A$ be an object of $\mathsf{C}$. We
+  are going to define a category $\mathsf{C}_A$ whose objects are certain
+  morphisms in $\mathsf{C}$ and whose morphisms are certain diagrams of
+  $\mathsf{C}$ (surprise!).
+  \begin{itemize}
+  \item $\operatorname{Obj}(\mathsf{C}_A) = $ all morphisms from any object of
+    $\mathsf{C}$ to $A$; thus, an object of $\mathsf{C}_A$ is a morphism $f \in
+    \operatorname{Hom}_{\mathsf{C}}(Z, A)$ for some object $Z$ of $\mathsf{C}$.
+    Pictorially, an object of $\mathsf{C}_A$ is an arrow $Z \xrightarrow{f} A$
+    in $\mathsf{C}$; these are often drawn `top-down', as in
+    \[
+      \begin{tikzcd} Z \arrow[d, "f"] \\ A \end{tikzcd}
+    \]
+  \end{itemize}
+  What are morphisms in $\mathsf{C}_A$ going to be? There really is only one
+  sensible way to assign morphisms to a category with objects as above. The brave
+  reader will want to stop reading here and continue only after having come up
+  with the definition independently. There will be many similar examples lurking
+  behind constructions we will encounter in this book, and ideally speaking, they
+  should appear completely natural when the time comes. A bit of effort devoted
+  now to understanding this prototype situation will have ample reward in the
+  future. Spoiler follows, so put these notes away now and jot down the
+  definition of morphism in $\mathsf{C}_A$.
+
+  Welcome back.
+  \begin{itemize}
+  \item Let $f_1$, $f_2$ be objects of $\mathsf{C}_A$, that is, two arrows
+    $Z_1 \xrightarrow{f_1} A$ and $Z_2 \xrightarrow{f_2} A$ in $\mathsf{C}$.
+    Morphisms $f_1 \to f_2$ are defined to be commutative diagrams
+    \[
+      \begin{tikzcd}
+        Z_1 \arrow[rr, "\sigma"] \arrow[dr, "f_1"'] & & Z_2 \arrow[dl, "f_2"] \\
+        & A &
+      \end{tikzcd}
+    \]
+    in the `ambient' category $\mathsf{C}$.
+  \end{itemize}
+  That is, morphisms $f_1 \to f_2$ correspond precisely to those morphisms
+  $\sigma : Z_1 \to Z_2$ in $\mathsf{C}$ such that $f_1 = f_2 \sigma$.
+
+  Once you understand what morphisms have to be, checking that they satisfy the
+  axioms spelled out in \S{}3.1 is straightforward. The identities are inherited
+  from the identities in $\mathsf{C}$: for $f : Z \to A$ in $\mathsf{C}_A$, the
+  identity $1_f$ corresponds to the diagram
+  \[
+    \begin{tikzcd}
+      Z \arrow[rr, "1_Z"] \arrow[dr, "f"'] & & Z \arrow[dl, "f"] \\
+      & A &
+    \end{tikzcd}
+  \]
+  which commutes by virtue of the fact that $\mathsf{C}$ is a category.
+  Composition is also a subproduct of composition in $\mathsf{C}$. Two morphisms
+  $f_1 \to f_2 \to f_3$ in $\mathsf{C}_A$ correspond to putting two commutative
+  diagrams side-by-side:
+  \[
+    \begin{tikzcd}
+      Z_1 \arrow[r, "\sigma"] \arrow[dr, "f_1"'] &
+      Z_2 \arrow[r, "\tau"] \arrow[d, "f_2"' description] &
+      Z_3 \arrow[dl, "f_3"] \\
+      & A &
+    \end{tikzcd}
+  \]
+  and then it follows (again because $\mathsf{C}$ is a category!) that the
+  diagram obtained by removing the central arrow, i.e.,
+  \[
+    \begin{tikzcd}
+      Z_1 \arrow[rr, "\tau\sigma"] \arrow[dr, "f_1"'] & & Z_3 \arrow[dl, "f_3"] \\
+      & A &
+    \end{tikzcd}
+  \]
+  also commutes. Check all this(!), and verify that composition in $\mathsf{C}_A$
+  is associative (again, this follows immediately from the fact that composition
+  is associative in $\mathsf{C}$).
+
+  Categories constructed in this fashion are called \emph{slice categories} in
+  the literature; they are particular cases of \emph{comma categories}.
+\end{exam}
+\begin{exam}{}{}
+  For the sake of concreteness, let's apply the construction given in Example~3.5
+  to the category constructed in Example~3.3, say for $S = \Z$ and $\sim$ the
+  relation $\leq$. Call $\mathsf{C}$ this category, and choose an object $A$ of
+  $\mathsf{C}$---that is, an integer, for example, $A = 3$. Then the objects of
+  $\mathsf{C}_A$ are morphisms in $\mathsf{C}$ with target $3$, that is, pairs
+  $(n, 3) \in \Z \times \Z$ with $n \leq 3$. There is a morphism $(m, 3) \to
+  (n, 3)$ if and only if $m \leq n$. In this case $\mathsf{C}_A$ may be
+  harmlessly identified with the `subcategory' of integers $\leq 3$, with `the
+  same' morphisms as in $\mathsf{C}$.
+\end{exam}
+
+\begin{exam}{}{}
+  An entirely similar example to the one explored in Example~3.5 may be obtained
+  by considering morphisms in a category $\mathsf{C}$ \emph{from} a fixed object
+  $A$ to all objects in $\mathsf{C}$, again with morphisms defined by suitable
+  commutative diagrams. This leads to \emph{coslice categories}. The reader
+  should provide details of this construction (Exercise~3.7).
+\end{exam}
+
+\begin{exam}{}{}
+  As a `concrete' instance of a category as in Example~3.7, let $\mathsf{C} =
+  \mathsf{Set}$ and $A = $ a fixed singleton $\{*\}$. Call the resulting category
+  $\mathsf{Set}^*$.
+
+  An object in $\mathsf{Set}^*$ is then a morphism $f : \{*\} \to S$ in
+  $\mathsf{Set}$, where $S$ is any set. The information of an object in
+  $\mathsf{Set}^*$ consists therefore of the choice of a nonempty set $S$ and of
+  an element $s \in S$---that is, the element $f(*)$: this element determines,
+  and is determined by, $f$.
+
+  Thus, we may denote objects of $\mathsf{Set}^*$ as pairs $(S, s)$, where $S$
+  is any set and $s \in S$ is any element of $S$. A morphism between two such
+  objects, $(S, s) \to (T, t)$, corresponds then (check this!) to a set-function
+  $\sigma : S \to T$ such that $\sigma(s) = t$.
+
+  Objects of $\mathsf{Set}^*$ are called \emph{pointed sets}. Many of the
+  structures we will study in this book will be pointed sets. For example (as we
+  will see) a `group' is a set $G$ with, among other requirements, a
+  distinguished element $e_G$ (its `identity'); `group homomorphisms' will be
+  functions which, among other properties, send identities to identities; thus,
+  they are morphisms of pointed sets in the sense considered above.
+\end{exam}
+
+\begin{exam}{}{}
+  It is useful to contemplate a few more `abstract' examples in the style of
+  Examples~3.5 and~3.7. These will be essential ingredients in the promised
+  revisitation of some of the operations mentioned in \S{}1.3. Their definition
+  will appear disappointedly simple-minded to the reader who has mastered
+  Examples~3.5 and~3.7.
+
+  This time we start from a given category $\mathsf{C}$ and \emph{two} objects
+  $A$, $B$ of $\mathsf{C}$. We can define a new category $\mathsf{C}_{A,B}$ by
+  essentially the same procedure that we used in order to define $\mathsf{C}_A$:
+  \begin{itemize}
+  \item $\operatorname{Obj}(\mathsf{C}_{A,B})$ = diagrams
+    % TODO: commutative diagram with Z mapping to both A and B (two-legged span)
+    $Z \xrightarrow{f} A$ and $Z \xrightarrow{g} B$ in $\mathsf{C}$; and
+  \item morphisms from $(f_1 : Z_1 \to A,\, g_1 : Z_1 \to B)$ to
+    $(f_2 : Z_2 \to A,\, g_2 : Z_2 \to B)$ are those morphisms $\sigma : Z_1
+    \to Z_2$ in $\mathsf{C}$ making both diagrams commute simultaneously:
+    $f_1 = f_2 \sigma$ and $g_1 = g_2 \sigma$.
+  \end{itemize}
+  I will leave to the reader the task of formalizing this rough description. This
+  example is really nothing more than a mixture of $\mathsf{C}_A$ and
+  $\mathsf{C}_B$, where the two structures interact because of the stringent
+  requirement that the same $\sigma$ must make both sides of the diagram commute
+  simultaneously.
+
+  Flipping most of the arrows gives an analogous variation of Example~3.7,
+  producing a category which we may\footnote{There does not seem to be an
+    established notation for these commonplace categories.} denote
+  $\mathsf{C}^{A,B}$; details are left to the reader.
+\end{exam}
+
+\begin{exam}{}{}
+  As a final variation on these examples, we conclude by considering the
+  \emph{fibered} version of $\mathsf{C}_{A,B}$ (and $\mathsf{C}^{A,B}$). Take
+  this as a test to see if you have really understood $\mathsf{C}_{A,B}$---experts
+  would tell you that this looks fairly sophisticated for students just learning
+  categories, so don't get disheartened if it does not flow too well at first
+  (but pat yourself on the shoulder if it does!). Start with a given category
+  $\mathsf{C}$, and this time choose two fixed morphisms $\alpha : A \to C$,
+  $\beta : B \to C$ in $\mathsf{C}$, with the same target $C$. We can then
+  consider a category $\mathsf{C}_{\alpha, \beta}$ as follows:
+  \begin{itemize}
+  \item $\operatorname{Obj}(\mathsf{C}_{\alpha,\beta})$ = commutative diagrams
+    % TODO: diagram with Z mapping to A and B, composed with α and β to a common C
+    in $\mathsf{C}$: pairs $(f : Z \to A,\, g : Z \to B)$ such that $\alpha f =
+    \beta g$; and
+  \item morphisms correspond to morphisms $\sigma : Z_1 \to Z_2$ making the
+    evident diagram commute.
+  \end{itemize}
+  A solid understanding of Example~3.9 will make this example look just as tame;
+  at this point the reader should have no difficulties formalizing it (that is,
+  explaining how composition works, what identities are, etc.).
+
+  Also left to the reader is the construction of the `mirror' example
+  $\mathsf{C}^{\alpha,\beta}$, starting from two morphisms $\alpha : C \to A$,
+  $\beta : C \to B$ with common source.
+\end{exam}
 
 \subsection*{Exercises}
 
