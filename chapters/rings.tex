@@ -806,35 +806,35 @@ Every ring $R$ interacts with the ring of endomorphisms of the underlying abelia
   \lambda_r(a) = ra, \qquad \mu_r(a) = ar.
 \]
 The following observation is nothing more than easy notation juggling, but it is useful; it is a `ring analog' of Cayley's theorem (Theorem~II.9.5):
-% Proposition 2.7. Let R be a ring. Then the function r ?\to  \lambda r is an
-% injective ring
-% homomorphism
-% \lambda  : R \to  EndAb (R).
-% Proof. For any r \in  R and for all a, b \in  R, distributivity gives
-% \lambda r (a + b) = r(a + b) = ra + rb = \lambda r (a) + \lambda r (b) :
-% this shows that \lambda r is indeed an endomorphism of the group (R, +), that
-% is, \lambda r \in
-% EndAb (R).
-% The function \lambda  : R \to  EndAb(R) defined by the assignment r ?\to
-% \lambda r is clearly
-% injective, since if r = s, then
-% \lambda r (1) = r = s = \lambda s(1),
-% so that \lambda r = \lambda s .
-% We have to verify that \lambda  is in fact a homomorphism of rings. Recall that
-% the
-% addition in EndAb (R) is inherited from R (cf. \S{}II.4.4): for all r, s \in  R,
-% \lambda r + \lambda s is
-% defined by
-% (\forall a \in  R) : (\lambda r + \lambda s )(a) = \lambda r (a) + \lambda s
-% (a).
-% Thus, the fact that \lambda  preserves addition is an immediate consequence of
-% distribu-
-% tivity: for all r, s, a \in  R,
-% \lambda r+s (a) = (r + s)a = ra + sa = \lambda r (a) + \lambda s (a).
-% As for multiplication, it is associativity's turn to do its job:
-% \lambda rs (a) = (rs)a = r(sa) = r\lambda s (a) = \lambda r (\lambda s (a)) = (\lambda r \circ  \lambda  s)(a).
-% Of course \lambda 1 is the identity, completing the verification.
-%  ?
+\begin{prop}{}{prop:rings:Cayley-ring}
+  Let $R$ be a ring. Then the function $r \mapsto \lambda_r$ is an injective ring homomorphism
+  \[
+    \lambda : R \to \operatorname{End}_{\mathsf{Ab}}(R).
+  \]
+\end{prop}
+\begin{proof}
+For any $r \in R$ and for all $a, b \in R$, distributivity gives
+\[
+  \lambda_r(a + b) = r(a + b) = ra + rb = \lambda_r(a) + \lambda_r(b):
+\]
+this shows that $\lambda_r$ is indeed an endomorphism of the group $(R, +)$, that is, $\lambda_r \in \operatorname{End}_{\mathsf{Ab}}(R)$.
+
+The function $\lambda : R \to \operatorname{End}_{\mathsf{Ab}}(R)$ defined by the assignment $r \mapsto \lambda_r$ is clearly injective, since if $r \neq s$, then $\lambda_r(1) = r \neq s = \lambda_s(1)$, so that $\lambda_r \neq \lambda_s$.
+
+We have to verify that $\lambda$ is in fact a homomorphism of rings. Recall that the addition in $\operatorname{End}_{\mathsf{Ab}}(R)$ is inherited from $R$ (cf.\ \S{}II.4.4): for all $r, s \in R$, $\lambda_r + \lambda_s$ is defined by
+\[
+  (\forall a \in R) : (\lambda_r + \lambda_s)(a) = \lambda_r(a) + \lambda_s(a).
+\]
+Thus, the fact that $\lambda$ preserves addition is an immediate consequence of distributivity: for all $r, s, a \in R$,
+\[
+  \lambda_{r+s}(a) = (r + s)a = ra + sa = \lambda_r(a) + \lambda_s(a).
+\]
+As for multiplication, it is associativity's turn to do its job:
+\[
+  \lambda_{rs}(a) = (rs)a = r(sa) = r\lambda_s(a) = \lambda_r(\lambda_s(a)) = (\lambda_r \circ \lambda_s)(a).
+\]
+Of course $\lambda_1$ is the identity, completing the verification.
+\end{proof}
 % The function \mu  : R \to  EndAb(R) defined by r ?\to  \mu r is `almost' a ring
 % homo-
 % morphism: the reader will check (Exercise 2.18) that
