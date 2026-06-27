@@ -1035,76 +1035,65 @@ morphisms.
 
 \subsection{Group homomorphisms}
 \label{subsec:groups:group-homomorphisms}
-% As we know, a group consists of two distinct
+As we know, a group consists of two distinct types of information: a set $G$
+and an operation\footnote{In $\S$1, $m_G$ was denoted $\bullet$; here we need
+to keep track of operations on different groups, so for a moment I will use a
+symbol recording the group (and evoking `multiplication').}
+\[
+  m_G : G \times G \to G
+\]
+satisfying certain properties. For two groups $(G, m_G)$ and $(H, m_H)$, a
+\textbf{group homomorphism}
+\[
+  \varphi : (G, m_G) \to (H, m_H)
+\]
+is first of all a function (usually given the same name, $\varphi$ in this
+case) between the underlying sets; but this function must `know about' the
+operations $m_G$ on $G$, $m_H$ on $H$. What is the most natural requirement of
+this sort?
 
-% types of information: a set G and an operation15
-% mG : G \times  G \to  G
-% satisfying certain properties. For two groups (G, mG) and (H, mH ), a group
-% homo-
-% morphism
-% \phi  : (G, mG ) \to  (H, mH )
-% is first of all a function (usually given the same name, \phi  in this case)
-% between the
-% underlying sets; but this function must `know about' the operations mG on G, mH
-% on H. What is the most natural requirement of this sort?
-% Note that the set-function \phi  : G \to  H determines a function
-% (\phi  \times  \phi ) : G \times  G \to  H \times  H :
-% we could invoke the universal property of products to obtain this function (cf.
-% Ex-
-% ercise 3.1), but since we are dealing with sets, there is no need for fancy
-% language
-% here---just define the function by
-% (\forall (a, b) \in  G \times  G) :
-%  (\phi  \times  \phi )(a, b) = (\phi (a), \phi (b)).
-% There is a diagram combining all these maps:
-% G \times  G
-%  \phi \times \phi 
-%  / H \times  H
-% mG
-%  mH
-% \sqcup 
-%  \sqcup 
-% G
-%  / H
-% \phi 
-% 15 In \S{}1, m
-% G was denoted \bullet ; here we need to keep track of operations on different
-% groups, so
-% for a moment I will use a symbol recording the group (and evoking
-% `multiplication').
-% What requirement could be more natural than asking that this diagram commute?
-% Definition 3.1. The set-function \phi  : G \to  H defines a group homomorphism
-% if the
-% diagram displayed above commutes.
-%  ?
-% This is a seemingly complicated way of saying something simple: since \phi  and
-% mG , mH are functions of sets, commutativity means the following. For all a, b
-% \in  G,
-% the two ways to travel through the diagram give
-% (a, b)
-%  (a, b) ?
-%  / (\phi (a), \phi (b))
-% _
-%  _
-% \sqcup 
-%  \sqcup 
-% a \cdot  b ?
-%  / \phi (a \cdot  b)
-%  \phi (a) \cdot  \phi (b)
-% where I now write \cdot  for both operations: in G on the left, in H on the
-% right.
-% Commutativity of the diagram means that we must get the same result in both
-% cases; therefore, Definition 3.1 can be rephrased as
-% the set-function \phi  : G \to  H is a group homomorphism if \forall a, b \in  G
-% \phi (a \cdot  b) = \phi (a) \cdot  \phi (b).
-% In other words, \phi  is a homomorphism if it `preserves the structure'. This
-% may
-% sound more familiar to our reader. As usual, the reason to bring in diagrams (as
-% in Definition 3.1) is that this would make it easy to transfer part of the
-% discussion
-% to other categories.
-% If the context is clear, one may simply write `homomorphism', omitting the
-% qualifier `group'.
+Note that the set-function $\varphi : G \to H$ determines a function
+$(\varphi \times \varphi) : G \times G \to H \times H$: we could invoke the
+universal property of products to obtain this function (cf.\ Exercise~3.1), but
+since we are dealing with sets, there is no need for fancy language here---just
+define the function by
+\[
+  (\forall (a,b) \in G \times G) : \quad (\varphi \times \varphi)(a,b) = (\varphi(a), \varphi(b)).
+\]
+There is a diagram combining all these maps:
+\[
+\begin{tikzcd}
+G \times G \arrow[r, "\varphi \times \varphi"] \arrow[d, "m_G"'] & H \times H \arrow[d, "m_H"] \\
+G \arrow[r, "\varphi"'] & H
+\end{tikzcd}
+\]
+What requirement could be more natural than asking that this diagram commute?
+
+\begin{defn}{Group homomorphism}{defn:groups:homomorphism}
+The set-function $\varphi : G \to H$ defines a \textbf{group homomorphism} if
+the diagram displayed above commutes.
+\end{defn}
+
+This is a seemingly complicated way of saying something simple: since $\varphi$
+and $m_G$, $m_H$ are functions of sets, commutativity means the following. For
+all $a, b \in G$, the two ways to travel through the diagram give the same
+result; therefore, Definition~3.1 can be rephrased as
+
+\begin{quote}
+the set-function $\varphi : G \to H$ is a group homomorphism if $\forall a, b
+\in G$, $\varphi(a \cdot b) = \varphi(a) \cdot \varphi(b)$.
+\end{quote}
+
+where I write $\cdot$ for both operations: in $G$ on the left, in $H$ on the
+right.
+
+In other words, $\varphi$ is a homomorphism if it `preserves the structure'.
+This may sound more familiar to our reader. As usual, the reason to bring in
+diagrams (as in Definition~3.1) is that this would make it easy to transfer
+part of the discussion to other categories.
+
+If the context is clear, one may simply write `homomorphism', omitting the
+qualifier `group'.
 
 \subsection{Grp: Definition}
 \label{subsec:groups:grp-definition}
