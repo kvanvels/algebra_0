@@ -100,89 +100,108 @@ Sylow's theorems.
 
 \subsection{Center, centralizer, conjugacy classes}
 \label{subsec:groups2:center-centralizer-conjugacy-classes}
-% Recall (Example II.9.3) that ev-
+Recall (Example~II.9.3) that every group $G$ acts on itself in at least two
+interesting ways: by (left-) multiplication and by \emph{conjugation}. The
+latter action is defined by the following $\rho : G \times G \to G$:
+\[
+  \rho(g, a) = gag^{-1}.
+\]
+As we know (\S{}II.9.2), this datum is equivalent to the datum of a certain
+group homomorphism:
+\[
+  \sigma : G \to S_G
+\]
+from $G$ to the permutation group on $G$.
 
-% ery group G acts on itself in at least two interesting ways: by (left-)
-% multiplication
-% and by conjugation. The latter action is defined by the following \rho  : G
-% \times  G \to  G:
-% \rho (g, a) = gag -1.
-% As we know (\S{}II.9.2), this datum is equivalent to the datum of a certain
-% group
-% homomorphism:
-% \sigma  : G \to  SG
-% from G to the permutation group on G.
-% This action highlights several interesting objects:
-% Definition 1.4. The center of G, denoted Z(G), is the subgroup ker \sigma  of G.
-%  ?
-% Concretely, the center2 of G is
-% Z(G) = {g \in  G | (\forall a \in  G) : ga = ag}.
-% Indeed, \sigma (g) is the identity in S G if and only if \sigma (g) acts as the
-% identity on G; that
-% is, if and only if gag-1 = a for all a \in  G; that is, if and only if g
-% commutes with all
-% elements of G. In other words, the center is the set of fixed points in G under
-% the
-% conjugation action.
-% Note that the center of a group G is automatically normal in G: this is nearly
-% immediate to check `by hand', but there is no need to do so since it is a kernel
-% by
-% definition and kernels are normal.
-% A group G is commutative if and only if Z(G) = G, that is, if and only if the
-% conjugation action is trivial on G.
-% In general, feel happy when you discover that the center of a group is not
-% trivial:
-% this will often allow you to set up proofs by induction on the number of
-% elements
-% of the group, by mod-ing out by the center (this is, roughly, how we will prove
-% the
-% first Sylow theorem). Or note the following useful fact, which comes in handy
-% when
-% trying to prove that a group is commutative:
-% Lemma 1.5. Let G be a finite group, and assume G/Z(G) is cyclic. Then G is
-% commutative (and hence G/Z(G) is in fact trivial).
-% Proof. (Cf. Exercise 1.5.) As G/Z(G) is cyclic, there exists an element g \in  G
-% such
-% that the class gZ(G) generates G/Z(G). Then \forall a \in  G
-% aZ(G) = (gZ(G))r
-% for some r \in  Z; that is, there is an element z \in  Z(G) of the center such
-% that
-% a = g r z.
-% If now a, b are in G, use this fact to write
-% a = g r z,
-%  b = g s w
-% for some s \in  Z and w \in  Z(G); but then
-% ab = (g r z)(g sw) = g r+szw = (g s w)(g r z) = ba,
-% 2 Why `Z' ? `Center'
-%  i\'C Zentrum auf Deuts\v{E}.
-% where I have used the fact that z and w commute with every element of G. As a
-% and b were arbitrary, this proves that G is commutative.
-%  ?
-% Next, the stabilizer of a \in  G under conjugation has a special name:
-% Definition 1.6. The centralizer (or normalizer ) ZG (a) of a \in  G is its
-% stabilizer
-% under conjugation.
-%  ?
-% Thus,
-% ZG (a) = {g \in  G | gag-1 = a} = {g \in  G | ga = ag}
-% consists of those elements in G which commute with a. In particular, Z(G)
-% \subseteq  ZG(a)
-% ?
-% for all a \in  G; in fact, Z(G) = a\in G ZG (a). Clearly a \in  Z(G) \iff  ZG(a)
-% = G.
-% If there is no ambiguity concerning the group G containing a, the index G may
-% be dropped.
-% Definition 1.7. The conjugacy class of a \in  G is the orbit [a] of a under the
-% conjugation action. Two elements a, b of G are conjugate if they belong to the
-% same conjugacy class.
-%  ?
-% The notation [a] is not standard; C(a) is used more frequently, but I am not
-% fond of it. Using [a] reminds us that these are nothing but the equivalence
-% classes
-% of elements of G under a certain interesting equivalence relation.
-% Note that [a] = {a} if and only if gag -1 = a for all g \in  G; that is, if and
-% only
-% if ga = ag for all g \in  G; that is, if and only if a \in  Z(G).
+This action highlights several interesting objects:
+
+\begin{defn}{}{defn:groups2:center}
+The \emph{center} of $G$, denoted $Z(G)$, is the subgroup $\ker\sigma$ of
+$G$.
+\end{defn}
+
+Concretely, the center\footnote{Why `Z'? `Center' is \emph{Zentrum} auf
+Deutsch.} of $G$ is
+\[
+  Z(G) = \{g \in G \mid (\forall a \in G) : ga = ag\}.
+\]
+Indeed, $\sigma(g)$ is the identity in $S_G$ if and only if $\sigma(g)$ acts
+as the identity on $G$; that is, if and only if $gag^{-1} = a$ for all
+$a \in G$; that is, if and only if $g$ commutes with all elements of $G$. In
+other words, the center is the set of fixed points in $G$ under the
+conjugation action.
+
+Note that the center of a group $G$ is automatically normal in $G$: this is
+nearly immediate to check `by hand', but there is no need to do so since it
+is a kernel by definition and kernels are normal.
+
+A group $G$ is commutative if and only if $Z(G) = G$, that is, if and only
+if the conjugation action is trivial on $G$.
+
+In general, feel happy when you discover that the center of a group is not
+trivial: this will often allow you to set up proofs by induction on the
+number of elements of the group, by mod-ing out by the center (this is,
+roughly, how we will prove the first Sylow theorem). Or note the following
+useful fact, which comes in handy when trying to prove that a group is
+commutative:
+
+\begin{lem}{}{lem:groups2:quotient-center-cyclic}
+Let $G$ be a finite group, and assume $G/Z(G)$ is cyclic. Then $G$ is
+commutative (and hence $G/Z(G)$ is in fact trivial).
+\end{lem}
+\begin{proof}
+(Cf.\ Exercise~1.5.) As $G/Z(G)$ is cyclic, there exists an element $g \in G$
+such that the class $gZ(G)$ generates $G/Z(G)$. Then $\forall a \in G$
+\[
+  aZ(G) = (gZ(G))^r
+\]
+for some $r \in \Z$; that is, there is an element $z \in Z(G)$ of the center
+such that $a = g^r z$.
+
+If now $a$, $b$ are in $G$, use this fact to write
+\[
+  a = g^r z, \qquad b = g^s w
+\]
+for some $s \in \Z$ and $w \in Z(G)$; but then
+\[
+  ab = (g^r z)(g^s w) = g^{r+s} zw = (g^s w)(g^r z) = ba,
+\]
+where I have used the fact that $z$ and $w$ commute with every element of
+$G$. As $a$ and $b$ were arbitrary, this proves that $G$ is commutative.
+\end{proof}
+
+Next, the stabilizer of $a \in G$ under conjugation has a special name:
+
+\begin{defn}{}{defn:groups2:centralizer}
+The \emph{centralizer} (or \emph{normalizer}) $Z_G(a)$ of $a \in G$ is its
+stabilizer under conjugation.
+\end{defn}
+
+Thus,
+\[
+  Z_G(a) = \{g \in G \mid gag^{-1} = a\} = \{g \in G \mid ga = ag\}
+\]
+consists of those elements in $G$ which commute with $a$. In particular,
+$Z(G) \subseteq Z_G(a)$ for all $a \in G$; in fact,
+$Z(G) = \bigcap_{a \in G} Z_G(a)$. Clearly $a \in Z(G) \iff Z_G(a) = G$.
+
+If there is no ambiguity concerning the group $G$ containing $a$, the index
+$G$ may be dropped.
+
+\begin{defn}{}{defn:groups2:conjugacy-class}
+The \emph{conjugacy class} of $a \in G$ is the orbit $[a]$ of $a$ under the
+conjugation action. Two elements $a$, $b$ of $G$ are \emph{conjugate} if they
+belong to the same conjugacy class.
+\end{defn}
+
+The notation $[a]$ is not standard; $C(a)$ is used more frequently, but I am
+not fond of it. Using $[a]$ reminds us that these are nothing but the
+equivalence classes of elements of $G$ under a certain interesting equivalence
+relation.
+
+Note that $[a] = \{a\}$ if and only if $gag^{-1} = a$ for all $g \in G$;
+that is, if and only if $ga = ag$ for all $g \in G$; that is, if and only if
+$a \in Z(G)$.
 
 \subsection{The Class Formula}
 \label{subsec:groups2:the-class-formula}
