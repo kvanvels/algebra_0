@@ -1808,645 +1808,258 @@ More generally, it is hopefully clear that the sum $\sum_\alpha N_\alpha$ and th
 \section{Products, coproducts, etc., in R-Mod}
 \label{sec:rings:products-coproducts-etc-in-r-mod}
 
-% I have stated several times that categories such as R-Mod are `well-behaved'. We
-% will explore in this section the sense in which this can be formalized at this
-% stage.
-% The bottom line is that these categories enjoy the same nice properties that we
-% have noted along the way for the category Ab.
-% I will also include here some general considerations on finitely generated mod-
-% ules and algebras.
-% As in the previous section, I will write `module' for `left-module'; the reader
-% should make appropriate adaptations to the case of right-modules. Little will be
-% lost by assuming that all rings appearing here are commutative (thereby removing
-% the distinction between left- and right-modules).
+I have stated several times that categories such as $R$-$\mathsf{Mod}$ are `well-behaved'. We will explore in this section the sense in which this can be formalized at this stage. The bottom line is that these categories enjoy the same nice properties that we have noted along the way for the category $\mathsf{Ab}$.
+
+I will also include here some general considerations on finitely generated modules and algebras.
+
+As in the previous section, I will write `module' for `left-module'; the reader should make appropriate adaptations to the case of right-modules. Little will be lost by assuming that all rings appearing here are commutative (thereby removing the distinction between left- and right-modules).
 
 \subsection{Products and coproducts}
 \label{subsec:rings:products-and-coproducts}
-% As in Ab, products and coproducts exist, and
+As in $\mathsf{Ab}$, products and coproducts exist, and finite products and coproducts coincide, in $R$-$\mathsf{Mod}$. Indeed, recall the construction of the direct sum of two abelian groups (\S{}II.3.5): if $M$ and $N$ are abelian groups, then $M \oplus N$ denotes their product, with componentwise operation. If $M$ and $N$ are $R$-modules, we can give an $R$-module structure to $M \oplus N$ by prescribing $\forall r \in R$: $r(m, n) := (rm, rn)$. This defines the \emph{direct sum} of $M$, $N$, as an $R$-module. Note that $M \oplus N$ comes together with several homomorphisms of $R$-modules:
+\[
+  \pi_M : M \oplus N \to M, \qquad \pi_N : M \oplus N \to N
+\]
+sending $(m, n)$ to $m$, $n$, respectively, and
+\[
+  i_M : M \to M \oplus N, \qquad i_N : N \to M \oplus N
+\]
+sending $m$ to $(m, 0)$ and $n$ to $(0, n)$.
+\begin{prop}{}{prop:rings:direct-sum-product-coproduct}
+  The direct sum $M \oplus N$ satisfies the universal properties of both the product and the coproduct of $M$ and $N$.
+\end{prop}
 
-% finite products and coproducts coincide, in R-Mod. Indeed, recall the
-% construction
-% of the direct sum of two abelian groups (\S{}II.3.5): if M and N are abelian
-% groups,
-% then M \oplus  N denotes their product, with componentwise operation. If M and N
-% are
-% R-modules, we can give an R-module structure to M \oplus  N by prescribing
-% \forall r \in  R
-% r(m, n) := (rm, rn).
-% This defines the direct sum of M , N , as an R-module. Note that M \oplus  N
-% comes
-% together with several homomorphisms of R-modules:
-% \pi M : M \oplus  N \to  M,
-%  \pi N : M \oplus  N \to  N
-% sending (m, n) to m, n, respectively, and
-% iM : M \to  M \oplus  N,
-%  iN : N \to  M \oplus  N
-% sending m to (m, 0) and n to (0, n).
-% Proposition 6.1. The direct sum M \oplus  N satisfies the universal properties
-% of both
-% the product and the coproduct of M and N .
-% Proof. Product: Let P be an R-module, and let \phi M : P \to  M , \phi N : P \to
-% N be
-% two R-module homomorphisms. The definition of an R-module homomorphism
-% \phi M \times  \phi N : P \to  M \oplus  N
-% is forced by the needed commutativity of the diagram
-% \phi M \times \phi N
-%  \phi M
-%  n n n
-%  \pi M nn n
-%  n n n
-%  n n n
-%  7/ M
-% P
-%  / M \oplus  N
-% \phi N
-%  P P P
-%  P \pi N P P
-%  P P
-%  P P P
-%  P P '
-% /
-%  N
-% That is,
-% (\forall p \in  P ) : (\phi M \times  \phi N )(p) := (\phi M (p), \phi N (p)).
-% This is an R-module homomorphism, and it is the unique one making the diagram
-% commute; therefore M \oplus  N works as a product of M and N .
-% Coproduct: View the preceding argument through a mirror! Let P be an R-
-% module, and let \psi M : M \to  P , \psi N : N \to  P be two R-module
-% homomorphisms.
-% The definition of an R-module homomorphism
-% \psi M \oplus  \psi N : M \oplus  N \to  P
-% is forced by the needed commutativity of the diagram
-% M P P
-%  P P P
-%  P P i P M
-%  P PP
-%  P '
-%  \psi M
-%  \psi M \oplus \psi N
-% n n n
-%  n n n n iN
-%  n
-%  n
-%  n
-%  n n n
-%  M
-%  7 \oplus  N
-%  &/
-% 8 P
-% N
-%  \psi N
-% That is29, (\forall m \in  M )(\forall n \in  N )
-% (\psi M \oplus  \psi N )(m, n) = (\psi M \oplus  \psi N )(m, 0) + (\psi M \oplus
-% \psi N )(0, n)
-% = (\psi M \oplus  \psi N ) \circ  iM (m) + (\psi M \oplus  \psi N ) \circ  iN
-% (n)
-% = \psi M (m) + \psi N (n).
-% This is an R-module homomorphism: it is a homomorphism of abelian groups by
-% virtue of the commutativity of addition in P , and it clearly preserves the
-% action of R.
-% 29This should look familiar; cf. Exercise II.3.3.
-% Since it is the unique R-module homomorphism making the diagram commute, this
-% verifies that M \oplus  N works as a coproduct of M and N .
-%  ?
-% It may seem like a good idea to write M \times  N rather than M \oplus  N when
-% viewing
-% the latter as the product of M and N ; but in due time (\S{}VIII.2) we will
-% encounter
-% M \times  N again, in the context of `bilinear maps', and in that context M
-% \times  N is not
-% viewed as an R-module.
-% The reader should also work out the fibered versions of these constructions;
-% cf. Exercises 6.10 and 6.11.
-% The fact that finite products and coproducts agree in R-Mod does not extend
-% to the infinite case (Exercise 6.7).
+\begin{proof}
+  \emph{Product:} Let $P$ be an $R$-module, and let $\phi_M : P \to M$, $\phi_N : P \to N$ be two $R$-module homomorphisms. The definition of an $R$-module homomorphism $\phi_M \times \phi_N : P \to M \oplus N$ is forced by the needed commutativity of the diagram
+  \[\begin{tikzcd}
+    & P \arrow[dl, "\phi_M"'] \arrow[d, dashed, "\phi_M \times \phi_N"] \arrow[dr, "\phi_N"] & \\
+    M & M \oplus N \arrow[l, "\pi_M"] \arrow[r, "\pi_N"'] & N
+  \end{tikzcd}\]
+  That is, $(\forall p \in P) : (\phi_M \times \phi_N)(p) := (\phi_M(p), \phi_N(p))$. This is an $R$-module homomorphism, and it is the unique one making the diagram commute; therefore $M \oplus N$ works as a product of $M$ and $N$.
+
+  \emph{Coproduct:} View the preceding argument through a mirror! Let $P$ be an $R$-module, and let $\psi_M : M \to P$, $\psi_N : N \to P$ be two $R$-module homomorphisms. The definition of an $R$-module homomorphism $\psi_M \oplus \psi_N : M \oplus N \to P$ is forced by the needed commutativity of the diagram
+  \[\begin{tikzcd}
+    M \arrow[r, "i_M"] \arrow[dr, "\psi_M"'] & M \oplus N \arrow[d, dashed, "\psi_M \oplus \psi_N"] & N \arrow[l, "i_N"'] \arrow[dl, "\psi_N"] \\
+    & P &
+  \end{tikzcd}\]
+  That is\footnote{This should look familiar; cf.\ Exercise~II.3.3.}, $(\forall m \in M)(\forall n \in N)$:
+  \begin{align*}
+    (\psi_M \oplus \psi_N)(m, n) &= (\psi_M \oplus \psi_N)(m, 0) + (\psi_M \oplus \psi_N)(0, n) \\
+    &= (\psi_M \oplus \psi_N) \circ i_M(m) + (\psi_M \oplus \psi_N) \circ i_N(n) = \psi_M(m) + \psi_N(n).
+  \end{align*}
+  This is an $R$-module homomorphism: it is a homomorphism of abelian groups by virtue of the commutativity of addition in $P$, and it clearly preserves the action of $R$.
+\end{proof}
+It may seem like a good idea to write $M \times N$ rather than $M \oplus N$ when viewing the latter as the product of $M$ and $N$; but in due time (\S{}VIII.2) we will encounter $M \times N$ again, in the context of `bilinear maps', and in that context $M \times N$ is not viewed as an $R$-module.
+
+The reader should also work out the fibered versions of these constructions; cf.\ Exercises~6.10 and~6.11.
+
+The fact that finite products and coproducts agree in $R$-$\mathsf{Mod}$ does not extend to the infinite case (Exercise~6.7).
 
 \subsection{Kernels and cokernels}
 \label{subsec:rings:kernels-and-cokernels}
-% The facts that R-Mod has a zero-object (the 0-
+The facts that $R$-$\mathsf{Mod}$ has a zero-object (the $0$-module), its Hom sets are abelian groups (\S{}5.2), and it has (finite) products and coproducts make $R$-$\mathsf{Mod}$ an \emph{additive category}. The fact that $R$-$\mathsf{Mod}$ has well-behaved kernels and cokernels, which we review next, upgrades it to the status of \emph{abelian category}. (We will come back to these general definitions in \S{}IX.1.)
 
-% module), its Hom sets are abelian groups (\S{}5.2), and it has (finite) products
-% and
-% coproducts make R-Mod an additive category. The fact that R-Mod has well-
-% behaved kernels and cokernels, which we review next, upgrades it to the status
-% of
-% abelian category. (We will come back to these general definitions in \S{}IX.1.)
-% In general, monomorphisms and epimorphisms do not automatically satisfy
-% good properties, even when objects of a given category are realized by adding
-% structure to sets. For example, we have seen that the precise relationship
-% between
-% `surjective morphism' and `epimorphism' may be rather subtle: epimorphisms are
-% surjective in Grp, but for complicated reasons (\S{}II.8.6); and there are
-% epimorphisms
-% that are not surjective in Ring (\S{}2.3).
-% The situation in R-Mod is as simple as it can be. Recall that we have identified
-% universal properties for kernels and cokernels (cf. \S{}II.8.6); in the category
-% R-Mod
-% these would go as follows: if
-% \phi  : M \to  N
-% is a homomorphism of R-modules, then ker \phi  is final with respect to the
-% property
-% of factoring R-module homomorphisms \alpha  : P \to  M such that \phi  \circ
-% \alpha  = 0:
-% P / M
-%  (/
-%  N
-% D \exists !\alpha  D D
-%  D \alpha 
-%  D
-%  D
-%  D D
-%  ! ? ?
-%  O
-%  \phi 
-% ker \phi 
-% while coker \phi  is initial with respect to the property of factoring R-module
-% homo-
-% morphisms \beta  : N \to  P such that \beta  \circ  \phi  = 0:
-% M
-%  / N
-%  (/
-%  P
-% \phi 
-%  \sqcup  \pi 
-%  x x x x \beta 
-%  x
-%  \exists !\beta 
-%  x
-%  x
-%  x
-%  x ;
-% coker \phi 
-% Proposition 6.2. The following hold in R-Mod:
-% \bullet  kernels and cokernels exist;
-% \bullet  \phi  is a monomorphism \iff  ker \phi  is trivial \iff  \phi  is injective as a set-
-% function;
-% \bullet  \phi  is an epimorphism \iff  coker \phi  is trivial \iff  \phi  is surjective as a set-
-% function.
-% Further, every monomorphism identifies its source with the kernel of some mor-
-% phism, and every epimorphism identifies its target with the cokernel of some
-% mor-
-% phism.
-% This proposition of course simply generalizes to R-Mod facts we know already
-% from our study of Ab, and a quick review should suffice for the careful reader.
-% Ker-
-% nels exist: indeed, the `standard' definition of kernel satisfies the universal
-% proper-
-% ties spelled out above (same argument as in Proposition II.6.6). Cokernels
-% exist:
-% indeed, let
-% N
-% coker \phi  =
-%  ;
-% im \phi 
-% if \beta  : N \to  P is such that \beta  \circ  \phi  = 0, then im \phi
-% \subseteq  ker \beta ; so \beta  must factor uniquely
-% through N/im \phi  by the universal property of quotients, Theorem 5.14. That
-% is,
-% N/im \phi  does satisfy the universal property for cokernels.
-% The proofs of all the implications in the second and third points in Proposi-
-% tion 6.2 follow familiar patterns from (for example) Proposition II.6.12 and
-% Propo-
-% sition II.8.18. The last sentence of Proposition 6.2 simply reiterates the
-% slogan
-% submodule \iff  kernel and its mirror statement (which is just as true). Further
-% details are left to the reader.
-% By the way, whatever happened to the conditions characterizing monomor-
-% phisms and epimorphisms in Set (Proposition I.2.1)? In Set, a function with non-
-% empty source is a monomorphism if and only if it has a left-inverse, and it is
-% an
-% epimorphism if and only if it has a right-inverse. We have learned not to expect
-% any
-% of this to happen in more general categories. Modules are not an exception: the
-% function Z \to  Z defined by `multiplication by 2' is a monomorphism without a
-% left-
-% inverse, and the projection Z \to  Z/2Z is an epimorphism without a
-% right-inverse.
-% We will come back to this point in \S{}7.2.
+In general, monomorphisms and epimorphisms do not automatically satisfy good properties, even when objects of a given category are realized by adding structure to sets. For example, we have seen that the precise relationship between `surjective morphism' and `epimorphism' may be rather subtle: epimorphisms are surjective in $\mathsf{Grp}$, but for complicated reasons (\S{}II.8.6); and there are epimorphisms that are not surjective in $\mathsf{Ring}$ (\S{}2.3).
+The situation in $R$-$\mathsf{Mod}$ is as simple as it can be. Recall that we have identified universal properties for kernels and cokernels (cf.\ \S{}II.8.6); in the category $R$-$\mathsf{Mod}$ these would go as follows: if $\phi : M \to N$ is a homomorphism of $R$-modules, then $\ker\phi$ is final with respect to the property of factoring $R$-module homomorphisms $\alpha : P \to M$ such that $\phi \circ \alpha = 0$:
+\[\begin{tikzcd}
+  P \arrow[r, dashed, "\exists!\alpha"] \arrow[rr, bend left, "\alpha"] \arrow[rrr, bend left=40, "0"] & \ker\phi \arrow[r] & M \arrow[r, "\phi"] & N
+\end{tikzcd}\]
+while $\operatorname{coker}\phi$ is initial with respect to the property of factoring $R$-module homomorphisms $\beta : N \to P$ such that $\beta \circ \phi = 0$:
+\[\begin{tikzcd}
+  M \arrow[r, "\phi"] \arrow[rrr, bend right=40, "0"'] & N \arrow[r, "\pi"] \arrow[rr, bend right, "\beta"'] & \operatorname{coker}\phi \arrow[r, dashed, "\exists!\beta"'] & P
+\end{tikzcd}\]
+\begin{prop}{}{prop:rings:kernels-cokernels}
+  The following hold in $R$-$\mathsf{Mod}$:
+  \begin{itemize}
+    \item kernels and cokernels exist;
+    \item $\phi$ is a monomorphism $\iff$ $\ker\phi$ is trivial $\iff$ $\phi$ is injective as a set-function;
+    \item $\phi$ is an epimorphism $\iff$ $\operatorname{coker}\phi$ is trivial $\iff$ $\phi$ is surjective as a set-function.
+  \end{itemize}
+  Further, every monomorphism identifies its source with the kernel of some morphism, and every epimorphism identifies its target with the cokernel of some morphism.
+\end{prop}
+\begin{proof}
+  This proposition of course simply generalizes to $R$-$\mathsf{Mod}$ facts we know already from our study of $\mathsf{Ab}$, and a quick review should suffice for the careful reader. \emph{Kernels exist:} indeed, the `standard' definition of kernel satisfies the universal properties spelled out above (same argument as in Proposition~II.6.6). \emph{Cokernels exist:} indeed, let $\operatorname{coker}\phi = N / \operatorname{im}\phi$; if $\beta : N \to P$ is such that $\beta \circ \phi = 0$, then $\operatorname{im}\phi \subseteq \ker\beta$; so $\beta$ must factor uniquely through $N/\operatorname{im}\phi$ by the universal property of quotients, \cref{thm:rings:module-quotient-universal}. That is, $N/\operatorname{im}\phi$ does satisfy the universal property for cokernels.
+
+  The proofs of all the implications in the second and third points follow familiar patterns from (for example) Proposition~II.6.12 and Proposition~II.8.18. The last sentence of \cref{prop:rings:kernels-cokernels} simply reiterates the slogan `submodule $\iff$ kernel' and its mirror statement (which is just as true). Further details are left to the reader.
+\end{proof}
+By the way, whatever happened to the conditions characterizing monomorphisms and epimorphisms in $\mathsf{Set}$ (Proposition~I.2.1)? In $\mathsf{Set}$, a function with non-empty source is a monomorphism if and only if it has a left-inverse, and it is an epimorphism if and only if it has a right-inverse. We have learned not to expect any of this to happen in more general categories. Modules are not an exception: the function $\Z \to \Z$ defined by `multiplication by 2' is a monomorphism without a left-inverse, and the projection $\Z \to \Z/2\Z$ is an epimorphism without a right-inverse. We will come back to this point in \S{}7.2.
 
 \subsection{Free modules and free algebras}
 \label{subsec:rings:free-modules-and-free-algebras}
-% The universal property of free R-modules
+The universal property of free $R$-modules is modeled after the properties defining the other free objects we have encountered: the goal is to define the $R$-module containing a given set $A$ `in the most efficient way'. Again, the situation will match the case of abelian groups closely, so the reader may want to refer back to \S{}II.5.4.
 
-% is modeled after the properties defining the other free objects we have
-% encountered:
-% the goal is to define the R-module containing a given set A `in the most
-% efficient
-% way'. Again, the situation will match the case of abelian groups closely, so the
-% reader may want to refer back to \S{}II.5.4.
-% The universal property formalizing the heuristic requirement goes as follows:
-% given a set A, we are seeking an R-module F R (A), called a free R-module on the
-% set A, together with a set-function j : A \to  F R (A), such that for all
-% R-modules
-% M and set-functions f : A \to  M there exists a unique R-module homomorphism
-% \phi  : F R (A) \to  M such that the diagram
-% F R (A)
-%  \phi 
-%  / M
-% j
-%  O
-%  x x
-%  x
-%  x x x f
-%  x
-%  x
-%  x
-%  x ;
-% A
-% commutes. Abstract nonsense guarantees that such an R-module is unique up to
-% isomorphism if it exists at all (Proposition I.5.4) and that the function j : A
-% \to
-% F R(A) is necessarily injective (cf. Exercise II.5.3). The question is, does it
-% exist?
-% The answer will not appear to be very exciting, since it generalizes directly
-% the
-% case of abelian groups (that is, Z-modules). Given any set A, define the
-% (possibly
-% \oplus Ainfinite) direct sum N of an R-module N as follows:
-% N \oplus A := {\alpha  : A \to  N | \alpha (a) = 0 for only finitely many
-% elements a \in  A}.
-% Of course this agrees with the definition given for abelian groups in
-% \S{}II.5.4; N \oplus A
-% has an evident R-module structure, obtained by defining, for all r \in  R and a
-% \in  A,
-% (r\alpha )(a) := r(\alpha (a)).
-% For N = R we may define a function j : A \to  R\oplus A by sending a \in  A to
-% the
-% function ja : A \to  R:
-% ?
-% 1 if x = a,
-% (\forall x \in  A) : j a(x) :=
-% 0 if x = a.
-% Claim 6.3. F R(A) \sim 
-%  = R\oplus A .
-% The proof of this claim matches precisely the proof of Proposition II.5.6 and
-% is left to the reader (Exercise 6.1). The key is that every element of R\oplus A
-% may be
-% written uniquely as a finite sum
-% ?
-% ra a
-% ?
-%  a\in A
-% (shorthand for
-%  a\in A ra j(a)); incidentally, this is how elements of `the free R-
-% module on A' are often written---this is legal, by virtue of Claim 6.3.
-% In particular, for A = {1, . . . , n} a finite set, Claim 6.3 states that the
-% R-module
-% R\oplus n, with j : A \to  R\oplus n defined by
-% j(i) := (0, \dots  , 0,
-%  , 0, \dots  , 0) \in  R\oplus n ,
-% i-th place
-% satisfies the universal property for F R ({1, . . . , n}).
-% This is all entirely analogous to the story for Z-modules. The situation becomes
-% a little more interesting if we switch from R-modules to commutative R-algebras;
-% the category is different, so we should expect a different answer. The finite
-% case is
-% essentially the only one we will need in these notes, so assume A = {1, . . . ,
-% n} is
-% a finite set. In this case, we write R[A] for the polynomial ring R[x1 , . . . ,
-% xn ]; we
-% have a set-function j : A \to  R[A], defined by j(i) = xi .
-% Proposition 6.4. R[A] is a free commutative R-algebra on the set A.
-% Proof. The statement translates into the following: for every commutative R-
-% algebra S and every set-function f : A \to  S, there exists a unique R-algebra
-% homomorphism \phi  : R[A] \to  S such that the diagram
-% R[A]
-%  \phi 
-%  / S
-% j
-%  O
-%  {
-%  {
-%  { { { {
-%  f
-%  {
-%  {
-%  { =
-% A
-% commutes. Since S is an R-algebra, we have a fixed homomorphism of rings \alpha
-% :
-% R \to  S (cf. Example 5.6). Then we may construct \phi  : R[A] = R[x1, . . . ,
-% xn ] \to  S
-% by applying n times the `extension property' of Example 2.3: extend \alpha  to
-% R[x1 ] so
-% as to map x1 to f (1), then to R[x1 , x2 ] = R[x1][x2 ] so as to map x2 to f
-% (2), etc.
-% Note that each extension is uniquely determined by its requirements.
-% This gives \phi  as a ring homomorphism and shows that it is unique. The reader
-% will verify that \phi  is also (automatically) an R-module homomorphism, and
-% hence
-% a homomorphism of R-algebras, concluding the proof.
-%  ?
-% After the fact, the reader may want to revisit \S{}2.2 and recognize that the
-% `uni-
-% versal property of polynomial rings Z[x1 , . . . , xn]' given there was really a
-% version of
-% their role as free objects in the category of commutative rings, a.k.a.
-% commutative
-% Z-algebras.
-% It is not difficult to identify free objects in the larger category R-Alg: they
-% consist of `noncommutative polynomial rings' R?A?, with variables from the set A
-% but without any condition relating ab and ba for a = b in A. More precisely,
-% R?A?
-% is isomorphic to the monoid ring (cf. \S{}1.4) over the free monoid on A,
-% consisting of
-% all finite strings of elements in A, with operation defined by concatenation30 .
-% We
-% will encounter this ring again, but only in the distant future (Example
-% VIII.4.17).
+The universal property formalizing the heuristic requirement goes as follows: given a set $A$, we are seeking an $R$-module $F_R(A)$, called a \emph{free $R$-module on the set $A$}, together with a set-function $j : A \to F_R(A)$, such that for all $R$-modules $M$ and set-functions $f : A \to M$ there exists a unique $R$-module homomorphism $\phi : F_R(A) \to M$ such that the diagram
+\[\begin{tikzcd}
+  F_R(A) \arrow[r, "\phi"] & M \\
+  A \arrow[u, "j"] \arrow[ur, "f"']
+\end{tikzcd}\]
+commutes. Abstract nonsense guarantees that such an $R$-module is unique up to isomorphism if it exists at all (Proposition~I.5.4) and that the function $j : A \to F_R(A)$ is necessarily injective (cf.\ Exercise~II.5.3). The question is, does it exist?
+The answer will not appear to be very exciting, since it generalizes directly the case of abelian groups (that is, $\Z$-modules). Given any set $A$, define the (possibly infinite) direct sum $N^{\oplus A}$ of an $R$-module $N$ as follows:
+\[
+  N^{\oplus A} := \{\alpha : A \to N \mid \alpha(a) = 0 \text{ for only finitely many elements } a \in A\}.
+\]
+Of course this agrees with the definition given for abelian groups in \S{}II.5.4; $N^{\oplus A}$ has an evident $R$-module structure, obtained by defining, for all $r \in R$ and $a \in A$, $(r\alpha)(a) := r(\alpha(a))$. For $N = R$ we may define a function $j : A \to R^{\oplus A}$ by sending $a \in A$ to the function $j_a : A \to R$:
+\[
+  (\forall x \in A) : j_a(x) := \begin{cases} 1 & \text{if } x = a, \\ 0 & \text{if } x \neq a. \end{cases}
+\]
+\begin{prop}{}{prop:rings:free-module}
+  $F_R(A) \cong R^{\oplus A}$.
+\end{prop}
+
+\begin{proof}
+  The proof of this claim matches precisely the proof of Proposition~II.5.6 and is left to the reader (Exercise~6.1).
+\end{proof}
+
+The key is that every element of $R^{\oplus A}$ may be written uniquely as a finite sum $\sum_{a \in A} r_a a$ (shorthand for $\sum_{a \in A} r_a j(a)$); incidentally, this is how elements of `the free $R$-module on $A$' are often written — this is legal, by virtue of \cref{prop:rings:free-module}.
+
+In particular, for $A = \{1, \ldots, n\}$ a finite set, \cref{prop:rings:free-module} states that the $R$-module $R^{\oplus n}$, with $j : A \to R^{\oplus n}$ defined by $j(i) := (0, \ldots, 0, 1, 0, \ldots, 0) \in R^{\oplus n}$ ($1$ in the $i$-th place), satisfies the universal property for $F_R(\{1, \ldots, n\})$.
+This is all entirely analogous to the story for $\Z$-modules. The situation becomes a little more interesting if we switch from $R$-modules to commutative $R$-algebras; the category is different, so we should expect a different answer. The finite case is essentially the only one we will need in these notes, so assume $A = \{1, \ldots, n\}$ is a finite set. In this case, we write $R[A]$ for the polynomial ring $R[x_1, \ldots, x_n]$; we have a set-function $j : A \to R[A]$, defined by $j(i) = x_i$.
+
+\begin{prop}{}{prop:rings:free-R-algebra}
+  $R[A]$ is a free commutative $R$-algebra on the set $A$.
+\end{prop}
+\begin{proof}
+  The statement translates into the following: for every commutative $R$-algebra $S$ and every set-function $f : A \to S$, there exists a unique $R$-algebra homomorphism $\phi : R[A] \to S$ such that the diagram
+  \[\begin{tikzcd}
+    R[A] \arrow[r, "\phi"] & S \\
+    A \arrow[u, "j"] \arrow[ur, "f"']
+  \end{tikzcd}\]
+  commutes. Since $S$ is an $R$-algebra, we have a fixed homomorphism of rings $\alpha : R \to S$ (cf.\ Example~5.6). Then we may construct $\phi : R[A] = R[x_1, \ldots, x_n] \to S$ by applying $n$ times the `extension property' of Example~2.3: extend $\alpha$ to $R[x_1]$ so as to map $x_1$ to $f(1)$, then to $R[x_1, x_2] = R[x_1][x_2]$ so as to map $x_2$ to $f(2)$, etc. Note that each extension is uniquely determined by its requirements. This gives $\phi$ as a ring homomorphism and shows that it is unique. The reader will verify that $\phi$ is also (automatically) an $R$-module homomorphism, and hence a homomorphism of $R$-algebras, concluding the proof.
+\end{proof}
+After the fact, the reader may want to revisit \S{}2.2 and recognize that the `universal property of polynomial rings $\Z[x_1, \ldots, x_n]$' given there was really a version of their role as free objects in the category of commutative rings, a.k.a.\ commutative $\Z$-algebras.
+
+It is not difficult to identify free objects in the larger category $R$-$\mathsf{Alg}$: they consist of `noncommutative polynomial rings' $R\langle A \rangle$, with variables from the set $A$ but without any condition relating $ab$ and $ba$ for $a \neq b$ in $A$. More precisely, $R\langle A \rangle$ is isomorphic to the monoid ring (cf.\ \S{}1.4) over the free monoid on $A$, consisting of all finite strings of elements in $A$, with operation defined by concatenation\footnote{This construction is similar to the free group on $A$, but without the complication of the presence of inverses and of possible cancellations.}. We will encounter this ring again, but only in the distant future (Example~VIII.4.17).
 
 \subsection{Submodule generated by a subset; Noetherian modules}
 \label{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}
-% Let M be
+Let $M$ be an $R$-module, and let $A \subseteq M$ be a subset of $M$. By the universal property of free modules, there is a unique homomorphism of $R$-modules $\phi_A : R^{\oplus A} \to M$. The image of this homomorphism is a submodule of $M$, the \emph{submodule generated by $A$ in $M$}, usually denoted $\langle A \rangle$ (or $\langle a_1, \ldots, a_n \rangle$ if $A = \{a_1, \ldots, a_n\}$ is finite). Thus,
+\[
+  \langle A \rangle = \Bigl\{ \sum_{a \in A} r_a a \Bigm| r_a = 0 \text{ for only finitely many elements } a \in A \Bigr\}.
+\]
+It is hopefully clear that $\langle A \rangle$ is the smallest submodule of $M$ containing $A$.
 
-% an R-module, and let A \subseteq  M be a subset of M . By the universal property
-% of free
-% modules, there is a unique homomorphism of R-modules
-% \phi A : R\oplus A \to  M.
-% The image of this homomorphism is a submodule of M , the submodule generated
-% by A in M , usually denoted ?A? (or ?a1 , . . . , an? if A = {a1 , . . . , an}
-% is finite). Thus,
-% ?
-% ?A? = {
-%  ra a | ra = 0 for only finitely many elements a \in  A}.
-% a\in A
-% It is hopefully clear that ?A? is the smallest submodule of M containing A.
-% The module M is finitely generated if M = ?A? for a finite set A, that is, if
-% and only if there is a surjective homomorphism of R-modules
-% R\oplus n \setminus  M
-% for some n. One of the highlights of Chapter VI will be the classification of
-% finitely
-% generated modules over PIDs (Theorem VI.5.6). I have already briefly mentioned
-% 30This construction is similar to the free group on A, but without the
-% complication of the
-% presence of inverses and of possible cancellations.
-% the case for Z (recall that Z is a PID and Z-modules are nothing but abelian
-% groups!) back in \S{}II.6.3.
-% Finitely generated R-modules are tremendously important, but they are not as
-% well-behaved as one might hope at first. For example, it may be that a module M
-% is finitely generated, but some submodule of M is not finitely generated!
-% Example 6.5. Let R = Z[x1 , x2 , . . . ], a polynomial ring on infinitely many
-% inde-
-% terminates. Then R is finitely generated as an R-module: indeed, 1 generates it.
-% However, the ideal
-% (x 1 , x2 , . . . )
-% of R generated by all indeterminates is not finitely generated as an R-module
-% (Exercise 6.14).
-%  ?
-% Definition 6.6. An R-module M is Noetherian if every submodule of M is finitely
-% generated as an R-module.
-%  ?
-% Thus, a ring R is Noetherian in the sense of Definition 4.2 if and only if it is
-% Noetherian `as a module over itself'. The ring in Example 6.5 is not Noetherian.
-% We will study the Noetherian condition more carefully later on (\S{}V.1.1); but
-% we can already see one reason why this is a good, `solid' notion.
-% Proposition 6.7. Let M be an R-module, and let N be a submodule of M . Then
-% M is Noetherian if and only if both N and M/N are Noetherian.
-% Proof. If M is Noetherian, then so is M/N (same proof as for Exercise 4.2), and
-% so
-% is N (because every submodule of N is a submodule of M , so it is finitely
-% generated
-% because M is Noetherian). This proves the `only if' part of the statement.
-% For the converse, assume N and M/N are Noetherian, and let P be a submodule
-% of M ; we have to prove that P is finitely generated. Since P \cap  N is a
-% submodule
-% of N and N is Noetherian, P \cap  N is finitely generated. By the `second
-% isomorphism
-% theorem', Proposition 5.18,
-% P
-%  \sim 
-%  =
-%  P + N
-%  ,
-% P \cap  N
-%  N
-% and hence P/(P \cap  N ) is isomorphic to a submodule of M/N . Since M/N is Noe-
-% therian, this shows that P/(P \cap  N ) is finitely generated.
-% It follows that P itself is finitely generated, by Exercise 6.18.
-%  ?
-% Corollary 6.8. Let R be a Noetherian ring, and let M be a finitely generated
-% R-module. Then M is Noetherian (as an R-module).
-% Proof. Indeed, by hypothesis there is an onto homomorphism R\oplus n \setminus
-% M of R-
-% modules; hence (by the first isomorphism theorem, Corollary 5.16) M is
-% isomorphic
-% to a quotient of R\oplus n . By Proposition 6.7, it suffices to prove that
-% R\oplus n is Noetherian.
-% This may be done by induction. The statement is true for n = 1 by hypothesis.
-% For n > 1, assume we know that R\oplus (n-1) is Noetherian; since R\oplus (n-1)
-% may be
-% viewed as a submodule of R\oplus n , in such a way that
-% R\oplus n
-% \sim 
-%  = R
-% R\oplus (n-1)
-% \oplus n(Exercise 6.4), and R is Noetherian, it follows that R is Noetherian, again by
-% applying Proposition 6.7.
-%  ?
+The module $M$ is \emph{finitely generated} if $M = \langle A \rangle$ for a finite set $A$, that is, if and only if there is a surjective homomorphism of $R$-modules $R^{\oplus n} \twoheadrightarrow M$ for some $n$. One of the highlights of Chapter~VI will be the classification of finitely generated modules over PIDs (Theorem~VI.5.6). I have already briefly mentioned the case for $\Z$ (recall that $\Z$ is a PID and $\Z$-modules are nothing but abelian groups!) back in \S{}II.6.3.
+Finitely generated $R$-modules are tremendously important, but they are not as well-behaved as one might hope at first. For example, it may be that a module $M$ is finitely generated, but some submodule of $M$ is not finitely generated!
+
+\begin{exam}{}{}
+  Let $R = \Z[x_1, x_2, \ldots]$, a polynomial ring on infinitely many indeterminates. Then $R$ is finitely generated as an $R$-module: indeed, $1$ generates it. However, the ideal $(x_1, x_2, \ldots)$ of $R$ generated by all indeterminates is not finitely generated as an $R$-module (Exercise~6.14).
+\end{exam}
+\begin{defn}{}{defn:rings:noetherian-module}
+  An $R$-module $M$ is \emph{Noetherian} if every submodule of $M$ is finitely generated as an $R$-module.
+\end{defn}
+Thus, a ring $R$ is Noetherian in the sense of \cref{defn:rings:noetherian} if and only if it is Noetherian `as a module over itself'. The ring in Example~6.5 is not Noetherian. We will study the Noetherian condition more carefully later on (\S{}V.1.1); but we can already see one reason why this is a good, `solid' notion.
+
+\begin{prop}{}{prop:rings:noetherian-subquotient}
+  Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Then $M$ is Noetherian if and only if both $N$ and $M/N$ are Noetherian.
+\end{prop}
+\begin{proof}
+  If $M$ is Noetherian, then so is $M/N$ (same proof as for Exercise~4.2), and so is $N$ (because every submodule of $N$ is a submodule of $M$, so it is finitely generated because $M$ is Noetherian). This proves the `only if' part of the statement.
+
+  For the converse, assume $N$ and $M/N$ are Noetherian, and let $P$ be a submodule of $M$; we have to prove that $P$ is finitely generated. Since $P \cap N$ is a submodule of $N$ and $N$ is Noetherian, $P \cap N$ is finitely generated. By the `second isomorphism theorem', \cref{prop:rings:second-iso}, $P/(P \cap N) \cong (P + N)/N$, and hence $P/(P \cap N)$ is isomorphic to a submodule of $M/N$. Since $M/N$ is Noetherian, this shows that $P/(P \cap N)$ is finitely generated. It follows that $P$ itself is finitely generated, by Exercise~6.18.
+\end{proof}
+\begin{coro}{}{}
+  Let $R$ be a Noetherian ring, and let $M$ be a finitely generated $R$-module. Then $M$ is Noetherian (as an $R$-module).
+\end{coro}
+
+\begin{proof}
+  Indeed, by hypothesis there is an onto homomorphism $R^{\oplus n} \twoheadrightarrow M$ of $R$-modules; hence (by the first isomorphism theorem, Corollary~5.16) $M$ is isomorphic to a quotient of $R^{\oplus n}$. By \cref{prop:rings:noetherian-subquotient}, it suffices to prove that $R^{\oplus n}$ is Noetherian. This may be done by induction. The statement is true for $n = 1$ by hypothesis. For $n > 1$, assume we know that $R^{\oplus(n-1)}$ is Noetherian; since $R^{\oplus(n-1)}$ may be viewed as a submodule of $R^{\oplus n}$, in such a way that $R^{\oplus n}/R^{\oplus(n-1)} \cong R$ (Exercise~6.4), and $R$ is Noetherian, it follows that $R^{\oplus n}$ is Noetherian, again by applying \cref{prop:rings:noetherian-subquotient}.
+\end{proof}
 
 \subsection{Finitely generated vs. finite type}
 \label{subsec:rings:finitely-generated-vs-finite-type}
-% If S is an R-algebra, it may be `finitely
+If $S$ is an $R$-algebra, it may be `finitely generated' in two very different ways: as an $R$-module and as an $R$-algebra. It is important to keep these two concepts well distinct, although unfortunately the language used to express them is very similar.
 
-% generated' in two very different ways: as an R-module and as an R-algebra. It is
-% important to keep these two concepts well distinct, although unfortunately the
-% language used to express them is very similar.
-% The following definitions differ in three small details. . .
-% ``S is finitely generated as a module
-% over R if there is an onto homomor-
-% phism of R-modules from the free R-
-% module on a finite set to S.''
-% ``S is finitely generated as an algebra
-% over R if there is an onto homomor-
-% phism of R-algebras from the free R-
-% algebra on a finite set to S.''
-% The mathematical difference is more substantial than it may appear. As we
-% have seen in \S{}6.3, the free R-module over a finite set A = {1, . . . , n} is
-% isomorphic
-% \oplus nto R ; the free commutative R-algebra over A is isomorphic to R[x1 , . . . , xn ].
-% Thus, a commutative31 ring S is finitely generated as an R-module if there is an
-% onto homomorphism of R-modules
-% R\oplus n \setminus  S
-% for some n; it is finitely generated as an R-algebra if there is an onto
-% homomorphism
-% of R-algebras
-% R[x1 , . . . , xn] \setminus  S
-% for some n. In other words, S is finitely generated as an R module if and only
-% if
-% S \sim 
-%  = R\oplus n/M for some n and a submodule M of R\oplus n ; it is a finite-type
-%  R-algebra
-% if and only if S \sim 
-%  = R[x1 , . . . , xn ]/I for some n and an ideal I of R[x1 , . . . , xn].
-% We say that S is finite in the first case32 and of finite type in the second. It
-% is clear that `finite' \implies  `finite type'; it should be just as clear that
-% the converse
-% does not hold.
-% Example 6.9. The polynomial ring R[x] is a finite-type R-algebra, but it is not
-% finite as an R-module.
-%  ?
-% The distinction, while macroscopic in general, may evaporate in special, impor-
-% tant cases. For example, one can prove that if k and K are fields and k
-% \subseteq  K, then
-% K is of finite type over k if and only if it is in fact finite as a k-module
-% (that is, it is
-% a finite-dimensional k-vector space). This is one version of Hilbert's
-% Nullstellensatz,
-% a deep result we already mentioned in Example 4.15 and that we will prove (in an
-% important class of examples) in \S{}VII.2.2.
-% David Hilbert's name is associated to another important result concerning
-% finite-type R-algebras: if R is Noetherian (as a ring, that is, as an R-module)
-% 31We are mostly interested in the commutative case, so I will make this
-% hypothesis here;
-% the only change in the general case is typographical: \dots  rather than [\dots
-% ]. Also, note that a
-% commutative ring is finitely generated as an algebra if and only if it is
-% finitely generated as a
-% commutative algebra; cf. Exercise 6.15.
-% 32This is particularly unfortunate, since S may very well be an infinite set.
-% and S is a finite-type R-algebra, then S is also Noetherian (as a ring, that is,
-% as
-% an S-module). This is an immediate consequence of the so-called Hilbert's basis
-% theorem.
-% The proof of Hilbert's basis theorem is completely elementary: it could be given
-% here as an exercise, with a few key hints; we will see it in \S{}V.1.1.
+The following definitions differ in three small details\ldots
+\begin{quote}
+  ``$S$ is finitely generated as a module over $R$ if there is an onto homomorphism of $R$-modules from the free $R$-module on a finite set to $S$.''
+\end{quote}
+\begin{quote}
+  ``$S$ is finitely generated as an algebra over $R$ if there is an onto homomorphism of $R$-algebras from the free $R$-algebra on a finite set to $S$.''
+\end{quote}
+The mathematical difference is more substantial than it may appear. As we have seen in \S{}6.3, the free $R$-module over a finite set $A = \{1, \ldots, n\}$ is isomorphic to $R^{\oplus n}$; the free commutative $R$-algebra over $A$ is isomorphic to $R[x_1, \ldots, x_n]$. Thus, a commutative\footnote{We are mostly interested in the commutative case, so I will make this hypothesis here; the only change in the general case is typographical: $\cdots$ rather than $[\cdots]$. Also, note that a commutative ring is finitely generated as an algebra if and only if it is finitely generated as a commutative algebra; cf.\ Exercise~6.15.} ring $S$ is finitely generated as an $R$-module if there is an onto homomorphism of $R$-modules $R^{\oplus n} \twoheadrightarrow S$ for some $n$; it is finitely generated as an $R$-algebra if there is an onto homomorphism of $R$-algebras $R[x_1, \ldots, x_n] \twoheadrightarrow S$ for some $n$. In other words, $S$ is finitely generated as an $R$-module if and only if $S \cong R^{\oplus n}/M$ for some $n$ and a submodule $M$ of $R^{\oplus n}$; it is a finite-type $R$-algebra if and only if $S \cong R[x_1, \ldots, x_n]/I$ for some $n$ and an ideal $I$ of $R[x_1, \ldots, x_n]$. We say that $S$ is \emph{finite}\footnote{This is particularly unfortunate, since $S$ may very well be an infinite set.} in the first case and of \emph{finite type} in the second. It is clear that `finite' $\implies$ `finite type'; it should be just as clear that the converse does not hold.
+\begin{exam}{}{}
+  The polynomial ring $R[x]$ is a finite-type $R$-algebra, but it is not finite as an $R$-module.
+\end{exam}
+The distinction, while macroscopic in general, may evaporate in special, important cases. For example, one can prove that if $k$ and $K$ are fields and $k \subseteq K$, then $K$ is of finite type over $k$ if and only if it is in fact finite as a $k$-module (that is, it is a finite-dimensional $k$-vector space). This is one version of Hilbert's Nullstellensatz, a deep result we already mentioned in Example~4.15 and that we will prove (in an important class of examples) in \S{}VII.2.2.
+
+\name{David Hilbert}'s name is associated to another important result concerning finite-type $R$-algebras: if $R$ is Noetherian (as a ring, that is, as an $R$-module) and $S$ is a finite-type $R$-algebra, then $S$ is also Noetherian (as a ring, that is, as an $S$-module). This is an immediate consequence of the so-called \emph{Hilbert's basis theorem}. The proof of Hilbert's basis theorem is completely elementary: it could be given here as an exercise, with a few key hints; we will see it in \S{}V.1.1.
 
 \subsection*{Exercises}
 
-% 6.1. ? Prove Claim 6.3. [\S{}6.3]
-% 6.2. Prove or disprove that if R is ring and M is a nonzero R-module, then M is
-% not isomorphic to M \oplus  M .
-% 6.3. Let R be a ring, M an R-module, and p : M \to  M an R-module homo-
-% morphism such that p2 = p. (Such a map is called a projection.) Prove that
-% M \sim 
-%  = ker p \oplus  im p.
-% 6.4. ? Let R be a ring, and let n > 1. View R\oplus (n-1) as a submodule of
-% R\oplus n , via
-% the injective homomorphism R\oplus (n-1) \setminus \to  R\oplus n defined by
-% (r1 , . . . , rn-1 ) ?\to  (r1 , . . . , rn-1, 0).
-% Give a one-line proof that
-% R\oplus n
-% \sim 
-%  = R.
-% R\oplus (n-1)
-% [\S{}6.4]
-% 6.5. ? (Notation as in \S{}6.3.) For any ring R and any two sets A1, A2, prove
-% that
-% (R\oplus A1 )\oplus A2 \sim 
-%  = R\oplus (A1 \times A2 ) . [\S{}VIII.2.2]
-% 6.6. \lnot  Let R be a ring, and let F = R\oplus n be a finitely generated free
-% R-module.
-% Prove that HomR-Mod (F, R) = \sim 
-%  F . On the other hand, find an example of a ring R
-% and a nonzero R-module M such that HomR-Mod (M, R) = 0. [6.8]
-% 6.7. ? Let A be any set.
-% ?
-% \bullet  For any family {Ma }a\in A of modules over a ring R, define the product a\in A Ma
-% "
-% and coproduct a\in A Ma. If Ma = \sim 
-%  R for all a \in  A, these are denoted RA , R\oplus A ,
-% respectively.
-% \bullet  Prove that ZN \sim 
-%  = Z\oplus N . (Hint: Cardinality.)
-% [\S{}6.1, 6.8]
-% 6.8. Let R be a ring. If A is any set, prove that HomR-Mod (R\oplus A , R)
-% satisfies
-% the universal property for the product of the family {Ra}a\in A , where Ra =
-% \sim
-%  R for
-% all a; thus, HomR-Mod (R\oplus A , R) \sim 
-%  = RA. Conclude that HomR-Mod(R\oplus A , R) is not
-% isomorphic to R\oplus A in general (cf. Exercises 6.6 and 6.7.)
-% 6.9. \lnot  Let R be a ring, F a nonzero free R-module, and let \phi  : M \to  N
-% be a
-% homomorphism of R-modules. Prove that \phi  is onto if and only if for all
-% R-module
-% homomorphisms \alpha  : F \to  N there exists an R-module homomorphism \beta  :
-% F \to  M
-% such that \alpha  = \phi  \circ  \beta . (Free modules are projective, as we
-% will see in Chapter VIII.)
-% [7.8, VI.5.5]
-% 6.10. ? (Cf. Exercise I.5.12.) Let M , N , and Z be R-modules, and let \mu  : M
-% \to  Z,
-% \nu  : N \to  Z be homomorphisms of R-modules.
-% Prove that R-Mod has `fibered products': there exists an R-module M \times Z N
-% with R-module homomorhisms \pi M : M \times Z N \to  M , \pi N : M \times Z N
-% \to  N , such that
-% \mu \circ \pi M = \nu  \circ \pi N , and which is universal with respect to this requirement. That is, for
-% every R-module P and R-module homomorphisms \phi M : P \to  M , \phi N : P \to
-% N such
-% that \mu \circ \phi M = \nu  \circ \phi N , there exists a unique R-module
-% homomorphism P \to  M \times Z N
-% making the diagram
-% P
-% \phi N
-% \exists !
-% M $
-%  \times Z N
-%  &/
-%  N
-% \phi M
-%  \pi N
-% \pi M
-%  \nu 
-% \sqcup 
-%  \sqcup 
-% M
-%  / Z
-% \mu 
-% commute. The module M \times Z N may be called the pull-back of M along \nu  (or
-% of N
-% along \mu , since the construction is symmetric). `Fiber diagrams'
-% M \times Z N
-%  / N
-% \nu 
-% \sqcup 
-%  \sqcup 
-% M
-%  / Z
-% \mu 
-% are commutative, but `even better' than commutative; they are often decorated by
-% a square, as shown here. [\S{}6.1, 6.11, \S{}IX.1.4]
-% 6.11. ? Define a notion of fibered coproduct of two R-modules M , N , along an
-% R-module A, in the style of Exercise 6.10 (and cf. Exercise I.5.12)
-% A
-%  \nu 
-%  / N
-% \mu 
-% \sqcup 
-%  \sqcup 
-% M
-%  / M \oplus A N
-% Prove that fibered coproducts exist in R-Mod. The fibered coproduct M \oplus  A
-% N is
-% called the push-out of M along \nu  (or of N along \mu ). [\S{}6.1]
-% 6.12. Prove Proposition 6.2.
-% 6.13. Prove that every homomorphic image of a finitely generated module is
-% finitely
-% generated.
-% 6.14. ? Prove that the ideal (x1 , x2 , . . . ) of the ring R = Z[x1 , x2, . . .
-% ] is not finitely
-% generated (as an ideal, i.e., as an R-module). [\S{}6.4]
-% 6.15. ? Let R be a commutative ring. Prove that a commutative R-algebra S is
-% finitely generated as an algebra over R if and only if it is finitely generated
-% as a
-% commutative algebra over R. (Cf. \S{}6.5.) [\S{}6.5]
-% 6.16. ? Let R be a ring. A (left-)R-module M is cyclic if M = ?m? for some
-% m \in  M . Prove that simple modules (cf. Exercise 5.4) are cyclic. Prove that
-% an
-% R-module M is cyclic if and only if M = \sim 
-%  R/I for some (left-)ideal I. Prove that
-% every quotient of a cyclic module is cyclic. [6.17, \S{}VI.4.1]
-% 6.17. \lnot  Let M be a cyclic R-module, so that M \sim 
-%  = R/I for a (left-)ideal I (Exer-
-% cise 6.16), and let N be another R-module.
-% \bullet  Prove that HomR-Mod (M, N ) \sim 
-%  = {n \in  N | (\forall a \in  I), an = 0}.
-% \bullet  For a, b \in  Z, prove that HomAb (Z/aZ, Z/bZ) \sim 
-%  = Z/ gcd(a, b)Z.
-% [7.7]
-% 6.18. ? Let M be an R-module, and let N be a submodule of M . Prove that if N
-% and M/N are both finitely generated, then M is finitely generated. [\S{}6.4]
+\begin{exer}{\exerused}{exer:rings:free-module-proof}
+  Prove \cref{prop:rings:free-module}. [\S{}6.3]
+\end{exer}
+\begin{exer}{}{exer:rings:M-not-iso-MplusM}
+  Prove or disprove that if $R$ is a ring and $M$ is a nonzero $R$-module, then $M$ is not isomorphic to $M \oplus M$.
+\end{exer}
+\begin{exer}{}{exer:rings:projection-decomposition}
+  Let $R$ be a ring, $M$ an $R$-module, and $p : M \to M$ an $R$-module homomorphism such that $p^2 = p$. (Such a map is called a \emph{projection}.) Prove that $M \cong \ker p \oplus \operatorname{im} p$.
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:free-module-quotient}
+  Let $R$ be a ring, and let $n > 1$. View $R^{\oplus(n-1)}$ as a submodule of $R^{\oplus n}$, via the injective homomorphism $R^{\oplus(n-1)} \hookrightarrow R^{\oplus n}$ defined by $(r_1, \ldots, r_{n-1}) \mapsto (r_1, \ldots, r_{n-1}, 0)$. Give a one-line proof that $R^{\oplus n}/R^{\oplus(n-1)} \cong R$. [\S{}6.4]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:free-module-product-sets}
+  (Notation as in \S{}6.3.) For any ring $R$ and any two sets $A_1$, $A_2$, prove that $(R^{\oplus A_1})^{\oplus A_2} \cong R^{\oplus(A_1 \times A_2)}$. [\S{}VIII.2.2]
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:hom-free-dual}
+  Let $R$ be a ring, and let $F = R^{\oplus n}$ be a finitely generated free $R$-module. Prove that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(F, R) \cong F$. On the other hand, find an example of a ring $R$ and a nonzero $R$-module $M$ such that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, R) = 0$. [6.8]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:product-coproduct-infinite}
+  Let $A$ be any set.
+  \begin{itemize}
+    \item For any family $\{M_a\}_{a \in A}$ of modules over a ring $R$, define the product $\prod_{a \in A} M_a$ and coproduct $\bigoplus_{a \in A} M_a$. If $M_a \cong R$ for all $a \in A$, these are denoted $R^A$, $R^{\oplus A}$, respectively.
+    \item Prove that $\Z^\N \not\cong \Z^{\oplus \N}$. (Hint: Cardinality.)
+  \end{itemize}
+  [\S{}6.1, 6.8]
+\end{exer}
+\begin{exer}{}{exer:rings:hom-free-product}
+  Let $R$ be a ring. If $A$ is any set, prove that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(R^{\oplus A}, R)$ satisfies the universal property for the product of the family $\{R_a\}_{a \in A}$, where $R_a \cong R$ for all $a$; thus, $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(R^{\oplus A}, R) \cong R^A$. Conclude that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(R^{\oplus A}, R)$ is not isomorphic to $R^{\oplus A}$ in general (cf.\ Exercises~6.6 and~6.7).
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:free-projective}
+  Let $R$ be a ring, $F$ a nonzero free $R$-module, and let $\phi : M \to N$ be a homomorphism of $R$-modules. Prove that $\phi$ is onto if and only if for all $R$-module homomorphisms $\alpha : F \to N$ there exists an $R$-module homomorphism $\beta : F \to M$ such that $\alpha = \phi \circ \beta$. (Free modules are projective, as we will see in Chapter~VIII.) [7.8, VI.5.5]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:fibered-product}
+  (Cf.\ Exercise~I.5.12.) Let $M$, $N$, and $Z$ be $R$-modules, and let $\mu : M \to Z$, $\nu : N \to Z$ be homomorphisms of $R$-modules. Prove that $R$-$\mathsf{Mod}$ has `fibered products': there exists an $R$-module $M \times_Z N$ with $R$-module homomorphisms $\pi_M : M \times_Z N \to M$, $\pi_N : M \times_Z N \to N$, such that $\mu \circ \pi_M = \nu \circ \pi_N$, and which is universal with respect to this requirement. The module $M \times_Z N$ may be called the \emph{pull-back} of $M$ along $\nu$ (or of $N$ along $\mu$, since the construction is symmetric). `Fiber diagrams'
+  \[\begin{tikzcd}
+    M \times_Z N \arrow[r, "\pi_N"] \arrow[d, "\pi_M"'] \arrow[dr, phantom, "\lrcorner", very near start] & N \arrow[d, "\nu"] \\
+    M \arrow[r, "\mu"'] & Z
+  \end{tikzcd}\]
+  are commutative, but `even better' than commutative; they are often decorated by a square, as shown here. [\S{}6.1, 6.11, \S{}IX.1.4]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:fibered-coproduct}
+  Define a notion of fibered coproduct of two $R$-modules $M$, $N$, along an $R$-module $A$, in the style of Exercise~6.10 (and cf.\ Exercise~I.5.12):
+  \[\begin{tikzcd}
+    A \arrow[r, "\nu"] \arrow[d, "\mu"'] \arrow[dr, phantom, "\ulcorner", very near end] & N \arrow[d] \\
+    M \arrow[r] & M \oplus_A N
+  \end{tikzcd}\]
+  Prove that fibered coproducts exist in $R$-$\mathsf{Mod}$. The fibered coproduct $M \oplus_A N$ is called the \emph{push-out} of $M$ along $\nu$ (or of $N$ along $\mu$). [\S{}6.1]
+\end{exer}
+\begin{exer}{}{exer:rings:prove-prop-kernels-cokernels}
+  Prove \cref{prop:rings:kernels-cokernels}.
+\end{exer}
+\begin{exer}{}{exer:rings:homomorphic-image-fg}
+  Prove that every homomorphic image of a finitely generated module is finitely generated.
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:infinite-ideal-not-fg}
+  Prove that the ideal $(x_1, x_2, \ldots)$ of the ring $R = \Z[x_1, x_2, \ldots]$ is not finitely generated (as an ideal, i.e., as an $R$-module). [\S{}6.4]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:commutative-algebra-fg}
+  Let $R$ be a commutative ring. Prove that a commutative $R$-algebra $S$ is finitely generated as an algebra over $R$ if and only if it is finitely generated as a commutative algebra over $R$. (Cf.\ \S{}6.5.) [\S{}6.5]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:cyclic-module}
+  Let $R$ be a ring. A (left-)$R$-module $M$ is \emph{cyclic} if $M = \langle m \rangle$ for some $m \in M$. Prove that simple modules (cf.\ Exercise~5.4) are cyclic. Prove that an $R$-module $M$ is cyclic if and only if $M \cong R/I$ for some (left-)ideal $I$. Prove that every quotient of a cyclic module is cyclic. [6.17, \S{}VI.4.1]
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:hom-cyclic}
+  Let $M$ be a cyclic $R$-module, so that $M \cong R/I$ for a (left-)ideal $I$ (Exercise~6.16), and let $N$ be another $R$-module.
+  \begin{itemize}
+    \item Prove that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N) \cong \{n \in N \mid (\forall a \in I), an = 0\}$.
+    \item For $a, b \in \Z$, prove that $\operatorname{Hom}_{\mathsf{Ab}}(\Z/a\Z, \Z/b\Z) \cong \Z/\gcd(a,b)\Z$.
+  \end{itemize}
+  [7.7]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:fg-submodule-quotient}
+  Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Prove that if $N$ and $M/N$ are both finitely generated, then $M$ is finitely generated. [\S{}6.4]
+\end{exer}
 
 \section{Complexes and homology}
 \label{sec:rings:complexes-and-homology}
