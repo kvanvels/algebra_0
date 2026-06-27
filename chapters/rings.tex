@@ -1712,153 +1712,98 @@ unlike as in $\mathsf{Grp}$ or $\mathsf{Ring}$, being a kernel poses no restrict
 
 \subsection{Canonical decomposition and isomorphism theorems}
 \label{subsec:rings:canonical-decomposition-and-isomorphism-theorems}
-% The discussion
+The discussion now proceeds along the same lines as for (abelian) groups; the statements of the key facts and a few comments should suffice, as the proofs are nothing but a rehashing of the proofs of analogous statements we have encountered previously. Of course the reader should take the following statements as assignments and provide all the needed details.
 
-% now proceeds along the same lines as for (abelian) groups; the statements of the
-% key
-% facts and a few comments should suffice, as the proofs are nothing but a
-% rehashing
-% of the proofs of analogous statements we have encountered previously. Of course
-% the reader should take the following statements as assignments and provide all
-% the
-% needed details.
-% In the context of R-modules, the canonical decomposition takes the following
-% form:
-% Theorem 5.15. Every R-module homomorphism \phi  : M \to  M \setminus  may be
-% decomposed
-% as follows:
-% \phi 
-% M
-%  / / M/ ker \phi 
-%  \sim 
-%  / im \phi  ? ?
-%  /) M \setminus 
-% \tilde{\phi }
-% where the isomorphism \tilde{\phi } in the middle is the homomorphism induced by
-% \phi  (as in
-% Theorem 5.14).
-% The `first isomorphism theorem' is the following consequence:
-% Corollary 5.16. Suppose \phi  : M \to  M \setminus  is a surjective R-module
-% homomorphism.
-% Then
-% M \setminus  \sim 
-%  =
-%  M
-%  .
-% ker \phi 
-% If M is an R-module and N is a submodule of M , then there is a bijection
-% (cf. \S{}II.8.3)
-% u : {submodules P of M containing N } \to  {submodules of M/N }
-% preserving inclusions, and the `third isomorphism theorem' holds:
-% Proposition 5.17. Let N be a submodule of an R-module M , and let P be a
-% submodule of M containing N . Then P/N is a submodule of M/N , and
-% M/N \sim  =
-%  M
-%  .
-% P/N
-%  P
-% We also have a version of the `second isomorphism theorem' (cf. Proposi-
-% tion II.8.11), with simplifications due to the fact that normality is not an
-% issue
-% in the theory of modules:
-% Proposition 5.18. Let N , P be submodules of an R-module M . Then
-% \bullet  N + P is a submodule of M ;
-% \bullet  N \cap  P is a submodule of P , and
-% N + P \sim  =
-%  P
-%  .
-% N
-%  N \cap  P
-% ?
-% More
-%  ? generally, it is hopefully clear that the sum
-%  \alpha  N\alpha  and the intersec-
-% tion \alpha  N\alpha  of any family {N\alpha  }\alpha  of submodules of an
-% R-module M (which are
-% defined as subgroups of the abelian group M ; cf. for example Lemma II.6.3) are
-% submodules of M .
+In the context of $R$-modules, the canonical decomposition takes the following form:
+\begin{thm}{}{thm:rings:canonical-decomposition}
+  Every $R$-module homomorphism $\phi : M \to M'$ may be decomposed as follows:
+  \[\begin{tikzcd}
+    M \arrow[r, two heads] \arrow[rr, bend left, "\phi"] & M/\ker\phi \arrow[r, "\tilde{\phi}", "\sim"'] & \operatorname{im}\phi \arrow[r, hook] & M'
+  \end{tikzcd}\]
+  where the isomorphism $\tilde{\phi}$ in the middle is the homomorphism induced by $\phi$ (as in \cref{thm:rings:module-quotient-universal}).
+\end{thm}
+
+The `first isomorphism theorem' is the following consequence:
+\begin{coro}{}{}
+  Suppose $\phi : M \to M'$ is a surjective $R$-module homomorphism. Then $M' \cong M / \ker\phi$.
+\end{coro}
+If $M$ is an $R$-module and $N$ is a submodule of $M$, then there is a bijection (cf.\ \S{}II.8.3) $u : \{\text{submodules } P \text{ of } M \text{ containing } N\} \to \{\text{submodules of } M/N\}$ preserving inclusions, and the `third isomorphism theorem' holds:
+
+\begin{prop}{}{prop:rings:third-iso}
+  Let $N$ be a submodule of an $R$-module $M$, and let $P$ be a submodule of $M$ containing $N$. Then $P/N$ is a submodule of $M/N$, and $(M/N) / (P/N) \cong M/P$.
+\end{prop}
+We also have a version of the `second isomorphism theorem' (cf.\ Proposition~II.8.11), with simplifications due to the fact that normality is not an issue in the theory of modules:
+
+\begin{prop}{}{prop:rings:second-iso}
+  Let $N$, $P$ be submodules of an $R$-module $M$. Then
+  \begin{itemize}
+    \item $N + P$ is a submodule of $M$;
+    \item $N \cap P$ is a submodule of $P$, and $(N + P)/N \cong P/(N \cap P)$.
+  \end{itemize}
+\end{prop}
+
+More generally, it is hopefully clear that the sum $\sum_\alpha N_\alpha$ and the intersection $\bigcap_\alpha N_\alpha$ of any family $\{N_\alpha\}_\alpha$ of submodules of an $R$-module $M$ (which are defined as subgroups of the abelian group $M$; cf.\ for example Lemma~II.6.3) are submodules of $M$.
 
 \subsection*{Exercises}
 
-% 5.1. ? Let R be a ring. The opposite ring R\circ  is obtained from R by
-% reversing the
-% multiplication: that is, the product a \bullet  b in R\circ  is defined to be ba
-% \in  R. Prove that
-% the identity map R \to  R\circ  is an isomorphism if and only if R is
-% commutative. Prove
-% that Mn (R) is isomorphic to its opposite (not via the identity map!). Explain
-% how to turn right-R-modules into left-R-modules and conversely, if R \sim 
-%  = R\circ  . [\S{}5.1,
-% VIII.5.19]
-% 5.2. ? Prove Claim 5.1. [\S{}5.1]
-% 5.3. ? Let M be a module over a ring R. Prove that 0 \cdot  m = 0 and that (-1)
-% \cdot  m =
-% -m, for all m \in  M . [\S{}5.2]
-% 5.4. \lnot  Let R be a ring. A nonzero R-module M is simple (or irreducible) if
-% its only
-% submodules are {0} and M . Let M , N be simple modules, and let \phi  : M \to  N
-% be
-% a homomorphism of R-modules. Prove that either \phi  = 0 or \phi  is an
-% isomorphism.
-% (This rather innocent statement is known as Schur's lemma.) [5.10, 6.16,
-% VI.1.16]
-% 5.5. Let R be a commutative ring, viewed as an R-module over itself, and let M
-% be an R-module. Prove that Hom R-Mod (R, M ) \sim 
-%  = M as R-modules.
-% 5.6. Let G be an abelian group. Prove that if G has a structure of Q-vector
-% space,
-% then it has only one such structure. (Hint: First prove that every element of G
-% has necessarily infinite order. Alternative hint: The unique ring homomorphism
-% Z \to  Q is an epimorphism.)
-% 5.7. Let K be a field, and let k \subseteq  K be a subfield of K. Show that K is
-% a vector
-% space over k (and in fact a k-algebra) in a natural way. In this situation, we
-% say
-% that K is an extension of k.
-% 5.8. What is the initial object of the category R-Alg?
-% 5.9. \lnot  Let R be a commutative ring, and let M be an R-module. Prove that
-% the operation of composition on the R-module EndR-Mod (M ) makes the latter an
-% R-algebra in a natural way.
-% Prove that Mn (R) (cf. Exercise 1.4) is an R-algebra, in a natural way.
-% [VI.1.12,
-% VI.2.3]
-% 5.10. Let R be a commutative ring, and let M be a simple R-module (cf. Exer-
-% cise 5.4). Prove that EndR-Mod(M ) is a division R-algebra.
-% 5.11. ? Let R be a commutative ring, and let M be an R-module. Prove that
-% there is a natural bijection between the set of R[x]-module structures on M and
-% EndR-Mod(M ). [\S{}VI.7.1]
-% 5.12. ? Let R be a ring. Let M , N be R-modules, and let \phi  : M \to  N be a
-% homomorphism of R-modules. Assume \phi  is a bijection, so that it has an
-% inverse \phi -1
-% as a set-function. Prove that \phi -1 is a homomorphism of R-modules. Conclude
-% that a bijective R-module homomorphism is an isomorphism of R-modules. [\S{}5.2,
-% \S{}VI.2.1, \S{}IX.1.3]
-% 5.13. Let R be an integral domain, and let I be a nonzero principal ideal of R.
-% Prove that I is isomorphic to R as an R-module.
-% 5.14. ? Prove Proposition 5.18. [\S{}5.4]
-% 5.15. Let R be a commutative ring, and let I, J be ideals of R. Prove that
-% I \cdot  (R/J) \sim 
-%  = (I + J)/J as R-modules.
-% 5.16. \lnot  Let R be a commutative ring, M an R-module, and let a \in  R be a
-% nilpotent
-% element, determining a submodule aM of M . Prove that M = 0 \iff  aM = M .
-% (This is a particular case of Nakayama's lemma, Exercise VI.3.8.) [VI.3.8]
-% 5.17. ? Let R be a commutative ring, and let I be an ideal of R. Noting that
-% I j \cdot  I k \subseteq  I j+k , define a ring structure on the direct sum
-% !
-% ReesR(I) :=
-%  I j = R \oplus  I \oplus  I 2 \oplus  I 3 \oplus  \dots  .
-% j\geq 0
-% The homomorphism sending R identically to the first term in this direct sum
-% makes
-% ReesR (I) into an R-algebra, called the Rees algebra of I. Prove that if a \in
-% R is
-% a non-zero-divisor, then the Rees algebra of (a) is isomorphic to the polynomial
-% ring R[x] (as an R-algebra). [5.18]
-% 5.18. With notation as in Exercise 5.17 let a \in  R be a non-zero-divisor, let
-% I be
-% any ideal of R, and let J be the ideal aI. Prove that ReesR (J) = \sim 
-%  ReesR (I).
+\begin{exer}{\exerused}{exer:rings:opposite-ring}
+  Let $R$ be a ring. The opposite ring $R^\circ$ is obtained from $R$ by reversing the multiplication: that is, the product $a \bullet b$ in $R^\circ$ is defined to be $ba \in R$. Prove that the identity map $R \to R^\circ$ is an isomorphism if and only if $R$ is commutative. Prove that $M_n(R)$ is isomorphic to its opposite (not via the identity map!). Explain how to turn right-$R$-modules into left-$R$-modules and conversely, if $R \cong R^\circ$. [\S{}5.1, VIII.5.19]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:prove-prop5.1}
+  Prove \cref{prop:rings:module-axioms}. [\S{}5.1]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:module-zero}
+  Let $M$ be a module over a ring $R$. Prove that $0 \cdot m = 0$ and that $(-1) \cdot m = -m$, for all $m \in M$. [\S{}5.2]
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:schur}
+  Let $R$ be a ring. A nonzero $R$-module $M$ is \emph{simple} (or \emph{irreducible}) if its only submodules are $\{0\}$ and $M$. Let $M$, $N$ be simple modules, and let $\phi : M \to N$ be a homomorphism of $R$-modules. Prove that either $\phi = 0$ or $\phi$ is an isomorphism. (This rather innocent statement is known as \emph{Schur's lemma}.) [5.10, 6.16, VI.1.16]
+\end{exer}
+\begin{exer}{}{exer:rings:hom-R-M}
+  Let $R$ be a commutative ring, viewed as an $R$-module over itself, and let $M$ be an $R$-module. Prove that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(R, M) \cong M$ as $R$-modules.
+\end{exer}
+\begin{exer}{}{exer:rings:Q-vector-unique}
+  Let $G$ be an abelian group. Prove that if $G$ has a structure of $\Q$-vector space, then it has only one such structure. (Hint: First prove that every element of $G$ has necessarily infinite order. Alternative hint: The unique ring homomorphism $\Z \to \Q$ is an epimorphism.)
+\end{exer}
+\begin{exer}{}{exer:rings:field-extension}
+  Let $K$ be a field, and let $k \subseteq K$ be a subfield of $K$. Show that $K$ is a vector space over $k$ (and in fact a $k$-algebra) in a natural way. In this situation, we say that $K$ is an \emph{extension} of $k$.
+\end{exer}
+\begin{exer}{}{exer:rings:R-alg-initial}
+  What is the initial object of the category $R$-$\mathsf{Alg}$?
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:endomorphism-algebra}
+  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that the operation of composition on the $R$-module $\operatorname{End}_{R\text{-}\mathsf{Mod}}(M)$ makes the latter an $R$-algebra in a natural way. Prove that $M_n(R)$ (cf.\ Exercise~1.4) is an $R$-algebra, in a natural way. [VI.1.12, VI.2.3]
+\end{exer}
+\begin{exer}{}{exer:rings:simple-endomorphism-division}
+  Let $R$ be a commutative ring, and let $M$ be a simple $R$-module (cf.\ Exercise~5.4). Prove that $\operatorname{End}_{R\text{-}\mathsf{Mod}}(M)$ is a division $R$-algebra.
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:Rx-module-structures}
+  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ and $\operatorname{End}_{R\text{-}\mathsf{Mod}}(M)$. [\S{}VI.7.1]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:bijective-iso}
+  Let $R$ be a ring. Let $M$, $N$ be $R$-modules, and let $\phi : M \to N$ be a homomorphism of $R$-modules. Assume $\phi$ is a bijection, so that it has an inverse $\phi^{-1}$ as a set-function. Prove that $\phi^{-1}$ is a homomorphism of $R$-modules. Conclude that a bijective $R$-module homomorphism is an isomorphism of $R$-modules. [\S{}5.2, \S{}VI.2.1, \S{}IX.1.3]
+\end{exer}
+\begin{exer}{}{exer:rings:principal-ideal-iso-R}
+  Let $R$ be an integral domain, and let $I$ be a nonzero principal ideal of $R$. Prove that $I$ is isomorphic to $R$ as an $R$-module.
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:prove-second-iso}
+  Prove \cref{prop:rings:second-iso}. [\S{}5.4]
+\end{exer}
+\begin{exer}{}{exer:rings:ideal-quotient-iso}
+  Let $R$ be a commutative ring, and let $I$, $J$ be ideals of $R$. Prove that $I \cdot (R/J) \cong (I + J)/J$ as $R$-modules.
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:nakayama-nilpotent}
+  Let $R$ be a commutative ring, $M$ an $R$-module, and let $a \in R$ be a nilpotent element, determining a submodule $aM$ of $M$. Prove that $M = 0 \iff aM = M$. (This is a particular case of Nakayama's lemma, Exercise~VI.3.8.) [VI.3.8]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:rees-algebra}
+  Let $R$ be a commutative ring, and let $I$ be an ideal of $R$. Noting that $I^j \cdot I^k \subseteq I^{j+k}$, define a ring structure on the direct sum
+  \[
+    \operatorname{Rees}_R(I) := \bigoplus_{j \geq 0} I^j = R \oplus I \oplus I^2 \oplus I^3 \oplus \cdots.
+  \]
+  The homomorphism sending $R$ identically to the first term in this direct sum makes $\operatorname{Rees}_R(I)$ into an $R$-algebra, called the \emph{Rees algebra} of $I$. Prove that if $a \in R$ is a non-zero-divisor, then the Rees algebra of $(a)$ is isomorphic to the polynomial ring $R[x]$ (as an $R$-algebra). [5.18]
+\end{exer}
+\begin{exer}{}{exer:rings:rees-iso}
+  With notation as in Exercise~5.17, let $a \in R$ be a non-zero-divisor, let $I$ be any ideal of $R$, and let $J$ be the ideal $aI$. Prove that $\operatorname{Rees}_R(J) \cong \operatorname{Rees}_R(I)$.
+\end{exer}
 
 \section{Products, coproducts, etc., in R-Mod}
 \label{sec:rings:products-coproducts-etc-in-r-mod}
