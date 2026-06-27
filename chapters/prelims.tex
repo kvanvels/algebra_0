@@ -1987,37 +1987,43 @@ is as commutative diagrams
 This is the same definition considered in Example~3.7.
 
 Does this category have initial objects?
-% Claim 5.5. Denoting by \pi  the `canonical projection' defined in Example 2.6,
-% the
-% pair (\pi , A/\sim ) is an initial object of this category.
-% This is what our writer meant by the mysterious assertion copied above. Once
-% this is understood, it is very easy to prove that the assertion is indeed
-% correct.
-% Proof. Consider any (\phi , Z) as above. We have to prove that there exists a
-% unique
-% morphism (\pi , A/\sim ) \to  (\phi , Z), that is, a unique commutative diagram
-% A/\sim 
-%  \phi 
-%  / Z
-% [88
-%  E
-% \pi  88
-%  \phi 
-% A
-% that is, a unique function \phi  making this diagram commute.
-% Let [a]\sim  be an arbitrary element of A/\sim . If the diagram is indeed going
-% to
-% commute, then necessarily
-% \phi ([a]\sim ) = \phi (a);
-% this tells us that \phi  is indeed unique, if it exists at all---that is, if
-% this prescription
-% does define a function A/\sim  \to  Z.
-% Hence, all we have to check is that \phi  is well-defined, that is, that if [a1
-% ]\sim  =
-% [a2]\sim  , then \phi (a1 ) = \phi (a2 ); and indeed
-% [a1 ]\sim  = [a2 ]\sim  \Rightarrow  a1 \sim  a2 \Rightarrow  \phi (a1 ) = \phi (a2 ).
-% This is precisely the condition that morphisms in our category satisfy.
-%  ?
+\begin{prop}{}{prop:prelims:quotient-universal}
+Denoting by $\pi$ the `canonical projection' defined in Example~2.6, the pair
+$(\pi, A/{\sim})$ is an initial object of this category.
+\end{prop}
+
+This is what our writer meant by the mysterious assertion copied above. Once
+this is understood, it is very easy to prove that the assertion is indeed
+correct.
+
+\begin{proof}
+Consider any $(\varphi, Z)$ as above. We have to prove that there exists a
+unique morphism $(\pi, A/{\sim}) \to (\varphi, Z)$, that is, a unique
+commutative diagram
+\[
+\begin{tikzcd}
+  A/{\sim} \arrow[rr, "\overline{\varphi}"] & & Z \\
+  & A \arrow[ul, "\pi"] \arrow[ur, "\varphi"'] &
+\end{tikzcd}
+\]
+that is, a unique function $\overline{\varphi}$ making this diagram commute.
+
+Let $[a]_\sim$ be an arbitrary element of $A/{\sim}$. If the diagram is indeed
+going to commute, then necessarily
+\[
+  \overline{\varphi}([a]_\sim) = \varphi(a);
+\]
+this tells us that $\overline{\varphi}$ is indeed unique, if it exists at
+all---that is, if this prescription does define a function $A/{\sim} \to Z$.
+
+Hence, all we have to check is that $\overline{\varphi}$ is well-defined, that
+is, that if $[a_1]_\sim = [a_2]_\sim$, then $\varphi(a_1) = \varphi(a_2)$;
+and indeed
+\[
+  [a_1]_\sim = [a_2]_\sim \implies a_1 \sim a_2 \implies \varphi(a_1) = \varphi(a_2).
+\]
+This is precisely the condition that morphisms in our category satisfy.
+\end{proof}
 % Note the several levels of sloppiness in the assertion considered above: it does
 % not tell us very explicitly what category to consider; it does not tell us that
 % we
