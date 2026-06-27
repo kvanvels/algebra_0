@@ -1515,28 +1515,32 @@ isomorphisms, as we will see in a moment.
 
 \subsection{Isomorphisms}
 \label{subsec:groups:isomorphisms}
-% An isomorphism of groups \phi  : G \to  H is (of course) an
+An isomorphism of groups $\varphi : G \to H$ is (of course) an isomorphism in
+$\mathsf{Grp}$, that is, a group homomorphism admitting an inverse
+$\varphi^{-1} : H \to G$ which is also a group homomorphism. Taking our cue
+from $\mathsf{Set}$, if a homomorphism of groups is an isomorphism, then it
+must in particular be a bijection between the underlying sets. Luckily, the
+converse also holds:
 
-% isomorphism in Grp, that is, a group homomorphism admitting an inverse
-% \phi -1 : H \to  G
-% which is also a group homomorphism. Taking our cue from Set, if a homomorphism
-% of groups is an isomorphism, then it must in particular be a bijection between
-% the
-% underlying sets. Luckily, the converse also holds:
-% Proposition 4.3. Let \phi  : G \to  H be a group homomorphism. Then \phi  is an
-% isomorphism of groups if and only if it is a bijection.
-% Proof. One implication is immediate, as pointed out above. For the other impli-
-% cation, assume \phi  : G \to  H is a bijective group homomorphism. As a
-% bijection, \phi
-% has an inverse in Set:
-% \phi -1 : H \to  G;
-% we simply need to check that this is a group homomorphism. Let h1 , h2 be
-% elements
-% of H, and let g1 = \phi -1 (h1 ), g2 = \phi -1 (h2 ) be the corresponding
-% elements of G. Then
-% \phi -1 (h1 \cdot  h2 ) = \phi -1(\phi (g 1 ) \cdot  \phi (g2 )) = \phi -1(\phi (g1 \cdot  g2)) = g1 \cdot  g2 = \phi -1(h1) \cdot  \phi -1 (h2 )
-% as needed.
-%  ?
+\begin{prop}{Let $\varphi : G \to H$ be a group homomorphism. Then $\varphi$ is
+an isomorphism of groups if and only if it is a bijection.}{prop:groups:iso-iff-bijection}
+\end{prop}
+\begin{proof}
+One implication is immediate, as pointed out above. For the other implication,
+assume $\varphi : G \to H$ is a bijective group homomorphism. As a bijection,
+$\varphi$ has an inverse in $\mathsf{Set}$: $\varphi^{-1} : H \to G$; we simply
+need to check that this is a group homomorphism. Let $h_1, h_2$ be elements of
+$H$, and let $g_1 = \varphi^{-1}(h_1)$, $g_2 = \varphi^{-1}(h_2)$ be the
+corresponding elements of $G$. Then
+\begin{align*}
+  \varphi^{-1}(h_1 \cdot h_2)
+  &= \varphi^{-1}(\varphi(g_1) \cdot \varphi(g_2))
+   = \varphi^{-1}(\varphi(g_1 \cdot g_2))
+   = g_1 \cdot g_2
+   = \varphi^{-1}(h_1) \cdot \varphi^{-1}(h_2)
+\end{align*}
+as needed.
+\end{proof}
 % Example 4.4. The function D6 \to  S3 defined in \S{}2.2 is an isomorphism of
 % groups,
 % since it is a bijective group homomorphism. So is the exponential function (R,
