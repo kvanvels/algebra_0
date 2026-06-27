@@ -1013,62 +1013,41 @@ recall that this means that $a'' - a' \in I$, $b'' - b' \in I$; then
 \]
 using both the left-absorption and right-absorption properties of \cref{defn:rings:ideal}. This says precisely that $a'b' + I = a''b'' + I$, proving that the operation is well-defined.
 Summarizing, we have verified that $R/I$ is a ring, in such a way that the canonical projection $\pi : R \to R/I$ is a \emph{ring} homomorphism, if and only if $I$ is an \emph{ideal} of $R$.
-% Definition 3.5. This ring R/I is called the quotient ring of R modulo I.
-%  ?
-% Example 3.6. We know that all subgroups of (Z, +) are of the form nZ for a
-% nonnegative integer n (Proposition II.6.9). It is immediately verified that all
-% sub-
-% groups of Z are in fact ideals of the ring (Z, +, \cdot ). The quotients Z/nZ
-% are of course
-% nothing but the rings so-denoted in \S{}1.2 (and earlier).
-% The fact that Z is initial in Ring now prompts a natural definition. For a ring
-% R,
-% let f : Z \to  R be the unique ring homomorphism, defined by a ?\to  a \cdot  1R
-% . Then
-% ker f = nZ for a well-defined nonnegative integer n determined by R.
-% Definition 3.7. The characteristic of R is this nonnegative integer n.
-%  ?
-% Thus, the characteristic of R is n > 0 if the order of 1R as an element of (R,
-% +)
-% is a positive integer n, while the characteristic is 0 if the order of 1R is
-% \infty .
-%  ?
-% I have now fulfilled my promise to identify the notions of ideal and kernel of
-% ring homomorphisms: every kernel is an ideal (cf. Example 3.3); and on the other
-% hand every ideal I is the kernel of the ring homomorphisms R \to  R/I. We have
-% the slogan:
-% kernel \iff  ideal
-% in the context of ring theory.
-% The key universal property holds in this context as it does for groups; cf. The-
-% orem II.7.12. I reproduce the statement here for reference, but the reader
-% should
-% realize that very little needs to be proven at this point: the needed (group)
-% ho-
-% momorphism exists and is unique by Theorem II.7.12, and verifying it is a ring
-% homomorphism is immediate.
-% Theorem 3.8. Let I be a two-sided ideal of a ring R. Then for every ring homo-
-% morphism \phi  : R \to  S such that I \subseteq  ker \phi  there exists a unique
-% ring homomorphism
-% \tilde{\phi } : R/I \to  S so that the diagram
-% R \phi 
-%  / S
-% ;
-%  ; \pi  ;
-%  ; ;
-%  ; ;
-%  ? \setminus  \setminus  \setminus 
-%  \setminus 
-%  \setminus  \exists !\tilde{\phi }
-%  \setminus 
-%  \setminus 
-%  A
-% R/I
-% commutes.
-% As a reminder to the lazy reader, \tilde{\phi } is defined by
-% \tilde{\phi }(r + I) := \phi (r);
-% (part of) the content of the theorem is that this function is well-defined (if I
-% \subseteq
-% ker \phi ), and it is a ring homomorphism.
+\begin{defn}{}{defn:rings:quotient-ring}
+  This ring $R/I$ is called the \emph{quotient ring} of $R$ \emph{modulo} $I$.
+\end{defn}
+\begin{exam}{}{}
+  We know that all subgroups of $(\Z, +)$ are of the form $n\Z$ for a nonnegative integer $n$ (Proposition~II.6.9). It is immediately verified that all subgroups of $\Z$ are in fact \emph{ideals} of the ring $(\Z, +, \cdot)$. The quotients $\Z/n\Z$ are of course nothing but the rings so-denoted in \S{}1.2 (and earlier).
+\end{exam}
+The fact that $\Z$ is initial in $\mathsf{Ring}$ now prompts a natural definition. For a ring $R$, let $f : \Z \to R$ be the unique ring homomorphism, defined by $a \mapsto a \cdot 1_R$. Then $\ker f = n\Z$ for a well-defined nonneg­ative integer $n$ determined by $R$.
+
+\begin{defn}{}{defn:rings:characteristic}
+  The \emph{characteristic} of $R$ is this nonneg­ative integer $n$.
+\end{defn}
+
+Thus, the characteristic of $R$ is $n > 0$ if the order of $1_R$ \emph{as an element of} $(R, +)$ is a positive integer $n$, while the characteristic is $0$ if the order of $1_R$ is $\infty$.
+I have now fulfilled my promise to identify the notions of ideal and kernel of ring homomorphisms: every kernel is an ideal (cf.\ Example~3.3); and on the other hand every ideal $I$ is the kernel of the ring homomorphisms $R \to R/I$. We have the slogan:
+\[
+  \text{kernel} \iff \text{ideal}
+\]
+in the context of ring theory.
+The key universal property holds in this context as it does for groups; cf.\ Theorem~II.7.12. I reproduce the statement here for reference, but the reader should realize that very little needs to be proven at this point: the needed (group) homomorphism exists and is unique by Theorem~II.7.12, and verifying it is a \emph{ring} homomorphism is immediate.
+\begin{thm}{}{thm:rings:quotient-universal}
+  Let $I$ be a two-sided ideal of a ring $R$. Then for every ring homomorphism $\varphi : R \to S$ such that $I \subseteq \ker \varphi$ there exists a unique ring homomorphism $\tilde{\varphi} : R/I \to S$ so that the diagram
+  \[
+    \begin{tikzcd}
+      R \arrow[r, "\varphi"] \arrow[d, "\pi"'] & S \\
+      R/I \arrow[ur, "\exists!\tilde{\varphi}"']
+    \end{tikzcd}
+  \]
+  commutes.
+\end{thm}
+
+As a reminder to the lazy reader, $\tilde{\varphi}$ is defined by
+\[
+  \tilde{\varphi}(r + I) := \varphi(r);
+\]
+(part of) the content of the theorem is that this function is well-defined (if $I \subseteq \ker \varphi$), and it is a ring homomorphism.
 
 \subsection{Canonical decomposition and consequences}
 \label{subsec:rings:canonical-decomposition-and-consequences}
