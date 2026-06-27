@@ -2058,51 +2058,46 @@ dear reader, to contemplate the notion of the product of two sets given in
 \S{}1.4 and to see if the universal property it satisfies jumps out at you.
 Spoiler follows, so this is a good time to stop reading these notes and to try
 on your own.
-% Here is the universal property. Let A, B be sets, and consider the product
-% A\times B,
-% with the two natural projections:
-% \pi A l l l
-%  l l l5 A
-% A \times  B \pi B R
-%  R R R
-%  R R )
-% B
-% (see Example 2.4). Then for every set Z and morphisms
-% o fA o o
-%  o
-%  o o 7 A
-% Z O fB
-%  O O
-%  O O O
-%  '
-% B
-% there exists a unique morphism \sigma  : Z \to  A \times  B such that the
-% diagram
-% fA
-%  ,
-%  A
-% \sigma 
-%  \pi A l
-%  l
-%  l
-%  l l l5Z
-%  / A \times  B
-% \pi B R R R R
-%  R R)
-% 2 B
-% fB
-% commutes.
-% In this situation, \sigma  is usually denoted fA \times  fB .
-% Proof. Define \forall z \in  Z
-% \sigma (z) = (fA (z), fB (z)).
-% This function22 manifestly makes the diagram commute: \forall z \in  Z
-% \pi A \sigma (z) = \pi A(fA (z), fB (z)) = fA (z),
-% 22Note that there is no `well-definedness' issue this time.
-% showing that \pi A \sigma  = fA and similarly \pi B \sigma  = fB .
-% Further, the definition is forced by the commutativity of the diagram; so \sigma
-% is
-% unique, as claimed.
-%  ?
+Here is the universal property. Let $A$, $B$ be sets, and consider the product
+$A \times B$, with the two natural projections:
+\[
+\begin{tikzcd}[column sep=small]
+  & A \times B \arrow[dl, "\pi_A"'] \arrow[dr, "\pi_B"] & \\
+  A & & B
+\end{tikzcd}
+\]
+(see Example~2.4). Then for every set $Z$ and morphisms
+\[
+\begin{tikzcd}[column sep=small]
+  & Z \arrow[dl, "f_A"'] \arrow[dr, "f_B"] & \\
+  A & & B
+\end{tikzcd}
+\]
+there exists a unique morphism $\sigma \colon Z \to A \times B$ such that the
+diagram
+\[
+\begin{tikzcd}
+  & Z \arrow[d, "\sigma"] \arrow[ddl, "f_A"'] \arrow[ddr, "f_B"] & \\
+  & A \times B \arrow[dl, "\pi_A"] \arrow[dr, "\pi_B"'] & \\
+  A & & B
+\end{tikzcd}
+\]
+commutes. In this situation, $\sigma$ is usually denoted $f_A \times f_B$.
+
+\begin{proof}
+Define $\forall z \in Z$:
+\[
+  \sigma(z) = (f_A(z), f_B(z)).
+\]
+This function\footnote{Note that there is no `well-definedness' issue this
+time.} manifestly makes the diagram commute: $\forall z \in Z$,
+\[
+  \pi_A \sigma(z) = \pi_A(f_A(z), f_B(z)) = f_A(z),
+\]
+showing that $\pi_A \circ \sigma = f_A$ and similarly $\pi_B \circ \sigma =
+f_B$. Further, the definition is forced by the commutativity of the diagram;
+so $\sigma$ is unique, as claimed.
+\end{proof}
 % In other words, products of sets (or, more precisely, products of sets together
 % with the information of their natural projections to the factors) are final
 % objects in
