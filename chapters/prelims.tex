@@ -1689,115 +1689,124 @@ attention to groups!
 
 \subsection{Monomorphisms and epimorphisms}
 \label{subsec:prelims:morphisms:monomorphisms-and-epimorphisms}
-% As pointed out above, we do not
+As pointed out above, we do not have the option of defining for morphisms of an
+arbitrary category a notion such as `injective' in the same way as we do for
+set-functions in \S{}2.4: that definition requires a notion of `element', and
+in general no such notion is available for objects of a category. But nothing
+prevents us from defining monomorphisms as we did in \S{}2.6, in an arbitrary
+category:
 
-% have the option of defining for morphisms of an arbitrary category a notion such
-% as `injective' in the same way as we do for set-functions in \S{}2.4: that
-% definition
-% requires a notion of `element', and in general no such notion is available for
-% objects
-% of a category. But nothing prevents us from defining monomorphisms as we did in
-% \S{}2.6, in an arbitrary category:
-% Definition 4.7. Let C be a category. A morphism f \in  HomC (A, B) is a monomor-
-% phism if the following holds:
-% for all objects Z of C and all morphisms \alpha \setminus , \alpha \setminus
-% \setminus  \in  HomC (Z, A),
-% f \circ  \alpha \setminus  = f \circ  \alpha \setminus \setminus  \Rightarrow
-% \alpha \setminus  = \alpha \setminus \setminus  .
-%  ?
-% Similarly, epimorphisms are defined as follows:
-% Definition 4.8. Let C be a category. A morphism f \in  HomC (A, B) is an epimor-
-% phism if the following holds:
-% for all objects Z of C and all morphisms \beta  \setminus , \beta  \setminus
-% \setminus  \in  HomC(B, Z),
-% \beta  \setminus  \circ  f = \beta  \setminus \setminus  \circ  f
-%   \Rightarrow  \beta  \setminus  = \beta  \setminus \setminus .
-%  ?
-% Example 4.9. As proven in Proposition 2.3, in the category Set the monomor-
-% phisms are precisely the injective functions. The reader should have by now
-% checked
-% that, likewise, in Set the epimorphisms are precisely the surjective functions
-% (cf. Ex-
-% ercise 2.5). Thus, while the definitions given in \S{}2.6 may have looked
-% counterintu-
-% itive at first, they work as natural `categorical counterparts' of the ordinary
-% notions
-% of injective/surjective functions.
-%  ?
-% Example 4.10. In the categories of Example 3.3, every morphism is both a
-% monomorphism and an epimorphism. Indeed, recall that there is at most one mor-
-% phism between any two objects in these categories; hence the conditions defining
-% monomorphisms and epimorphisms are vacuous.
-%  ?
-% Contemplating Example 4.10 reveals a few unexpected twists in these defini-
-% tions, which defy our intuition as set-theorists. For instance, in Set, a
-% function is
-% an isomorphism if and only if it is both injective and surjective, hence if and
-% only
-% if it is both a monomorphism and an epimorphism. But in the category defined
-% by \leq  on Z, every morphism is both a monomorphism and an epimorphism, while
-% the only isomorphisms are the identities (Example 4.5). Thus this property is a
-% special feature of Set, and we should not expect it to hold automatically in
-% every
-% category; it will not hold in the category Ring of rings (cf. \S{}III.2.3). It
-% will hold in
-% every abelian category (of which Set is not an example!), but that is a story
-% for a
-% very distant future (Lemma IX.1.9).
-% Similarly, in Set a function is an epimorphism, that is, surjective, if and only
-% if
-% it has a right-inverse (Proposition 2.1); this may fail in general, even in
-% respectable
-% categories such as the category Grp of groups (cf. Exercise II.8.24).
+\begin{defn}{Monomorphism}{defn:prelims:monomorphism}
+Let $\mathsf{C}$ be a category. A morphism $f \in \operatorname{Hom}_{\mathsf{C}}(A,B)$
+is a \textbf{monomorphism} if the following holds: for all objects $Z$ of
+$\mathsf{C}$ and all morphisms $\alpha', \alpha'' \in
+\operatorname{Hom}_{\mathsf{C}}(Z,A)$,
+\[
+  f \circ \alpha' = f \circ \alpha'' \implies \alpha' = \alpha''.
+\]
+\end{defn}
+
+Similarly, epimorphisms are defined as follows:
+
+\begin{defn}{Epimorphism}{defn:prelims:epimorphism}
+Let $\mathsf{C}$ be a category. A morphism $f \in \operatorname{Hom}_{\mathsf{C}}(A,B)$
+is an \textbf{epimorphism} if the following holds: for all objects $Z$ of
+$\mathsf{C}$ and all morphisms $\beta', \beta'' \in
+\operatorname{Hom}_{\mathsf{C}}(B,Z)$,
+\[
+  \beta' \circ f = \beta'' \circ f \implies \beta' = \beta''.
+\]
+\end{defn}
+
+\begin{exam}{}{}
+As proven in Proposition~2.3, in the category $\mathsf{Set}$ the monomorphisms
+are precisely the injective functions. The reader should have by now checked
+that, likewise, in $\mathsf{Set}$ the epimorphisms are precisely the surjective
+functions (cf.\ \Cref{exer:2.5}). Thus, while the definitions given in \S{}2.6
+may have looked counterintuitive at first, they work as natural `categorical
+counterparts' of the ordinary notions of injective/surjective functions.
+\end{exam}
+
+\begin{exam}{}{}
+In the categories of \Cref{exam:prelims:category-leq}, every morphism is both
+a monomorphism and an epimorphism. Indeed, recall that there is at most one
+morphism between any two objects in these categories; hence the conditions
+defining monomorphisms and epimorphisms are vacuous.
+\end{exam}
+
+Contemplating the previous example reveals a few unexpected twists in these
+definitions, which defy our intuition as set-theorists. For instance, in
+$\mathsf{Set}$, a function is an isomorphism if and only if it is both injective
+and surjective, hence if and only if it is both a monomorphism and an
+epimorphism. But in the category defined by $\leq$ on $\mathbb{Z}$, every
+morphism is both a monomorphism and an epimorphism, while the only isomorphisms
+are the identities (\Cref{exam:prelims:category-leq}). Thus this property is a
+special feature of $\mathsf{Set}$, and we should not expect it to hold
+automatically in every category; it will not hold in the category $\mathsf{Ring}$
+of rings. It will hold in every abelian category (of which $\mathsf{Set}$ is
+not an example!), but that is a story for a very distant future.
+
+Similarly, in $\mathsf{Set}$ a function is an epimorphism, that is, surjective,
+if and only if it has a right-inverse (Proposition~2.1); this may fail in
+general, even in respectable categories such as the category $\mathsf{Grp}$ of
+groups.
 
 \subsection*{Exercises}
 
-% 4.1. ? Composition is defined for two morphisms. If more than two morphisms are
-% given, e.g.,
-% A
-%  f
-%  / B
-%  g
-%  / C
-%  h
-%  / D
-%  i
-%  / E,
-% then one may compose them in several ways, for example:
-% (ih)(gf ),
-%  (i(hg))f,
-%  i((hg)f ),
-%  etc.
-% so that at every step one is only composing two morphisms. Prove that the result
-% of any such nested composition is independent of the placement of the
-% parentheses.
-% (Hint: Use induction on n to show that any such choice for fn fn-1 \dots  f1
-% equals
-% ((\dots  ((fn fn-1 )fn-2 ) \dots  )f1 ).
-% Carefully working out the case n = 5 is helpful.) [\S{}4.1, \S{}II.1.3]
-% 4.2. ? In Example 3.3 we have seen how to construct a category from a set
-% endowed
-% with a relation, provided this latter is reflexive and transitive. For what
-% types of
-% relations is the corresponding category a groupoid (cf. Example 4.6)? [\S{}4.1]
-% 4.3. Let A, B be objects of a category C, and let f \in  HomC(A, B) be a
-% morphism.
-% \bullet  Prove that if f has a right-inverse, then f is an epimorphism.
-% \bullet  Show that the converse does not hold, by giving an explicit
-%          example of a cate-
-% gory and an epimorphism without a right-inverse.
-% 4.4. Prove that the composition of two monomorphisms is a monomorphism. De-
-% duce that one can define a subcategory Cmono of a category C by taking the same
-% objects as in C and defining HomCmono (A, B) to be the subset of HomC (A, B)
-% con-
-% sisting of monomorphisms, for all objects A, B. (Cf. Exercise 3.8; of course, in
-% general Cmono is not full in C.) Do the same for epimorphisms. Can you define
-% a subcategory Cnonmono of C by restricting to morphisms that are not monomor-
-% phisms?
-% 4.5. Give a concrete description of monomorphisms and epimorphisms in the cate-
-% gory MSet you constructed in Exercise 3.9. (Your answer will depend on the
-% notion
-% of morphism you defined in that exercise!)
+\begin{exer}{\exerused}{exer:4.1}
+Composition is defined for two morphisms. If more than two morphisms are given,
+e.g.,
+\[
+  A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D \xrightarrow{i} E,
+\]
+then one may compose them in several ways, for example: $(i \circ h) \circ
+(g \circ f)$, $(i \circ (h \circ g)) \circ f$, $i \circ ((h \circ g) \circ f)$,
+etc., so that at every step one is only composing two morphisms. Prove that the
+result of any such nested composition is independent of the placement of the
+parentheses.
+
+\begin{hint}
+Use induction on $n$ to show that any such choice for $f_n \circ f_{n-1} \circ
+\cdots \circ f_1$ equals $((\cdots((f_n \circ f_{n-1}) \circ f_{n-2}) \circ
+\cdots) \circ f_1)$. Carefully working out the case $n = 5$ is helpful.
+\end{hint}
+[\S{}4.1, \S{}II.1.3]
+\end{exer}
+
+\begin{exer}{\exerused}{exer:4.2}
+In \Cref{exam:prelims:category-leq} we have seen how to construct a category
+from a set endowed with a relation, provided this latter is reflexive and
+transitive. For what types of relations is the corresponding category a groupoid
+(cf.\ \Cref{exam:prelims:groupoids})? [\S{}4.1]
+\end{exer}
+
+\begin{exer}{}{exer:4.3}
+Let $A$, $B$ be objects of a category $\mathsf{C}$, and let
+$f \in \operatorname{Hom}_{\mathsf{C}}(A,B)$ be a morphism.
+\begin{itemize}
+  \item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
+  \item Show that the converse does not hold, by giving an explicit example of a
+        category and an epimorphism without a right-inverse.
+\end{itemize}
+\end{exer}
+
+\begin{exer}{}{exer:4.4}
+Prove that the composition of two monomorphisms is a monomorphism. Deduce that
+one can define a subcategory $\mathsf{C}_{\mathrm{mono}}$ of a category
+$\mathsf{C}$ by taking the same objects as in $\mathsf{C}$ and defining
+$\operatorname{Hom}_{\mathsf{C}_{\mathrm{mono}}}(A,B)$ to be the subset of
+$\operatorname{Hom}_{\mathsf{C}}(A,B)$ consisting of monomorphisms, for all
+objects $A$, $B$. (Cf.\ \Cref{exer:3.8}; of course, in general
+$\mathsf{C}_{\mathrm{mono}}$ is not full in $\mathsf{C}$.) Do the same for
+epimorphisms. Can you define a subcategory $\mathsf{C}_{\mathrm{nonmono}}$ of
+$\mathsf{C}$ by restricting to morphisms that are \emph{not} monomorphisms?
+\end{exer}
+
+\begin{exer}{}{exer:4.5}
+Give a concrete description of monomorphisms and epimorphisms in the category
+$\mathsf{MSet}$ you constructed in \Cref{exer:3.9}. (Your answer will depend
+on the notion of morphism you defined in that exercise!)
+\end{exer}
 
 \section{Universal properties}
 \label{sec:prelims:universal-properties}
