@@ -1133,41 +1133,50 @@ group homomorphism. Therefore, $\mathsf{Grp}$ is indeed a category.
 
 \subsection{Pause for reflection}
 \label{subsec:groups:pause-for-reflection}
-% The careful reader might raise an objection: the group
+The careful reader might raise an objection: the group axioms prescribe the
+existence of an identity element $e_G$ and of an `inverse', that is, a specific
+function
+\[
+  \iota_G : G \to G, \quad \iota_G(g) := g^{-1}.
+\]
+Shouldn't the definition of morphism in $\mathsf{Grp}$ keep track of this type
+of data? The definition we have given only keeps track of the multiplication map
+$m_G$.
 
-% axioms prescribe the existence of an identity element eG and of an `inverse',
-% that
-% is, a specific function
-% \iota G : G \to  G,
-%  \iota G (g) := g-1 .
-% Shouldn't the definition of morphism in Grp keep track of this type of data? The
-% definition we have given only keeps track of the multiplication map mG.
-% The reason why we can get away with this is that preserving m automatically
-% preserves e and \iota :
-% Proposition 3.2. Let \phi  : G \to  H be a group homomorphism. Then
-% \bullet  \phi (eG ) = eH ;
-% \bullet  \forall g \in  G, \phi (g-1 ) = \phi (g) -1 .
-% In terms of diagrams, the second assertion amounts to saying that
-% G
-%  \phi 
-%  / H
-% \iota G
-%  \iota H
-% \sqcup 
-%  \sqcup 
-% G
-%  / H
-% \phi 
-% must commute.
-% Proof. The first item follows from the definition of homomorphism and cancella-
-% tion: since eH = eH \cdot  eH ,
-% eH \cdot  \phi (eG ) = \phi (eG) = \phi (eG \cdot  eG ) = \phi (eG ) \cdot  \phi
-% (eG ),
-% which implies eH = \phi (eG ) by `cancelling \phi (eG )'.
-% The proof of the second assertion is similar: \forall g \in  G,
-% \phi (g -1 ) \cdot  \phi (g) = \phi (g -1 \cdot  g) = \phi (eG ) = eH = \phi (g)-1 \cdot  \phi (g),
-% implying \phi (g -1 ) = \phi (g)-1 by cancellation.
-%  ?
+The reason why we can get away with this is that preserving $m$ automatically
+preserves $e$ and $\iota$:
+
+\begin{prop}{}{prop:groups:homo-preserves-identity}
+Let $\varphi : G \to H$ be a group homomorphism. Then
+\begin{itemize}
+  \item $\varphi(e_G) = e_H$;
+  \item $\forall g \in G$, $\varphi(g^{-1}) = \varphi(g)^{-1}$.
+\end{itemize}
+In terms of diagrams, the second assertion amounts to saying that
+\[
+\begin{tikzcd}
+G \arrow[r, "\varphi"] \arrow[d, "\iota_G"'] & H \arrow[d, "\iota_H"] \\
+G \arrow[r, "\varphi"'] & H
+\end{tikzcd}
+\]
+must commute.
+\end{prop}
+\begin{proof}
+The first item follows from the definition of homomorphism and cancellation:
+since $e_H = e_H \cdot e_H$,
+\[
+  e_H \cdot \varphi(e_G) = \varphi(e_G) = \varphi(e_G \cdot e_G)
+    = \varphi(e_G) \cdot \varphi(e_G),
+\]
+which implies $e_H = \varphi(e_G)$ by `cancelling $\varphi(e_G)$'.
+
+The proof of the second assertion is similar: $\forall g \in G$,
+\[
+  \varphi(g^{-1}) \cdot \varphi(g) = \varphi(g^{-1} \cdot g) = \varphi(e_G)
+    = e_H = \varphi(g)^{-1} \cdot \varphi(g),
+\]
+implying $\varphi(g^{-1}) = \varphi(g)^{-1}$ by cancellation.
+\end{proof}
 
 \subsection{Products et al.}
 \label{subsec:groups:products-et-al}
