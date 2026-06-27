@@ -281,43 +281,47 @@ $g^n = e$ for some positive integer $n$. In this case, the \textbf{order} $|g|$
 is the \emph{smallest} positive $n$ such that $g^n = e$. One writes
 $|g| = \infty$ if $g$ does not have finite order.
 \end{defn}
-% By definition, if gn = e for some positive integer n, then |g| \leq  n. One can
-% be
-% more precise:
-% Lemma 1.10. If gn = e for some positive integer n, then |g| is a divisor of n.
-% Proof. As observed, n \geq  |g| by definition of order, that is, n - |g| \geq
-% 0. There must
-% then exist7 a positive integer m such that
-% r = n - |g| \cdot  m \geq  0 and
-%  n - |g| \cdot  (m + 1) < 0,
-% that is, r < |g|. Note that
-% g r = g n-|g|\cdot m = g n \cdot  (g|g|)-m = e \cdot  e-m = e.
-% By definition of order, |g| is the smallest positive integer such that g|g| = e.
-% Since
-% r is smaller than |g| and gr = e, r cannot be positive; hence r = 0 necessarily.
-% This
-% says
-% 0 = n - |g| \cdot  m,
-% that is, n = |g|\cdot m, proving that n is indeed an integer multiple of |g| as
-% claimed.
-%  ?
-% This lemma has the following immediate and useful consequence, which we
-% encourage the reader to keep firmly in mind:
-% Corollary 1.11. Let g be an element of finite order, and let N \in  Z. Then
-% gN = e \iff  N is a multiple of |g|.
-% 6Of course in an abelian group we would write the following prescription as ng =
-% 0.
-% 7 Purists may object that here I am surreptitiously using fairly sophisticated
-% information
-% about Z, namely the `division algorithm', hence essentially the fact that Z is a
-% Euclidean domain!
-% This is material that will have to wait until Chapter V to be given some
-% justice. I may as well
-% be open about it and admit that yes, I am assuming that my readers have already
-% acquired a
-% thorough familiarity with the operations of addition and multiplication among
-% integers. Shame
-% on me!
+By definition, if $g^n = e$ for some positive integer $n$, then $|g| \leq n$.
+One can be more precise:
+
+\begin{lem}{If $g^n = e$ for some positive integer $n$, then $|g|$ is a divisor of $n$.}{lem:groups:order-divisor}
+\end{lem}
+\begin{proof}
+As observed, $n \geq |g|$ by definition of order, that is, $n - |g| \geq 0$.
+There must then exist\footnote{Purists may object that here I am
+surreptitiously using fairly sophisticated information about $\mathbb{Z}$,
+namely the `division algorithm', hence essentially the fact that $\mathbb{Z}$ is
+a Euclidean domain! This is material that will have to wait until Chapter~V to
+be given some justice. I may as well be open about it and admit that yes, I am
+assuming that my readers have already acquired a thorough familiarity with the
+operations of addition and multiplication among integers. Shame on me!} a
+positive integer $m$ such that
+\[
+  r = n - |g| \cdot m \geq 0 \quad \text{and} \quad n - |g| \cdot (m+1) < 0,
+\]
+that is, $r < |g|$. Note that
+\[
+  g^r = g^{n - |g| \cdot m} = g^n \cdot (g^{|g|})^{-m} = e \cdot e^{-m} = e.
+\]
+By definition of order, $|g|$ is the smallest positive integer such that
+$g^{|g|} = e$. Since $r$ is smaller than $|g|$ and $g^r = e$, $r$ cannot be
+positive; hence $r = 0$ necessarily. This says
+\[
+  0 = n - |g| \cdot m,
+\]
+that is, $n = |g| \cdot m$, proving that $n$ is indeed an integer multiple of
+$|g|$ as claimed.
+\end{proof}
+
+This lemma has the following immediate and useful consequence, which we
+encourage the reader to keep firmly in mind:
+
+\begin{coro}{}{coro:groups:order-multiple}
+Let $g$ be an element of finite order, and let $N \in \mathbb{Z}$. Then
+\[
+  g^N = e \iff N \text{ is a multiple of } |g|.
+\]
+\end{coro}
 % Definition 1.12. If G is finite as a set, its order |G| is the number of its
 % elements;
 % we write |G| = \infty  if G is infinite.
