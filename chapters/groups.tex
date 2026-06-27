@@ -1097,52 +1097,39 @@ qualifier `group'.
 
 \subsection{Grp: Definition}
 \label{subsec:groups:grp-definition}
-% For G, H groups16 we define
+For $G$, $H$ groups\footnote{I am yielding to the usual abuse of language that
+lets us omit explicit mention of the operation.} we define
+$\operatorname{Hom}_{\mathsf{Grp}}(G, H)$ to be the set of group homomorphisms
+$G \to H$.
 
-% HomGrp (G, H)
-% to be the set of group homomorphisms G \to  H.
-% If G, H, K are groups and \phi  : G \to  H, \psi  : H \to  K are two group homo-
-% morphisms, it is easy to check that the composition \psi  \circ  \phi  : G \to
-% K is a group
-% homomorphism: from the diagram point of view, this amounts to observing that
-% the `outer rectangle' in
-% (\psi \circ \phi )\times (\psi \circ \phi )
-% +
-% G \times  G
-%  / H \times  H
-%  / K \times  K
-% \phi \times \phi 
-%  \psi \times \psi 
-% mG
-%  mH
-%  mK
-% \sqcup 
-%  \phi 
-%  \sqcup 
-%  \psi 
-%  \sqcup 
-% G
-%  / H
-%  /5 K
-% \psi \circ \phi 
-% 16 I am yielding to the usual abuse of language that lets us omit explicit
-% mention of the
-% operation.
-% must commute if the two `inner rectangles' commute. For arbitrary a, b \in  G,
-% this
-% means,
-% (\psi  \circ  \phi )(a \cdot  b) = \psi (\phi (a \cdot  b)) (1)
-%  = \psi (\phi (a) \cdot  \phi (b)) (2)
-%  = \psi (\phi (a)) \cdot  \psi (\phi (b))
-% = (\psi  \circ  \phi )(a) \cdot  (\psi  \circ  \phi )(b)
-% where (1) holds because \phi  is a homomorphism and (2) holds because \psi  is a
-% homo-
-% morphism.
-% Further, it is clear that composition is associative (because it is for
-% set-functions)
-% and that the identity function idG : G \to  G is a group homomorphism.
-% Therefore,
-% Grp is indeed a category.
+If $G$, $H$, $K$ are groups and $\varphi : G \to H$, $\psi : H \to K$ are two
+group homomorphisms, it is easy to check that the composition
+$\psi \circ \varphi : G \to K$ is a group homomorphism: from the diagram point
+of view, this amounts to observing that the `outer rectangle' in
+\[
+\begin{tikzcd}[column sep=large]
+G \times G \arrow[r, "\varphi \times \varphi"] \arrow[d, "m_G"']
+  \arrow[rr, bend left=20, "(\psi\circ\varphi)\times(\psi\circ\varphi)"] &
+H \times H \arrow[r, "\psi \times \psi"] \arrow[d, "m_H"'] &
+K \times K \arrow[d, "m_K"] \\
+G \arrow[r, "\varphi"'] \arrow[rr, bend right=20, "\psi\circ\varphi"'] &
+H \arrow[r, "\psi"'] & K
+\end{tikzcd}
+\]
+must commute if the two `inner rectangles' commute. For arbitrary $a, b \in G$
+this means,
+\begin{align*}
+  (\psi \circ \varphi)(a \cdot b) &= \psi(\varphi(a \cdot b)) \tag{1} \\
+    &= \psi(\varphi(a) \cdot \varphi(b)) \tag{2} \\
+    &= \psi(\varphi(a)) \cdot \psi(\varphi(b)) \\
+    &= (\psi \circ \varphi)(a) \cdot (\psi \circ \varphi)(b),
+\end{align*}
+where (1) holds because $\varphi$ is a homomorphism and (2) holds because
+$\psi$ is a homomorphism.
+
+Further, it is clear that composition is associative (because it is for
+set-functions) and that the identity function $\mathrm{id}_G : G \to G$ is a
+group homomorphism. Therefore, $\mathsf{Grp}$ is indeed a category.
 
 \subsection{Pause for reflection}
 \label{subsec:groups:pause-for-reflection}
