@@ -687,25 +687,24 @@ For a ring homomorphism $\varphi : R \to S$, the following are equivalent:
   \item $\varphi$ is injective (as a set-function).
 \end{enumerate}
 \end{prop}
-% Proof. We prove (a) \implies  (b), leaving the rest to the reader. Assume \phi
-% : R \to  S is
-% a monomorphism and r \in  ker \phi . Applying the extension property of Example
-% 2.2,
-% we obtain unique ring homomorphisms evr : Z[x] \to  R such that evr (x) = r and
-% ev0 : Z[x] \to  R such that ev(x) = 0. Consider the parallel ring homomorphisms:
-% Z[x]
-%  evr
-%  // R
-%  \phi 
-%  / S :
-% ev0
-% since \phi (r) = 0 = \phi (0), the two compositions \phi  \circ  evr , \phi
-% \circ  ev0 agree (because they
-% agree on Z and they agree on x); hence evr = ev 0 since \phi  is a monomorphism.
-% Therefore
-% r = evr (x) = ev0 (x) = 0.
-% This proves r \in  ker \phi  \implies  r = 0, that is, (b).
-%  ?
+\begin{proof}
+We prove (a) $\implies$ (b), leaving the rest to the reader. Assume $\varphi : R \to S$ is
+a monomorphism and $r \in \ker \varphi$. Applying the extension property of Example~2.2,
+we obtain unique ring homomorphisms $\mathrm{ev}_r : \Z[x] \to R$ such that $\mathrm{ev}_r(x) = r$ and
+$\mathrm{ev}_0 : \Z[x] \to R$ such that $\mathrm{ev}_0(x) = 0$. Consider the parallel ring homomorphisms:
+\[
+  \begin{tikzcd}
+    \Z[x] \arrow[r, shift left, "\mathrm{ev}_r"] \arrow[r, shift right, "\mathrm{ev}_0"'] & R \arrow[r, "\varphi"] & S\,;
+  \end{tikzcd}
+\]
+since $\varphi(r) = 0 = \varphi(0)$, the two compositions $\varphi \circ \mathrm{ev}_r$, $\varphi \circ \mathrm{ev}_0$ agree (because they
+agree on $\Z$ and they agree on $x$); hence $\mathrm{ev}_r = \mathrm{ev}_0$ since $\varphi$ is a monomorphism.
+Therefore
+\[
+  r = \mathrm{ev}_r(x) = \mathrm{ev}_0(x) = 0.
+\]
+This proves $r \in \ker \varphi \implies r = 0$, that is, (b).
+\end{proof}
 % By Proposition 2.4, if S \to  R is a monomorphism, then S may be identified
 % with a subset of R; the following definition formalizes this situation.
 % Definition 2.5. A subring S of a ring R is a ring whose underlying set is a
