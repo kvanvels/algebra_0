@@ -1230,45 +1230,31 @@ G & & H
 \]
 (defined as set-functions as in $\S$I.2.4) are group homomorphisms: again, this
 follows immediately from the definitions.
-% Proposition 3.4. With operation defined componentwise, G \times  H is a product
-% in Grp.
-% Proof. Recall (\S{}I.5.4) that this means that G \times  H satisfies the
-% following universal
-% property: for any group A and any choice of group homomorphisms \phi G : A \to
-% G,
-% \phi H : A \to  H, there exists a unique group homomorphism \phi G \times  \phi H making the
-% diagram
-% \phi G\times \phi H
-%  \phi  G
-%  o
-%  o o o
-%  \pi G o o
-%  o o
-%  o
-%  o
-%  o o .7
-%  G
-% A
-%  / G \times  H
-% \phi H
-%  O O O
-%  O \pi H O O
-%  O O
-%  O O O
-%  O O'
-% / H
-% commute.
-% Now, a unique set-function \phi G \times  \phi H exists making the diagram
-% commute,
-% because the set G \times  H is a product of G and H in Set. So we only need to
-% check
-% that \phi G \times  \phi  H is a group homomorphism, and this is immediate (if
-% cumbersome):
-% \forall a, b \in  A,
-% \phi G \times  \phi H (ab) = (\phi G (ab), \phi H (ab)) = (\phi G (a)\phi G (b), \phi H (a)\phi H (b))
-% = (\phi G(a), \phi H (a))(\phi G(b), \phi H (b)) = (\phi G \times  \phi H
-% (a))(\phi G \times  \phi H (b)).
-% ?
+\begin{prop}{With operation defined componentwise, $G \times H$ is a product in $\mathsf{Grp}$.}{prop:groups:direct-product-universal}
+\end{prop}
+\begin{proof}
+Recall ($\S$I.5.4) that this means that $G \times H$ satisfies the following
+universal property: for any group $A$ and any choice of group homomorphisms
+$\varphi_G : A \to G$, $\varphi_H : A \to H$, there exists a unique group
+homomorphism $\varphi_G \times \varphi_H$ making the diagram
+\[
+\begin{tikzcd}
+ & A \arrow[dl, "\varphi_G"'] \arrow[d, dashed, "\varphi_G \times \varphi_H"] \arrow[dr, "\varphi_H"] & \\
+G & G \times H \arrow[l, "\pi_G"] \arrow[r, "\pi_H"'] & H
+\end{tikzcd}
+\]
+commute. Now, a unique set-function $\varphi_G \times \varphi_H$ exists making
+the diagram commute, because the set $G \times H$ is a product of $G$ and $H$
+in $\mathsf{Set}$. So we only need to check that $\varphi_G \times \varphi_H$
+is a group homomorphism, and this is immediate: $\forall a, b \in A$,
+\begin{align*}
+  (\varphi_G \times \varphi_H)(ab)
+    &= (\varphi_G(ab), \varphi_H(ab)) \\
+    &= (\varphi_G(a)\varphi_G(b),\, \varphi_H(a)\varphi_H(b)) \\
+    &= (\varphi_G(a), \varphi_H(a))(\varphi_G(b), \varphi_H(b)) \\
+    &= (\varphi_G \times \varphi_H)(a)\,(\varphi_G \times \varphi_H)(b). \qedhere
+\end{align*}
+\end{proof}
 % What about coproducts? They do exist in Grp, but their construction requires
 % handling presentations more proficiently than we do right now, and general
 % coprod-
