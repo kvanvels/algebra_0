@@ -273,69 +273,78 @@ have order 2, since 2 cannot be written as sums of orders of conjugacy classes
 
 \subsection{Conjugation of subsets and subgroups}
 \label{subsec:groups2:conjugation-of-subsets-and-subgroups}
-% We may also act by conjugation
+We may also act by conjugation on the power set of $G$: if $A \subseteq G$ is
+a subset and $g \in G$, the \emph{conjugate} of $A$ is the subset $gAg^{-1}$.
+By cancellation, the conjugation map $a \mapsto gag^{-1}$ is a bijection
+between $A$ and $gAg^{-1}$.
 
-% on the power set of G: if A \subseteq  G is a subset and g \in  G, the conjugate
-% of A is
-% the subset gAg -1 . By cancellation, the conjugation map a ?\to  gag-1 is a
-% bijection
-% between A and gAg -1.
-% This leads to terminology analogous to the one introduced in \S{}1.2.
-% Definition 1.11. The normalizer NG (A) of A is its stabilizer under conjugation.
-% The centralizer of A is the subgroup ZG (A) \subseteq  NG (A) fixing each
-% element of A. ?
-% Thus, g \in  NG (A) if and only if3 gAg-1 = A, and g \in  ZG(A) if and only if
-% \forall a \in  A, gag -1 = a.
-% For A = {a} a singleton, we have NG ({a}) = ZG ({a}) = ZG (a). In general,
-% ZG (A) ? NG (A).
-% If H is a subgroup of G, every conjugate gHg-1 of H is also a subgroup of G;
-% conjugate subgroups have the same order.
-% 3 If A is finite (but not in general), this condition is equivalent to gAg-1
-% \subseteq  A.
-% Remark 1.12. The definition implies immediately that H \subseteq  NG (H) and
-% that H
-% is normal in G if and only if NG (H) = G. More generally, the normalizer NG (H)
-% of H in G is (clearly) the largest subgroup of G in which H is normal.
-%  ?
-% One could apply Proposition 1.1 to the conjugation action on subsets or sub-
-% group; however, there are too many subsets, and one has little control over the
-% number of subgroups. Other numerical considerations involving the number of
-% conjugates of a given subset or subgroups may be very useful.
-% Lemma 1.13. Let H \subseteq  G be a subgroup. Then (if finite) the number of
-% subgroups
-% conjugate to H equals the index [G : NG (H)] of the normalizer of H in G.
-% Proof. This is again an immediate consequence of Proposition II.9.9.
-%  ?
-% Corollary 1.14. If [G : H] is finite, then the number of subgroups conjugate to
-% H
-% is finite and divides [G : H].
-% Proof.
-% (cf. \S{}II.8.5).
-% [G : H] = [G : NG (H)] \cdot  [NG (H) : H]
-% ?
-% One of the celebrated Sylow theorems will strengthen this statement substan-
-% tially in the case in which H is a maximal p-group contained in a finite group
-% G.
-% For a statement concerning the size of the normalizer of an arbitrary p-subgroup
-% of
-% a group, see Lemma 2.9.
-% Another useful numerical tool is the observation that if H and K are subgroups
-% of a group G and H \subseteq  NG (K)---so that gKg -1 = K for all g \in
-% H---then conjuga-
-% tion by g \in  H gives an automorphism of K. Indeed, I have already observed
-% that
-% conjugation is a bijection, and it is immediate to see that it is a
-% homomorphism:
-% \forall k 1 , k2 \in  K
-% (gk1 g -1 )(gk2 g-1 ) = gk 1 (g -1 g)k2g -1 = g(k1k2 )g -1 .
-% Thus, conjugation gives a set-function
-% \gamma  : H \to  AutGrp (K).
-% The reader will check that this is a group homomorphism and will determine ker
-% \gamma
-% (Exercise 1.21).
-% This is especially useful if H is finite and some information is available con-
-% cerning AutGrp (K) (for an example, see Exercise 4.14). A classic application is
-% presented in Exercise 1.22.
+This leads to terminology analogous to the one introduced in \S{}1.2.
+\begin{defn}{}{defn:groups2:normalizer-centralizer-subset}
+The \emph{normalizer} $N_G(A)$ of $A$ is its stabilizer under conjugation.
+The \emph{centralizer} of $A$ is the subgroup $Z_G(A) \subseteq N_G(A)$
+fixing each element of $A$.
+\end{defn}
+Thus, $g \in N_G(A)$ if and only if\footnote{If $A$ is finite (but not in
+general), this condition is equivalent to $gAg^{-1} \subseteq A$.}
+$gAg^{-1} = A$, and $g \in Z_G(A)$ if and only if $\forall a \in A$,
+$gag^{-1} = a$.
+
+For $A = \{a\}$ a singleton, we have $N_G(\{a\}) = Z_G(\{a\}) = Z_G(a)$. In
+general, $Z_G(A) \subsetneq N_G(A)$.
+
+If $H$ is a subgroup of $G$, every conjugate $gHg^{-1}$ of $H$ is also a
+subgroup of $G$; conjugate subgroups have the same order.
+\begin{rem}{}{}
+The definition implies immediately that $H \subseteq N_G(H)$ and that $H$ is
+normal in $G$ if and only if $N_G(H) = G$. More generally, the normalizer
+$N_G(H)$ of $H$ in $G$ is (clearly) the largest subgroup of $G$ in which $H$
+is normal.
+\end{rem}
+One could apply \cref{prop:groups2:class-formula-action} to the conjugation
+action on subsets or subgroups; however, there are too many subsets, and one
+has little control over the number of subgroups. Other numerical considerations
+involving the number of conjugates of a given subset or subgroup may be very
+useful.
+\begin{lem}{}{lem:groups2:conjugate-subgroups-count}
+Let $H \subseteq G$ be a subgroup. Then (if finite) the number of subgroups
+conjugate to $H$ equals the index $[G : N_G(H)]$ of the normalizer of $H$
+in $G$.
+\end{lem}
+\begin{proof}
+This is again an immediate consequence of Proposition~II.9.9.
+\end{proof}
+\begin{coro}{}{coro:groups2:conjugate-subgroups-divides-index}
+If $[G : H]$ is finite, then the number of subgroups conjugate to $H$ is
+finite and divides $[G : H]$.
+\end{coro}
+\begin{proof}
+\[
+  [G : H] = [G : N_G(H)] \cdot [N_G(H) : H]
+\]
+(cf.\ \S{}II.8.5).
+\end{proof}
+One of the celebrated Sylow theorems will strengthen this statement
+substantially in the case in which $H$ is a maximal $p$-group contained in a
+finite group $G$. For a statement concerning the size of the normalizer of an
+arbitrary $p$-subgroup of a group, see Lemma~2.9.
+Another useful numerical tool is the observation that if $H$ and $K$ are
+subgroups of a group $G$ and $H \subseteq N_G(K)$---so that $gKg^{-1} = K$
+for all $g \in H$---then conjugation by $g \in H$ gives an automorphism of
+$K$. Indeed, I have already observed that conjugation is a bijection, and it
+is immediate to see that it is a homomorphism: $\forall k_1, k_2 \in K$
+\[
+  (gk_1 g^{-1})(gk_2 g^{-1}) = gk_1(g^{-1}g)k_2 g^{-1} = g(k_1 k_2)g^{-1}.
+\]
+Thus, conjugation gives a set-function
+\[
+  \gamma : H \to \operatorname{Aut}_{\categ{Grp}}(K).
+\]
+The reader will check that this is a group homomorphism and will determine
+$\ker\gamma$ (Exercise~1.21).
+
+This is especially useful if $H$ is finite and some information is available
+concerning $\operatorname{Aut}_{\categ{Grp}}(K)$ (for an example, see
+Exercise~4.14). A classic application is presented in Exercise~1.22.
 
 \subsection*{Exercises}
 
