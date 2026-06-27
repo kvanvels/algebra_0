@@ -205,69 +205,71 @@ $a \in Z(G)$.
 
 \subsection{The Class Formula}
 \label{subsec:groups2:the-class-formula}
-% The `official' Class Formula for a finite group G is the
+The `official' Class Formula for a finite group $G$ is the particular case of
+\cref{prop:groups2:class-formula-action} for the conjugation action.
 
-% particular case of Proposition 1.1 for the conjugation action.
-% Proposition 1.8 (Class formula). Let G be a finite group. Then
-% ?
-% |G| = |Z(G)| +
-%  [G : Z(a)],
-% a\in A
-% where A \subseteq  G is a set containing one representative for each nontrivial
-% conjugacy
-% class in G.
-% Proof. The set of fixed points is Z(G), and the stabilizer of a is the
-% centralizer Z(a);
-% apply Proposition 1.1.
-%  ?
-% The class formula is surprisingly useful. In applying it, keep in mind that
-% every
-% summand on the right (that is, both |Z(G)| and each [G : Z(a)]) is a divisor of
-% |G|;
-% this fact alone often suffices to draw striking conclusions about G.
-% Possibly the most famous such application is to p-groups, via Corollary 1.3:
-% Corollary 1.9. Let G be a nontrivial p-group. Then G has a nontrivial center.
-% Proof. Since |Z(G)| \equiv  |G| mod p and |G| > 1 is a power of p, necessarily
-% |Z(G)| is
-% a multiple of p. As Z(G) = \emptyset  (since eG \in  Z(G)), this implies |Z(G)|
-% \geq  p.
-%  ?
-% For example, it follows immediately (from Corollary 1.9 and Lemma 1.5; cf. Ex-
-% ercise 1.6) that if p is prime, then every group of order p2 is commutative.
-% In general, the class formula poses a strong constraint on what can go on in a
-% group.
-% Example 1.10. Consider a group G of order 6; what are the possibilities for its
-% class formula?
-% If G is commutative, then the class formula will tell us very little:
-% 6 = 6.
-% If G is not commutative, then its center must be trivial (as a consequence of
-% La-
-% grange's theorem and Lemma 1.5); so the class formula is 6 = 1 + \dots  , where
-% \dots
-% collects the sizes of the nontrivial conjugacy classes. But each of these
-% summands
-% must be larger than 1, smaller than 6, and must divide 6; that is, there are no
-% choices:
-% 6=1+2+3
-% is the only possibility. The reader should check that this is indeed the class
-% formula
-% for S3 ; in fact, S3 is the only noncommutative group of order 6 up to
-% isomorphism
-% (Exercise 1.13).
-%  ?
-% Another useful observation is that normal subgroups must be unions of conju-
-% gacy classes: because if H is a normal subgroup, a \in  H, and b = gag-1 is
-% conjugate
-% to a, then
-% b \in  gHg-1 = H.
-% To stick with the |G| = 6 example, note that every subgroup of a group must
-% contain the identity and its size must divide the order of the group; it follows
-% that
-% a normal subgroup of a noncommutative group of order 6 cannot have order 2,
-% since
-% 2 cannot be written as sums of orders of conjugacy classes (including the class
-% of
-% the identity).
+\begin{prop}{Class formula}{prop:groups2:class-formula}
+Let $G$ be a finite group. Then
+\[
+  |G| = |Z(G)| + \sum_{a \in A} [G : Z(a)],
+\]
+where $A \subseteq G$ is a set containing one representative for each
+nontrivial conjugacy class in $G$.
+\end{prop}
+\begin{proof}
+The set of fixed points is $Z(G)$, and the stabilizer of $a$ is the
+centralizer $Z(a)$; apply \cref{prop:groups2:class-formula-action}.
+\end{proof}
+The class formula is surprisingly useful. In applying it, keep in mind that
+every summand on the right (that is, both $|Z(G)|$ and each $[G : Z(a)]$) is
+a divisor of $|G|$; this fact alone often suffices to draw striking conclusions
+about $G$.
+
+Possibly the most famous such application is to $p$-groups, via
+\cref{coro:groups2:p-group-fixed-pts}:
+\begin{coro}{}{coro:groups2:p-group-nontrivial-center}
+Let $G$ be a nontrivial $p$-group. Then $G$ has a nontrivial center.
+\end{coro}
+\begin{proof}
+Since $|Z(G)| \equiv |G| \bmod p$ and $|G| > 1$ is a power of $p$, necessarily
+$|Z(G)|$ is a multiple of $p$. As $Z(G) \neq \emptyset$ (since $e_G \in Z(G)$),
+this implies $|Z(G)| \geq p$.
+\end{proof}
+For example, it follows immediately (from \cref{coro:groups2:p-group-nontrivial-center}
+and \cref{lem:groups2:quotient-center-cyclic}; cf.\ Exercise~1.6) that if $p$
+is prime, then every group of order $p^2$ is commutative. In general, the class
+formula poses a strong constraint on what can go on in a group.
+\begin{exam}{}{}
+Consider a group $G$ of order 6; what are the possibilities for its class
+formula?
+
+If $G$ is commutative, then the class formula will tell us very little:
+\[
+  6 = 6.
+\]
+If $G$ is not commutative, then its center must be trivial (as a consequence
+of Lagrange's theorem and \cref{lem:groups2:quotient-center-cyclic}); so the
+class formula is $6 = 1 + \dots$, where $\dots$ collects the sizes of the
+nontrivial conjugacy classes. But each of these summands must be larger than
+1, smaller than 6, and must divide 6; that is, there are no choices:
+\[
+  6 = 1 + 2 + 3
+\]
+is the only possibility. The reader should check that this is indeed the class
+formula for $S_3$; in fact, $S_3$ is the only noncommutative group of order 6
+up to isomorphism (Exercise~1.13).
+\end{exam}
+Another useful observation is that normal subgroups must be unions of conjugacy
+classes: because if $H$ is a normal subgroup, $a \in H$, and $b = gag^{-1}$ is
+conjugate to $a$, then
+\[
+  b \in gHg^{-1} = H.
+\]
+To stick with the $|G| = 6$ example, note that every subgroup of a group must
+contain the identity and its size must divide the order of the group; it
+follows that a normal subgroup of a noncommutative group of order 6 cannot
+have order 2, since 2 cannot be written as sums of orders of conjugacy classes
+(including the class of the identity).
 
 \subsection{Conjugation of subsets and subgroups}
 \label{subsec:groups2:conjugation-of-subsets-and-subgroups}
