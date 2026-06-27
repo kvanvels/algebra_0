@@ -1249,7 +1249,6 @@ The matter of whether $IJ = I \cap J$ is often subtle; a prototype situation in 
 
 \subsection{Quotients of polynomial rings}
 \label{subsec:rings:quotients-of-polynomial-rings}
-% I have already observed that the quotient
 
 $\Z/n\Z$ is our familiar ring of congruence classes modulo $n$. Quotients of polynomial rings by principal ideals are a good source of `concrete', but maybe less familiar, examples.
 
@@ -1515,13 +1514,6 @@ We will come back to all of this and get a very small taste of algebraic geometr
   \end{itemize}
   (Hint: Exercise~3.3.)
 \end{exer}
-% 4.12. ? Let R be a commutative ring and a1 , \dots  , a n elements of R. Prove
-% that
-% R[x 1 , . . . , xn ]
-%  \sim 
-%  = R.
-% (x1 - a1 , . . . , xn - an )
-% [\S{}VII.2.2]
 \begin{exer}{\exerused}{}
   Let $R$ be a commutative ring and $a_1, \ldots, a_n$ elements of $R$. Prove that $\dfrac{R[x_1, \ldots, x_n]}{(x_1 - a_1, \ldots, x_n - a_n)} \cong R$. [\S{}VII.2.2]
 \end{exer}
@@ -2064,966 +2056,264 @@ The distinction, while macroscopic in general, may evaporate in special, importa
 \section{Complexes and homology}
 \label{sec:rings:complexes-and-homology}
 
-% In many contexts, modules arise not `one at a time' but in whole series: for
-% example,
-% a real manifold of dimension d has one `homology' group for each dimension from
-% 0
-% to d. It is necessary to develop a language capable of dealing with whole
-% sequences
-% of modules at once. This is the language of homological algebra, of which we
-% will
-% get a tiny taste in this section, and a slightly heartier course in Chapter IX.
+In many contexts, modules arise not `one at a time' but in whole series: for example, a real manifold of dimension $d$ has one `homology' group for each dimension from $0$ to $d$. It is necessary to develop a language capable of dealing with whole sequences of modules at once. This is the language of homological algebra, of which we will get a tiny taste in this section, and a slightly heartier course in Chapter~IX.
 
 \subsection{Complexes and exact sequences}
 \label{subsec:rings:complexes-and-exact-sequences}
-% A chain complex of R-modules (or, for
+A \emph{chain complex} of $R$-modules (or, for simplicity, a \emph{complex}) is a sequence of $R$-modules and $R$-module homomorphisms
+\[
+  \cdots \xrightarrow{d_{i+2}} M_{i+1} \xrightarrow{d_{i+1}} M_i \xrightarrow{d_i} M_{i-1} \xrightarrow{d_{i-1}} \cdots
+\]
+such that $(\forall i) : d_i \circ d_{i+1} = 0$. The notation $(M_\bullet, d_\bullet)$ may be used to denote a complex, or simply $M_\bullet$ for simplicity (but do not forget that the homomorphisms $d_i$ are part of the information carried by a complex).
 
-% simplicity, a complex ) is a sequence of R-modules and R-module homomorphisms
-% \cdot \cdot \cdot 
-%  di+2
-%  / Mi+1 di+1 / Mi
-%  di
-%  / Mi-1 di-1 / \dots 
-% such that (\forall i) : di \circ  di+1 = 0.
-% The notation (M\bullet  , d\bullet  ) may be used to denote a complex, or simply
-% M\bullet  for
-% simplicity (but do not forget that the homomorphisms di are part of the
-% information
-% carried by a complex).
-% A complex may be infinite in both directions; `tails' of 0's are (usually)
-% omitted.
-% Several possible alternative conventions may be used: for example, indices may
-% be
-% increasing rather than decreasing, giving a cochain complex (whose homology is
-% called cohomology; this will be our choice in Chapter IX). Such choices are
-% clearly
-% mathematically immaterial, at least for the simple considerations which follow.
-% The homomorphisms di are called boundary, or differentials, due to important
-% examples from geometry. Note that the defining condition
-% di \circ  di+1 = 0
-% is equivalent to the requirement
-% im di+1 \subseteq  ker di .
-% I carry in my mind an image such as
-% when I think of a complex. The ovals are the modules Mi ; the fat black dots are
-% the
-% 0 elements; the gray ovals, getting squashed to zero at each step, are the
-% kernels;
-% and I thus visualize the fact that the image of `the preceding homomorphism'
-% falls
-% inside the kernel of `the next homomorphism'.
-% The picture is inaccurate in that it hints that the `difference' between the
-% image
-% of di+1 and the kernel of di (that is, the areas colored in a lighter shade of
-% gray)
-% should be the same for all i; this is of course not the case in general. In
-% fact, almost
-% the whole point about complexes is to `measure' this difference, which is called
-% the
-% homology of the complex (cf. \S{}7.3). We say that a complex is exact `at Mi '
-% if it has
-% no homology there; that is,
-% im di+1 = ker di .
-% Visually,
-% This complex appears to be exact at the oval in the middle.
-% For example, if Mi = a trivial module (usually denoted simply by 0), then the
-% complex is necessarily exact at Mi , since then im di+1 = ker di = 0.
-% A complex is exact and is often called an exact sequence if it is exact at all
-% its
-% modules.
-% Example 7.1. A complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / L
-%  \alpha 
-%  / M
-%  / \cdot \cdot \cdot 
-% is exact at L if and only if \alpha  is a monomorphism.
-% Indeed, exactness at L is equivalent to ker \alpha  = image of the trivial
-% homomor-
-% phism 0 \to  L, that is, to
-% ker \alpha  = 0.
-% This is equivalent to the injectivity of \alpha  (Proposition 6.2).
-%  ?
-% Example 7.2. A complex
-% \cdot \cdot \cdot 
-%  / M
-%  \beta 
-%  / N
-%  / 0
-%  / \cdot \cdot \cdot 
-% is exact at N if and only if \beta  is an epimorphism.
-% Indeed, the complex is exact at N if and only if im \beta  = kernel of the
-% trivial
-% homomorphism N \to  0, that is, im \beta  = N .
-%  ?
-% Definition 7.3. A short exact sequence is an exact complex of the form
-%  / L
-%  \alpha 
-%  / M
-%  \beta 
-%  / N
-%  / 0 .
-%  ?
-% As seen in the previous two examples, exactness at L and N is equivalent to
-% \alpha
-% being injective and \beta  being surjective. The extra piece of data carried by
-% a short
-% exact sequence is the exactness at M , that is,
-% im \alpha  = ker \beta ;
-% by the first isomorphism theorem (Corollary 5.16), we then have
-% N \sim 
-%  =
-%  M
-%  =
-%  M
-%  .
-% ker \beta 
-%  im \alpha 
-% All in all, we have good material to work on some more Pavlovian conditioning:
-% at
-% the sight of a short exact sequence as above, the reader should instinctively
-% identify
-% L with a submodule of M (via the injective map \alpha ) and N with the quotient
-% M/L
-% (via the isomorphism induced by the surjective map \beta , under the auspices of
-% the
-% first isomorphism theorem).
-% Short exact sequences abound in nature. For example, a single homomorphism
-% \phi  : M \to  M \setminus  gives rise immediately to a short exact sequence
-%  / ker \phi 
-%  / M
-%  / im \phi 
-%  / 0 .
-% In fact, one important reason to focus on short exact sequences is that this
-% obser-
-% vation allows us to break up every exact complex into a large number of short
-% exact
-% sequences: contemplate the impressive diagram
-% 0 H H
-%  H H
-%  H H
-%  H H
-%  H \#
-%  y y
-%  y y
-%  y y
-%  y
-%  y y
-%  < 0
-% di+2
-%  w
-%  w
-%  im w w
-%  w
-%  w di+1 w
-%  w ;
-%  = D ker D
-%  D D
-%  D di
-%  D
-%  D D
-%  "
-%  di
-% M i+2
-%  /
-%  Mi+1
-%  / Mi
-%  / Mi-1
-% I I
-%  I I
-%  I I
-%  I I
-%  I $
-%  u u
-%  u u
-%  u
-%  u u
-%  u
-%  u
-%  : di+1
-%  D D
-%  D
-%  D D
-%  D D
-%  D "
-%  w w
-%  w w
-%  w
-%  w
-%  w
-%  w ;
-% im di+2 = ker di+1
-%  im di = ker di-1
-% t t
-%  t
-%  t
-%  t
-%  t
-%  t t
-%  t
-%  t :
-%  J J
-%  J
-%  J J
-%  J
-%  J J
-%  J J
-%  $
-%  y y
-%  y
-%  y
-%  y
-%  y
-%  y y
-%  y <
-%  H H
-%  H H
-%  H H
-%  H H
-%  H \#
-% The diagonal sequences are short exact sequences, and they interlock nicely by
-% the
-% exactness of the horizontal complex.
-% This observation simplifies many arguments; cf. for example Exercise 7.5.
+A complex may be infinite in both directions; `tails' of $0$'s are (usually) omitted. Several possible alternative conventions may be used: for example, indices may be increasing rather than decreasing, giving a \emph{cochain complex} (whose homology is called \emph{cohomology}; this will be our choice in Chapter~IX). Such choices are clearly mathematically immaterial, at least for the simple considerations which follow.
+
+The homomorphisms $d_i$ are called \emph{boundary maps}, or \emph{differentials}, due to important examples from geometry. Note that the defining condition $d_i \circ d_{i+1} = 0$ is equivalent to the requirement $\operatorname{im} d_{i+1} \subseteq \ker d_i$.
+Almost the whole point about complexes is to `measure' the difference between $\operatorname{im} d_{i+1}$ and $\ker d_i$, which is called the \emph{homology} of the complex (cf.\ \S{}7.3). We say that a complex is \emph{exact} `at $M_i$' if it has no homology there; that is, $\operatorname{im} d_{i+1} = \ker d_i$. For example, if $M_i$ is a trivial module (usually denoted simply by $0$), then the complex is necessarily exact at $M_i$, since then $\operatorname{im} d_{i+1} = \ker d_i = 0$. A complex is \emph{exact} and is often called an \emph{exact sequence} if it is exact at all its modules.
+\begin{exam}{}{}
+  A complex $\cdots \to 0 \to L \xrightarrow{\alpha} M \to \cdots$ is exact at $L$ if and only if $\alpha$ is a monomorphism. Indeed, exactness at $L$ is equivalent to $\ker\alpha = $ image of the trivial homomorphism $0 \to L$, that is, to $\ker\alpha = 0$. This is equivalent to the injectivity of $\alpha$ (\cref{prop:rings:kernels-cokernels}).
+\end{exam}
+\begin{exam}{}{}
+  A complex $\cdots \to M \xrightarrow{\beta} N \to 0 \to \cdots$ is exact at $N$ if and only if $\beta$ is an epimorphism. Indeed, the complex is exact at $N$ if and only if $\operatorname{im}\beta = $ kernel of the trivial homomorphism $N \to 0$, that is, $\operatorname{im}\beta = N$.
+\end{exam}
+\begin{defn}{}{defn:rings:short-exact-sequence}
+  A \emph{short exact sequence} is an exact complex of the form
+  \[
+    0 \to L \xrightarrow{\alpha} M \xrightarrow{\beta} N \to 0.
+  \]
+\end{defn}
+As seen in the previous two examples, exactness at $L$ and $N$ is equivalent to $\alpha$ being injective and $\beta$ being surjective. The extra piece of data carried by a short exact sequence is the exactness at $M$, that is, $\operatorname{im}\alpha = \ker\beta$; by the first isomorphism theorem (Corollary~5.16), we then have $N \cong M/\ker\beta = M/\operatorname{im}\alpha$.
+
+All in all, we have good material to work on some more Pavlovian conditioning: at the sight of a short exact sequence as above, the reader should instinctively identify $L$ with a submodule of $M$ (via the injective map $\alpha$) and $N$ with the quotient $M/L$ (via the isomorphism induced by the surjective map $\beta$, under the auspices of the first isomorphism theorem).
+Short exact sequences abound in nature. For example, a single homomorphism $\phi : M \to M'$ gives rise immediately to a short exact sequence
+\[
+  0 \to \ker\phi \to M \to \operatorname{im}\phi \to 0.
+\]
+In fact, one important reason to focus on short exact sequences is that this observation allows us to break up every exact complex into a large number of short exact sequences. The diagonal sequences in the following diagram are short exact sequences, and they interlock nicely by the exactness of the horizontal complex. This observation simplifies many arguments; cf.\ for example Exercise~7.5.
 
 \subsection{Split exact sequences}
 \label{subsec:rings:split-exact-sequences}
-% A particular case of short exact sequence arises by
+A particular case of short exact sequence arises by considering the second projection from a direct sum: $M_1 \oplus M_2 \to M_2$; there is then an exact sequence
+\[
+  0 \to M_1 \to M_1 \oplus M_2 \to M_2 \to 0,
+\]
+obtained by identifying $M_1$ with the kernel of the projection. These short exact sequences are said to `split'; more generally, a short exact sequence
+\[
+  0 \to M_1 \to N \to M_2 \to 0
+\]
+`splits' if it is isomorphic to one of these sequences in the sense that there is a commutative diagram
+\[\begin{tikzcd}
+  0 \arrow[r] & M_1 \arrow[r] \arrow[d, "\sim"'] & N \arrow[r] \arrow[d, "\sim"'] & M_2 \arrow[r] \arrow[d, "\sim"'] & 0 \\
+  0 \arrow[r] & M_1' \arrow[r] & M_1' \oplus M_2' \arrow[r] & M_2' \arrow[r] & 0
+\end{tikzcd}\]
+in which the vertical maps are all isomorphisms\footnote{In fact, this last requirement is somewhat redundant; cf.\ Exercise~7.11.}.
 
-% considering the second projection from a direct sum: M1 \oplus  M2 \to  M2 ;
-% there is then
-% an exact sequence
-%  / M1
-%  / M1 \oplus  M2
-%  / M2
-%  / 0 ,
-% obtained by identifying M1 with the kernel of the projection. These short exact
-% sequences are said to `split'; more generally, a short exact sequence
-%  / M1
-%  / N
-%  / M2
-%  / 0
-% `splits' if it is isomorphic to one of these sequences in the sense that there
-% is a
-% commutative diagram
-%  / M1
-%  / N
-%  / M2
-%  / 0
-% \sim 
-%  \sim 
-%  \sim 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / M1 \setminus 
-%  / M1 \setminus  \oplus  M2 \setminus 
-%  / M2 \setminus 
-%  / 0
-% in which the vertical maps are all isomorphisms33 .
-% Example 7.4. The exact sequence of Z-modules
-%  / Z
-%  \cdot 2
-%  / Z
-%  / 2Z
-%  Z
-%  / 0
-% is not split.
-%  ?
-% Splitting sequences give us the opportunity to go back to a question we left
-% dangling at the end of \S{}6.2: what should we make of the condition of `having
-% a
-% left- (resp., right-) inverse' for a homomorphism? We realized that this
-% condition is
-% stronger than the requirement of being a monomorphisms (resp., an epimorphism);
-% can we give a more explicit description of such morphisms?
-% Proposition 7.5. Let \phi  : M \to  N be an R-module homomorphism. Then
-% \bullet  \phi  has a left-inverse if and only if the sequence
-%  / M
-%  \phi 
-%  / N
-%  / coker \phi 
-%  / 0
-% splits.
-% \bullet  \phi  has a right-inverse if and only if the sequence
-%  / ker \phi 
-%  / M
-%  \phi 
-%  / N
-%  / 0
-% splits.
-% Proof. I will prove the first part and leave the other as an exercise to the
-% reader
-% (Exercise 7.6).
-% 33In fact, this last requirement is somewhat redundant; cf. Exercise 7.11.
-% If the sequence splits, then \phi  may be identified with the embedding of M
-% into
-% a direct sum M \oplus  M \setminus  , and the projection M \oplus  M \setminus
-% \to  M gives a left-inverse of \phi .
-% Conversely, assume that \phi  has a left-inverse \psi :
-%  / M
-%  \phi 
-%  / N
-% B B
-%  id B B
-%  B B
-%  B B ! \sqcup 
-%  \psi 
-% M
-% Then I claim that N is isomorphic to M \oplus  ker \psi  and that \phi
-% corresponds to the
-% identification of M with the first factor: M \to  M \oplus  ker \psi  = \sim 
-%  N . The isomorphism
-% M \oplus  ker \psi  \to  N is given by
-% (m, k) ?\to  \phi (m) + k;
-% its inverse N \to  M \oplus  ker \psi  is
-% n ?\to  (\psi (n), n - \phi \psi (n)).
-% The element n - \phi \psi (n) is in ker \psi  as it should be, since
-% \psi (n - \phi \psi (n)) = \psi (n) - \psi \phi \psi (n) = \psi (n) - \psi (n) = 0.
-% All necessary verifications are immediate and are left to the reader.
-%  ?
-% Because of Proposition 7.5, R-module homomorphisms with a left-inverse are
-% called split monomorphisms, and homomorphisms with a right-inverse are called
-% split epimorphisms.
-% We will come back to split exact sequences (in the more demanding context
-% of Grp) in \S{}IV.5.2 and then later again when we return to modules and, more
-% generally, to abelian categories (Chapters VIII and IX).
+\begin{exam}{}{}
+  The exact sequence of $\Z$-modules $0 \to \Z \xrightarrow{\cdot 2} \Z \to \Z/2\Z \to 0$ is not split.
+\end{exam}
+Splitting sequences give us the opportunity to go back to a question we left dangling at the end of \S{}6.2: what should we make of the condition of `having a left- (resp., right-)inverse' for a homomorphism? We realized that this condition is stronger than the requirement of being a monomorphism (resp., an epimorphism); can we give a more explicit description of such morphisms?
+
+\begin{prop}{}{prop:rings:split-sequence}
+  Let $\phi : M \to N$ be an $R$-module homomorphism. Then
+  \begin{itemize}
+    \item $\phi$ has a left-inverse if and only if the sequence $0 \to M \xrightarrow{\phi} N \to \operatorname{coker}\phi \to 0$ splits.
+    \item $\phi$ has a right-inverse if and only if the sequence $0 \to \ker\phi \to M \xrightarrow{\phi} N \to 0$ splits.
+  \end{itemize}
+\end{prop}
+\begin{proof}
+  I will prove the first part and leave the other as an exercise to the reader (Exercise~7.6). If the sequence splits, then $\phi$ may be identified with the embedding of $M$ into a direct sum $M \oplus M'$, and the projection $M \oplus M' \to M$ gives a left-inverse of $\phi$. Conversely, assume that $\phi$ has a left-inverse $\psi$:
+  \[\begin{tikzcd}
+    M \arrow[r, "\phi"] & N \arrow[l, bend left, "\psi"] \\
+    & M \arrow[u, equal] \arrow[ul, "\id"]
+  \end{tikzcd}\]
+  Then I claim that $N$ is isomorphic to $M \oplus \ker\psi$ and that $\phi$ corresponds to the identification of $M$ with the first factor: $M \to M \oplus \ker\psi \cong N$. The isomorphism $M \oplus \ker\psi \to N$ is given by $(m, k) \mapsto \phi(m) + k$; its inverse $N \to M \oplus \ker\psi$ is $n \mapsto (\psi(n), n - \phi\psi(n))$. The element $n - \phi\psi(n)$ is in $\ker\psi$ as it should be, since $\psi(n - \phi\psi(n)) = \psi(n) - \psi\phi\psi(n) = \psi(n) - \psi(n) = 0$. All necessary verifications are immediate and are left to the reader.
+\end{proof}
+Because of \cref{prop:rings:split-sequence}, $R$-module homomorphisms with a left-inverse are called \emph{split monomorphisms}, and homomorphisms with a right-inverse are called \emph{split epimorphisms}.
+
+We will come back to split exact sequences (in the more demanding context of $\mathsf{Grp}$) in \S{}IV.5.2 and then later again when we return to modules and, more generally, to abelian categories (Chapters~VIII and~IX).
 
 \subsection{Homology and the snake lemma}
 \label{subsec:rings:homology-and-the-snake-lemma}
 
-% Definition 7.6. The i-th homology of a complex
-% M\bullet  : \dots 
-%  di+2
-%  / Mi+1 di+1 / Mi
-%  di
-%  / Mi-1 di-1 / \dots 
-% of R-modules is the R-module
-% ker di
-% Hi(M\bullet  ) :=
-%  .
-%  ?
-% im di+1
-% That is, Hi (M\bullet  ) is a module capturing the `light gray annulus' in my
-% heuristic
-% picture of a complex. Of course
-% Hi (M\bullet  ) = 0 \iff  im di+1 = ker di \iff  the complex M\bullet  is exact
-% at Mi :
-% that is, the homology modules are a measure of the `failure of a complex from
-% being
-% exact'.
-% Example 7.7. In fact, homology should be thought of as a (vast) generalization
-% of the notions of kernel and cokernel. Indeed, consider the (very) particular
-% case in
-% which M\bullet  is the complex
-%  / M1
-%  \phi 
-%  / M0
-%  / 0 .
-% Then
-% H1(M\bullet  ) \sim 
-%  = ker \phi ,
-%  H0(M\bullet  ) \sim 
-%  = coker \phi .
-% ?
-% I will end this very brief excursion into more abstract territories by
-% indicating
-% how a commutative diagram involving two short exact sequences generates a `long
-% exact sequence' in homology. This is actually a particular case of a more
-% general
-% construction---according to which a suitable commutative diagram involving three
-% complexes yields a really long `long exact homology sequence'. We will come back
-% to
-% this general construction when we deal more extensively with homological algebra
-% in Chapter IX. The reader is also likely to learn about it in a course on
-% algebraic
-% topology, where this fact is put to impressive use in studying invariants of
-% manifolds.
-% In the simple form we will analyze, this is affectionately known as the snake
-% lemma. Consider two short exact sequences linked by homomorphisms, so as to
-% form a commutative diagram34 :
-%  / L1
-%  \alpha 1
-%  / M1
-%  \beta 1
-%  / N1
-%  / 0
-% \lambda 
-%  \mu 
-%  \nu 
-% \sqcup 
-%  \alpha 0
-%  \sqcup 
-%  \beta 0
-%  \sqcup 
-%  / L0
-%  / M0
-%  / N0
-%  / 0
-% Lemma 7.8 (The snake lemma). With notation as above, there is an exact sequence
-%  / ker \lambda 
-%  / ker \mu 
-%  / ker \nu 
-%  \delta 
-%  / coker \lambda 
-%  / coker \mu 
-%  / coker \nu 
-%  / 0 .
-% Remark 7.9. Most of the homomorphisms in this sequence are induced in a com-
-% pletely straightforward way from the corresponding homomorphisms \lambda , \mu ,
-% \nu . The
-% one `surprising' homomorphism is the one denoted \delta ; I will discuss its
-% definition
-% below.
-%  ?
-% Remark 7.10. In view of Example 7.7, we could have written the sequence in this
-% statement as
-%  / H1 (L\bullet  )
-%  / H1 (M\bullet  )
-%  / H1 (N\bullet  )
-% BC
-%  ED
-% ^ ^^^^^ ^ ^^^^^ ^ ^^^ \delta  ^^^^^^^^^^^^^^^^
-% @A
-%  GF
-% / H0 (L\bullet  )
-%  / H0 (M\bullet  )
-%  / H0 (N\bullet  )
-%  / 0
-% where L\bullet  is the complex 0
-%  / L1
-%  \lambda 
-%  / L0
-%  / 0 , etc. The snake lemma
-% generalizes to arbitrary complexes L\bullet  , M\bullet  , N\bullet  , producing
-% a `long exact homology
-% sequence' of which this is just the tail end. As mentioned above, we will
-% discuss
-% this rather straightforward generalization later (\S{}IX.3.3).
-%  ?
-% Remark 7.11. A popular version of the snake lemma does not assume that \alpha 1
-% is
-% injective and \beta 0 is surjective: that is, we could consider a commutative
-% diagram of
-% 34 In fact, it is better to view this diagram as three (very short) complexes
-% linked by R-
-% module homomorphisms \alpha i , \beta i so that `the rows are exact'. In fact,
-% one can define a category
-% of complexes, and this diagram is nothing but a `short exact sequence of
-% complexes'; this is the
-% approach we will take in Chapter IX.
-% exact sequences
-% L1
-%  / M1
-%  / N1
-%  / 0
-% \lambda 
-%  \mu 
-%  \nu 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / L0
-%  / M0
-%  / N0
-% The lemma will then state that there is `only' an exact sequence
-% ker \lambda 
-%  / ker \mu 
-%  / ker \nu 
-%  \delta 
-%  / coker \lambda 
-%  / coker \mu 
-%  / coker \nu  .
-%  ?
-% Proving the snake lemma is something that should not be done in public, and
-% it is notoriously useless to write down the details of the verification for
-% others to
-% read: the details are all essentially obvious, but they lead quickly to a
-% notational
-% quagmire. Such proofs are collectively known as the sport of diagram chase, best
-% executed by pointing several fingers at different parts of a diagram on a
-% blackboard,
-% while enunciating the elements one is manipulating and stating their fate35 .
-% Nevertheless, I should explain where the `connecting' homomorphism \delta  comes
-% from, since this is the heart of the statement of the snake lemma and of its
-% proof.
-% Here is the whole diagram, including kernels and cokernels; thus, columns are
-% exact
-% (as well as the two original sequences, placed horizontally):
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / ker \lambda 
-%  / ker \mu 
-%  / ker \nu 
-% ED
-% \sqcup 
-%  \alpha 1
-%  \sqcup 
-%  \beta 1
-%  \sqcup  BC
-%  \delta 
-%  / L1
-%  / M1
-%  / N
-%  gg 1 gg
-%  / 0
-%  ff
-%  /f
-%  \lambda 
-%  L0
-%  ff \sqcup  fff f ff f
-%  ff f / f
-%  \mu 
-%  M0
-%  \sqcup 
-%  gg
-%  g
-%  g
-% g
-%  g
-% ggggg
-%  / \nu 
-%  N0
-%  \sqcup 
-%  / 0
-% GF
-%  \alpha 0
-%  \beta 0
-% @A
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% / coker \lambda 
-%  / coker \mu 
-%  / coker \nu 
-%  / 0
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-% By the way, I trust that the reader now sees why this lemma is called the snake
-% lemma.
-% Definition of the snaking homomorphism \delta . Let a \in  ker \nu . I claim
-% that a can be
-% mapped through the diagram all the way to coker \lambda , along the solid arrows
-% marked
-% 35Real purists chase diagrams in arbitrary categories, thus without the benefit
-% of talking
-% about `elements', and we will practice this skill later on (Chapter IX). For
-% example, the snake
-% lemma can be proven by appealing to universal property after universal property
-% of kernels and
-% cokernels, without ever choosing elements anywhere. But the performing technique
-% of pointing
-% fingers at a board while monologuing through the argument remains essentially
-% the same.
-% here:
-%  a
-% \beta 1
-%  \sqcup 
-%  c
-%  / b
-% \alpha 0
-%  \sqcup 
-%  \mu 
-%  \nu 
-%  e
-%  / d
-%  \ast 
-% \beta 0
-% \sqcup 
-% f
-% Indeed,
-% \bullet  ker \nu  \subseteq  N1 ; so view a as an element b of N1 .
-% \bullet  \beta 1 is surjective, so \exists c \in  M1 , mapping to b.
-% \bullet  Let d = \mu (c) be the image of c in M0 .
-% \bullet  What is the image of d in the spot marked \ast ? By the commutativity of the
-% diagram, it must be the same as \nu (b). However, b was the image in N1 of
-% a \in  ker \nu , so \nu (b) = 0. Thus, d \in  ker \beta 0 . Since rows are
-% exact, ker \beta 0 = im \alpha 0 ;
-% therefore, \exists e \in  L0 , mapping to d.
-% \bullet  Finally, let f \in  coker \lambda  be the image of e.
-% I want to set \delta (a) := f .
-% Is this legal? At two steps in the chase we have taken preimages:
-% \bullet  \exists c \in  M1 such that \beta 1 (c) = b,
-% \bullet  \exists e \in  L0 such that \alpha 0 (e) = d.
-% The second step does not involve a choice: because \alpha 0 is injective by
-% assumption,
-% so the element e mapping to d is uniquely determined by d. But there was a
-% choice
-% involved in the first step: in order to verify that \delta  is well-defined, we
-% have to show
-% that choosing some other c would not affect the proposed value f for \delta (a).
-% This is proved by another chase. Here is the relevant part of the diagram:
-%  \alpha 1
-%  c
-%  \beta 1
-%  / b
-% \lambda 
-%  \mu 
-% \alpha 0
-%  \sqcup 
-%  e
-%  / d
-% \sqcup 
-% f
-% Suppose we choose a different c\setminus  mapping to the same b:
-%  \alpha 1
-%  c\setminus 
-%  \beta 1
-%  / b
-%  0.
-% Then \beta 1 (c\setminus  - c) = 0; by exactness, \exists g \in  L1 such that
-% (c\setminus  - c) = \alpha 1 (g):
-%  g
-%  \alpha 1
-%  / (c\setminus  - c)
-%  \beta 1
-%  / 0
-%  0.
-% Now the point is that, since columns form complexes, g dies in coker \lambda :
-%  g
-%  \alpha 1
-%  / (c\setminus  - c)
-%  \beta 1
-%  / 0
-% \lambda 
-%  \mu 
-% \sqcup 
-% \alpha 0
-%  \lambda (g)
-% \sqcup 
-% and it follows (by the commutativity of the diagram and the injectivity of
-% \alpha 0) that
-% changing c to c\setminus  modifies e to e + \lambda (g) and f to f + 0 = f .
-% That is, f is indeed
-% independent of the choice.
-% Thus \delta  is well-defined!
-% This is a tiny part of the proof of the snake lemma, but it probably suf-
-% fices to demonstrate why reading a written-out version of a diagram chase may
-% be supremely uninformative.
-% The rest of the proof (left to the reader(!) but I am not listing this as an
-% official exercise for fear that someone might actually turn a solution in for
-% grading)
-% amounts to many, many similar arguments. The definition of the maps induced
-% on kernels and cokernels is substantially less challenging than the definition
-% of the
-% connecting morphism \delta  described above. Exactness at most spots in the
-% sequence
-%  / ker \lambda 
-%  / ker \mu 
-%  / ker \nu 
-%  \delta 
-%  / coker \lambda 
-%  / coker \mu 
-%  / coker \nu 
-%  / 0
-% is also reasonably straightforward; most of the work will go into proving
-% exactness
-% at ker \nu  and coker \lambda .
-% Dear reader: don't shy away from trying this, for it is excellent, indispens-
-% able practice. Miss this opportunity and you will forever feel unsure about such
-% manipulations.
-% The snake lemma streamlines several facts, which would not be hard to prove
-% individually, but become really straightforward once the lemma is settled. For
-% example,
-% Corollary 7.12. In the same situation presented in the snake lemma (notation as
-% in \S{}7.3), assume that \mu  is surjective and \nu  is injective. Then \lambda
-% is surjective and \nu
-% is an isomorphism.
-% Proof. Indeed, \mu  surjective \implies  coker \mu  = 0; \nu  injective \implies
-% ker \nu  = 0 (Proposi-
-% tion 6.2). Feeding this information into the sequence of the snake lemma gives
-% an
-% exact sequence
-%  / ker \lambda 
-%  / ker \mu 
-%  / 0
-%  / coker \lambda 
-%  / 0
-%  / coker \nu 
-%  / 0
+\begin{defn}{}{defn:rings:homology}
+  The \emph{$i$-th homology} of a complex $M_\bullet : \cdots \xrightarrow{d_{i+2}} M_{i+1} \xrightarrow{d_{i+1}} M_i \xrightarrow{d_i} M_{i-1} \xrightarrow{d_{i-1}} \cdots$ of $R$-modules is the $R$-module
+  \[
+    H_i(M_\bullet) := \frac{\ker d_i}{\operatorname{im} d_{i+1}}.
+  \]
+\end{defn}
+
+That is, $H_i(M_\bullet)$ is a module capturing the failure of exactness at $M_i$. Of course $H_i(M_\bullet) = 0 \iff \operatorname{im} d_{i+1} = \ker d_i \iff$ the complex $M_\bullet$ is exact at $M_i$: that is, the homology modules are a measure of the `failure of a complex from being exact'.
+\begin{exam}{}{}
+  In fact, homology should be thought of as a (vast) generalization of the notions of kernel and cokernel. Indeed, consider the (very) particular case in which $M_\bullet$ is the complex $0 \to M_1 \xrightarrow{\phi} M_0 \to 0$. Then $H_1(M_\bullet) \cong \ker\phi$ and $H_0(M_\bullet) \cong \operatorname{coker}\phi$.
+\end{exam}
+I will end this very brief excursion into more abstract territories by indicating how a commutative diagram involving two short exact sequences generates a `long exact sequence' in homology. This is actually a particular case of a more general construction --- according to which a suitable commutative diagram involving three complexes yields a really long `long exact homology sequence'. We will come back to this general construction when we deal more extensively with homological algebra in Chapter~IX. The reader is also likely to learn about it in a course on algebraic topology, where this fact is put to impressive use in studying invariants of manifolds.
+In the simple form we will analyze, this is affectionately known as the \emph{snake lemma}. Consider two short exact sequences linked by homomorphisms, so as to form a commutative diagram\footnote{In fact, it is better to view this diagram as three (very short) complexes linked by $R$-module homomorphisms $\alpha_i$, $\beta_i$ so that `the rows are exact'. One can define a category of complexes, and this diagram is nothing but a `short exact sequence of complexes'.}:
+\[\begin{tikzcd}
+  0 \arrow[r] & L_1 \arrow[r, "\alpha_1"] \arrow[d, "\lambda"'] & M_1 \arrow[r, "\beta_1"] \arrow[d, "\mu"'] & N_1 \arrow[r] \arrow[d, "\nu"'] & 0 \\
+  0 \arrow[r] & L_0 \arrow[r, "\alpha_0"'] & M_0 \arrow[r, "\beta_0"'] & N_0 \arrow[r] & 0
+\end{tikzcd}\]
+\begin{lem}{The snake lemma}{lem:rings:snake-lemma}
+  With notation as above, there is an exact sequence
+  \[
+    0 \to \ker\lambda \to \ker\mu \to \ker\nu \xrightarrow{\delta} \operatorname{coker}\lambda \to \operatorname{coker}\mu \to \operatorname{coker}\nu \to 0.
+  \]
+\end{lem}
+\begin{rem}{}{}
+  Most of the homomorphisms in this sequence are induced in a completely straightforward way from the corresponding homomorphisms $\lambda$, $\mu$, $\nu$. The one `surprising' homomorphism is the one denoted $\delta$; I will discuss its definition below.
+\end{rem}
+\begin{rem}{}{}
+  In view of Example~7.7, we could have written the sequence in this statement as
+  \[
+    0 \to H_1(L_\bullet) \to H_1(M_\bullet) \to H_1(N_\bullet) \xrightarrow{\delta} H_0(L_\bullet) \to H_0(M_\bullet) \to H_0(N_\bullet) \to 0
+  \]
+  where $L_\bullet$ is the complex $0 \to L_1 \xrightarrow{\lambda} L_0 \to 0$, etc. The snake lemma generalizes to arbitrary complexes $L_\bullet$, $M_\bullet$, $N_\bullet$, producing a `long exact homology sequence' of which this is just the tail end. As mentioned above, we will discuss this rather straightforward generalization later (\S{}IX.3.3).
+\end{rem}
+\begin{rem}{}{}
+  A popular version of the snake lemma does not assume that $\alpha_1$ is injective and $\beta_0$ is surjective: that is, we could consider a commutative diagram of exact sequences
+  \[\begin{tikzcd}
+    L_1 \arrow[r, "\alpha_1"] \arrow[d, "\lambda"'] & M_1 \arrow[r, "\beta_1"] \arrow[d, "\mu"'] & N_1 \arrow[r] \arrow[d, "\nu"'] & 0 \\
+    0 \arrow[r] & L_0 \arrow[r, "\alpha_0"'] & M_0 \arrow[r, "\beta_0"'] & N_0
+  \end{tikzcd}\]
+  The lemma will then state that there is `only' an exact sequence $\ker\lambda \to \ker\mu \to \ker\nu \xrightarrow{\delta} \operatorname{coker}\lambda \to \operatorname{coker}\mu \to \operatorname{coker}\nu$.
+\end{rem}
+Proving the snake lemma is something that should not be done in public, and it is notoriously useless to write down the details of the verification for others to read: the details are all essentially obvious, but they lead quickly to a notational quagmire. Such proofs are collectively known as the sport of \emph{diagram chase}, best executed by pointing several fingers at different parts of a diagram on a blackboard, while enunciating the elements one is manipulating and stating their fate\footnote{Real purists chase diagrams in arbitrary categories, thus without the benefit of talking about `elements', and we will practice this skill later on (Chapter~IX). For example, the snake lemma can be proven by appealing to universal property after universal property of kernels and cokernels, without ever choosing elements anywhere. But the performing technique of pointing fingers at a board while monologuing through the argument remains essentially the same.}. Nevertheless, I should explain where the `connecting' homomorphism $\delta$ comes from, since this is the heart of the statement of the snake lemma and of its proof.
+
+Here is the whole diagram, including kernels and cokernels; thus, columns are exact (as well as the two original sequences, placed horizontally):
+\[\begin{tikzcd}
+  & \ker\lambda \arrow[r] \arrow[d] & \ker\mu \arrow[r] \arrow[d] & \ker\nu \arrow[d] \arrow[dll, "\delta", rounded corners, to path={ -- ([xshift=2ex]\tikztostart.east) |- ([yshift=-0.5ex]\tikztotarget.north) -- (\tikztotarget)}] \\
+  0 \arrow[r] & L_1 \arrow[r, "\alpha_1"] \arrow[d, "\lambda"'] & M_1 \arrow[r, "\beta_1"] \arrow[d, "\mu"'] & N_1 \arrow[r] \arrow[d, "\nu"'] & 0 \\
+  0 \arrow[r] & L_0 \arrow[r, "\alpha_0"'] \arrow[d] & M_0 \arrow[r, "\beta_0"'] \arrow[d] & N_0 \arrow[r] \arrow[d] & 0 \\
+  & \operatorname{coker}\lambda \arrow[r] & \operatorname{coker}\mu \arrow[r] & \operatorname{coker}\nu \arrow[r] & 0
+\end{tikzcd}\]
+By the way, I trust that the reader now sees why this lemma is called the snake lemma.
+\emph{Definition of the connecting homomorphism $\delta$.} Let $a \in \ker\nu$. I claim that $a$ can be mapped through the diagram all the way to $\operatorname{coker}\lambda$: view $a$ as an element $b$ of $N_1$; since $\beta_1$ is surjective, $\exists\, c \in M_1$ mapping to $b$; let $d = \mu(c)$ be the image of $c$ in $M_0$; by commutativity $d$ maps to $\nu(b) = 0$ in $N_0$, so $d \in \ker\beta_0 = \operatorname{im}\alpha_0$; therefore $\exists\, e \in L_0$ mapping to $d$; let $f \in \operatorname{coker}\lambda$ be the image of $e$. Set $\delta(a) := f$.
+
+Is this well-defined? The choice of $c$ is not unique. Suppose $c'$ also maps to $b$: then $\beta_1(c' - c) = 0$, so by exactness $\exists\, g \in L_1$ with $c' - c = \alpha_1(g)$. Since columns are complexes, $\lambda(g)$ maps to $\mu(c' - c) = \mu(\alpha_1(g)) = \alpha_0(\lambda(g))$, so changing $c$ to $c'$ modifies $e$ to $e + \lambda(g)$ and hence $f$ to $f + 0 = f$ (since $g$ dies in $\operatorname{coker}\lambda$). Thus $\delta$ is well-defined.
+
+This is a tiny part of the proof of the snake lemma, but it probably suffices to demonstrate why reading a written-out version of a diagram chase may be supremely uninformative. The rest of the proof (left to the reader — I am not listing this as an official exercise for fear that someone might actually turn a solution in for grading) amounts to many, many similar arguments. The definition of the maps induced on kernels and cokernels is substantially less challenging than the definition of the connecting morphism $\delta$ described above. Exactness at most spots in the sequence is also reasonably straightforward; most of the work will go into proving exactness at $\ker\nu$ and $\operatorname{coker}\lambda$.
+
+Dear reader: don't shy away from trying this, for it is excellent, indispensable practice. Miss this opportunity and you will forever feel unsure about such manipulations.
+The snake lemma streamlines several facts, which would not be hard to prove individually, but become really straightforward once the lemma is settled. For example,
+
+\begin{coro}{}{}
+In the same situation presented in the snake lemma (notation as in \S{}7.3), assume that $\mu$ is surjective and $\nu$ is injective. Then $\lambda$ is surjective and $\nu$ is an isomorphism.
+\end{coro}
+
+\begin{proof}
+Indeed, $\mu$ surjective $\implies$ $\operatorname{coker}\mu = 0$; $\nu$ injective $\implies$ $\ker\nu = 0$ (\cref{prop:rings:kernels-cokernels}). Feeding this information into the sequence of the snake lemma gives an exact sequence
+\[0 \to \ker\lambda \to \ker\mu \to 0 \to \operatorname{coker}\lambda \to 0 \to \operatorname{coker}\nu \to 0.\]
+Exactness implies $\operatorname{coker}\lambda = \operatorname{coker}\nu = 0$ (Exercise~7.1); hence $\lambda$ and $\nu$ are surjective, with the stated consequences.
+\end{proof}
+
+Several more such statements may be proved just as easily; the reader should experiment to his or her heart's content.
 
 \subsection*{Exercises}
-
-% Exactness implies coker \lambda  = coker \nu  = 0 (Exercise 7.1); hence \lambda
-% and \nu  are surjective,
-% with the stated consequences.
-%  ?
-% Several more such statements may be proved just as easily; the reader should
-% experiment to his or her heart's content.
-% 7.1. ? Assume that the complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / M
-%  / 0
-%  / \cdot \cdot \cdot 
-% is exact. Prove that M \sim 
-%  = 0. [\S{}7.3]
-% 7.2. Assume that the complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / M
-%  / M \setminus 
-%  / 0
-%  / \cdot \cdot \cdot 
-% is exact. Prove that M \sim 
-%  = M \setminus  .
-% 7.3. Assume that the complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / L
-%  / M
-%  \phi 
-%  / M \setminus 
-%  / N
-%  / 0
-%  / \cdot \cdot \cdot 
-% is exact. Show that, up to natural identifications, L = ker \phi  and N = coker
-% \phi .
-% 7.4. Construct short exact sequences of Z-modules
-%  / Z\oplus N
-%  / Z\oplus N
-%  / Z
-%  / 0
-% and
-%  / Z\oplus N
-%  / Z\oplus N
-%  / Z\oplus N
-%  / 0.
-% (Hint: David Hilbert's Grand Hotel.)
-% 7.5. ? Assume that the complex
-% \cdot \cdot \cdot 
-%  / L
-%  / M
-%  / N
-%  / \cdot \cdot \cdot 
-% is exact and that L and N are Noetherian. Prove that M is Noetherian. [\S{}7.1]
-% 7.6. ? Prove the `split epimorphism' part of Proposition 7.5. [\S{}7.2]
-% 7.7. ? Let
-%  / M
-%  / N
-%  / P
-%  / 0
-% be a short exact sequence of R-modules, and let L be an R-module.
-% (i) Prove that there is an exact sequence36
-%  / HomR-Mod (P, L)
-%  / HomR-Mod (N, L)
-%  / HomR-Mod (M, L).
-% (ii) Redo Exercise 6.17. (Use the exact sequence 0 \to  I \to  R \to  R/I \to
-% 0.)
-% 36 In general, this will be a sequence of abelian groups; if R is commutative,
-% so that each
-% HomR-Mod is an R-module (\S{}5.2), then it will be an exact sequence of
-% R-modules.
-% (iii) Construct an example showing that the rightmost homomorphism in (i) need
-% not be onto.
-% (iv) Show that if the original sequence splits, then the rightmost homomorphism
-% in (i) is onto.
-% [7.9, VIII.3.14, \S{}VIII.5.1]
-% 7.8. ? Prove that every exact sequence
-%  / M
-%  / N
-%  / F
-%  / 0
-% of R modules, with F free, splits. (Hint: Exercise 6.9.) [\S{}VIII.5.4]
-% 7.9. Let
-%  / M
-%  / N
-%  / F
-%  / 0
-% be a short exact sequence of R-modules, with F free, and let L be an R-module.
-% Prove that there is an exact sequence
-%  / HomR-Mod (F, L)
-%  / HomR-Mod(N, L)
-%  / Hom R-Mod (M, L)
-%  / 0 .
-% (Cf. Exercise 7.7.)
-% 7.10. ? In the situation of the snake lemma, assume that \lambda  and \nu  are
-% isomorphisms.
-% Use the snake lemma and prove that \mu  is an isomorphism. This is called the
-% `short
-% five-lemma,' as it follows immediately from the five-lemma (cf. Exercise 7.14),
-% as
-% well as from the snake lemma. [VIII.6.21, IX.2.4]
-% 7.11. ? Let
-% (*)
-%  / M1
-%  / N
-%  / M2
-%  / 0
-% be an exact sequence of R-modules. (This may be called an `extension' of M2
-% by M1 .) Suppose there is any R-module homomorphism N \to  M1 \oplus  M2 making
-% the diagram
-%  / M1
-%  / N
-%  ?
-%  / M2
-%  / 0
-% ?
-% ?\sqcup 
-%  / M1
-%  / M1 \oplus  M2
-%  / M2
-%  / 0
-% commute, where the bottom sequence is the standard sequence of a direct sum.
-% Prove that (*) splits. [\S{}7.2]
-% 7.12. \lnot  Practice your diagram chasing skills by proving the `four-lemma':
-% if
-% A1
-%  / B1
-%  / C1
-%  / D1
-% \alpha 
-%  \beta 
-%  \gamma 
-%  \delta 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% A0
-%  / B0
-%  / C0
-%  / D0
-% is a commutative diagram of R-modules with exact rows, \alpha  is an
-% epimorphism, and
-% \beta , \delta  are monomorphisms, then \gamma  is a monomorphism. [7.13, IX.2.3]
-% 7.13. Prove another37 version of the `four-lemma' of Exercise 7.12: if
-% B1
-%  / C1
-%  / D1
-%  / E1
-% \beta 
-%  \gamma 
-%  \delta 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% B0
-%  / C0
-%  / D0
-%  / E0
-% is a commutative diagram of R-modules with exact rows, \beta  and \delta  are
-% epimorphisms,
-% and ? is a monomorphism, then \gamma  is an epimorphism.
-% 7.14. \lnot  Prove the `five-lemma': if
-% A1
-%  / B1
-%  / C1
-%  / D1
-%  / E1
-% \alpha 
-%  \beta 
-%  \gamma 
-%  \delta 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% A0
-%  / B0
-%  / C0
-%  / D0
-%  / E0
-% is a commutative diagram of R-modules with exact rows, \beta  and \delta  are
-% isomorphisms,
-% \alpha  is an epimorphism, and ? is a monomorphism, then \gamma  is an isomorphism. (You can
-% avoid the needed diagram chase by pasting together results from previous
-% exercises.)
-% [7.10]
-% 7.15. \lnot  Consider the following commutative diagram of R-modules:
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / L2
-%  / M2
-%  / N2
-%  / 0
-% \alpha 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / L1
-%  / M1
-%  / N1
-%  / 0
-% \beta 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / L0
-%  / M0
-%  / N0
-%  / 0
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-% Assume that the three rows are exact and the two rightmost columns are exact.
-% Prove that the left column is exact. Second version: assume that the three rows
-% are exact and the two leftmost columns are exact; prove that the right column is
-% exact. This is the `nine-lemma'. (You can avoid a diagram chase by applying the
-% snake lemma; for this, you will have to turn the diagram by 90\circ  .) [7.16]
-% 7.16. In the same situation as in Exercise 7.15, assume that the three rows are
-% exact and that the leftmost and rightmost columns are exact.
-% \bullet  Prove that \alpha  is a monomorphism and \beta  is an epimorphism.
-% \bullet  Is the central column necessarily exact?
-% 37 It is in fact unnecessary to prove both versions, but to realize this one has
-% to view the
-% matter from the more general context of abelian categories; cf. Exercise IX.2.3.
-% (Hint: No. Place Z \oplus  Z in the middle, and surround it artfully with six
-% copies of Z
-% and two 0's.)
-% \bullet  Assume further that the central column is a complex (that is, \beta  \circ  \alpha  = 0); prove
-% that it is then necessarily exact.
-% 7.17. \lnot  Generalize the previous two exercises as follows. Consider a
-% (possibly
-% infinite) commutative diagram of R-modules:
-% ..
-%  ..
-%  ..
-% .
-%  .
-%  .
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / Li+1
-%  / Mi+1
-%  / Ni+1
-%  / 0
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / Li
-%  / Mi
-%  / Ni
-%  / 0
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / Li-1
-%  / Mi-1
-%  / Ni-1
-%  / 0
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-% ..
-%  ..
-%  ..
-% .
-%  .
-%  .
-% in which the central column is a complex and every row is exact. Prove that the
-% left and right columns are also complexes. Prove that if any two of the columns
-% are exact, so is the third. (The first part is straightforward. The second part
-% will take you a couple of minutes now due to the needed diagram chases, and a
-% couple of seconds later, once you learn about the long exact (co)homology
-% sequence
-% in \S{}IX.3.3.) [IX.3.12]
+\begin{exer}{\exerused}{exer:rings:7.1}
+Assume that the complex $\cdots \to 0 \to M \to 0 \to \cdots$ is exact. Prove that $M \cong 0$. [\S{}7.3]
+\end{exer}
+\begin{exer}{}{exer:rings:7.2}
+Assume that the complex $\cdots \to 0 \to M \to M' \to 0 \to \cdots$ is exact. Prove that $M \cong M'$.
+\end{exer}
+\begin{exer}{}{exer:rings:7.3}
+Assume that the complex $\cdots \to 0 \to L \to M \xrightarrow{\phi} M' \to N \to 0 \to \cdots$ is exact. Show that, up to natural identifications, $L = \ker\phi$ and $N = \operatorname{coker}\phi$.
+\end{exer}
+\begin{exer}{}{exer:rings:7.4}
+Construct short exact sequences of $\Z$-modules
+\[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z \to 0\]
+and
+\[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to 0.\]
+(Hint: David Hilbert's Grand Hotel.)
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:7.5}
+Assume that the complex $\cdots \to L \to M \to N \to \cdots$ is exact and that $L$ and $N$ are Noetherian. Prove that $M$ is Noetherian. [\S{}7.1]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:7.6}
+Prove the ``split epimorphism'' part of \cref{prop:rings:split-sequence}. [\S{}7.2]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:7.7}
+Let $0 \to M \to N \to P \to 0$ be a short exact sequence of $R$-modules, and let $L$ be an $R$-module.
+\begin{enumerate}[label=(\roman*)]
+\item Prove that there is an exact sequence\footnote{In general, this will be a sequence of abelian groups; if $R$ is commutative, so that each $\operatorname{Hom}_{R\text{-Mod}}$ is an $R$-module (\S{}5.2), then it will be an exact sequence of $R$-modules.}
+\[\operatorname{Hom}_{R\text{-Mod}}(P,L) \to \operatorname{Hom}_{R\text{-Mod}}(N,L) \to \operatorname{Hom}_{R\text{-Mod}}(M,L).\]
+\item Redo Exercise~6.17. (Use the exact sequence $0 \to I \to R \to R/I \to 0$.)
+\item Construct an example showing that the rightmost homomorphism in (i) need not be onto.
+\item Show that if the original sequence splits, then the rightmost homomorphism in (i) is onto.
+\end{enumerate}
+[7.9, VIII.3.14, \S{}VIII.5.1]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:7.8}
+Prove that every exact sequence $0 \to M \to N \to F \to 0$ of $R$-modules, with $F$ free, splits. (Hint: Exercise~6.9.) [\S{}VIII.5.4]
+\end{exer}
+\begin{exer}{}{exer:rings:7.9}
+Let $0 \to M \to N \to F \to 0$ be a short exact sequence of $R$-modules, with $F$ free, and let $L$ be an $R$-module. Prove that there is an exact sequence
+\[\operatorname{Hom}_{R\text{-Mod}}(F,L) \to \operatorname{Hom}_{R\text{-Mod}}(N,L) \to \operatorname{Hom}_{R\text{-Mod}}(M,L) \to 0.\]
+(Cf.\ Exercise~7.7.)
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:7.10}
+In the situation of the snake lemma, assume that $\lambda$ and $\nu$ are isomorphisms. Use the snake lemma and prove that $\mu$ is an isomorphism. This is called the ``short five-lemma,'' as it follows immediately from the five-lemma (cf.\ Exercise~7.14), as well as from the snake lemma. [VIII.6.21, IX.2.4]
+\end{exer}
+\begin{exer}{\exerused}{exer:rings:7.11}
+Let
+\[0 \to M_1 \to N \to M_2 \to 0 \tag{$*$}\]
+be an exact sequence of $R$-modules. (This may be called an ``extension'' of $M_2$ by $M_1$.) Suppose there is any $R$-module homomorphism $N \to M_1 \oplus M_2$ making the diagram
+\[\begin{tikzcd}
+0 \ar[r] & M_1 \ar[r] \ar[d,equal] & N \ar[r] \ar[d] & M_2 \ar[r] \ar[d,equal] & 0 \\
+0 \ar[r] & M_1 \ar[r] & M_1 \oplus M_2 \ar[r] & M_2 \ar[r] & 0
+\end{tikzcd}\]
+commute, where the bottom sequence is the standard sequence of a direct sum. Prove that $(*)$ splits. [\S{}7.2]
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:7.12}
+Practice your diagram chasing skills by proving the ``four-lemma'': if
+\[\begin{tikzcd}
+A_1 \ar[r] \ar[d,"\alpha"'] & B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[d,"\delta"'] \\
+A_0 \ar[r] & B_0 \ar[r] & C_0 \ar[r] & D_0
+\end{tikzcd}\]
+is a commutative diagram of $R$-modules with exact rows, $\alpha$ is an epimorphism, and $\beta$, $\delta$ are monomorphisms, then $\gamma$ is a monomorphism. [7.13, IX.2.3]
+\end{exer}
+\begin{exer}{}{exer:rings:7.13}
+Prove another\footnote{It is in fact unnecessary to prove both versions, but to realize this one has to view the matter from the more general context of abelian categories; cf.\ Exercise~IX.2.3.} version of the ``four-lemma'' of \cref{exer:rings:7.12}: if
+\[\begin{tikzcd}
+B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[r] \ar[d,"\delta"'] & E_1 \ar[d,"\epsilon"'] \\
+B_0 \ar[r] & C_0 \ar[r] & D_0 \ar[r] & E_0
+\end{tikzcd}\]
+is a commutative diagram of $R$-modules with exact rows, $\beta$ and $\delta$ are epimorphisms, and $\epsilon$ is a monomorphism, then $\gamma$ is an epimorphism.
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:7.14}
+Prove the ``five-lemma'': if
+\[\begin{tikzcd}
+A_1 \ar[r] \ar[d,"\alpha"'] & B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[r] \ar[d,"\delta"'] & E_1 \ar[d,"\epsilon"'] \\
+A_0 \ar[r] & B_0 \ar[r] & C_0 \ar[r] & D_0 \ar[r] & E_0
+\end{tikzcd}\]
+is a commutative diagram of $R$-modules with exact rows, $\beta$ and $\delta$ are isomorphisms, $\alpha$ is an epimorphism, and $\epsilon$ is a monomorphism, then $\gamma$ is an isomorphism. (You can avoid the needed diagram chase by pasting together results from previous exercises.) [7.10]
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:7.15}
+Consider the following commutative diagram of $R$-modules:
+\[\begin{tikzcd}
+0 \ar[r] & L_2 \ar[r] \ar[d] & M_2 \ar[r] \ar[d,"\alpha"'] & N_2 \ar[r] \ar[d] & 0 \\
+0 \ar[r] & L_1 \ar[r] \ar[d] & M_1 \ar[r] \ar[d,"\beta"'] & N_1 \ar[r] \ar[d] & 0 \\
+0 \ar[r] & L_0 \ar[r] & M_0 \ar[r] & N_0 \ar[r] & 0
+\end{tikzcd}\]
+Assume that the three rows are exact and the two rightmost columns are exact. Prove that the left column is exact. Second version: assume that the three rows are exact and the two leftmost columns are exact; prove that the right column is exact. This is the ``nine-lemma.'' (You can avoid a diagram chase by applying the snake lemma; for this, you will have to turn the diagram by $90^\circ$.) [7.16]
+\end{exer}
+\begin{exer}{}{exer:rings:7.16}
+In the same situation as in \cref{exer:rings:7.15}, assume that the three rows are exact and that the leftmost and rightmost columns are exact.
+\begin{itemize}
+\item Prove that $\alpha$ is a monomorphism and $\beta$ is an epimorphism.
+\item Is the central column necessarily exact? (Hint: No. Place $\Z \oplus \Z$ in the middle, and surround it artfully with six copies of $\Z$ and two $0$'s.)
+\item Assume further that the central column is a complex (that is, $\beta \circ \alpha = 0$); prove that it is then necessarily exact.
+\end{itemize}
+\end{exer}
+\begin{exer}{\lnot}{exer:rings:7.17}
+Generalize the previous two exercises as follows. Consider a (possibly infinite) commutative diagram of $R$-modules:
+\[\begin{tikzcd}
+& \vdots \ar[d] & \vdots \ar[d] & \vdots \ar[d] & \\
+0 \ar[r] & L_{i+1} \ar[r] \ar[d] & M_{i+1} \ar[r] \ar[d] & N_{i+1} \ar[r] \ar[d] & 0 \\
+0 \ar[r] & L_i \ar[r] \ar[d] & M_i \ar[r] \ar[d] & N_i \ar[r] \ar[d] & 0 \\
+0 \ar[r] & L_{i-1} \ar[r] \ar[d] & M_{i-1} \ar[r] \ar[d] & N_{i-1} \ar[r] \ar[d] & 0 \\
+& \vdots & \vdots & \vdots &
+\end{tikzcd}\]
+in which the central column is a complex and every row is exact. Prove that the left and right columns are also complexes. Prove that if any two of the columns are exact, so is the third. (The first part is straightforward. The second part will take you a couple of minutes now due to the needed diagram chases, and a couple of seconds later, once you learn about the long exact (co)homology sequence in \S{}IX.3.3.) [IX.3.12]
+\end{exer}
 
 %%% Local Variables:
 %%% mode: LaTeX
