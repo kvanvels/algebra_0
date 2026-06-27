@@ -1,20 +1,15 @@
 \chapter{Groups, second encounter}
 \label{chap:groups2}
 
-% In this chapter we return to Grp and study several topics of a less `general'
-% nature
-% than those considered in Chapter II. Most of what we do here will apply
-% exclusively
-% to finite groups; this is an important example in its own right, as it has
-% spectacular
-% applications (for example, in Galois theory; cf. \S{}VII.7), and it is a good
-% subject
-% from the expository point of view, since it gives us the opportunity to see
-% several
-% general concepts at work in a context that is complex enough to carry substance,
-% but simple enough (in this tiny selection of elementary topics) to be
-% appreciated
-% easily.
+In this chapter we return to $\categ{Grp}$ and study several topics of a less
+`general' nature than those considered in Chapter~II\@. Most of what we do
+here will apply exclusively to \emph{finite} groups; this is an important
+example in its own right, as it has spectacular applications (for example, in
+Galois theory; cf.\ \S{}VII.7), and it is a good subject from the expository
+point of view, since it gives us the opportunity to see several general
+concepts at work in a context that is complex enough to carry substance, but
+simple enough (in this tiny selection of elementary topics) to be appreciated
+easily.
 
 \section{The conjugation action}
 \label{sec:groups2:the-conjugation-action}
@@ -22,88 +17,86 @@
 
 \subsection{Actions of groups on sets, reminder}
 \label{subsec:groups2:actions-of-groups-on-sets-reminder}
-% Groups really shine when you let
+Groups really shine when you let them act on something. This section will make
+this point very effectively, since we will get surprisingly precise results on
+finite groups by extremely simple-minded applications of the elementary facts
+concerning group actions that we established back in~\S{}II.9.
 
-% them act on something. This section will make this point very effectively, since
-% we will get surprisingly precise results on finite groups by extremely
-% simple-minded
-% applications of the elementary facts concerning group actions that we
-% established
-% back in \S{}II.9.
-% Recall that we proved (Proposition II.9.9) that every transitive (left-) action
-% of
-% a group G on a set S is, up to a natural notion of isomorphism,
-% `left-multiplication
-% on the set of left-cosets G/H'. Here, H may be taken to be the stabilizer Stab
-% G(a)
-% of any element a \in  S, that is (Definition II.9.8) the subgroup of G fixing a.
-% This
-% fact applies to the orbits of every left-action of G on a set; in particular,
-% the number
-% of elements in a finite orbit O equals the index of the stabilizer of any a \in
-% O; in
-% particular (Corollary II.9.10) the number of elements |O| of an orbit must
-% divide
-% the order |G| of G, if G is finite.
-% These considerations may be packaged into a useful `counting' formula, which
-% we could call the class formula for that action; this name is usually reserved
-% to the
-% particular case of the action of G onto itself by conjugation, which we will
-% explore
-% more carefully below.
-% In order to state the formula, assume G acts on a set S; for a \in  S, let Ga
-% denote the stabilizer StabG (a). Also, let Z be the set of fixed points of the
-% action:
-% Z = {a \in  S | (\forall g \in  G) : ga = a}.
-% Note that a \in  Z \iff  Ga = G; we could say that a \in  Z if and only if the
-% orbit
-% of a is `trivial', in the sense that it consists of a alone.
-% Proposition 1.1. Let S be a finite set, and let G be a group acting on S. With
-% notation as above,
-% ?
-% |S| = |Z| +
-%  [G : Ga],
-% a\in A
-% where A \subseteq  S has exactly one element for each nontrivial orbit of the
-% action.
-% Proof. The orbits form a partition of S, and Z collects the trivial orbits;
-% hence
-% ?
-% |S| = |Z| +
-%  |Oa |,
-% a\in A
-% where Oa denotes the orbit of a. By Proposition II.9.9, the order |Oa | equals
-% the
-% index of the stabilizer of a, yielding the statement.
-%  ?
-% The main strength of Proposition 1.1 rests in the fact that, if G is finite,
-% each
-% summand [G : Ga ] divides the order of G (and is > 1). This can be a strong
-% constraint, when some information is known about |G|. For example, let's see
-% what
-% this says when G is a p-group:
-% Definition 1.2. A p-group is a finite group whose order is a power of a prime
-% integer p.
-%  ?
-% Corollary 1.3. Let G be a p-group acting on a finite set S, and let Z be the
-% fixed
-% point set of the action. Then
-% |Z| \equiv  |S| mod p.
-% Proof. Indeed, each summand [G : Ga ] in Proposition 1.1 is a number larger
-% than 1, and a power of p; hence it is 0 mod p.
-%  ?
-% For instance, in certain situations this can be used to establish1 that Z =
-% \emptyset : see
-% Exercise 1.1. Such immediate consequences of Proposition 1.1 will assist us
-% below,
-% in the proof of Sylow's theorems.
-% 1 In this sense, Proposition 1.1 is an instance of a class of results known as
-% `fixed point
-% theorems'. The reader will likely encounter a few such theorems in topology
-% courses, where the
-% role of the `size' of a set may be played by (for example) the Euler
-% characteristic of a topological
-% space.
+Recall that we proved (Proposition~II.9.9) that every \emph{transitive}
+(left-)~action of a group $G$ on a set $S$ is, up to a natural notion of
+isomorphism, `left-multiplication on the set of left-cosets $G/H$'. Here, $H$
+may be taken to be the stabilizer $\operatorname{Stab}_G(a)$ of any element
+$a \in S$, that is (Definition~II.9.8) the subgroup of $G$ fixing $a$. This
+fact applies to the orbits of every left-action of $G$ on a set; in
+particular, the number of elements in a finite orbit $O$ equals the index of
+the stabilizer of any $a \in O$; in particular (Corollary~II.9.10) the number
+of elements $|O|$ of an orbit must divide the order $|G|$ of $G$, if $G$ is
+finite.
+
+These considerations may be packaged into a useful `counting' formula, which
+we could call the \emph{class formula} for that action; this name is usually
+reserved to the particular case of the action of $G$ onto itself by
+conjugation, which we will explore more carefully below.
+
+In order to state the formula, assume $G$ acts on a set $S$; for $a \in S$,
+let $G_a$ denote the stabilizer $\operatorname{Stab}_G(a)$. Also, let $Z$ be
+the set of \emph{fixed points} of the action:
+\[
+  Z = \{a \in S \mid (\forall g \in G) : ga = a\}.
+\]
+Note that $a \in Z \iff G_a = G$; we could say that $a \in Z$ if and only if
+the orbit of $a$ is `trivial', in the sense that it consists of $a$ alone.
+
+\begin{prop}{}{prop:groups2:class-formula-action}
+Let $S$ be a finite set, and let $G$ be a group acting on $S$. With notation
+as above,
+\[
+  |S| = |Z| + \sum_{a \in A} [G : G_a],
+\]
+where $A \subseteq S$ has exactly one element for each nontrivial orbit of the
+action.
+\end{prop}
+\begin{proof}
+The orbits form a partition of $S$, and $Z$ collects the trivial orbits; hence
+\[
+  |S| = |Z| + \sum_{a \in A} |O_a|,
+\]
+where $O_a$ denotes the orbit of $a$. By Proposition~II.9.9, the order $|O_a|$
+equals the index of the stabilizer of $a$, yielding the statement.
+\end{proof}
+
+The main strength of \cref{prop:groups2:class-formula-action} rests in the
+fact that, if $G$ is finite, each summand $[G : G_a]$ \emph{divides} the
+order of $G$ (and is $> 1$). This can be a strong constraint, when some
+information is known about $|G|$. For example, let's see what this says when
+$G$ is a $p$-group:
+
+\begin{defn}{$p$-group}{defn:groups2:p-group}
+A \textbf{$p$-group} is a finite group whose order is a power of a prime
+integer $p$.
+\end{defn}
+
+\begin{coro}{}{coro:groups2:p-group-fixed-pts}
+Let $G$ be a $p$-group acting on a finite set $S$, and let $Z$ be the fixed
+point set of the action. Then
+\[
+  |Z| \equiv |S| \pmod{p}.
+\]
+\end{coro}
+\begin{proof}
+Indeed, each summand $[G : G_a]$ in \cref{prop:groups2:class-formula-action}
+is a number larger than $1$, and a power of $p$; hence it is $0 \pmod{p}$.
+\end{proof}
+
+For instance, in certain situations this can be used to
+establish\footnote{In this sense,
+\cref{prop:groups2:class-formula-action} is an instance of a class of results
+known as `fixed point theorems'. The reader will likely encounter a few such
+theorems in topology courses, where the role of the `size' of a set may be
+played by (for example) the Euler characteristic of a topological space.} that
+$Z \neq \emptyset$: see Exercise~1.1. Such immediate consequences of
+\cref{prop:groups2:class-formula-action} will assist us below, in the proof of
+Sylow's theorems.
 
 \subsection{Center, centralizer, conjugacy classes}
 \label{subsec:groups2:center-centralizer-conjugacy-classes}
