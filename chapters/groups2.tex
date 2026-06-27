@@ -490,103 +490,109 @@ about $\gamma$?) [\S{}1.4]
 
 \subsection{Cauchy's theorem}
 \label{subsec:groups2:cauchy-s-theorem}
-% The `Sylow theorems' consist of three statements con-
+The `Sylow theorems' consist of three statements concerning $p$-subgroups
+(cf.\ \cref{defn:groups2:p-group}) of a given finite group $G$. The form I
+will give for the first of these statements will tell us that $G$ contains
+$p$-groups of all sizes allowed by Lagrange's theorem: if $p$ is a prime and
+$p^k$ divides $|G|$, then $G$ contains a subgroup of order $p^k$. The proof
+of this statement is an easy induction, provided the statement for $k = 1$ is
+known: that is, provided that one has established
+\begin{thm}{Cauchy's theorem}{thm:groups2:cauchy}
+Let $G$ be a finite group, and let $p$ be a prime divisor of $|G|$. Then $G$
+contains an element of order $p$.
+\end{thm}
+As it happens, only the \emph{abelian} version of this statement is needed
+for the proof of the first Sylow theorem; then the full statement of Cauchy's
+theorem follows from the first Sylow theorem itself. Since the (diligent)
+reader has already proved Cauchy's theorem for abelian groups (in
+Exercise~II.8.17), we could directly move on to Sylow theorems.
+However, there is a quick proof\footnote{This argument is apparently due to
+James McKay.} of the full statement of Cauchy's theorem which does not rely on
+Sylow and is a good illustration of the power of the general `class formula
+for arbitrary actions' (\cref{prop:groups2:class-formula-action}). I will
+present this proof, while also encouraging the reader to go back and (re)do
+Exercise~II.8.17 now.
+\begin{proof}[Proof of \cref{thm:groups2:cauchy}]
+Consider the set $S$ of ordered $p$-tuples of elements of $G$:
+\[
+  (a_1, \dots, a_p)
+\]
+such that $a_1 \cdots a_p = e$. I claim that $|S| = |G|^{p-1}$: indeed, once
+$a_1, \dots, a_{p-1}$ are chosen (arbitrarily), then $a_p$ is determined as
+it is the inverse of $a_1 \cdots a_{p-1}$. Therefore, $p$ divides the order
+of $S$ as it divides the order of $G$.
+Also note that if $a_1 \cdots a_p = e$, then
+\[
+  a_2 \cdots a_p a_1 = e
+\]
+(even if $G$ is not commutative): because if $a_1$ is a left-inverse to
+$a_2 \cdots a_p$, then it is also a right-inverse to it.
+Therefore, we may act with the group $\Z/p\Z$ on $S$: given $[m]$ in
+$\Z/p\Z$, with $0 \leq m < p$, act by $[m]$ on $(a_1, \dots, a_p)$ by
+sending it to
+\[
+  (a_{m+1}, \dots, a_p, a_1, \dots, a_m)\,;
+\]
+as we just observed, this is still an element of $S$.
+Now \cref{coro:groups2:p-group-fixed-pts} implies
+\[
+  |Z| \equiv |S| \equiv 0 \bmod p,
+\]
+where $Z$ is the set of fixed points of this action. Fixed points are
+$p$-tuples of the form
+\[
+  \tag{$*$} (a, \dots, a);
+\]
+and note that $Z \neq \emptyset$, since $\{e, \dots, e\} \in Z$. Since
+$p \geq 2$ and $p$ divides $|Z|$, we conclude that $|Z| > 1$; therefore
+there exists some element in $Z$ of the form~$(*)$, with $a \neq e$.
 
-% cerning p-subgroups (cf. Definition 1.2) of a given finite group G. The form I
-% will
-% give for the first of these statements will tell us that G contains p-groups of
-% all sizes
-% allowed by Lagrange's theorem: if p is a prime and pk divides |G|, then G
-% contains
-% a subgroup of order pk . The proof of this statement is an easy induction,
-% provided
-% the statement for k = 1 is known: that is, provided that one has established
-% Theorem 2.1 (Cauchy's theorem). Let G be a finite group, and let p be a prime
-% divisor of |G|. Then G contains an element of order p.
-% As it happens, only the abelian version of this statement is needed for the
-% proof
-% of the first Sylow theorem; then the full statement of Cauchy's theorem follows
-% from the first Sylow theorem itself. Since the (diligent) reader has already
-% proved
-% Cauchy's theorem for abelian groups (in Exercise II.8.17), we could directly
-% move
-% on to Sylow theorems.
-% However, there is a quick proof4 of the full statement of Cauchy's theorem
-% which does not rely on Sylow and is a good illustration of the power of the
-% general
-% `class formula for arbitrary actions' (Proposition 1.1). I will present this
-% proof,
-% while also encouraging the reader to go back and (re)do Exercise II.8.17 now.
-% Proof of Theorem 2.1. Consider the set S of ordered p-tuples of elements of G:
-% (a1 , . . . , ap )
-% such that a1 \dots  ap = e. I claim that |S| = |G|p-1 : indeed, once a1, . . . ,
-% ap-1 are
-% chosen (arbitrarily), then ap is determined as it is the inverse of a1 \dots  a
-% p-1 .
-% Therefore, p divides the order of S as it divides the order of G.
-% Also note that if a1 \dots  ap = e, then
-% a2 \dots  apa1 = e
-% (even if G is not commutative): because if a1 is a left-inverse to a2 \dots  ap,
-% then it is
-% also a right-inverse to it.
-% Therefore, we may act with the group Z/pZ on S: given [m] in Z/pZ, with
-% 0 \leq  m < p, act by [m] on
-% (a1 , . . . , ap )
-% by sending it to
-% (am+1 , . . . , ap , a1 , . . . , am) :
-% as we just observed, this is still an element of S.
-% Now Corollary 1.3 implies
-% |Z| \equiv  |S| \equiv  0 mod p,
-% where Z is the set of fixed points of this action. Fixed points are p-tuples of
-% the
-% form
-% (*)
-%  (a, . . . , a);
-% and note that Z = \emptyset , since {e, . . . , e} \in  Z. Since p \geq  2 and p
-% divides |Z|, we
-% conclude that |Z| > 1; therefore there exists some element in Z of the form (*),
-% with a = e.
-% 4This argument is apparently due to James McKay.
-% This says that there exists an a \in  G, a = e, such that ap = e, proving the
-% statement.
-%  ?
-% We should remark that the proof given here proves a more precise result than
-% the raw statement of Theorem 2.1: every element of order p in G generates a
-% cyclic
-% subgroup of G of order p, and we are able to say something about the number of
-% such subgroups.
-% Claim 2.2. Let G be a finite group, let p be a prime divisor of |G|, and let N
-% be
-% the number of cyclic subgroups of G of order p. Then N \equiv  1 mod p.
-% The proof of this fact is left to the reader (as an incentive to really
-% understand
-% the proof of Theorem 2.1).
-% Claim 2.2, coupled with the simple observation that if there is only 1 cyclic
-% subgroup H of order p, then that subgroup must be normal (Exercise 2.2),
-% suffices
-% for interesting applications.
-% Definition 2.3. A group G is simple if it is nontrivial and its only normal sub-
-% groups are {e} and G itself.
-%  ?
-% Simple groups occupy a special place in the theory of groups: one can `break
-% up' any finite group into basic constituents which are simple groups; we will
-% see
-% how this is done in \S{}3.1. Thus, it is important to be able to tell whether a
-% group is
-% simple or not5.
-% Example 2.4. Let p be a positive prime integer. If |G| = mp, with 1 < m < p,
-% then G is not simple.
-% Indeed, consider the subgroups of G with p elements. By Claim 2.2, the number
-% of such subgroups is \equiv  1 mod p. Thus, if there is more than one such
-% subgroup,
-% then there must be at least p + 1. Any two distinct subgroups of prime order can
-% only meet at the identity (why?); therefore this would account for at least
-% 1 + (p + 1)(p - 1) = p2
-% elements in G. Since |G| = mp < p 2 , this is impossible. Therefore there is
-% only
-% one cyclic subgroup of order p in G, which must be normal as mentioned above,
-% proving that G is not simple.
-%  ?
+This says that there exists an $a \in G$, $a \neq e$, such that $a^p = e$,
+proving the statement.
+\end{proof}
+We should remark that the proof given here proves a more precise result than
+the raw statement of \cref{thm:groups2:cauchy}: every element of order $p$ in
+$G$ generates a cyclic subgroup of $G$ of order $p$, and we are able to say
+something about the number of such subgroups.
+\begin{fact}{}{fact:groups2:cauchy-cyclic-count}
+Let $G$ be a finite group, let $p$ be a prime divisor of $|G|$, and let $N$
+be the number of cyclic subgroups of $G$ of order $p$. Then $N \equiv 1
+\bmod p$.
+\end{fact}
+
+The proof of this fact is left to the reader (as an incentive to really
+understand the proof of \cref{thm:groups2:cauchy}).
+\cref{fact:groups2:cauchy-cyclic-count}, coupled with the simple observation
+that if there is only 1 cyclic subgroup $H$ of order $p$, then that subgroup
+must be normal (Exercise~2.2), suffices for interesting applications.
+
+\begin{defn}{}{defn:groups2:simple-group}
+A group $G$ is \emph{simple} if it is nontrivial and its only normal
+subgroups are $\{e\}$ and $G$ itself.
+\end{defn}
+Simple groups occupy a special place in the theory of groups: one can `break
+up' any finite group into basic constituents which are simple groups; we will
+see how this is done in \S{}3.1. Thus, it is important to be able to tell
+whether a group is simple or not.\footnote{In fact, a complete list of all
+finite simple groups is known: this is the classification result mentioned at
+the end of \S{}II.6.3, arguably one of the deepest and hardest results in
+mathematics.}
+\begin{exam}{}{}
+Let $p$ be a positive prime integer. If $|G| = mp$, with $1 < m < p$, then
+$G$ is not simple.
+
+Indeed, consider the subgroups of $G$ with $p$ elements. By
+\cref{fact:groups2:cauchy-cyclic-count}, the number of such subgroups is
+$\equiv 1 \bmod p$. Thus, if there is more than one such subgroup, then there
+must be at least $p + 1$. Any two distinct subgroups of prime order can only
+meet at the identity (why?); therefore this would account for at least
+\[
+  1 + (p+1)(p-1) = p^2
+\]
+elements in $G$. Since $|G| = mp < p^2$, this is impossible. Therefore there
+is only one cyclic subgroup of order $p$ in $G$, which must be normal as
+mentioned above, proving that $G$ is not simple.
+\end{exam}
 
 \subsection{Sylow I}
 \label{subsec:groups2:sylow-i}
