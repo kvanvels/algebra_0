@@ -1577,350 +1577,138 @@ We will come back to all of this and get a very small taste of algebraic geometr
 \section{Modules over a ring}
 \label{sec:rings:modules-over-a-ring}
 
-% I have emphasized the parallels between the basic theory of groups and the basic
-% theory of rings; there are also important differences. In Grp, one takes the
-% quotient
-% of a group, by a (normal sub)group, and the results is a group: throughout the
-% process one never leaves Grp. The situation is in a sense even better in Ab,
-% where
-% the normality condition is automatic; one simply takes the quotient of an
-% abelian
-% group by an abelian (sub)group, obtaining an abelian group.
-% The situation in Ring is not nearly as neat. One of the three characters in the
-% story is an ideal: which is not a ring according to the axioms listed in
-% Definition 1.1,
-% in all but the most pathological cases. In other words, the kernel of a
-% homomorphism
-% of rings is (usually) not a ring. Also, cokernels do not behave as one would
-% hope
-% (cf. Exercise 2.12). Even if one relaxes the ring definition, giving up the
-% identity
-% and making ideals subrings, there is no reasonably large class of examples in
-% which
-% the `ideal' condition is automatically satisfied by substructures. In short,
-% Ring is
-% not a particularly pleasant category.
-% Modules will fix all these problems. If R is a ring and I \subseteq  R is a
-% two-sided
-% ideal, then all three structures R, I, and R/I are modules over R. The category
-% of R-modules is the prime example of a well-behaved category: in this category
-% kernels and cokernels exist and do precisely what they ought to. The category
-% Ab is a particular case of this construction, since it is the category of
-% modules
-% over Z in disguise (Example 5.4). The category of modules over a ring R will
-% share
-% many of the excellent properties of Ab; and we will get a brand new,
-% well-behaved
-% category for each ring R. These are all examples23 of the important notion of
-% abelian category.
+I have emphasized the parallels between the basic theory of groups and the basic theory of rings; there are also important differences. In $\mathsf{Grp}$, one takes the quotient of a group, by a (normal sub)group, and the result is a group: throughout the process one never leaves $\mathsf{Grp}$. The situation is in a sense even better in $\mathsf{Ab}$, where the normality condition is automatic; one simply takes the quotient of an abelian group by an abelian (sub)group, obtaining an abelian group.
+The situation in $\mathsf{Ring}$ is not nearly as neat. One of the three characters in the story is an ideal: which is not a ring according to the axioms listed in \cref{defn:rings:ring}, in all but the most pathological cases. In other words, the kernel of a homomorphism of rings is (usually) not a ring. Also, cokernels do not behave as one would hope (cf.\ Exercise~2.12). Even if one relaxes the ring definition, giving up the identity and making ideals subrings, there is no reasonably large class of examples in which the `ideal' condition is automatically satisfied by substructures. In short, $\mathsf{Ring}$ is not a particularly pleasant category.
+\emph{Modules} will fix all these problems. If $R$ is a ring and $I \subseteq R$ is a two-sided ideal, then all three structures $R$, $I$, and $R/I$ are modules over $R$. The category of $R$-modules is the prime example of a well-behaved category: in this category kernels and cokernels exist and do precisely what they ought to. The category $\mathsf{Ab}$ is a particular case of this construction, since it is the category of modules over $\Z$ in disguise (Example~5.4). The category of modules over a ring $R$ will share many of the excellent properties of $\mathsf{Ab}$; and we will get a brand new, well-behaved category for each ring $R$. These are all examples\footnote{In fact, it can be shown (`Freyd--Mitchell's embedding theorem') that every small abelian category is equivalent to a subcategory of the category of left-modules over a ring. So to some extent we can understand abelian categories by understanding categories of modules well enough. We will come back to this in Chapter~IX.} of the important notion of \emph{abelian category}.
 
 \subsection{Definition of (left-)R-module}
 \label{subsec:rings:definition-of-left-r-module}
-% In short, R-modules are abelian groups
+In short, $R$-modules are abelian groups endowed with an action of $R$. To flesh out this idea, recall that `actions' in general denote homomorphisms into some kind of endomorphism structure: for example, we defined group actions in \S{}II.9.1 as group homomorphisms from a fixed group to the groups of automorphisms of objects of a category.
+We can give an analogous definition of the action of a ring on an abelian group. Indeed, recall that if $M$ is an abelian group, then $\operatorname{End}_{\mathsf{Ab}}(M) := \operatorname{Hom}_{\mathsf{Ab}}(M, M)$ is a ring in a natural way (cf.\ \S{}2.5). A \emph{left-action} of a ring $R$ on $M$ is then simply a homomorphism of rings $\sigma : R \to \operatorname{End}_{\mathsf{Ab}}(M)$; we will say that $\sigma$ makes $M$ into a \emph{left-$R$-module}.
+Similarly to the situation with group actions, it is convenient to spell out this definition.
 
-% endowed with an action of R. To flesh out this idea, recall that `actions' in
-% general
-% denote homomorphisms into some kind of endomorphism structure: for example,
-% we defined group actions in \S{}II.9.1 as group homomorphisms from a fixed group
-% to
-% the groups of automorphisms of objects of a category.
-% We can give an analogous definition of the action of a ring on an abelian group.
-% Indeed, recall that if M is an abelian group, then EndAb(M ) := HomAb (M, M ) is
-% a ring in a natural way (cf. \S{}2.5). A left-action of a ring R on M is then
-% simply a
-% homomorphism of rings
-% \sigma  : R \to  EndAb (M );
-% 23 In fact, it can be shown (`Freyd-Mitchell's embedding theorem') that every
-% small abelian
-% category is equivalent to a subcategory of the category of left-modules over a
-% ring. So to some
-% extent we can understand abelian categories by understanding categories of
-% modules well enough.
-% We will come back to this in Chapter IX.
-% we will say that \sigma  makes M into a left-R-module.
-% Similarly to the situation with group actions, it is convenient to spell out
-% this
-% definition.
-% Claim 5.1. The datum of a homomorphism \sigma  as above is precisely the same as
-% the
-% datum of a function
-% \rho  : R \times  M \to  M
-% satisfying the following requirements: (\forall r, s \in  R) (\forall m, n \in
-% M )
-% \bullet  \rho (r, m + n) = \rho (r, m) + \rho (r, n);
-% \bullet  \rho (r + s, m) = \rho (r, m) + \rho (s, m);
-% \bullet  \rho (rs, m) = \rho (r, \rho (s, m));
-% \bullet  \rho (1, m) = m.
-% The proof of this claim follows precisely the pattern of the discussion in the
-% beginning of \S{}II.9.2, so it is left to the reader (Exercise 5.2). Of course
-% the relation
-% between \rho  and \sigma  is given by
-% \rho (r, m) = \sigma (r)(m).
-% As always, carrying \rho  around is inconvenient, so it is common to omit
-% mention of
-% it: \rho (r, m) is often just denoted rm; this makes the requirements listed
-% above a
-% little more readable. Summarizing and adopting this shorthand,
-% Definition 5.2. A left-R-module structure on an abelian group M consists of a
-% map R \times  M \to  M , (r, m) ?\to  rm, such that
-% \bullet  r(m + n) = rm + rn;
-% \bullet  (r + s)m = rm + sm;
-% \bullet  (rs)m = r(sm);
-% \bullet  1m = m.
-% ?
-% Right-R-modules are defined analogously. The reader can glance back at \S{}II.9,
-% especially Exercise II.9.3, for a reminder on right- vs. left-actions; the
-% issues here are
-% analogous. Thus, for example, a right-R-module structure may be identified with
-% a left-R\circ  -module structure, where R\circ  is the `opposite' ring obtained
-% by reversing
-% the order of multiplication (Exercise 5.1). However, note that R and R\circ
-% have no
-% good reasons to be isomorphic in general (while every group is isomorphic to its
-% opposite).
-% These issues become immaterial if R is commutative: then the identity R \to
-% R\circ
-% is an isomorphism, and left-modules/right-modules are identical concepts. The
-% reader will not miss much by adopting the blanket assumption that all rings men-
-% tioned in this section are commutative. It is occasionally important to make
-% this
-% hypothesis explicit (for example in dealing with algebras, cf. Example 5.6), but
-% most
-% of the material we are going to review works verbatim for, say, left-modules
-% over
-% an arbitrary ring as for modules over a commutative ring. I will write `module'
-% for
-% `left-module', for convenience; it will be the reader's responsibility to take
-% care of
-% appropriate changes, if necessary, to adapt the various concepts to
-% right-modules.
+\begin{prop}{}{prop:rings:module-axioms}
+  The datum of a homomorphism $\sigma$ as above is precisely the same as the datum of a function $\rho : R \times M \to M$ satisfying the following requirements: $(\forall r, s \in R)$ $(\forall m, n \in M)$
+  \begin{itemize}
+    \item $\rho(r, m + n) = \rho(r, m) + \rho(r, n)$;
+    \item $\rho(r + s, m) = \rho(r, m) + \rho(s, m)$;
+    \item $\rho(rs, m) = \rho(r, \rho(s, m))$;
+    \item $\rho(1, m) = m$.
+  \end{itemize}
+\end{prop}
+
+\begin{proof}
+  The proof of this claim follows precisely the pattern of the discussion in the beginning of \S{}II.9.2, so it is left to the reader (Exercise 5.2). Of course the relation between $\rho$ and $\sigma$ is given by $\rho(r, m) = \sigma(r)(m)$.
+\end{proof}
+
+As always, carrying $\rho$ around is inconvenient, so it is common to omit mention of it: $\rho(r, m)$ is often just denoted $rm$; this makes the requirements listed above a little more readable. Summarizing and adopting this shorthand,
+\begin{defn}{}{defn:rings:left-R-module}
+  A \emph{left-$R$-module structure} on an abelian group $M$ consists of a map $R \times M \to M$, $(r, m) \mapsto rm$, such that
+  \begin{itemize}
+    \item $r(m + n) = rm + rn$;
+    \item $(r + s)m = rm + sm$;
+    \item $(rs)m = r(sm)$;
+    \item $1m = m$.
+  \end{itemize}
+\end{defn}
+Right-$R$-modules are defined analogously. The reader can glance back at \S{}II.9, especially Exercise~II.9.3, for a reminder on right- vs.\ left-actions; the issues here are analogous. Thus, for example, a right-$R$-module structure may be identified with a left-$R^\circ$-module structure, where $R^\circ$ is the `opposite' ring obtained by reversing the order of multiplication (Exercise 5.1). However, note that $R$ and $R^\circ$ have no good reasons to be isomorphic in general (while every group is isomorphic to its opposite).
+These issues become immaterial if $R$ is commutative: then the identity $R \to R^\circ$ is an isomorphism, and left-modules/right-modules are identical concepts. The reader will not miss much by adopting the blanket assumption that all rings mentioned in this section are commutative. It is occasionally important to make this hypothesis explicit (for example in dealing with algebras, cf.\ Example~5.6), but most of the material we are going to review works verbatim for, say, left-modules over an arbitrary ring as for modules over a commutative ring. I will write `module' for `left-module', for convenience; it will be the reader's responsibility to take care of appropriate changes, if necessary, to adapt the various concepts to right-modules.
 
 \subsection{The category R-Mod}
 \label{subsec:rings:the-category-r-mod}
-% The reader should spend some time getting familiar
+The reader should spend some time getting familiar with the notion of module, by proving simple properties such as
+\[
+  (\forall m \in M) : 0 \cdot m = 0, \qquad (\forall m \in M) : (-1) \cdot m = -m,
+\]
+where $M$ is a module over some ring (Exercise 5.3). The following fancier-sounding (but equally trivial) property is also useful in developing a feel for modules:
+\begin{prop}{}{prop:rings:Z-module}
+  Every abelian group is a $\Z$-module, in exactly one way.
+\end{prop}
 
-% with the notion of module, by proving simple properties such as
-% (\forall m \in  M ) : 0 \cdot  m = 0,
-% (\forall m \in  M ) : (-1) \cdot  m = -m,
-% where M is a module over some ring (Exercise 5.3). The following
-% fancier-sounding
-% (but equally trivial) property is also useful in developing a feel for modules:
-% Proposition 5.3. Every abelian group is a Z-module, in exactly one way.
-% Proof. Let G be an abelian group. A Z-module structure on G is a ring homo-
-% morphism
-% Z \to  EndAb (G).
-% Since Z is initial in Ring (\S{}2.1), there exists exactly one such
-% homomorphism, prov-
-% ing the statement.
-%  ?
-% Thus, `abelian group' and `Z-module' are one and the same notion. Quite
-% concretely, the action of n \in  Z on an element a of an abelian group simply
-% yields
-% the ordinary `multiple' na; this operation is trivially compatible with the
-% operations
-% in Z.
-% A homomorphism of R-modules is a homomorphism of (abelian) groups which
-% is compatible with the module structure. That is, if M , N are R-modules and
-% \phi  : M \to  N is a function, then \phi  is a homomorphism of R-modules if and only if
-% \bullet  (\forall m1 \in  M )(\forall m2 \in  M ) :
-%  \phi (m1 + m2) = \phi (m1 ) + \phi (m2 );
-% \bullet  (\forall r \in  R)(\forall m \in  M ) :
-%  \phi (rm) = r\phi (m).
-% It is hopefully clear that the composition of two R-module homomorphisms is an
-% R-module homomorphism and that the identity is an R-module homomorphism:
-% R-modules form a category
-% which I will denote24 `R-Mod'.
-% Example 5.4. The category Z-Mod of Z-modules is `the same as' the category Ab:
-% indeed, every abelian group is a Z-module in exactly one way (Proposition 5.3),
-% and Z-module homomorphisms are simply homomorphisms of abelian groups. ?
-% Example 5.5. If R = k is a field, R-modules are called k-vector spaces. I will
-% call the category of vector spaces over a field k `k-Vect'; this is just another
-% name
-% for k-Mod. Morphisms in k-Vect are often called25 linear maps. `Linear algebra'
-% is
-% the study of k-Vect (extended to R-Mod when possible); Chapters VI and VIII will
-% be devoted to this subject.
-%  ?
-% 24 If R is not commutative, we should agree on whether R-Mod denotes the
-% category of left-
-% modules or of right-modules. I will mean `left-modules'.
-% 25 This term is also used for homomorphisms of R modules for more general rings
-% R, but not
-% as frequently.
-% Example 5.6. Any homomorphism of rings \alpha  : R \to  S may be used to define
-% an
-% interesting R-module: define \rho  : R \times  S \to  S by
-% \rho (r, s) := \alpha (r)s
-% for all r \in  R and s \in  S. The operation on the right is simply
-% multiplication in S,
-% and the axioms of Definition 5.2 are immediate consequence of the ring axioms
-% and
-% of the fact that \alpha  is a homomorphism. For instance, taking S = R and
-% \alpha  = idR
-% makes R a (left-) module over itself.
-% It is common to write rs rather than \alpha (r)s.
-% The ring operation in S and the R-module structure induced by \alpha  are linked
-% even more tightly if we require R to be commutative and \alpha  to map R to the
-% center
-% of S: that is, if we require \alpha (r), s to commute for every r \in  R, s \in
-% S. Indeed, in this
-% case the left-module structure defined above and the right-module structure
-% defined
-% analogously would coincide; further, with these requirements the ring operation
-% in S
-% (s1 , s2 ) ?\to  s1s2
-% is compatible with the R-module structure in the sense that26
-% (r1s1)(r2 s2 ) = \alpha (r1 )s1\alpha (r 2 )s2 = \alpha (r1 )\alpha (r2 )s1 s2 =
-% (r1 r2)(s1 s2 )
-% \forall r1 , r2 \in  R, \forall s1 , s2 \in  S: that is, we can `move' the action of R at will through
-% products in S.
-% Due to their importance, these examples deserve their own official name:
-% Definition 5.7. Let R be a commutative ring. An R-algebra is a ring homomor-
-% phism \alpha  : R \to  S such that \alpha (R) is contained in the center of S.
-%  ?
-% The usual abuse of language leads us to refer to an R-algebra by the name of
-% the target S of the homomorphism. Thus, an R-algebra `is' an R-module S with a
-% compatible ring structure, or, if you prefer, a ring S with a compatible
-% R-module
-% structure. An R-algebra S is a division algebra if S is a division ring.
-% There is an evident notion of `R-algebra homomorphism' (preserving both the
-% ring and module structure), and we thus get a category R-Alg. The situation
-% simplifies substantially if S is itself commutative, in which case the condition
-% on
-% the center is unnecessary. `Commutative R-algebras' form a category, which the
-% attentive reader will recognize as a coslice category (Example I.3.7) in the
-% category
-% of commutative rings.
-% Also, note that Z-Alg is just another name for Ring (why?).
-% The polynomial rings R[x1 , . . . , xn], as well as all their quotients, are
-% commu-
-% tative R-algebras. This is a particularly important class of examples; for R = k
-% an algebraically closed field, these are the rings used in `classical' affine
-% algebraic
-% geometry (cf. \S{}VII.2.3).
-%  ?
-% The trivial group 0 has a unique module structure over any ring R and is a zero-
-% object in R-Mod, that is, it is both initial and final. As in the other main
-% categories
-% we have encountered, a bijective homomorphism of R-modules is automatically an
-% 26More generally, this choice makes the multiplication in S `R-bilinear'.
-% isomorphism in R-Mod (Exercise 5.12). In these and many other respects, the
-% category R-Mod (for any commutative ring R) and Ab are similar.
-% If R is commutative, the similarity goes further: just as in the category Ab,
-% each
-% set HomR-Mod(M, N ) may itself be seen as an object of the category (cf.
-% \S{}II.4.4)27 .
-% Indeed, let M and N be R-modules. Since homomorphisms of R-modules are in
-% particular homomorphisms of abelian groups,
-% HomR-Mod (M, N ) \subseteq  HomAb (M, N )
-% as sets (up to natural identifications). The operation making HomAb (M, N ) into
-% an
-% abelian group, as in \S{}II.4.4, clearly preserves HomR-Mod (M, N ); it follows
-% that the
-% latter is an abelian group. For r \in  R and \phi  \in  HomR-Mod(M, N ), the
-% prescription
-% (\forall m \in  M ) :
-%  (r\phi )(m) := r \phi (m)
-% defines a function28 r\phi  : M \to  N . This function is an R-module
-% homomorphism if
-% R is commutative, because (\forall a \in  R), (\forall m \in  M )
-% !
-% (r\phi )(am) = r\phi (am) = (ra)\phi (m) = (ar)\phi (m) = a(r\phi (m)).
-% Thus, we have a natural action of R on the abelian group HomR-Mod (M, N ), and
-% it
-% is immediate to verify that this makes HomR-Mod (M, N ) into an R-module.
-% Watch out: if R is not commutative, then in general HomR-Mod (M, N ) is `just'
-% an abelian group. More structure is available if M , N are bimodules; cf.
-% \S{}VIII.3.2.
+\begin{proof}
+  Let $G$ be an abelian group. A $\Z$-module structure on $G$ is a ring homomorphism $\Z \to \operatorname{End}_{\mathsf{Ab}}(G)$. Since $\Z$ is initial in $\mathsf{Ring}$ (\S{}2.1), there exists exactly one such homomorphism, proving the statement.
+\end{proof}
+Thus, `abelian group' and `$\Z$-module' are one and the same notion. Quite concretely, the action of $n \in \Z$ on an element $a$ of an abelian group simply yields the ordinary `multiple' $na$; this operation is trivially compatible with the operations in $\Z$.
+A homomorphism of $R$-modules is a homomorphism of (abelian) groups which is compatible with the module structure. That is, if $M$, $N$ are $R$-modules and $\phi : M \to N$ is a function, then $\phi$ is a homomorphism of $R$-modules if and only if
+\begin{itemize}
+  \item $(\forall m_1 \in M)(\forall m_2 \in M) : \phi(m_1 + m_2) = \phi(m_1) + \phi(m_2)$;
+  \item $(\forall r \in R)(\forall m \in M) : \phi(rm) = r\phi(m)$.
+\end{itemize}
+It is hopefully clear that the composition of two $R$-module homomorphisms is an $R$-module homomorphism and that the identity is an $R$-module homomorphism: $R$-modules form a category which I will denote\footnote{If $R$ is not commutative, we should agree on whether $R$-$\mathsf{Mod}$ denotes the category of left-modules or of right-modules. I will mean `left-modules'.} `$R$-$\mathsf{Mod}$'.
+\begin{exam}{}{}
+  The category $\Z$-$\mathsf{Mod}$ of $\Z$-modules is `the same as' the category $\mathsf{Ab}$: indeed, every abelian group is a $\Z$-module in exactly one way (\cref{prop:rings:Z-module}), and $\Z$-module homomorphisms are simply homomorphisms of abelian groups.
+\end{exam}
+\begin{exam}{}{}
+  If $R = k$ is a field, $R$-modules are called $k$-vector spaces. I will call the category of vector spaces over a field $k$ `$k$-$\mathsf{Vect}$'; this is just another name for $k$-$\mathsf{Mod}$. Morphisms in $k$-$\mathsf{Vect}$ are often called\footnote{This term is also used for homomorphisms of $R$-modules for more general rings $R$, but not as frequently.} linear maps. `Linear algebra' is the study of $k$-$\mathsf{Vect}$ (extended to $R$-$\mathsf{Mod}$ when possible); Chapters~VI and~VIII will be devoted to this subject.
+\end{exam}
+\begin{exam}{}{}
+  Any homomorphism of rings $\alpha : R \to S$ may be used to define an interesting $R$-module: define $\rho : R \times S \to S$ by $\rho(r, s) := \alpha(r)s$ for all $r \in R$ and $s \in S$. The operation on the right is simply multiplication in $S$, and the axioms of \cref{defn:rings:left-R-module} are immediate consequences of the ring axioms and of the fact that $\alpha$ is a homomorphism. For instance, taking $S = R$ and $\alpha = \id_R$ makes $R$ a (left-)module over itself. It is common to write $rs$ rather than $\alpha(r)s$.
+  The ring operation in $S$ and the $R$-module structure induced by $\alpha$ are linked even more tightly if we require $R$ to be commutative and $\alpha$ to map $R$ to the center of $S$: that is, if we require $\alpha(r)$, $s$ to commute for every $r \in R$, $s \in S$. Indeed, in this case the left-module structure defined above and the right-module structure defined analogously would coincide; further, with these requirements the ring operation in $S$, $(s_1, s_2) \mapsto s_1 s_2$, is compatible with the $R$-module structure in the sense that\footnote{$(r_1 s_1)(r_2 s_2) = \alpha(r_1) s_1 \alpha(r_2) s_2 = \alpha(r_1)\alpha(r_2) s_1 s_2 = (r_1 r_2)(s_1 s_2)$, $\forall r_1, r_2 \in R$, $\forall s_1, s_2 \in S$.} we can `move' the action of $R$ at will through products in $S$.
+\end{exam}
+
+Due to their importance, these examples deserve their own official name:
+\begin{defn}{}{defn:rings:R-algebra}
+  Let $R$ be a commutative ring. An \emph{$R$-algebra} is a ring homomorphism $\alpha : R \to S$ such that $\alpha(R)$ is contained in the center of $S$.
+\end{defn}
+The usual abuse of language leads us to refer to an $R$-algebra by the name of the target $S$ of the homomorphism. Thus, an $R$-algebra `is' an $R$-module $S$ with a compatible ring structure, or, if you prefer, a ring $S$ with a compatible $R$-module structure. An $R$-algebra $S$ is a \emph{division algebra} if $S$ is a division ring.
+
+There is an evident notion of `$R$-algebra homomorphism' (preserving both the ring and module structure), and we thus get a category $R$-$\mathsf{Alg}$. The situation simplifies substantially if $S$ is itself commutative, in which case the condition on the center is unnecessary. `Commutative $R$-algebras' form a category, which the attentive reader will recognize as a coslice category (Example~I.3.7) in the category of commutative rings.
+
+Also, note that $\Z$-$\mathsf{Alg}$ is just another name for $\mathsf{Ring}$ (why?).
+The polynomial rings $R[x_1, \ldots, x_n]$, as well as all their quotients, are commutative $R$-algebras. This is a particularly important class of examples; for $R = k$ an algebraically closed field, these are the rings used in `classical' affine algebraic geometry (cf.\ \S{}VII.2.3).
+The trivial group $0$ has a unique module structure over any ring $R$ and is a zero-object in $R$-$\mathsf{Mod}$, that is, it is both initial and final. As in the other main categories we have encountered, a bijective homomorphism of $R$-modules is automatically an isomorphism in $R$-$\mathsf{Mod}$ (Exercise~5.12). In these and many other respects, the category $R$-$\mathsf{Mod}$ (for any commutative ring $R$) and $\mathsf{Ab}$ are similar.
+If $R$ is commutative, the similarity goes further: just as in the category $\mathsf{Ab}$, each set $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$ may itself be seen as an object of the category (cf.\ \S{}II.4.4)\footnote{Notational convention: One often writes $\operatorname{Hom}_R(M, N)$ for $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$. I will not adopt this convention here but I will use it freely in later chapters.}.
+Indeed, let $M$ and $N$ be $R$-modules. Since homomorphisms of $R$-modules are in particular homomorphisms of abelian groups, $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N) \subseteq \operatorname{Hom}_{\mathsf{Ab}}(M, N)$ as sets (up to natural identifications). The operation making $\operatorname{Hom}_{\mathsf{Ab}}(M, N)$ into an abelian group, as in \S{}II.4.4, clearly preserves $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$; it follows that the latter is an abelian group. For $r \in R$ and $\phi \in \operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$, the prescription $(\forall m \in M) : (r\phi)(m) := r\phi(m)$ defines a function\footnote{Parse the notation carefully: $r\phi$ is the name of a function on the left, while $r\phi(m)$ on the right is the action of the element $r \in R$ on the element $\phi(m) \in N$, defined by the $R$-module structure on $N$.} $r\phi : M \to N$. This function is an $R$-module homomorphism if $R$ is commutative, because $(\forall a \in R)$, $(\forall m \in M)$: $(r\phi)(am) = r\phi(am) = (ra)\phi(m) = (ar)\phi(m) = a(r\phi(m))$. Thus, we have a natural action of $R$ on the abelian group $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$, and it is immediate to verify that this makes $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$ into an $R$-module. Watch out: if $R$ is not commutative, then in general $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$ is `just' an abelian group. More structure is available if $M$, $N$ are bimodules; cf.\ \S{}VIII.3.2.
 
 \subsection{Submodules and quotients}
 \label{subsec:rings:submodules-and-quotients}
-% Since R-modules are an `enriched' version of
+Since $R$-modules are an `enriched' version of abelian groups, we can progress through the usual constructions very quickly, by just pointing out that the analogous constructions in $\mathsf{Ab}$ are preserved by the $R$-module structure.
 
-% abelian groups, we can progress through the usual constructions very quickly, by
-% just pointing out that the analogous constructions in Ab are preserved by the R-
-% module structure.
-% A submodule N of an R-module M is a subgroup preserved by the action of R.
-% That is, for all r \in  R and n \in  N , the element rn (defined by the R-module
-% structure
-% of M ) is in fact in N . Put otherwise, and perhaps more transparently, N is
-% itself
-% an R-module, and the inclusion N \subseteq  M is an R-module homomorphism.
-% Example 5.8. We can view R itself as a (left-)R-module (cf. Example 5.6); the
-% submodules of R are then precisely the (left-)ideals of R.
-%  ?
-% Example 5.9. Both the kernel and the image of a homomorphism \phi  : M \to  M
-% \setminus
-% of R-modules are submodules (of M , M \setminus  , respectively).
-%  ?
-% Example 5.10. If r is in the center of R and M is an R-module, then rM =
-% {rm
-%  | m \in  M } is a submodule of M . If I is any (left-)ideal of R, then IM =
-% ?{ i ri mi | ri \in  I, mi \in  M } is a submodule of M .
-% If N is a submodule of M , then it is in particular a (normal) subgroup of the
-% abelian group (M, +); thus we may define the quotient M/N as an abelian group.
-% 27 Notational convention: One often writes HomR
-% (M, N ) for Hom
-% R-Mod (M, N ). I will not
-% adopt this convention here but I will use it freely in later chapters.
-% 28 Parse the notation carefully: r\phi  is the name of a function on the left,
-% while r\phi (m) on the
-% right is the action of the element r \in  R on the element \phi (m) \in  N ,
-% defined by the R-module
-% structure on N .
-% Of course it would be desirable to see this as a module, and as usual there is
-% only
-% one reasonable way to do so: we will want the canonical projection
-% \pi  : M \to  M/N
-% to be an R-module homomorphism, and this forces
-% r(m + N ) = r\pi (m) = \pi (rm) = rm + N
-% for all m \in  M . That is, we are led to define the action of R on M/N by
-% r(m + N ) := rm + N.
-% Claim 5.11. For all submodules N , this prescription does define a structure of
-% R-module on M/N .
-% The proof of this claim is immediate and is left to the reader. The R-module
-% M/N is (of course) called the quotient of M by N .
-% Example 5.12. If R is a ring and I is a two-sided ideal of R, then all three of
-% I,
-% R, and the quotient ring R/I are R-modules: I is a submodule of R, and the rings
-% R and R/I are in fact R-algebras if R is commutative (cf. Example 5.6).
-%  ?
-% Example 5.13. If R is not commutative and I is just a (say) left-ideal, then
-% the quotient R/I is not defined as a ring, but it is defined as a left-module
-% (the
-% quotient of the module R by the submodule I). The action of R on R/I is given
-% by left-multiplication: r(a + I) = ra + I.
-% The reader should now expect a universal property for quotients, and here it is:
-% Theorem 5.14. Let N be a submodule of an R-module M . Then for every ho-
-% momorphism of R-modules \phi  : M \to  P such that N \subseteq  ker \phi  there
-% exists a unique
-% homomorphism of R-modules \tilde{\phi } : M/N \to  P so that the diagram
-% M \phi 
-%  / P
-% ?
-%  ? \pi  ?
-%  ? ?
-%  ?
-%  ? ?
-%  ?
-%  \exists !\tilde{\phi }
-%  @
-% M/N
-% commutes.
-% As in previous appearances of such statements, this is an immediate conse-
-% quence of the set-theoretic version (\S{}I.5.3) and of easy notation matching
-% and com-
-% patibility checks. For an even faster proof, one can just apply Theorem II.7.12
-% and
-% verify that \tilde{\phi } is an R-module homomorphism.
-% Since every submodule N is then the kernel of the canonical projection M \to 
-% M/N , our recurring slogan becomes, in the context of R-Mod
-% kernel \iff  submodule :
-% unlike as in Grp or Ring, being a kernel poses no restriction on the relevant
-% sub-
-% structures. Put otherwise, `every monomorphism in R-Mod is a kernel'; this is
-% one
-% of the distinguishing features of an abelian category.
+A \emph{submodule} $N$ of an $R$-module $M$ is a subgroup preserved by the action of $R$. That is, for all $r \in R$ and $n \in N$, the element $rn$ (defined by the $R$-module structure of $M$) is in fact in $N$. Put otherwise, and perhaps more transparently, $N$ is itself an $R$-module, and the inclusion $N \subseteq M$ is an $R$-module homomorphism.
+\begin{exam}{}{}
+  We can view $R$ itself as a (left-)$R$-module (cf.\ Example~5.6); the submodules of $R$ are then precisely the (left-)ideals of $R$.
+\end{exam}
+\begin{exam}{}{}
+  Both the kernel and the image of a homomorphism $\phi : M \to M'$ of $R$-modules are submodules (of $M$, $M'$, respectively).
+\end{exam}
+\begin{exam}{}{}
+  If $r$ is in the center of $R$ and $M$ is an $R$-module, then $rM = \{rm \mid m \in M\}$ is a submodule of $M$. If $I$ is any (left-)ideal of $R$, then $IM = \{\sum_i r_i m_i \mid r_i \in I, m_i \in M\}$ is a submodule of $M$.
+\end{exam}
+If $N$ is a submodule of $M$, then it is in particular a (normal) subgroup of the abelian group $(M, +)$; thus we may define the quotient $M/N$ as an abelian group. Of course it would be desirable to see this as a module, and as usual there is only one reasonable way to do so: we will want the canonical projection $\pi : M \to M/N$ to be an $R$-module homomorphism, and this forces $r(m + N) = r\pi(m) = \pi(rm) = rm + N$ for all $m \in M$. That is, we are led to define the action of $R$ on $M/N$ by $r(m + N) := rm + N$.
+\begin{prop}{}{prop:rings:quotient-module}
+  For all submodules $N$, this prescription does define a structure of $R$-module on $M/N$.
+\end{prop}
+
+\begin{proof}
+  The proof of this claim is immediate and is left to the reader.
+\end{proof}
+
+The $R$-module $M/N$ is (of course) called the \emph{quotient} of $M$ by $N$.
+\begin{exam}{}{}
+  If $R$ is a ring and $I$ is a two-sided ideal of $R$, then all three of $I$, $R$, and the quotient ring $R/I$ are $R$-modules: $I$ is a submodule of $R$, and the rings $R$ and $R/I$ are in fact $R$-algebras if $R$ is commutative (cf.\ Example~5.6).
+\end{exam}
+\begin{exam}{}{}
+  If $R$ is not commutative and $I$ is just a (say) left-ideal, then the quotient $R/I$ is not defined as a ring, but it is defined as a left-module (the quotient of the module $R$ by the submodule $I$). The action of $R$ on $R/I$ is given by left-multiplication: $r(a + I) = ra + I$.
+\end{exam}
+The reader should now expect a universal property for quotients, and here it is:
+
+\begin{thm}{}{thm:rings:module-quotient-universal}
+  Let $N$ be a submodule of an $R$-module $M$. Then for every homomorphism of $R$-modules $\phi : M \to P$ such that $N \subseteq \ker\phi$, there exists a unique homomorphism of $R$-modules $\tilde{\phi} : M/N \to P$ so that the diagram
+  \[\begin{tikzcd}
+    M \arrow[r, "\phi"] \arrow[d, "\pi"'] & P \\
+    M/N \arrow[ur, "\exists!\tilde{\phi}"']
+  \end{tikzcd}\]
+  commutes.
+\end{thm}
+\begin{proof}
+  As in previous appearances of such statements, this is an immediate consequence of the set-theoretic version (\S{}I.5.3) and of easy notation matching and compatibility checks. For an even faster proof, one can just apply Theorem~II.7.12 and verify that $\tilde{\phi}$ is an $R$-module homomorphism.
+\end{proof}
+
+Since every submodule $N$ is then the kernel of the canonical projection $M \to M/N$, our recurring slogan becomes, in the context of $R$-$\mathsf{Mod}$:
+\[
+  \text{kernel} \iff \text{submodule}:
+\]
+unlike as in $\mathsf{Grp}$ or $\mathsf{Ring}$, being a kernel poses no restriction on the relevant substructures. Put otherwise, `every monomorphism in $R$-$\mathsf{Mod}$ is a kernel'; this is one of the distinguishing features of an abelian category.
 
 \subsection{Canonical decomposition and isomorphism theorems}
 \label{subsec:rings:canonical-decomposition-and-isomorphism-theorems}
