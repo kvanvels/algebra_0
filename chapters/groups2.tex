@@ -596,61 +596,66 @@ mentioned above, proving that $G$ is not simple.
 
 \subsection{Sylow I}
 \label{subsec:groups2:sylow-i}
-%Let p be a prime integer
-% A p-Sylow subgroup of a finite group G
+Let $p$ be a prime integer. A \emph{$p$-Sylow subgroup} of a finite group $G$
+is a subgroup of order $p^r$, where $|G| = p^r m$ and $\gcd(p, m) = 1$. That
+is, $P \subseteq G$ is a $p$-Sylow subgroup if it is a $p$-group and $p$ does
+not divide $[G : P]$.
 
-% is a subgroup of order pr , where |G| = pr m and gcd(p, m) = 1. That is, P
-% \subseteq  G is
-% a p-Sylow subgroup if it is a p-group and p does not divide [G : P ].
-% If p does not divide the order of G, then G contains a p-Sylow subgroup: namely,
-% {e}. This is not very interesting; what is interesting is that G contains a
-% p-Sylow
-% subgroup even when p does divide the order of G:
-% Theorem 2.5 (First Sylow theorem). Every finite group contains a p-Sylow sub-
-% group, for all primes p.
-% 5 In fact, a complete list of all finite simple groups is known: this is the
-% classification result
-% mentioned at the end of \S{}II.6.3, arguably one of the deepest and hardest
-% results in mathematics.
-% The first Sylow theorem follows from the seemingly stronger statement:
-% Proposition 2.6. If pk divides the order of G, then G has a subgroup of order pk
-% .
-% The statements are actually easily seen to be equivalent, by Exercise 1.8; in
-% any case, the standard argument proving Theorem 2.5 proves Proposition 2.6, and
-% I see no reason to hide this fact. Here is the argument:
-% Proof of Proposition 2.6. If k = 0, there is nothing to prove, so we may assume
-% k \geq  1 and in particular that |G| is a multiple of p.
-% Argue by induction on |G|: if |G| = p, again there is nothing to prove; if |G| >
-% p
-% and G contains a proper subgroup H such that [G : H] is relatively prime to p,
-% then pk divides the order of H, and hence H contains a subgroup of order pk by
-% the induction hypothesis, and thus so does G.
-% Therefore, we may assume that all proper subgroups of G have index divisible
-% by p. By the class formula (Proposition 1.8), p divides the order of the center
-% Z(G).
-% By Cauchy's theorem6 , \exists a \in  Z(G) such that a has order p. The cyclic
-% subgroup
-% N = ?a? is contained in Z(G), and hence it is normal in G (Exercise 1.4).
-% Therefore
-% we can consider the quotient G/N .
-% Since |G/N | = |G|/p and pk divides |G| by hypothesis, we have that pk-1
-% divides the order of G/N . By the induction hypothesis, we may conclude that
-% G/N contains a subgroup of order pk-1 . By the structure of the subgroups of
-% a quotient (\S{}II.8.3, especially Proposition II.8.9), this subgroup must be of
-% the
-% form P/N , for P a subgroup of G.
-% But then |P | = |P/N | \cdot  |N | = pk-1 \cdot  p = pk , as needed.
-%  ?
-% There are slicker ways to prove Theorem 2.5. We will see a pretty (and in-
-% sightful) alternative in \S{}2.3; but the proof given above is easy to remember
-% and is
-% a good template for similar arguments.
-% Remark 2.7. The diligent reader worked out in Exercise II.8.20 a stronger state-
-% ment than Proposition 2.6, for abelian groups. The arguments are similar; the
-% advantage in the abelian case is that any cyclic subgroup produced by Cauchy's
-% theorem is automatically normal, while ensuring normality requires a few twists
-% and turns in the general case (and, as a result, yields a weaker statement).
-%  ?
+If $p$ does not divide the order of $G$, then $G$ contains a $p$-Sylow
+subgroup: namely, $\{e\}$. This is not very interesting; what is interesting
+is that $G$ contains a $p$-Sylow subgroup even when $p$ \emph{does} divide
+the order of $G$:
+\begin{thm}{First Sylow theorem}{thm:groups2:sylow-i}
+Every finite group contains a $p$-Sylow subgroup, for all primes $p$.
+\end{thm}
+
+The first Sylow theorem follows from the seemingly stronger statement:
+\begin{prop}{}{prop:groups2:sylow-i-strong}
+If $p^k$ divides the order of $G$, then $G$ has a subgroup of order $p^k$.
+\end{prop}
+
+The statements are actually easily seen to be equivalent, by
+\cref{exer:groups2:1.8}; in any case, the standard argument proving
+\cref{thm:groups2:sylow-i} proves \cref{prop:groups2:sylow-i-strong}, and I
+see no reason to hide this fact. Here is the argument:
+\begin{proof}[Proof of \cref{prop:groups2:sylow-i-strong}]
+If $k = 0$, there is nothing to prove, so we may assume $k \geq 1$ and in
+particular that $|G|$ is a multiple of $p$.
+
+Argue by induction on $|G|$: if $|G| = p$, again there is nothing to prove;
+if $|G| > p$ and $G$ contains a proper subgroup $H$ such that $[G : H]$ is
+relatively prime to $p$, then $p^k$ divides the order of $H$, and hence $H$
+contains a subgroup of order $p^k$ by the induction hypothesis, and thus so
+does $G$.
+Therefore, we may assume that all proper subgroups of $G$ have index
+divisible by $p$. By the class formula (\cref{prop:groups2:class-formula}),
+$p$ divides the order of the center $Z(G)$.
+
+By Cauchy's theorem\footnote{Note that, as mentioned in \S{}2.1, we only need
+the abelian case of this theorem.}, $\exists\, a \in Z(G)$ such that $a$ has
+order $p$. The cyclic subgroup $N = \genalg{a}$ is contained in $Z(G)$, and
+hence it is normal in $G$ (\cref{exer:groups2:1.4}). Therefore we can
+consider the quotient $G/N$.
+Since $|G/N| = |G|/p$ and $p^k$ divides $|G|$ by hypothesis, we have that
+$p^{k-1}$ divides the order of $G/N$. By the induction hypothesis, we may
+conclude that $G/N$ contains a subgroup of order $p^{k-1}$. By the structure
+of the subgroups of a quotient (\S{}II.8.3, especially Proposition~II.8.9),
+this subgroup must be of the form $P/N$, for $P$ a subgroup of $G$.
+
+But then $|P| = |P/N| \cdot |N| = p^{k-1} \cdot p = p^k$, as needed.
+\end{proof}
+There are slicker ways to prove \cref{thm:groups2:sylow-i}. We will see a
+pretty (and insightful) alternative in \S{}2.3; but the proof given above is
+easy to remember and is a good template for similar arguments.
+
+\begin{rem}{}{}
+The diligent reader worked out in Exercise~II.8.20 a \emph{stronger} statement
+than \cref{prop:groups2:sylow-i-strong}, for abelian groups. The arguments
+are similar; the advantage in the abelian case is that any cyclic subgroup
+produced by Cauchy's theorem is automatically normal, while ensuring normality
+requires a few twists and turns in the general case (and, as a result, yields
+a weaker statement).
+\end{rem}
 
 \subsection{Sylow II}
 \label{subsec:groups2:sylow-ii}
