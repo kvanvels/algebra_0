@@ -1051,188 +1051,124 @@ As a reminder to the lazy reader, $\tilde{\varphi}$ is defined by
 
 \subsection{Canonical decomposition and consequences}
 \label{subsec:rings:canonical-decomposition-and-consequences}
-% As the reader should now
+As the reader should now expect, \cref{thm:rings:quotient-universal} is the key element in a standard decomposition of every ring homomorphism. This is entirely analogous to the decomposition of set-functions studied in \S{}I.2.8 and the decomposition of group homomorphisms obtained in \S{}II.8.1. Here is the statement:
+\begin{thm}{}{thm:rings:canonical-decomp}
+  Every ring homomorphism $\varphi : R \to S$ may be decomposed as follows:
+  \[
+    \begin{tikzcd}
+      R \arrow[r, two heads] \arrow[rrr, bend left, "\varphi"] &
+      R/\ker\varphi \arrow[r, "\tilde{\varphi}"', "\sim"] &
+      \operatorname{im}\varphi \arrow[r, hook] & S
+    \end{tikzcd}
+  \]
+  where the isomorphism $\tilde{\varphi}$ in the middle is the homomorphism induced by $\varphi$ (as in \cref{thm:rings:quotient-universal}).
+\end{thm}
+The reader will realize that this statement requires no proof at this point: the decomposition holds at the level of groups (by Theorem~II.8.1) and the maps are all ring homomorphisms as observed earlier in this section.
 
-% expect, Theorem 3.8 is the key element in a standard decomposition of every ring
-% ho-
-% momorphism. This is entirely analogous to the decomposition of set-functions
-% stud-
-% ied in \S{}I.2.8 and the decomposition of group homomorphisms obtained in
-% \S{}II.8.1.
-% Here is the statement:
-% Theorem 3.9. Every ring homomorphism \phi  : R \to  S may be decomposed as
-% follows:
-% \phi 
-% R
-%  / / R/ ker \phi 
-%  \sim 
-%  / im \phi  ? ?
-%  /( S
-% \tilde{\phi }
-% where the isomorphism \tilde{\phi } in the middle is the homomorphism induced by
-% \phi  (as in
-% Theorem 3.8).
-% The reader will realize that this statement requires no proof at this point: the
-% decomposition holds at the level of groups (by Theorem II.8.1) and the maps are
-% all ring homomorphisms as observed earlier in this section.
-% The `first isomorphism theorem' for rings is an immediate corollary:
-% Corollary 3.10. Suppose \phi  : R \to  S is a surjective ring homomorphism. Then
-% S \sim 
-%  =
-%  R
-%  .
-% ker \phi 
-% As in the group case, the reader should develop the healthy instinctive reaction
-% of viewing every surjective homomorphism of rings as a quotient (by an ideal),
-% up
-% to a natural identification.
-% Equally instinctive should be the realization that ideals of a quotient R/I are
-% in
-% one-to-one correspondence with ideals of R containing I. Once more, not a whole
-% lot is new here: we already know (cf. \S{}II.8.3) that the function
-% u : {subgroups J of R containing I} \to  {subgroups of R/I}
-% defined by u(J) = J/I is a bijection preserving inclusions; it takes a moment to
-% check that J/I is an ideal of R/I if and only if J is an ideal of R. The main
-% content of
-% this observation is best packaged in the corresponding `third isomorphism
-% theorem':
-% Proposition 3.11. Let I be an ideal of a ring R, and let J be an ideal of R
-% containing I. Then J/I is an ideal of R/I, and
-% R/I \sim  = R
-%  .
-% J/I
-%  J
-% Proof. Since I \subseteq  J = ker(R \to  R/J), we have an induced ring
-% homomorphism
-% \phi  : R/I \to  R/J
-% by Theorem 3.8. Explicitly, \phi (r + I) = r + J; \phi  is manifestly
-% surjective. Since
-% ker \phi  = {r + I | \phi (r + I) = J} = {r + I | r + J = J} = {r + I | r \in
-% J} = J/I,
-% we see that J/I is an ideal (since it is a kernel), and the stated isomorphism
-% follows
-% from Corollary 3.10.
-%  ?
-% What about the `second' isomorphism theorem? This would be a relation
-% between the ideals
-% I + J
-%  J
-% ,
-% I
-%  I \cap  J
-% of the rings R/I, R/(I \cap  J), respectively, assuming I and J are ideals of R
-% (and
-% where it is immediately checked that I + J and I \cap  J are indeed ideals13 ).
-% The reader may want to go back to \S{}II.8.4 for the version of this story for
-% groups. My feeling is that Ring is not the best place to play this game, since
-% 13 The notation I + J should not surprise the reader: I, J are subgroups of the
-% abelian
-% group R, so we know what it means to `add' them; cf. \S{}II.7.1.
+The `first isomorphism theorem' for rings is an immediate corollary:
+\begin{coro}{}{coro:rings:first-iso}
+  Suppose $\varphi : R \to S$ is a surjective ring homomorphism. Then $S \cong R/\ker\varphi$.
+\end{coro}
+As in the group case, the reader should develop the healthy instinctive reaction of viewing every surjective homomorphism of rings as a quotient (by an ideal), up to a natural identification.
+
+Equally instinctive should be the realization that ideals of a quotient $R/I$ are in one-to-one correspondence with ideals of $R$ containing $I$. Once more, not a whole lot is new here: we already know (cf.\ \S{}II.8.3) that the function
+\[
+  u : \{\text{subgroups } J \text{ of } R \text{ containing } I\} \to \{\text{subgroups of } R/I\}
+\]
+defined by $u(J) = J/I$ is a bijection preserving inclusions; it takes a moment to check that $J/I$ is an ideal of $R/I$ if and only if $J$ is an ideal of $R$. The main content of this observation is best packaged in the corresponding `third isomorphism theorem':
+\begin{prop}{}{prop:rings:third-iso}
+  Let $I$ be an ideal of a ring $R$, and let $J$ be an ideal of $R$ containing $I$. Then $J/I$ is an ideal of $R/I$, and
+  \[
+    \frac{R/I}{J/I} \cong \frac{R}{J}.
+  \]
+\end{prop}
+\begin{proof}
+Since $I \subseteq J = \ker(R \to R/J)$, we have an induced ring homomorphism $\varphi : R/I \to R/J$ by \cref{thm:rings:quotient-universal}. Explicitly, $\varphi(r + I) = r + J$; $\varphi$ is manifestly surjective. Since
+\[
+  \ker \varphi = \{r + I \mid \varphi(r + I) = J\} = \{r + I \mid r + J = J\} = \{r + I \mid r \in J\} = J/I,
+\]
+we see that $J/I$ is an ideal (since it is a kernel), and the stated isomorphism follows from \cref{coro:rings:first-iso}.
+\end{proof}
+What about the `second' isomorphism theorem? This would be a relation between the ideals
+\[
+  \frac{I + J}{I}, \qquad \frac{J}{I \cap J}
+\]
+of the rings $R/I$, $R/(I \cap J)$, respectively, assuming $I$ and $J$ are ideals of $R$ (and where it is immediately checked that $I + J$ and $I \cap J$ are indeed ideals\footnote{The notation $I + J$ should not surprise the reader: $I$, $J$ are subgroups of the abelian group $R$, so we know what it means to `add' them; cf.\ \S{}II.7.1.}). The reader may want to go back to \S{}II.8.4 for the version of this story for groups. My feeling is that $\mathsf{Ring}$ is not the best place to play this game, since $(I+J)/I$, $J/(I \cap J)$ are not even rings according to my conventions. \emph{Modules} will be a more natural context for this result.
+
+In any case, the reader will benefit the most from exploring the matter on his/her own; cf.\ Exercise~3.17.
 
 \subsection*{Exercises}
 
-% (I + J)/I, J/(I \cap  J) are not even rings according to my conventions. Modules
-% will
-% be a more natural context for this result.
-% In any case, the reader will benefit the most from exploring the matter on
-% his/her own; cf. Exercise 3.17.
-% 3.1. Prove that the image of a ring homomorphism \phi  : R \to  S is a subring
-% of S.
-% What can you say about \phi  if its image is an ideal of S? What can you say
-% about \phi
-% if its kernel is a subring of R?
-% 3.2. ? Let \phi  : R \to  S be a ring homomorphism, and let J be an ideal of S.
-% Prove
-% that I = \phi -1 (J) is an ideal of R. [\S{}3.1]
-% 3.3. \lnot  Let \phi  : R \to  S be a ring homomorphism, and let J be an ideal
-% of R.
-% \bullet  Show that \phi (J) need not be an ideal of S.
-% \bullet  Assume that \phi  is surjective; then prove that \phi (J) is an ideal of S.
-% \bullet  Assume that \phi  is surjective, and let I = ker \phi ; thus we may identify S with
-% R/I. Let J = \phi (J), an ideal of R/I by the previous point. Prove that
-% R/I \sim  =
-%  R
-%  .
-% J
-%  I + J
-% (Of course this is just a rehash of Proposition 3.11.) [4.11]
-% 3.4. Let R be a ring such that every subgroup of (R, +) is in fact an ideal of
-% R.
-% Prove that R \sim 
-%  = Z/nZ, where n is the characteristic of R.
-% 3.5. \lnot  Let J be a two-sided ideal of the ring Mn (R) of n\times n matrices
-% over a ring R.
-% Prove that a matrix A \in  Mn(R) belongs to J if and only if the matrices
-% obtained
-% by placing any entry of A in any position, and 0 elsewhere, belong to J. (Hint:
-% ? 0 0 0 ? a b c ? 0 0 0 ? ? 0 0 0 ?
-% Carefully contemplate the operation 0 0 0
-%  d e f
-%  1 0 0 = 0 0 0 .) [3.6]
-%  g h i
-%  00 0
-%  b 0 0
-% 3.6. \lnot  Let J be a two-sided ideal of the ring Mn (R) of n \times  n
-% matrices over a
-% ring R, and let I \subseteq  R be the set of (1, 1) entries of matrices in J.
-% Prove that I is
-% a two-sided ideal of R and J consists precisely of those matrices whose entries
-% all
-% belong to I. (Hint: Exercise 3.5.) [3.9]
-% 3.7. Let R be a ring, and let a \in  R. Prove that Ra is a left-ideal of R and
-% aR is
-% a right-ideal of R. Prove that a is a left-, resp. right-, unit if and only if R
-% = aR,
-% resp. R = Ra.
-% 3.8. ? Prove that a ring R is a division ring if and only if its only
-% left-ideals and
-% right-ideals are {0} and R.
-% In particular, a commutative ring R is a field if and only if the only ideals of
-% R
-% are {0} and R. [3.9, \S{}4.3]
-% 3.9. \lnot  Counterpoint to Exercise 3.8: It is not true that a ring R is a
-% division
-% ring if and only if its only two-sided ideals are {0} and R. A nonzero ring with
-% this
-% property is said to be simple; by Exercise 3.8, fields are the only simple
-% commutative
-% rings.
-% Prove that Mn (R) is simple. (Use Exercise 3.6.) [4.20]
-% 3.10. ? Let \phi  : k \to  R be a ring homomorphism, where k is a field and R is
-% a
-% nonzero ring. Prove that \phi  is injective. [\S{}V.4.2, \S{}V.5.2]
-% 3.11. Let R be a ring containing C as a subring. Prove that there are no ring
-% homomorphisms R \to  R.
-% 3.12. ? Let R be a commutative ring. Prove that the set of nilpotent elements of
-% R
-% is an ideal of R. (Cf. Exercise 1.6. This ideal is called the nilradical of R.)
-% Find a noncommutative ring in which the set of nilpotent elements is not an
-% ideal. [3.13, 4.18, V.3.13, \S{}VII.2.3]
-% 3.13. \lnot  Let R be a commutative ring, and let N be its nilradical (cf.
-% Exercise 3.12).
-% Prove that R/N contains no nonzero nilpotent elements. (Such a ring is said to
-% be
-% reduced.) [4.6, VII.2.8]
-% 3.14. \lnot  Prove that the characteristic of an integral domain is either 0 or
-% a prime
-% integer. Do you know any ring of characteristic 1? [V.4.17]
-% 3.15. \lnot  A ring R is14 Boolean if a2 = a for all a \in  R. Prove that P(S)
-% is
-% Boolean, for every set S (cf. Exercise 1.2). Prove that every nonzero Boolean
-% ring
-% is commutative and has characteristic 2. Prove that if an integral domain R is
-% Boolean, then R \sim 
-%  = Z/2Z. [4.23, V.6.3]
-% 3.16. \lnot  Let S be a set and T \subseteq  S a subset. Prove that the subsets
-% of S contained
-% in T form an ideal of the power set ring P(S). Prove that if S is finite, then
-% every
-% ideal of P(S) is of this form. For S infinite, find an ideal of P(S) that is not
-% of
-% this form. [V.1.5]
-% 3.17. ? Let I, J be ideals of a ring R. State and prove a precise result
-% relating the
-% ideals (I + J)/I of R/I and J/(I \cap  J) of R/(I \cap  J). [\S{}3.3]
+\begin{exer}{}{}
+  Prove that the image of a ring homomorphism $\varphi : R \to S$ is a subring of $S$. What can you say about $\varphi$ if its image is an ideal of $S$? What can you say about $\varphi$ if its kernel is a subring of $R$?
+\end{exer}
+\begin{exer}{\exerused}{}
+  Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an ideal of $S$. Prove that $I = \varphi^{-1}(J)$ is an ideal of $R$. [\S{}3.1]
+\end{exer}
+\begin{exer}{\lnot}{}
+  Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an ideal of $R$.
+  \begin{itemize}
+    \item Show that $\varphi(J)$ need not be an ideal of $S$.
+    \item Assume that $\varphi$ is surjective; then prove that $\varphi(J)$ is an ideal of $S$.
+    \item Assume that $\varphi$ is surjective, and let $I = \ker\varphi$; thus we may identify $S$ with $R/I$. Let $\overline{J} = \varphi(J)$, an ideal of $R/I$ by the previous point. Prove that $\frac{R/I}{\overline{J}} \cong \frac{R}{I + J}$.
+  \end{itemize}
+  (Of course this is just a rehash of \cref{prop:rings:third-iso}.) [4.11]
+\end{exer}
+\begin{exer}{}{}
+  Let $R$ be a ring such that every subgroup of $(R, +)$ is in fact an ideal of $R$. Prove that $R \cong \Z/n\Z$, where $n$ is the characteristic of $R$.
+\end{exer}
+\begin{exer}{\lnot}{}
+  Let $J$ be a two-sided ideal of the ring $\mathcal{M}_n(R)$ of $n \times n$ matrices over a ring $R$. Prove that a matrix $A \in \mathcal{M}_n(R)$ belongs to $J$ if and only if the matrices obtained by placing any entry of $A$ in any position, and $0$ elsewhere, belong to $J$. (Hint: Carefully contemplate the operation
+  \[
+    \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix}
+    \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}
+    \begin{pmatrix} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}
+    = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ b & 0 & 0 \end{pmatrix}.)
+  \]
+  [3.6]
+\end{exer}
+\begin{exer}{\lnot}{}
+  Let $J$ be a two-sided ideal of the ring $\mathcal{M}_n(R)$ of $n \times n$ matrices over a ring $R$, and let $I \subseteq R$ be the set of $(1,1)$ entries of matrices in $J$. Prove that $I$ is a two-sided ideal of $R$ and $J$ consists precisely of those matrices whose entries all belong to $I$. (Hint: Exercise~3.5.) [3.9]
+\end{exer}
+\begin{exer}{}{}
+  Let $R$ be a ring, and let $a \in R$. Prove that $Ra$ is a left-ideal of $R$ and $aR$ is a right-ideal of $R$. Prove that $a$ is a left-, resp.\ right-, unit if and only if $R = aR$, resp.\ $R = Ra$.
+\end{exer}
+\begin{exer}{\exerused}{}
+  Prove that a ring $R$ is a division ring if and only if its only left-ideals and right-ideals are $\{0\}$ and $R$.
+
+  In particular, a commutative ring $R$ is a field if and only if the only ideals of $R$ are $\{0\}$ and $R$. [3.9, \S{}4.3]
+\end{exer}
+\begin{exer}{\lnot}{}
+  Counterpoint to Exercise~3.8: It is not true that a ring $R$ is a division ring if and only if its only two-sided ideals are $\{0\}$ and $R$. A nonzero ring with this property is said to be \emph{simple}; by Exercise~3.8, fields are the only simple commutative rings.
+
+  Prove that $\mathcal{M}_n(\R)$ is simple. (Use Exercise~3.6.) [4.20]
+\end{exer}
+\begin{exer}{\exerused}{}
+  Let $\varphi : k \to R$ be a ring homomorphism, where $k$ is a field and $R$ is a nonzero ring. Prove that $\varphi$ is injective. [\S{}V.4.2, \S{}V.5.2]
+\end{exer}
+\begin{exer}{}{}
+  Let $R$ be a ring containing $\C$ as a subring. Prove that there are no ring homomorphisms $R \to \R$.
+\end{exer}
+\begin{exer}{\exerused}{}
+  Let $R$ be a commutative ring. Prove that the set of nilpotent elements of $R$ is an ideal of $R$. (Cf.\ Exercise~1.6. This ideal is called the \emph{nilradical} of $R$.)
+
+  Find a noncommutative ring in which the set of nilpotent elements is not an ideal. [3.13, 4.18, V.3.13, \S{}VII.2.3]
+\end{exer}
+\begin{exer}{\lnot}{}
+  Let $R$ be a commutative ring, and let $N$ be its nilradical (cf.\ Exercise~3.12). Prove that $R/N$ contains no nonzero nilpotent elements. (Such a ring is said to be \emph{reduced}.) [4.6, VII.2.8]
+\end{exer}
+\begin{exer}{\lnot}{}
+  Prove that the characteristic of an integral domain is either $0$ or a prime integer. Do you know any ring of characteristic $1$? [V.4.17]
+\end{exer}
+\begin{exer}{\lnot}{}
+  A ring $R$ is \emph{Boolean}\footnote{After George Boole.} if $a^2 = a$ for all $a \in R$. Prove that $\mathcal{P}(S)$ is Boolean, for every set $S$ (cf.\ Exercise~1.2). Prove that every nonzero Boolean ring is commutative and has characteristic $2$. Prove that if an integral domain $R$ is Boolean, then $R \cong \Z/2\Z$. [4.23, V.6.3]
+\end{exer}
+\begin{exer}{\lnot}{}
+  Let $S$ be a set and $T \subseteq S$ a subset. Prove that the subsets of $S$ contained in $T$ form an ideal of the power set ring $\mathcal{P}(S)$. Prove that if $S$ is finite, then every ideal of $\mathcal{P}(S)$ is of this form. For $S$ infinite, find an ideal of $\mathcal{P}(S)$ that is not of this form. [V.1.5]
+\end{exer}
+\begin{exer}{\exerused}{}
+  Let $I$, $J$ be ideals of a ring $R$. State and prove a precise result relating the ideals $(I + J)/I$ of $R/I$ and $J/(I \cap J)$ of $R/(I \cap J)$. [\S{}3.3]
+\end{exer}
 
 \section{Ideals and quotients: Remarks and examples. Prime and}
 \label{sec:rings:ideals-and-quotients-remarks-and-examples-prime-and}
