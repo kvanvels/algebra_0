@@ -507,562 +507,619 @@ Consider the subring of $\mathbb{C}$:
 
 \subsection{Irreducible factors and greatest common divisor}
 \label{subsec:irred:irreducible-factors-and-greatest-common-divisor}
-% An integral domain
+An integral domain $R$ is a UFD if factorizations exist in $R$ and are
+unique in the sense of \cref{defn:irred:1.8}. Thus, in a UFD all elements
+(other than $0$ and the units) determine a \emph{multiset} (a set of
+elements `with multiplicity'; cf.~\S{}I.1.1) of irreducible factors,
+determined up to the associate relation. We can also agree that units have
+no factors; that is, the corresponding multiset is $\emptyset$.
 
-% R is a UFD if factorizations exist in R and are unique in the sense of
-% Definition 1.8.
-% Thus, in a UFD all elements (other than 0 and the units) determine a multiset
-% (a set of elements `with multiplicity'; cf. \S{}I.1.1) of irreducible factors,
-% determined
-% up to the associate relation. We can also agree that units have no factors; that
-% is,
-% the corresponding multiset is \emptyset .
-% The following trivial remark is at the root of most elementary facts about
-% UFDs, such as the characterization of Theorem 2.5:
-% Lemma 2.1. Let R be a UFD, and let a, b, c be nonzero elements of R. Then
-% \bullet  (a) \subseteq  (b) \iff  the multiset of irreducible factors of b is contained in the
-% multiset of irreducible factors of a;
-% \bullet  a and b are associates (that is, (a) = (b)) \iff  the two multisets coincide;
-% \bullet  the irreducible factors of a product bc are the collection of all irreducible factors
-% of b and of c.
-% The proof is left to the reader (Exercise 2.1). The advantage of working in
-% a UFD resides in the fact that ring-theoretic statements about elements of the
-% ring often reduce to straightforward set-theoretic statements about multisets of
-% irreducible elements, by means of Lemma 2.1.
-% One important instance of this mechanism is the existence of greatest common
-% divisors. I have liberally used this notion (at least for integers) in previous
-% chapters;
-% now we can appreciate it from a more technical perspective.
-% Definition 2.2. Let R be an integral domain, and let a, b \in  R. An element d
-% \in  R
-% is a greatest common divisor (often abbreviated `gcd') of a and b if (a, b)
-% \subseteq  (d) and
-% (d) is the smallest principal ideal in R with this property.
-%  ?
-% In other words, d is a gcd of a and b if d | a, d | b, and
-% c | a , c | b \implies  c | d.
-% This definition is immediately extended to any finite number of elements.
-% Note that greatest common divisors are not defined uniquely by this prescrip-
-% tion: if d is a greatest common divisor of a and b, so is every associate of d.
-% Thus,
-% the notation `gcd(a, b)' should only be used for the associate class formed by
-% all
-% greatest common divisors of a, b. Of course, language is often (harmlessly)
-% abused
-% on this point. For example, the fact that we can talk about the greatest common
-% divisor of two integers is due to the fact that in Z there is a convenient way
-% to choose
-% a distinguished element in each class of associate integers (that is, the
-% nonnegative
-% one).
-% Also note that greatest common divisors need not exist (cf. Exercise 2.5); but
-% they do exist in UFDs:
-% Lemma 2.3. Let R be a UFD, and let a, b be nonzero elements of R. Then a, b
-% have a greatest common divisor.
-% Proof. We can write
-% a = uq1 \alpha 1 \dots  qr \alpha r ,
-%  b = vq1 \beta 1 \dots  qr \beta r
-% where u and v are units, the elements qi are irreducible, qi is not an associate
-% of qj
-% for i = j, and \alpha i \geq  0, \beta i \geq  0 (so that the multisets of
-% irreducible factors of a,
-% resp., b, consist of those qi for which \alpha i > 0, resp., \beta i > 0; the
-% units u, v are
-% included since the irreducible factors are only defined up to the associate
-% relation).
-% I claim that
-% d = q1
-%  min(\alpha 1 ,\beta 1
-%  )
-%  \dots  qr min(\alpha r ,\beta r )
-% is a gcd of a and b. Indeed, d is clearly a divisor of a and b; and if c also
-% divides
-% a and b, then the multiset of factors of c must be contained in both multisets
-% of
-% factors for a and b (by Lemma 2.1); that is,
-% c = wq1 \gamma 1 \dots  qr \gamma r
-% with w a unit and \gamma i \leq  \alpha i , \gamma i \leq  \beta  i . This
-% implies \gamma i \leq  min(\alpha i , \beta i ), and hence c | d
-% (again by Lemma 2.1), as needed.
-%  ?
-% Of course the argument given in the proof generalizes one of the standard
-% ways to compute greatest common divisors in Z: find smallest exponents in prime
-% factorizations. But note that this is not the only way to compute the gcd in Z;
-% we will come back to this point in a moment. In fact, greatest common divisors
-% in Z have properties that should not be expected in a more general domain: for
-% example, the result of Exercise II.2.13 does not generalize to arbitrary domains
-% (and not even to arbitrary UFDs), as the reader will check in Exercise 2.4.
+The following trivial remark is at the root of most elementary facts about
+UFDs, such as the characterization of \cref{thm:irred:2.5}:
+
+\begin{lem}{}{irred:2.1}
+Let $R$ be a UFD, and let $a$, $b$, $c$ be nonzero elements of $R$. Then
+\begin{itemize}
+\item $(a) \subseteq (b) \iff$ the multiset of irreducible factors of $b$
+  is contained in the multiset of irreducible factors of $a$;
+\item $a$ and $b$ are associates (that is, $(a) = (b)$) $\iff$ the two
+  multisets coincide;
+\item the irreducible factors of a product $bc$ are the collection of all
+  irreducible factors of $b$ and of $c$.
+\end{itemize}
+\end{lem}
+
+The proof is left to the reader (Exercise~2.1). The advantage of working
+in a UFD resides in the fact that ring-theoretic statements about elements
+of the ring often reduce to straightforward set-theoretic statements about
+multisets of irreducible elements, by means of \cref{lem:irred:2.1}.
+One important instance of this mechanism is the existence of \emph{greatest
+common divisors}. I have liberally used this notion (at least for integers)
+in previous chapters; now we can appreciate it from a more technical
+perspective.
+
+\begin{defn}{}{irred:2.2}
+Let $R$ be an integral domain, and let $a, b \in R$. An element $d \in R$
+is a \emph{greatest common divisor} (often abbreviated `gcd') of $a$ and
+$b$ if $(a, b) \subseteq (d)$ and $(d)$ is the smallest principal ideal in
+$R$ with this property.
+\end{defn}
+
+In other words, $d$ is a gcd of $a$ and $b$ if $d \mid a$, $d \mid b$,
+and $c \mid a$, $c \mid b \implies c \mid d$. This definition is
+immediately extended to any finite number of elements.
+
+Note that greatest common divisors are not defined uniquely by this
+prescription: if $d$ is a greatest common divisor of $a$ and $b$, so is
+every associate of $d$. Thus, the notation `$\gcd(a, b)$' should only be
+used for the associate class formed by all greatest common divisors of
+$a$, $b$. Of course, language is often (harmlessly) abused on this point.
+For example, the fact that we can talk about \emph{the} greatest common
+divisor of two integers is due to the fact that in $\mathbb{Z}$ there is a
+convenient way to choose a distinguished element in each class of associate
+integers (that is, the nonnegative one).
+
+Also note that greatest common divisors need not exist (cf.\ Exercise~2.5);
+but they do exist in UFDs:
+\begin{lem}{}{irred:2.3}
+Let $R$ be a UFD, and let $a$, $b$ be nonzero elements of $R$. Then $a$,
+$b$ have a greatest common divisor.
+\end{lem}
+
+\begin{proof}
+We can write
+\[a = u q_1^{\alpha_1} \cdots q_r^{\alpha_r}, \quad
+  b = v q_1^{\beta_1} \cdots q_r^{\beta_r}\]
+where $u$ and $v$ are units, the elements $q_i$ are irreducible, $q_i$ is
+not an associate of $q_j$ for $i \neq j$, and $\alpha_i \geq 0$,
+$\beta_i \geq 0$ (so that the multisets of irreducible factors of $a$,
+resp., $b$, consist of those $q_i$ for which $\alpha_i > 0$, resp.,
+$\beta_i > 0$; the units $u$, $v$ are included since the irreducible
+factors are only defined up to the associate relation).
+
+I claim that $d = q_1^{\min(\alpha_1,\beta_1)} \cdots
+q_r^{\min(\alpha_r,\beta_r)}$ is a gcd of $a$ and $b$. Indeed, $d$ is
+clearly a divisor of $a$ and $b$; and if $c$ also divides $a$ and $b$,
+then the multiset of factors of $c$ must be contained in both multisets of
+factors for $a$ and $b$ (by \cref{lem:irred:2.1}); that is,
+$c = w q_1^{\gamma_1} \cdots q_r^{\gamma_r}$ with $w$ a unit and
+$\gamma_i \leq \alpha_i$, $\gamma_i \leq \beta_i$. This implies
+$\gamma_i \leq \min(\alpha_i, \beta_i)$, and hence $c \mid d$ (again by
+\cref{lem:irred:2.1}), as needed.
+\end{proof}
+Of course the argument given in the proof generalizes one of the standard
+ways to compute greatest common divisors in $\mathbb{Z}$: find smallest
+exponents in prime factorizations. But note that this is not the only way
+to compute the gcd in $\mathbb{Z}$; we will come back to this point in a
+moment. In fact, greatest common divisors in $\mathbb{Z}$ have properties
+that should not be expected in a more general domain: for example, the
+result of Exercise~II.2.13 does not generalize to arbitrary domains (and
+not even to arbitrary UFDs), as the reader will check in Exercise~2.4.
 
 \subsection{Characterization of UFDs}
 \label{subsec:irred:characterization-of-ufds}
-% It is easy to construct integral domains where
+It is easy to construct integral domains where unique factorization fails.
+The diligent reader has already analyzed one example (Exercise~1.17); for
+another, in the domain\footnote{In algebraic geometry, this is the ring of
+a `quadric cone in $\mathbb{A}^4$'. The vertex of this cone (at the
+origin) is a singular point, and this has to do with the fact that $R$ is
+not a UFD.}
+\[R = \frac{\mathbb{C}[x,y,z,w]}{(xw - yz)}\]
+the (classes of the) elements $x$, $y$, $z$, $w$ are irreducible and not
+associates of one another; since $xw - yz = 0$ in $R$, the element
+$r = xw$ has two distinct factorizations into irreducibles: $r = xw = yz$.
 
-% unique factorization fails. The diligent reader has already analyzed one example
-% (Exercise 1.17); for another, in the domain5
-% C[x, y, z, w]
-% R =
-% (xw - yz)
-% the (classes of the) elements x, y, z, w are irreducible and not associates of
-% one
-% another; since xw - yz = 0 in R, the element r = xw has two distinct
-% factorizations
-% into irreducibles: r = xw = yz.
-% Note that this ring is Noetherian, by Theorem 1.2 (and in particular factor-
-% izations do exist in R). Thus, there are Noetherian integral domains that are
-% not
-% UFDs.
-% Also note that this ring provides an example in which the converse to Lemma 1.7
-% does not hold: indeed, (the class of) x is irreducible, but the quotient
-% '
-% C[x, y, z, w]
-%  C[x, y, z, w]
-%  C[x, y, z, w]
-% (x) \sim 
-%  =
-%  =
-% (xw - yz)
-%  (x, xw - yz)
-%  (x, yz)
-% is not an integral domain (because y = 0, z = 0, and yet yz = 0 in this ring);
-% that
-% is, x is not prime.
-% In fact, and maybe a little surprisingly, the issue of unique factorization is
-% inextricably linked with the relation between primality and irreducibility.
-% Indeed,
-% the `converse' to Lemma 1.7 does hold in UFDs:
-% Lemma 2.4. Let R be a UFD, and let a be an irreducible element of R. Then a
-% is prime.
-% Proof. The element a is not a unit, by definition of irreducible. Assume bc \in
-% (a):
-% thus (bc) \subseteq  (a), and by Lemma 2.1 the irreducible factors of a, that
-% is, a itself,
-% must be among the factors of b or of c. We have b \in  (a) in the first case and
-% c \in  (a)
-% in the second. This shows that (a) is a prime ideal, as needed.
-%  ?
-% In fact, more is true. Provided that the ascending chain condition for principal
-% ideals holds, then UFDs are characterized by the equivalence between
-% irreducibility
-% and primality.
-% Theorem 2.5. An integral domain R is a UFD if and only if
-% \bullet  the a.c.c. for principal ideals holds in R and
-% \bullet  every irreducible element of R is prime.
-% Proof. ( \implies  ) Assume that R is a UFD. Lemma 2.4 shows that irreducible
-% ele-
-% ments of R are prime. To prove that the a.c.c. for principal ideals holds,
-% consider
-% an ascending chain
-% (r1 ) ? (r2 ) ? (r3 ) ? \dots  .
-% 5 In algebraic geometry, this is the ring of a `quadric cone in A4'. The vertex
-% of this cone (at
-% the origin) is a singular point, and this has to do with the fact that R is not
-% a UFD.
-% By Lemma 2.1, this chain determines a corresponding descending chain of
-% multisets
-% of irreducible factors. A descending chain of finite multisets clearly
-% stabilizes, and it
-% follows (by Lemma 2.1 again) that (ri ) = (ri+1 ) = (ri+2 ) = . . . for large
-% enough i.
-% ( \Leftarrow = ) Now assume that R satisfies the a.c.c. for principal ideals and
-% irre-
-% ducibles are prime. Proposition 1.11 implies that factorizations exist in R; we
-% have
-% \setminus  \setminus to verify uniqueness. Let q1 , . . . , qm and q1 , . . . , qn be irreducible elements of R,
-% and assume
-% q1 \dots  qm = q1 \setminus  \dots  qn \setminus  .
-% Then q1 \setminus  \dots  qn \setminus  \in  (q1 ), and (q1 ) is a prime ideal
-% (by hypothesis); thus qi \setminus  \in  (q1)
-% for some i, which we may assume to be 1 after changing the order of the factors.
-% Therefore q1 \setminus  = uq1 for some u \in  R. Since q1 \setminus  is
-% irreducible and q1 is not a unit,
-% \setminus  \setminus 
-% necessarily u is a unit. Thus q1 and q1 are associates. Canceling q1 and
-% replacing q2\setminus by uq2, we find
-% q2 \dots  qm = q2 \setminus  \dots  qn \setminus  .
-% Repeating this process matches all factors one by one. It is clear that m = n,
-% because otherwise we will obtain 1 = a product of irreducibles, contradicting
-% the
-% fact that irreducibles are not units.
-%  ?
-% Theorem 2.5 is a pleasant statement, but it does not make it particularly easy
-% to
-% check whether a given ring is in fact a UFD. The situation is not unlike that
-% with
-% Noetherian rings: the a.c.c. is a sharp equivalent formulation of the Noetherian
-% condition, but in practice one relies more often on other tools, such as
-% Hilbert's
-% basis theorem, in order to establish that a given ring is Noetherian. Does an
-% analog
-% of Hilbert's basis theorem hold for unique factorization domains?
-% Answering this question requires some preparatory work, and we will come back
-% to it in \S{}4.
+Note that this ring is Noetherian, by \cref{thm:irred:1.2} (and in
+particular factorizations do exist in $R$). Thus, there are Noetherian
+integral domains that are not UFDs.
+
+Also note that this ring provides an example in which the converse to
+\cref{lem:irred:1.7} does \emph{not} hold: indeed, (the class of) $x$ is
+irreducible, but the quotient
+\[\frac{\mathbb{C}[x,y,z,w]}{(xw-yz)} \Big/ (x) \cong
+\frac{\mathbb{C}[x,y,z,w]}{(x, xw-yz)} = \frac{\mathbb{C}[x,y,z,w]}
+{(x,yz)}\]
+is not an integral domain (because $y \neq 0$, $z \neq 0$, and yet
+$yz = 0$ in this ring); that is, $x$ is not prime.
+
+In fact, and maybe a little surprisingly, the issue of unique factorization
+is inextricably linked with the relation between primality and
+irreducibility. Indeed, the `converse' to \cref{lem:irred:1.7} does hold
+in UFDs:
+\begin{lem}{}{irred:2.4}
+Let $R$ be a UFD, and let $a$ be an irreducible element of $R$. Then $a$
+is prime.
+\end{lem}
+
+\begin{proof}
+The element $a$ is not a unit, by definition of irreducible. Assume
+$bc \in (a)$: thus $(bc) \subseteq (a)$, and by \cref{lem:irred:2.1} the
+irreducible factors of $a$, that is, $a$ itself, must be among the factors
+of $b$ or of $c$. We have $b \in (a)$ in the first case and $c \in (a)$
+in the second. This shows that $(a)$ is a prime ideal, as needed.
+\end{proof}
+
+In fact, more is true. Provided that the ascending chain condition for
+principal ideals holds, then UFDs are characterized by the equivalence
+between irreducibility and primality.
+\begin{thm}{}{irred:2.5}
+An integral domain $R$ is a UFD if and only if
+\begin{itemize}
+\item the a.c.c.\ for principal ideals holds in $R$ and
+\item every irreducible element of $R$ is prime.
+\end{itemize}
+\end{thm}
+
+\begin{proof}
+$(\implies)$ Assume that $R$ is a UFD. \cref{lem:irred:2.4} shows that
+irreducible elements of $R$ are prime. To prove that the a.c.c.\ for
+principal ideals holds, consider an ascending chain $(r_1) \subseteq (r_2)
+\subseteq (r_3) \subseteq \dots$. By \cref{lem:irred:2.1}, this chain
+determines a corresponding \emph{descending} chain of multisets of
+irreducible factors. A descending chain of finite multisets clearly
+stabilizes, and it follows (by \cref{lem:irred:2.1} again) that $(r_i) =
+(r_{i+1}) = (r_{i+2}) = \dots$ for large enough $i$.
+
+$(\impliedby)$ Now assume that $R$ satisfies the a.c.c.\ for principal
+ideals and irreducibles are prime. \cref{prop:irred:1.11} implies that
+factorizations exist in $R$; we have to verify uniqueness. Let
+$q_1, \dots, q_m$ and $q'_1, \dots, q'_n$ be irreducible elements of $R$,
+and assume
+\[q_1 \cdots q_m = q'_1 \cdots q'_n.\]
+Then $q'_1 \cdots q'_n \in (q_1)$, and $(q_1)$ is a prime ideal (by
+hypothesis); thus $q'_i \in (q_1)$ for some $i$, which we may assume to
+be $1$ after changing the order of the factors. Therefore $q'_1 = uq_1$
+for some $u \in R$. Since $q'_1$ is irreducible and $q_1$ is not a unit,
+necessarily $u$ is a unit. Thus $q_1$ and $q'_1$ are associates. Canceling
+$q_1$ and replacing $q'_2$ by $uq'_2$, we find
+\[q_2 \cdots q_m = q'_2 \cdots q'_n.\]
+Repeating this process matches all factors one by one. It is clear that
+$m = n$, because otherwise we will obtain $1 =$ a product of irreducibles,
+contradicting the fact that irreducibles are not units.
+\end{proof}
+
+\cref{thm:irred:2.5} is a pleasant statement, but it does not make it
+particularly easy to check whether a given ring is in fact a UFD. The
+situation is not unlike that with Noetherian rings: the a.c.c.\ is a sharp
+equivalent formulation of the Noetherian condition, but in practice one
+relies more often on other tools, such as Hilbert's basis theorem, in order
+to establish that a given ring is Noetherian. Does an analog of Hilbert's
+basis theorem hold for unique factorization domains?
+
+Answering this question requires some preparatory work, and we will come
+back to it in~\S{}4.
 
 \subsection{\texorpdfstring{PID $\implies$ UFD}{PID implies UFD}}
 \label{subsec:irred:pid-implies-ufd}
-% There are simple ways to produce examples of UFDs.
+There are simple ways to produce examples of UFDs. Recall (from~\S{}III.4)
+that a \emph{principal ideal domain} (abbreviated PID) is an integral
+domain in which every ideal is principal. In~\S{}III.4 we have observed
+that
+\begin{itemize}
+\item PIDs are Noetherian.
+\item $\mathbb{Z}$ and $k[x]$ (where $k$ is a field) are PIDs.
+\item If $R$ is a PID and $a, b \in R$, then $d$ is a greatest common
+  divisor for $a$ and $b$ if and only if $(a, b) = (d)$. In particular,
+  if $d$ is a greatest common divisor of $a$ and $b$ in a PID $R$, then
+  $d$ is a linear combination of $a$ and $b$: $\exists r, s \in R$ such
+  that $d = ra + sb$.
+\item If $I$ is a nonzero ideal in a PID, then $I$ is prime if and only if
+  it is maximal.
+\end{itemize}
+We now add one important point to this list:
 
-% Recall (from \S{}III.4) that a principal ideal domain (abbreviated PID) is an
-% integral
-% domain in which every ideal is principal. In \S{}III.4 we have observed that
-% \bullet  PIDs are Noetherian.
-% \bullet  Z and k[x] (where k is a field) are PIDs.
-% \bullet  If R is a PID and a, b \in  R, then d is a greatest common divisor for a and b if
-% and only if (a, b) = (d). In particular, if d is a greatest common divisor of a
-% and b in a PID R, then d is a linear combination of a and b: \exists r, s \in  R
-% such
-% that d = ra + sb.
-% \bullet  If I is a nonzero ideal in a PID, then I is prime if and only if it is maximal.
-% We now add one important point to this list:
-% Proposition 2.6. If R is a PID, then it is a UFD.
-% Proof. Let R be a PID. The a.c.c. (for principal ideals, as all ideals in R are
-% prin-
-% cipal!) holds in R since PIDs are Noetherian. We verify that irreducible
-% elements
-% are prime in R, which implies that R is a UFD by Theorem 2.5.
-% Let a \in  R be an irreducible element. Ideals generated by irreducible elements
-% are maximal among principal ideals (Exercise 1.12), hence (a) is a maximal ideal
-% in R as all ideals in R are principal. Since maximal ideals are prime it follows
-% that
-% (a) is prime, as needed.
-%  ?
-% In particular, k[x] is a UFD if k is a field, and Z is a UFD---which hopefully
-% will not come as a big surprise to our readers6. Note that at this point we have
-% recovered the fact stated in Exercise 1.13 in full glory.
-% Proposition 2.6 justifies another feature of the picture given at the beginning
-% of this chapter: the class of PIDs is contained in the class of UFDs. We will
-% soon
-% see that the inclusion is proper, that is, that there are UFDs which are not
-% PIDs;
-% for example, Z[x] is not a PID (Exercise 2.12), yet
-% Z[x] is a unique factorization domain
-% as we will soon be able to prove (Theorem 4.14). In fact, there are UFDs which
-% are not Noetherian, as represented in the picture; however, these examples are
-% best
-% discussed after more material has been developed (Example 4.18).
-% The reader can already get a feel for the gap between UFD and PID, by con-
-% templating the fact (recalled above and essentially tautological) that, in a
-% PID,
-% greatest common divisors of a, b are linear combinations of a and b. This is a
-% very strong requirement: for example, it characterizes PIDs among Noetherian do-
-% mains, as the reader will check (Exercise 2.7); it does not hold in general UFDs
-% (Exercise 2.4).
+\begin{prop}{}{irred:2.6}
+If $R$ is a PID, then it is a UFD.
+\end{prop}
+
+\begin{proof}
+Let $R$ be a PID. The a.c.c.\ (for principal ideals, as all ideals in $R$
+are principal!) holds in $R$ since PIDs are Noetherian. We verify that
+irreducible elements are prime in $R$, which implies that $R$ is a UFD by
+\cref{thm:irred:2.5}.
+
+Let $a \in R$ be an irreducible element. Ideals generated by irreducible
+elements are maximal among principal ideals (Exercise~1.12), hence $(a)$
+is a maximal ideal in $R$ as all ideals in $R$ are principal. Since
+maximal ideals are prime it follows that $(a)$ is prime, as needed.
+\end{proof}
+
+In particular, $k[x]$ is a UFD if $k$ is a field, and $\mathbb{Z}$ is a
+UFD---which hopefully will not come as a big surprise to our
+readers\footnote{This fact is known as the fundamental theorem of
+arithmetic.}. Note that at this point we have recovered the fact stated in
+Exercise~1.13 in full glory.
+
+\cref{prop:irred:2.6} justifies another feature of the picture given at
+the beginning of this chapter: the class of PIDs is contained in the class
+of UFDs. We will soon see that the inclusion is proper, that is, that there
+are UFDs which are not PIDs; for example, $\mathbb{Z}[x]$ is not a PID
+(Exercise~2.12), yet $\mathbb{Z}[x]$ is a unique factorization domain as
+we will soon be able to prove (\cref{thm:irred:4.14}). In fact, there are
+UFDs which are not Noetherian, as represented in the picture; however,
+these examples are best discussed after more material has been developed
+(\cref{exam:irred:4.18}).
+
+The reader can already get a feel for the gap between UFD and PID, by
+contemplating the fact (recalled above and essentially tautological) that,
+in a PID, greatest common divisors of $a$, $b$ are linear combinations of
+$a$ and $b$. This is a very strong requirement: for example, it
+characterizes PIDs among Noetherian domains, as the reader will check
+(Exercise~2.7); it does not hold in general UFDs (Exercise~2.4).
 
 \subsection{\texorpdfstring{Euclidean domain $\implies$ PID}{Euclidean domain implies PID}}
 \label{subsec:irred:euclidean-domain-implies-pid}
-% The excellent properties of Z and k[x] (where
+The excellent properties of $\mathbb{Z}$ and $k[x]$ (where $k$ is a field)
+make these rings even more special than PIDs: they are \emph{Euclidean
+domains}. Informally, Euclidean domains are rings in which one may perform
+a `division with remainder': this is the case for $\mathbb{Z}$ and for
+$k[x]$, as observed in~\S{}III.4. The point is that in both $\mathbb{Z}$
+and $k[x]$ one can define a notion of `size' of an element: $|n|$ for an
+integer $n$ and $\deg f(x)$ for a polynomial $f(x)$. In both cases, one
+has control over the size of the `remainder' in a division. The definition
+of Euclidean domain simply abstracts this mechanism.
 
-% k is a field) make these rings even more special than PIDs: they are Euclidean
-% domains.
-% Informally, Euclidean domains are rings in which one may perform a `division
-% with remainder': this is the case for Z and for k[x], as observed in \S{}III.4.
-% The point
-% is that in both Z and k[x] one can define a notion of `size' of an element: |n|
-% for an
-% integer n and deg f (x) for a polynomial f (x). In both cases, one has control
-% over
-% the size of the `remainder' in a division. The definition of Euclidean domain
-% simply
-% abstracts this mechanism.
-% For the purpose of this discussion7 , a valuation on an integral domain R is any
-% function v : R \setminus  {0} \to  Z\geq 0 .
-% Definition 2.7. A Euclidean valuation on an integral domain R is a valuation
-% satisfying the following property 8 : for all a \in  R and all nonzero b \in  R
-% there exist
-% q, r \in  R such that
-% a = qb + r,
-% with either r = 0 or v(r) < v(b). An integral domain R is a Euclidean domain if
-% it
-% admits a Euclidean valuation.
-%  ?
-% 6This fact is known as the fundamental theorem of arithmetic.
-% 7 Entire libraries have been written on the subject of valuations, studying a
-% more precise
-% notion than what is needed here.
-% 8 It is not uncommon to also require that v(ab) \geq  v(b) for all nonzero a, b
-% \in  R; but this is not
-% needed in the considerations that follow, and cf. Exercise 2.15.
-% We say that q is the quotient of the division and r is the remainder. Division
-% with remainder in Z and in k[x] (where k is a field) provide examples, so that Z
-% and k[x] are Euclidean domains.
-% Proposition 2.8. Let R be a Euclidean domain. Then R is a PID.
-% The proof is modeled after the instances encountered for Z (Proposition III.4.4)
-% and k[x] (which the reader has hopefully worked out in Exercise III.4.4).
-% Proof. Let I be an ideal of R; we have to prove that I is principal. If I = {0},
-% there is nothing to show; therefore, assume I = {0}. The valuation maps the
-% nonzero elements of I to a subset of Z\geq 0 ; let b \in  I be an element with
-% the smallest
-% valuation. Then I claim that I = (b); therefore I is principal, as needed. Since
-% clearly (b) \subseteq  I, we only need to verify that I \subseteq  (b).
-% For this, let a \in  I and apply division with remainder: we have
-% a = qb + r
-% for some q, r in R, with r = 0 or v(r) < v(b). But
-% r = a - qb \in  I :
-% by the minimality of v(b) among nonzero elements of I, we cannot have v(r) <
-% v(b).
-% Therefore r = 0, showing that a = qb \in  (b), as needed.
-%  ?
-% Proposition 2.8 justifies one more feature of the picture at the beginning of
-% the
-% chapter: the class of Euclidean domains is contained in the class of principal
-% ideal
-% domains.
-% This inclusion is proper, as suggested in the picture. Producing an explicit
-% example of a PID which is not a Euclidean domain is not so easy, but the gap
-% between PIDs and Euclidean domains can in fact be described very sharply: PID
-% may be characterized as domains satisfying a weaker requirement than `division
-% with remainder'.
-% More precisely, a `Dedekind-Hasse valuation' is a valuation v such that \forall
-% a, b,
-% either (a, b) = (b) (that is, b divides a) or there exists r \in  (a, b) such
-% that v(r) < v(b).
-% This latter condition amounts to requiring that there exist q, s \in  R such
-% that
-% as = bq + r with v(r) < v(b); hence a Euclidean valuation (for which we may in
-% fact
-% choose s = 1) is a Dedekind-Hasse valuation. It is not hard to show that an
-% integral
-% domain is a PID if and only if it admits a Dedekind-Hasse valuation
-%  \sqrt 
-%  (Exercise 2.21).
-% For example, this can be used to show that the ring Z[(1 + -19)/2] is a PID: the
-% norm considered in Exercise 2.18 in order to prove that this ring is not a
-% Euclidean
-% domain turns out to be a Dedekind-Hasse valuation9 . Thus, this ring gives an
-% example of a PID that is not a Euclidean domain.
-% One excellent feature of Euclidean domains, and the one giving them their
-% names, is the presence of an effective algorithm computing greatest common divi-
-% sors: the Euclidean algorithm. As Euclidean domains are PIDs, and hence UFDs,
-% we know that they do have greatest common divisors. However, the `algorithm'
-% 9 This boils down to a case-by-case analysis, which I am happily leaving to my
-% most patient
-% readers.
-% obtained by distilling the proof of Lemma 2.3 is highly impractical: if we had
-% to
-% factor two integers a, b in order to compute their gcd, this would make it
-% essentially
-% impossible (with current technologies and factorization algorithms) for integers
-% of
-% a few hundred digits. The Euclidean algorithm bypasses the necessity of
-% factoriza-
-% tion: greatest common divisors of thousand-digit integers may be computed in a
-% fraction of a second.
-% The key lemma on which the algorithm is based is the following trivial general
-% fact:
-% Lemma 2.9. Let a = bq + r in a ring R. Then (a, b) = (b, r).
-% Proof. Indeed, r = a - bq \in  (a, b), proving (b, r) \subseteq  (a, b); and a =
-% bq + r \in  (b, r),
-% proving (a, b) \subseteq  (b, r).
-%  ?
-% In particular,
-% (\forall c \in  R),
-%  (a, b) \subseteq  (c) \iff  (b, r) \subseteq  (c);
-% that is, the set of common divisors of a, b and the set of common divisors of b,
-% r
-% coincide. Therefore,
-% Corollary 2.10. Assume a = bq + r. Then a, b have a gcd if and only if b, r have
-% a gcd, and in this case gcd(a, b) = gcd(b, r).
-% Of course `gcd(a, b) = gcd(b, r)' means that the two classes of associate
-% elements
-% coincide.
-% These considerations hold over any integral domain; assume now that R is a
-% Euclidean domain. Then we can use division with remainder to gain some control
-% over the remainders r. Given two elements a, b in R, with b = 0, we can apply
-% division with remainder repeatedly:
-% a = bq1 + r1 ,
-% b = r1 q2 + r2 ,
-% r1 = r2 q3 + r3 ,
-% \cdot \cdot \cdot 
-% as long as the remainder ri is nonzero.
-% Claim 2.11. This process terminates: that is, rN = 0 for some N .
-% Proof. Each line in the table is a division with remainder. If no ri were zero,
-% we
-% would have an infinite decreasing sequence
-% v(b) > v(r1) > v(r2 ) > v(r3) > \dots 
-% of nonnegative integers, which is nonsense.
-%  ?
-% Thus the table of divisions with remainders must be as follows: letting r0 = b,
-% a = r0 q1 + r1 ,
-% b = r1 q2 + r2 ,
-% r1 = r2 q3 + r3 ,
-% \cdot \cdot \cdot 
-% rN -3 = rN -2 qN -1 + rN -1 ,
-% rN -2 = rN -1 qN
-% with rN -1 = 0.
-% Proposition 2.12. With notation as above, rN -1 is a gcd of a, b.
-% Proof. By Corollary 2.10,
-% gcd(a, b) = gcd(b, r1 ) = gcd(r1 , r2 ) = \dots  = gcd(rN -2 , rN -1 ).
-% But rN -2 = rN -1 qN -1 gives rN -2 \in  (rN -1 ); hence (rN -2 , rN -1 ) = (rN
-% -1 ). There-
-% fore rN -1 is a gcd for rN -2 and rN -1 , hence for a and b, as needed.
-%  ?
-% The ring of integers and the polynomial ring over a field are both Euclidean
-% domains. Fields are Euclidean domains (as represented in the picture at the be-
-% ginning of the chapter), but not for a very interesting reason: the remainder of
-% the
-% division by a nonzero element in a field is always zero, so every function
-% qualifies
-% as a `Euclidean valuation' for trivial reasons.
-% We will study another interesting Euclidean domain later in this chapter
-% (\S{}6.2).
+For the purpose of this discussion\footnote{Entire libraries have been
+written on the subject of valuations, studying a more precise notion than
+what is needed here.}, a \emph{valuation} on an integral domain $R$ is any
+function $v : R \setminus \{0\} \to \mathbb{Z}^{\geq 0}$.
+
+\begin{defn}{}{irred:2.7}
+A \emph{Euclidean valuation} on an integral domain $R$ is a valuation
+satisfying the following property\footnote{It is not uncommon to also
+require that $v(ab) \geq v(b)$ for all nonzero $a, b \in R$; but this is
+not needed in the considerations that follow, and cf.\ Exercise~2.15.}:
+for all $a \in R$ and all nonzero $b \in R$ there exist $q, r \in R$ such
+that $a = qb + r$, with either $r = 0$ or $v(r) < v(b)$. An integral
+domain $R$ is a \emph{Euclidean domain} if it admits a Euclidean
+valuation.
+\end{defn}
+
+We say that $q$ is the \emph{quotient} of the division and $r$ is the
+\emph{remainder}. Division with remainder in $\mathbb{Z}$ and in $k[x]$
+(where $k$ is a field) provide examples, so that $\mathbb{Z}$ and $k[x]$
+are Euclidean domains.
+\begin{prop}{}{irred:2.8}
+Let $R$ be a Euclidean domain. Then $R$ is a PID.
+\end{prop}
+
+The proof is modeled after the instances encountered for $\mathbb{Z}$
+(Proposition~III.4.4) and $k[x]$ (which the reader has hopefully worked
+out in Exercise~III.4.4).
+
+\begin{proof}
+Let $I$ be an ideal of $R$; we have to prove that $I$ is principal. If
+$I = \{0\}$, there is nothing to show; therefore, assume $I \neq \{0\}$.
+The valuation maps the nonzero elements of $I$ to a subset of
+$\mathbb{Z}^{\geq 0}$; let $b \in I$ be an element with the smallest
+valuation. Then I claim that $I = (b)$; therefore $I$ is principal, as
+needed. Since clearly $(b) \subseteq I$, we only need to verify that
+$I \subseteq (b)$.
+
+For this, let $a \in I$ and apply division with remainder: we have
+\[a = qb + r\]
+for some $q, r \in R$, with $r = 0$ or $v(r) < v(b)$. But
+$r = a - qb \in I$: by the minimality of $v(b)$ among nonzero elements
+of $I$, we cannot have $v(r) < v(b)$. Therefore $r = 0$, showing that
+$a = qb \in (b)$, as needed.
+\end{proof}
+Proposition~2.8 justifies one more feature of the picture at the beginning
+of the chapter: the class of Euclidean domains is contained in the class
+of principal ideal domains.
+
+This inclusion is proper, as suggested in the picture. Producing an
+explicit example of a PID which is not a Euclidean domain is not so easy,
+but the gap between PIDs and Euclidean domains can in fact be described
+very sharply: PIDs may be characterized as domains satisfying a weaker
+requirement than `division with remainder'. More precisely, a
+\emph{Dedekind--Hasse valuation} is a valuation $v$ such that for all
+$a$, $b$, either $(a,b) = (b)$ (that is, $b$ divides $a$) or there
+exists $r \in (a,b)$ such that $v(r) < v(b)$. This latter condition
+amounts to requiring that there exist $q, s \in R$ such that $as = bq + r$
+with $v(r) < v(b)$; hence a Euclidean valuation (for which we may in fact
+choose $s = 1$) is a Dedekind--Hasse valuation. It is not hard to show
+that an integral domain is a PID if and only if it admits a
+Dedekind--Hasse valuation (Exercise~2.21).
+
+For example, this can be used to show that the ring
+$\mathbb{Z}[\frac{1+\sqrt{-19}}{2}]$ is a PID: the norm considered in
+Exercise~2.18 in order to prove that this ring is not a Euclidean domain
+turns out to be a Dedekind--Hasse valuation\footnote{This boils down to a
+case-by-case analysis, which I am happily leaving to my most patient
+readers.}. Thus, this ring gives an example of a PID that is not a
+Euclidean domain.
+One excellent feature of Euclidean domains, and the one giving them their
+names, is the presence of an effective algorithm computing greatest common
+divisors: the \emph{Euclidean algorithm}. As Euclidean domains are PIDs,
+and hence UFDs, we know that they do have greatest common divisors.
+However, the `algorithm' obtained by distilling the proof of Lemma~2.3 is
+highly impractical: if we had to factor two integers $a$, $b$ in order to
+compute their gcd, this would make it essentially impossible (with current
+technologies and factorization algorithms) for integers of a few hundred
+digits. The Euclidean algorithm bypasses the necessity of factorization:
+greatest common divisors of thousand-digit integers may be computed in a
+fraction of a second.
+
+The key lemma on which the algorithm is based is the following trivial
+general fact:
+\begin{lem}{}{irred:2.9}
+Let $a = bq + r$ in a ring $R$. Then $(a, b) = (b, r)$.
+\end{lem}
+
+\begin{proof}
+Indeed, $r = a - bq \in (a, b)$, proving $(b, r) \subseteq (a, b)$; and
+$a = bq + r \in (b, r)$, proving $(a, b) \subseteq (b, r)$.
+\end{proof}
+In particular, $(\forall c \in R)$,
+\[(a, b) \subseteq (c) \iff (b, r) \subseteq (c);\]
+that is, the set of common divisors of $a$, $b$ and the set of common
+divisors of $b$, $r$ coincide. Therefore,
+
+\begin{coro}{}{irred:2.10}
+Assume $a = bq + r$. Then $a$, $b$ have a gcd if and only if $b$, $r$
+have a gcd, and in this case $\gcd(a, b) = \gcd(b, r)$.
+\end{coro}
+
+Of course `$\gcd(a, b) = \gcd(b, r)$' means that the two classes of
+associate elements coincide.
+These considerations hold over any integral domain; assume now that $R$ is
+a Euclidean domain. Then we can use division with remainder to gain some
+control over the remainders $r$. Given two elements $a$, $b$ in $R$, with
+$b \neq 0$, we can apply division with remainder repeatedly:
+\begin{align*}
+  a &= bq_1 + r_1, \\
+  b &= r_1 q_2 + r_2, \\
+  r_1 &= r_2 q_3 + r_3, \\
+  &\cdots
+\end{align*}
+as long as the remainder $r_i$ is nonzero.
+
+\begin{fact}{Claim~2.11}{irred:claim:2.11}
+This process terminates: that is, $r_N = 0$ for some $N$.
+\end{fact}
+
+\begin{proof}
+Each line in the table is a division with remainder. If no $r_i$ were
+zero, we would have an infinite decreasing sequence
+$v(b) > v(r_1) > v(r_2) > v(r_3) > \dots$
+of nonnegative integers, which is nonsense.
+\end{proof}
+Thus the table of divisions with remainders must be as follows: letting
+$r_0 = b$,
+\begin{align*}
+  a &= r_0 q_1 + r_1, \\
+  b &= r_1 q_2 + r_2, \\
+  r_1 &= r_2 q_3 + r_3, \\
+  &\cdots \\
+  r_{N-3} &= r_{N-2} q_{N-1} + r_{N-1}, \\
+  r_{N-2} &= r_{N-1} q_N
+\end{align*}
+with $r_{N-1} \neq 0$.
+
+\begin{prop}{}{irred:2.12}
+With notation as above, $r_{N-1}$ is a gcd of $a$, $b$.
+\end{prop}
+
+\begin{proof}
+By Corollary~2.10,
+\[\gcd(a, b) = \gcd(b, r_1) = \gcd(r_1, r_2) = \dots =
+  \gcd(r_{N-2}, r_{N-1}).\]
+But $r_{N-2} = r_{N-1} q_N$ gives $r_{N-2} \in (r_{N-1})$; hence
+$(r_{N-2}, r_{N-1}) = (r_{N-1})$. Therefore $r_{N-1}$ is a gcd for
+$r_{N-2}$ and $r_{N-1}$, hence for $a$ and $b$, as needed.
+\end{proof}
+The ring of integers and the polynomial ring over a field are both
+Euclidean domains. Fields are Euclidean domains (as represented in the
+picture at the beginning of the chapter), but not for a very interesting
+reason: the remainder of the division by a nonzero element in a field is
+always zero, so every function qualifies as a `Euclidean valuation' for
+trivial reasons. We will study another interesting Euclidean domain later
+in this chapter (\S{}6.2).
 
 \subsection*{Exercises}
 
-% 2.1. ? Prove Lemma 2.1. [\S{}2.1]
-% 2.2. Let R be a UFD, and let a, b, c be elements of R such that a | bc and
-% gcd(a, b) =
-% 2.3. Let n be a positive integer. Prove that there is a one-to-one
-% correspondence
-% preserving multiplicities between the irreducible factors of n (as an integer)
-% and
-% the composition factors of Z/nZ (as a group). (In fact, the Jordan-H\"older
-% theorem
-% may be used to prove that Z is a UFD.)
-% 2.4. ? Consider the elements x, y in Z[x, y]. Prove that 1 is a gcd of x and y,
-% and
-% yet 1 is not a linear combination of x and y. (Cf. Exercise II.2.13.) [\S{}2.1,
-% \S{}2.3]
-% 2.5. ? Let R be the subring of Z[t] consisting of polynomials with no term of
-% degree 1: a0 + a2 t2 + \dots  + adtd .
-% \bullet  Prove that R is indeed a subring of Z[t], and conclude that R is an integral
-% domain.
-% \bullet  List all common divisors of t5 and t6 in R.
-% \bullet  Prove that t5 and t6 have no gcd in R.
-% [\S{}2.1]
-% 2.6. Let R be a domain with the property that the intersection of any family of
-% principal ideals in R is necessarily a principal ideal.
-% \bullet  Show that greatest common divisors exist in R.
-% \bullet  Show that UFDs satisfy this property.
-% 2.7. ? Let R be a Noetherian domain, and assume that for all nonzero a, b in R,
-% the greatest common divisors of a and b are linear combinations of a and b.
-% Prove
-% that R is a PID. [\S{}2.3]
-% 2.8. Let R be a UFD, and let I = (0) be an ideal of R. Prove that every
-% descending
-% chain of principal ideals containing I must stabilize.
-% 2.9. \lnot  The height of a prime ideal P in a ring R is (if finite) the maximum
-% length h
-% of a chain of prime ideals P0 ? P1 ? \dots  ? Ph = P in R. (Thus, the Krull
-% dimension
-% of R, if finite, is the maximum height of a prime ideal in R.) Prove that if R
-% is a
-% UFD, then every prime ideal of height 1 in R is principal. [2.10]
-% 2.10. \lnot  It is a consequence of a theorem known as Krull's Hauptidealsatz
-% that
-% every nonzero, nonunit element in a Noetherian domain is contained in a prime
-% ideal of height 1. Assuming this, prove a converse to Exercise 2.9, and conclude
-% that a Noetherian domain R is a UFD if and only if every prime ideal of height 1
-% in R is principal. [4.16]
-% 2.11. Let R be a PID, and let I be a nonzero ideal of R. Show that R/I is an
-% artinian ring (cf. Exercise 1.10), by proving explicitly that the d.c.c. holds
-% in R/I.
-% 2.12. ? Prove that if R[x] is a PID, then R is a field. [\S{}2.3, \S{}VI.7.1]
-% 2.13. ? For a, b, c positive integers with c > 1, prove that ca - 1 divides cb -
-% 1 if
-% and only if a | b. Prove that xa - 1 divides xb - 1 in Z[x] if and only if a |
-% b. (Hint:
-% For the interesting implications, write b = ad + r with 0 \leq  r < a, and take
-% `size'
-% into account.) [\S{}VII.5.1, VII.5.13]
-% 2.14. ? Prove that if k is a field, then k[[x]] is a Euclidean domain. [\S{}4.3]
-% 2.15. ? Prove that if R is a Euclidean domain, then R admits a Euclidean valua-
-% tion v such that v(ab) \geq  v(b) for all nonzero a, b \in  R. (Hint: Since R is
-% a Euclidean
-% domain, it admits a valuation v as in Definition 2.7. For a = 0, let v(a) be the
-% minimum of all v(ab) as b \in  R, b = 0. To see that R is a Euclidean domain
-% with
-% respect to v as well, let a, b be nonzero in R, with b ? a; choose q, r so that
-% a = bq+r,
-% with v(r) minimal; assume that v(r) \geq  v(b), and get a contradiction.)
-% [\S{}2.4, 2.16]
-% 2.16. Let R be a Euclidean domain with Euclidean valuation v; assume that
-% v(ab) \geq  v(b) for all nonzero a, b \in  R (cf. Exercise 2.15). Prove that
-% associate
-% elements have the same valuation and that units have minimum valuation.
-% 2.17. \lnot  Let R be a Euclidean domain that is not a field. Prove that there
-% exists a
-% nonzero, nonunit element c in R such that \forall a \in  R, \exists q, r \in  R
-% with a = qc + r and
-% either r = 0 or r a unit. [2.18]
-% \sqrt 
-% 2.18. ? For an integer d, denote by Q( d) the smallest subfield of C containing
-% \sqrt Q and d, with norm N defined as in Exercise III.4.10. See Exercise 1.17 for the
-% case d = -5; in this problem, you will take d = -19.
-% \sqrt 
-%  \sqrt 
-% Let \delta  = (1 + i 19)/2, and consider the following subring of Q( -19):
-% ?
-%  \sqrt 
-% 1 + i 19
-% Z[\delta ] := a + b
-%  | a, b \in  Z .
-% \bullet  Prove that the smallest values of N (z) for z = a + b\delta  \in  Z[\delta ] are 0, 1, 4, 5. Prove
-% that N (a + b\delta ) \geq  5 if b = 0.
-% \bullet  Prove that the units in Z[\delta ] are \pm 1.
-% \bullet  If c \in  Z[\delta ] satisfies the condition specified in Exercise 2.17, prove that c must
-% divide 2 or 3 in Z[\delta ], and conclude that c = \pm 2 or c = \pm 3.
-% \bullet  Now show that ?q \in  Z[\delta ] such that \delta  = qc + r with c = \pm 2, \pm 3 and r = 0, \pm 1.
-% \sqrt 
-% Conclude that Z[(1 + -19)/2] is not a Euclidean domain. [\S{}2.4, 6.14]
-% 2.19. \lnot  A discrete valuation on a field k is a surjective homomorphism of
-% abelian
-% groups v : (k\ast  , \cdot ) \to  (Z, +) such that v(a + b) \geq  min(v(a),
-% v(b)) for all a, b \in  k\ast  such
-% that a + b \in  k\ast  .
-% \bullet  Prove that the set R := {a \in  k \ast  | v(a) \geq  0} \cup  {0} is a subring of k.
-% \bullet  Prove that R is a Euclidean domain.
-% Rings arising in this fashion are called discrete valuation rings, abbreviated
-% DVR.
-% They arise naturally in number theory and algebraic geometry. Note that the
-% Krull dimension of a DVR is 1 (Example III.4.14); in algebraic geometry, DVRs
-% correspond to particularly nice points on a `curve'.
-% \bullet  Prove that the ring of rational numbers a/b with b not divisible by a fixed prime
-% integer p is a DVR.
-% [2.20, VIII.1.19]
-% 2.20. \lnot  As seen in Exercise 2.19, DVRs are Euclidean domains. In
-% particular, they
-% must be PIDs. Check this directly, as follows. Let R be a DVR, and let t \in  R
-% be an
-% element such that v(t) = 1. Prove that if I \subseteq  R is any nonzero ideal,
-% then I = (tk )
-% for some k \geq  1. (The element t is called a `local parameter' of R.) [4.13,
-% VII.2.18]
-% 2.21. ? Prove that an integral domain is a PID if and only if it admits a
-% Dedekind-
-% Hasse valuation. (Hint: For the \Leftarrow = implication, adapt the argument in
-% Proposi-
-% tion 2.8; for \implies  , let v(a) be the size of the multiset of irreducible
-% factors of a.)
-% [\S{}2.4]
-% 2.22. \lnot  Suppose R \subseteq  S is an inclusion of integral domains, and
-% assume that R is
-% a PID. Let a, b \in  R, and let d \in  R be a gcd for a and b in R. Prove that d
-% is also
-% a gcd for a and b in S. [5.2]
-% 2.23. Compute d = gcd(5504227617645696, 2922476045110123). Further, find a, b
-% such that d = 5504227617645696 a + 2922476045110123 b.
+\begin{exer}{}{irred:exer:2.1}
+\exerused{} Prove Lemma~2.1. [\S{}2.1]
+\end{exer}
+
+\begin{exer}{}{irred:exer:2.2}
+Let $R$ be a UFD, and let $a$, $b$, $c$ be elements of $R$ such that
+$a \mid bc$ and $\gcd(a, b) = 1$. Prove that $a \mid c$.
+\end{exer}
+
+\begin{exer}{}{irred:exer:2.3}
+Let $n$ be a positive integer. Prove that there is a one-to-one
+correspondence preserving multiplicities between the irreducible factors
+of $n$ (as an integer) and the composition factors of $\mathbb{Z}/n\mathbb{Z}$
+(as a group). (In fact, the Jordan--H\"older theorem may be used to prove
+that $\mathbb{Z}$ is a UFD.)
+\end{exer}
+\begin{exer}{}{irred:exer:2.4}
+\exerused{} Consider the elements $x$, $y$ in $\mathbb{Z}[x, y]$. Prove
+that $1$ is a gcd of $x$ and $y$, and yet $1$ is not a linear combination
+of $x$ and $y$. (Cf.\ Exercise~II.2.13.) [\S{}2.1, \S{}2.3]
+\end{exer}
+\begin{exer}{}{irred:exer:2.5}
+\exerused{} Let $R$ be the subring of $\mathbb{Z}[t]$ consisting of
+polynomials with no term of degree~$1$:
+$a_0 + a_2 t^2 + \dots + a_d t^d$.
+\begin{itemize}
+  \item Prove that $R$ is indeed a subring of $\mathbb{Z}[t]$, and
+    conclude that $R$ is an integral domain.
+  \item List all common divisors of $t^5$ and $t^6$ in $R$.
+  \item Prove that $t^5$ and $t^6$ have no gcd in $R$.
+\end{itemize}
+[\S{}2.1]
+\end{exer}
+\begin{exer}{}{irred:exer:2.6}
+Let $R$ be a domain with the property that the intersection of any family
+of principal ideals in $R$ is necessarily a principal ideal.
+\begin{itemize}
+  \item Show that greatest common divisors exist in $R$.
+  \item Show that UFDs satisfy this property.
+\end{itemize}
+\end{exer}
+\begin{exer}{}{irred:exer:2.7}
+\exerused{} Let $R$ be a Noetherian domain, and assume that for all
+nonzero $a$, $b$ in $R$, the greatest common divisors of $a$ and $b$ are
+linear combinations of $a$ and $b$. Prove that $R$ is a PID. [\S{}2.3]
+\end{exer}
+\begin{exer}{}{irred:exer:2.8}
+Let $R$ be a UFD, and let $I \neq (0)$ be an ideal of $R$. Prove that
+every descending chain of principal ideals containing $I$ must stabilize.
+\end{exer}
+\begin{exer}{}{irred:exer:2.9}
+$\lnot$ The \emph{height} of a prime ideal $P$ in a ring $R$ is (if
+finite) the maximum length $h$ of a chain of prime ideals
+$P_0 \subsetneq P_1 \subsetneq \dots \subsetneq P_h = P$ in $R$. (Thus,
+the Krull dimension of $R$, if finite, is the maximum height of a prime
+ideal in $R$.) Prove that if $R$ is a UFD, then every prime ideal of
+height~$1$ in $R$ is principal. [2.10]
+\end{exer}
+\begin{exer}{}{irred:exer:2.10}
+$\lnot$ It is a consequence of a theorem known as Krull's Hauptidealsatz
+that every nonzero, nonunit element in a Noetherian domain is contained in
+a prime ideal of height~$1$. Assuming this, prove a converse to
+Exercise~2.9, and conclude that a Noetherian domain $R$ is a UFD if and
+only if every prime ideal of height~$1$ in $R$ is principal. [4.16]
+\end{exer}
+\begin{exer}{}{irred:exer:2.11}
+Let $R$ be a PID, and let $I$ be a nonzero ideal of $R$. Show that $R/I$
+is an artinian ring (cf.\ Exercise~1.10), by proving explicitly that the
+d.c.c.\ holds in $R/I$.
+\end{exer}
+\begin{exer}{}{irred:exer:2.12}
+\exerused{} Prove that if $R[x]$ is a PID, then $R$ is a field.
+[\S{}2.3, \S{}VI.7.1]
+\end{exer}
+\begin{exer}{}{irred:exer:2.13}
+\exerused{} For $a$, $b$, $c$ positive integers with $c > 1$, prove that
+$c^a - 1$ divides $c^b - 1$ if and only if $a \mid b$. Prove that
+$x^a - 1$ divides $x^b - 1$ in $\mathbb{Z}[x]$ if and only if $a \mid b$.
+(Hint: For the interesting implications, write $b = ad + r$ with
+$0 \leq r < a$, and take `size' into account.)
+[\S{}VII.5.1, VII.5.13]
+\end{exer}
+\begin{exer}{}{irred:exer:2.14}
+\exerused{} Prove that if $k$ is a field, then $k[[x]]$ is a Euclidean
+domain. [\S{}4.3]
+\end{exer}
+\begin{exer}{}{irred:exer:2.15}
+\exerused{} Prove that if $R$ is a Euclidean domain, then $R$ admits a
+Euclidean valuation $v$ such that $v(ab) \geq v(b)$ for all nonzero
+$a, b \in R$. (Hint: Since $R$ is a Euclidean domain, it admits a
+valuation $v$ as in Definition~2.7. For $a \neq 0$, let $\bar{v}(a)$ be
+the minimum of all $v(ab)$ as $b \in R$, $b \neq 0$. To see that $R$ is
+a Euclidean domain with respect to $\bar{v}$ as well, let $a$, $b$ be
+nonzero in $R$, with $b \nmid a$; choose $q$, $r$ so that $a = bq + r$,
+with $\bar{v}(r)$ minimal; assume that $\bar{v}(r) \geq \bar{v}(b)$, and
+get a contradiction.) [\S{}2.4, 2.16]
+\end{exer}
+\begin{exer}{}{irred:exer:2.16}
+Let $R$ be a Euclidean domain with Euclidean valuation $v$; assume that
+$v(ab) \geq v(b)$ for all nonzero $a, b \in R$ (cf.\ Exercise~2.15).
+Prove that associate elements have the same valuation and that units have
+minimum valuation.
+\end{exer}
+\begin{exer}{}{irred:exer:2.17}
+$\lnot$ Let $R$ be a Euclidean domain that is not a field. Prove that
+there exists a nonzero, nonunit element $c$ in $R$ such that
+$\forall a \in R$, $\exists\, q, r \in R$ with $a = qc + r$ and either
+$r = 0$ or $r$ a unit. [2.18]
+\end{exer}
+\begin{exer}{}{irred:exer:2.18}
+\exerused{} For an integer $d$, denote by $\mathbb{Q}(\sqrt{d})$ the
+smallest subfield of $\mathbb{C}$ containing $\mathbb{Q}$ and $\sqrt{d}$,
+with norm $N$ defined as in Exercise~III.4.10. See Exercise~1.17 for the
+case $d = -5$; in this problem, you will take $d = -19$.
+
+Let $\delta = \frac{1 + \sqrt{-19}}{2}$, and consider the following
+subring of $\mathbb{Q}(\sqrt{-19})$:
+\[\mathbb{Z}[\delta] := \left\{ a + b\delta \mid a, b \in \mathbb{Z}
+  \right\}.\]
+\begin{itemize}
+  \item Prove that the smallest values of $N(z)$ for
+    $z = a + b\delta \in \mathbb{Z}[\delta]$ are $0, 1, 4, 5$. Prove
+    that $N(a + b\delta) \geq 5$ if $b \neq 0$.
+  \item Prove that the units in $\mathbb{Z}[\delta]$ are $\pm 1$.
+  \item If $c \in \mathbb{Z}[\delta]$ satisfies the condition specified
+    in Exercise~2.17, prove that $c$ must divide $2$ or $3$ in
+    $\mathbb{Z}[\delta]$, and conclude that $c = \pm 2$ or $c = \pm 3$.
+  \item Now show that $\nexists\, q \in \mathbb{Z}[\delta]$ such that
+    $\delta = qc + r$ with $c = \pm 2, \pm 3$ and $r = 0, \pm 1$.
+\end{itemize}
+Conclude that $\mathbb{Z}[\frac{1+\sqrt{-19}}{2}]$ is not a Euclidean
+domain. [\S{}2.4, 6.14]
+\end{exer}
+\begin{exer}{}{irred:exer:2.19}
+$\lnot$ A \emph{discrete valuation} on a field $k$ is a surjective
+homomorphism of abelian groups $v : (k^*, \cdot) \to (\mathbb{Z}, +)$
+such that $v(a + b) \geq \min(v(a), v(b))$ for all $a, b \in k^*$ such
+that $a + b \in k^*$.
+\begin{itemize}
+  \item Prove that the set
+    $R := \{a \in k^* \mid v(a) \geq 0\} \cup \{0\}$ is a subring of $k$.
+  \item Prove that $R$ is a Euclidean domain.
+\end{itemize}
+Rings arising in this fashion are called \emph{discrete valuation rings},
+abbreviated DVR. They arise naturally in number theory and algebraic
+geometry. Note that the Krull dimension of a DVR is~$1$
+(Example~III.4.14); in algebraic geometry, DVRs correspond to particularly
+nice points on a `curve'.
+\begin{itemize}
+  \item Prove that the ring of rational numbers $a/b$ with $b$ not
+    divisible by a fixed prime integer $p$ is a DVR.
+\end{itemize}
+[2.20, VIII.1.19]
+\end{exer}
+\begin{exer}{}{irred:exer:2.20}
+$\lnot$ As seen in Exercise~2.19, DVRs are Euclidean domains. In
+particular, they must be PIDs. Check this directly, as follows. Let $R$
+be a DVR, and let $t \in R$ be an element such that $v(t) = 1$. Prove
+that if $I \subseteq R$ is any nonzero ideal, then $I = (t^k)$ for some
+$k \geq 1$. (The element $t$ is called a `local parameter' of $R$.)
+[4.13, VII.2.18]
+\end{exer}
+\begin{exer}{}{irred:exer:2.21}
+\exerused{} Prove that an integral domain is a PID if and only if it
+admits a Dedekind--Hasse valuation. (Hint: For the $\Leftarrow$
+implication, adapt the argument in Proposition~2.8; for $\Rightarrow$,
+let $v(a)$ be the size of the multiset of irreducible factors of $a$.)
+[\S{}2.4]
+\end{exer}
+\begin{exer}{}{irred:exer:2.22}
+$\lnot$ Suppose $R \subseteq S$ is an inclusion of integral domains, and
+assume that $R$ is a PID. Let $a, b \in R$, and let $d \in R$ be a gcd
+for $a$ and $b$ in $R$. Prove that $d$ is also a gcd for $a$ and $b$
+in~$S$. [5.2]
+\end{exer}
+\begin{exer}{}{irred:exer:2.23}
+Compute $d = \gcd(5504227617645696, 2922476045110123)$. Further, find
+$a$, $b$ such that $d = 5504227617645696\, a + 2922476045110123\, b$.
+\end{exer}
+
+\begin{exer}{}{irred:exer:2.24}
+Prove that there are infinitely many prime integers. (Hint: Assume by
+contradiction that $p_1, \dots, p_N$ is a complete list of all positive
+prime integers. What can you say about $p_1 \cdots p_N + 1$? This
+argument was already known to Euclid, more than 2,000 years ago.)
+[2.25, \S{}5.2, 5.11]
+\end{exer}
+
+\begin{exer}{}{irred:exer:2.25}
+$\lnot$ Variation on the theme of Euclid from Exercise~2.24: Let
+$f(x) \in \mathbb{Z}[x]$ be a nonconstant polynomial such that $f(0) = 1$.
+Prove that infinitely many primes divide the numbers $f(n)$, as $n$
+ranges in $\mathbb{Z}$. (If $p_1, \dots, p_N$ were a complete list of
+primes dividing the numbers $f(n)$, what could you say about
+$f(p_1 \cdots p_N x)$?) Once you are happy with this, show that the
+hypothesis $f(0) = 1$ is unnecessary. (If $f(0) = a \neq 0$, consider
+$f(p_1 \cdots p_N a x)$. Finally, note that there is nothing special
+about $0$.) [VII.5.18]
+\end{exer}
 
 \section{Intermezzo: Zorn's lemma}
 \label{sec:irred:intermezzo-zorn-s-lemma}
-
-
-%Prove that there are infinitely many prime integers. (Hint: Assume by}
-
-% contradiction that p1 , . . . , pN is a complete list of all positive prime
-% integers. What
-% can you say about p 1 \dots  \cdot  \cdot  pN + 1? This argument was already
-% known to Euclid,
-% more than 2,000 years ago.) [2.25, \S{}5.2, 5.11]
-
-% \lnot  Variation on the theme of Euclid from Exercise 2.24: Let f (x) \in  Z[x] be
-
-% a nonconstant polynomial such that f (0) = 1. Prove that infinitely many primes
-% divide the numbers f (n), as n ranges in Z. (If p1, . . . , pN were a complete
-% list of
-% primes dividing the numbers f (n), what could you say about f (p1 \dots  pN x)?)
-% Once you are happy with this, show that the hypothesis f (0) = 1 is unnecessary.
-% (If f (0) = a = 0, consider f (p1 \dots  pN ax). Finally, note that there is
-% nothing special
-% about 0.) [VII.5.18]
 
 \subsection{Set theory, reprise}
 \label{subsec:irred:set-theory-reprise}
