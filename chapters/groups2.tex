@@ -3046,570 +3046,525 @@ Exercise~III.2.5.) Is this semidirect product in fact direct?
 \section{Finite abelian groups}
 \label{sec:groups2:finite-abelian-groups}
 
-% I will end this chapter by treating in some detail the classification theorem
-% for finite
-% abelian groups mentioned in \S{}II.6.3.
+I will end this chapter by treating in some detail the classification
+theorem for finite abelian groups mentioned in~\S{}II.6.3.
 
 \subsection{Classification of finite abelian groups}
 \label{subsec:groups2:classification-of-finite-abelian-groups}
-% Now that we have acquired more
+Now that we have acquired more familiarity with products, we are in a
+position to classify all finite \emph{abelian}
+groups.\footnote{Of course fancier semidirect products will not be
+needed here; cf.\ \cref{exer:groups2:5.9}.}
 
-% familiarity with products, we are in a position to classify all finite abelian
-% groups26 .
-% 26Of course fancier semidirect products will not be needed here; cf. Exercise
-% 5.9.
-% In due time (Proposition VI.2.11, Exercise VI.2.19) we will in fact be able to
-% classify all finitely generated abelian groups: as mentioned in Example II.6.3,
-% all
-% such groups are products of cyclic groups27. In particular, this is the case for
-% finite
-% abelian groups: this is what we prove in this section.
-% Since in this section we exclusively deal with abelian groups, we revert to the
-% abelian style of notations: thus the operation will be denoted +; the identity
-% will
-% be 0; direct products will be called direct sums (and denoted \oplus ); and so
-% on.
-% First of all, I will congeal into an explicit statement a simple observation
-% that
-% has been with us in one form or another since at least as far back as 28
-% Exercise II.4.9.
-% Lemma 6.1. Let G be an abelian group, and let H, K be subgroups such that |H|,
-% |K| are relatively prime. Then H + K \sim 
-%  = H \oplus  K.
-% Proof. By Lagrange's theorem (Corollary II.8.14), H \cap  K = {0}. Since
-% subgroups
-% of abelian groups are automatically normal, the statement follows from Proposi-
-% tion 5.3.
-%  ?
-% Now let G be a finite abelian group. For each prime p, the p-Sylow subgroup
-% of G is unique, since it is automatically normal in G. Since the distinct
-% nontrivial
-% Sylow subgroups of G are p-groups for different primes p, Lemma 6.1 immediately
-% implies the following result.
-% Corollary 6.2. Every finite abelian group is the direct sum of its nontrivial
-% Sylow
-% subgroups.
-% (The diligent reader knew already that this had to be the case, since abelian
-% groups
-% are nilpotent; cf. Exercise 5.1.) Thus, we already know that every finite
-% abelian
-% group is a direct sum of p-groups, and our main task amounts to classifying
-% abelian
-% p-groups for a fixed prime p. This is somewhat technical; we will get there by a
-% seemingly roundabout path.
-% Lemma 6.3. Let G be an abelian p-group, and let g \in  G be an element of
-% maximal
-% order. Then the exact sequence
-%  / ?g?
-%  / G
-%  / G/?g?
-%  / 0
-% splits.
-% Put otherwise, there is a subgroup L of G such that L maps isomorphically to
-% G/?g? via the canonical projection, that is, such that ?g?\cap L = {0} and ?g?+L
-% = G.
-% Note that it will follow that G \sim 
-%  = ?g? \oplus  L, by Proposition 5.3.
-% The main technicality needed in order to prove this lemma is the following
-% particular case:
-% Lemma 6.4. Let p be a prime integer and r \geq  1. Let G be a noncyclic abelian
-% group of order pr+1 , and let g \in  G be an element of order pr . Then there
-% exists an
-% element h \in  G, h \in  ?g?, such that |h| = p.
-% 27 The natural context to prove this more general result is that of modules over
-% Euclidean
-% rings or even principal ideal domains.
-% 28 In fact, this observation will really find its most appropriate resting place
-% when we prove
-% the Chinese Remainder Theorem, Theorem V.6.1.
-% Lemma 6.4 is a special case of Lemma 6.3 in the sense that, with notation as in
-% the statement, necessarily ?h? \sim 
-%  = G/?g?, and in fact G = \sim 
-%  ?g? \oplus  ?h? (and the reader
-% is warmly encouraged to understand this before proceeding!). That is, we can
-% split
-% off the `large' cyclic subgroup ?g? as a direct summand of G, provided that G is
-% not cyclic and not much larger than ?g?. Lemma 6.3 claims that this can be done
-% whenever ?g? is a maximal cyclic subgroup of G. We will be able to prove this
-% more
-% general statement easily once the particular case is settled.
-% Proof of Lemma 6.4. Denote ?g? by K, and let h\setminus  be any element of G,
-% h\setminus  \in  K.
-% The subgroup K is normal in G since G is abelian; the quotient group G/K has
-% order p. Since h\setminus  \in  K, the coset h\setminus  + K has order p in G/K;
-% that is, ph\setminus  \in  K. Let
-% k = ph\setminus  .
-% Note that |k| divides pr ; hence it is a power of p. Also |k| = p r , otherwise
-% |h\setminus 
-% | = pr+1 and G would be cyclic, contrary to the hypothesis.
-% Therefore |k| = ps for some s < r; k generates a subgroup ?k? of the cyclic
-% group K, of order ps . By Proposition II.6.11, ?k? = ?pr-s g?. Since s < r, ?k?
-% \subseteq
-% ?pg?; thus, k = mpg for some m \in  Z.
-% Then let h = h\setminus  - mg: h = 0 (since h\setminus  \in  K), and
-% ph = ph\setminus  - p(mg) = k - k = 0,
-% showing that |h| = p, as stated.
-%  ?
-% Proof of Lemma 6.3. Argue by induction on the order of G; the case |G| = p0 =
-% 1 requires no proof. Thus we will assume that G is nontrivial and that the
-% statement
-% is true for every p-group smaller than G.
-% Let g \in  G be an element of maximal order, say pr , and denote by K the
-% subgroup ?g? generated by g; this subgroup is normal, as G is abelian. If G = K,
-% then the statement holds trivially. If not, G/K is a nontrivial p-group, and
-% hence it
-% contains an element of order p by Cauchy's theorem (Theorem 2.1). This element
-% generates a subgroup of order p in G/K, corresponding to a subgroup G\setminus
-% of G of
-% order pr+1 , containing K. This subgroup is not cyclic (otherwise the order of g
-% is
-% not maximal).
-% That is, we are in the situation of Lemma 6.4: hence we can conclude that there
-% is an element h \in  G\setminus  (and hence h \in  G) with h \in  K and |h| = p.
-% Let H = ?h? \subseteq  G
-% be the subgroup generated by h, and note that K \cap  H = {0}.
-% Now work modulo H. The quotient group G/H has smaller size than G, and
-% g + H generates a cyclic subgroup K \setminus  = (K + H)/H = \sim 
-%  K/(K \cap  H) = \sim 
-%  K of maximal
-% order in G/H. By the induction hypothesis, there is a subgroup L\setminus  of
-% G/H such
-% that K \setminus  + L\setminus  = G/H and K \setminus  \cap  L\setminus  = {0G/H
-% }. This subgroup L\setminus  corresponds to a
-% subgroup L of G containing H.
-% Now I claim that (i) K + L = G and (ii) K \cap  L = {0}. Indeed, we have the
-% following:
-% (i) For any a \in  G, there exist mg + H \in  K \setminus  , + H \in  L\setminus
-% such that a + H =
-% mg + + H (since K \setminus  + L\setminus  = G/H). This implies a - mg \in  L,
-% and hence
-% a \in  K + L as needed.
-% (ii) If a \in  K \cap  L, then a + H \in  K \setminus  \cap  L\setminus  = {0G/H
-% }, and hence a \in  H. In particular,
-% a \in  K \cap  H = {0}, forcing a = 0, as needed.
-% (i) and (ii) imply the lemma, as observed in the comments following the
-% statement.
-% ?
-% Now we are ready to state the classification theorem; the proof is quite
-% straight-
-% forward after all this preparation work. We first give the statement in a
-% somewhat
-% coarse form, as a corollary of the previous considerations:
-% Corollary 6.5. Let G be a finite abelian group. Then G is a direct sum of cyclic
-% groups, which may be assumed to be cyclic p-groups.
-% Proof. As noted in Corollary 6.2, G is a direct sum of p-groups (as a
-% consequence
-% of the Sylow theorems). I claim that every abelian p-group P is a direct sum of
-% cyclic p-groups.
-% To establish this, argue by induction on |P |. There is nothing to prove if P is
-% trivial. If P is not trivial, let g be an element of P of maximal order. By
-% Lemma 6.3
-% P = ?g? \oplus  P \setminus 
-% \setminus  \setminus for some subgroup P of P ; by the induction hypothesis P is a direct sum of cyclic
-% p-groups, concluding the proof.
-%  ?
+In due time (Proposition~VI.2.11, Exercise~VI.2.19) we will in fact
+be able to classify all finitely generated abelian groups: as
+mentioned in Example~II.6.3, all such groups are products of cyclic
+groups.\footnote{The natural context to prove this more general result
+is that of modules over Euclidean rings or even principal ideal
+domains.} In particular, this is the case for finite abelian groups:
+this is what we prove in this section.
+
+Since in this section we exclusively deal with abelian groups, we
+revert to the abelian style of notations: thus the operation will be
+denoted $+$; the identity will be $0$; direct products will be called
+direct sums (and denoted $\oplus$); and so on.
+
+First of all, I will congeal into an explicit statement a simple
+observation that has been with us in one form or another since at
+least as far back as\footnote{In fact, this observation will really
+find its most appropriate resting place when we prove the Chinese
+Remainder Theorem, Theorem~V.6.1.} Exercise~II.4.9.
+\begin{lem}{}{lem:groups2:6.1}
+Let $G$ be an abelian group, and let $H$, $K$ be subgroups such that
+$|H|$, $|K|$ are relatively prime. Then $H + K \cong H \oplus K$.
+\end{lem}
+\begin{proof}
+By Lagrange's theorem (Corollary~II.8.14), $H \cap K = \{0\}$. Since
+subgroups of abelian groups are automatically normal, the statement
+follows from \cref{prop:groups2:5.3}.
+\end{proof}
+Now let $G$ be a \emph{finite} abelian group. For each prime $p$,
+the $p$-Sylow subgroup of $G$ is unique, since it is automatically
+normal in $G$. Since the distinct nontrivial Sylow subgroups of $G$
+are $p$-groups for different primes $p$, \cref{lem:groups2:6.1}
+immediately implies the following result.
+
+\begin{coro}{}{coro:groups2:6.2}
+Every finite abelian group is the direct sum of its nontrivial Sylow
+subgroups.
+\end{coro}
+(The diligent reader knew already that this had to be the case,
+since abelian groups are nilpotent; cf.\ \cref{exer:groups2:5.1}.)
+Thus, we already know that every finite abelian group is a direct sum
+of $p$-groups, and our main task amounts to classifying abelian
+$p$-groups for a fixed prime $p$. This is somewhat technical; we will
+get there by a seemingly roundabout path.
+\begin{lem}{}{lem:groups2:6.3}
+Let $G$ be an abelian $p$-group, and let $g \in G$ be an element of
+maximal order. Then the exact sequence
+\[0 \longrightarrow \langle g \rangle \longrightarrow G
+\longrightarrow G/\langle g \rangle \longrightarrow 0\]
+splits.
+\end{lem}
+
+Put otherwise, there is a subgroup $L$ of $G$ such that $L$ maps
+isomorphically to $G/\langle g \rangle$ via the canonical projection,
+that is, such that $\langle g \rangle \cap L = \{0\}$ and
+$\langle g \rangle + L = G$. Note that it will follow that
+$G \cong \langle g \rangle \oplus L$, by
+\cref{prop:groups2:5.3}.
+The main technicality needed in order to prove this lemma is the
+following particular case:
+
+\begin{lem}{}{lem:groups2:6.4}
+Let $p$ be a prime integer and $r \geq 1$. Let $G$ be a noncyclic
+abelian group of order $p^{r+1}$, and let $g \in G$ be an element of
+order $p^r$. Then there exists an element $h \in G$,
+$h \notin \langle g \rangle$, such that $|h| = p$.
+\end{lem}
+\cref{lem:groups2:6.4} is a special case of \cref{lem:groups2:6.3}
+in the sense that, with notation as in the statement, necessarily
+$\langle h \rangle \cong G/\langle g \rangle$, and in fact
+$G \cong \langle g \rangle \oplus \langle h \rangle$ (and the reader
+is warmly encouraged to understand this before proceeding!). That is,
+we can split off the `large' cyclic subgroup $\langle g \rangle$ as a
+direct summand of $G$, provided that $G$ is not cyclic and not much
+larger than $\langle g \rangle$. \cref{lem:groups2:6.3} claims that
+this can be done whenever $\langle g \rangle$ is a maximal cyclic
+subgroup of $G$. We will be able to prove this more general statement
+easily once the particular case is settled.
+\begin{proof}[Proof of \cref{lem:groups2:6.4}]
+Denote $\langle g \rangle$ by $K$, and let $h'$ be any element of
+$G$, $h' \notin K$. The subgroup $K$ is normal in $G$ since $G$ is
+abelian; the quotient group $G/K$ has order $p$. Since $h' \notin K$,
+the coset $h' + K$ has order $p$ in $G/K$; that is,
+$ph' \in K$. Let $k = ph'$.
+
+Note that $|k|$ divides $p^r$; hence it is a power of $p$. Also
+$|k| \neq p^r$, otherwise $|h'| = p^{r+1}$ and $G$ would be cyclic,
+contrary to the hypothesis.
+
+Therefore $|k| = p^s$ for some $s < r$; $k$ generates a subgroup
+$\langle k \rangle$ of the cyclic group $K$, of order $p^s$. By
+Proposition~II.6.11, $\langle k \rangle = \langle p^{r-s} g \rangle$.
+Since $s < r$, $\langle k \rangle \subseteq \langle pg \rangle$; thus,
+$k = mpg$ for some $m \in \mathbb{Z}$.
+
+Then let $h = h' - mg$: $h \neq 0$ (since $h' \notin K$), and
+\[ph = ph' - p(mg) = k - k = 0,\]
+showing that $|h| = p$, as stated.
+\end{proof}
+\begin{proof}[Proof of \cref{lem:groups2:6.3}]
+Argue by induction on the order of $G$; the case $|G| = p^0 = 1$
+requires no proof. Thus we will assume that $G$ is nontrivial and
+that the statement is true for every $p$-group smaller than $G$.
+
+Let $g \in G$ be an element of maximal order, say $p^r$, and denote
+by $K$ the subgroup $\langle g \rangle$ generated by $g$; this
+subgroup is normal, as $G$ is abelian. If $G = K$, then the statement
+holds trivially. If not, $G/K$ is a nontrivial $p$-group, and hence
+it contains an element of order $p$ by Cauchy's theorem
+(\cref{thm:groups2:cauchy}). This element generates a subgroup of
+order $p$ in $G/K$, corresponding to a subgroup $G'$ of $G$ of order
+$p^{r+1}$, containing $K$. This subgroup is not cyclic (otherwise the
+order of $g$ is not maximal).
+
+That is, we are in the situation of \cref{lem:groups2:6.4}: hence we
+can conclude that there is an element $h \in G'$ (and hence $h \in G$)
+with $h \notin K$ and $|h| = p$. Let $H = \langle h \rangle \subseteq
+G$ be the subgroup generated by $h$, and note that $K \cap H = \{0\}$.
+
+Now work modulo $H$. The quotient group $G/H$ has smaller size than
+$G$, and $g + H$ generates a cyclic subgroup
+$K' = (K + H)/H \cong K/(K \cap H) \cong K$ of maximal order in
+$G/H$. By the induction hypothesis, there is a subgroup $L'$ of $G/H$
+such that $K' + L' = G/H$ and $K' \cap L' = \{0_{G/H}\}$. This
+subgroup $L'$ corresponds to a subgroup $L$ of $G$ containing $H$.
+
+Now I claim that (i) $K + L = G$ and (ii) $K \cap L = \{0\}$. Indeed,
+we have the following:
+\begin{enumerate}[(i)]
+\item For any $a \in G$, there exist $mg + H \in K'$,
+  $\ell + H \in L'$ such that $a + H = mg + \ell + H$ (since
+  $K' + L' = G/H$). This implies $a - mg \in L$, and hence
+  $a \in K + L$ as needed.
+\item If $a \in K \cap L$, then $a + H \in K' \cap L' = \{0_{G/H}\}$,
+  and hence $a \in H$. In particular, $a \in K \cap H = \{0\}$,
+  forcing $a = 0$, as needed.
+\end{enumerate}
+(i) and (ii) imply the lemma, as observed in the comments following
+the statement.
+\end{proof}
+Now we are ready to state the classification theorem; the proof is
+quite straightforward after all this preparation work. We first give
+the statement in a somewhat coarse form, as a corollary of the
+previous considerations:
+
+\begin{coro}{}{coro:groups2:6.5}
+Let $G$ be a finite abelian group. Then $G$ is a direct sum of cyclic
+groups, which may be assumed to be cyclic $p$-groups.
+\end{coro}
+\begin{proof}
+As noted in \cref{coro:groups2:6.2}, $G$ is a direct sum of
+$p$-groups (as a consequence of the Sylow theorems). I claim that
+every abelian $p$-group $P$ is a direct sum of cyclic $p$-groups.
+
+To establish this, argue by induction on $|P|$. There is nothing to
+prove if $P$ is trivial. If $P$ is not trivial, let $g$ be an element
+of $P$ of maximal order. By \cref{lem:groups2:6.3}
+\[P = \langle g \rangle \oplus P'\]
+for some subgroup $P'$ of $P$; by the induction hypothesis $P'$ is a
+direct sum of cyclic $p$-groups, concluding the proof.
+\end{proof}
 
 \subsection{Invariant factors and elementary divisors}
 \label{subsec:groups2:invariant-factors-and-elementary-divisors}
-% Here is a more precise version
+Here is a more precise version of the classification theorem. It is
+common to state the result in two equivalent forms.
 
-% of the classification theorem. It is common to state the result in two
-% equivalent
-% forms.
-% Theorem 6.6. Let G be a finite nontrivial abelian group. Then
-% \bullet  there exist prime integers p1 , . . . , pr and positive integers nij such that |G| =
-% ?
-%  ni,j
-% i,j pi
-%  and
-% ! Z
-% G \sim 
-%  =
-%  n
-% ij ;
-% i,j
-%  p i Z
-% \bullet  there exist positive integers 1 < d1 | \dots  | ds such that |G| = d1 \dots  ds and
-% G \sim 
-%  =
-%  Z
-%  \oplus  \cdot \cdot \cdot  \oplus 
-%  Z
-%  .
-% d1 Z
-%  ds Z
-% Further, these decompositions are uniquely determined by G.
-% The first form is nothing but a more explicit version of the statement of Corol-
-% lary 6.5, so it has already been proven. I will explain how to obtain the second
-% form from the first. The uniqueness statement29 is left to the reader (Exercise
-% 6.1).
-% The prime powers appearing in the first form of Theorem 6.6 are called the
-% elementary divisors of G; the integers di appearing in the second form are
-% called
-% invariant factors. To go from elementary divisors to invariant factors, collect
-% the
-% 29 Of course the `uniqueness' statement only holds up to trivial manipulation
-% such as a per-
-% mutation of the factors. The claim is that the factors themselves are determined
-% by G, in the sense
-% that two direct sums of either form given in the statement are isomorphic only
-% if their factors
-% match.
-% elementary divisors in a table, listing (for example) prime powers according to
-% in-
-% creasing primes in the horizontal direction and decreasing exponents in the
-% vertical
-% direction; then the invariant factors are obtained as products of the factors in
-% each
-% row:
-% dr =
-%  pn 1 11
-%  pn 2 21
-%  pn 3 31
-%  \cdot \cdot \cdot 
-% dr-1 =
-%  pn 1 12
-%  pn 2 22
-%  pn 3 32
-%  \cdot \cdot \cdot 
-% dr-2 =
-%  pn 1 13
-%  pn 2 23
-%  pn 3 33
-%  \cdot \cdot \cdot 
-% \cdot \cdot \cdot 
-%  \cdot \cdot \cdot 
-%  \cdot \cdot \cdot 
-%  \cdot \cdot \cdot 
-%  \cdot \cdot \cdot 
-% Conversely, given the invariant factors di, obtain the rows of this table by
-% factoring di into prime powers: the condition d1 | \dots  | dr guarantees that
-% these will
-% be decreasing.
-% Repeated applications of Lemma 6.1 show that if d = pn 1 1 \dots  pn r r for
-% distinct
-% primes pi and positive ni (as is the case in each row of the table), then
-% Z Z
-%  Z
-% \sim  = n1 \oplus  \dots  \oplus  n r ,
-% dZ
-%  p1 Z
-%  pr Z
-% proving that the two decompositions given in Theorem 6.6 are indeed equivalent.
-% This will likely be much clearer once the reader works through a few examples.
-% Example 6.7. Here are the two decompositions for a (random) group of order
-% 29160 = 23 \cdot  36 \cdot  5:
-% \setminus 
-%  ?
-%  \setminus 
-%  ?
-% Z
-%  \oplus 
-%  Z
-%  \oplus 
-%  Z
-%  \oplus 
-%  Z
-%  \oplus 
-%  Z
-%  \oplus  Z
-%  \oplus  Z
-%  \oplus 
-%  Z
-%  \sim 
-%  =
-%  Z
-%  \oplus 
-%  Z
-%  \oplus 
-%  Z
-%  \oplus 
-%  Z
-% 2Z
-%  2Z
-%  2Z
-%  3Z
-%  3Z
-%  32 Z
-%  32 Z
-%  5Z
-%  3Z
-%  6Z
-%  18Z
-%  90Z
-% and here is the corresponding table of invariant factors/elementary divisors:
-% 90 =
-%  2 32
-% 18 =
-%  2 32
-% 6=
-% 3=
-% Example 6.8. There are exactly 6 isomorphism classes of abelian groups of or-
-% der 360. Indeed, 360 = 23 \cdot  32 \cdot  5; the six possible tables of
-% elementary divisors
-% are shown below. In terms of invariant factors, the six distinct abelian groups
-% of
-% order 360 (up to isomorphism, by the uniqueness part of Theorem 6.6) are
-% therefore
-% Z
-%  Z
-%  Z
-%  Z
-%  Z
-%  Z
-% ,
-%  \oplus 
-%  ,
-%  \oplus 
-%  \oplus 
-%  ,
-% 360Z
-%  2Z 180Z
-%  2Z 2Z 90Z
-% Z
-%  Z
-%  Z
-%  Z
-%  Z
-%  Z
-%  Z
-% \oplus 
-%  ,
-%  \oplus 
-%  ,
-%  \oplus 
-%  \oplus 
-%  .
-% 3Z 120Z
-%  6Z 60Z
-%  2Z 6Z 30Z
-% 360=
-%  180=
-%  90=
-% 2=
-%  2=
-% 2=
-% 120=
-%  3 5
-%  60=
-%  3 5
-%  30=
-%  2 3 5
-% 3=
-%  6=
-%  6=
-%  2 3
-% 2=
+\begin{thm}{}{thm:groups2:6.6}
+Let $G$ be a finite nontrivial abelian group. Then
+\begin{itemize}
+\item there exist prime integers $p_1, \dots, p_r$ and positive
+  integers $n_{ij}$ such that $|G| = \prod_{i,j} p_i^{n_{i,j}}$ and
+  \[G \cong \bigoplus_{i,j} \frac{\mathbb{Z}}{p_i^{n_{ij}}\mathbb{Z}}\,;\]
+\item there exist positive integers $1 < d_1 \mid \cdots \mid d_s$
+  such that $|G| = d_1 \cdots d_s$ and
+  \[G \cong \frac{\mathbb{Z}}{d_1\mathbb{Z}} \oplus \cdots \oplus
+    \frac{\mathbb{Z}}{d_s\mathbb{Z}}\,.\]
+\end{itemize}
+Further, these decompositions are uniquely determined by $G$.
+\end{thm}
+The first form is nothing but a more explicit version of the statement
+of \cref{coro:groups2:6.5}, so it has already been proven. I will
+explain how to obtain the second form from the first. The uniqueness
+statement\footnote{Of course the `uniqueness' statement only holds up
+to trivial manipulation such as a permutation of the factors. The
+claim is that the factors themselves are determined by $G$, in the
+sense that two direct sums of either form given in the statement are
+isomorphic only if their factors match.} is left to the reader
+(\cref{exer:groups2:6.1}).
+The prime powers appearing in the first form of \cref{thm:groups2:6.6}
+are called the \emph{elementary divisors} of $G$; the integers $d_i$
+appearing in the second form are called \emph{invariant factors}. To
+go from elementary divisors to invariant factors, collect the
+elementary divisors in a table, listing (for example) prime powers
+according to increasing primes in the horizontal direction and
+decreasing exponents in the vertical direction; then the invariant
+factors are obtained as products of the factors in each row:
+\[
+\begin{array}{c||c|c|c|c}
+  d_r     & p_1^{n_{11}} & p_2^{n_{21}} & p_3^{n_{31}} & \cdots \\
+  d_{r-1} & p_1^{n_{12}} & p_2^{n_{22}} & p_3^{n_{32}} & \cdots \\
+  d_{r-2} & p_1^{n_{13}} & p_2^{n_{23}} & p_3^{n_{33}} & \cdots \\
+  \cdots  & \cdots       & \cdots       & \cdots       & \cdots
+\end{array}
+\]
+Conversely, given the invariant factors $d_i$, obtain the rows of
+this table by factoring $d_i$ into prime powers: the condition
+$d_1 \mid \cdots \mid d_r$ guarantees that these will be decreasing.
+
+Repeated applications of \cref{lem:groups2:6.1} show that if
+$d = p_1^{n_1} \cdots p_r^{n_r}$ for distinct primes $p_i$ and
+positive $n_i$ (as is the case in each row of the table), then
+\[\frac{\mathbb{Z}}{d\mathbb{Z}} \cong
+\frac{\mathbb{Z}}{p_1^{n_1}\mathbb{Z}} \oplus \cdots \oplus
+\frac{\mathbb{Z}}{p_r^{n_r}\mathbb{Z}},\]
+proving that the two decompositions given in
+\cref{thm:groups2:6.6} are indeed equivalent. This will likely be
+much clearer once the reader works through a few examples.
+\begin{exam}{}{exam:groups2:6.7}
+Here are the two decompositions for a (random) group of order
+$29160 = 2^3 \cdot 3^6 \cdot 5$:
+\begin{align*}
+  &\frac{\mathbb{Z}}{2\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{2\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{2\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{3\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{3\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{3^2\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{3^2\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{5\mathbb{Z}} \\
+  \cong\,&\frac{\mathbb{Z}}{3\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{6\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{18\mathbb{Z}} \oplus
+  \frac{\mathbb{Z}}{90\mathbb{Z}}
+\end{align*}
+and here is the corresponding table of invariant
+factors/elementary divisors:
+\[
+\begin{array}{c||c|c|c}
+  90 & 2 & 3^2 & 5 \\
+  18 & 2 & 3^2 &   \\
+   6 & 2 & 3   &   \\
+   3 &   & 3   &
+\end{array}
+\]
+\end{exam}
+\begin{exam}{}{exam:groups2:6.8}
+There are exactly $6$ isomorphism classes of abelian groups of order
+$360$. Indeed, $360 = 2^3 \cdot 3^2 \cdot 5$; the six possible
+tables of elementary divisors are shown below. In terms of invariant
+factors, the six distinct abelian groups of order $360$ (up to
+isomorphism, by the uniqueness part of \cref{thm:groups2:6.6}) are
+therefore
+\begin{gather*}
+  \frac{\mathbb{Z}}{360\mathbb{Z}},\quad
+  \frac{\mathbb{Z}}{2\mathbb{Z}} \oplus
+    \frac{\mathbb{Z}}{180\mathbb{Z}},\quad
+  \frac{\mathbb{Z}}{2\mathbb{Z}} \oplus
+    \frac{\mathbb{Z}}{2\mathbb{Z}} \oplus
+    \frac{\mathbb{Z}}{90\mathbb{Z}},\\
+  \frac{\mathbb{Z}}{3\mathbb{Z}} \oplus
+    \frac{\mathbb{Z}}{120\mathbb{Z}},\quad
+  \frac{\mathbb{Z}}{6\mathbb{Z}} \oplus
+    \frac{\mathbb{Z}}{60\mathbb{Z}},\quad
+  \frac{\mathbb{Z}}{2\mathbb{Z}} \oplus
+    \frac{\mathbb{Z}}{6\mathbb{Z}} \oplus
+    \frac{\mathbb{Z}}{30\mathbb{Z}}.
+\end{gather*}
+\[
+\begin{array}{c||c|c|c}
+  360 & 2^3 & 3^2 & 5
+\end{array}
+\quad
+\begin{array}{c||c|c|c}
+  180 & 2^2 & 3^2 & 5 \\
+    2 & 2   &     &
+\end{array}
+\quad
+\begin{array}{c||c|c|c}
+  90 & 2 & 3^2 & 5 \\
+   2 & 2 &     &   \\
+   2 & 2 &     &
+\end{array}
+\]
+\[
+\begin{array}{c||c|c|c}
+  120 & 2^3 & 3 & 5 \\
+    3 &     & 3 &
+\end{array}
+\quad
+\begin{array}{c||c|c|c}
+  60 & 2^2 & 3 & 5 \\
+   6 & 2   & 3 &
+\end{array}
+\quad
+\begin{array}{c||c|c|c}
+  30 & 2 & 3 & 5 \\
+   6 & 2 & 3 &   \\
+   2 & 2 &   &
+\end{array}
+\]
+\end{exam}
 
 \subsection{Application: Finite subgroups of multiplicative groups of fields}
 \label{subsec:groups2:application-finite-subgroups-of-multiplicative-groups-of-fields}
-% Any
+Any classification theorem is useful in that it potentially reduces
+the proof of general facts to explicit verifications. Here is one
+example illustrating this strategy:
+\begin{lem}{}{lem:groups2:6.9}
+Let $G$ be a finite abelian group, and assume that for every integer
+$n > 0$ the number of elements $g \in G$ such that $ng = 0$ is at
+most $n$. Then $G$ is cyclic.
+\end{lem}
+The reader should try to prove this `by hand', to appreciate the fact
+that it is not entirely trivial. It does become essentially immediate
+once we take the classification of finite abelian groups into account.
+Indeed, by \cref{thm:groups2:6.6}
+\[G \cong \frac{\mathbb{Z}}{d_1\mathbb{Z}} \oplus \cdots \oplus
+\frac{\mathbb{Z}}{d_s\mathbb{Z}}\]
+for some positive integers $1 < d_1 \mid \cdots \mid d_s$. But if
+$s > 1$, then $|G| > d_s$ and $d_s g = 0$ for all $g \in G$ (so
+that the order of $g$ divides $d_s$), contradicting the hypothesis.
+Therefore $s = 1$; that is, $G$ is cyclic.
+\cref{lem:groups2:6.9} is the key to a particularly nice proof of
+the following important fact, a weak form of
+which\footnote{The diligent reader has proved that particular case in
+Exercise~II.4.11. The proof hinted at in that exercise upgrades easily
+to the general case presented here. The point is not that the
+classification theorem is \emph{necessary} in order to prove
+statements such as \cref{thm:groups2:6.10}; the point is that it
+makes such statements nearly evident.} we ran across back in
+Example~II.4.6. Recall that the set $F^*$ of nonzero elements of a
+field $F$ is a commutative group under multiplication. Also recall
+(Example~III.4.7) that a polynomial $f(x) \in F[x]$ is divisible by
+$(x - a)$ if and only if $f(a) = 0$; since a nonzero polynomial of
+degree $n$ over a field can have at most $n$ linear factors, this
+shows\footnote{Unique factorization in $F[x]$ is secretly needed
+here. We will deal with this issue more formally later; cf.\
+Lemma~V.5.1.} that if $f(x) \in F[x]$ has degree $n$, then
+$f(a) = 0$ for at most $n$ distinct elements $a \in F$.
+\begin{thm}{}{thm:groups2:6.10}
+Let $F$ be a field, and let $G$ be a finite subgroup of the
+multiplicative group $(F^*, \cdot)$. Then $G$ is cyclic.
+\end{thm}
+\begin{proof}
+By the considerations preceding the statement, for every $n$ there
+are at most $n$ elements $a \in F$ such that $a^n - 1 = 0$, that is,
+at most $n$ elements $a \in G$ such that $a^n = 1$.
+\cref{lem:groups2:6.9} implies then that $G$ is cyclic.
+\end{proof}
 
-% classification theorem is useful in that it potentially reduces the proof of
-% general
-% facts to explicit verifications. Here is one example illustrating this strategy:
-% Lemma 6.9. Let G be a finite abelian group, and assume that for every integer
-% n > 0 the number of elements g \in  G such that ng = 0 is at most n. Then G is
-% cyclic.
-% The reader should try to prove this `by hand', to appreciate the fact that
-% it is not entirely trivial. It does become essentially immediate once we take
-% the
-% classification of finite abelian groups into account. Indeed, by Theorem 6.6
-% Z
-%  Z
-% G \sim 
-%  =
-%  \oplus  \cdot \cdot \cdot  \oplus 
-% d1 Z
-%  ds Z
-% for some positive integers 1 < d1 | \dots  | ds . But if s > 1, then |G| > ds
-% and d s g = 0
-% for all g \in  G (so that the order of g divides ds ), contradicting the
-% hypothesis.
-% Therefore s = 1; that is, G is cyclic.
-% Lemma 6.9 is the key to a particularly nice proof of the following important
-% fact, a weak form of which30 we ran across back in Example II.4.6. Recall that
-% the
-% \ast set F of nonzero elements of a field F is a commutative group under multiplication.
-% Also recall (Example III.4.7) that a polynomial f (x) \in  F [x] is divisible by
-% (x - a)
-% if and only if f (a) = 0; since a nonzero polynomial of degree n over a field
-% can
-% have at most n linear factors, this shows31 that if f (x) \in  F [x] has degree
-% n, then
-% f (a) = 0 for at most n distinct elements a \in  F .
-% Theorem 6.10. Let F be a field, and let G be a finite subgroup of the
-% multiplicative
-% group (F \ast  , \cdot ). Then G is cyclic.
-% Proof. By the considerations preceding the statement, for every n there are at
-% most n elements a \in  F such that an - 1 = 0, that is, at most n elements a \in
-% G
-% such that an = 1. Lemma 6.9 implies then that G is cyclic.
-%  ?
-% 30 The diligent reader has proved that particular case in Exercise II.4.11. The
-% proof hinted
-% at in that exercise upgrades easily to the general case presented here. The
-% point is not that the
-% classification theorem is necessary in order to prove statements such as Theorem
-% 6.10; the point
-% is that it makes such statements nearly evident.
-% 31 Unique factorization in F [x] is secretly needed here. We will deal with this
-% issue more
-% formally later; cf. Lemma V.5.1.
-% As a (very) particular case, the multiplicative group ((Z/pZ)\ast  , \cdot ) is
-% cyclic: this
-% is the fact pointed to in Example II.4.6.
-% Preview of coming attractions: Finitely generated (as opposed to just finite)
-% abelian groups are also direct sums of cyclic groups. The only difference
-% between
-% the classification of finitely generated abelian groups and the classification
-% of finite
-% abelian groups explored here is the possible presence of a `free' factor Z\oplus
-% r in the
-% decomposition. The reader will first prove this fact in Exercise VI.2.19, as a
-% conse-
-% quence of `Gaussian elimination over integral domains', and then recover it
-% again
-% as a particular case of the classification theorem for finitely generated
-% modules
-% over PIDs, Theorem VI.5.6. Neither Gaussian elimination nor the very general
-% Theorem VI.5.6 are any harder to prove than the particular case of finite
-% abelian
-% groups laboriously worked out by hand in this section---a common benefit of
-% finding
-% the right general point of view is that, as a rule, proofs simplify. Technical
-% work
-% such as that performed in order to prove Lemma 6.3 is absorbed into the work
-% necessary to build up the more general apparatus; the need for such
-% technicalities
-% evaporates in the process.
+As a (very) particular case, the multiplicative group
+$((\mathbb{Z}/p\mathbb{Z})^*, \cdot)$ is cyclic: this is the fact
+pointed to in Example~II.4.6.
+\emph{Preview of coming attractions:} Finitely generated (as opposed
+to just finite) abelian groups are also direct sums of cyclic groups.
+The only difference between the classification of finitely generated
+abelian groups and the classification of finite abelian groups
+explored here is the possible presence of a `free' factor
+$\mathbb{Z}^{\oplus r}$ in the decomposition. The reader will first
+prove this fact in Exercise~VI.2.19, as a consequence of `Gaussian
+elimination over integral domains', and then recover it again as a
+particular case of the classification theorem for finitely generated
+modules over PIDs, Theorem~VI.5.6. Neither Gaussian elimination nor
+the very general Theorem~VI.5.6 are any harder to prove than the
+particular case of finite abelian groups laboriously worked out by
+hand in this section---a common benefit of finding the right general
+point of view is that, as a rule, proofs simplify. Technical work
+such as that performed in order to prove \cref{lem:groups2:6.3} is
+absorbed into the work necessary to build up the more general
+apparatus; the need for such technicalities evaporates in the
+process.
 
 \subsection*{Exercises}
 
-% 6.1. ? Prove that the decomposition of a finite abelian group G as a direct sum
-% of cyclic p-groups is unique. (Hint: The prime factorization of |G| determines
-% the
-% primes, so it suffices to show that if
-% Z
-%  \oplus  \dots  \oplus  Z
-%  = \sim 
-%  Z
-%  \oplus  \dots  \oplus  Z
-%  ,
-% pr1 Z
-%  prm Z
-%  ps1 Z
-%  psn Z
-% with r1 \geq  \dots  \geq  rm and s1 \geq  \dots  \geq  sn , then m = n and ri =
-% si for all i. Do this by
-% induction, by considering the group pG obtained as the image of the homomorphism
-% G \to  G defined by g ?\to  pg.) [\S{}6.2, \S{}VI.5.3, VI.5.12]
-% 6.2. Complete the classification of groups of order 8 (cf. Exercise 2.16).
-% 6.3. Let G be a noncommutative group of order p3 , where p is a prime integer.
-% Prove that Z(G) \sim 
-%  = Z/pZ and G/Z(G) \sim 
-%  = Z/pZ \times  Z/pZ.
-% 6.4. Classify abelian groups of order 400.
-% 6.5. Let p be a prime integer. Prove that the number of distinct isomorphism
-% classes
-% of abelian groups of order pr equals the number of partitions of the integer r.
-% 6.6. ? How many abelian groups of order 1024 are there, up to isomorphism?
-% [\S{}II.6.3]
-% 6.7. \lnot  Let p > 0 be a prime integer, G a finite abelian group, and denote
-% by
-% \rho  : G \to  G the homomorphism defined by \rho (g) = pg.
-% \bullet  Let A be a finite abelian group such that pA = 0. Prove that A \sim 
-%  = Z/pZ \oplus  \dots  \oplus 
-% Z/pZ.
-% \bullet  Prove that p ker \rho  and p(coker \rho ) are both 0.
-% \bullet  Prove that ker \rho  \sim 
-%  = coker \rho .
-% \bullet  Prove that every subgroup of G of order p is contained in ker \rho  and that every
-% subgroup of G of index p contains im \rho .
-% \bullet  Prove that the number of subgroups of G of order p equals the number of
-% subgroups of G of index p.
-% [6.8]
-% 6.8. \lnot  Let G be a finite abelian p-group, with elementary divisors p n1 , .
-% . . , pnr (n1 \geq
-% n2 \geq  \dots  ). Prove that G has a subgroup H with invariant divisors pm1 , .
-% . . , pms
-% (m1 \geq  m2 \geq  \dots  ) if and only if s \leq  r and mi \leq  ni for i = 1,
-% . . . , s. (Hint: One
-% direction is immediate. For the other, with notation as in Exercise 6.7, compare
-% ker \rho  for H and G to establish s \leq  r; this also proves the
-%  statement
-%  if all ni = 1.
-% "For
-%  the
-%  general
-%  case
-%  use
-%  induction,
-%  noting
-%  that
-%  if
-%  G
-%  \sim 
-%  =
-%  i
-%  Z/p
-% ni
-%  Z,
-%  then
-%  \rho (G) =
-%  \sim 
-% "
-%  ni -1
-% i Z/p
-%  Z.)
-% Prove that the same description holds for the homomorphic images of G. [6.9]
-% 6.9. Let H be a subgroup of a finite abelian group G. Prove that G contains a
-% sub-
-% group isomorphic to G/H. (Reduce to the case of p-groups; then use Exercise
-% 6.8.)
-% Show that both hypotheses `finite' and `abelian' are needed for this result.
-% (Hint:
-% Q8 has a unique subgroup of order 2.)
-% 6.10. The dual of a finite group G is the abelian group G\vee  := HomGrp (G,
-% C\ast  ),
-% where C\ast  is the multiplicative group of C.
-% \bullet  Prove that the image of every \sigma  \in  G\vee  consists of roots of 1 in C, that is, roots
-% of polynomials xn - 1 for some n.
-% \bullet  Prove that if G is a finite abelian group, then G \sim 
-%  = G\vee  . (Hint: First prove
-% this for cyclic groups; then use the classification theorem to generalize to the
-% arbitrary case.)
-% In \S{}VIII.6.5 we will encounter another notion of `dual' of a group.
-% 6.11. \bullet  Use the classification theorem for finite abelian groups (Theorem
-% 6.6) to
-% classify all finite modules over the ring Z/nZ.
-% \bullet  Prove that if p is prime, all finite modules over Z/pZ are free32 .
-% 6.12. Let G, H, K be finite abelian groups such that G \oplus  H \sim 
-%  = G \oplus  K. Prove that
-% H \sim 
-%  = K.
-% 6.13. \lnot  Let G, H be finite abelian groups such that, for all positive
-% integers n, G
-% and H have the same number of elements of order n. Prove that G \sim 
-%  = H. (Note:
-% The `abelian' hypothesis is necessary! C4 \times  C4 and Q8 \times  C2 are
-% nonisomorphic
-% groups both with 1 element of order 1, 3 elements of order 2, and 12 elements of
-% order 4.) [\S{}II.4.3]
-% 6.14. Let G be a finite abelian p-group, and assume G has only one subgroup of
-% or-
-% der p. Prove that G is cyclic. (This is in some sense a converse to Proposition
-% II.6.11.
-% You are welcome to try to prove it `by hand', but use of the classification
-% theorem
-% will simplify the argument considerably.)
-% 32As we will see in Proposition VI.4.10, this property characterizes fields.
-% 6.15. Let G be a finite abelian group, and let a \in  G be an element of maximal
-% order in G. Prove that the order of every b \in  G divides |a|. (This
-% essentially
-% reproduces the result of Exercise II.1.15.)
-% 6.16. Let G be an abelian group of order n, and assume that G has at most one
-% subgroup of order d for all d | n. Prove that G is cyclic.
+\begin{exer}{}{exer:groups2:6.1}
+\exerused{}
+Prove that the decomposition of a finite abelian group $G$ as a
+direct sum of cyclic $p$-groups is unique. (Hint: The prime
+factorization of $|G|$ determines the primes, so it suffices to show
+that if
+\[\frac{\mathbb{Z}}{p^{r_1}\mathbb{Z}} \oplus \dots \oplus
+\frac{\mathbb{Z}}{p^{r_m}\mathbb{Z}} \cong
+\frac{\mathbb{Z}}{p^{s_1}\mathbb{Z}} \oplus \dots \oplus
+\frac{\mathbb{Z}}{p^{s_n}\mathbb{Z}},\]
+with $r_1 \geq \dots \geq r_m$ and $s_1 \geq \dots \geq s_n$, then
+$m = n$ and $r_i = s_i$ for all $i$. Do this by induction, by
+considering the group $pG$ obtained as the image of the homomorphism
+$G \to G$ defined by $g \mapsto pg$.) [\S{}6.2, \S{}VI.5.3,
+VI.5.12]
+\end{exer}
+\begin{exer}{}{exer:groups2:6.2}
+Complete the classification of groups of order $8$
+(cf.\ \cref{exer:groups2:2.16}).
+\end{exer}
+\begin{exer}{}{exer:groups2:6.3}
+Let $G$ be a noncommutative group of order $p^3$, where $p$ is a
+prime integer. Prove that $Z(G) \cong \mathbb{Z}/p\mathbb{Z}$ and
+$G/Z(G) \cong \mathbb{Z}/p\mathbb{Z} \times \mathbb{Z}/p\mathbb{Z}$.
+\end{exer}
+\begin{exer}{}{exer:groups2:6.4}
+Classify abelian groups of order $400$.
+\end{exer}
+\begin{exer}{}{exer:groups2:6.5}
+Let $p$ be a prime integer. Prove that the number of distinct
+isomorphism classes of abelian groups of order $p^r$ equals the
+number of partitions of the integer $r$.
+\end{exer}
+\begin{exer}{}{exer:groups2:6.6}
+\exerused{}
+How many \emph{abelian} groups of order $1024$ are there, up to
+isomorphism? [\S{}II.6.3]
+\end{exer}
+\begin{exer}{}{exer:groups2:6.7}
+$\lnot$ Let $p > 0$ be a prime integer, $G$ a finite abelian group,
+and denote by $\rho : G \to G$ the homomorphism defined by
+$\rho(g) = pg$.
+\begin{itemize}
+\item Let $A$ be a finite abelian group such that $pA = 0$. Prove
+  that $A \cong \mathbb{Z}/p\mathbb{Z} \oplus \dots \oplus
+  \mathbb{Z}/p\mathbb{Z}$.
+\item Prove that $p\ker\rho$ and $p(\operatorname{coker}\rho)$ are
+  both $0$.
+\item Prove that $\ker\rho \cong \operatorname{coker}\rho$.
+\item Prove that every subgroup of $G$ of order $p$ is contained in
+  $\ker\rho$ and that every subgroup of $G$ of index $p$ contains
+  $\operatorname{im}\rho$.
+\item Prove that the number of subgroups of $G$ of order $p$ equals
+  the number of subgroups of $G$ of index $p$.
+\end{itemize}
+[\cref{exer:groups2:6.8}]
+\end{exer}
+\begin{exer}{}{exer:groups2:6.8}
+$\lnot$ Let $G$ be a finite abelian $p$-group, with elementary
+divisors $p^{n_1}, \dots, p^{n_r}$ ($n_1 \geq n_2 \geq \dots$).
+Prove that $G$ has a subgroup $H$ with invariant divisors
+$p^{m_1}, \dots, p^{m_s}$ ($m_1 \geq m_2 \geq \dots$) if and only if
+$s \leq r$ and $m_i \leq n_i$ for $i = 1, \dots, s$. (Hint: One
+direction is immediate. For the other, with notation as in
+\cref{exer:groups2:6.7}, compare $\ker\rho$ for $H$ and $G$ to
+establish $s \leq r$; this also proves the statement if all $n_i = 1$.
+For the general case use induction, noting that if
+$G \cong \bigoplus_i \mathbb{Z}/p^{n_i}\mathbb{Z}$, then
+$\rho(G) \cong \bigoplus_i \mathbb{Z}/p^{n_i - 1}\mathbb{Z}$.)
+
+Prove that the same description holds for the homomorphic images of
+$G$. [\cref{exer:groups2:6.9}]
+\end{exer}
+\begin{exer}{}{exer:groups2:6.9}
+Let $H$ be a subgroup of a finite abelian group $G$. Prove that $G$
+contains a subgroup isomorphic to $G/H$. (Reduce to the case of
+$p$-groups; then use \cref{exer:groups2:6.8}.) Show that both
+hypotheses `finite' and `abelian' are needed for this result. (Hint:
+$Q_8$ has a unique subgroup of order $2$.)
+\end{exer}
+\begin{exer}{}{exer:groups2:6.10}
+The \emph{dual} of a finite group $G$ is the abelian group
+$G^\vee := \operatorname{Hom}_{\textsf{Grp}}(G, \mathbb{C}^*)$,
+where $\mathbb{C}^*$ is the multiplicative group of $\mathbb{C}$.
+\begin{itemize}
+\item Prove that the image of every $\sigma \in G^\vee$ consists of
+  \emph{roots of $1$} in $\mathbb{C}$, that is, roots of polynomials
+  $x^n - 1$ for some $n$.
+\item Prove that if $G$ is a finite abelian group, then
+  $G \cong G^\vee$. (Hint: First prove this for cyclic groups; then
+  use the classification theorem to generalize to the arbitrary case.)
+\end{itemize}
+In~\S{}VIII.6.5 we will encounter another notion of `dual' of a
+group.
+\end{exer}
+\begin{exer}{}{exer:groups2:6.11}
+\begin{itemize}
+\item Use the classification theorem for finite abelian groups
+  (\cref{thm:groups2:6.6}) to classify all finite modules over the
+  ring $\mathbb{Z}/n\mathbb{Z}$.
+\item Prove that if $p$ is prime, all finite modules over
+  $\mathbb{Z}/p\mathbb{Z}$ are free.\footnote{As we will see in
+  Proposition~VI.4.10, this property characterizes fields.}
+\end{itemize}
+\end{exer}
+\begin{exer}{}{exer:groups2:6.12}
+Let $G$, $H$, $K$ be finite abelian groups such that
+$G \oplus H \cong G \oplus K$. Prove that $H \cong K$.
+\end{exer}
+\begin{exer}{}{exer:groups2:6.13}
+$\lnot$ Let $G$, $H$ be finite abelian groups such that, for all
+positive integers $n$, $G$ and $H$ have the same number of elements
+of order $n$. Prove that $G \cong H$. (Note: The `abelian' hypothesis
+is necessary! $C_4 \times C_4$ and $Q_8 \times C_2$ are nonisomorphic
+groups both with $1$ element of order $1$, $3$ elements of order $2$,
+and $12$ elements of order $4$.) [\S{}II.4.3]
+\end{exer}
+\begin{exer}{}{exer:groups2:6.14}
+Let $G$ be a finite abelian $p$-group, and assume $G$ has only one
+subgroup of order $p$. Prove that $G$ is cyclic. (This is in some
+sense a converse to Proposition~II.6.11. You are welcome to try to
+prove it `by hand', but use of the classification theorem will
+simplify the argument considerably.)
+\end{exer}
+\begin{exer}{}{exer:groups2:6.15}
+Let $G$ be a finite abelian group, and let $a \in G$ be an element of
+\emph{maximal} order in $G$. Prove that the order of every $b \in G$
+divides $|a|$. (This essentially reproduces the result of
+Exercise~II.1.15.)
+\end{exer}
+\begin{exer}{}{exer:groups2:6.16}
+Let $G$ be an abelian group of order $n$, and assume that $G$ has at
+most one subgroup of order $d$ for all $d \mid n$. Prove that $G$ is
+cyclic.
+\end{exer}
 
 %%% Local Variables:
 %%% mode: LaTeX
