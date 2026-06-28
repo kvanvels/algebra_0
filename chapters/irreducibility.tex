@@ -1,460 +1,509 @@
 \chapter{Irreducibility and factorization in integral domains}
 \label{chap:irred}
 
-% We move our attention back to rings and analyze several useful classes of
-% integral
-% domains. One guiding theme in this chapter is the issue of factorization: we
-% will
-% address the problem of existence and uniqueness of factorizations of elements in
-% a
-% ring, abstracting good factorization properties of rings such as Z or k[x] (for
-% k a
-% field) to whole classes of integral domains. The reader may want to associate
-% the
-% following picture with the first part of this chapter:
-% Blanket assumption: all rings considered in this chapter will be commutative1 .
-% In
-% fact, most of the special classes of rings we will consider will be integral
-% domains,
-% 1 Also, recall that all our rings have 1; cf. Definition III.1.1.
-% that is, commutative rings with 1 and with no nonzero zero-divisors (cf. Defini-
-% tion III.1.10).
+We move our attention back to \emph{rings} and analyze several useful classes
+of integral domains.  One guiding theme in this chapter is the issue of
+\emph{factorization}: we will address the problem of existence and uniqueness
+of factorizations of elements in a ring, abstracting good factorization
+properties of rings such as $\mathbb{Z}$ or $k[x]$ (for $k$ a field) to whole
+classes of integral domains.  The reader may want to associate the following
+picture with the first part of this chapter:
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+  \fill[gray!60] (0,0) ellipse (5.8cm and 3.4cm);
+  \fill[gray!35] (0,-0.1) ellipse (4.8cm and 2.6cm);
+  \fill[gray!55] (-0.7,-0.35) ellipse (2.9cm and 1.8cm);
+  \fill[gray!55] (1.2,-0.35) ellipse (2.5cm and 1.75cm);
+  \fill[gray!25] (0.1,-0.55) ellipse (1.45cm and 1.0cm);
+  \fill[gray!15] (0.1,-0.7) ellipse (0.95cm and 0.65cm);
+  \fill[white] (0.1,-0.85) ellipse (0.58cm and 0.38cm);
+  \node[font=\bfseries\itshape] at (0,3.05) {Integral domains};
+  \node[font=\itshape] at (0.4,2.1) {Domains with factorization};
+  \node[font=\itshape] at (-2.5,0.8) {UFDs};
+  \node[font=\itshape, rotate=-80] at (3.0,0.6) {Noetherian domains};
+  \node[font=\itshape] at (0.1,-0.05) {PIDs};
+  \node[font=\itshape, scale=0.8] at (0.1,-0.58) {Euclidean Domains};
+  \node[font=\itshape, scale=0.75] at (0.1,-0.85) {Fields};
+\end{tikzpicture}
+\end{center}
+
+\emph{Blanket assumption}: all rings considered in this chapter will be
+\emph{commutative}\footnote{Also, recall that all our rings have 1; cf.\
+Definition~III.1.1.}.  In fact, most of the special classes of rings we will
+consider will be \emph{integral domains}, that is, commutative rings with 1
+and with no nonzero zero-divisors (cf.\ Definition~III.1.10).
 
 \section{Chain conditions and existence of factorizations}
 \label{sec:irred:chain-conditions-and-existence-of-factorizations}
 
 
-\subsection{Noetherian rings revisited. Let R be a commutative ring}
-\label{subsec:irred:noetherian-rings-revisited-let-r-be-a-commutative-ring}
-% Recall that R
+\subsection{Noetherian rings revisited}
+\label{subsec:irred:noetherian-rings-revisited}
 
-% is said to be Noetherian if every ideal of R is finitely generated (Definition
-% III.4.2).
-% In fact, this is a special case of the corresponding definition for modules: a
-% mod-
-% ule M over a ring R is Noetherian if every submodule of M is finitely generated
-% (Definition III.6.6). In \S{}III.6.4 we have verified that this condition is
-% preserved
-% through exact sequences: if M, N, P are R-modules and
-%  / N
-%  / M
-%  / P
-%  / 0
-% is an exact sequence of R-modules, then M is Noetherian if and only if both N
-% and P are Noetherian (Proposition III.6.7). An easy and useful consequence of
-% this
-% fact is that every finitely generated module over a Noetherian ring is
-% Noetherian
-% (Corollary III.6.8).
-% The Noetherian condition may be expressed in alternative ways, and it is useful
-% to acquire some familiarity with them.
-% Proposition 1.1. Let R be a commutative ring, and let M be an R-module. Then
-% the following are equivalent:
-% (1) M is Noetherian; that is, every submodule of M is finitely generated.
-% (2) Every ascending chain of submodules of M stabilizes; that is, if
-% N1 \subseteq  N2 \subseteq  N3 \subseteq  \dots 
-% is a chain of submodules of M , then \exists i such that Ni = Ni+1 = Ni+2 = . .
-% . .
-% (3) Every nonempty family of submodules of M has a maximal element w.r.t. in-
-% clusion.
-% The second condition listed here is called the ascending chain condition
-% (a.c.c.)
-% for submodules. For M = R, Proposition 1.1 tells us (among other things) that a
-% ring is Noetherian if and only if the ascending chain condition holds for its
-% ideals.
-% Proof. (1) \implies  (2): Assume that M is Noetherian, and let
-% N1 \subseteq  N2 \subseteq  N3 \subseteq  \dots 
-% be a chain of submodules of M . Consider the union
-% \setminus 
-% N =
-%  Ni :
-% i
-% the reader will verify that N is a submodule of M . Since M is Noetherian, N is
-% finitely generated, say N = ?n 1 , . . . , nr ?. Now nk \in  N \implies  nk \in
-% Ni for some i;
-% by picking the largest such i, we see that \exists i such that all n1 , \dots  ,
-% nr are contained
-% in Ni . But then N \subseteq  Ni , and since Ni \subseteq  Ni+1 \subseteq  \dots
-% are all contained in N = Ni ,
-% it follows that Ni = Ni+1 = Ni+2 = . . . as needed.
-% (2) \implies  (3): Arguing contrapositively, assume that M admits a family F of
-% submodules that does not have a maximal element. Construct an infinite ascending
-% chain as follows: let N1 be any element of F ; since N1 is not maximal in F ,
-% there
-% exists an element N2 of F such that N1 ? N2 ; since N2 is not maximal in F ,
-% there
-% exists an element N3 of F such that N2 ? N3 ; etc. The chain
-% N1 ? N2 ? N3 ? \dots 
-% does not stabilize, showing that (2) does not hold.
-% (3) \implies  (1): Assume (3) holds, and let N be a submodule of M . Then the
-% family F of finitely generated submodules of N is nonempty (as (0) \in  F );
-% hence it
-% has a maximal element N \setminus  . Say that N \setminus  = ?n1 , . . . , n r
-% ?. Now I claim that N \setminus  = N :
-% indeed, let n \in  N ; the submodule ?n1, . . . , nr , n? is finitely generated,
-% and therefore
-% it is in F ; as it contains N \setminus  and N \setminus  is maximal,
-% necessarily ?n1 , . . . , nr , n? = N \setminus  ; in
-% particular n \in  N \setminus  , as needed.
-% This shows that N = N \setminus  is finitely generated, and since N \subseteq  M
-% was arbitrary,
-% this implies that M is Noetherian.
-%  ?
-% Noetherian rings are a very useful and flexible class of rings. In \S{}III.6.5 I
-% mentioned the important fact that every finite-type algebra over a Noetherian
-% ring is
-% Noetherian. `Finite-type (commutative) algebra' is just a fancy name for a
-% quotient
-% of a polynomial ring (\S{}III.6.5), so this is what the fact states:
-% Theorem 1.2. Let R be a Noetherian ring, and let J be an ideal of the polynomial
-% ring R[x1 , . . . , xn ]. Then the ring R[x1 , . . . , xn ]/J is Noetherian.
-% Note that finite-type R algebras are (in general) very far from being finitely
-% generated as modules over R (cf. again \S{}III.6.5), so it would be foolish to
-% expect
-% them to be Noetherian as R-modules. The fact that they turn out to be Noetherian
-% as rings (that is, as modules over themselves) provides us with a huge class of
-% examples of Noetherian rings, among which are the rings of (classical) algebraic
-% geometry and number theory. Thus, entire fields of mathematics are a little more
-% manageable thanks to Theorem 1.2.
-% The proof of this deep fact is surprisingly easy. By Exercise 1.1, it suffices
-% to
-% prove that
-% R Noetherian \implies  R[x1 , . . . , xn ] Noetherian;
-% and an immediate induction reduces the statement to the following particular
-% case,
-% which carries a distinguished name:
-% Lemma 1.3 (Hilbert's basis theorem). R Noetherian \implies  R[x] Noetherian.
-% Proof. Assume R is Noetherian, and let I be an ideal of R[x]. We have to prove
-% that I is finitely generated.
-% Recall that if f (x) = adxd + ad-1xd-1 + \dots  + a0 \in  R[x] and ad = 0, then
-% ad is
-% called the leading coefficient of f (x). Consider the following subset of R:
-% A = {0} \cup  {a \in  R | a is a leading coefficient of an element of I}.
-% It is clear that A is an ideal of R (Exercise 1.6); since R is Noetherian, A is
-% finitely
-% generated. Thus there exist elements f1 (x), . . . , fr (x) \in  I whose leading
-% coefficients
-% a1 , . . . , ar generate A as an ideal of R.
-% Now let di be the degree of fi (x), and let d be the maximum among these
-% degrees. Consider the sub-R-module
-% M = ?1, x, x2, . . . , xd-1 ? \subseteq  R[x],
-% that is, the R-module consisting of polynomials of degree < d. Since M is
-% finitely
-% generated as a module over R, it is Noetherian as an R-module (by Corollary
-% III.6.8).
-% Therefore, the submodule
-% M \cap  I
-% of M is finitely generated over R, say by g1 (x), . . . , gs (x) \in  I.
-% Claim 1.4.
-% I = (f1 (x), . . . , fr (x), g1 (x), . . . , gs(x)).
-% This claim implies the statement of the theorem. To prove the claim, we only
-% need to prove the \subseteq  inclusion; to this end, let \alpha (x) \in  I be an
-% arbitrary polynomial
-% in I. If deg \alpha (x) \geq  d, let a be the leading coefficient of \alpha (x).
-% Then a \in  A, so
-% \exists b1 , . . . , br \in  R such that
-% a = b1 a1 + \dots  + br ar .
-% Letting e = deg \alpha (x), so that e \geq  di for all i, this says that
-% \alpha (x) - b 1 xe-d1 f1 (x) - \dots  - br xe-dr fr (x)
-% has degree < e. Iterating this procedure, we obtain a finite list of polynomials
-% \beta 1 (x), . . . , \beta r (x) \in  R[x] such that
-% \alpha (x) - \beta 1 (x)f1 (x) - \dots  - \beta r (x)fr (x)
-% has degree < d. But this places this element in M \cap  I; therefore \exists c1
-% , . . . , cs \in  R
-% such that
-% \alpha (x) - \beta 1 (x)f1 (x) - \dots  - \beta r (x)fr (x) = c1g1 (x) + \dots  + cs gs (x),
-% and we are done, since this verifies that
-% \alpha (x) = \beta 1 (x)f1 (x) + \dots  + \beta r (x)fr (x) + c1g1 (x) + \dots  + cs gs (x)
-% \in  (f1 (x), . . . , fr (x), g1 (x), . . . , gs (x)),
-% completing the proof of Claim 1.4, hence of Lemma 1.3, hence of Theorem 1.2.
-%  ?
+Let $R$ be a commutative ring. Recall that $R$ is said to be \emph{Noetherian}
+if every ideal of $R$ is finitely generated (Definition~III.4.2). In fact,
+this is a special case of the corresponding definition for modules: a module
+$M$ over a ring $R$ is Noetherian if every submodule of $M$ is finitely
+generated (Definition~III.6.6). In~\S{}III.6.4 we have verified that this
+condition is preserved through exact sequences: if $M$, $N$, $P$ are
+$R$-modules and
+\[0 \longrightarrow N \longrightarrow M \longrightarrow P \longrightarrow 0\]
+is an exact sequence of $R$-modules, then $M$ is Noetherian if and only if
+both $N$ and $P$ are Noetherian (Proposition~III.6.7). An easy and useful
+consequence of this fact is that every finitely generated module over a
+Noetherian ring is Noetherian (Corollary~III.6.8).
+
+The Noetherian condition may be expressed in alternative ways, and it is
+useful to acquire some familiarity with them.
+\begin{prop}{}{irred:1.1}
+Let $R$ be a commutative ring, and let $M$ be an $R$-module. Then the
+following are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item $M$ is Noetherian; that is, every submodule of $M$ is finitely
+  generated.
+\item Every ascending chain of submodules of $M$ stabilizes; that is, if
+  \[N_1 \subseteq N_2 \subseteq N_3 \subseteq \dots\]
+  is a chain of submodules of $M$, then $\exists i$ such that
+  $N_i = N_{i+1} = N_{i+2} = \dots$
+\item Every nonempty family of submodules of $M$ has a maximal element
+  w.r.t.\ inclusion.
+\end{enumerate}
+\end{prop}
+
+The second condition listed here is called the \emph{ascending chain
+condition} (a.c.c.) for submodules. For $M = R$, \cref{prop:irred:1.1}
+tells us (among other things) that a ring is Noetherian if and only if the
+ascending chain condition holds for its ideals.
+\begin{proof}
+$(1) \implies (2)$: Assume that $M$ is Noetherian, and let
+$N_1 \subseteq N_2 \subseteq N_3 \subseteq \dots$ be a chain of submodules
+of $M$. Consider the union $N = \bigcup_i N_i$: the reader will verify that
+$N$ is a submodule of $M$. Since $M$ is Noetherian, $N$ is finitely
+generated, say $N = \langle n_1, \dots, n_r \rangle$. Now $n_k \in N
+\implies n_k \in N_i$ for some $i$; by picking the largest such $i$, we
+see that $\exists i$ such that all $n_1, \dots, n_r$ are contained in
+$N_i$. But then $N \subseteq N_i$, and since $N_i \subseteq N_{i+1}
+\subseteq \dots$ are all contained in $N = N_i$, it follows that
+$N_i = N_{i+1} = N_{i+2} = \dots$ as needed.
+
+$(2) \implies (3)$: Arguing contrapositively, assume that $M$ admits a
+family $\mathscr{F}$ of submodules that does not have a maximal element.
+Construct an infinite ascending chain as follows: let $N_1$ be any element
+of $\mathscr{F}$; since $N_1$ is not maximal in $\mathscr{F}$, there exists
+an element $N_2$ of $\mathscr{F}$ such that $N_1 \subsetneq N_2$; since
+$N_2$ is not maximal in $\mathscr{F}$, there exists an element $N_3$ of
+$\mathscr{F}$ such that $N_2 \subsetneq N_3$; etc.\ The chain
+$N_1 \subsetneq N_2 \subsetneq N_3 \subsetneq \dots$ does not stabilize,
+showing that $(2)$ does not hold.
+
+$(3) \implies (1)$: Assume $(3)$ holds, and let $N$ be a submodule of $M$.
+Then the family $\mathscr{F}$ of finitely generated submodules of $N$ is
+nonempty (as $(0) \in \mathscr{F}$); hence it has a maximal element $N'$.
+Say that $N' = \langle n_1, \dots, n_r \rangle$. Now I claim that $N' = N$:
+indeed, let $n \in N$; the submodule $\langle n_1, \dots, n_r, n \rangle$
+is finitely generated, and therefore it is in $\mathscr{F}$; as it contains
+$N'$ and $N'$ is maximal, necessarily $\langle n_1, \dots, n_r, n \rangle
+= N'$; in particular $n \in N'$, as needed. This shows that $N = N'$ is
+finitely generated, and since $N \subseteq M$ was arbitrary, this implies
+that $M$ is Noetherian.
+\end{proof}
+Noetherian rings are a very useful and flexible class of rings. In~\S{}III.6.5
+I mentioned the important fact that every \emph{finite-type algebra} over a
+Noetherian ring is Noetherian. `Finite-type (commutative) algebra' is just a
+fancy name for a quotient of a polynomial ring (\S{}III.6.5), so this is what
+the fact states:
+
+\begin{thm}{}{irred:1.2}
+Let $R$ be a Noetherian ring, and let $J$ be an ideal of the polynomial ring
+$R[x_1, \dots, x_n]$. Then the ring $R[x_1, \dots, x_n]/J$ is Noetherian.
+\end{thm}
+
+Note that finite-type $R$-algebras are (in general) very far from being
+finitely generated as modules over $R$ (cf.\ again \S{}III.6.5), so it would
+be foolish to expect them to be Noetherian as $R$-modules. The fact that they
+turn out to be Noetherian as rings (that is, as modules over themselves)
+provides us with a huge class of examples of Noetherian rings, among which are
+the rings of (classical) algebraic geometry and number theory. Thus, entire
+fields of mathematics are a little more manageable thanks to
+\cref{thm:irred:1.2}.
+
+The proof of this deep fact is surprisingly easy. By Exercise~1.1, it suffices
+to prove that $R$ Noetherian $\implies$ $R[x_1, \dots, x_n]$ Noetherian; and
+an immediate induction reduces the statement to the following particular case,
+which carries a distinguished name:
+\begin{lem}{Hilbert's basis theorem}{irred:1.3}
+$R$ Noetherian $\implies$ $R[x]$ Noetherian.
+\end{lem}
+
+\begin{proof}
+Assume $R$ is Noetherian, and let $I$ be an ideal of $R[x]$. We have to
+prove that $I$ is finitely generated.
+
+Recall that if $f(x) = a_d x^d + a_{d-1} x^{d-1} + \dots + a_0 \in R[x]$
+and $a_d \neq 0$, then $a_d$ is called the \emph{leading coefficient} of
+$f(x)$. Consider the following subset of $R$:
+\[A = \{0\} \cup \{a \in R \mid a \text{ is a leading coefficient of an
+  element of } I\}.\]
+It is clear that $A$ is an ideal of $R$ (Exercise~1.6); since $R$ is
+Noetherian, $A$ is finitely generated. Thus there exist elements
+$f_1(x), \dots, f_r(x) \in I$ whose leading coefficients $a_1, \dots, a_r$
+generate $A$ as an ideal of $R$.
+
+Now let $d_i$ be the degree of $f_i(x)$, and let $d$ be the maximum among
+these degrees. Consider the sub-$R$-module
+\[M = \langle 1, x, x^2, \dots, x^{d-1} \rangle \subseteq R[x],\]
+that is, the $R$-module consisting of polynomials of degree $< d$. Since
+$M$ is finitely generated as a module over $R$, it is Noetherian as an
+$R$-module (by Corollary~III.6.8). Therefore, the submodule $M \cap I$ of
+$M$ is finitely generated over $R$, say by $g_1(x), \dots, g_s(x) \in I$.
+
+\begin{fact}{Claim~1.4}{irred:claim:1.4}
+$I = (f_1(x), \dots, f_r(x), g_1(x), \dots, g_s(x))$.
+\end{fact}
+
+This claim implies the statement of the theorem. To prove the claim, we
+only need to prove the $\subseteq$ inclusion; to this end, let $\alpha(x)
+\in I$ be an arbitrary polynomial in $I$. If $\deg\alpha(x) \geq d$, let
+$a$ be the leading coefficient of $\alpha(x)$. Then $a \in A$, so $\exists
+b_1, \dots, b_r \in R$ such that $a = b_1 a_1 + \dots + b_r a_r$. Letting
+$e = \deg\alpha(x)$, so that $e \geq d_i$ for all $i$, this says that
+\[\alpha(x) - b_1 x^{e-d_1} f_1(x) - \dots - b_r x^{e-d_r} f_r(x)\]
+has degree $< e$. Iterating this procedure, we obtain a finite list of
+polynomials $\beta_1(x), \dots, \beta_r(x) \in R[x]$ such that
+\[\alpha(x) - \beta_1(x) f_1(x) - \dots - \beta_r(x) f_r(x)\]
+has degree $< d$. But this places this element in $M \cap I$; therefore
+$\exists c_1, \dots, c_s \in R$ such that
+\[\alpha(x) - \beta_1(x)f_1(x) - \dots - \beta_r(x)f_r(x)
+  = c_1 g_1(x) + \dots + c_s g_s(x),\]
+and we are done, since this verifies that
+\begin{align*}
+\alpha(x) &= \beta_1(x)f_1(x) + \dots + \beta_r(x)f_r(x)
+             + c_1 g_1(x) + \dots + c_s g_s(x) \\
+          &\in (f_1(x), \dots, f_r(x), g_1(x), \dots, g_s(x)),
+\end{align*}
+completing the proof of \cref{fact:irred:claim:1.4}, hence of
+\cref{lem:irred:1.3}, hence of \cref{thm:irred:1.2}.
+\end{proof}
 
 \subsection{Prime and irreducible elements}
 \label{subsec:irred:prime-and-irreducible-elements}
-% Let R be a (commutative) ring, and let
+Let $R$ be a (commutative) ring, and let $a, b \in R$. We say that $a$
+\emph{divides} $b$, or that $a$ is a \emph{divisor} of $b$, or that $b$ is a
+\emph{multiple} of $a$, if $b \in (a)$, that is,
+\[(\exists c \in R),\quad b = ac.\]
+We use the notation $a \mid b$.
 
-% a, b \in  R. We say that a divides b, or that a is a divisor of b, or that b is
-% a multiple
-% of a, if b \in  (a), that is,
-% (\exists c \in  R), b = ac.
-% We use the notation a | b.
-% Two elements a, b are associates if (a) = (b), that is, if a | b and b | a.
-% Lemma 1.5. Let a, b be nonzero elements of an integral domain R. Then a and b
-% are associates if and only if a = ub, for u a unit in R.
-% Proof. Assume a and b are associates. Then \exists c, d \in  R such that
-% b = ac,
-%  a = bd;
-% therefore a = bd = acd, i.e.,
-% a(1 - cd) = 0.
-% Since cancellation by nonzero elements hold in integral domains, this implies cd
-% = 1.
-% Thus c is a unit, as needed.
-% The converse is left to the reader.
-%  ?
-% Incidentally, here the reader sees why it is convenient to restrict our
-% attention to
-% integral domains. This argument really shows that if (a) = (b) = (0) in an
-% integral
-% domain, and b = ca, then c is necessarily a unit. Away from the comfortable
-% environment of integral domains, even such harmless-looking statements may fail:
-% in Z/6Z the classes [2]6 , [4]6 of 2 and 4 are associates according to our
-% definition,
-% and [4]6 = [2]6 \cdot  [2]6 , yet [2]6 is not a unit. However, [4]6 = [5]6 \cdot
-% [2]6 and [5]6 is a
-% unit, so this is not a counterexample to Lemma 1.5. In fact, Lemma 1.5 may fail
-% over rings with `non-harmless' zero-divisors (yes, there is such a notion).
-% The notions reviewed above generalize directly the corresponding notions in Z.
-% We are going to explore analogues of other common notions in Z, such as
-% `primality'
-% and `irreducibility', in more general integral domains.
-% Definition 1.6. Let R be an integral domain.
-% \bullet  An element a \in  R is prime if the ideal (a) is prime; that is, a is not a unit
-% and (cf. Proposition III.4.11)
-% a | bc \implies  (a | b
-%  or
-%  a | c).
-% \bullet  An element a \in  R is irreducible if a is not a unit and
-% a = bc \implies  (b is a unit or c is a unit).
-% Note that 0 is always reducible (integral domains are nonzero rings!). For
-% nonzero elements, there are useful alternative ways to think about the notion of
-% `irreducible': a nonunit a = 0 is irreducible if and only if
-% \bullet  a = bc implies that a is an associate of b or of c;
-% \bullet  a = bc implies that (a) = (b) or (a) = (c) (Lemma 1.5);
-% \bullet  (a) \subseteq  (b) \implies  (b) = (a) or (b) = (1) (Exercise 1.12);
-% \bullet  (a) is maximal among proper principal ideals (rephrasing the previous point!).
-% It is important to realize that primality and irreducibility are not equivalent,
-% even for nonzero elements; this is somewhat counterintuitive since they are
-% equiv-
-% alent in Z, as the reader should verify2 (Exercise 1.13). What is true in
-% general is
-% that prime is stronger than irreducible:
-% Lemma 1.7. Let R be an integral domain, and let a \in  R be a nonzero prime
-% element. Then a is irreducible.
-% 2 This fact will be fully explained by the general theory, so the reader should
-% work this out
-% right away.
-% Proof. Since (a) is prime, (a) = (1); hence a is not a unit. If a = bc, then
-% bc = a \in  (a); therefore b \in  (a) or c \in  (a) since (a) is prime. Assuming
-% without
-% loss of generality b \in  (a), we have (b) \subseteq  (a). On the other hand a =
-% bc implies
-% (a) \subseteq  (b): hence (a) = (b), that is, a and b are associates, as needed.
-%  ?
-% We will soon see under what circumstances the converse statement holds.
+Two elements $a$, $b$ are \emph{associates} if $(a) = (b)$, that is, if
+$a \mid b$ and $b \mid a$.
+\begin{lem}{}{irred:1.5}
+Let $a$, $b$ be nonzero elements of an integral domain $R$. Then $a$ and
+$b$ are associates if and only if $a = ub$, for $u$ a unit in $R$.
+\end{lem}
+
+\begin{proof}
+Assume $a$ and $b$ are associates. Then $\exists c, d \in R$ such that
+$b = ac$, $a = bd$; therefore $a = bd = acd$, i.e., $a(1 - cd) = 0$.
+Since cancellation by nonzero elements holds in integral domains, this
+implies $cd = 1$. Thus $c$ is a unit, as needed.
+
+The converse is left to the reader.
+\end{proof}
+Incidentally, here the reader sees why it is convenient to restrict our
+attention to integral domains. This argument really shows that if
+$(a) = (b) \neq (0)$ in an integral domain, and $b = ca$, then $c$ is
+necessarily a unit. Away from the comfortable environment of integral
+domains, even such harmless-looking statements may fail: in $\mathbb{Z}/6\mathbb{Z}$
+the classes $[2]_6$, $[4]_6$ of 2 and 4 are associates according to our
+definition, and $[4]_6 = [2]_6 \cdot [2]_6$, yet $[2]_6$ is not a unit.
+However, $[4]_6 = [5]_6 \cdot [2]_6$ and $[5]_6$ is a unit, so this is not
+a counterexample to \cref{lem:irred:1.5}. In fact, \cref{lem:irred:1.5}
+may fail over rings with `non-harmless' zero-divisors (yes, there is such a
+notion).
+
+The notions reviewed above generalize directly the corresponding notions in
+$\mathbb{Z}$. We are going to explore analogues of other common notions in
+$\mathbb{Z}$, such as `primality' and `irreducibility', in more general
+integral domains.
+\begin{defn}{}{irred:1.6}
+Let $R$ be an integral domain.
+\begin{itemize}
+\item An element $a \in R$ is \emph{prime} if the ideal $(a)$ is prime;
+  that is, $a$ is not a unit and (cf.\ Proposition~III.4.11)
+  \[a \mid bc \implies (a \mid b \quad\text{or}\quad a \mid c).\]
+\item An element $a \in R$ is \emph{irreducible} if $a$ is not a unit and
+  \[a = bc \implies (b \text{ is a unit or } c \text{ is a unit}).\]
+\end{itemize}
+\end{defn}
+
+Note that $0$ is always reducible (integral domains are nonzero rings!).
+For nonzero elements, there are useful alternative ways to think about the
+notion of `irreducible': a nonunit $a \neq 0$ is irreducible if and only if
+\begin{itemize}
+\item $a = bc$ implies that $a$ is an associate of $b$ or of $c$;
+\item $a = bc$ implies that $(a) = (b)$ or $(a) = (c)$
+  (\cref{lem:irred:1.5});
+\item $(a) \subseteq (b) \implies (b) = (a)$ or $(b) = (1)$
+  (Exercise~1.12);
+\item $(a)$ is maximal among proper principal ideals (rephrasing the
+  previous point!).
+\end{itemize}
+
+It is important to realize that primality and irreducibility are \emph{not}
+equivalent, even for nonzero elements; this is somewhat counterintuitive
+since they \emph{are} equivalent in $\mathbb{Z}$, as the reader should
+verify\footnote{This fact will be fully explained by the general theory, so
+the reader should work this out right away.} (Exercise~1.13). What is true
+in general is that prime is stronger than irreducible:
+
+\begin{lem}{}{irred:1.7}
+Let $R$ be an integral domain, and let $a \in R$ be a nonzero prime
+element. Then $a$ is irreducible.
+\end{lem}
+
+\begin{proof}
+Since $(a)$ is prime, $(a) \neq (1)$; hence $a$ is not a unit. If
+$a = bc$, then $bc = a \in (a)$; therefore $b \in (a)$ or $c \in (a)$
+since $(a)$ is prime. Assuming without loss of generality $b \in (a)$, we
+have $(b) \subseteq (a)$. On the other hand $a = bc$ implies
+$(a) \subseteq (b)$: hence $(a) = (b)$, that is, $a$ and $b$ are
+associates, as needed.
+\end{proof}
+
+We will soon see under what circumstances the converse statement holds.
 
 \subsection{Factorization into irreducibles; domains with factorizations}
 \label{subsec:irred:factorization-into-irreducibles-domains-with-factorizations}
 
-% Definition 1.8. Let R be an integral domain. An element r \in  R has a
-% factorization
-% (or decomposition) into irreducibles if there exist irreducible elements q1, . .
-% . , qn
-% such that r = q1 \dots  qn .
-% This factorization is unique if the elements qi are determined by r up to order
-% and associates, that is, if whenever
-% r = q1 \setminus  \dots  qm
-%  \setminus 
-% \setminus is another factorization of r into irreducibles, then m = n and qi is an associate
-% of qi after (possibly) shuffling the factors.
-%  ?
-% Definition 1.9. An integral domain R is a domain with factorizations (or
-% `factor-
-% izations exist in R' ) if every nonzero, nonunit element r \in  R has a
-% factorization
-% into irreducibles.
-%  ?
-% Definition 1.10. An integral domain R is factorial, or a unique factorization
-% domain (abbreviated UFD), if every nonzero, nonunit element r \in  R has a
-% unique
-% factorization into irreducibles.
-%  ?
-% The terminology introduced in Definition 1.9 does not appear to be too stan-
-% dard; by contrast, UFDs are famous.
-% We will study the unique factorization condition in \S{}2. For now, it seems
-% worth spending a little time contemplating the mere existence of factorizations.
-% Interestingly, this condition is implied by an ascending chain condition, for a
-% special
-% class of ideals.
-% Proposition 1.11. Let R be an integral domain, and let r be a nonzero, nonunit
-% element of R. Assume that every ascending chain of principal ideals
-% (r) \subseteq  (r1 ) \subseteq  (r2 ) \subseteq  (r3 ) \subseteq  \dots 
-% stabilizes. Then r has a factorization into irreducibles.
-% Proof. Assume that r does not have a factorization into irreducible elements. In
-% particular, r is itself not irreducible; thus \exists r1 , s1 \in  R such that r
-% = r1 s1 and
-% (r) ? (r1 ), (r) ? (s1 ). If both r1 , s1 have factorizations into irreducibles,
-% the
-% product of these factorizations gives a factorization of r; thus we may assume
-% that
-% (e.g.) r1 does not have a factorization into irreducibles. Therefore we have
-% (r) ? (r1 )
-% and r1 does not have a factorization; iterating this argument constructs an
-% infinitely
-% increasing chain
-% (r) ? (r1 ) ? (r2 ) ? (r3 ) ? \dots  ,
+\begin{defn}{}{irred:1.8}
+Let $R$ be an integral domain. An element $r \in R$ has a \emph{factorization}
+(or \emph{decomposition}) \emph{into irreducibles} if there exist irreducible
+elements $q_1, \dots, q_n$ such that $r = q_1 \cdots q_n$.
+
+This factorization is \emph{unique} if the elements $q_i$ are determined by
+$r$ up to order and associates, that is, if whenever
+$r = q'_1 \cdots q'_m$ is another factorization of $r$ into irreducibles,
+then $m = n$ and $q'_i$ is an associate of $q_i$ after (possibly) shuffling
+the factors.
+\end{defn}
+
+\begin{defn}{}{irred:1.9}
+An integral domain $R$ is a \emph{domain with factorizations} (or
+`\emph{factorizations exist in} $R$') if every nonzero, nonunit element
+$r \in R$ has a factorization into irreducibles.
+\end{defn}
+
+\begin{defn}{}{irred:1.10}
+An integral domain $R$ is \emph{factorial}, or a \emph{unique factorization
+domain} (abbreviated \emph{UFD}), if every nonzero, nonunit element $r \in R$
+has a unique factorization into irreducibles.
+\end{defn}
+
+The terminology introduced in \cref{defn:irred:1.9} does not appear to be too
+standard; by contrast, UFDs are famous.
+
+We will study the unique factorization condition in~\S{}2. For now, it seems
+worth spending a little time contemplating the mere existence of
+factorizations. Interestingly, this condition is implied by an ascending chain
+condition, for a special class of ideals.
+
+\begin{prop}{}{irred:1.11}
+Let $R$ be an integral domain, and let $r$ be a nonzero, nonunit element of
+$R$. Assume that every ascending chain of principal ideals
+\[(r) \subseteq (r_1) \subseteq (r_2) \subseteq (r_3) \subseteq \dots\]
+stabilizes. Then $r$ has a factorization into irreducibles.
+\end{prop}
+
+\begin{proof}
+Assume that $r$ does not have a factorization into irreducible elements. In
+particular, $r$ is itself not irreducible; thus $\exists r_1, s_1 \in R$ such
+that $r = r_1 s_1$ and $(r) \subsetneq (r_1)$, $(r) \subsetneq (s_1)$. If
+both $r_1$, $s_1$ have factorizations into irreducibles, the product of these
+factorizations gives a factorization of $r$; thus we may assume that (e.g.)
+$r_1$ does not have a factorization into irreducibles. Therefore we have
+$(r) \subsetneq (r_1)$ and $r_1$ does not have a factorization; iterating
+this argument constructs an infinitely increasing chain
+\[(r) \subsetneq (r_1) \subsetneq (r_2) \subsetneq (r_3) \subsetneq \dots,\]
+contradicting our hypothesis.
+\end{proof}
+
+Thus, factorizations exist in integral domains in which the ascending chain
+condition holds for principal ideals. This has the following immediate and
+convenient consequence:
+
+\begin{coro}{}{irred:1.12}
+Let $R$ be a Noetherian domain. Then factorizations exist in $R$.
+\end{coro}
+
+\begin{proof}
+By \cref{prop:irred:1.1}, Noetherian domains satisfy the ascending chain
+condition for all ideals.
+\end{proof}
+
+\cref{coro:irred:1.12} verifies part of the picture presented at the
+beginning of the chapter: the class of Noetherian domains is contained in the
+class of domains with factorization. This inclusion is proper: for instance,
+the standard example of a non-Noetherian ring, $\mathbb{Z}[x_1, x_2, x_3,
+\dots]$, (Example~III.6.5) does have factorizations. Indeed, every given
+polynomial $f \in \mathbb{Z}[x_1, x_2, \dots]$ involves only finitely many
+variables\footnote{Remember that polynomials are finite linear combinations
+of monomials; cf.~\S{}III.1.3.}, so it belongs to a subring
+$\mathbb{Z}[x_1, \dots, x_n]$ isomorphic to an ordinary polynomial ring over
+$\mathbb{Z}$; further, this subring contains every divisor of $f$. It follows
+easily (cf.\ Exercise~1.15) that the ascending chain condition for principal
+ideals holds in $\mathbb{Z}[x_1, x_2, x_3, \dots]$, because it holds in
+$\mathbb{Z}[x_1, \dots, x_n]$ (since this ring is Noetherian, by Hilbert's
+basis theorem).
 
 \subsection*{Exercises}
 
-% contradicting our hypothesis.
-%  ?
-% Thus, factorizations exist in integral domains in which the ascending chain con-
-% dition holds for principal ideals. This has the following immediate and
-% convenient
-% consequence:
-% Corollary 1.12. Let R be a Noetherian domain. Then factorizations exist in R.
-% Proof. By Proposition 1.1, Noetherian domains satisfy the ascending chain condi-
-% tion for all ideals.
-%  ?
-% Corollary 1.12 verifies part of the picture presented at the beginning of the
-% chapter: the class of Noetherian domains is contained in the class of domains
-% with
-% factorization. This inclusion is proper: for instance, the standard example of a
-% non-Noetherian ring,
-% Z[x1 , x2 , x3 , . . . ],
-% (Example III.6.5) does have factorizations. Indeed, every given polynomial f \in
-% Z[x1 , x2 , . . . ] involves only finitely many variables3, so it belongs to a
-% subring
-% Z[x1 , \dots  , xn ] isomorphic to an ordinary polynomial ring over Z; further,
-% this sub-
-% ring contains every divisor of f . It follows easily (cf. Exercise 1.15) that
-% the ascend-
-% ing chain condition for principal ideals holds in Z[x1 , x2 , x3, . . . ],
-% because it holds
-% in Z[x1 , . . . , xn ] (since this ring is Noetherian, by Hilbert's basis
-% theorem).
-% Remember that in this section all rings are taken to be commutative.
-% 1.1. ? Let R be a Noetherian ring, and let I be an ideal of R. Prove that R/I is
-% a
-% Noetherian ring. [\S{}1.1]
-% 1.2. Prove that if R[x] is Noetherian, so is R. (This is a `converse' to
-% Hilbert's
-% basis theorem.)
-% 1.3. Let k be a field, and let f \in  k[x], f \in  k. For every subring R of
-% k[x] containing
-% k and f , define a homomorphism \phi  : k[t] \to  R by extending the identity on
-% k and
-% mapping t to f . This makes every such R a k[t]-algebra (Example III.5.6).
-% \bullet  Prove that k[x] is finitely generated as a k[t]-module.
-% \bullet  Prove that every subring R as above is finitely generated as a k[t]-module.
-% \bullet  Prove that every subring of k[x] containing k is a Noetherian ring.
-% 1.4. Let R be the ring of real-valued continuous functions on the interval [0,
-% 1].
-% Prove that R is not Noetherian.
-% 1.5. Determine for which sets S the power set ring P(S) is Noetherian. (Cf. Ex-
-% ercise III.3.16.)
-% 3 Remember that polynomials are finite linear combinations of monomials; cf.
-% \S{}III.1.3.
-% 1.6. ? Let I be an ideal of R[x], and let A \subseteq  R be the set defined in
-% the proof of
-% Theorem 1.2. Prove that A is an ideal of R. [\S{}1.1]
-% 1.7. Prove that if R is a Noetherian ring, then the ring of power
-%  ?\infty  series R[[x]]
-% (cf. \S{}III.1.3) is also Noetherian. (Hint: The order of a power series i=0 ai
-% xi is the
-% smallest i for which ai = 0; the dominant coefficient is then ai . Let Ai
-% \subseteq  R be the
-% set of dominant coefficients of series of order i in I, together with 0. Prove
-% that
-% Ai is an ideal of R and A0 \subseteq  A1 \subseteq  A2 \subseteq  \dots  . This
-% sequence stabilizes since R is
-% Noetherian, and each Ai is finitely generated for the same reason. Now adapt the
-% proof of Lemma 1.3.)
-% 1.8. Prove that every ideal in a Noetherian ring R contains a finite product of
-% prime
-% ideals. (Hint: Let F be the family of ideals that do not contain finite products
-% of
-% prime ideals. If F is nonempty, it has a maximal element M since R is
-% Noetherian.
-% Since M \in  F , M is not itself prime, so \exists a, b \in  R s.t. a \in  M , b
-% \in  M , yet ab \in  M .
-% What's wrong with this?)
-% 1.9. \lnot  Let R be a commutative ring, and let I \subseteq  R be a proper
-% ideal. The reader
-% will prove in Exercise 3.12 that the set of prime ideals containing I has
-% minimal
-% elements (the minimal primes of I). Prove that if R is Noetherian, then the set
-% of minimal primes of I is finite. (Hint: Let F be the family of ideals that do
-% not
-% have finitely many minimal primes. If F = \emptyset , note that F must have a
-% maximal
-% element I, and I is not prime itself. Find ideals J1, J2 strictly larger than I,
-% such
-% that J1 J2 \subseteq  I, and deduce a contradiction.) [VI.4.10]
-% 1.10. \lnot  By Proposition 1.1, a ring R is Noetherian if and only if it
-% satisfies the
-% a.c.c. for ideals. A ring is Artinian if it satisfies the d.c.c. (descending
-% chain con-
-% dition) for ideals. Prove that if R is Artinian and I \subseteq  R is an ideal,
-% then R/I is
-% Artinian. Prove that if R is an Artinian integral domain, then it is a field.
-% (Hint:
-% Let r \in  R, r = 0. The ideals (r n) form a descending sequence; hence (rn ) =
-% (rn+1)
-% for some n. Therefore. . . .) Prove that Artinian rings have Krull dimension 0
-% (that
-% is, prime ideals are maximal in Artinian rings4 ). [2.11]
-% 1.11. Prove that the `associate' relation is an equivalence relation.
-% 1.12. ? Let R be an integral domain. Prove that a nonzero a \in  R is
-% irreducible if
-% and only if (a) is maximal among proper principal ideals of R. [\S{}1.2,
-% \S{}2.3]
-% 1.13. ? Prove that, for nonzero elements, prime \iff  irreducible in Z.
-% [\S{}1.2, \S{}2.3]
-% 1.14. For a, b in a commutative ring R, prove that the class of a in R/(b) is
-% prime
-% if and only if the class of b in R/(a) is prime.
-% 1.15. ? Identify S = Z[x1 , . . . , xn ] in the natural way with a subring of
-% the poly-
-% nomial ring in countably infinitely many variables R = Z[x1 , x2, x3 , . . . ].
-% Prove
-% that if f \in  S and (f ) \subseteq  (g) in R, then g \in  S as well. Conclude
-% that the ascend-
-% ing chain condition for principal ideals holds in R, and hence R is a domain
-% with
-% factorizations. [\S{}1.3, \S{}4.3]
-% 4 One can prove that Artinian rings are necessarily Noetherian; in fact, a ring
-% is Artinian if
-% and only if it is Noetherian and has Krull dimension 0. Thus, the d.c.c. implies
-% the a.c.c., while
-% the a.c.c. implies the d.c.c. if and only if all prime ideals are maximal.
+Remember that in this section all rings are taken to be \emph{commutative}.
+\begin{exer}{\exerused}{exer:irred:1.1}
+Let $R$ be a Noetherian ring, and let $I$ be an ideal of $R$. Prove that
+$R/I$ is a Noetherian ring. [\S{}1.1]
+\end{exer}
+
+\begin{exer}{}{exer:irred:1.2}
+Prove that if $R[x]$ is Noetherian, so is $R$. (This is a `converse' to
+Hilbert's basis theorem.)
+\end{exer}
+
+\begin{exer}{}{exer:irred:1.3}
+Let $k$ be a field, and let $f \in k[x]$, $f \notin k$. For every subring
+$R$ of $k[x]$ containing $k$ and $f$, define a homomorphism $\phi : k[t]
+\to R$ by extending the identity on $k$ and mapping $t$ to $f$. This makes
+every such $R$ a $k[t]$-algebra (Example~III.5.6).
+\begin{itemize}
+\item Prove that $k[x]$ is finitely generated as a $k[t]$-module.
+\item Prove that every subring $R$ as above is finitely generated as a
+  $k[t]$-module.
+\item Prove that every subring of $k[x]$ containing $k$ is a Noetherian
+  ring.
+\end{itemize}
+\end{exer}
+
+\begin{exer}{}{exer:irred:1.4}
+Let $R$ be the ring of real-valued continuous functions on the interval
+$[0, 1]$. Prove that $R$ is not Noetherian.
+\end{exer}
+
+\begin{exer}{}{exer:irred:1.5}
+Determine for which sets $S$ the power set ring $\mathscr{P}(S)$ is
+Noetherian. (Cf.\ Exercise~III.3.16.)
+\end{exer}
+\begin{exer}{\exerused}{exer:irred:1.6}
+Let $I$ be an ideal of $R[x]$, and let $A \subseteq R$ be the set defined
+in the proof of \cref{thm:irred:1.2}. Prove that $A$ is an ideal of $R$.
+[\S{}1.1]
+\end{exer}
+
+\begin{exer}{}{exer:irred:1.7}
+Prove that if $R$ is a Noetherian ring, then the ring of power series
+$R[[x]]$ (cf.~\S{}III.1.3) is also Noetherian. (Hint: The order of a power
+series $\sum_{i=0}^{\infty} a_i x^i$ is the smallest $i$ for which $a_i
+\neq 0$; the dominant coefficient is then $a_i$. Let $A_i \subseteq R$ be
+the set of dominant coefficients of series of order $i$ in $I$, together
+with $0$. Prove that $A_i$ is an ideal of $R$ and $A_0 \subseteq A_1
+\subseteq A_2 \subseteq \dots$. This sequence stabilizes since $R$ is
+Noetherian, and each $A_i$ is finitely generated for the same reason. Now
+adapt the proof of \cref{lem:irred:1.3}.)
+\end{exer}
+\begin{exer}{}{exer:irred:1.8}
+Prove that every ideal in a Noetherian ring $R$ contains a finite product
+of prime ideals. (Hint: Let $\mathscr{F}$ be the family of ideals that do
+not contain finite products of prime ideals. If $\mathscr{F}$ is nonempty,
+it has a maximal element $M$ since $R$ is Noetherian. Since $M \in
+\mathscr{F}$, $M$ is not itself prime, so $\exists a, b \in R$ s.t.\ $a
+\notin M$, $b \notin M$, yet $ab \in M$. What's wrong with this?)
+\end{exer}
+\begin{exer}{$\lnot$}{exer:irred:1.9}
+Let $R$ be a commutative ring, and let $I \subseteq R$ be a proper ideal.
+The reader will prove in Exercise~3.12 that the set of prime ideals
+containing $I$ has minimal elements (the \emph{minimal primes} of $I$).
+Prove that if $R$ is Noetherian, then the set of minimal primes of $I$ is
+finite. (Hint: Let $\mathscr{F}$ be the family of ideals that do not have
+finitely many minimal primes. If $\mathscr{F} \neq \emptyset$, note that
+$\mathscr{F}$ must have a maximal element $I$, and $I$ is not prime itself.
+Find ideals $J_1$, $J_2$ strictly larger than $I$, such that $J_1 J_2
+\subseteq I$, and deduce a contradiction.) [\hyperref[exer:linAlg:4.10]{VI.4.10}]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:irred:1.10}
+By \cref{prop:irred:1.1}, a ring $R$ is Noetherian if and only if it
+satisfies the a.c.c.\ for ideals. A ring is \emph{Artinian} if it
+satisfies the d.c.c.\ (descending chain condition) for ideals. Prove that
+if $R$ is Artinian and $I \subseteq R$ is an ideal, then $R/I$ is Artinian.
+Prove that if $R$ is an Artinian integral domain, then it is a field.
+(Hint: Let $r \in R$, $r \neq 0$. The ideals $(r^n)$ form a descending
+sequence; hence $(r^n) = (r^{n+1})$ for some $n$. Therefore\dots) Prove
+that Artinian rings have Krull dimension $0$ (that is, prime ideals are
+maximal in Artinian rings\footnote{One can prove that Artinian rings are
+necessarily Noetherian; in fact, a ring is Artinian if and only if it is
+Noetherian and has Krull dimension $0$. Thus, the d.c.c.\ implies the
+a.c.c., while the a.c.c.\ implies the d.c.c.\ if and only if all prime
+ideals are maximal.}). [\hyperref[exer:irred:2.11]{2.11}]
+\end{exer}
+
+\begin{exer}{}{exer:irred:1.11}
+Prove that the `associate' relation is an equivalence relation.
+\end{exer}
+
+\begin{exer}{\exerused}{exer:irred:1.12}
+Let $R$ be an integral domain. Prove that a nonzero $a \in R$ is
+irreducible if and only if $(a)$ is maximal among proper principal ideals
+of $R$. [\S{}1.2, \S{}2.3]
+\end{exer}
+
+\begin{exer}{\exerused}{exer:irred:1.13}
+Prove that, for nonzero elements, prime $\iff$ irreducible in $\mathbb{Z}$.
+[\S{}1.2, \S{}2.3]
+\end{exer}
+
+\begin{exer}{}{exer:irred:1.14}
+For $a$, $b$ in a commutative ring $R$, prove that the class of $a$ in
+$R/(b)$ is prime if and only if the class of $b$ in $R/(a)$ is prime.
+\end{exer}
+
+\begin{exer}{\exerused}{exer:irred:1.15}
+Identify $S = \mathbb{Z}[x_1, \dots, x_n]$ in the natural way with a
+subring of the polynomial ring in countably infinitely many variables
+$R = \mathbb{Z}[x_1, x_2, x_3, \dots]$. Prove that if $f \in S$ and
+$(f) \subseteq (g)$ in $R$, then $g \in S$ as well. Conclude that the
+ascending chain condition for principal ideals holds in $R$, and hence $R$
+is a domain with factorizations. [\S{}1.3, \S{}4.3]
+\end{exer}
+
+\begin{exer}{}{exer:irred:1.16}
+Let
+\[R = \frac{\mathbb{Z}[x_1, x_2, x_3, \dots]}{(x_1 - x_2^2,\, x_2 -
+x_3^2,\, \dots)}.\]
+Does the ascending chain condition for principal ideals hold in $R$?
+\end{exer}
+
+\begin{exer}{\exerused}{exer:irred:1.17}
+Consider the subring of $\mathbb{C}$:
+\[\mathbb{Z}[\sqrt{-5}] := \{a + bi\sqrt{5} \mid a, b \in \mathbb{Z}\}.\]
+\begin{itemize}
+\item Prove that this ring is isomorphic to $\mathbb{Z}[t]/(t^2 + 5)$.
+\item Prove that it is a Noetherian integral domain.
+\item Define a `norm' $N$ on $\mathbb{Z}[\sqrt{-5}]$ by setting
+  $N(a + bi\sqrt{5}) = a^2 + 5b^2$. Prove that $N(zw) = N(z)N(w)$.
+  (Cf.\ Exercise~III.4.10.)
+\item Prove that the units in $\mathbb{Z}[\sqrt{-5}]$ are $\pm 1$. (Use
+  the preceding point.)
+\item Prove that $2$, $3$, $1 + i\sqrt{5}$, $1 - i\sqrt{5}$ are all
+  irreducible nonassociate elements of $\mathbb{Z}[\sqrt{-5}]$.
+\item Prove that no element listed in the preceding point is prime. (Prove
+  that the rings obtained by mod-ing out the ideals generated by these
+  elements are not integral domains.)
+\item Prove that $\mathbb{Z}[\sqrt{-5}]$ is not a UFD.
+\end{itemize}
+[\S{}2.2, \hyperref[exer:irred:2.18]{2.18},
+\hyperref[exer:irred:6.14]{6.14}]
+\end{exer}
 
 \section{UFDs, PIDs, Euclidean domains}
 \label{sec:irred:ufds-pids-euclidean-domains}
 
-
-\subsection{Let}
-\label{subsec:irred:let}
-
-% Z[x1 , x2 , x3 , . . . ]
-% R =
-%  .
-% (x1 - x22 , x2 - x23 , . . . )
-% Does the ascending chain condition for principal ideals hold in R?
-
-%Consider the subring of C:}
-
-% \sqrt 
-%  \sqrt 
-% Z[ -5] := {a + bi 5 | a, b \in  Z}.
-% \bullet  Prove that this ring is isomorphic to Z[t]/(t2 + 5).
-% \bullet  Prove that it is a Noetherian integral domain.
-% \sqrt 
-%  \sqrt 
-% \bullet  Define a `norm' N on Z[ -5] by setting N (a + bi 5) = a2 + 5b2 . Prove that
-% N (zw) = N (z)N (w). (Cf. Exercise III.4.10.)
-% \sqrt 
-% \bullet  Prove that the units in Z[ -5] are \pm 1. (Use the preceding point.)
-% \sqrt 
-%  \sqrt 
-% \bullet  Prove
-%  that 2, 3, 1 + i 5, 1 - i 5 are all irreducible nonassociate elements of
-% \sqrt Z[ -5].
-% \bullet  Prove that no element listed in the preceding point is prime. (Prove that the
-% rings obtained by mod-ing out the ideals generated by these elements are not
-% integral domains.)
-% \sqrt 
-% \bullet  Prove that Z[ -5] is not a UFD.
-% [\S{}2.2, 2.18, 6.14]
 
 \subsection{Irreducible factors and greatest common divisor}
 \label{subsec:irred:irreducible-factors-and-greatest-common-divisor}
