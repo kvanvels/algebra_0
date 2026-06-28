@@ -1993,95 +1993,115 @@ statements can be established with so little work.
 
 \subsection{Transpositions, parity, and the alternating group}
 \label{subsec:groups2:transpositions-parity-and-the-alternating-group}
-% For n \geq  1, consider
+For $n \geq 1$, consider the polynomials
+\[
+  \Delta_n = \prod_{1 \leq i < j \leq n} (x_i - x_j)
+  \in \mathbb{Z}[x_1, \dots, x_n],
+\]
+that is,
+\begin{align*}
+  \Delta_1 &= 1,\\
+  \Delta_2 &= x_1 - x_2,\\
+  \Delta_3 &= (x_1 - x_2)(x_1 - x_3)(x_2 - x_3),\\
+  \Delta_4 &= (x_1 - x_2)(x_1 - x_3)(x_1 - x_4)(x_2 - x_3)
+              (x_2 - x_4)(x_3 - x_4),\\
+           &\phantom{{}={}}\cdots
+\end{align*}
+We can act with any $\sigma \in S_n$ on $\Delta_n$, by permuting the indices
+according to $\sigma$:
+\[
+  \Delta_n\sigma := \prod_{1 \leq i < j \leq n} (x_{i\sigma} - x_{j\sigma}).
+\]
+For example,
+\[
+  \Delta_4(1234) = (x_2 - x_3)(x_2 - x_4)(x_2 - x_1)(x_3 - x_4)
+  (x_3 - x_1)(x_4 - x_1) = -\Delta_4.
+\]
+In general, it is clear that $\Delta_n\sigma$ is still the product of all
+binomials $(x_i - x_j)$, where the factors are permuted and some factors may
+change sign in the process. Hence, $\Delta_n\sigma = \pm\Delta_n$, where the
+factor $\pm 1$ depends on $\sigma$.
+\begin{defn}{}{defn:groups2:sign}
+The \emph{sign} of a permutation $\sigma \in S_n$, denoted $(-1)^\sigma$, is
+determined by the action of $\sigma$ on $\Delta_n$:
+\[
+  \Delta_n\sigma = (-1)^\sigma \Delta_n.
+\]
+We say that a permutation is \emph{even} if its sign is $+1$ and \emph{odd}
+if its sign is $-1$.
+\end{defn}
 
-% the polynomials
-%  ?
-% \Delta n =
-%  (xi - xj ) \in  Z[x1 , . . . , xn ],
-% 1\leq i<j\leq n
-% that is,
-% \Delta 1 = 1,
-% \Delta 2 = x1 - x2 ,
-% \Delta 3 = (x 1 - x2 )(x1 - x3 )(x2 - x3 ),
-% \Delta 4 = (x 1 - x2 )(x1 - x3 )(x1 - x4 )(x2 - x3)(x2 - x4 )(x3 - x4 ),
-% \cdot \cdot \cdot 
-% We can act with any \sigma  \in  Sn on \Delta n , by permuting the indices
-% according to \sigma :
-% ?
-% \Delta n \sigma  :=
-%  (xi\sigma  - xj\sigma  ).
-% 1\leq i<j\leq n
-% For example,
-% \Delta 4 (1234) = (x2 - x3 )(x2 - x4 )(x2 - x1 )(x3 - x4 )(x3 - x1 )(x4 - x1 ) = -\Delta 4 .
-% In general, it is clear that \Delta n \sigma  is still the product of all
-% binomials (xi - xj ), where
-% the factors are permuted and some factors may change sign in the process. Hence,
-% \Delta n\sigma  = \pm \Delta n , where the factor \pm 1 depends on \sigma .
-% Definition 4.10. The sign of a permutation \sigma  \in  Sn , denoted (-1)\sigma
-% , is determined
-% by the action of \sigma  on \Delta n :
-% \Delta n \sigma  = (-1)\sigma  \Delta n .
-% We say that a permutation is even if its sign is +1 and odd if its sign is -1.
-%  ?
-% Note that \forall \sigma , \tau  \in  Sn we have
-% \Delta n (\sigma \tau  ) = (\Delta n \sigma )\tau  :
-% it follows that (-1)\sigma \tau  = (-1)\sigma  (-1)\tau  . Viewing {-1, +1} as a
-% group under multi-
-% plication17 , we see that the `sign' function
-% ? : Sn \to  {-1, +1},
-%  ?(\sigma ) := (-1)\sigma 
-% is a homomorphism.
-% Here is a different viewpoint on this sign function. A transposition is a cycle
-% of
-% length 2. Every permutation is a product of transpositions:
-% Lemma 4.11. Transpositions generate Sn .
-% Proof. Indeed, by Lemma 4.3 it suffices to show that every cycle is a product of
-% transpositions, and indeed
-% (a1 . . . ar ) = (a1 a2 )(a1 a3 ) \dots  (a1 ar ),
-% as may be checked by applying18 both sides to every element of {1, . . . , n}.
-%  ?
-% 17 This is the group of units in Z; of course it is isomorphic to C2
-% .
-% 18Don't forget that permutations act on the right.
-% Of course a given permutation may be written as a product of transpositions
-% in many different ways. However, whether an even number of transpositions or an
-% odd number is needed only depends on \sigma . Indeed,
-% Lemma 4.12. Let \sigma  = \tau 1 \dots  \tau r be a product of transpositions.
-% Then \sigma  is even,
-% resp., odd, according to whether r is even, resp., odd.
-% Proof. This follows immediately from the facts that ? is a homomorphism and the
-% sign of a transposition is -1: indeed, (ij) acts on \Delta n by permuting its
-% factors and
-% changing the sign of an odd number of factors (for i < j, the factor (xi - xj )
-% and
-% the pairs of factors (xi - xk ), (xk - xj ) for all i < k < j).
-%  ?
-% Definition 4.13. The alternating group on {1, . . . , n}, denoted An , consists
-% of all
-% even permutations \sigma  \in  Sn.
-%  ?
-% The alternating group is a normal subgroup of Sn , and
-% [Sn : An ] = 2
-% for n \geq  2: indeed, An = ker ?, and ? is surjective for n \geq  2.
-% It is very easy to tell whether a permutation \sigma  belongs to An in terms of
-% the
-% type of \sigma . Indeed (by the argument proving Lemma 4.11) a cycle is even,
-% resp., odd,
-% if it has odd, resp., even, length19. Pictorially, a permutation \sigma  \in  Sn
-% is even if and
-% only if n and the number of rows in the Young diagram of \sigma  have the same
-% parity.
-% Take n = 5 for example:
-% The starred types correspond to even permutations. Adding up the sizes of the
-% corresponding conjugacy classes,
-% 1 + 15 + 20 + 24 = 60,
-% confirms that A5 has index 2 in S5 .
-% However, do not read too much into this computation: I am not claiming that
-% these are the sizes of the conjugacy classes in A5 , only that these are the
-% conjugacy
-% classes in S5 making up the normal subgroup A5 . Conjugacy in An is rather
-% interesting and ties in nicely with the issue of the simplicity of An.
+Note that $\forall\sigma,\tau \in S_n$ we have $\Delta_n(\sigma\tau) =
+(\Delta_n\sigma)\tau$: it follows that $(-1)^{\sigma\tau} = (-1)^\sigma
+(-1)^\tau$. Viewing $\{-1,+1\}$ as a group under
+multiplication\footnote{This is the group of units in $\mathbb{Z}$; of course
+it is isomorphic to $C_2$.}, we see that the `sign' function
+\[
+  \epsilon : S_n \to \{-1,+1\}, \quad \epsilon(\sigma) := (-1)^\sigma
+\]
+is a homomorphism.
+Here is a different viewpoint on this sign function. A \emph{transposition}
+is a cycle of length $2$. Every permutation is a product of transpositions:
+
+\begin{lem}{}{lem:groups2:transpositions-generate}
+Transpositions generate $S_n$.
+\end{lem}
+
+\begin{proof}
+Indeed, by \cref{lem:groups2:cycle-decomposition} it suffices to show that
+every cycle is a product of transpositions, and indeed
+\[
+  (a_1 \dots a_r) = (a_1 a_2)(a_1 a_3)\cdots(a_1 a_r),
+\]
+as may be checked by applying\footnote{Don't forget that permutations act on
+the right.} both sides to every element of $\{1,\dots,n\}$.
+\end{proof}
+Of course a given permutation may be written as a product of transpositions
+in many different ways. However, whether an even number of transpositions or
+an odd number is needed only depends on $\sigma$. Indeed,
+
+\begin{lem}{}{lem:groups2:parity-well-defined}
+Let $\sigma = \tau_1 \cdots \tau_r$ be a product of transpositions. Then
+$\sigma$ is even, resp., odd, according to whether $r$ is even, resp., odd.
+\end{lem}
+
+\begin{proof}
+This follows immediately from the facts that $\epsilon$ is a homomorphism and
+the sign of a transposition is $-1$: indeed, $(ij)$ acts on $\Delta_n$ by
+permuting its factors and changing the sign of an odd number of factors (for
+$i < j$, the factor $(x_i - x_j)$ and the pairs of factors $(x_i - x_k)$,
+$(x_k - x_j)$ for all $i < k < j$).
+\end{proof}
+\begin{defn}{}{defn:groups2:alternating-group}
+The \emph{alternating group} on $\{1,\dots,n\}$, denoted $A_n$, consists of
+all even permutations $\sigma \in S_n$.
+\end{defn}
+
+The alternating group is a normal subgroup of $S_n$, and $[S_n : A_n] = 2$
+for $n \geq 2$: indeed, $A_n = \ker\epsilon$, and $\epsilon$ is surjective
+for $n \geq 2$.
+It is very easy to tell whether a permutation $\sigma$ belongs to $A_n$ in
+terms of the type of $\sigma$. Indeed (by the argument proving
+\cref{lem:groups2:transpositions-generate}) a cycle is even, resp., odd, if
+it has odd, resp., even,
+length\footnote{Note the unfortunate terminology clash. For example, $3$-cycles
+are even permutations.}. Pictorially, a permutation $\sigma \in S_n$ is even
+if and only if $n$ and the number of rows in the Young diagram of $\sigma$
+have the same parity.
+
+Take $n = 5$ for example: the even permutations have types $[1,1,1,1,1]$,
+$[2,2,1]$, $[3,1,1]$, $[5]$ (starred types in the book). Adding up the
+sizes of the corresponding conjugacy classes,
+\[
+  1 + 15 + 20 + 24 = 60,
+\]
+confirms that $A_5$ has index $2$ in $S_5$.
+
+However, do not read too much into this computation: I am not claiming that
+these are the sizes of the conjugacy classes in $A_5$, only that these are
+the conjugacy classes in $S_5$ making up the normal subgroup $A_5$. Conjugacy
+in $A_n$ is rather interesting and ties in nicely with the issue of the
+simplicity of $A_n$.
 
 \subsection{Conjugacy in An ; simplicity of An and solvability of Sn}
 \label{subsec:groups2:conjugacy-in-an-simplicity-of-an-and-solvability-of-sn}
