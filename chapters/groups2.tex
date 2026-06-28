@@ -1825,150 +1825,171 @@ could write
 \]
 and all of these are `the same' cycle notation for $\sigma$.
 
-\subsection{Type and conjugacy classes in Sn}
-\label{subsec:groups2:type-and-conjugacy-classes-in-sn}
-% The cycle notation has obviously an-
+\subsection{Type and conjugacy classes in \texorpdfstring{$S_n$}{Sn}}
+\label{subsec:groups2:type-conjugacy-sn}
+The cycle notation has obviously annoying features---such as the
+not-too-unique uniqueness pointed out a moment ago, or the fact that $(123)$
+can be an element of $S_3$ just as well as of $S_{100000}$, and only the
+context can tell. However, it is invaluable as it gives easy access to quite
+a bit of important information on a given permutation. In fact, much of this
+information is carried already by something even simpler than the cycle
+decomposition.
+A \emph{partition} of an integer $n > 0$ is a
+nonincreasing\footnote{Of course this choice is arbitrary, and nondecreasing
+sequences would do just as well.} sequence of positive integers whose sum is
+$n$. It is easy to enumerate partitions for small values of $n$. For example,
+$5$ has $7$ distinct partitions:
+\begin{align*}
+  5 &= 1 + 1 + 1 + 1 + 1\\
+    &= 2 + 1 + 1 + 1\\
+    &= 2 + 2 + 1\\
+    &= 3 + 1 + 1\\
+    &= 3 + 2\\
+    &= 4 + 1\\
+    &= 5.
+\end{align*}
+The partition $\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_r$ may be
+denoted $[\lambda_1, \dots, \lambda_r]$; for example, the fourth partition
+listed above would be denoted $[3, 1, 1]$. A nicer `visual' representation
+is by means of the corresponding \emph{Young} (or \emph{Ferrers}) \emph{diagram},
+obtained by stacking $\lambda_1$ boxes on top of $\lambda_2$ boxes on top of
+$\lambda_3$ boxes on top of \dots. For example, the diagrams corresponding to
+the seven partitions listed above are
+\[
+  [1,1,1,1,1] \quad [2,1,1,1] \quad [2,2,1] \quad [3,1,1]
+  \quad [3,2] \quad [4,1] \quad [5]
+\]
+(see the book for the visual Young diagrams).
+\begin{defn}{}{defn:groups2:type}
+The \emph{type} of $\sigma \in S_n$ is the partition of $n$ given by the
+sizes of the orbits of the action of $\langle\sigma\rangle$ on
+$\{1,\dots,n\}$.
+\end{defn}
 
-% noying features---such as the not-too-unique uniqueness pointed out a moment
-% ago,
-% or the fact that
-% (123)
-% can be an element of S3 just as well as of S100000 , and only the context can
-% tell.
-% However, it is invaluable as it gives easy access to quite a bit of important
-% informa-
-% tion on a given permutation. In fact, much of this information is carried
-% already
-% by something even simpler than the cycle decomposition.
-% A partition of an integer n > 0 is a nonincreasing16 sequence of positive
-% integers
-% whose sum is n. It is easy to enumerate partitions for small values of n. For
-% example,
-% 5 has 7 distinct partitions:
-% 5=1+1+1+1+1
-% =2+1+1+1
-% =2+2+1
-% =3+1+1
-% =3+2
-% =4+1
-% = 5.
-% The partition \lambda 1 \geq  \lambda 2 \geq  \dots  \geq  \lambda r may be
-% denoted
-% [\lambda 1 , . . . , \lambda r ];
-% for example, the fourth partition listed above would be denoted [3, 1, 1]. A
-% nicer
-% `visual' representation is by means of the corresponding Young (or Ferrers)
-% diagram,
-% obtained by stacking \lambda 1 boxes on top of \lambda 2 boxes on top of \lambda
-% 3 boxes on top of. . . .
-% For example, the diagrams corresponding to the seven partitions listed above are
-% Definition 4.4. The type of \sigma  \in  Sn is the partition of n given by the
-% sizes of the
-% orbits of the action of ?\sigma ? on {1, . . . , n}.
-%  ?
-% It is hopefully clear (from the argument proving Lemma 4.3) that the type
-% of \sigma  \in  Sn is simply given by the lengths of the cycles in the
-% decomposition of \sigma  as
-% the product of disjoint cycles, together with as many 1's as needed. In our
-% running
-% example,
-% \sigma  = (18632)(47) \in  S8
-% has type [5, 2, 1]:
-% 16Of course this choice is arbitrary, and nondecreasing sequences would do just
-% as well.
-% The main reason why `types' are introduced is a consequence of the following
-% simple observation.
-% Lemma 4.5. Let \tau  \in  Sn, and let (a1 . . . ar ) be a cycle. Then
-% -1 -1 -1\tau  (a1 . . . ar )\tau  = (a1 \tau  . . . ar \tau  ).
-% -1 -1The funny notation a1 \tau  stands for the action of the permutation \tau
-% on
-% a1 \in  {1, . . . , n}; recall that we agreed in \S{}II.2.1 that we would let
-% our permutations
-% act on the right, for consistency with the usual notation for products in
-% groups.
-% Proof. This is verified by checking that both sides act in the same way on {1, .
-% . . , n}.
-% For example, for 1 \leq  i < r
-% -1 -1 -1 -1
-% (ai\tau  )(\tau  (a1 . . . ar )\tau  ) = ai (a1 . . . ar )\tau  = ai+1 \tau as
-% it should; the other cases are left to the reader.
-%  ?
-% -1By the usual trick of judiciously inserting identity factors \tau  \tau  ,
-% this formula
-% for computing conjugates extends immediately to any product of cycles:
-% \tau  (a1 . . . ar ) \dots  (b1 . . . bs )\tau  -1 = (a1\tau  -1 . . . ar \tau  -1 ) \dots  (b1 \tau  -1 . . . bs \tau  -1 ).
-% This holds whether the cycles are disjoint or not. However, since \tau  is a
-% bijection,
-% disjoint cycles remain disjoint after conjugation. This is essentially all there
-% is to
-% the following important observation:
-% Proposition 4.6. Two elements of Sn are conjugate in Sn if and only if they have
-% the same type.
-% Proof. The `only if' part of this statement follows immediately from the
-% preceding
-% considerations: conjugating a permutation yields a permutation of the same type.
-% As for the `if' part, suppose
-% \sigma 1 = (a1 . . . ar )(b1 . . . bs) \dots  (c1 . . . ct )
-% and
-% \sigma 2 = (a\setminus  1 . . . a\setminus  r )(b\setminus  1 . . . b\setminus  s) \dots  (c\setminus  1 . . . c\setminus  t )
-% are two permutations with the same type, written in cycle notation, with r \geq
-% s \geq
-% \dots  \geq  t (so the type is [r, s, . . . , t]). Let \tau  be any permutation such that ai = a\setminus  i \tau  ,
-% bj = b\setminus  j \tau  , . . . , ck = c\setminus  k \tau  for all i, j, . . .
-% , k. Then Lemma 4.5 implies \sigma 2 = \tau  \sigma 1 \tau  -1 ,
-% so \sigma 1 and \sigma 2 are conjugate, as needed.
-%  ?
-% Example 4.7. In S8 ,
-% (18632)(47) and (12345)(67)
-% must be conjugate, since they have the same type. The proof of Proposition 4.6
-% tells us that
-% -1\tau  (18632)(47)\tau  = (12345)(67)
-% for
-% 1 2 3 4 5 6 7 8
-% \tau  =
-%  ,
-% 1 8 6 3 2 4 7 5
-% and of course this may be checked by hand in a second. Running this check, and
-% especially staring at the second row in \tau  vis-\`{a}-vis the cycle notation
-% of the first
-% permutation, should clarify everything.
-%  ?
-% Summarizing, the type (or the corresponding Young diagram) tells us every-
-% thing about conjugation in Sn .
-% Corollary 4.8. The number of conjugacy classes in Sn equals the number of par-
-% titions of n.
-% For example, there are 7 conjugacy classes in S5 , indexed by the Tetris look-
-% alikes drawn above.
-% It is also reasonably straightforward to compute the number of elements in each
-% conjugacy class, in terms of the type. For example, in order to count the number
-% of permutations of type [2, 2, 1] in S5 , note that there are 5! = 120 ways to
-% fill the
-% corresponding Young diagram with the numbers 1, . . . , 5:
-% a1a3a5
-% a2
-% a4
-% that is, 120 ways to write a permutation as a product of two 2-cycles:
-% (a1a2 )(a3 a4 );
-% but switching a1 \leftrightarrow  a2 and a3 \leftrightarrow  a4 , as well as
-% switching the two cycles, gives the
-% same permutation. Therefore there are
-% = 15
-% 2 \cdot  2 \cdot  2
-% permutations of type [2, 2, 1]. Performing this computation for all Young
-% diagrams
-% for S5 gives us the size of each conjugacy class, that is, the class formula
-% (cf. \S{}1.2)
-% for S5 :
-% 120 = 1 + 10 + 15 + 20 + 20 + 30 + 24.
-% Example 4.9. There are no normal subgroups of size 30 in S5 .
-% Indeed, normal subgroups are unions of conjugacy classes (\S{}1.3); since the
-% identity is in every subgroup and 30 - 1 = 29 cannot be written as a sum of the
-% numbers appearing in the class formula for S5 , there is no such subgroup.
-%  ?
-% This observation will be dwarfed by much stronger results that we will prove
-% soon (such as Theorem 4.20, Corollary 4.21); but it is remarkable that such
-% precise
-% statements can be established with so little work.
+It is hopefully clear (from the argument proving
+\cref{lem:groups2:cycle-decomposition}) that the type of $\sigma \in S_n$ is
+simply given by the lengths of the cycles in the decomposition of $\sigma$ as
+the product of disjoint cycles, together with as many $1$'s as needed. In
+our running example,
+\[
+  \sigma = (18632)(47) \in S_8
+\]
+has type $[5, 2, 1]$.
+The main reason why `types' are introduced is a consequence of the following
+simple observation.
+
+\begin{lem}{}{lem:groups2:conjugate-cycle}
+Let $\tau \in S_n$, and let $(a_1 \dots a_r)$ be a cycle. Then
+\[
+  \tau(a_1 \dots a_r)\tau^{-1} = (a_1\tau^{-1} \dots a_r\tau^{-1}).
+\]
+\end{lem}
+
+The funny notation $a_1\tau^{-1}$ stands for the action of the permutation
+$\tau^{-1}$ on $a_1 \in \{1,\dots,n\}$; recall that we agreed in~\S{}II.2.1
+that we would let our permutations act on the right, for consistency with the
+usual notation for products in groups.
+\begin{proof}
+This is verified by checking that both sides act in the same way on
+$\{1,\dots,n\}$. For example, for $1 \leq i < r$:
+\[
+  (a_i\tau^{-1})(\tau(a_1 \dots a_r)\tau^{-1})
+  = a_i(a_1 \dots a_r)\tau^{-1} = a_{i+1}\tau^{-1}
+\]
+as it should; the other cases are left to the reader.
+\end{proof}
+By the usual trick of judiciously inserting identity factors $\tau^{-1}\tau$,
+this formula for computing conjugates extends immediately to any product of
+cycles:
+\[
+  \tau(a_1 \dots a_r)\cdots(b_1 \dots b_s)\tau^{-1}
+  = (a_1\tau^{-1} \dots a_r\tau^{-1})\cdots(b_1\tau^{-1} \dots b_s\tau^{-1}).
+\]
+This holds whether the cycles are disjoint or not. However, since $\tau$ is
+a bijection, disjoint cycles remain disjoint after conjugation. This is
+essentially all there is to the following important observation:
+\begin{prop}{}{prop:groups2:conjugacy-type}
+Two elements of $S_n$ are conjugate in $S_n$ if and only if they have the
+same type.
+\end{prop}
+
+\begin{proof}
+The `only if' part of this statement follows immediately from the preceding
+considerations: conjugating a permutation yields a permutation of the same
+type. As for the `if' part, suppose
+\[
+  \sigma_1 = (a_1 \dots a_r)(b_1 \dots b_s)\cdots(c_1 \dots c_t)
+\]
+and
+\[
+  \sigma_2 = (a'_1 \dots a'_r)(b'_1 \dots b'_s)\cdots(c'_1 \dots c'_t)
+\]
+are two permutations with the same type, written in cycle notation, with
+$r \geq s \geq \dots \geq t$ (so the type is $[r, s, \dots, t]$). Let $\tau$
+be any permutation such that $a_i = a'_i\tau$, $b_j = b'_j\tau$, \dots,
+$c_k = c'_k\tau$ for all $i$, $j$, \dots, $k$. Then
+\cref{lem:groups2:conjugate-cycle} implies $\sigma_2 = \tau\sigma_1\tau^{-1}$,
+so $\sigma_1$ and $\sigma_2$ are conjugate, as needed.
+\end{proof}
+\begin{exam}{}{exam:groups2:4.7}
+In $S_8$, $(18632)(47)$ and $(12345)(67)$ must be conjugate, since they have
+the same type. The proof of \cref{prop:groups2:conjugacy-type} tells us that
+$\tau(18632)(47)\tau^{-1} = (12345)(67)$ for
+\[
+  \tau = \begin{pmatrix} 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                          1 & 8 & 6 & 3 & 2 & 4 & 7 & 5 \end{pmatrix},
+\]
+and of course this may be checked by hand in a second. Running this check,
+and especially staring at the second row in $\tau$ vis-\`{a}-vis the cycle
+notation of the first permutation, should clarify everything.
+\end{exam}
+Summarizing, the type (or the corresponding Young diagram) tells us
+everything about conjugation in $S_n$.
+
+\begin{coro}{}{coro:groups2:conjugacy-classes-count}
+The number of conjugacy classes in $S_n$ equals the number of partitions of
+$n$.
+\end{coro}
+For example, there are $7$ conjugacy classes in $S_5$, indexed by the Tetris
+look-alikes drawn above.
+
+It is also reasonably straightforward to compute the number of elements in
+each conjugacy class, in terms of the type. For example, in order to count
+the number of permutations of type $[2,2,1]$ in $S_5$, note that there are
+$5! = 120$ ways to fill the corresponding Young diagram with the numbers
+$1,\dots,5$:
+\[
+\begin{array}{|c|c|}
+\hline
+a_1 & a_2 \\ \hline
+a_3 & a_4 \\ \hline
+\end{array}
+\quad a_5
+\]
+that is, $120$ ways to write a permutation as a product of two $2$-cycles:
+$(a_1 a_2)(a_3 a_4)$; but switching $a_1 \leftrightarrow a_2$ and
+$a_3 \leftrightarrow a_4$, as well as switching the two cycles, gives the
+same permutation. Therefore there are
+\[
+  \frac{120}{2 \cdot 2 \cdot 2} = 15
+\]
+permutations of type $[2,2,1]$. Performing this computation for all Young
+diagrams for $S_5$ gives us the size of each conjugacy class, that is, the
+class formula (cf.~\S{}1.2) for $S_5$:
+\[
+  120 = 1 + 10 + 15 + 20 + 20 + 30 + 24.
+\]
+\begin{exam}{}{exam:groups2:4.9}
+There are no normal subgroups of size $30$ in $S_5$. Indeed, normal subgroups
+are unions of conjugacy classes (\S{}1.3); since the identity is in every
+subgroup and $30 - 1 = 29$ cannot be written as a sum of the numbers
+appearing in the class formula for $S_5$, there is no such subgroup.
+\end{exam}
+
+This observation will be dwarfed by much stronger results that we will prove
+soon (such as Theorem~\ref{thm:groups2:4.20},
+Corollary~\ref{coro:groups2:4.21}); but it is remarkable that such precise
+statements can be established with so little work.
 
 \subsection{Transpositions, parity, and the alternating group}
 \label{subsec:groups2:transpositions-parity-and-the-alternating-group}
