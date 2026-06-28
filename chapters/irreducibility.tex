@@ -1843,161 +1843,158 @@ suffice to determine the element in $R(x)$ (cf.\ Exercise~III.2.7).
 
 \subsection{\texorpdfstring{$R$ UFD $\implies$ $R[x]$ UFD}{R UFD implies R[x] UFD}}
 \label{subsec:irred:r-ufd-implies-r-x-ufd}
-% We are now in a position to prove the analogue of
+We are now in a position to prove the analogue of Hilbert's basis
+theorem for unique factorization domains, that is,
 
-% Hilbert's basis theorem for unique factorization domains, that is,
-% Theorem 4.14. Let R be a UFD; then R[x] is a UFD.
-% For example, this result (and an immediate induction) shows that the rings
-% Z[x1 , . . . , xn ] and k[x1 , . . . , xn ] (for k a field) are UFDs. Theorem
-% 4.14 is also often
-% called Gauss's lemma.
-% As a measure of how delicate the statement of Theorem 4.14 is, note that the
-% power series ring R[[x]] is not necessarily a UFD if R is a UFD; examples of
-% this
-% phenomenon are however not easy to construct. Of course k[[x]] is a UFD if k is
-% a
-% field, since k[[x]] is a Euclidean domain in this case (Exercise 2.14).
-% By Theorem 2.5, in order to prove Theorem 4.14, we have to verify that R[x]
-% satisfies the a.c.c. for principal ideals and that every irreducible element in
-% R[x]
-% is prime, provided that R is itself a UFD. The general idea is to reduce these
-% questions to matters in K[x], where K = K(R) is the field of fractions of R:
-% as we know, K[x] is a UFD (in fact it is a Euclidean domain, and Euclidean
-% domain \implies  PID \implies  UFD, as shown in \S{}2).
-% The following lemma captures the most crucial ingredient of the interaction
-% between R[x] and K[x]:
-% Lemma 4.15. Let R be a UFD, and let K = K(R) be its field of fractions. For
-% nonzero f, g \in  R[x], denote by (f ), (g) the principal ideals f R[x], gR[x]
-% in R[x],
-% and denote by (f )K , (g)K the principal ideals f K[x], gK[x] in K[x]. Assume
-% \bullet  (contg ) \subseteq  (contf ) and
-% \bullet  (g)K \subseteq  (f )K .
-% Then (g) \subseteq  (f ).
-% Proof. Since (g) K \subseteq  (f )K , we have g = f h, where h \in  K[x]. Write
-% h = ab h, where
-% a, b \in  R and h \in  R[x] is a primitive polynomial: this can be done by
-% collecting
-% common denominators in h, then applying the first point of Lemma 4.7. We then
-% have
-% bg = af h
-% in R[x]. By Gauss's lemma and since h is primitive,
-% (a contf ) = (b contg );
-% and since (contg ) \subseteq  (contf ) by hypothesis, we obtain
-% (a contf ) \subseteq  (b cont f ).
-% Since R is an integral domain and (contf ) = (0), this implies
-% a = bc
-% for some c \in  R. But then h = ab h = ch \in  R[x], and g = f h \in  (f ); that
-% is, (g) \subseteq  (f )
-% in R[x], as needed.
-%  ?
-% The first application is the following description of the irreducible elements
-% of R[x]; this will also be used in the proof of Theorem 4.14 and is
-% independently
-% interesting.
-% Proposition 4.16. Let R be a UFD, and let K be its field of fractions. Let f \in
-% R[x] be a nonconstant, irreducible polynomial. Then f is irreducible as an
-% element
-% of K[x].
-% Proof. First note that f is primitive: otherwise we could factor out its
-% content,
-% and f would not be irreducible.
-% Next, assume f = gh, with g, h \in  K[x]; we have to prove that either g or h is
-% a unit in K[x]. Let c, d \in  K such that
-% g = cg,
-%  h = dh,
-% and g, h are primitive polynomials in R[x]. By Lemma 4.4, gh is also primitive;
-% thus (contgh ) = (1) = (contf ); further,
-% (f )K = (gh)K
-% as cd = 0 is a unit in K. By Lemma 4.15 we obtain
-% (f ) = (gh)
-% as ideals of R[x]; that is, f = ugh with u \in  R[x] a unit. As f is irreducible
-% in R[x],
-% this implies that either g or h is a unit in R[x]. But then g or h were units in
-% K[x],
-% verifying that f is irreducible in K[x].
-%  ?
-% I have always found this fact almost counterintuitive: K is `larger' than R, so
-% one may expect that it should be `easier' to factor polynomials over K than over
-% R.
-% Proposition 4.16 tells us that this is not the case: with due attention to
-% special
-% cases, irreducibility in R[x] is `the same as' irreducibility in K[x]. To be
-% precise,
-% Corollary 4.17. Let R be a UFD and K the field of fractions of R. Let f \in
-% R[x]
-% be a nonconstant polynomial. Then f is irreducible in R[x] if and only if it is
-% irreducible in K[x] and primitive.
-% The proof amounts to tying up loose ends, and I leave it to the reader (Exer-
-% cise 4.21).
-% We can now prove the main result of this section. We will make systematic use
-% of the characterization of UFDs found in Theorem 2.5.
-% Proof of Theorem 4.14. We begin by verifying the a.c.c. for principal ideals
-% in R[x]. Let
-% (f1) \subseteq  (f2 ) \subseteq  (f 3 ) \subseteq  \dots 
-% be an ascending chain of principal ideals of R[x]. By Corollary 4.9, this
-% induces an
-% ascending chain of principal ideals
-% (contf1 ) \subseteq  (contf2 ) \subseteq  (contf3 ) \subseteq  \dots 
-% in R; since R is a UFD, this chain stabilizes: that is, (contfi ) = (contfi+1 )
-% for16
-% i ? 0. On the other hand, with notation as in Lemma 4.15 we have
-% (f1 )K \subseteq  (f2 )K \subseteq  (f3 )K \subseteq  \dots 
-% as a sequence of ideals in K[x]; since K[x] is a UFD (because it is a PID; cf.
-% \S{}2.3)
-% this sequence stabilizes. Therefore, (fi )K = (fi+1 )K for i ? 0.
-% By Lemma 4.15, (fi ) = (fi+1) for i ? 0; that is, the given chain of principal
-% ideals stabilizes, as needed.
-% Next, we consider an irreducible element f of R[x]. We verify that (f ) is a
-% prime ideal; by Theorem 2.5 it then follows that R[x] is a UFD, as stated.
-% If f is irreducible and constant, then f is prime in R as R is a UFD, and it
-% follows that f is prime in R[x] (by Corollary 4.2). Thus we may assume that f is
-% nonconstant and irreducible (and in particular primitive) in R[x].
-% By Proposition 4.16, f is irreducible as an element of K[x]; since K[x] is a
-% PID,
-% (f )K is prime in K[x]. Consider the composition
-% K[x]
-% \rho  : R[x] \setminus \to  K[x] \setminus 
-%  :
-% (f ) K
-% I claim that ker \rho  = (f ). Indeed, the inclusion \supseteq  is trivial; for
-% the other inclusion,
-% note that \rho (g) = 0 implies that g is divisible by f in K[x]: that is, (g)K
-% \subseteq  (f )K ; and
-% we have (contg ) \subseteq  (contf ) since (contf ) = (1) as f is primitive. By
-% Lemma 4.15, we
-% obtain that (g) \subseteq  (f ), i.e., g is divisible by f in R[x], as needed.
-% Since ker \rho  = (f ),
-% we find that \rho  induces an injective homomorphism
-% R[x]
-%  K[x]
-% \setminus \to 
-%  .
-% (f )
-%  (f )K
-% 16 `For i ? 0' is shorthand for (\exists N \geq  0) (\forall i \geq  N ) . . . ,
-% that is, `for all sufficiently large i. . . '.
-% Since the ring on the right is an integral domain (as (f )K is prime in K[x]),
-% so is
-% the ring on the left. This proves that (f ) is prime in R[x], and we are done.
-%  ?
-% Summarizing, if R is a UFD, then factorization in R[x] is `the same as' factor-
-% ization in the polynomial ring K[x] over the field of quotients of R. If f (x)
-% \in  R[x],
-% then f (x) has a prime factorization in K[x] for the simpler reason that K[x] is
-% a
-% PID, hence a UFD; but if R itself is a UFD, then we know that each of the
-% factors
-% may be assumed to be in R[x] to begin with (cf. Exercise 4.23).
-% Example 4.18. As mentioned already, Theorem 4.14 implies that several impor-
-% tant rings, such as Z[x1 , . . . , xn ] or C[x1, . . . , xn ], are UFDs; for
-% example Z[x] is a
-% UFD, as announced in \S{}2.3. Further, arguing as in Exercise 1.15 to reduce to
-% the
-% case of finitely many indeterminates, it follows that Z[x1 , x2, . . . ] is a
-% UFD: this is
-% an example of a non-Noetherian UFD, promised a while back (and illustrating the
-% last missing feature of the picture presented at the beginning of the chapter).
-%  ?
+\begin{thm}{}{irred:4.14}
+Let $R$ be a UFD; then $R[x]$ is a UFD.
+\end{thm}
+For example, this result (and an immediate induction) shows that the
+rings $\mathbb{Z}[x_1, \dots, x_n]$ and $k[x_1, \dots, x_n]$ (for $k$
+a field) are UFDs. Theorem~4.14 is also often called Gauss's lemma.
+
+As a measure of how delicate the statement of Theorem~4.14 is, note that
+the power series ring $R[[x]]$ is not necessarily a UFD if $R$ is a UFD;
+examples of this phenomenon are however not easy to construct. Of course
+$k[[x]]$ is a UFD if $k$ is a field, since $k[[x]]$ is a Euclidean
+domain in this case (Exercise~2.14).
+By Theorem~2.5, in order to prove Theorem~4.14, we have to verify that
+$R[x]$ satisfies the a.c.c.\ for principal ideals and that every
+irreducible element in $R[x]$ is prime, provided that $R$ is itself a
+UFD. The general idea is to reduce these questions to matters in $K[x]$,
+where $K = K(R)$ is the field of fractions of $R$: as we know, $K[x]$
+is a UFD (in fact it is a Euclidean domain, and Euclidean domain
+$\implies$ PID $\implies$ UFD, as shown in~\S{}2).
+
+The following lemma captures the most crucial ingredient of the
+interaction between $R[x]$ and $K[x]$:
+\begin{lem}{}{irred:4.15}
+Let $R$ be a UFD, and let $K = K(R)$ be its field of fractions. For
+nonzero $f, g \in R[x]$, denote by $(f)$, $(g)$ the principal ideals
+$fR[x]$, $gR[x]$ in $R[x]$, and denote by $(f)_K$, $(g)_K$ the
+principal ideals $fK[x]$, $gK[x]$ in $K[x]$. Assume
+\begin{itemize}
+  \item $(\operatorname{cont} g) \subseteq (\operatorname{cont} f)$ and
+  \item $(g)_K \subseteq (f)_K$.
+\end{itemize}
+Then $(g) \subseteq (f)$.
+\end{lem}
+\begin{proof}
+Since $(g)_K \subseteq (f)_K$, we have $g = fh$, where $h \in K[x]$.
+Write $h = \frac{a}{b} \tilde{h}$, where $a, b \in R$ and
+$\tilde{h} \in R[x]$ is a primitive polynomial: this can be done by
+collecting common denominators in $h$, then applying the first point of
+Lemma~4.7. We then have $bg = af\tilde{h}$ in $R[x]$. By Gauss's lemma
+and since $\tilde{h}$ is primitive,
+\[(a \operatorname{cont} f) = (b \operatorname{cont} g);\]
+and since $(\operatorname{cont} g) \subseteq (\operatorname{cont} f)$
+by hypothesis, we obtain
+$(a \operatorname{cont} f) \subseteq (b \operatorname{cont} f)$.
+Since $R$ is an integral domain and $(\operatorname{cont} f) \neq (0)$,
+this implies $a = bc$ for some $c \in R$. But then
+$h = \frac{a}{b} \tilde{h} = c\tilde{h} \in R[x]$, and
+$g = fh \in (f)$; that is, $(g) \subseteq (f)$ in $R[x]$, as needed.
+\end{proof}
+The first application is the following description of the irreducible
+elements of $R[x]$; this will also be used in the proof of Theorem~4.14
+and is independently interesting.
+
+\begin{prop}{}{irred:4.16}
+Let $R$ be a UFD, and let $K$ be its field of fractions. Let
+$f \in R[x]$ be a nonconstant, irreducible polynomial. Then $f$ is
+irreducible as an element of $K[x]$.
+\end{prop}
+
+\begin{proof}
+First note that $f$ is primitive: otherwise we could factor out its
+content, and $f$ would not be irreducible.
+
+Next, assume $f = gh$, with $g, h \in K[x]$; we have to prove that
+either $g$ or $h$ is a unit in $K[x]$. Let $c, d \in K$ such that
+$g = c\tilde{g}$, $h = d\tilde{h}$, and $\tilde{g}$, $\tilde{h}$ are
+primitive polynomials in $R[x]$. By Lemma~4.4, $\tilde{g}\tilde{h}$ is
+also primitive; thus
+$(\operatorname{cont}(\tilde{g}\tilde{h})) = (1) = (\operatorname{cont} f)$;
+further, $(f)_K = (\tilde{g}\tilde{h})_K$ as $cd \neq 0$ is a unit in
+$K$. By Lemma~4.15 we obtain $(f) = (\tilde{g}\tilde{h})$ as ideals of
+$R[x]$; that is, $f = u\tilde{g}\tilde{h}$ with $u \in R[x]$ a unit.
+As $f$ is irreducible in $R[x]$, this implies that either $\tilde{g}$ or
+$\tilde{h}$ is a unit in $R[x]$. But then $g$ or $h$ were units in
+$K[x]$, verifying that $f$ is irreducible in $K[x]$.
+\end{proof}
+I have always found this fact almost counterintuitive: $K$ is `larger'
+than $R$, so one may expect that it should be `easier' to factor
+polynomials over $K$ than over $R$. Proposition~4.16 tells us that this
+is not the case: with due attention to special cases, irreducibility in
+$R[x]$ is `the same as' irreducibility in $K[x]$. To be precise,
+
+\begin{coro}{}{irred:4.17}
+Let $R$ be a UFD and $K$ the field of fractions of $R$. Let
+$f \in R[x]$ be a nonconstant polynomial. Then $f$ is irreducible in
+$R[x]$ if and only if it is irreducible in $K[x]$ and primitive.
+\end{coro}
+
+The proof amounts to tying up loose ends, and I leave it to the reader
+(Exercise~4.21).
+We can now prove the main result of this section. We will make systematic
+use of the characterization of UFDs found in Theorem~2.5.
+
+\begin{proof}[Proof of Theorem~4.14]
+We begin by verifying the a.c.c.\ for principal ideals in $R[x]$. Let
+\[(f_1) \subseteq (f_2) \subseteq (f_3) \subseteq \dots\]
+be an ascending chain of principal ideals of $R[x]$. By
+Corollary~4.9, this induces an ascending chain of principal ideals
+\[(\operatorname{cont} f_1) \subseteq (\operatorname{cont} f_2)
+  \subseteq (\operatorname{cont} f_3) \subseteq \dots\]
+in $R$; since $R$ is a UFD, this chain stabilizes: that is,
+$(\operatorname{cont} f_i) = (\operatorname{cont} f_{i+1})$ for
+$i \gg 0$. On the other hand, with notation as in Lemma~4.15 we have
+\[(f_1)_K \subseteq (f_2)_K \subseteq (f_3)_K \subseteq \dots\]
+as a sequence of ideals in $K[x]$; since $K[x]$ is a UFD (because it
+is a PID; cf.\ \S{}2.3) this sequence stabilizes. Therefore,
+$(f_i)_K = (f_{i+1})_K$ for $i \gg 0$.
+
+By Lemma~4.15, $(f_i) = (f_{i+1})$ for $i \gg 0$; that is, the given
+chain of principal ideals stabilizes, as needed.
+Next, we consider an irreducible element $f$ of $R[x]$. We verify that
+$(f)$ is a prime ideal; by Theorem~2.5 it then follows that $R[x]$ is a
+UFD, as stated. If $f$ is irreducible and constant, then $f$ is prime in
+$R$ as $R$ is a UFD, and it follows that $f$ is prime in $R[x]$ (by
+Corollary~4.2). Thus we may assume that $f$ is nonconstant and
+irreducible (and in particular primitive) in $R[x]$.
+
+By Proposition~4.16, $f$ is irreducible as an element of $K[x]$; since
+$K[x]$ is a PID, $(f)_K$ is prime in $K[x]$. Consider the composition
+\[\rho : R[x] \to K[x] \to \frac{K[x]}{(f)_K}.\]
+I claim that $\ker \rho = (f)$. Indeed, the inclusion $\supseteq$ is
+trivial; for the other inclusion, note that $\rho(g) = 0$ implies that
+$g$ is divisible by $f$ in $K[x]$: that is, $(g)_K \subseteq (f)_K$;
+and we have $(\operatorname{cont} g) \subseteq (\operatorname{cont} f)$
+since $(\operatorname{cont} f) = (1)$ as $f$ is primitive. By
+Lemma~4.15, we obtain that $(g) \subseteq (f)$, i.e., $g$ is divisible
+by $f$ in $R[x]$, as needed. Since $\ker \rho = (f)$, we find that
+$\rho$ induces an injective homomorphism
+$\frac{R[x]}{(f)} \hookrightarrow \frac{K[x]}{(f)_K}$.
+Since the ring on the right is an integral domain (as $(f)_K$ is prime
+in $K[x]$), so is the ring on the left. This proves that $(f)$ is prime
+in $R[x]$, and we are done.
+\end{proof}
+Summarizing, if $R$ is a UFD, then factorization in $R[x]$ is `the same
+as' factorization in the polynomial ring $K[x]$ over the field of
+quotients of $R$. If $f(x) \in R[x]$, then $f(x)$ has a prime
+factorization in $K[x]$ for the simpler reason that $K[x]$ is a PID,
+hence a UFD; but if $R$ itself is a UFD, then we know that each of the
+factors may be assumed to be in $R[x]$ to begin with (cf.\
+Exercise~4.23).
+
+As mentioned already, Theorem~4.14 implies that several important rings,
+such as $\mathbb{Z}[x_1, \dots, x_n]$ or $\mathbb{C}[x_1, \dots, x_n]$,
+are UFDs; for example $\mathbb{Z}[x]$ is a UFD, as announced in~\S{}2.3.
+Further, arguing as in Exercise~1.15 to reduce to the case of finitely
+many indeterminates, it follows that $\mathbb{Z}[x_1, x_2, \dots]$ is a
+UFD: this is an example of a non-Noetherian UFD, promised a while back
+(and illustrating the last missing feature of the picture presented at
+the beginning of the chapter).
 
 \subsection*{Exercises}
 
