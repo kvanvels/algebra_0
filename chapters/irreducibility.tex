@@ -2548,124 +2548,146 @@ a field rather explicitly, in \S{}VII.2.1.
 
 \subsection{Irreducibility in C[x], R[x], Q[x]}
 \label{subsec:irred:irreducibility-in-c-x-r-x-q-x}
-% Every polynomial f \in  C[x] factors com-
+Every polynomial $f \in \mathbb{C}[x]$ factors completely over
+$\mathbb{C}$. Indeed,
 
-% pletely over C. Indeed,
-% Theorem 5.12. C is algebraically closed.
-% Gauss is credited with providing the first proof21 of this fundamental theorem
-% (which is indeed known as the fundamental theorem of algebra.)
-% `Algebraic' proofs of the fundamental theorem of algebra require more than we
-% know at this point (we will encounter one in \S{}VII.7.1, after we have seen a
-% little
-% Galois theory); curiously, a little complex analysis makes the statement nearly
-% trivial. Here is a sketch of such an argument. Let f \in  C[x] be a nonconstant
-% polynomial; the task (cf. Lemma 5.10) consists of proving that f has a root in
-% C.
-% Whatever f (0) is, we can find an r \in  R large enough that |f (z)| > |f (0)|
-% for all z on
-% the circle |z| = r (since f is nonconstant, limz\to \infty  |f (z)| = +\infty ).
-% The disk |z| \leq  r
-% is compact, so the continuous function |f (z)| has a minimum on it; by the
-% choice
-% of r, it must be somewhere in the interior of the disk, say at z = a. The
-% minimum
-% modulus principle (cf. Exercise 5.16) then implies that f (a) = 0, q.e.d.
-% By Theorem 5.12, irreducibility of polynomials in C[x] is as simple as it can
-% be: a nonconstant polynomial f \in  C[x] is irreducible if and only if it has
-% degree 1.
-% Every f \in  C[x] of degree \geq  2 is reducible.
-% Over R, the situation is almost as simple:
-% Proposition 5.13. Every polynomial f \in  R[x] of degree \geq  3 is reducible.
-% The nonconstant irreducible polynomials in R[x] are precisely the polynomials
-% of degree 1 and the quadratic polynomials
-% with b2 - 4ac < 0.
-% f = ax2 + bx + c
-% Proof. Let f \in  R[x] be a nonconstant polynomial:
-% f = a0 + a1 x + \dots  + an xn ,
-% with all ai \in  R. By Theorem 5.12, f has a complex root z:
-% a0 + a1 z + \dots  + an zn = 0.
-% Applying complex conjugation z ?\to  z and noting that ai = ai since ai \in  R,
-% a0 + a1 z + \dots  + an zn = a0 + a1 z + \dots  + an z n = a0 + a1 z + \dots  +
-% an z n = 0 :
-% this says that z is also a root of f . There are two possibilities:
-% \bullet  either z = z, that is, z = r was real to begin with, and hence (x - r) is a factor
-% of f in R[x]; or
-% \bullet  z = z, and then (x - z) and (x - z) are nonassociate irreducible factors of f
-% in C[x]. In this case (since C[x] is a UFD!)
-% x 2 - (z + z)x + zz = (x - z)(x - z)
-% divides f .
-% 21 Actually, Gauss's first proof apparently had a gap; the first rigorous proof
-% is due to Argand.
-% Later, Gauss fixed the gap in his proof and provided several other proofs.
-% Since z+z and zz are both real numbers, this analysis shows that every
-% nonconstant
-% f \in  R[x] has an irreducible factor of degree \leq  2, proving the first
-% statement.
-% The second statement then follows immediately from Proposition 5.3 and the
-% fact that the quadratic polynomials in R[x] with no real roots are precisely the
-% polynomials ax2 + bx + c with b2 - 4ac < 0.
-%  ?
-% The following remark is an immediate consequence of Proposition 5.13 and is
-% otherwise evident from elementary calculus (Exercise 5.17):
-% Corollary 5.14. Every polynomial f \in  R[x] of odd degree has a real root.
-% Summarizing, the issue of irreducibility of polynomials in C[x] or R[x] is very
-% straightforward. By contrast, irreducibility in Q[x] is a complicated business:
-% as we
-% have seen (Proposition 4.16), it is just as subtle as irreducibility in Z[x].
-% There is
-% no sharp characterization of irreducibility in Z[x]; but the following
-% simple-minded
-% remarks (and Eisenstein's criterion, discussed in \S{}5.4) suffice in many
-% interesting
-% cases.
-% One simple-minded remark is that if \phi  : R \to  S is a homomorphism, and a
-% is reducible in R, then \phi (a) is likely to be reducible in S. This is just
-% because if
-% a = bc, then \phi (a) = \phi (b)\phi (c).
-% Of course this is not quite right: for example because \phi (a) and/or \phi (b)
-% and/or
-% \phi (c) may be units in S. But with due care for special cases this observation may
-% be used to great effect, especially in the contrapositive form: if \phi (a) is
-% irreducible
-% in S, then a is (likely. . . ) irreducible in R.
-% Here is a simple statement formalizing these remarks, for R = Z[x]. The natural
-% projection Z \to  Z/pZ induces a surjective homomorphism \pi  : Z[x] \to
-% Z/pZ[x]:
-% quite simply, \pi (f ) is obtained from f by reading all coefficients modulo p;
-% I will
-% write `f mod p' for the result of this operation.
-% Proposition 5.15. Let f \in  Z[x] be a primitive polynomial, and let p be a
-% prime
-% integer. Assume f mod p has the same degree as f and is irreducible in Z/pZ[x].
-% Then f is irreducible in Z[x].
-% Proof. Argue contrapositively: if f is primitive and reducible in Z[x] and deg f
-% =
-% n, then f = gh with deg g = d, deg h = e, d + e = n, and both d, e, positive.
-% But
-% then the same can be said of f mod p, so f mod p is also reducible.
-%  ?
-% The hypothesis on degrees is necessary, precisely to take care of the `special
-% cases' mentioned in the discussion preceding the statement. For example, (2x3 +
-% 3x2 + 3x + 1) equals (x2 + x + 1) mod 2, and the latter is irreducible in
-% Z/2Z[x];
-% yet (2x + 1) is a factor of the former. The point is of course that 2x + 1 is a
-% unit
-% mod 2.
-% Warning: As we will see in a fairly distant future (Example VII.5.3), there
-% are irreducible polynomials in Z[x] which are reducible modulo all primes! So
-% Proposition 5.15 cannot be turned into a characterization of irreducibility in
-% Z[x].
-% It is however rather useful in producing examples. For instance,
-% Corollary 5.16. There are irreducible polynomials in Z[x] and Q[x] of
-% arbitrarily
-% large degree.
-% Proof. By Proposition 4.16, the statement for Z[x] implies the one for Q[x]. By
-% Proposition 5.15, it suffices to verify that there are irreducible polynomials
-% in
-% Z/pZ[x] of arbitrarily large degree, for any prime integer p. This is a
-% particular
-% case of Exercise 5.11.
-%  ?
+\begin{thm}{}{irred:5.12}
+$\mathbb{C}$ is algebraically closed.
+\end{thm}
+
+Gauss is credited with providing the first
+proof\footnote{Actually, Gauss's first proof apparently had a gap; the
+first rigorous proof is due to Argand. Later, Gauss fixed the gap in his
+proof and provided several other proofs.} of this fundamental theorem
+(which is indeed known as the fundamental theorem of algebra). `Algebraic'
+proofs of the fundamental theorem of algebra require more than we know at
+this point (we will encounter one in \S{}VII.7.1, after we have seen a
+little Galois theory); curiously, a little complex analysis makes the
+statement nearly trivial.
+\begin{proof}
+Here is a sketch. Let $f \in \mathbb{C}[x]$ be a nonconstant
+polynomial; the task (cf.\ Lemma~5.10) consists of proving that $f$ has
+a root in $\mathbb{C}$. Whatever $f(0)$ is, we can find an
+$r \in \mathbb{R}$ large enough that $|f(z)| > |f(0)|$ for all $z$ on
+the circle $|z| = r$ (since $f$ is nonconstant,
+$\lim_{z \to \infty} |f(z)| = +\infty$). The disk $|z| \leq r$ is
+compact, so the continuous function $|f(z)|$ has a minimum on it; by
+the choice of $r$, it must be somewhere in the interior of the disk,
+say at $z = a$. The minimum modulus principle (cf.\ Exercise~5.16) then
+implies that $f(a) = 0$.
+\end{proof}
+By Theorem~5.12, irreducibility of polynomials in $\mathbb{C}[x]$ is as
+simple as it can be: a nonconstant polynomial $f \in \mathbb{C}[x]$ is
+irreducible if and only if it has degree $1$. Every $f \in \mathbb{C}[x]$
+of degree $\geq 2$ is reducible. Over $\mathbb{R}$, the situation is
+almost as simple:
+
+\begin{prop}{}{irred:5.13}
+Every polynomial $f \in \mathbb{R}[x]$ of degree $\geq 3$ is reducible.
+The nonconstant irreducible polynomials in $\mathbb{R}[x]$ are precisely
+the polynomials of degree $1$ and the quadratic polynomials
+$f = ax^2 + bx + c$ with $b^2 - 4ac < 0$.
+\end{prop}
+\begin{proof}
+Let $f \in \mathbb{R}[x]$ be a nonconstant polynomial:
+$f = a_0 + a_1 x + \dots + a_n x^n$, with all $a_i \in \mathbb{R}$.
+By Theorem~5.12, $f$ has a complex root $z$:
+$a_0 + a_1 z + \dots + a_n z^n = 0$. Applying complex conjugation
+$z \mapsto \overline{z}$ and noting that $\overline{a_i} = a_i$ since
+$a_i \in \mathbb{R}$,
+\[
+  \overline{a_0 + a_1 z + \dots + a_n z^n}
+  = a_0 + a_1 \overline{z} + \dots + a_n \overline{z}^n = 0:
+\]
+this says that $\overline{z}$ is also a root of $f$. There are two
+possibilities:
+\begin{enumerate}[label=(\arabic*)]
+  \item Either $z = \overline{z}$, that is, $z = r$ was real to begin
+    with, and hence $(x - r)$ is a factor of $f$ in $\mathbb{R}[x]$; or
+  \item $z \neq \overline{z}$, and then $(x - z)$ and $(x - \overline{z})$
+    are nonassociate irreducible factors of $f$ in $\mathbb{C}[x]$. In
+    this case (since $\mathbb{C}[x]$ is a UFD!)
+    \[
+      x^2 - (z + \overline{z})x + z\overline{z} = (x - z)(x - \overline{z})
+    \]
+    divides $f$.
+\end{enumerate}
+Since $z + \overline{z}$ and $z\overline{z}$ are both real numbers, this
+analysis shows that every nonconstant $f \in \mathbb{R}[x]$ has an
+irreducible factor of degree $\leq 2$, proving the first statement. The
+second statement then follows immediately from Proposition~5.3 and the
+fact that the quadratic polynomials in $\mathbb{R}[x]$ with no real
+roots are precisely the polynomials $ax^2 + bx + c$ with
+$b^2 - 4ac < 0$.
+\end{proof}
+The following remark is an immediate consequence of Proposition~5.13 and
+is otherwise evident from elementary calculus (Exercise~5.17):
+
+\begin{coro}{}{irred:5.14}
+Every polynomial $f \in \mathbb{R}[x]$ of odd degree has a real root.
+\end{coro}
+Summarizing, the issue of irreducibility of polynomials in $\mathbb{C}[x]$
+or $\mathbb{R}[x]$ is very straightforward. By contrast, irreducibility
+in $\mathbb{Q}[x]$ is a complicated business: as we have seen
+(Proposition~4.16), it is just as subtle as irreducibility in
+$\mathbb{Z}[x]$. There is no sharp characterization of irreducibility in
+$\mathbb{Z}[x]$; but the following simple-minded remarks (and
+Eisenstein's criterion, discussed in \S{}5.4) suffice in many
+interesting cases.
+
+One simple-minded remark is that if $\varphi : R \to S$ is a
+homomorphism, and $a$ is reducible in $R$, then $\varphi(a)$ is likely
+to be reducible in $S$. This is just because if $a = bc$, then
+$\varphi(a) = \varphi(b)\varphi(c)$. Of course this is not quite right:
+for example because $\varphi(a)$ and/or $\varphi(b)$ and/or $\varphi(c)$
+may be units in $S$. But with due care for special cases this observation
+may be used to great effect, especially in the contrapositive form: if
+$\varphi(a)$ is irreducible in $S$, then $a$ is (likely\dots)
+irreducible in $R$.
+
+Here is a simple statement formalizing these remarks, for $R = \mathbb{Z}[x]$.
+The natural projection $\mathbb{Z} \to \mathbb{Z}/p\mathbb{Z}$ induces a
+surjective homomorphism $\pi : \mathbb{Z}[x] \to \mathbb{Z}/p\mathbb{Z}[x]$:
+quite simply, $\pi(f)$ is obtained from $f$ by reading all coefficients
+modulo $p$; I will write `$f$ mod $p$' for the result of this
+operation.
+\begin{prop}{}{irred:5.15}
+Let $f \in \mathbb{Z}[x]$ be a primitive polynomial, and let $p$ be a
+prime integer. Assume $f \bmod p$ has the same degree as $f$ and is
+irreducible in $(\mathbb{Z}/p\mathbb{Z})[x]$. Then $f$ is irreducible in
+$\mathbb{Z}[x]$.
+\end{prop}
+\begin{proof}
+Argue contrapositively: if $f$ is primitive and reducible in
+$\mathbb{Z}[x]$ and $\deg f = n$, then $f = gh$ with $\deg g = d$,
+$\deg h = e$, $d + e = n$, and both $d$, $e$ positive. But then the same
+can be said of $f \bmod p$, so $f \bmod p$ is also reducible.
+\end{proof}
+The hypothesis on degrees is necessary, precisely to take care of the
+`special cases' mentioned in the discussion preceding the statement. For
+example, $(2x^3 + 3x^2 + 3x + 1)$ equals $(x^2 + x + 1) \bmod 2$, and
+the latter is irreducible in $(\mathbb{Z}/2\mathbb{Z})[x]$; yet $(2x + 1)$
+is a factor of the former. The point is of course that $2x + 1$ is a
+unit mod $2$.
+
+\textbf{Warning:} As we will see in a fairly distant future
+(Example~VII.5.3), there are irreducible polynomials in $\mathbb{Z}[x]$
+which are reducible modulo all primes! So Proposition~5.15 cannot be
+turned into a characterization of irreducibility in $\mathbb{Z}[x]$.
+
+It is however rather useful in producing examples. For instance,
+
+\begin{coro}{}{irred:5.16}
+There are irreducible polynomials in $\mathbb{Z}[x]$ and $\mathbb{Q}[x]$
+of arbitrarily large degree.
+\end{coro}
+\begin{proof}
+By Proposition~4.16, the statement for $\mathbb{Z}[x]$ implies the one
+for $\mathbb{Q}[x]$. By Proposition~5.15, it suffices to verify that
+there are irreducible polynomials in $(\mathbb{Z}/p\mathbb{Z})[x]$ of
+arbitrarily large degree, for any prime integer $p$. This is a
+particular case of Exercise~5.11.
+\end{proof}
 
 \subsection{Eisenstein's criterion}
 \label{subsec:irred:eisenstein-s-criterion}
