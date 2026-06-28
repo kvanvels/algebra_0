@@ -1290,142 +1290,146 @@ the statement follows.
 
 \subsection{Composition factors; Schreier's theorem}
 \label{subsec:groups2:composition-factors-schreier-s-theorem}
-% Two normal series are equiv-
+Two normal series are \emph{equivalent} if they have the same length and the
+same quotients (up to order). The Jordan-H\"older theorem shows that any two
+maximal finite series of a group are equivalent. That is, the (isomorphism
+classes of the) quotients of a composition series depend only on the group,
+not on the chosen series. These are the \emph{composition factors} of the
+group. They form a multiset\footnote{See~\S{}I.2.2 for a reminder on
+multisets: they are sets of elements counted with multiplicity.} of simple
+groups: the `basic constituents' of our loose comment back in~\S{}2.
+It is clear that two isomorphic groups must have the same composition factors.
+Unfortunately, it is not possible to reconstruct a group from its composition
+factors alone (Exercise~\ref{exer:groups2:3.4}). One has to take into account
+the way the simple groups are `glued' together; we will come back to this
+point in~\S{}5.2.
 
-% alent if they have the same length and the same quotients (up to order). The
-% Jordan-H\"older theorem shows that any two maximal finite series of a group are
-% equivalent. That is, the (isomorphism classes of the) quotients of a composition
-% series depend only on the group, not on the chosen series. These are the compo-
-% sition factors of the group. They form a multiset12 of simple groups: the `basic
-% constituents' of our loose comment back in \S{}2.
-% It is clear that two isomorphic groups must have the same composition factors.
-% Unfortunately, it is not possible to reconstruct a group from its composition
-% factors
-% alone (Exercise 3.4). One has to take into account the way the simple groups are
-% `glued' together; we will come back to this point in \S{}5.2.
-% The intuition that the composition factors of a group are its basic constituents
-% is reinforced by the following fact: if G is a group with a composition series,
-% then
-% the composition factors of every normal subgroup N of G are composition factors
-% of G and the remaining ones are the composition factors of the quotient G/N .
-% 12 See \S{}I.2.2 for a reminder on multisets: they are sets of elements counted
-% with multiplicity.
-% For example, the composition factors of Z/4Z form the multiset consisting of two
-% copies of Z/2Z.
-% Example 3.3. Let G = Z/6Z = {[0], [1], [2], [3], [4], [5]}. Then
-% {[0], [1], [2], [3], [4], [5]} ? {[0], [3]} ? {[0]}
-% is a composition series for G; the quotients are Z/3Z, Z/2Z, respectively. The
-% (nor-
-% mal) subgroup N = {[0], [2], [4]} `turns off' the second factor: indeed,
-% intersecting
-% the series with N gives
-% {[0], [2], [4]} ? {[0]} = {[0]},
-% a series with composition factor Z/3Z. On the other hand, `mod-ing out by N '
-% turns off the first factor: keeping in mind [3] + N = [1] + N , etc., we find
-% {[0] + N, [1] + N } = {[0] + N, [1] + N } ? {[0] + N },
-% a series with lone composition factor Z/2Z.
-%  ?
-% This phenomenon holds in complete generality:
-% Proposition 3.4. Let G be a group, and let N be a normal subgroup of G. Then
-% G has a composition series if and only if both N and G/N have composition
-% series.
-% Further, if this is the case, then
-% (G) = (N ) + (G/N ),
-% and the composition factors of G consist of the collection of composition
-% factors
-% of N and of G/N .
-% Proof. If G/N has a composition series, the subgroups appearing in it correspond
-% to subgroups of G containing N , with isomorphic quotients, by Proposition
-% II.8.10
-% (the ``third isomorphism theorem''). Thus, if both G/N and N have composition
-% series, juxtaposing them produces a composition series for G, with the stated
-% con-
-% sequence on composition factors.
-% The converse is a little trickier. Assume that G has a composition series
-% G = G0 ? G1 ? G2 ? \dots  ? Gn = {e}
-% and that N is a normal subgroup of G. Intersecting the series with N gives a
-% sequence of subgroups of the latter:
-% N = G \cap  N \supseteq  G1 \cap  N \supseteq  \dots  \supseteq  {e} \cap  N =
-% {e}
-% such that Gi+1 \cap  N is normal in Gi \cap  N , for all i. I claim that this
-% becomes a
-% composition series for N once repetitions are eliminated. Indeed, this follows
-% once
-% we establish that
-% Gi \cap  N
-% Gi+1 \cap  N
-% is either trivial (so that Gi+1 \cap  N = Gi \cap  N , and the corresponding
-% inclusion may
-% be omitted) or isomorphic to Gi /Gi+1 (hence simple, and one of the composition
-% factors of G). To see this, consider the homomorphism
-% Gi
-% Gi \cap  N \setminus \to  Gi \setminus 
-%  :
-% Gi+1
-% the kernel is clearly Gi+1 \cap N ; therefore (by the first isomorphism theorem)
-% we have
-% an injective homomorphism
-% Gi \cap  N
-%  Gi
-% \setminus \to 
-% Gi+1 \cap  N
-%  Gi+1
-% identifying (Gi \cap  N )/(Gi+1 \cap  N ) with a subgroup of Gi /Gi+1 . Now,
-% this subgroup
-% is normal (because N is normal in G) and Gi /Gi+1 is simple; our claim follows.
-% As for G/N , obtain a sequence of subgroups from a composition series for G:
-% G
-%  G1 N
-%  G2 N
-%  {eG}N
-% \supseteq 
-%  \supseteq 
-%  \supseteq  \cdot \cdot \cdot  \supseteq 
-%  = {eG/N },
-% N
-%  N
-%  N
-%  N
-% such that (Gi+1 N )/N is normal in (Gi N )/N . As above, we have to check that
-% (GiN )/N
-% (Gi+1 N )/N
-% is either trivial or isomorphic to Gi/Gi+1 . By the third isomorphism theorem,
-% this
-% quotient is isomorphic to (Gi N )/(Gi+1N ). This time, consider the homomorphism
-% Gi N
-% G i \setminus \to  GiN \setminus 
-%  :
-% Gi+1 N
-% this is surjective (check!), and the subgroup Gi+1 of the source is sent to the
-% identity
-% element in the target; hence (by Theorem II.7.12) there is an onto homomorphism
-% Gi
-%  Gi N
-% \setminus 
-%  .
-% Gi+1
-%  Gi+1N
-% Since Gi/Gi+1 is simple, it follows that (GiN )/(Gi+1 N ) is either trivial or
-% isomor-
-% phic to it (Exercise 2.4), as needed.
-% Summarizing, we have shown that if G has a composition series and N is normal
-% in G, then both N and G/N have composition series. The first part of the
-% argument
-% yields the statement on lengths and composition factors, concluding the proof. ?
-% One nice consequence of the Jordan-H\"older theorem is the following observa-
-% tion. A series is a refinement of another series if all terms of the first
-% appear in the
-% second.
-% Proposition 3.5. Any two normal series of a finite group ending with {e} admit
-% equivalent refinements.
-% Proof. Refine the series to a composition series; then apply the Jordan-H\"older
-% theorem.
-%  ?
-% In fact, Schreier's theorem asserts that this holds for all groups (while the
-% argument given here only works for groups admitting a composition series, e.g.,
-% finite groups). Proving this in general is reasonably straightforward, from
-% judicious
-% applications of the second isomorphism theorem (cf. Exercise 3.7).
+The intuition that the composition factors of a group are its basic
+constituents is reinforced by the following fact: if $G$ is a group with a
+composition series, then the composition factors of every normal subgroup $N$
+of $G$ are composition factors of $G$ and the remaining ones are the
+composition factors of the quotient $G/N$. For example, the composition
+factors of $\mathbb{Z}/4\mathbb{Z}$ form the multiset consisting of two
+copies of $\mathbb{Z}/2\mathbb{Z}$.
+\begin{exam}{}{exam:groups2:3.3}
+Let $G = \mathbb{Z}/6\mathbb{Z} = \{[0],[1],[2],[3],[4],[5]\}$. Then
+\[
+  \{[0],[1],[2],[3],[4],[5]\} \supsetneq \{[0],[3]\} \supsetneq \{[0]\}
+\]
+is a composition series for $G$; the quotients are $\mathbb{Z}/3\mathbb{Z}$,
+$\mathbb{Z}/2\mathbb{Z}$, respectively. The (normal) subgroup
+$N = \{[0],[2],[4]\}$ `turns off' the second factor: indeed, intersecting the
+series with $N$ gives
+\[
+  \{[0],[2],[4]\} \supsetneq \{[0]\} = \{[0]\},
+\]
+a series with composition factor $\mathbb{Z}/3\mathbb{Z}$. On the other hand,
+`mod-ing out by $N$' turns off the first factor: keeping in mind
+$[3]+N = [1]+N$, etc., we find
+\[
+  \{[0]+N,[1]+N\} \supsetneq \{[0]+N\},
+\]
+a series with lone composition factor $\mathbb{Z}/2\mathbb{Z}$.
+\end{exam}
+
+This phenomenon holds in complete generality:
+\begin{prop}{}{prop:groups2:comp-series-normal}
+Let $G$ be a group, and let $N$ be a normal subgroup of $G$. Then $G$ has a
+composition series if and only if both $N$ and $G/N$ have composition series.
+Further, if this is the case, then
+\[
+  \ell(G) = \ell(N) + \ell(G/N),
+\]
+and the composition factors of $G$ consist of the collection of composition
+factors of $N$ and of $G/N$.
+\end{prop}
+\begin{proof}
+If $G/N$ has a composition series, the subgroups appearing in it correspond
+to subgroups of $G$ containing $N$, with isomorphic quotients, by
+Proposition~II.8.10 (the ``third isomorphism theorem''). Thus, if both $G/N$
+and $N$ have composition series, juxtaposing them produces a composition
+series for $G$, with the stated consequence on composition factors.
+The converse is a little trickier. Assume that $G$ has a composition series
+\[
+  G = G_0 \supsetneq G_1 \supsetneq G_2 \supsetneq \dots \supsetneq G_n
+  = \{e\}
+\]
+and that $N$ is a normal subgroup of $G$. Intersecting the series with $N$
+gives a sequence of subgroups of the latter:
+\[
+  N = G \cap N \supseteq G_1 \cap N \supseteq \dots \supseteq \{e\} \cap N
+  = \{e\}
+\]
+such that $G_{i+1} \cap N$ is normal in $G_i \cap N$, for all $i$. I claim
+that this becomes a composition series for $N$ once repetitions are
+eliminated. Indeed, this follows once we establish that
+\[
+  \frac{G_i \cap N}{G_{i+1} \cap N}
+\]
+is either trivial (so that $G_{i+1} \cap N = G_i \cap N$, and the
+corresponding inclusion may be omitted) or isomorphic to $G_i/G_{i+1}$
+(hence simple, and one of the composition factors of $G$). To see this,
+consider the homomorphism
+\[
+  G_i \cap N \hookrightarrow G_i \twoheadrightarrow \frac{G_i}{G_{i+1}}:
+\]
+the kernel is clearly $G_{i+1} \cap N$; therefore (by the first isomorphism
+theorem) we have an injective homomorphism
+\[
+  \frac{G_i \cap N}{G_{i+1} \cap N} \hookrightarrow \frac{G_i}{G_{i+1}}
+\]
+identifying $(G_i \cap N)/(G_{i+1} \cap N)$ with a subgroup of $G_i/G_{i+1}$.
+Now, this subgroup is normal (because $N$ is normal in $G$) and $G_i/G_{i+1}$
+is simple; our claim follows.
+As for $G/N$, obtain a sequence of subgroups from a composition series for
+$G$:
+\[
+  \frac{G}{N} \supseteq \frac{G_1 N}{N} \supseteq \frac{G_2 N}{N}
+  \supseteq \cdots \supseteq \frac{\{e_G\}N}{N} = \{e_{G/N}\},
+\]
+such that $(G_{i+1}N)/N$ is normal in $(G_i N)/N$. As above, we have to
+check that
+\[
+  \frac{(G_i N)/N}{(G_{i+1} N)/N}
+\]
+is either trivial or isomorphic to $G_i/G_{i+1}$. By the third isomorphism
+theorem, this quotient is isomorphic to $(G_i N)/(G_{i+1} N)$. This time,
+consider the homomorphism
+\[
+  G_i \hookrightarrow G_i N \twoheadrightarrow \frac{G_i N}{G_{i+1} N}:
+\]
+this is surjective (check!), and the subgroup $G_{i+1}$ of the source is
+sent to the identity element in the target; hence (by Theorem~II.7.12) there
+is an onto homomorphism
+\[
+  \frac{G_i}{G_{i+1}} \twoheadrightarrow \frac{G_i N}{G_{i+1} N}.
+\]
+Since $G_i/G_{i+1}$ is simple, it follows that $(G_i N)/(G_{i+1} N)$ is
+either trivial or isomorphic to it
+(Exercise~\ref{exer:groups2:2.4}), as needed.
+Summarizing, we have shown that if $G$ has a composition series and $N$ is
+normal in $G$, then both $N$ and $G/N$ have composition series. The first
+part of the argument yields the statement on lengths and composition factors,
+concluding the proof.
+\end{proof}
+One nice consequence of the Jordan-H\"older theorem is the following
+observation. A series is a \emph{refinement} of another series if all terms
+of the first appear in the second.
+
+\begin{prop}{}{prop:groups2:schreier-finite}
+Any two normal series of a finite group ending with $\{e\}$ admit equivalent
+refinements.
+\end{prop}
+
+\begin{proof}
+Refine the series to a composition series; then apply the Jordan-H\"older
+theorem.
+\end{proof}
+In fact, \emph{Schreier's theorem} asserts that this holds for all groups
+(while the argument given here only works for groups admitting a composition
+series, e.g., finite groups). Proving this in general is reasonably
+straightforward, from judicious applications of the second isomorphism
+theorem (cf.\ Exercise~\ref{exer:groups2:3.7}).
 
 \subsection{The commutator subgroup, derived series, and solvability}
 \label{subsec:groups2:the-commutator-subgroup-derived-series-and-solvability}
