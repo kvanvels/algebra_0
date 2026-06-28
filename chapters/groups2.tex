@@ -659,89 +659,99 @@ a weaker statement).
 
 \subsection{Sylow II}
 \label{subsec:groups2:sylow-ii}
-% Theorem 2.5 tells us that some maximal p-group in G attains
+\cref{thm:groups2:sylow-i} tells us that some maximal $p$-group in $G$
+attains the largest size allowed by Lagrange's theorem, that is, the maximal
+power of the prime $p$ dividing $|G|$.
 
-% the largest size allowed by Lagrange's theorem, that is, the maximal power of
-% the
-% prime p dividing |G|.
-% One can be more precise: the second Sylow theorem tells us that every maximal
-% p-group in |G| is in fact a p-Sylow subgroup. It is as large as is allowed by
-% Lagrange's
-% theorem.
-% The situation is in fact even better: all p-Sylow subgroups are conjugates of
-% each other7 . Moreover, even better than this, every p-group inside G must be
-% contained in a conjugate of any fixed p-Sylow subgroup.
-% 6 Note that, as mentioned in \S{}2.1, we only need the abelian case of this
-% theorem.
-% 7 Of course if P is a p-Sylow subgroup of G, then so are all conjugates gP g-1
-% of P .
-% The proof of this very precise result is very easy!
-% Theorem 2.8 (Second Sylow theorem). Let G be a finite group, let P be a p-Sylow
-% subgroup, and let H \subseteq  G be a p-group. Then H is contained in a
-% conjugate of P :
-% there exists g \in  G such that H \subseteq  gP g-1 .
-% Proof. Act with H on the set of left-cosets of P , by left-multiplication. Since
-% there
-% are [G : P ] cosets and p does not divide [G : P ], we know this action must
-% have
-% fixed points (Exercise 1.1): let gP be one of them. This means that \forall h
-% \in  H:
-% hgP = gP ;
-% that is, g -1 hgP = P for all h in H; that is, g-1 Hg \subseteq  P ; that is, H
-% \subseteq  gP g -1, as
-% needed.
-%  ?
-% We can obtain an even more complete picture of the situation. Suppose we
-% have constructed a chain
-% H0 = {e} \subseteq  H1 \subseteq  \dots  \subseteq  Hk
-% of p-subgroups of a group G, where |Hi | = pi . By Theorem 2.8 we know that Hk
-% is contained in some p-Sylow subgroup, of order pr = the maximum power of p
-% dividing the order of G. But I claim that the chain can in fact be continued one
-% step at a time all the way up to the Sylow subgroup:
-% H0 = {e} \subseteq  H1 \subseteq  \dots  \subseteq  Hk \subseteq  Hk+1 \subseteq
-% \dots  \subseteq  Hr ;
-% and, further, Hk may be assumed to be normal in Hk+1. The following lemma will
-% simplify the proof of this fact considerably and will also help us prove the
-% third
-% Sylow theorem.
-% Lemma 2.9. Let H be a p-group contained in a finite group G. Then
-% [NG (H) : H] \equiv  [G : H]
-%  mod p.
-% Proof. If H is trivial, then NG (H) = G and the two numbers are equal.
-% Assume then that H is nontrivial, and act with H on the set of left-cosets of H
-% in G, by left-multiplication. The fixed points of this action are the cosets gH
-% such
-% that \forall h \in  H
-% hgH = gH,
-% that is, such that g-1 hg \in  H for all h \in  H; in other words, H \subseteq
-% gHg -1, and hence
-% (by order considerations) gHg -1 = H. This means precisely that g \in  NG (H).
-% Therefore, the set of fixed points of the action consists of the set of cosets
-% of H
-% in NG (H).
-% The statement then follows immediately from Corollary 1.3.
-%  ?
-% As a consequence, if Hk is not a p-Sylow subgroup `already', in the sense that p
-% `still' divides [G : Hk ], then p must also divide [NG(Hk ) : Hk ]. Another
-% application
-% of Cauchy's theorem tells us how to obtain the next subgroup Hk+1 in the chain.
-% More precisely, we have the following result.
-% Proposition 2.10. Let H be a p-subgroup of a finite group G, and assume that H
-% \setminus is not a p-Sylow subgroup. Then there exists a p-subgroup H of G containing H,
-% \setminus  \setminus such that [H : H] = p and H is normal in H .
-% Proof. Since H is not a p-Sylow subgroup of G, p divides [NG (H) : H], by
-% Lemma 2.9. Since H is normal in NG (H), we may consider the quotient group
-% NG (H)/H, and p divides the order of this group. By Theorem 2.1, NG (H)/H has
-% an element of order p; this generates a subgroup of order p of NG (H)/H, which
-% must be (cf. \S{}II.8.3) of the form H \setminus  /H for a subgroup H \setminus
-% of NG (H).
-% It is straightforward to verify that H \setminus  satisfies the stated
-% requirements.
-%  ?
-% The statement about `chains of p-subgroups' follows immediately from this
-% result.
-% Note that Cauchy's theorem and Proposition 2.10 provide a new proof of Propo-
-% sition 2.6 and hence of the first Sylow theorem.
+One can be more precise: the second Sylow theorem tells us that every maximal
+$p$-group in $G$ is in fact a $p$-Sylow subgroup. It is as large as is allowed
+by Lagrange's theorem.
+
+The situation is in fact even better: all $p$-Sylow subgroups are conjugates
+of each other.\footnote{Of course if $P$ is a $p$-Sylow subgroup of $G$, then
+so are all conjugates $gPg^{-1}$ of $P$.} Moreover, even better than this,
+every $p$-group inside $G$ must be contained in a conjugate of any fixed
+$p$-Sylow subgroup.
+
+The proof of this very precise result is very easy!
+\begin{thm}{Second Sylow theorem}{thm:groups2:sylow-ii}
+Let $G$ be a finite group, let $P$ be a $p$-Sylow subgroup, and let
+$H \subseteq G$ be a $p$-group. Then $H$ is contained in a conjugate of $P$:
+there exists $g \in G$ such that $H \subseteq gPg^{-1}$.
+\end{thm}
+\begin{proof}
+Act with $H$ on the set of left-cosets of $P$, by left-multiplication. Since
+there are $[G : P]$ cosets and $p$ does not divide $[G : P]$, we know this
+action must have fixed points (\cref{exer:groups2:1.1}): let $gP$ be one of
+them. This means that $\forall h \in H$:
+\[
+  hgP = gP;
+\]
+that is, $g^{-1}hgP = P$ for all $h$ in $H$; that is, $g^{-1}Hg \subseteq P$;
+that is, $H \subseteq gPg^{-1}$, as needed.
+\end{proof}
+We can obtain an even more complete picture of the situation. Suppose we have
+constructed a chain
+\[
+  H_0 = \{e\} \subseteq H_1 \subseteq \dots \subseteq H_k
+\]
+of $p$-subgroups of a group $G$, where $|H_i| = p^i$. By
+\cref{thm:groups2:sylow-ii} we know that $H_k$ is contained in some
+$p$-Sylow subgroup, of order $p^r$ = the maximum power of $p$ dividing the
+order of $G$. But I claim that the chain can in fact be continued one step at
+a time all the way up to the Sylow subgroup:
+\[
+  H_0 = \{e\} \subseteq H_1 \subseteq \dots \subseteq H_k \subseteq H_{k+1}
+  \subseteq \dots \subseteq H_r;
+\]
+and, further, $H_k$ may be assumed to be normal in $H_{k+1}$. The following
+lemma will simplify the proof of this fact considerably and will also help us
+prove the third Sylow theorem.
+\begin{lem}{}{lem:groups2:normalizer-index-mod-p}
+Let $H$ be a $p$-group contained in a finite group $G$. Then
+\[
+  [N_G(H) : H] \equiv [G : H] \bmod p.
+\]
+\end{lem}
+\begin{proof}
+If $H$ is trivial, then $N_G(H) = G$ and the two numbers are equal.
+
+Assume then that $H$ is nontrivial, and act with $H$ on the set of
+left-cosets of $H$ in $G$, by left-multiplication. The fixed points of this
+action are the cosets $gH$ such that $\forall h \in H$
+\[
+  hgH = gH,
+\]
+that is, such that $g^{-1}hg \in H$ for all $h \in H$; in other words,
+$H \subseteq gHg^{-1}$, and hence (by order considerations) $gHg^{-1} = H$.
+This means precisely that $g \in N_G(H)$. Therefore, the set of fixed points
+of the action consists of the set of cosets of $H$ in $N_G(H)$.
+
+The statement then follows immediately from \cref{coro:groups2:p-group-fixed-pts}.
+\end{proof}
+As a consequence, if $H_k$ is not a $p$-Sylow subgroup `already', in the
+sense that $p$ `still' divides $[G : H_k]$, then $p$ must also divide
+$[N_G(H_k) : H_k]$. Another application of Cauchy's theorem tells us how to
+obtain the next subgroup $H_{k+1}$ in the chain. More precisely, we have the
+following result.
+\begin{prop}{}{prop:groups2:p-subgroup-chain-step}
+Let $H$ be a $p$-subgroup of a finite group $G$, and assume that $H$ is not a
+$p$-Sylow subgroup. Then there exists a $p$-subgroup $H'$ of $G$ containing
+$H$, such that $[H' : H] = p$ and $H$ is normal in $H'$.
+\end{prop}
+\begin{proof}
+Since $H$ is not a $p$-Sylow subgroup of $G$, $p$ divides $[N_G(H) : H]$,
+by \cref{lem:groups2:normalizer-index-mod-p}. Since $H$ is normal in $N_G(H)$,
+we may consider the quotient group $N_G(H)/H$, and $p$ divides the order of
+this group. By \cref{thm:groups2:cauchy}, $N_G(H)/H$ has an element of order
+$p$; this generates a subgroup of order $p$ of $N_G(H)/H$, which must be
+(cf.\ \S{}II.8.3) of the form $H'/H$ for a subgroup $H'$ of $N_G(H)$. It is
+straightforward to verify that $H'$ satisfies the stated requirements.
+\end{proof}
+The statement about `chains of $p$-subgroups' follows immediately from this
+result. Note that Cauchy's theorem and
+\cref{prop:groups2:p-subgroup-chain-step} provide a new proof of
+\cref{prop:groups2:sylow-i-strong} and hence of the first Sylow theorem.
 
 \subsection{Sylow III}
 \label{subsec:groups2:sylow-iii}
