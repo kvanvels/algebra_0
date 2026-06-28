@@ -1176,107 +1176,117 @@ a simple group, the only maximal normal series is
 \[
   G \supsetneq \{e\}.
 \]
-% Definition 3.1. A composition series for G is a normal series
-% G = G0 ? G1 ? G2 ? \dots  ? Gn = {e}
-% such that the successive quotients Gi /Gi+1 are simple.
-% ?
-% It is clear (by induction on the order) that finite groups have composition
-% series,
-% while infinite groups do not necessarily have one (Exercise 3.3). It is also
-% clear that
-% if a normal series has maximal length (G), then it is a composition series. What
-% is not clear is that the converse holds: conceivably, there could exist
-% composition
-% series of different lengths (the longest ones having length (G)). For example,
-% why
-% can't there be a finite group G with (G) = 3 and two different composition
-% series
-% G ? G1 ? G2 ? {e}
-% and
-% G
-%  ?
-%  G\setminus  1
-%  ?
-%  {e}
-% (that is: a finite group G with (G) = 3 and a simple normal subgroup G\setminus
-% 1 such
-% that G/G\setminus  1 is simple)?
-% Part of the content of the Jordan-H\"older theorem is that (luckily) this cannot
-% happen. In fact, the theorem is much more precise: not only do all composition
-% series have the same length, but they also have the same quotients (appearing,
-% however, in possibly different orders).
-% Theorem 3.2 (Jordan-H\"older). Let G be a group, and let
-% G = G0 ? G1 ? G2 ? \dots  ? Gn = {e},
-% G = G\setminus  0 ? G\setminus  1 ? G\setminus  2 ? \dots  ? Gm \setminus  = {e}
-% be two composition series for G. Then m = n, and the lists of quotient groups
-% Hi = Gi /Gi+1 , Hi \setminus  = G\setminus  i /G\setminus  i+1 agree (up to
-% isomorphism) after a permutation of
-% the indices.
-% Proof.(*)
-% Let
-% G = G0 ? G1 ? G2 ? \dots  ? Gn = {e}
-% be a composition series. Argue by induction on n: if n = 0, then G is trivial,
-% and
-% there is nothing to prove. Assume n > 0, and let
-% (**)
-%  G = G \setminus  0 ? G\setminus  1 ? G\setminus  2 ? \dots  ? G\setminus  m =
-%  {e}
-% be another composition series for G. If G1 = G\setminus  1 , then the result
-% follows from the
-% induction hypothesis, since G1 has a composition series of length n - 1 < n.
-% We may then assume G1 = G\setminus  1 . Note that G1G\setminus  1 = G: indeed,
-% G1 G\setminus  1 is normal
-% in G (Exercise 3.5), and G1 ? G1G\setminus  1 ; but there are no proper normal
-% subgroups
-% between G1 and G since G/G1 is simple.
-% Let K = G1 \cap  G\setminus  1 . The distinct subgroups Gi \cap  K determine a
-% composition
-% series
-% K ? K1 ? K2 ? \dots  ? Kr = {e}
-% of K: this is not difficult to see, and will be verified more formally in the
-% proof
-% of Proposition 3.4. By Proposition II.8.11 (the ``second isomorphism theorem''),
-% G 1
-%  G1
-%  G1G\setminus  1
-%  G
-%  G\setminus  1 G
-% =
-%  \sim 
-%  =
-%  = and
-%  \sim  =
-% K
-%  G1 \cap  G1
-%  \setminus 
-%  G1
-%  \setminus 
-%  G1
-%  \setminus 
-%  K
-%  G1
-% are simple. Therefore, we have two new composition series for G:
-% G ? G1 ? K ? K1 ? \dots  ? {e}
-% G ? G\setminus  1 ? K ? K1 ? \dots  ? {e}
-% which only differ at the first step. These two series trivially have the same
-% length
-% and the same quotients (the first two quotients get switched from one series to
-% the
-% other).
-% Now I claim that the first of these two series has the same length and quotients
-% as the series (*). Indeed,
-% G1 ? K ? K1 ? K2 ? \dots  ? Kr = {e}
-% is a composition series for G1 : by the induction hypothesis, it must have the
-% same
-% length and quotients as the composition series
-% G1 ? G2 ? \dots  ? Gn = {e};
-% verifying my claim (and note that, in particular, r = n - 2).
-% By the same token, applying the induction hypothesis to the series (of length
-% n - 1)
-% G\setminus  1 ? K ? K1 ? K2 ? \dots  ? Kn-2 = {e},
-% shows that the second series has the same length and quotients as (**), and the
-% statement follows.
-%  ?
+\begin{defn}{}{defn:groups2:composition-series}
+A \emph{composition series} for $G$ is a normal series
+\[
+  G = G_0 \supsetneq G_1 \supsetneq G_2 \supsetneq \dots
+  \supsetneq G_n = \{e\}
+\]
+such that the successive quotients $G_i/G_{i+1}$ are simple.
+\end{defn}
+It is clear (by induction on the order) that finite groups have composition
+series, while infinite groups do not necessarily have one
+(Exercise~\ref{exer:groups2:3.3}). It is also clear that if a normal series
+has maximal length $\ell(G)$, then it is a composition series. What is not
+clear is that the converse holds: conceivably, there could exist composition
+series of different lengths (the longest ones having length $\ell(G)$). For
+example, why can't there be a finite group $G$ with $\ell(G) = 3$ and two
+different composition series
+\[
+  G \supsetneq G_1 \supsetneq G_2 \supsetneq \{e\}
+\]
+and
+\[
+  G \supsetneq G'_1 \supsetneq \{e\}
+\]
+(that is: a finite group $G$ with $\ell(G) = 3$ and a simple normal subgroup
+$G'_1$ such that $G/G'_1$ is simple)?
+
+Part of the content of the Jordan-H\"older theorem is that (luckily) this
+cannot happen. In fact, the theorem is much more precise: not only do all
+composition series have the same length, but they also have the same quotients
+(appearing, however, in possibly different orders).
+\begin{thm}{Jordan-H\"older}{thm:groups2:jordan-holder}
+Let $G$ be a group, and let
+\begin{align*}
+  G &= G_0 \supsetneq G_1 \supsetneq G_2 \supsetneq \dots
+    \supsetneq G_n = \{e\},\\
+  G &= G'_0 \supsetneq G'_1 \supsetneq G'_2 \supsetneq \dots
+    \supsetneq G'_m = \{e\}
+\end{align*}
+be two composition series for $G$. Then $m = n$, and the lists of quotient
+groups $H_i = G_i/G_{i+1}$, $H'_i = G'_i/G'_{i+1}$ agree (up to
+isomorphism) after a permutation of the indices.
+\end{thm}
+\begin{proof}
+Let
+\[
+\tag{*}
+  G = G_0 \supsetneq G_1 \supsetneq G_2 \supsetneq \dots
+  \supsetneq G_n = \{e\}
+\]
+be a composition series. Argue by induction on $n$: if $n = 0$, then $G$ is
+trivial, and there is nothing to prove. Assume $n > 0$, and let
+\[
+\tag{**}
+  G = G'_0 \supsetneq G'_1 \supsetneq G'_2 \supsetneq \dots
+  \supsetneq G'_m = \{e\}
+\]
+be another composition series for $G$. If $G_1 = G'_1$, then the result
+follows from the induction hypothesis, since $G_1$ has a composition series
+of length $n - 1 < n$.
+We may then assume $G_1 \neq G'_1$. Note that $G_1 G'_1 = G$: indeed,
+$G_1 G'_1$ is normal in $G$ (Exercise~\ref{exer:groups2:3.5}), and
+$G_1 \subsetneq G_1 G'_1$; but there are no proper normal subgroups between
+$G_1$ and $G$ since $G/G_1$ is simple.
+Let $K = G_1 \cap G'_1$. The distinct subgroups $G_i \cap K$ determine a
+composition series
+\[
+  K \supsetneq K_1 \supsetneq K_2 \supsetneq \dots \supsetneq K_r = \{e\}
+\]
+of $K$: this is not difficult to see, and will be verified more formally in
+the proof of \cref{prop:groups2:comp-series-normal}. By
+Proposition~II.8.11 (the ``second isomorphism theorem''),
+\[
+  \frac{G_1}{K} = \frac{G_1}{G_1 \cap G'_1}
+  \cong \frac{G_1 G'_1}{G'_1} = \frac{G}{G'_1}
+  \quad\text{and}\quad
+  \frac{G'_1}{K} \cong \frac{G}{G_1}
+\]
+are simple. Therefore, we have two new composition series for $G$:
+\[
+\begin{array}{ccccccccc}
+  G & \supsetneq & G_1 & \supsetneq & K & \supsetneq & K_1
+    & \supsetneq \cdots \supsetneq & \{e\}\\
+  \| & & & & \| & & \| & & \|\\
+  G & \supsetneq & G'_1 & \supsetneq & K & \supsetneq & K_1
+    & \supsetneq \cdots \supsetneq & \{e\}
+\end{array}
+\]
+which only differ at the first step. These two series trivially have the same
+length and the same quotients (the first two quotients get switched from one
+series to the other).
+Now I claim that the first of these two series has the same length and
+quotients as the series $(*)$. Indeed,
+\[
+  G_1 \supsetneq K \supsetneq K_1 \supsetneq K_2 \supsetneq \dots
+  \supsetneq K_r = \{e\}
+\]
+is a composition series for $G_1$: by the induction hypothesis, it must have
+the same length and quotients as the composition series
+\[
+  G_1 \supsetneq G_2 \supsetneq \dots \supsetneq G_n = \{e\};
+\]
+verifying my claim (and note that, in particular, $r = n - 2$).
+By the same token, applying the induction hypothesis to the series (of length
+$n - 1$)
+\[
+  G'_1 \supsetneq K \supsetneq K_1 \supsetneq K_2 \supsetneq \dots
+  \supsetneq K_{n-2} = \{e\},
+\]
+shows that the second series has the same length and quotients as $(**)$, and
+the statement follows.
+\end{proof}
 
 \subsection{Composition factors; Schreier's theorem}
 \label{subsec:groups2:composition-factors-schreier-s-theorem}
