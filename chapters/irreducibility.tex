@@ -2283,291 +2283,268 @@ March~1, 1847.
 \section{Irreducibility of polynomials}
 \label{sec:irred:irreducibility-of-polynomials}
 
-% Our work in \S{}4.3, especially Corollary 4.17, links the irreducibility of
-% polynomi-
-% als over a UFD with their irreducibility over the corresponding field of
-% fractions.
-% For example, irreducibility of polynomials in Z[x] is `essentially the same' as
-% irre-
-% ducibility in Q[x]. This can be useful in both directions, provided we have ways
-% to effectively verify irreducibility of polynomials over one kind of ring or the
-% other.
-% I collect here several remarks aimed at establishing whether a given polynomial
-% is
-% irreducible and briefly discuss the notion of algebraically closed field.
+Our work in \S{}4.3, especially Corollary~4.17, links the irreducibility
+of polynomials over a UFD with their irreducibility over the
+corresponding field of fractions. For example, irreducibility of
+polynomials in $\mathbb{Z}[x]$ is `essentially the same' as
+irreducibility in $\mathbb{Q}[x]$. This can be useful in both
+directions, provided we have ways to effectively verify irreducibility of
+polynomials over one kind of ring or the other. I collect here several
+remarks aimed at establishing whether a given polynomial is irreducible
+and briefly discuss the notion of algebraically closed field.
 
 \subsection{Roots and reducibility}
 \label{subsec:irred:roots-and-reducibility}
-% Let R be a ring and f \in  R[x]
-% An element a \in  R
+Let $R$ be a ring and $f \in R[x]$. An element $a \in R$ is a
+\emph{root} of $f$ if $f(a) = 0$. Recall (Example~III.4.7) that a
+polynomial $f(x) \in R[x]$ is divisible by $(x - a)$ if and only if $a$
+is a root of $f$. More generally, we say that $a$ is a root of $f$ with
+\emph{multiplicity} $r$ if $(x - a)^r$ divides $f$ and $(x - a)^{r+1}$
+does not divide $f$. The reader is probably familiar with this notion
+from experience with calculus. For example, the graph of polynomials with
+roots of multiplicities 1, 2, and 3 at 0 look (near the origin),
+respectively, like
+\begin{lem}{}{irred:5.1}
+Let $R$ be an integral domain, and let $f \in R[x]$ be a polynomial of
+degree $n$. Then the number of roots of $f$, counted with multiplicity,
+is at most $n$.
+\end{lem}
+\begin{proof}
+The number of roots of $f$ in $R$ is less than or equal to the number of
+roots of $f$ viewed as a polynomial over the field of fractions $K$ of
+$R$; so we may replace $R$ by $K$.
 
-% is a root of f if f (a) = 0. Recall (Example III.4.7) that a polynomial f (x)
-% \in  R[x] is
-% divisible by (x - a) if and only if a is a root of f . More generally, we say
-% that a is a
-% root of f with multiplicity r if (x - a)r divides f and (x - a)r+1 does not
-% divide f .
-% The reader is probably familiar with this notion from experience with calculus.
-% For
-% example, the graph of polynomials with roots of multiplicities 1, 2, and 3 at 0
-% look
-% (near the origin), respectively, like
-% Lemma 5.1. Let R be an integral domain, and let f \in  R[x] be a polynomial of
-% degree n. Then the number of roots of f , counted with multiplicity, is at most
-% n.
-% Proof. The number of roots of f in R is less than or equal to the number of
-% roots
-% of f viewed as a polynomial over the field of fractions K of R; so we may
-% replace R
-% by K.
-% Now, K[x] is a UFD, and the roots of f correspond to the irreducible factors
-% of f of degree 1. Since the product of all irreducible factors of f has degree
-% n, the
-% number of factors of degree 1 can be at most n, as claimed.
-%  ?
-% It is worth remembering the trick of replacing an integral domain R by its field
-% of fractions K, used in this proof: one is often able to use convenient
-% properties
-% due to the fact that K is a field (the fact that K[x] is a UFD, in this case),
-% even
-% if R is very far from satisfying such properties (R[x] may not be a UFD, since R
-% itself need not be a UFD).
-% Also note that the statement of Lemma 5.1 may fail if R is not an integral
-% domain. For example, the degree 2 polynomial x2 + x has four roots over Z/6Z.
-% The innocent Lemma 5.1 has important applications: for example, we used
-% it (without much fanfare) in the proof of Theorem IV.6.10. Also, recall that a
-% polynomial f \in  R[x] determines an `evaluation function' (cf. Example III.2.3)
-% R \to
-% R, namely r ?\to  f (r). The reader checked in Exercise III.2.7 that in general
-% the
-% function does not determine the polynomial; but polynomials are determined by
-% the corresponding functions over infinite integral domains:
-% Corollary 5.2. Let R be an infinite integral domain, and let f, g \in  R[x] be
-% poly-
-% nomials. Then f = g if and only if the evaluation functions r ?\to  f (r), r
-% ?\to  g(r)
-% agree.
-% Proof. Indeed, the two functions agree if and only if every a \in  R is a root
-% of
-% f - g; but a nonzero polynomial over R cannot have infinitely many roots, by
-% Lemma 5.1.
-%  ?
-% Clearly, an irreducible polynomial of degree \geq  2 can have no roots. The con-
-% verse holds for degree 2 and 3, over a field:
-% Proposition 5.3. Let k be a field. A polynomial f \in  k[x] of degree 2 or 3 is
-% irreducible if and only if it has no roots.
-% Proof. Exercise 5.5.
-%  ?
-% Example 5.4. Let F2 be the field Z/2Z.
-% The polynomial f (t) = t2 + t + 1 \in  F2 [t] is irreducible, since it has no
-% roots:
-% f (0) = f (1) = 1. Therefore the ideal (t2 + t + 1) is prime in F2 [t], hence
-% maximal
-% (because F2 [t] is a PID: don't forget Proposition III.4.13). This gives a
-% one-second
-% construction of a field with four elements:
-% F2 [t]
-% .
-% (t2 + t + 1)
-% The reader (hopefully) constructed this field in Exercise III.1.11, by the
-% tiresome
-% process of searching by hand for a suitable multiplication table. The reader
-% will
-% now have no difficulty constructing much larger examples (cf. Exercise 5.6).
-%  ?
-% Proposition 5.3 is pleasant and can help to decide irreducibility over more
-% general rings: for example, a primitive polynomial f \in  Z[x] of degree 2 or 3
-% is
-% irreducible if and only if it has no roots in Q. Indeed, f is irreducible in
-% Z[x]
-% if and only if it is irreducible in Q[x] (by Corollary 4.17). However, note that
-% e.g. 4x2 - 1 = (2x - 1)(2x + 1) is primitive and reducible in Z[x], although it
-% has
-% no integer roots. Also, keep in mind that the statement of Proposition 5.3 may
-% fail
-% for polynomials of degree \geq  4: for example, x4 + 2x2 + 1 = (x 2 + 1)2 is
-% reducible
-% in Q[x], but it has no rational roots.
-% Looking for rational roots of a polynomial in Z[x] is in principle a finite en-
-% deavor, due to the following observation (which holds over every UFD). This is
-% often called the `rational root test'.
-% Proposition 5.5. Let R be a UFD, and let K be its field of fractions. Let
-% f (x) = a0 + a1 x + \dots  + anxn \in  R[x],
-% and let c = pq \in  K be a root of f , with p, q \in  R, gcd(p, q) = 1. Then p |
-% a0 and
-% q | an in R.
-% Proof. By hypothesis,
-% p
-%  pn
-% a0 + a1
-%  + \dots  + an n = 0;
-% q
-%  q
-% that is,
-% a0 q n + a1pq n-1 + \dots  + an pn = 0.
-% Therefore
-% a0 q n = -p(a1qn-1 + \dots  + an pn-1 ),
-% proving that p | (a0qn ). Since the gcd of p and q is one, this implies that the
-% multiset of factors of p is contained in the multiset of irreducible factors of
-% a0 , that
-% is, p | a0 .
-% An entirely similar argument proves that q | an.
-%  ?
-% Example 5.6. Looking for rational roots of the polynomial
-% 3 - 2x + 3x2 - 2x3 + 3x4 - 2x5
-% is therefore reduced to trying fractions pq with q = \pm 1, \pm 2, p = \pm 1,
-% \pm 3. As it
-% happens, 32 is the only root found among these possibilities, and it follows
-% that it
-% is the only rational root of the polynomial.
-%  ?
+Now, $K[x]$ is a UFD, and the roots of $f$ correspond to the irreducible
+factors of $f$ of degree $1$. Since the product of all irreducible
+factors of $f$ has degree $n$, the number of factors of degree $1$ can
+be at most $n$, as claimed.
+\end{proof}
+It is worth remembering the trick of replacing an integral domain $R$ by
+its field of fractions $K$, used in this proof: one is often able to use
+convenient properties due to the fact that $K$ is a field (the fact that
+$K[x]$ is a UFD, in this case), even if $R$ is very far from satisfying
+such properties ($R[x]$ may not be a UFD, since $R$ itself need not be a
+UFD). Also note that the statement of Lemma~5.1 may fail if $R$ is not
+an integral domain. For example, the degree~2 polynomial $x^2 + x$ has
+four roots over $\mathbb{Z}/6\mathbb{Z}$.
+
+The innocent Lemma~5.1 has important applications: for example, we used
+it (without much fanfare) in the proof of Theorem~IV.6.10. Also, recall
+that a polynomial $f \in R[x]$ determines an `evaluation function'
+(cf.\ Example~III.2.3) $R \to R$, namely $r \mapsto f(r)$. The reader
+checked in Exercise~III.2.7 that in general the function does not
+determine the polynomial; but polynomials are determined by the
+corresponding functions over infinite integral domains:
+\begin{coro}{}{irred:5.2}
+Let $R$ be an infinite integral domain, and let $f, g \in R[x]$ be
+polynomials. Then $f = g$ if and only if the evaluation functions
+$r \mapsto f(r)$, $r \mapsto g(r)$ agree.
+\end{coro}
+\begin{proof}
+Indeed, the two functions agree if and only if every $a \in R$ is a root
+of $f - g$; but a nonzero polynomial over $R$ cannot have infinitely
+many roots, by Lemma~5.1.
+\end{proof}
+Clearly, an irreducible polynomial of degree $\geq 2$ can have no roots.
+The converse holds for degree 2 and 3, over a field:
+
+\begin{prop}{}{irred:5.3}
+Let $k$ be a field. A polynomial $f \in k[x]$ of degree $2$ or $3$ is
+irreducible if and only if it has no roots.
+\end{prop}
+\begin{proof}
+Exercise~5.5.
+\end{proof}
+\begin{exam}{}{irred:exam:5.4}
+Let $\mathbb{F}_2$ be the field $\mathbb{Z}/2\mathbb{Z}$. The polynomial
+$f(t) = t^2 + t + 1 \in \mathbb{F}_2[t]$ is irreducible, since it has
+no roots: $f(0) = f(1) = 1$. Therefore the ideal $(t^2 + t + 1)$ is
+prime in $\mathbb{F}_2[t]$, hence maximal (because $\mathbb{F}_2[t]$ is
+a PID: don't forget Proposition~III.4.13). This gives a one-sentence
+construction of a field with four elements:
+\[
+  \frac{\mathbb{F}_2[t]}{(t^2 + t + 1)}.
+\]
+The reader (hopefully) constructed this field in Exercise~III.1.11, by
+the tiresome process of searching by hand for a suitable multiplication
+table. The reader will now have no difficulty constructing much larger
+examples (cf.\ Exercise~5.6).
+\end{exam}
+Proposition~5.3 is pleasant and can help to decide irreducibility over
+more general rings: for example, a primitive polynomial $f \in \mathbb{Z}[x]$
+of degree $2$ or $3$ is irreducible if and only if it has no roots in
+$\mathbb{Q}$. Indeed, $f$ is irreducible in $\mathbb{Z}[x]$ if and only
+if it is irreducible in $\mathbb{Q}[x]$ (by Corollary~4.17). However,
+note that e.g.\ $4x^2 - 1 = (2x - 1)(2x + 1)$ is primitive and
+reducible in $\mathbb{Z}[x]$, although it has no integer roots. Also,
+keep in mind that the statement of Proposition~5.3 may fail for
+polynomials of degree $\geq 4$: for example, $x^4 + 2x^2 + 1 = (x^2 + 1)^2$
+is reducible in $\mathbb{Q}[x]$, but it has no rational roots.
+
+Looking for rational roots of a polynomial in $\mathbb{Z}[x]$ is in
+principle a finite endeavor, due to the following observation (which
+holds over every UFD). This is often called the `rational root test'.
+\begin{prop}{}{irred:5.5}
+Let $R$ be a UFD, and let $K$ be its field of fractions. Let
+$f(x) = a_0 + a_1 x + \dots + a_n x^n \in R[x]$, and let
+$c = \frac{p}{q} \in K$ be a root of $f$, with $p, q \in R$,
+$\gcd(p, q) = 1$. Then $p \mid a_0$ and $q \mid a_n$ in $R$.
+\end{prop}
+\begin{proof}
+By hypothesis,
+\[
+  a_0 + a_1 \frac{p}{q} + \dots + a_n \frac{p^n}{q^n} = 0;
+\]
+that is, $a_0 q^n + a_1 p q^{n-1} + \dots + a_n p^n = 0$. Therefore
+\[
+  a_0 q^n = -p(a_1 q^{n-1} + \dots + a_n p^{n-1}),
+\]
+proving that $p \mid (a_0 q^n)$. Since $\gcd(p, q) = 1$, this implies
+that the multiset of factors of $p$ is contained in the multiset of
+irreducible factors of $a_0$, that is, $p \mid a_0$. An entirely similar
+argument proves that $q \mid a_n$.
+\end{proof}
+\begin{exam}{}{irred:exam:5.6}
+Looking for rational roots of the polynomial
+$3 - 2x + 3x^2 - 2x^3 + 3x^4 - 2x^5$ is therefore reduced to trying
+fractions $\frac{p}{q}$ with $q = \pm 1, \pm 2$, $p = \pm 1, \pm 3$.
+As it happens, $\frac{3}{2}$ is the only root found among these
+possibilities, and it follows that it is the only rational root of the
+polynomial.
+\end{exam}
 
 \subsection{Adding roots; algebraically closed fields}
 \label{subsec:irred:adding-roots-algebraically-closed-fields}
-% A homomorphism of fields
+A homomorphism of fields $i : k \to F$ is necessarily injective (cf.\
+Exercise~III.3.10): indeed, its kernel is a proper ideal of $k$, and
+the only proper ideal of a field is $(0)$. In this situation we say that
+$F$ (or more properly the homomorphism $i$) is an \emph{extension} of
+$k$. Abusing language a little, we then think of $k$ as contained in
+$F$: $k \subseteq F$. Keep in mind that this is the case as soon as
+there is any ring homomorphism $k \to F$.
 
-% i : k \to  F
-% is necessarily injective (cf. Exercise III.3.10): indeed, its kernel is a proper
-% ideal
-% of k, and the only proper ideal of a field is (0). In this situation we say that
-% F
-% (or more properly the homomorphism i) is an extension of k. Abusing language a
-% little, we then think of k as contained in F : k \subseteq  F . Keep in mind
-% that this is the
-% case as soon as there is any ring homomorphism k \to  F .
-% There is a standard procedure for constructing extensions in which a given
-% polynomial acquires a root; we have encountered an instance of this process in
-% Example III.4.8. In fact, the resulting field is almost universal with respect
-% to this
-% requirement.
-% Proposition 5.7. Let k be a field, and let f (t) \in  k[t] be a nonzero
-% irreducible
-% polynomial. Then
-% k[t]
-% F :=
-% (f (t))
-% is a field, endowed with a natural homomorphism i : k \setminus \to  F (obtained
-% as the
-% composition k \to  k[x] \to  F ) realizing it as an extension of k. Further,
-% \bullet  f (x) \in  k[x] \subseteq  F [x] has a root in F , namely the coset of t;
-% \bullet  if k \subseteq  K is any extension in which f has a root, then there exists a homomor-
-% phism j : F \to  K such that the diagram
-% k ? 9 i ?
-%  9 m
-%  ? ? 0 \setminus  \setminus  \setminus 
-%  \setminus 
-%  j
-%  \setminus  / A
-% K
-% F
-% commutes.
-% Proof. Since k is a field, k[t] is a PID; hence (f (t)) is a maximal ideal of
-% k[t], by
-% Proposition III.4.13. Therefore F is indeed a field. Denoting cosets in k[t]/(f
-% (t)) =
-% F by underlining, we have
-% f (t) = f (t) = 0,
-% as claimed.
-% To verify the second part of the statement, suppose k \subseteq  K is an
-% extension and
-% f (u) = 0, with u \in  K. This means that the evaluation homomorphism
-% ? : k[t] \to  K
-% defined by ?(g(t)) := g(u) vanishes at f (t); hence (f (t)) \subseteq  ker(?),
-% and the universal
-% property of quotients gives a unique homomorphism
-% k[t]
-% j : F =
-%  \to  K
-% (f (t))
-% satisfying the stated requirement.
-%  ?
-% I have stopped short of claiming that the extension constructed in Proposi-
-% tion 5.7 is universal with respect to the requirement of containing a root of f
-% because the homomorphism j appearing in the statement is not unique: in fact,
-% the proof shows that there are as many such homomorphisms as there are roots of
-% f
-% in the larger field K. We could say that F is versal, meaning `universal without
-% uni(queness)'. We would have full universality if we included the information of
-% the
-% root of f ; we will come back to this construction in Chapter VII, when we
-% analyze
-% field extensions in greater depth.
-% Example 5.8. For k = R and f (x) = x2 +1, the field constructed in Proposition
-% 5.7
-% is (isomorphic to) C: this was checked carefully in Example III.4.8.
-% Similarly, Q[t]/(t2 - 2) produces a field containing Q and in which there is a
-% `square root of 2'. There are two embeddings of this field in R, because R
-% contains
-% \sqrt 
-% two distinct square roots of 2: \pm  2.
-%  ?
-% The fact that the irreducible polynomial f \in  k[x] acquires a root in the
-% exten-
-% sion F constructed in Proposition 5.7 implies that f has a linear (i.e., degree
-% 1)
-% factor over F ; in particular, if deg(f ) > 1, then f is no longer irreducible
-% over F .
-% Given any polynomial f \in  k[x], it is easy to construct an extension of k in
-% which f factors completely as a product of linear factors (Exercise 5.13). The
-% case
-% in which this already happens in k itself for every nonzero f is very important,
-% and
-% hence it is given a name.
-% Definition 5.9. A field k is algebraically closed if all irreducible polynomials
-% in k[x]
-% have degree 1.
-%  ?
-% We have encountered this notion in passing, back in Example III.4.14 (and
-% Exercise III.4.21). The following lemma is left to the reader:
-% Lemma 5.10. A field k is algebraically closed if and only if every nonconstant
-% polynomial f \in  k[x] factors completely as a product of linear factors, if and
-% only if
-% every nonconstant polynomial f \in  k[x] has a root in k.
-% In other words, a field k is algebraically closed if the only polynomial
-% equations
-% with coefficients in k and no solutions are equations `of degree 0', such as 1 =
-% 0.
-% The result known as Nullstellensatz (also due to David Hilbert; I have mentioned
-% this result in Chapter III) is a vast generalization of this observation and one
-% of
-% the pillars of (old-fashioned) algebraic geometry. We will come back to all of
-% this
-% in \S{}VII.2.
-% Is any of the finite fields we have encountered (such as Z/pZ, for p prime)
-% algebraically closed? No. Adapting Euclid's argument proving the infinitude of
-% prime integers (Exercise 2.24) reveals that algebraically closed fields are
-% infinite.
-% Proposition 5.11. Let k be an algebraically closed field. Then k is infinite.
-% Proof. By contradiction, assume that k is algebraically closed and finite; let
-% the
-% elements of k be c1 , . . . , cN .
-% Then there are exactly N irreducible monic polynomials in k[x], namely (x -
-% c1), . . . , (x - cN ). Consider the polynomial
-% f (x) = (x - c1 ) \dots  \cdot  \cdot  (x - cN ) + 1 :
-% for all c \in  k we have
-% f (c) = (c - c1 ) \dots  \cdot  \cdot  (c - cN ) + 1 = 1 = 0,
-% since c equals one of the ci 's. Thus f (x) is a nonconstant polynomial with no
-% roots,
-% contradicting Lemma 5.10.
-%  ?
-% Since finite fields are not algebraically closed, the reader may suspect that
-% algebraically closed fields necessarily have characteristic 0 (cf. Exercise
-% 4.17). This
-% is not so: there are algebraically closed fields of any characteristic. In fact,
-% as we will
-% see in due time, every field F may be embedded into an algebraically closed
-% field;
-% the smallest such extension is called the `algebraic closure' of F and is
-% denoted F .
-% Thus, for example, Z/2Z is an algebraically closed field of characteristic 2.
-% The algebraic closure Q is a countable subfield of C. The extension Q \subseteq
-% Q,
-% and especially its `Galois group', cf. \S{}VII.6, is considered one of the most
-% important
-% objects of study in mathematics (cf. the discussion following Corollary
-% VII.7.6).
-% We will construct the algebraic closure of a field rather explicitly, in
-% \S{}VII.2.1.
+There is a standard procedure for constructing extensions in which a
+given polynomial acquires a root; we have encountered an instance of
+this process in Example~III.4.8. In fact, the resulting field is almost
+universal with respect to this requirement.
+\begin{prop}{}{irred:5.7}
+Let $k$ be a field, and let $f(t) \in k[t]$ be a nonzero irreducible
+polynomial. Then
+\[
+  F := \frac{k[t]}{(f(t))}
+\]
+is a field, endowed with a natural homomorphism $i : k \to F$ (obtained
+as the composition $k \to k[x] \to F$) realizing it as an extension of
+$k$. Further,
+\begin{enumerate}[label=(\arabic*)]
+  \item $f(x) \in k[x] \subseteq F[x]$ has a root in $F$, namely the
+    coset of $t$;
+  \item if $k \subseteq K$ is any extension in which $f$ has a root,
+    then there exists a homomorphism $j : F \to K$ such that the diagram
+\begin{equation*}
+\begin{tikzcd}
+  k \ar[r, "i"] \ar[dr, hook] & F \ar[d, "j"] \\
+  & K
+\end{tikzcd}
+\end{equation*}
+    commutes.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Since $k$ is a field, $k[t]$ is a PID; hence $(f(t))$ is a maximal
+ideal of $k[t]$, by Proposition~III.4.13. Therefore $F$ is indeed a
+field. Denoting cosets in $k[t]/(f(t)) = F$ by overlining, we have
+$f(\overline{t}) = \overline{f(t)} = 0$, as claimed.
+
+To verify the second part, suppose $k \subseteq K$ is an extension and
+$f(u) = 0$, with $u \in K$. This means that the evaluation homomorphism
+$\varphi : k[t] \to K$ defined by $\varphi(g(t)) := g(u)$ vanishes at
+$f(t)$; hence $(f(t)) \subseteq \ker(\varphi)$, and the universal
+property of quotients gives a unique homomorphism
+$j : F = \frac{k[t]}{(f(t))} \to K$ satisfying the stated requirement.
+\end{proof}
+I have stopped short of claiming that the extension constructed in
+Proposition~5.7 is universal with respect to the requirement of
+containing a root of $f$ because the homomorphism $j$ appearing in the
+statement is not unique: in fact, the proof shows that there are as many
+such homomorphisms as there are roots of $f$ in the larger field $K$. We
+could say that $F$ is \emph{versal}, meaning `universal without
+uni(queness)'. We would have full universality if we included the
+information of the root of $f$; we will come back to this construction
+in Chapter~VII, when we analyze field extensions in greater depth.
+\begin{exam}{}{irred:exam:5.8}
+For $k = \mathbb{R}$ and $f(x) = x^2 + 1$, the field constructed in
+Proposition~5.7 is (isomorphic to) $\mathbb{C}$: this was checked
+carefully in Example~III.4.8. Similarly, $\mathbb{Q}[t]/(t^2 - 2)$
+produces a field containing $\mathbb{Q}$ and in which there is a `square
+root of 2'. There are two embeddings of this field in $\mathbb{R}$,
+because $\mathbb{R}$ contains two distinct square roots of $2$:
+$\pm\sqrt{2}$.
+\end{exam}
+The fact that the irreducible polynomial $f \in k[x]$ acquires a root
+in the extension $F$ constructed in Proposition~5.7 implies that $f$
+has a linear (i.e., degree~1) factor over $F$; in particular, if
+$\deg(f) > 1$, then $f$ is no longer irreducible over $F$. Given any
+polynomial $f \in k[x]$, it is easy to construct an extension of $k$ in
+which $f$ factors completely as a product of linear factors
+(Exercise~5.13). The case in which this already happens in $k$ itself
+for every nonzero $f$ is very important, and hence it is given a name.
+\begin{defn}{}{irred:5.9}
+A field $k$ is \emph{algebraically closed} if all irreducible polynomials
+in $k[x]$ have degree $1$.
+\end{defn}
+We have encountered this notion in passing, back in Example~III.4.14
+(and Exercise~III.4.21). The following lemma is left to the reader:
+
+\begin{lem}{}{irred:5.10}
+A field $k$ is algebraically closed if and only if every nonconstant
+polynomial $f \in k[x]$ factors completely as a product of linear
+factors, if and only if every nonconstant polynomial $f \in k[x]$ has a
+root in $k$.
+\end{lem}
+
+In other words, a field $k$ is algebraically closed if the only
+polynomial equations with coefficients in $k$ and no solutions are
+equations `of degree 0', such as $1 = 0$. The result known as
+Nullstellensatz (also due to David Hilbert; I have mentioned this result
+in Chapter~III) is a vast generalization of this observation and one of
+the pillars of (old-fashioned) algebraic geometry. We will come back to
+all of this in \S{}VII.2.
+Is any of the finite fields we have encountered (such as $\mathbb{Z}/p\mathbb{Z}$,
+for $p$ prime) algebraically closed? No. Adapting Euclid's argument
+proving the infinitude of prime integers (Exercise~2.24) reveals that
+algebraically closed fields are infinite.
+
+\begin{prop}{}{irred:5.11}
+Let $k$ be an algebraically closed field. Then $k$ is infinite.
+\end{prop}
+\begin{proof}
+By contradiction, assume that $k$ is algebraically closed and finite;
+let the elements of $k$ be $c_1, \dots, c_N$. Then there are exactly $N$
+irreducible monic polynomials in $k[x]$, namely $(x - c_1), \dots,
+(x - c_N)$. Consider the polynomial
+\[
+  f(x) = (x - c_1) \cdots (x - c_N) + 1:
+\]
+for all $c \in k$ we have
+$f(c) = (c - c_1) \cdots (c - c_N) + 1 = 1 \neq 0$,
+since $c$ equals one of the $c_i$'s. Thus $f(x)$ is a nonconstant
+polynomial with no roots, contradicting Lemma~5.10.
+\end{proof}
+Since finite fields are not algebraically closed, the reader may suspect
+that algebraically closed fields necessarily have characteristic $0$
+(cf.\ Exercise~4.17). This is not so: there are algebraically closed
+fields of any characteristic. In fact, as we will see in due time, every
+field $F$ may be embedded into an algebraically closed field; the
+smallest such extension is called the \emph{algebraic closure} of $F$
+and is denoted $\overline{F}$. Thus, for example, $\overline{\mathbb{Z}/2\mathbb{Z}}$
+is an algebraically closed field of characteristic $2$. The algebraic
+closure $\overline{\mathbb{Q}}$ is a countable subfield of $\mathbb{C}$.
+The extension $\mathbb{Q} \subseteq \overline{\mathbb{Q}}$, and
+especially its `Galois group', cf.\ \S{}VII.6, is considered one of the
+most important objects of study in mathematics (cf.\ the discussion
+following Corollary~VII.7.6). We will construct the algebraic closure of
+a field rather explicitly, in \S{}VII.2.1.
 
 \subsection{Irreducibility in C[x], R[x], Q[x]}
 \label{subsec:irred:irreducibility-in-c-x-r-x-q-x}
