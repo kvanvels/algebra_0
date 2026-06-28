@@ -2103,214 +2103,253 @@ the conjugacy classes in $S_5$ making up the normal subgroup $A_5$. Conjugacy
 in $A_n$ is rather interesting and ties in nicely with the issue of the
 simplicity of $A_n$.
 
-\subsection{Conjugacy in An ; simplicity of An and solvability of Sn}
-\label{subsec:groups2:conjugacy-in-an-simplicity-of-an-and-solvability-of-sn}
-% Denote by
+\subsection{Conjugacy in \texorpdfstring{$A_n$}{An}; simplicity of
+  \texorpdfstring{$A_n$}{An} and solvability of
+  \texorpdfstring{$S_n$}{Sn}}
+\label{subsec:groups2:conjugacy-an-simplicity}
+Denote by $[\sigma]_{S_n}$, resp., $[\sigma]_{A_n}$, the conjugacy class of
+an even permutation $\sigma$ in $S_n$, resp., $A_n$. Clearly
+$[\sigma]_{A_n} \subseteq [\sigma]_{S_n}$; we proceed to compare these two
+sets.
+\begin{lem}{}{lem:groups2:conj-class-an-split}
+Let $n \geq 2$, and let $\sigma \in A_n$. Then $[\sigma]_{A_n} = [\sigma]_{S_n}$
+or the size of $[\sigma]_{A_n}$ is half the size of $[\sigma]_{S_n}$,
+according to whether the centralizer $Z_{S_n}(\sigma)$ is not or is contained
+in $A_n$.
+\end{lem}
 
-% [\sigma ]Sn , resp., [\sigma ]An , the conjugacy class of an even permutation
-% \sigma  in Sn , resp., An .
-% Clearly [\sigma ]An \subseteq  [\sigma ]Sn ; we proceed to compare these two
-% sets.
-% Lemma 4.14. Let n \geq  2, and let \sigma  \in  A n. Then [\sigma ]An = [\sigma
-% ]Sn or the size of [\sigma ]An
-% is half the size of [\sigma ]Sn , according to whether the centralizer ZSn
-% (\sigma ) is not or is
-% contained in An .
-% 19Note the unfortunate terminology clash. For example, 3-cycles are even
-% permutations.
-% Proof. (Cf. Exercise 1.16.) Note that
-% ZAn (\sigma ) = An \cap  ZSn (\sigma ) :
-% this follows immediately from the definition of centralizer (Definition 1.6).
-% Now
-% recall that the centralizer of \sigma  is its stabilizer under conjugation, and
-% therefore the
-% size of the conjugacy class of \sigma  equals the index of its centralizer.
-% If ZSn (\sigma ) \subseteq  An , then ZAn (\sigma ) = ZSn (\sigma ), so that
-% [Sn : ZSn (\sigma )] = [Sn : ZAn (\sigma )] = [Sn : An ][An : ZAn (\sigma )] = 2
-% \cdot  [An : ZAn (\sigma )];
-% therefore, [\sigma ]An is half the size of [\sigma ]Sn in this case.
-% If ZSn (\sigma ) \subseteq  An , then note that An ZSn (\sigma ) = Sn : indeed,
-% An ZSn (\sigma ) is a sub-
-% group of Sn (because An is normal; cf. Proposition II.8.11), and it properly
-% con-
-% tains An, so it must equal Sn as An has index 2 in Sn. By index considerations
-% (cf. Exercise II.8.21)
-% [An : ZAn (\sigma )] = [An : An \cap  ZSn (\sigma )] = [A nZSn (\sigma ) : ZSn
-% (\sigma )] = [Sn : ZSn (\sigma )],
-% so the classes have the same size. Since [\sigma ]An \subseteq  [\sigma ]Sn in
-% any case, it follows that
-% [\sigma ]An = [\sigma ]Sn , completing the proof.
-%  ?
-% Therefore, conjugacy classes of even permutations either are preserved from Sn
-% to An or they split into two distinct, equal-sized classes. We are now in a
-% position
-% to give precise conditions determining which happens when.
-% Proposition 4.15. Let \sigma  \in  An , n \geq  2. Then the conjugacy class of
-% \sigma  in Sn splits
-% into two conjugacy classes in An precisely if the type of \sigma  consists of
-% distinct odd
-% numbers.
-% Proof. By Lemma 4.14, we have to verify that ZSn (\sigma ) is contained in An
-% precisely
-% when the stated condition is satisfied; that is, we have to show that
-% -1\sigma  = \tau  \sigma \tau  \implies  \tau  is even
-% precisely when the type of \sigma  consists of distinct odd numbers.
-% Write \sigma  in cycle notation (including cycles of length 1):
-% \sigma  = (a1 . . . a \lambda  )(b1 . . . b\mu  ) \dots  (c1 . . . c\nu  ),
-% and recall (Lemma 4.5) that
-% \tau  \sigma \tau  -1 = (a1 \tau  -1 . . . a\lambda  \tau  -1)(b1\tau  -1 . . . b\mu  \tau  -1 ) \dots  (c1 \tau  -1 . . . c\nu  \tau  -1 ).
-% -1Assume that \lambda , \mu  . . . , \nu  are odd and distinct. If \tau  \sigma
-% \tau  = \sigma , then conjugation
-% by \tau  must preserve each cycle in \sigma , as all cycle lengths are distinct:
-% -1\tau  (a1 . . . a\lambda  )\tau  = (a1 . . . a\lambda ),
-%  etc.,
-% that is,
-% -1 -1(a1\tau  . . . a\lambda  \tau  ) = (a1 . . . a\lambda ),
-%  etc.
-% This means that \tau  acts as a cyclic permutation on (e.g.) a1, . . . ,
-% a\lambda  and therefore
-% in the same way as a power of (a1 . . . a\lambda  ). It follows that
-% \tau  = (a1 . . . a\lambda  )r (b1 . . . b\mu  ) s \dots  (c1 . . . c\nu  )t
-% for suitable r, s, . . . , t. Since all cycles have odd lengths, each cycle is
-% an even
-% permutation; and \tau  must then be even as it is a product of even
-% permutations.
-% This proves that ZSn (\sigma ) \subseteq  An if the stated condition holds.
-% Conversely, assume that the stated condition does not hold: that is, either some
-% of the cycles in the cycle decomposition have even length or all have odd length
-% but
-% two of the cycles have the same length.
-% In the first case, let \tau  be an even-length cycle in the cycle decomposition
-% of \sigma .
-% -1Note that \tau  \sigma \tau  = \sigma : indeed, \tau  commutes with itself and
-% with all cycles in \sigma  other
-% than \tau  . Since \tau  has even length, then it is odd as a permutation: this
-% shows that
-% ZSn (\sigma ) \subseteq  An , as needed.
-% In the second case, without loss of generality assume \lambda  = \mu , and
-% consider the
-% odd permutation
-% \tau  = (a1 b1)(a2 b2 ) \dots  (a\lambda  b\lambda  ) :
-% -1conjugating by \tau  simply interchanges the first two cycles in \sigma ;
-% hence \tau  \sigma \tau  = \sigma .
-% As \tau  is odd, this again shows that Z S n (\sigma ) \subseteq  An , and we
-% are done.
-%  ?
-% Example 4.16. Looking again at A5 , we have noted in \S{}4.3 that the types of
-% the even permutations in S5 are [1, 1, 1, 1, 1], [2, 2, 1], [3, 1, 1], and [5].
-% By Proposi-
-% tion 4.15 the conjugacy classes corresponding to the first three types are
-% preserved
-% in A5, while the last one splits.
-% Therefore there are exactly 5 conjugacy classes in A5 , and the class formula
-% for A5 is
-% 60 = 1 + 15 + 20 + 12 + 12.
-%  ?
-% Finally! We can now complete a circle of thought begun in the first section of
-% this chapter. Along the way, the reader has hopefully checked that every simple
-% group of order < 60 is commutative (Exercise 2.24); and we now see why 60 is
-% special:
-% Corollary 4.17. The alternating group A5 is a simple noncommutative group of
-% order 60.
-% Proof. A normal subgroup of A5 is necessarily the union of conjugacy classes,
-% contains the identity, and has order equal to a divisor of 60 (by Lagrange's
-% theorem).
-% The divisors of 60 other than 1 and 60 are
-% 2 , 3 , 4 , 5 , 6 , 10 , 12 , 15 , 20 , 30;
-% counting the elements other than the identity would give one of
-% 1 , 2 , 3 , 4 , 5 , 9 , 11 , 14 , 19 , 29
-% as a sum of numbers = 1 from the class formula for A5. But this simply does not
-% happen.
-%  ?
-% The reader will check that A6 is simple, by the same method (Exercise 4.21).
-% It is in fact the case that all groups An , n \geq  5, are simple (and
-% noncommutative),
-% implying that S n is not solvable for n \geq  5, and these facts are rather
-% important in
-% view of applications to Galois theory (cf., e.g., Corollary VII.7.16). Note that
-% A2
-% is trivial, A3 \sim 
-%  = Z/3Z is simple and abelian, and A4 is not simple (Exercise 2.24).
-% The alternating group A5 is also called the icosahedral (rotation) group:
-% indeed,
-% it is the group of symmetries of an icosahedron obtained through rigid motions.
-% (Can the reader verify20 this fact?)
-% The simplicity of An for n \geq  5 may be established by studying 3-cycles.
-% First
-% of all, it is natural to wonder whether every even permutation may be written as
-% a
-% product of 3-cycles, and this is indeed so:
-% Lemma 4.18. The alternating group An is generated by 3-cycles.
-% Proof. Since every even permutation is a product of an even number of 2-cycles,
-% it suffices to show that every product of two 2-cycles may be written as product
-% of
-% 3-cycles. Therefore, consider a product
-% (ab)(cd)
-% with a = b, c = d. If (ab) = (cd), then this product is the identity, and there
-% is
-% nothing to prove. If {a, b}, {c, d} have exactly one element in common, then we
-% may assume c = a and observe
-% (ab)(ad) = (abd).
-% If {a, b}, {c, d} are disjoint, then
-% (ab)(cd) = (abc)(adc),
-% and we are done.
-%  ?
-% Now we can capitalize on our study of conjugacy in An:
-% Claim 4.19. Let n \geq  5. If a normal subgroup of An contains a 3-cycle, then
-% it
-% contains all 3-cycles.
-% Proof. Normal subgroups are unions of conjugacy classes, so we just need to
-% verify
-% that 3-cycles form a conjugacy class in An , for n \geq  5. But they do in Sn ,
-% and the
-% type of a 3-cycle is [3, 1, 1, . . . ] for n \geq  5; hence the conjugacy class
-% does not split
-% in An , by Proposition 4.15.
-%  ?
-% The general statement now follows easily by tying up loose ends:
-% Theorem 4.20. The alternating group An is simple for n \geq  5.
-% Proof. We have already checked this for n = 5, and the reader has checked it for
-% n = 6. For n > 6, let N be a nontrivial normal subgroup of An ; we will show
-% that
-% necessarily N = An , by proving that N contains 3-cycles.
-% Let \tau  \in  N , \tau  = (1), and let \sigma  \in  An be a 3-cycle. Since the
-% center of An is
-% trivial (Exercise 4.14) and 3-cycles generate An, we may assume that \tau  and
-% \sigma  do
-% not commute, that is, the commutator
-% [\tau , \sigma ] = \tau  (\sigma \tau  -1\sigma -1 ) = (\tau  \sigma \tau
-% -1)\sigma -1
-% 20 It is good practice to start with smaller examples: for instance, the
-% tetrahedral rotation
-% group is isomorphic to A4 .
-% is not the identity. This element is in N (as is evident from the first
-% expression,
-% as N is normal) and is a product of two 3-cycles (as is evident from the second
-% expression, since the conjugate of a 3-cycle is a 3-cycle).
-% Therefore, replacing \tau  by [\tau , \sigma ] if necessary, we may assume that
-% \tau  \in  N is
-% a nonidentity permutation acting on \leq  6 elements: that is, on a subset of a
-% set
-% T \subseteq  {1, . . . , n} with |T | = 6. Now we may view A6 as a subgroup of
-% An , by letting
-% it act on T . The subgroup N \cap  A6 of A6 is then normal (because N is normal)
-% and
-% nontrivial (because \tau  \in  N \cap  A6 and \tau  = (1)). Since A6 is simple
-% (Exercise 4.21),
-% this implies N \cap  A6 = A6 . In particular, N contains 3-cycles.
-% By Claim 4.19, this implies that N contains all 3-cycles. By Lemma 4.18, it
-% follows that N = An , as needed.
-%  ?
-% Corollary 4.21. For n \geq  5, the group Sn is not solvable.
-% Proof. Since An is simple, the sequence
-% Sn ? An ? {(1)}
-% is a composition series for Sn. It follows that the composition factors of Sn
-% are
-% Z/2Z and An . By Proposition 3.11, Sn is not solvable.
-%  ?
-% In particular, S5 is a nonsolvable group of order 120. This is in fact the
-% smallest
-% order of a nonsimple, nonsolvable group; cf. Exercise 3.16.
+\begin{proof}
+(Cf.\ Exercise~\ref{exer:groups2:1.16}.) Note that
+$Z_{A_n}(\sigma) = A_n \cap Z_{S_n}(\sigma)$: this follows immediately from
+the definition of centralizer (\cref{defn:groups2:centralizer}). Now recall
+that the centralizer of $\sigma$ is its stabilizer under conjugation, and
+therefore the size of the conjugacy class of $\sigma$ equals the index of its
+centralizer.
+
+If $Z_{S_n}(\sigma) \subseteq A_n$, then $Z_{A_n}(\sigma) = Z_{S_n}(\sigma)$,
+so that
+\[
+  [S_n : Z_{S_n}(\sigma)] = [S_n : Z_{A_n}(\sigma)]
+  = [S_n : A_n][A_n : Z_{A_n}(\sigma)] = 2 \cdot [A_n : Z_{A_n}(\sigma)];
+\]
+therefore, $[\sigma]_{A_n}$ is half the size of $[\sigma]_{S_n}$ in this
+case.
+
+If $Z_{S_n}(\sigma) \not\subseteq A_n$, then note that $A_n Z_{S_n}(\sigma)
+= S_n$: indeed, $A_n Z_{S_n}(\sigma)$ is a subgroup of $S_n$ (because $A_n$
+is normal; cf.\ Proposition~II.8.11), and it properly contains $A_n$, so it
+must equal $S_n$ as $A_n$ has index $2$ in $S_n$. By index considerations
+(cf.\ Exercise~II.8.21)
+\[
+  [A_n : Z_{A_n}(\sigma)] = [A_n : A_n \cap Z_{S_n}(\sigma)]
+  = [A_n Z_{S_n}(\sigma) : Z_{S_n}(\sigma)] = [S_n : Z_{S_n}(\sigma)],
+\]
+so the classes have the same size. Since $[\sigma]_{A_n} \subseteq
+[\sigma]_{S_n}$ in any case, it follows that $[\sigma]_{A_n} = [\sigma]_{S_n}$,
+completing the proof.
+\end{proof}
+Therefore, conjugacy classes of even permutations either are preserved from
+$S_n$ to $A_n$ or they split into two distinct, equal-sized classes. We are
+now in a position to give precise conditions determining which happens when.
+
+\begin{prop}{}{prop:groups2:conj-class-split-condition}
+Let $\sigma \in A_n$, $n \geq 2$. Then the conjugacy class of $\sigma$ in
+$S_n$ splits into two conjugacy classes in $A_n$ precisely if the type of
+$\sigma$ consists of distinct odd numbers.
+\end{prop}
+\begin{proof}
+By \cref{lem:groups2:conj-class-an-split}, we have to verify that
+$Z_{S_n}(\sigma)$ is contained in $A_n$ precisely when the stated condition
+is satisfied; that is, we have to show that
+\[
+  \sigma = \tau\sigma\tau^{-1} \implies \tau \text{ is even}
+\]
+precisely when the type of $\sigma$ consists of distinct odd numbers.
+
+Write $\sigma$ in cycle notation (including cycles of length $1$):
+\[
+  \sigma = (a_1 \dots a_\lambda)(b_1 \dots b_\mu)\cdots(c_1 \dots c_\nu),
+\]
+and recall (\cref{lem:groups2:conjugate-cycle}) that
+\[
+  \tau\sigma\tau^{-1} = (a_1\tau^{-1}\dots a_\lambda\tau^{-1})
+  (b_1\tau^{-1}\dots b_\mu\tau^{-1})\cdots(c_1\tau^{-1}\dots c_\nu\tau^{-1}).
+\]
+Assume that $\lambda, \mu, \dots, \nu$ are odd and distinct. If
+$\tau\sigma\tau^{-1} = \sigma$, then conjugation by $\tau$ must preserve each
+cycle in $\sigma$, as all cycle lengths are distinct:
+\[
+  \tau(a_1 \dots a_\lambda)\tau^{-1} = (a_1 \dots a_\lambda), \quad \text{etc.,}
+\]
+that is, $(a_1\tau^{-1}\dots a_\lambda\tau^{-1}) = (a_1 \dots a_\lambda)$,
+etc. This means that $\tau$ acts as a cyclic permutation on (e.g.)
+$a_1,\dots,a_\lambda$ and therefore in the same way as a power of
+$(a_1 \dots a_\lambda)$. It follows that
+\[
+  \tau = (a_1 \dots a_\lambda)^r(b_1 \dots b_\mu)^s\cdots(c_1 \dots c_\nu)^t
+\]
+for suitable $r, s, \dots, t$. Since all cycles have odd lengths, each cycle
+is an even permutation; and $\tau$ must then be even as it is a product of
+even permutations. This proves that $Z_{S_n}(\sigma) \subseteq A_n$ if the
+stated condition holds.
+Conversely, assume that the stated condition does not hold: that is, either
+some of the cycles in the cycle decomposition have even length or all have odd
+length but two of the cycles have the same length.
+
+In the first case, let $\tau$ be an even-length cycle in the cycle
+decomposition of $\sigma$. Note that $\tau\sigma\tau^{-1} = \sigma$: indeed,
+$\tau$ commutes with itself and with all cycles in $\sigma$ other than $\tau$.
+Since $\tau$ has even length, then it is odd as a permutation: this shows
+that $Z_{S_n}(\sigma) \not\subseteq A_n$, as needed.
+
+In the second case, without loss of generality assume $\lambda = \mu$, and
+consider the odd permutation
+\[
+  \tau = (a_1 b_1)(a_2 b_2)\cdots(a_\lambda b_\lambda):
+\]
+conjugating by $\tau$ simply interchanges the first two cycles in $\sigma$;
+hence $\tau\sigma\tau^{-1} = \sigma$. As $\tau$ is odd, this again shows that
+$Z_{S_n}(\sigma) \not\subseteq A_n$, and we are done.
+\end{proof}
+\begin{exam}{}{exam:groups2:4.16}
+Looking again at $A_5$, we have noted in~\S{}4.3 that the types of the even
+permutations in $S_5$ are $[1,1,1,1,1]$, $[2,2,1]$, $[3,1,1]$, and $[5]$.
+By \cref{prop:groups2:conj-class-split-condition} the conjugacy classes
+corresponding to the first three types are preserved in $A_5$, while the last
+one splits.
+
+Therefore there are exactly $5$ conjugacy classes in $A_5$, and the class
+formula for $A_5$ is
+\[
+  60 = 1 + 15 + 20 + 12 + 12.
+\]
+\end{exam}
+Finally! We can now complete a circle of thought begun in the first section
+of this chapter. Along the way, the reader has hopefully checked that every
+simple group of order $< 60$ is commutative
+(Exercise~\ref{exer:groups2:2.24}); and we now see why $60$ is special:
+
+\begin{coro}{}{coro:groups2:4.17}
+The alternating group $A_5$ is a simple noncommutative group of order $60$.
+\end{coro}
+
+\begin{proof}
+A normal subgroup of $A_5$ is necessarily the union of conjugacy classes,
+contains the identity, and has order equal to a divisor of $60$ (by
+Lagrange's theorem). The divisors of $60$ other than $1$ and $60$ are
+\[
+  2, 3, 4, 5, 6, 10, 12, 15, 20, 30;
+\]
+counting the elements other than the identity would give one of
+\[
+  1, 2, 3, 4, 5, 9, 11, 14, 19, 29
+\]
+as a sum of numbers $\neq 1$ from the class formula for $A_5$. But this
+simply does not happen.
+\end{proof}
+The reader will check that $A_6$ is simple, by the same method
+(Exercise~\ref{exer:groups2:4.21}). It is in fact the case that all groups
+$A_n$, $n \geq 5$, are simple (and noncommutative), implying that $S_n$ is
+not solvable for $n \geq 5$, and these facts are rather important in view of
+applications to Galois theory (cf., e.g., Corollary~VII.7.16). Note that
+$A_2$ is trivial, $A_3 \cong \mathbb{Z}/3\mathbb{Z}$ is simple and abelian,
+and $A_4$ is not simple (Exercise~\ref{exer:groups2:2.24}).
+
+The alternating group $A_5$ is also called the \emph{icosahedral (rotation)
+group}: indeed, it is the group of symmetries of an icosahedron obtained
+through rigid motions. (Can the reader verify\footnote{It is good practice to
+start with smaller examples: for instance, the tetrahedral rotation group is
+isomorphic to $A_4$.} this fact?)
+The simplicity of $A_n$ for $n \geq 5$ may be established by studying
+$3$-cycles. First of all, it is natural to wonder whether every even
+permutation may be written as a product of $3$-cycles, and this is indeed so:
+
+\begin{lem}{}{lem:groups2:an-3-cycles}
+The alternating group $A_n$ is generated by $3$-cycles.
+\end{lem}
+
+\begin{proof}
+Since every even permutation is a product of an even number of $2$-cycles, it
+suffices to show that every product of two $2$-cycles may be written as a
+product of $3$-cycles. Therefore, consider a product $(ab)(cd)$ with
+$a \neq b$, $c \neq d$. If $(ab) = (cd)$, then this product is the identity,
+and there is nothing to prove. If $\{a,b\}$, $\{c,d\}$ have exactly one
+element in common, then we may assume $c = a$ and observe
+\[
+  (ab)(ad) = (abd).
+\]
+If $\{a,b\}$, $\{c,d\}$ are disjoint, then
+\[
+  (ab)(cd) = (abc)(adc),
+\]
+and we are done.
+\end{proof}
+Now we can capitalize on our study of conjugacy in $A_n$:
+
+\begin{fact}{}{fact:groups2:3-cycles-conjugacy-class}
+Let $n \geq 5$. If a normal subgroup of $A_n$ contains a $3$-cycle, then it
+contains all $3$-cycles.
+\end{fact}
+
+\begin{proof}
+Normal subgroups are unions of conjugacy classes, so we just need to verify
+that $3$-cycles form a conjugacy class in $A_n$, for $n \geq 5$. But they do
+in $S_n$, and the type of a $3$-cycle is $[3,1,1,\dots]$ for $n \geq 5$;
+hence the conjugacy class does not split in $A_n$, by
+\cref{prop:groups2:conj-class-split-condition}.
+\end{proof}
+The general statement now follows easily by tying up loose ends:
+
+\begin{thm}{}{thm:groups2:4.20}
+The alternating group $A_n$ is simple for $n \geq 5$.
+\end{thm}
+
+\begin{proof}
+We have already checked this for $n = 5$, and the reader has checked it for
+$n = 6$. For $n > 6$, let $N$ be a nontrivial normal subgroup of $A_n$; we
+will show that necessarily $N = A_n$, by proving that $N$ contains $3$-cycles.
+
+Let $\tau \in N$, $\tau \neq (1)$, and let $\sigma \in A_n$ be a $3$-cycle.
+Since the center of $A_n$ is trivial (Exercise~\ref{exer:groups2:4.14}) and
+$3$-cycles generate $A_n$, we may assume that $\tau$ and $\sigma$ do not
+commute, that is, the commutator
+\[
+  [\tau, \sigma] = \tau(\sigma\tau^{-1}\sigma^{-1}) = (\tau\sigma\tau^{-1})\sigma^{-1}
+\]
+is not the identity. This element is in $N$ (as is evident from the first
+expression, as $N$ is normal) and is a product of two $3$-cycles (as is
+evident from the second expression, since the conjugate of a $3$-cycle is a
+$3$-cycle).
+Therefore, replacing $\tau$ by $[\tau, \sigma]$ if necessary, we may assume
+that $\tau \in N$ is a nonidentity permutation acting on $\leq 6$ elements:
+that is, on a subset of a set $T \subseteq \{1,\dots,n\}$ with $|T| = 6$.
+Now we may view $A_6$ as a subgroup of $A_n$, by letting it act on $T$. The
+subgroup $N \cap A_6$ of $A_6$ is then normal (because $N$ is normal) and
+nontrivial (because $\tau \in N \cap A_6$ and $\tau \neq (1)$). Since $A_6$
+is simple (Exercise~\ref{exer:groups2:4.21}), this implies $N \cap A_6 = A_6$.
+In particular, $N$ contains $3$-cycles.
+
+By \cref{fact:groups2:3-cycles-conjugacy-class}, this implies that $N$
+contains all $3$-cycles. By \cref{lem:groups2:an-3-cycles}, it follows that
+$N = A_n$, as needed.
+\end{proof}
+\begin{coro}{}{coro:groups2:4.21}
+For $n \geq 5$, the group $S_n$ is not solvable.
+\end{coro}
+
+\begin{proof}
+Since $A_n$ is simple, the sequence
+\[
+  S_n \supsetneq A_n \supsetneq \{(1)\}
+\]
+is a composition series for $S_n$. It follows that the composition factors of
+$S_n$ are $\mathbb{Z}/2\mathbb{Z}$ and $A_n$. By
+\cref{prop:groups2:solvable-equiv}, $S_n$ is not solvable.
+\end{proof}
+
+In particular, $S_5$ is a nonsolvable group of order $120$. This is in fact
+the smallest order of a nonsimple, nonsolvable group; cf.\
+Exercise~\ref{exer:groups2:3.16}.
 
 \subsection*{Exercises}
 
