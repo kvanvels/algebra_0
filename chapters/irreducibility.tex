@@ -1467,198 +1467,239 @@ maximal ideal corresponding to a point, and apply Proposition~3.5.)
 [III.4.17]
 \end{exer}
 
+\begin{exer}{}{irred:exer:3.11}
+Prove that a UFD $R$ is a PID if and only if every nonzero prime ideal
+in $R$ is maximal. (Hint: One direction is Proposition~III.4.13. For
+the other, assume that every nonzero prime ideal in a UFD $R$ is
+maximal, and prove that every maximal ideal in $R$ is principal; then
+use Proposition~3.5 to relate arbitrary ideals to maximal ideals, and
+prove that every ideal of $R$ is principal.)
+\end{exer}
+
+\begin{exer}{}{irred:exer:3.12}
+$\lnot$ Let $R$ be a commutative ring, and let $I \subseteq R$ be a
+proper ideal. Prove that the set of prime ideals containing $I$ has
+minimal elements. (These are the \emph{minimal primes} of $I$.) [1.9]
+\end{exer}
+
+\begin{exer}{}{irred:exer:3.13}
+$\lnot$ Let $R$ be a commutative ring, and let $N$ be its nilradical
+(Exercise~III.3.12). Let $r \in N$.
+\begin{itemize}
+  \item Consider the family $\mathscr{F}$ of ideals of $R$ that do not
+    contain any power $r^k$ of $r$ for $k > 0$. Prove that
+    $\mathscr{F}$ has maximal elements.
+  \item Let $I$ be a maximal element of $\mathscr{F}$. Prove that $I$
+    is prime.
+  \item Conclude: $r \in N \implies r$ is not in the intersection of
+    all prime ideals of $R$.
+\end{itemize}
+Together with Exercise~III.4.18, this shows that the nilradical of a
+commutative ring $R$ equals the intersection of all prime ideals of $R$.
+[III.4.18, VII.2.8]
+\end{exer}
+
+\begin{exer}{}{irred:exer:3.14}
+$\lnot$ The \emph{Jacobson radical} of a commutative ring $R$ is the
+intersection of the maximal ideals in $R$. (Thus, the Jacobson radical
+contains the nilradical.) Prove that $r$ is in the Jacobson radical if
+and only if $1 + rs$ is invertible for every $s \in R$. [VI.3.8]
+\end{exer}
+
+\begin{exer}{}{irred:exer:3.15}
+$\lnot$ Recall that a (commutative) ring $R$ is Noetherian if every
+ideal of $R$ is finitely generated. Assume the seemingly weaker
+condition that every prime ideal of $R$ is finitely generated. Let
+$\mathscr{F}$ be the family of ideals that are not finitely generated in
+$R$. You will prove $\mathscr{F} = \emptyset$.
+\begin{itemize}
+  \item If $\mathscr{F} \neq \emptyset$, prove that it has a maximal
+    element $I$.
+  \item Prove that $R/I$ is Noetherian.
+  \item Prove that there are ideals $J_1$, $J_2$ containing $I$, such
+    that $J_1 J_2 \subseteq I$.
+  \item Give a structure of $R/I$-module to $I/J_1 J_2$ and
+    $J_1/J_1 J_2$.
+  \item Prove that $I/J_1 J_2$ is a finitely generated $R/I$-module.
+  \item Prove that $I$ is finitely generated, thereby reaching a
+    contradiction.
+\end{itemize}
+Thus, a ring is Noetherian if and only if its prime ideals are finitely
+generated.
+\end{exer}
+
 \section{Unique factorization in polynomial rings}
 \label{sec:irred:unique-factorization-in-polynomial-rings}
 
-\subsection{Prove that a UFD R is a PID if and only if every nonzero prime ideal in R is}
-\label{subsec:irred:prove-that-a-ufd-r-is-a-pid-if-and-only-if-every-nonzero-prime-ideal-in-r-is}
-
-% maximal. (Hint: One direction is Proposition III.4.13. For the other, assume
-% that
-% every nonzero prime ideal in a UFD R is maximal, and prove that every maximal
-% ideal in R is principal; then use Proposition 3.5 to relate arbitrary ideals to
-% maximal
-% ideals, and prove that every ideal of R is principal.)
-
-% \lnot  Let R be a commutative ring, and let I \subseteq  R be a proper ideal
-% Prove that
-
-% the set of prime ideals containing I has minimal elements. (These are the
-% minimal
-% primes of I.) [1.9]
-
-% \lnot  Let R be a commutative ring, and let N be its nilradical (Exercise III.3.12)
-
-% Let r \in  N .
-% \bullet  Consider the family F of ideals of R that do not contain any power rk of r for
-% k > 0. Prove that F has maximal elements.
-% \bullet  Let I be a maximal element of F . Prove that I is prime.
-% \bullet  Conclude r \in  N \implies  r is not in the intersection of all prime ideals of R.
-% Together with Exercise III.4.18, this shows that the nilradical of a commutative
-% ring R equals the intersection of all prime ideals of R. [III.4.18, VII.2.8]
-
-% \lnot  The Jacobson radical of a commutative ring R is the intersection of the
-
-% maximal ideals in R. (Thus, the Jacobson radical contains the nilradical.) Prove
-% that r is in the Jacobson radical if and only if 1 + rs is invertible for every
-% s \in  R.
-% [VI.3.8]
-
-\subsection{Recall that a (commutative) ring R is Noetherian if every ideal of R is finitely}
-\label{subsec:irred:recall-that-a-commutative-ring-r-is-noetherian-if-every-ideal-of-r-is-finitely}
-
-% generated. Assume the seemingly weaker condition that every prime ideal of R is
-% finitely generated. Let F be the family of ideals that are not finitely
-% generated
-% in R. You will prove F = \emptyset .
-% \bullet  If F = \emptyset , prove that it has a maximal element I.
-% \bullet  Prove that R/I is Noetherian.
-% \bullet  Prove that there are ideals J1, J2 containing I, such that J1 J2 \subseteq  I.
-% \bullet  Give a structure of R/I module to I/J1J2 and J1 /J1 J2 .
-% \bullet  Prove that I/J1 J2 is a finitely generated R/I-module.
-% \bullet  Prove that I is finitely generated, thereby reaching a contradiction.
-% Thus, a ring is Noetherian if and only if its prime ideals are finitely
-% generated.
-% We now return to regular programming and study unique factorization in polyno-
-% mial rings; we will finally establish the fact (already hinted at) that R[x] is
-% a UFD
-% if R is a UFD.
-% Among the necessary preparatory work we also discuss the field of fractions of
-% an integral domain; this is a particular instance of the process of localization
-% of a
-% ring (or a module) at a multiplicative subset, which the diligent reader will
-% explore
-% a little more in the exercises.
+We now return to regular programming and study unique factorization in
+polynomial rings; we will finally establish the fact (already hinted at)
+that $R[x]$ is a UFD if $R$ is a UFD. Among the necessary preparatory
+work we also discuss the field of fractions of an integral domain; this
+is a particular instance of the process of localization of a ring (or a
+module) at a multiplicative subset, which the diligent reader will
+explore a little more in the exercises.
 
 \subsection{Primitivity and content; Gauss's lemma}
 \label{subsec:irred:primitivity-and-content-gauss-s-lemma}
-% One issue that we have en-
+One issue that we have encountered already, and will encounter again, is
+the description of the ideals of the polynomial ring $R[x]$, given enough
+information about $R$. For example, we have proved that the ideals of
+$k[x]$ are principal if $k$ is a field, and Hilbert's basis theorem shows
+that all ideals of $R[x]$ are finitely generated if all ideals of $R$ are
+(Exercise~III.4.4 and Lemma~1.3).
 
-% countered already, and will encounter again, is the description of the ideals of
-% the polynomial ring R[x], given enough information about R. For example, we
-% have proved that the ideals of k[x] are principal if k is a field, and Hilbert's
-% basis
-% theorem shows that all ideals of R[x] are finitely generated if all ideals of R
-% are
-% (Exercise III.4.4 and Lemma 1.3).
-% An even more naive observation is simply that every ideal I of R generates an
-% ideal of R[x]:
-% IR[x] := {a0 + a1 x + \dots  + adxd \in  R[x] | \forall i, ai \in  I}.
-% Lemma 4.1. Let R be a ring, and let I be an ideal of R. Then
-% R[x] \sim  = R
-%  [x].
-% IR[x]
-%  I
-% The proof of this lemma is a standard application of the first isomorphism
-% theorem and is left to the reader (Exercise 4.1).
-% Corollary 4.2. If I is a prime ideal of R, then IR[x] is prime in R[x].
-% Proof. If I is prime in R, then R/I is an integral domain; hence so is
-% R[x]/IR[x] \sim
-%  =
-% (R/I)[x], and therefore IR[x] is prime in R[x].
-%  ?
-% We will use this fact in a moment.
-% The following definitions can be studied for every commutative ring; our main
-% application will be to UFDs.
-% Definition 4.3. Let R be a commutative ring, and let
-% f = a0 + a1 x + \dots  + ad xd \in  R[x]
-% be a polynomial.
-% \bullet  f is very primitive if for all prime ideals p of R, f \in  pR[x].
-% \bullet  f is primitive if for all principal prime ideals p of R, f \in  pR[x].
-%  ?
-% The notion of `primitive' polynomial is standard, but it is not usually pre-
-% sented in this way; the standard definition is the equivalent formulation given
-% in
-% Lemma 4.5. As for `very primitive', this term is essentially a joke---my excuse
-% for
-% bringing up this notion is that it is very natural and that unfortunately some
-% ref-
-% erences blur the distinction between this notion and the notion of `primitive'.
-% I
-% hope to ward off any possible confusion by being rather explicit on this point.
-% Very
-% primitive polynomials are primitive, but the converse does not hold in general,
-% even
-% for UFDs (cf. Exercise 4.3).
-% Perhaps the most important fact about `primitivity' is the following easy re-
-% mark.
-% Lemma 4.4. Let R be a commutative ring. Then for f, g \in  R[x]
-% f g is primitive \iff  both f and g are primitive.
-% Proof. This is an easy consequence of Corollary 4.2:
-% f g primitive \iff  \forall p prime and principal in R, f g \in  pR[x]
-% \iff  \forall p prime and principal in R, f \in  pR[x] and g \in  pR[x]
-% \iff  f is primitive and g is primitive
-% since pR[x] is prime if p is a prime ideal.
-% ?
-% The analogous equivalence holds for very primitive polynomials (Exercise 4.4).
-% Lemma 4.4 will be ultimately responsible for the fact that R[x] is a UFD if R is
-% a UFD, which is my main objective in this section. If R is a UFD, the notion of
-% `primitive' has the following interpretation; I accompany it with the `very
-% primitive'
-% case, for comparison.
-% Lemma 4.5. Let R be a commutative ring and f = a0 + a1 x + \dots  + a d xd \in
-% R[x]
-% as above.
-% \bullet  f is very primitive if and only if (a0 , . . . , ad) = (1).
-% \bullet  If R is a UFD, then f is primitive if and only if gcd(a0 , . . . , ad ) = 1.
-% Proof. If (a0 , . . . , ad ) = (1), then no prime ideal can contain all
-% coefficients ai ,
-% and it follows that f is very primitive. Conversely, if f is very primitive,
-% then the
-% coefficients of f are not all contained in any one prime ideal, and in
-% particular they
-% are not all contained in any maximal ideal (since maximal ideals are prime).
-% Thus,
-% (a0, . . . , ad ) = (1) in this case, since every proper ideal is contained in a
-% maximal
-% ideal by Proposition 3.5. This proves the first point.
-% For the second point note that, in a UFD, gcd(a0 , . . . , ad ) = 1 if and only
-% if
-% there exists an irreducible element q \in  R such that (a0 , . . . , ad )
-% \subseteq  (q). As (q) is
-% then prime (by Lemma 2.4), the second point follows as well.
-%  ?
-% With this in mind, in order to capitalize on Lemma 4.4, it is convenient to give
-% a name to the gcd of the coefficients of a polynomial. I now assume that R is a
-% UFD, since this is the case of greatest interest in the applications.
-% Definition 4.6. Let R be a UFD. The content of a nonzero polynomial f \in  R[x],
-% denoted contf , is the gcd of its coefficients.
-%  ?
-% Of course the content of a polynomial is only defined up to units. I find this
-% ambiguity distasteful. What is uniquely determined is the principal ideal
-% generated
-% by the content of f , which I will denote
-% (contf ) :
-% thus f is primitive precisely when (contf ) = (1). I will take a somewhat
-% stubborn
-% approach and deal with principal ideals throughout, rather with individual (but
-% only defined up to unit) elements. The reader should keep in mind that ideals
-% may
-% be multiplied (cf. \S{}III.4.1), and if (a), (b) are principal ideals, then
-% their product
-% (a)(b) is the principal ideal (ab).
-% The proof of the following remarks is immediate from the definition; hence it
-% is left to the reader (Exercise 4.5):
-% Lemma 4.7. Let R be a UFD, and let f \in  R[x]. Then
-% \bullet  (f ) = (contf )(f ), where f is primitive;
-% \bullet  if (f ) = (c)(g), with c \in  R and g primitive, then (c) = (cont f ).
-% In view of its consequences, the following fact is rather profound, and it
-% there-
-% fore deserves a name. Some references call the result of Lemma 4.4, or its main
-% consequence (Theorem 4.14), Gauss's lemma. We prefer to use this name for the
-% following statement.
-% Proposition 4.8 (Gauss's lemma). Let R be a UFD, and let f, g \in  R[x]. Then
-% (contf g ) = (contf )(cont g ).
-% Proof. This follows easily from our preparatory work. Write
-% (f g) = ((contf )(f )) ((contg )(g)) = (contf )(contg ) (f g),
-% with f , g primitive. By Lemma 4.4, f g is primitive; by Lemma 4.7 it follows
-% that
-% (contf )(contg ) is the content of f g, as needed.
-%  ?
-% Note the following immediate consequence:
-% Corollary 4.9. Let R be a UFD, and let f, g \in  R[x]. Assume (f ) \subseteq
-% (g). Then
-% (contf ) \subseteq  (contg ).
+An even more naive observation is simply that every ideal $I$ of $R$
+generates an ideal of $R[x]$:
+\[IR[x] := \{a_0 + a_1 x + \dots + a_d x^d \in R[x] \mid
+  \forall\, i,\, a_i \in I\}.\]
+\begin{lem}{}{irred:4.1}
+Let $R$ be a ring, and let $I$ be an ideal of $R$. Then
+$\dfrac{R[x]}{IR[x]} \cong \dfrac{R}{I}[x]$.
+\end{lem}
+
+The proof of this lemma is a standard application of the first
+isomorphism theorem and is left to the reader (Exercise~4.1).
+\begin{coro}{}{irred:4.2}
+If $I$ is a prime ideal of $R$, then $IR[x]$ is prime in $R[x]$.
+\end{coro}
+
+\begin{proof}
+If $I$ is prime in $R$, then $R/I$ is an integral domain; hence so is
+$R[x]/IR[x] \cong (R/I)[x]$, and therefore $IR[x]$ is prime in $R[x]$.
+\end{proof}
+
+We will use this fact in a moment.
+The following definitions can be studied for every commutative ring; our
+main application will be to UFDs.
+
+\begin{defn}{}{irred:4.3}
+Let $R$ be a commutative ring, and let
+$f = a_0 + a_1 x + \dots + a_d x^d \in R[x]$ be a polynomial.
+\begin{itemize}
+  \item $f$ is \emph{very primitive} if for all prime ideals $\mathfrak{p}$
+    of $R$, $f \notin \mathfrak{p}R[x]$.
+  \item $f$ is \emph{primitive} if for all principal prime ideals
+    $\mathfrak{p}$ of $R$, $f \notin \mathfrak{p}R[x]$.
+\end{itemize}
+\end{defn}
+The notion of `primitive' polynomial is standard, but it is not usually
+presented in this way; the standard definition is the equivalent
+formulation given in Lemma~4.5. As for `very primitive', this term is
+essentially a joke---my excuse for bringing up this notion is that it is
+very natural and that unfortunately some references blur the distinction
+between this notion and the notion of `primitive'. I hope to ward off any
+possible confusion by being rather explicit on this point. Very primitive
+polynomials are primitive, but the converse does not hold in general, even
+for UFDs (cf.\ Exercise~4.3).
+Perhaps the most important fact about `primitivity' is the following easy
+remark.
+
+\begin{lem}{}{irred:4.4}
+Let $R$ be a commutative ring. Then for $f, g \in R[x]$,
+\[fg \text{ is primitive} \iff \text{both } f \text{ and } g
+  \text{ are primitive.}\]
+\end{lem}
+
+\begin{proof}
+This is an easy consequence of Corollary~4.2:
+\begin{align*}
+  fg \text{ primitive}
+  &\iff \forall\, \mathfrak{p} \text{ prime and principal in } R,\
+    fg \notin \mathfrak{p}R[x] \\
+  &\iff \forall\, \mathfrak{p} \text{ prime and principal in } R,\
+    f \notin \mathfrak{p}R[x] \text{ and } g \notin \mathfrak{p}R[x] \\
+  &\iff f \text{ is primitive and } g \text{ is primitive,}
+\end{align*}
+since $\mathfrak{p}R[x]$ is prime if $\mathfrak{p}$ is a prime ideal.
+\end{proof}
+
+The analogous equivalence holds for very primitive polynomials
+(Exercise~4.4).
+Lemma~4.4 will be ultimately responsible for the fact that $R[x]$ is a
+UFD if $R$ is a UFD, which is my main objective in this section. If $R$
+is a UFD, the notion of `primitive' has the following interpretation; I
+accompany it with the `very primitive' case, for comparison.
+\begin{lem}{}{irred:4.5}
+Let $R$ be a commutative ring and $f = a_0 + a_1 x + \dots + a_d x^d
+\in R[x]$ as above.
+\begin{itemize}
+  \item $f$ is very primitive if and only if $(a_0, \dots, a_d) = (1)$.
+  \item If $R$ is a UFD, then $f$ is primitive if and only if
+    $\gcd(a_0, \dots, a_d) = 1$.
+\end{itemize}
+\end{lem}
+\begin{proof}
+If $(a_0, \dots, a_d) = (1)$, then no prime ideal can contain all
+coefficients $a_i$, and it follows that $f$ is very primitive.
+Conversely, if $f$ is very primitive, then the coefficients of $f$ are
+not all contained in any one prime ideal, and in particular they are not
+all contained in any maximal ideal (since maximal ideals are prime).
+Thus, $(a_0, \dots, a_d) = (1)$ in this case, since every proper ideal
+is contained in a maximal ideal by Proposition~3.5. This proves the
+first point.
+
+For the second point note that, in a UFD, $\gcd(a_0, \dots, a_d) \neq 1$
+if and only if there exists an irreducible element $q \in R$ such that
+$(a_0, \dots, a_d) \subseteq (q)$. As $(q)$ is then prime (by
+Lemma~2.4), the second point follows as well.
+\end{proof}
+With this in mind, in order to capitalize on Lemma~4.4, it is convenient
+to give a name to the gcd of the coefficients of a polynomial. I now
+assume that $R$ is a UFD, since this is the case of greatest interest in
+the applications.
+
+\begin{defn}{}{irred:4.6}
+Let $R$ be a UFD. The \emph{content} of a nonzero polynomial $f \in R[x]$,
+denoted $\operatorname{cont} f$, is the gcd of its coefficients.
+\end{defn}
+Of course the content of a polynomial is only defined up to units. I find
+this ambiguity distasteful. What is uniquely determined is the principal
+ideal generated by the content of $f$, which I will denote
+$(\operatorname{cont} f)$: thus $f$ is primitive precisely when
+$(\operatorname{cont} f) = (1)$. I will take a somewhat stubborn approach
+and deal with principal ideals throughout, rather than individual (but
+only defined up to unit) elements. The reader should keep in mind that
+ideals may be multiplied (cf.\ \S{}III.4.1), and if $(a)$, $(b)$ are
+principal ideals, then their product $(a)(b)$ is the principal ideal
+$(ab)$.
+
+The proof of the following remarks is immediate from the definition;
+hence it is left to the reader (Exercise~4.5):
+\begin{lem}{}{irred:4.7}
+Let $R$ be a UFD, and let $f \in R[x]$. Then
+\begin{itemize}
+  \item $(f) = (\operatorname{cont} f)(\tilde{f})$, where $\tilde{f}$
+    is primitive;
+  \item if $(f) = (c)(g)$, with $c \in R$ and $g$ primitive, then
+    $(c) = (\operatorname{cont} f)$.
+\end{itemize}
+\end{lem}
+In view of its consequences, the following fact is rather profound, and
+it therefore deserves a name. Some references call the result of
+Lemma~4.4, or its main consequence (Theorem~4.14), Gauss's lemma. We
+prefer to use this name for the following statement.
+
+\begin{prop}{Gauss's lemma}{irred:4.8}
+Let $R$ be a UFD, and let $f, g \in R[x]$. Then
+$(\operatorname{cont}(fg)) = (\operatorname{cont} f)(\operatorname{cont} g)$.
+\end{prop}
+
+\begin{proof}
+This follows easily from our preparatory work. Write
+$(fg) = ((\operatorname{cont} f)(\tilde{f}))((\operatorname{cont} g)(\tilde{g}))
+= (\operatorname{cont} f)(\operatorname{cont} g)(\tilde{f}\tilde{g})$,
+with $\tilde{f}$, $\tilde{g}$ primitive. By Lemma~4.4, $\tilde{f}\tilde{g}$
+is primitive; by Lemma~4.7 it follows that
+$(\operatorname{cont} f)(\operatorname{cont} g)$ is the content of $fg$,
+as needed.
+\end{proof}
+
+Note the following immediate consequence:
+
+\begin{coro}{}{irred:4.9}
+Let $R$ be a UFD, and let $f, g \in R[x]$. Assume $(f) \subseteq (g)$.
+Then $(\operatorname{cont} f) \subseteq (\operatorname{cont} g)$.
+\end{coro}
 
 \subsection{The field of fractions of an integral domain}
 \label{subsec:irred:the-field-of-fractions-of-an-integral-domain}
