@@ -1703,233 +1703,143 @@ Then $(\operatorname{cont} f) \subseteq (\operatorname{cont} g)$.
 
 \subsection{The field of fractions of an integral domain}
 \label{subsec:irred:the-field-of-fractions-of-an-integral-domain}
-% Gauss's lemma is the key
+Gauss's lemma is the key to the important observation that if $R$ is a
+UFD, then so is $R[x]$. However, we need one more tool before we can
+prove this fact; this is one instance of the important process of
+localization.
 
-% to the important observation that if R is a UFD, then so is R[x]. However, we
-% need
-% one more tool before we can prove this fact; this is one instance of the
-% important
-% process of localization.
-% In the case we need for our immediate goal, the process starts from any integral
-% domain and produces a field, in precisely the same way the field Q of rational
-% numbers may be obtained from the integral domain Z. This construction is known
-% as the field of fractions (or field of quotients) of the integral domain R. It
-% satisfies
-% the following beautiful universal property.
-% Given an integral domain R, consider the category R whose objects are pairs
-% (i, K),
-% where K is a field and i : R \setminus \to  K is an injective ring homomorphism.
-% Morphisms
-% are defined in the style of every analogous construction we have encountered:
-% that is,
-% a morphism (i, K) \to  (j, L) is determined by a homomorphism of fields \alpha
-% : K \to  L
-% making the following diagram
-% \alpha 
-%  / L
-% KZ4
-%  E
-% i 44
-%  j
-% , L ?3
-% R
-% commute.
-% Note that \alpha , as every homomorphism of fields, is necessarily injective
-% (Exer-
-% cise III.3.10); this is compatible with the requirement that i : R \setminus \to
-% K be injective
-% to begin with. The injectivity of R \setminus \to  K also forces R to be an
-% integral domain,
-% since subrings of fields are necessarily integral domains.
-% Definition 4.10. The field of fractions K(R) of R is an initial object of the
-% cate-
-% gory R.
-%  ?
-% Thus, K(R) is the `smallest field containing R'.
-% The usual caveats apply to any such definition: the initial object of R carries
-% not only the information of a field K (the field of fractions proper), but also
-% of a
-% specific realization of R as a subring of K; this distinction is blurred in
-% common use
-% of the language. Also, of course this prescription only defines the field of
-% fractions
-% up to isomorphism (as is true of any universal object; cf. Proposition I.5.4).
-% Finally, just stating the universal property does not guarantee that the sought-
-% for initial object exists. Thus, our next task is the construction of an initial
-% object
-% for R. Fortunately, the construction is essentially straightforward: we just
-% need to
-% formalize a notion of `fraction' of elements of R.
-% Consider the set R \times  (R\ast  ) of pairs (a, r) of elements of R, where r =
-% 0. The
-% pair (a, r) will be associated with a `fraction' ar ; the reader would be
-% well-advised
-% to put this book away now and carry out the construction of K(R) on his/her own,
-% profiting from this major hint.
-% a
-% Here is the construction. Denote by the equivalence class of (a, r) \in  R
-% \times  (R\ast  )
-% r
-% with respect to the following equivalence relation:
-% (a, r) \sim  (b, s) \iff  as - br = 0.
-% The reader will verify that this is indeed an equivalence relation. As a set,
-% K(R)
-% is defined by
-% ( a
-%  )
-% K(R) :=
-%  | a \in  R, r \in  R, r = 0 .
-% r
-% It is clear that these `fractions' behave much as ordinary fractions. For
-% example,
-% as
-%  a
-% =
-% rs
-%  r
-% if s = 0: indeed,
-% (as)r = a(rs)
-% by associativity and commutativity in R, and this shows
-% (as, rs) \sim  (a, r)
-% as needed.
-% We define operations on K(R) as follows:
-% a b
-%  as + br
-% + =
-%  ,
-% r
-%  s
-%  rs
-% a b
-%  ab
-% \cdot  = .
-% r s
-%  rs
-% Of course one must verify that these operations are well-defined; this is also
-% left to
-% the reader. The fact that R is an integral domain is used in these definitions:
-% it
-% guarantees that rs = 0 if r = 0 and s = 0.
-% Now I claim that K(R) is made into a field by these operations. This is a
-% straightforward verification; for example, distributivity amounts to the
-% following
-% computation:
-% a
-%  b c
-%  a (bt + cs)
-%  a(bt + cs)
-%  a(bt) a(cs)
-%  ab ac
-% +
-%  =
-%  =
-%  =
-%  +
-%  =
-%  +
-% r
-%  s
-%  t
-%  r
-%  st
-%  r(st)
-%  r(st)
-%  r(st)
-%  rs
-%  rt
-% a b a c
-% =
-%  +
-%  .
-% r s r t
-% The zero element is the fraction 01 (or in fact 0 r for any nonzero r \in  R);
-% the
-% multiplicative identity is the fraction 11 (or in fact rr for any nonzero r \in
-% R). Since
-% r s
-%  rs
-% =
-%  =
-% s r
-%  rs
-% for all rs = 01 (that is, for all r = 0), every nonzero element in K(R) has an
-% inverse,
-% as promised.
-% An `inclusion map' i : R \setminus \to  K(R) is defined by
-% a
-% a ?\to  ;
-% it is immediately checked that this is an injective ring homomorphism. It is
-% common
-% to use this map to identify R with its isomorphic copy inside K(R) and simply
-% view R as a subring of K(R).
-% Claim 4.11. (i, K(R)) is initial in R.
-% Proof. Let j : R \setminus \to  L be any injective ring homomorphism from R to a
-% field L.
-% We need to define an induced homomorphism \hat{\jmath} : K(R) \to  L so that the
-% diagram
-% \hat{\jmath}
-%  / L
-% KZ4
-%  E
-% i 4
-%  j
-% , L ?3
-% R
-% commutes, and we must show that \hat{\jmath} is unique. Now, the definition of
-% \hat{\jmath} is in fact
-% forced upon us: if \hat{\jmath} exists as a homomorphism, then necessarily
-% ? a ?
-%  ? a ?
-%  ? r ?-1
-%  ? a ? ? r ?-1
-% \hat{\jmath}
-%  = \hat{\jmath}
-%  \hat{\jmath}
-%  = \hat{\jmath}
-%  \hat{\jmath}
-%  = (\hat{\jmath} \circ  i(a))(\hat{\jmath} \circ  i(r)-1)
-% r
-% -1= j(a)j(r) .
-% Thus \hat{\jmath} is indeed unique, if it exists. On the other hand, the
-% prescription
-% ? ?
-% a\hat{\jmath}
-%  := j(a)j(r)-1
-% r
-% does define a function K(R) \to  L: indeed, if (a, r) \sim  (b, s), then
-% as = br
-% in R, hence
-% j(a)j(s) = j(b)j(r)
-% in L, and (note that j(r), j(s) are nonzero in L since r, s are nonzero in R and
-% j is
-% injective)
-% j(a)j(r)-1 = j(b)j(s)-1 ,
-% showing that the proposed \hat{\jmath} is well-defined. The reader will verify
-% that it is a ring
-% homomorphism, concluding the proof of the claim.
-%  ?
-% Example 4.12. With the notation introduced above, K(Z) = Q.
-% The universal property implies immediately that F \setminus \to  K(F ) is an
-% isomorphism
-% if F is itself a field. Thus, the construction adds nothing to Q, R, C, Z/pZ,
-% etc.
-% If R is any integral domain, so that R[x] is also an integral domain, K(R[x]) is
-% a famous field:
-% Definition 4.13. The field of rational functions with coefficients in R is the
-% field
-% of fractions of the ring R[x]. This field is denoted R(x).
-%  ?
-% Elements of R(x) are fractions of polynomials
-% p(x)
-% q(x)
-% with p(x), q(x) \in  R[x] and q(x) = 0. The term function is inaccurate, since
-% the
-% `function' R \to  R given by a ?\to  p(a)
-%  q(a) is not defined for all a \in  R (not for those for
-% which q(a) = 0, that is); and the function itself does not suffice to determine
-% the
-% element in R(x) (cf. Exercise III.2.7).
-%  ?
+In the case we need for our immediate goal, the process starts from any
+integral domain and produces a field, in precisely the same way the field
+$\mathbb{Q}$ of rational numbers may be obtained from the integral domain
+$\mathbb{Z}$. This construction is known as the \emph{field of fractions}
+(or \emph{field of quotients}) of the integral domain $R$. It satisfies
+the following beautiful universal property.
+Given an integral domain $R$, consider the category $\mathscr{R}$ whose
+objects are pairs $(i, K)$, where $K$ is a field and $i : R \to K$ is an
+injective ring homomorphism. Morphisms are defined in the style of every
+analogous construction we have encountered: that is, a morphism
+$(i, K) \to (j, L)$ is determined by a homomorphism of fields
+$\alpha : K \to L$ making the following diagram commute:
+\[\begin{tikzcd}
+  K \arrow[rr, "\alpha"] & & L \\
+  & R \arrow[ul, "i"] \arrow[ur, "j"']
+\end{tikzcd}\]
+Note that $\alpha$, as every homomorphism of fields, is necessarily
+injective (Exercise~III.3.10); this is compatible with the requirement
+that $i : R \to K$ be injective to begin with. The injectivity of
+$R \to K$ also forces $R$ to be an integral domain, since subrings of
+fields are necessarily integral domains.
+\begin{defn}{}{irred:4.10}
+The \emph{field of fractions} $K(R)$ of $R$ is an initial object of the
+category $\mathscr{R}$.
+\end{defn}
+
+Thus, $K(R)$ is the `smallest field containing $R$'.
+The usual caveats apply to any such definition: the initial object of
+$\mathscr{R}$ carries not only the information of a field $K$ (the field
+of fractions proper), but also of a specific realization of $R$ as a
+subring of $K$; this distinction is blurred in common use of the
+language. Also, of course this prescription only defines the field of
+fractions up to isomorphism (as is true of any universal object;
+cf.\ Proposition~I.5.4). Finally, just stating the universal property
+does not guarantee that the sought-for initial object exists. Thus, our
+next task is the construction of an initial object for $\mathscr{R}$.
+Fortunately, the construction is essentially straightforward: we just
+need to formalize a notion of `fraction' of elements of $R$.
+
+Consider the set $R \times (R^*)$ of pairs $(a, r)$ of elements of $R$,
+where $r \neq 0$. The pair $(a, r)$ will be associated with a `fraction'
+$\frac{a}{r}$; the reader would be well-advised to put this book away
+now and carry out the construction of $K(R)$ on his/her own, profiting
+from this major hint.
+Here is the construction. Denote by $\frac{a}{r}$ the equivalence class
+of $(a, r) \in R \times (R^*)$ with respect to the following equivalence
+relation:
+\[(a, r) \sim (b, s) \iff as - br = 0.\]
+The reader will verify that this is indeed an equivalence relation. As a
+set, $K(R)$ is defined by
+\[K(R) := \left\{ \frac{a}{r} \;\middle|\; a \in R,\, r \in R,\,
+  r \neq 0 \right\}.\]
+It is clear that these `fractions' behave much as ordinary fractions. For
+example, $\frac{a}{r} = \frac{as}{rs}$ if $s \neq 0$: indeed,
+$(as)r = a(rs)$ by associativity and commutativity in $R$, and this
+shows $(as, rs) \sim (a, r)$ as needed.
+We define operations on $K(R)$ as follows:
+\[\frac{a}{r} + \frac{b}{s} = \frac{as + br}{rs}, \qquad
+  \frac{a}{r} \cdot \frac{b}{s} = \frac{ab}{rs}.\]
+Of course one must verify that these operations are well-defined; this is
+also left to the reader. The fact that $R$ is an integral domain is used
+in these definitions: it guarantees that $rs \neq 0$ if $r \neq 0$ and
+$s \neq 0$.
+Now I claim that $K(R)$ is made into a field by these operations. This
+is a straightforward verification; for example, distributivity amounts
+to the following computation:
+\[\frac{a}{r}\left(\frac{b}{s} + \frac{c}{t}\right)
+  = \frac{a}{r} \cdot \frac{bt + cs}{st}
+  = \frac{a(bt+cs)}{r(st)}
+  = \frac{a(bt)}{r(st)} + \frac{a(cs)}{r(st)}
+  = \frac{ab}{rs} + \frac{ac}{rt}
+  = \frac{a}{r}\cdot\frac{b}{s} + \frac{a}{r}\cdot\frac{c}{t}.\]
+The zero element is the fraction $\frac{0}{1}$ (or in fact $\frac{0}{r}$
+for any nonzero $r \in R$); the multiplicative identity is the fraction
+$\frac{1}{1}$ (or in fact $\frac{r}{r}$ for any nonzero $r \in R$).
+Since $\frac{r}{s} \cdot \frac{s}{r} = \frac{rs}{rs} = \frac{1}{1}$
+for all $rs \neq 0$ (that is, for all $r \neq 0$), every nonzero
+element in $K(R)$ has an inverse, as promised.
+An `inclusion map' $i : R \to K(R)$ is defined by $a \mapsto \frac{a}{1}$;
+it is immediately checked that this is an injective ring homomorphism.
+It is common to use this map to identify $R$ with its isomorphic copy
+inside $K(R)$ and simply view $R$ as a subring of $K(R)$.
+\begin{fact}{Claim~4.11}{irred:claim:4.11}
+$(i, K(R))$ is initial in $\mathscr{R}$.
+\end{fact}
+
+\begin{proof}
+Let $j : R \to L$ be any injective ring homomorphism from $R$ to a
+field $L$. We need to define an induced homomorphism
+$\hat{\jmath} : K(R) \to L$ so that the diagram
+\[\begin{tikzcd}
+  K(R) \arrow[rr, "\hat{\jmath}"] & & L \\
+  & R \arrow[ul, "i"] \arrow[ur, "j"']
+\end{tikzcd}\]
+commutes, and we must show that $\hat{\jmath}$ is unique. Now, the
+definition of $\hat{\jmath}$ is in fact forced upon us: if $\hat{\jmath}$
+exists as a homomorphism, then necessarily
+\[\hat{\jmath}\!\left(\frac{a}{r}\right)
+  = \hat{\jmath}\!\left(\frac{a}{1}\right)
+    \hat{\jmath}\!\left(\frac{r}{1}\right)^{-1}
+  = (\hat{\jmath} \circ i(a))(\hat{\jmath} \circ i(r))^{-1}
+  = j(a)j(r)^{-1}.\]
+Thus $\hat{\jmath}$ is indeed unique, if it exists. On the other hand,
+the prescription $\hat{\jmath}\!\left(\frac{a}{r}\right) := j(a)j(r)^{-1}$
+does define a function $K(R) \to L$: indeed, if $(a, r) \sim (b, s)$,
+then $as = br$ in $R$, hence $j(a)j(s) = j(b)j(r)$ in $L$, and (note
+that $j(r), j(s)$ are nonzero in $L$ since $r, s$ are nonzero in $R$
+and $j$ is injective)
+$j(a)j(r)^{-1} = j(b)j(s)^{-1}$, showing that the proposed
+$\hat{\jmath}$ is well-defined. The reader will verify that it is a ring
+homomorphism, concluding the proof of the claim.
+\end{proof}
+With the notation introduced above, $K(\mathbb{Z}) = \mathbb{Q}$. The
+universal property implies immediately that $F \to K(F)$ is an
+isomorphism if $F$ is itself a field. Thus, the construction adds nothing
+to $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$, $\mathbb{Z}/p\mathbb{Z}$,
+etc.
+
+If $R$ is any integral domain, so that $R[x]$ is also an integral domain,
+$K(R[x])$ is a famous field:
+
+\begin{defn}{}{irred:4.13}
+The \emph{field of rational functions} with coefficients in $R$ is the
+field of fractions of the ring $R[x]$. This field is denoted $R(x)$.
+\end{defn}
+
+Elements of $R(x)$ are fractions of polynomials $\frac{p(x)}{q(x)}$
+with $p(x), q(x) \in R[x]$ and $q(x) \neq 0$. The term \emph{function}
+is inaccurate, since the `function' $R \to R$ given by
+$a \mapsto \frac{p(a)}{q(a)}$ is not defined for all $a \in R$ (not for
+those for which $q(a) = 0$, that is); and the function itself does not
+suffice to determine the element in $R(x)$ (cf.\ Exercise~III.2.7).
 
 \subsection{\texorpdfstring{$R$ UFD $\implies$ $R[x]$ UFD}{R UFD implies R[x] UFD}}
 \label{subsec:irred:r-ufd-implies-r-x-ufd}
