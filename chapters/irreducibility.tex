@@ -1123,355 +1123,352 @@ about $0$.) [VII.5.18]
 
 \subsection{Set theory, reprise}
 \label{subsec:irred:set-theory-reprise}
-% We leave ring theory for a moment and take a little
+We leave ring theory for a moment and take a little detour to contemplate
+an issue from set theory. As remarked at the very outset, only naive set
+theory is used in this book; all set-theoretic operations we have used so
+far are nothing more than a formalization of intuitive ideas regarding
+collections of objects. However, I will occasionally need to refer to a
+less `intuitively obvious' set-theoretic statement: for example, this
+statement is needed in order to show that every proper ideal in a ring is
+contained in a maximal ideal (Proposition~3.5). This set-theoretic fact
+is \emph{Zorn's lemma}. An \emph{order relation} on a set $Z$ is a
+relation $\preceq$ which is reflexive, transitive, and antisymmetric: the
+first two terms are familiar to the reader, and the third means that
+\[(\forall\, a, b \in Z),\quad
+  a \preceq b \text{ and } b \preceq a \implies a = b.\]
+Typical prototypes are the $\leq$ relation on $\mathbb{Z}$ or the
+inclusion relation $\subseteq$ among subsets of a given set. We use
+$a \prec b$ to denote $a \preceq b$ and $b \neq a$.
+A pair $(Z, \preceq)$, consisting of a set $Z$ and an order relation
+$\preceq$ on $Z$, is called a \emph{poset}, for \emph{partially ordered
+set}. The qualifier `partially' is not necessary, but convenient, as it
+reminds us that if $a, b \in Z$, then it is not necessarily the case that
+$a \preceq b$ or $b \preceq a$: for example, $\subseteq$ does not satisfy
+this additional requirement in general (while $(\mathbb{Z}, \leq)$ does).
+An order is \emph{total} if it does satisfy this additional requirement. A
+totally ordered set is not called a `toset', as would seem reasonable, but
+rather a \emph{chain}.
 
-% detour to contemplate an issue from set theory. As remarked at the very outset,
-% only naive set theory is used in this book; all set-theoretic operations we have
-% used
-% so far are nothing more than a formalization of intuitive ideas regarding
-% collections
-% of objects. However, I will occasionally need to refer to a less `intuitively
-% obvious'
-% set-theoretic statement: for example, this statement is needed in order to show
-% that
-% every proper ideal in a ring is contained in a maximal ideal (Proposition 3.5).
-% This set-theoretic fact is Zorn's lemma. An order relation on a set Z is a
-% relation ? which is reflexive, transitive, and antisymmetric: the first two
-% terms are
-% familiar to the reader, and the third means that
-% (\forall a, b \in  Z),
-%  a ? b and b ? a \implies  a = b.
-% Typical prototypes are the \leq  relation on Z or the inclusion relation
-% \subseteq  among subsets
-% of a given set. We use a \prec  b to denote a ? b and b = a.
-% A pair (Z, ?), consisting of a set Z and an order relation ? on Z, is called
-% a poset, for partially ordered set. The qualifier `partially' is not necessary,
-% but
-% convenient, as it reminds us that if a, b \in  Z, then it is not necessarily the
-% case
-% that a ? b or b ? a: for example, \subseteq  does not satisfy this additional
-% requirement
-% in general (while (Z, \leq ) does). An order is total if it does satisfy this
-% additional
-% requirement. A totally ordered set is not called a `toset', as would seem
-% reasonable,
-% but rather a chain.
-% An element m of a poset Z is maximal if nothing comes properly `after' it in
-% the order:
-% (\forall a \in  Z), m ? a \implies  m = a.
-% For example, maximal ideals in a ring are maximal elements in the set of proper
-% ideals, that is, ideals = (1) (by Proposition III.4.11). An upper bound for a
-% subset S
-% of a poset Z is an element u \in  Z coming after every element of S:
-% (\forall a \in  S),
-%  a ? u.
-% Notions of `smallest' (or, rather, `least') or `largest' are defined in the
-% evident
-% way.
-% Posets may or may not have maximal elements, upper bounds, etc.: for exam-
-% ple, the family of finite subsets of an infinite set does not have maximal
-% elements.
-% All this terminology comes together in the following statement:
-% Lemma 3.1 (Zorn's lemma). Let Z be a nonempty poset. Assume that every chain
-% in Z has an upper bound in Z; then there exists a maximal element in Z.
-% The status of Zorn's lemma is peculiar: on the one hand, it is complex enough
-% that no one I know of finds it `intuitively clear'; on the other hand, it turns
-% out to
-% be logically equivalent 10 to the axiom of choice, which does look reasonable to
-% most
-% people, and to the `well-ordering theorem', which I find intuitively
-% unreasonable.
-% I will not prove all these equivalences (the diligent reader will prove them in
-% the
-% exercises and should in any case have no trouble locating more detailed proofs);
-% but I will attempt to describe the situation in general terms and explain why
-% the
-% unreasonable statement implies the other two.
-% The axiom of choice states that if F is a family of disjoint nonempty subsets of
-% a set Z, then we can form a new set by selecting one element x from each X \in
-% F .
-% This may sound reasonable, but it raises rather subtle points: for example, it
-% can
-% be shown that this axiom is independent of the other axioms of
-% (Zermelo-Fr\"ankel)
-% set theory. Also, it has disturbingly counterintuitive consequences, such as the
-% Banach-Tarski paradox11 .
-% The subtlety of the axiom of choice boils down to the following question: how
-% does one choose the element x? This is not controversial if Z (and hence F ) is
-% finite, but, not surprisingly, it becomes an issue if Z is infinite.
-% A suitable order relation on Z would come in handy here: if ? is an order
-% relation on Z such that every nonempty subset of Z has a least element, then we
-% could simply let x be the least element of X for each X \in  F . We say that Z
-% is well-ordered by ?, or that ? is a well-ordering on Z, if this is the case.
-% (The
-% abbreviation woset is also used in the literature, but not very often.) For
-% example,
-% the set Z>0 of positive numbers is well-ordered by \leq ; this fact is called
-% the well-
-% ordering principle.
-% Thus, the statement of the axiom of choice is really `clear' if the set Z is the
-% set Z>0 of positive numbers. It may seem somewhat less so for the set Z, since Z
-% is not well-ordered by \leq ; however, it takes a moment (Exercise 3.4) to
-% construct a
-% different relation on Z, making Z a well-ordered set. Thus, the axiom of choice
-% is
-% also completely transparent for Z = Z or any countable set (like Q) for that
-% matter.
-% The well-ordering principle is at the basis of proofs by induction: in fact (cf.
-% Ex-
-% ercise 3.5) it is equivalent to the so-called principle of induction. More is
-% true,
-% however. If (Z, ?) is any woset, then we can consider the following `principle
-% of
-% induction' on Z:
-% 10 Equivalent in the sense that each can be derived from the other together with
-% the other
-% axioms of `Zermelo-Fr\"ankel' set theory.
-% 11 One can subdivide a solid ball of radius 1 into finitely many pieces, then
-% reassemble them
-% after rotations and translations in 3-space and obtain two balls of radius 1.
-% Let S \subseteq  Z be a subset such that \forall a \in  Z
-% ((\forall b \in  Z),
-%  b \prec  a \implies  b \in  S) \implies  a \in  S;
-% then S = Z.
-% That is, Z is the only set S with the property that a \in  S if all b \prec  a
-% are in S.
-% (Note that the least element a of Z is automatically in S, since the condition
-% on
-% all b \prec  a is vacuously true in this case.)
-% The reader will recognize that for Z = Z>0 with the relation \leq , this is the
-% ordinary principle of induction.
-% Claim 3.2. Let Z be any woset. Then the principle of induction holds for Z.
-% Proof. Let S \subseteq  Z be a subset with the property given above, and assume
-% S ? Z.
-% Then the complement T of S in Z is nonempty; hence it has a least element a.
-% Now if b \prec  a, then necessarily b \in  S (otherwise b \in  T , contradicting
-% the fact that a
-% is the least element in T ). But the property of S then forces a \in  S,
-% contradiction.
-% Therefore T is empty; i.e., S = Z.
-%  ?
-% This is remarkable, since it extends induction to uncountable sets12 , provided
-% a well-ordering is available.
-% For example, if we had a well-ordering on R, then we could prove a statement
-% about all reals `by induction'. Many people find this somewhat counterintuitive,
-% and hence so seems the following amazing claim:
-% Theorem 3.3 (Well-ordering theorem). Every set admits a well-ordering.
-% As argued above, this implies that the axiom of choice holds on every set: if
-% you
-% accept the well-ordering theorem, the statement of the axiom of choice becomes
-% as
-% evident for every set as it is for the set of positive integers. The catch is of
-% course
-% that the axiom of choice is used in the proof of the well-ordering theorem; in
-% fact,
-% the statements are equivalent.
-% In any case, the statement of the well-ordering theorem is easy to absorb (even
-% if perhaps less `intuitively clear' than the axiom of choice). The well-ordering
-% theorem is equivalent to Zorn's lemma, since they are both equivalent to the
-% axiom
-% of choice. The good news is that the derivation of Zorn's lemma from the well-
-% ordering theorem is reasonably straightforward:
-% Well-ordering theorem \implies  Zorn's lemma. Let (Z, \leq ) be a nonempty poset
-% such
-% that every chain in Z has an upper bound in Z. By the well-ordering theorem,
-% there
-% is a well-ordering13 ? on Z. Define a function f from Z to the power set of Z as
-% 12 Even beyond; in the context of ordinals this induction principle is called
-% transfinite induc-
-% tion.
-% 13 Watch out: we are considering two orderings on Z: \leq  (about which we want
-% to say
-% something) and ? (about which we know something already).
-% follows:
-% \{
-%  \setminus 
-% |
-%  |
-%  |
-%  {a} if ({a} \cup 
-%  f (b)) is totally ordered by \leq ;
-% f (a) =
-%  b\prec a
-%  \setminus 
-% |
-%  |
-%  \} \emptyset  if ({a} \cup 
-%  f (b)) is not totally ordered by \leq .
-% b\prec a
-% The fact that Z is well-ordered by ? implies that f is defined for every a \in
-% Z.
-% Indeed, let T be the set of elements of Z for which f is not defined; if T =
-% \emptyset ,
-% T has a least element a w.r.t. ?; but then f (b) is defined for all b \prec  a,
-% and the
-% prescription given for f (a) defines f at a, a contradiction.
-% ?
-% Let S = a\in Z f (a). It is clear that S is totally ordered by \leq : if a, b
-% \in  S, and
-% (say) b \prec  a, then both a and b belong to
-% \setminus 
-% {a} \cup 
-%  f (b),
-% b\prec a
-% which is totally ordered by \leq  by construction.
-% I claim that S is a maximal totally ordered subset14 of Z:
-% Claim 3.4. If S \subseteq  S \setminus  \subseteq  Z and S \setminus  is totally
-% ordered by \leq , then S = S \setminus  .
-% Indeed, let T be the complement of S in S \setminus  . If T is nonempty, let a
-% \in  T and
-% observe that
-%  \setminus 
-% {a} \cup 
-%  f (b)
-% b\prec a
-% is totally ordered by \leq , since it is a subset of {a} \cup  S \subseteq  S
-% \setminus  . But then f (a) = {a},
-% that is, a \in  S, a contradiction.
-% Since S is a chain, by the hypothesis of Zorn's lemma S has an upper bound,
-% m. It is now clear that m must be maximal in Z w.r.t. \leq , verifying the
-% statement
-% of Zorn's lemma. Indeed, if m\setminus  \geq  m, then S \cup  {m\setminus  } is
-% totally ordered; hence
-% S = S \cup  {m\setminus  } by the claim. This means m\setminus  \in  S, and
-% hence m\setminus  = m since m is an
-% upper bound for S.
-%  ?
-% Zorn's lemma is the key to several basic results in algebra, the first of which
-% we
-% are about to encounter; the reader will sample a few more results in the
-% exercises.
-% The reader will also encounter equally basic applications of Zorn's lemma (or of
-% other manifestations of the axiom of choice) in other fields: for example
-% Tychonoff's
-% theorem in topology and the Hahn-Banach theorem in functional analysis.
+An element $m$ of a poset $Z$ is \emph{maximal} if nothing comes properly
+`after' it in the order:
+\[(\forall\, a \in Z),\quad m \preceq a \implies m = a.\]
+For example, maximal ideals in a ring are maximal elements in the set of
+proper ideals, that is, ideals $\neq (1)$ (by Proposition~III.4.11). An
+\emph{upper bound} for a subset $S$ of a poset $Z$ is an element
+$u \in Z$ coming after every element of $S$:
+\[(\forall\, a \in S),\quad a \preceq u.\]
+Notions of `smallest' (or, rather, `least') or `largest' are defined in
+the evident way.
+
+Posets may or may not have maximal elements, upper bounds, etc.: for
+example, the family of finite subsets of an infinite set does not have
+maximal elements. All this terminology comes together in the following
+statement:
+\begin{lem}{Zorn's lemma}{irred:3.1}
+Let $Z$ be a nonempty poset. Assume that every chain in $Z$ has an upper
+bound in $Z$; then there exists a maximal element in $Z$.
+\end{lem}
+
+The status of Zorn's lemma is peculiar: on the one hand, it is complex
+enough that no one I know of finds it `intuitively clear'; on the other
+hand, it turns out to be logically equivalent\footnote{Equivalent in the
+sense that each can be derived from the other together with the other
+axioms of `Zermelo--Fr\"ankel' set theory.} to the axiom of choice, which
+does look reasonable to most people, and to the `well-ordering theorem',
+which I find intuitively unreasonable. I will not prove all these
+equivalences (the diligent reader will prove them in the exercises and
+should in any case have no trouble locating more detailed proofs); but I
+will attempt to describe the situation in general terms and explain why
+the unreasonable statement implies the other two.
+The \emph{axiom of choice} states that if $\mathscr{F}$ is a family of
+disjoint nonempty subsets of a set $Z$, then we can form a new set by
+selecting one element $x$ from each $X \in \mathscr{F}$. This may sound
+reasonable, but it raises rather subtle points: for example, it can be
+shown that this axiom is independent of the other axioms of
+(Zermelo--Fr\"ankel) set theory. Also, it has disturbingly
+counterintuitive consequences, such as the Banach--Tarski
+paradox\footnote{One can subdivide a solid ball of radius~$1$ into
+finitely many pieces, then reassemble them after rotations and
+translations in $3$-space and obtain two balls of radius~$1$.}.
+
+The subtlety of the axiom of choice boils down to the following question:
+how does one choose the element $x$? This is not controversial if $Z$
+(and hence $\mathscr{F}$) is finite, but, not surprisingly, it becomes an
+issue if $Z$ is infinite. A suitable order relation on $Z$ would come in
+handy here: if $\preceq$ is an order relation on $Z$ such that every
+nonempty subset of $Z$ has a least element, then we could simply let $x$
+be the least element of $X$ for each $X \in \mathscr{F}$. We say that $Z$
+is \emph{well-ordered} by $\preceq$, or that $\preceq$ is a
+\emph{well-ordering} on $Z$, if this is the case. (The abbreviation
+\emph{woset} is also used in the literature, but not very often.) For
+example, the set $\mathbb{Z}_{>0}$ of positive numbers is well-ordered by
+$\leq$; this fact is called the \emph{well-ordering principle}.
+
+Thus, the statement of the axiom of choice is really `clear' if the set
+$Z$ is the set $\mathbb{Z}_{>0}$ of positive numbers. It may seem
+somewhat less so for the set $\mathbb{Z}$, since $\mathbb{Z}$ is not
+well-ordered by $\leq$; however, it takes a moment (Exercise~3.4) to
+construct a different relation on $\mathbb{Z}$, making $\mathbb{Z}$ a
+well-ordered set. Thus, the axiom of choice is also completely transparent
+for $Z = \mathbb{Z}$ or any countable set (like $\mathbb{Q}$) for that
+matter.
+
+The well-ordering principle is at the basis of proofs by induction: in
+fact (cf.\ Exercise~3.5) it is equivalent to the so-called principle of
+induction. More is true, however. If $(Z, \preceq)$ is any woset, then
+we can consider the following `principle of induction' on $Z$:
+Let $S \subseteq Z$ be a subset such that
+\[(\forall\, a \in Z),\quad
+  \bigl((\forall\, b \in Z),\ b \prec a \implies b \in S\bigr)
+  \implies a \in S;\]
+then $S = Z$. That is, $Z$ is the only set $S$ with the property that
+$a \in S$ if all $b \prec a$ are in $S$. (Note that the least element $a$
+of $Z$ is automatically in $S$, since the condition on all $b \prec a$ is
+vacuously true in this case.) The reader will recognize that for
+$Z = \mathbb{Z}_{>0}$ with the relation $\leq$, this is the ordinary
+principle of induction.
+
+\begin{fact}{Claim~3.2}{irred:claim:3.2}
+Let $Z$ be any woset. Then the principle of induction holds for $Z$.
+\end{fact}
+
+\begin{proof}
+Let $S \subseteq Z$ be a subset with the property given above, and assume
+$S \subsetneq Z$. Then the complement $T$ of $S$ in $Z$ is nonempty;
+hence it has a least element $a$. Now if $b \prec a$, then necessarily
+$b \in S$ (otherwise $b \in T$, contradicting the fact that $a$ is the
+least element in $T$). But the property of $S$ then forces $a \in S$,
+contradiction. Therefore $T$ is empty; i.e., $S = Z$.
+\end{proof}
+
+This is remarkable, since it extends induction to uncountable sets,
+provided a well-ordering is available.
+For example, if we had a well-ordering on $\mathbb{R}$, then we could
+prove a statement about all reals `by induction'. Many people find this
+somewhat counterintuitive, and hence so seems the following amazing claim:
+
+\begin{thm}{Well-ordering theorem}{irred:3.3}
+Every set admits a well-ordering.
+\end{thm}
+
+As argued above, this implies that the axiom of choice holds on every set:
+if you accept the well-ordering theorem, the statement of the axiom of
+choice becomes as evident for every set as it is for the set of positive
+integers. The catch is of course that the axiom of choice is used in the
+proof of the well-ordering theorem; in fact, the statements are equivalent.
+
+In any case, the statement of the well-ordering theorem is easy to absorb
+(even if perhaps less `intuitively clear' than the axiom of choice). The
+well-ordering theorem is equivalent to Zorn's lemma, since they are both
+equivalent to the axiom of choice. The good news is that the derivation of
+Zorn's lemma from the well-ordering theorem is reasonably
+straightforward:
+\begin{proof}[Proof (Well-ordering theorem $\implies$ Zorn's lemma)]
+Let $(Z, \leq)$ be a nonempty poset such that every chain in $Z$ has an
+upper bound in $Z$. By the well-ordering theorem, there is a
+well-ordering\footnote{Watch out: we are considering two orderings on $Z$:
+$\leq$ (about which we want to say something) and $\preceq$ (about which
+we know something already).} $\preceq$ on $Z$. Define a function $f$ from
+$Z$ to the power set of $Z$ as follows\footnote{Even beyond; in the
+context of ordinals this induction principle is called \emph{transfinite
+induction}.}:
+\[f(a) = \begin{cases}
+  \{a\} \cup \bigcup_{b \prec a} f(b) &
+    \text{if } \bigl(\{a\} \cup {\textstyle\bigcup_{b \prec a}} f(b)\bigr)
+    \text{ is totally ordered by } \leq; \\[4pt]
+  \emptyset &
+    \text{otherwise.}
+\end{cases}\]
+The fact that $Z$ is well-ordered by $\preceq$ implies that $f$ is defined
+for every $a \in Z$. Indeed, let $T$ be the set of elements of $Z$ for
+which $f$ is not defined; if $T \neq \emptyset$, $T$ has a least element
+$a$ w.r.t.\ $\preceq$; but then $f(b)$ is defined for all $b \prec a$,
+and the prescription given for $f(a)$ defines $f$ at $a$, a
+contradiction.
+
+Let $S = \bigcup_{a \in Z} f(a)$. It is clear that $S$ is totally ordered
+by $\leq$: if $a, b \in S$, and (say) $b \prec a$, then both $a$ and $b$
+belong to $\{a\} \cup \bigcup_{b' \prec a} f(b')$, which is totally
+ordered by $\leq$ by construction.
+
+I claim that $S$ is a maximal totally ordered subset\footnote{The
+existence of maximal totally ordered subsets is known as the
+\emph{Hausdorff maximal principle}; it is also equivalent to the axiom of
+choice.} of $Z$:
+
+\begin{fact}{Claim~3.4}{irred:claim:3.4}
+If $S \subseteq S' \subseteq Z$ and $S'$ is totally ordered by $\leq$,
+then $S = S'$.
+\end{fact}
+
+Indeed, let $T$ be the complement of $S$ in $S'$. If $T$ is nonempty,
+let $a \in T$ and observe that $\{a\} \cup \bigcup_{b \prec a} f(b)$ is
+totally ordered by $\leq$, since it is a subset of
+$\{a\} \cup S \subseteq S'$. But then $f(a) = \{a\}$, that is,
+$a \in S$, a contradiction.
+
+Since $S$ is a chain, by the hypothesis of Zorn's lemma $S$ has an upper
+bound $m$. It is now clear that $m$ must be maximal in $Z$ w.r.t.\ $\leq$,
+verifying the statement of Zorn's lemma. Indeed, if $m' \geq m$, then
+$S \cup \{m'\}$ is totally ordered; hence $S = S \cup \{m'\}$ by the
+claim. This means $m' \in S$, and hence $m' = m$ since $m$ is an upper
+bound for $S$.
+\end{proof}
+
+Zorn's lemma is the key to several basic results in algebra, the first of
+which we are about to encounter; the reader will sample a few more results
+in the exercises. The reader will also encounter equally basic applications
+of Zorn's lemma (or of other manifestations of the axiom of choice) in
+other fields: for example Tychonoff's theorem in topology and the
+Hahn--Banach theorem in functional analysis.
 
 \subsection{Application: Existence of maximal ideals}
 \label{subsec:irred:application-existence-of-maximal-ideals}
-% Recall (\S{}III.4.3) that an
+Recall (\S{}III.4.3) that an ideal $\mathfrak{m}$ of a ring $R$ is
+maximal if and only if $R/\mathfrak{m}$ is a field, if and only if no
+other ideal stands between $\mathfrak{m}$ and $R = (1)$, that is, if and
+only if $\mathfrak{m}$ is maximal with respect to inclusion, in the
+family of proper ideals of $R$. It is not obvious from this definition
+that maximal ideals exist, but they do:
 
-% ideal m of a ring R is maximal if and only if R/m is a field, if and only if no
-% other ideal stands between m and R = (1), that is, if and only if m is maximal
-% with
-% respect to inclusion, in the family of proper ideals of R. It is not obvious
-% from this
-% definition that maximal ideals exist, but they do:
-% Proposition 3.5. Let I = (1) be a proper ideal of a commutative ring R. Then
-% there exists a maximal ideal m of R containing I.
-% 14 The existence of maximal totally ordered subsets is known as the Hausdorff
-% maximal prin-
-% ciple; it is also equivalent to the axiom of choice.
+\begin{prop}{}{irred:3.5}
+Let $I \neq (1)$ be a proper ideal of a commutative ring $R$. Then there
+exists a maximal ideal $\mathfrak{m}$ of $R$ containing $I$.
+\end{prop}
+
+This is immediate if $R$ is Noetherian, by applying condition~(3) from
+Proposition~1.1 to the family of proper ideals of $R$ containing $I$.
+The argument for arbitrary rings is a classic application of Zorn's lemma.
+In fact, this is the first application given by M.~Zorn in his 1935
+article introducing a `maximum principle' (now known as Zorn's lemma).
+The result had earlier been proven by Krull, using the well-ordering
+theorem.
+
+\begin{proof}
+The set $\mathscr{I}$ of proper ideals of $R$ containing $I$ is ordered
+by inclusion. Then let $C$ be a chain of proper ideals, and consider
+\[U := \bigcup_{J \in C} J.\]
+I claim that $U$ is a proper ideal containing $I$; hence it is an upper
+bound for $C$ in $\mathscr{I}$. This proves that every chain in
+$\mathscr{I}$ has an upper bound, and it follows that $\mathscr{I}$ has
+maximal elements, by Zorn's lemma.
+
+To verify my claim, it is clear that $U$ contains $I$ and that it is an
+ideal (for example, if $a, b \in U$, then $\exists\, J \in C$ such that
+$a, b \in J$; hence $a \pm b \in J$, and therefore $a \pm b \in U$). We
+have to check that $U$ is proper. But if $U = (1)$, then $1 \in J$ for
+some $J \in \mathscr{I}$, contradicting the fact that $\mathscr{I}$
+consists of proper ideals.
+\end{proof}
+
+Note that this argument relies crucially on the fact that $R$ has a
+multiplicative unit $1$, and indeed the stated fact is not true in general
+for rings without~$1$ (Exercise~3.9). Also, the use of Zorn's lemma is
+not just a convenient trick; the statement is known to be equivalent to
+the axiom of choice, by work of W.~Hodges.
 
 \subsection*{Exercises}
-
-% This is immediate if R is Noetherian, by applying condition (3) from Propo-
-% sition 1.1 to the family of proper ideals of R containing I. The argument for
-% arbitrary rings is a classic application of Zorn's lemma. In fact, this is the
-% first
-% application given by M. Zorn in his 1935 article introducing a `maximum
-% principle'
-% (now known as Zorn's lemma). The result had earlier been proven by Krull, using
-% the well-ordering theorem.
-% Proof. The set I of proper ideals of R containing I is ordered by inclusion.
-% Then
-% let C be a chain of proper ideals, and consider
-% \setminus 
-% U :=
-%  J.
-% J\in C
-% I claim that U is a proper ideal containing I; hence it is an upper bound for C
-% in I . This proves that every chain in I has an upper bound, and it follows that
-% I has maximal elements, by Zorn's lemma.
-% To verify my claim, it is clear that U contains I and that it is an ideal (for
-% example, if a, b \in  U , then \exists J \in  C such that a, b \in  J; hence a
-% \pm  b \in  J, and therefore
-% a \pm  b \in  U ). We have to check that U is proper. But if U = (1), then 1 \in
-% J for some
-% J \in  I , contradicting the fact that I consists of proper ideals.
-%  ?
-% Note that this argument relies crucially on the fact that R has a multiplicative
-% unit 1, and indeed the stated fact is not true in general for rings without 1
-% (Exer-
-% cise 3.9). Also, the use of Zorn's lemma is not just a convenient trick; the
-% statement
-% is known to be equivalent to the axiom of choice, by work of W. Hodges.
-% 3.1. Prove that every well-ordering is total.
-% 3.2. Prove that a totally ordered set (Z, ?) is a woset if and only if every
-% descending
-% chain
-% z1 ! z2 ! z3 ! \dots 
-% in Z stabilizes.
-% 3.3. Prove that the axiom of choice is equivalent to the statement that a set-
-% function is surjective if and only if it has a right-inverse (cf. Exercise
-% I.2.2).
-% 3.4. ? Construct explicitly a well-ordering on Z. Explain why you know that Q
-% can be well-ordered, even without performing an explicit construction. [\S{}3.1]
-% 3.5. ? Prove that the (ordinary) principle of induction is equivalent to the
-% state-
-% ment that \leq  is a well-ordering on Z>0. (To prove by induction that (Z>0,
-% \leq )
-% is well-ordered, assume it is known that 1 is the least element of Z>0 and that
-% \forall n \in  Z >0 there are no integers between n and n + 1.) [\S{}3.1]
-% 3.6. In this exercise assume the truth of Zorn's lemma and the conventional set-
-% theoretic constructions; you will be proving the well-ordering theorem.
-% Let Z be a nonempty set, and let Z be the set of pairs (S, \leq ) consisting of
-% a
-% subset S of Z and of a well-ordering \leq  on S. Note that Z is not empty
-% (singletons
-% can be well-ordered). Define a relation ? on Z by prescribing
-% (S, \leq ) ? (T, \leq \setminus  )
-% if and only if S \subseteq  T , \leq  is the restriction of \leq \setminus  to
-% S, and every element of S precedes
-% every element of T \setminus  S w.r.t. \leq \setminus  .
-% \bullet  Prove that ? is an order relation in Z .
-% \bullet  Prove that every chain in Z has an upper bound in Z .
-% \bullet  Use Zorn's lemma to obtain a maximal element (M, \leq ) in Z . Prove that
-% M = Z.
-% Thus every set admits a well-ordering, as stated in Theorem 3.3.
-% 3.7. In this exercise assume the truth of the axiom of choice and the
-% conventional
-% set-theoretic constructions; you will be proving the well-ordering theorem15 .
-% Let Z be a nonempty set. Use the axiom of choice to choose an element
-% \gamma (S) \in  S for each proper subset S ? Z. Call a pair (S, \leq ) a \gamma -woset if S \subseteq  Z, \leq 
-% is a well-ordering on S, and for every a \in  S, a = \gamma ({b \in  S, b < a}).
-% \bullet  Show how to begin constructing a \gamma -woset, and show that all \gamma -wosets must
-% begin in the same way.
-% Define an ordering on \gamma -wosets by prescribing that (U, \leq \setminus
-% \setminus  ) ? (T, \leq \setminus  ) if and only if
-% U \subseteq  T and \leq \setminus \setminus  is the restriction of \leq
-% \setminus  .
-% \bullet  Prove that if (U, \leq \setminus \setminus  ) \prec  (T, \leq \setminus ), then \gamma (U ) \in  T .
-% \bullet  For two \gamma -wosets (S, \leq ) and (T, \leq \setminus  ), prove that there is a maximal \gamma -woset
-% (U, \leq \setminus \setminus  ) preceding both w.r.t. ?. (Note: There is no need
-% to use Zorn's lemma!)
-% \bullet  Prove that the maximal \gamma -woset found in the previous point in fact equals
-% (S, \leq ) or (T, \leq \setminus ). Thus, ? is a total ordering.
-% \bullet  Prove that there is a maximal \gamma -woset (M, \leq ) w.r.t. ?. (Again, Zorn's lemma
-% need not and should not be invoked.)
-% \bullet  Prove that M = Z.
-% Thus every set admits a well-ordering, as stated in Theorem 3.3.
-% 3.8. Prove that every nontrivial finitely generated group has a maximal proper
-% subgroup. Prove that (Q, +) has no maximal proper subgroup.
-% 3.9. ? Consider the rng (= ring without 1; cf. \S{}III.1.1) consisting of the
-% abelian
-% group (Q, +) endowed with the trivial multiplication qr = 0 for all q, r \in  Q.
-% Prove
-% that this rng has no maximal ideals. [\S{}3.2]
-% 3.10. \lnot  As shown in Exercise III.4.17, every maximal ideal in the ring of
-% continuous
-% real-valued functions on a compact topological space K consists of the functions
-% vanishing at a point of K.
-% 15I learned this proof from notes of Dan Grayson.
+\begin{exer}{}{irred:exer:3.1}
+Prove that every well-ordering is total.
+\end{exer}
+\begin{exer}{}{irred:exer:3.2}
+Prove that a totally ordered set $(Z, \preceq)$ is a woset if and only if
+every descending chain $z_1 \succ z_2 \succ z_3 \succ \dots$ in $Z$
+stabilizes.
+\end{exer}
+\begin{exer}{}{irred:exer:3.3}
+Prove that the axiom of choice is equivalent to the statement that a
+set-function is surjective if and only if it has a right-inverse
+(cf.\ Exercise~I.2.2).
+\end{exer}
+\begin{exer}{}{irred:exer:3.4}
+\exerused{} Construct explicitly a well-ordering on $\mathbb{Z}$. Explain
+why you know that $\mathbb{Q}$ can be well-ordered, even without
+performing an explicit construction. [\S{}3.1]
+\end{exer}
+\begin{exer}{}{irred:exer:3.5}
+\exerused{} Prove that the (ordinary) principle of induction is equivalent
+to the statement that $\leq$ is a well-ordering on $\mathbb{Z}_{>0}$.
+(To prove by induction that $(\mathbb{Z}_{>0}, \leq)$ is well-ordered,
+assume it is known that $1$ is the least element of $\mathbb{Z}_{>0}$
+and that $\forall n \in \mathbb{Z}_{>0}$ there are no integers between
+$n$ and $n+1$.) [\S{}3.1]
+\end{exer}
+\begin{exer}{}{irred:exer:3.6}
+In this exercise assume the truth of Zorn's lemma and the conventional
+set-theoretic constructions; you will be proving the well-ordering
+theorem. Let $Z$ be a nonempty set, and let $\mathscr{Z}$ be the set of
+pairs $(S, \leq)$ consisting of a subset $S$ of $Z$ and of a
+well-ordering $\leq$ on $S$. Note that $\mathscr{Z}$ is not empty
+(singletons can be well-ordered). Define a relation $\preceq$ on
+$\mathscr{Z}$ by prescribing $(S, \leq) \preceq (T, \leq')$ if and only
+if $S \subseteq T$, $\leq$ is the restriction of $\leq'$ to $S$, and
+every element of $S$ precedes every element of $T \setminus S$
+w.r.t.\ $\leq'$.
+\begin{itemize}
+  \item Prove that $\preceq$ is an order relation in $\mathscr{Z}$.
+  \item Prove that every chain in $\mathscr{Z}$ has an upper bound
+    in $\mathscr{Z}$.
+  \item Use Zorn's lemma to obtain a maximal element $(M, \leq)$ in
+    $\mathscr{Z}$. Prove that $M = Z$.
+\end{itemize}
+Thus every set admits a well-ordering, as stated in Theorem~3.3.
+\end{exer}
+\begin{exer}{}{irred:exer:3.7}
+In this exercise assume the truth of the axiom of choice and the
+conventional set-theoretic constructions; you will be proving the
+well-ordering theorem\footnote{I learned this proof from notes of
+Dan~Grayson.}. Let $Z$ be a nonempty set. Use the axiom of choice to
+choose an element $\gamma(S) \in S$ for each proper subset
+$S \subsetneq Z$. Call a pair $(S, \leq)$ a \emph{$\gamma$-woset} if
+$S \subseteq Z$, $\leq$ is a well-ordering on $S$, and for every
+$a \in S$, $a = \gamma(\{b \in S \mid b < a\})$.
+\begin{itemize}
+  \item Show how to begin constructing a $\gamma$-woset, and show that
+    all $\gamma$-wosets must begin in the same way.
+\end{itemize}
+Define an ordering on $\gamma$-wosets by prescribing that
+$(U, \leq'') \preceq (T, \leq')$ if and only if $U \subseteq T$ and
+$\leq''$ is the restriction of $\leq'$.
+\begin{itemize}
+  \item Prove that if $(U, \leq'') \prec (T, \leq')$, then
+    $\gamma(U) \in T$.
+  \item For two $\gamma$-wosets $(S, \leq)$ and $(T, \leq')$, prove
+    that there is a maximal $\gamma$-woset $(U, \leq'')$ preceding both
+    w.r.t.\ $\preceq$. (Note: There is no need to use Zorn's lemma!)
+  \item Prove that the maximal $\gamma$-woset found in the previous
+    point in fact equals $(S, \leq)$ or $(T, \leq')$. Thus, $\preceq$
+    is a total ordering.
+  \item Prove that there is a maximal $\gamma$-woset $(M, \leq)$
+    w.r.t.\ $\preceq$. (Again, Zorn's lemma need not and should not be
+    invoked.)
+  \item Prove that $M = Z$.
+\end{itemize}
+Thus every set admits a well-ordering, as stated in Theorem~3.3.
+\end{exer}
+\begin{exer}{}{irred:exer:3.8}
+Prove that every nontrivial finitely generated group has a maximal proper
+subgroup. Prove that $(\mathbb{Q}, +)$ has no maximal proper subgroup.
+\end{exer}
+\begin{exer}{}{irred:exer:3.9}
+\exerused{} Consider the rng (= ring without~$1$; cf.\ \S{}III.1.1)
+consisting of the abelian group $(\mathbb{Q}, +)$ endowed with the
+trivial multiplication $qr = 0$ for all $q, r \in \mathbb{Q}$. Prove
+that this rng has no maximal ideals. [\S{}3.2]
+\end{exer}
+\begin{exer}{}{irred:exer:3.10}
+$\lnot$ As shown in Exercise~III.4.17, every maximal ideal in the ring of
+continuous real-valued functions on a compact topological space $K$
+consists of the functions vanishing at a point of $K$. Prove that there
+are maximal ideals in the ring of continuous real-valued functions on the
+real line that do not correspond to points of the real line in the same
+fashion. (Hint: Produce a proper ideal that is not contained in any
+maximal ideal corresponding to a point, and apply Proposition~3.5.)
+[III.4.17]
+\end{exer}
 
 \section{Unique factorization in polynomial rings}
 \label{sec:irred:unique-factorization-in-polynomial-rings}
-
-% Prove that there are maximal ideals in the ring of continuous real-valued func-
-% tions on the real line that do not correspond to points of the real line in the
-% same
-% fashion. (Hint: Produce a proper ideal that is not contained in any maximal
-% ideal
-% corresponding to a point, and apply Proposition 3.5.) [III.4.17]
 
 \subsection{Prove that a UFD R is a PID if and only if every nonzero prime ideal in R is}
 \label{subsec:irred:prove-that-a-ufd-r-is-a-pid-if-and-only-if-every-nonzero-prime-ideal-in-r-is}
