@@ -755,34 +755,44 @@ result. Note that Cauchy's theorem and
 
 \subsection{Sylow III}
 \label{subsec:groups2:sylow-iii}
-% The third (and last) Sylow theorem gives a good handle on the
+The third (and last) Sylow theorem gives a good handle on the number of
+$p$-Sylow subgroups of a given finite group $G$. This is especially useful in
+establishing the existence of normal subgroups of $G$: since all $p$-Sylow
+subgroups of a group are conjugates of each other (by the second Sylow
+theorem), if there is only one $p$-Sylow subgroup, then that subgroup must be
+normal.\footnote{For an alternative viewpoint, see Exercise~2.2.}
+\begin{thm}{Third Sylow theorem}{thm:groups2:sylow-iii}
+Let $p$ be a prime integer, and let $G$ be a finite group of order
+$|G| = p^r m$. Assume that $p$ does not divide $m$. Then the number of
+$p$-Sylow subgroups of $G$ divides $m$ and is congruent to $1$ modulo $p$.
+\end{thm}
+\begin{proof}
+Let $N_p$ denote the number of $p$-Sylow subgroups of $G$.
 
-% number of p-Sylow subgroups of a given finite group G. This is especially useful
-% in
-% establishing the existence of normal subgroups of G: since all p-Sylow subgroups
-% of a group are conjugates of each other (by the second Sylow theorem), if there
-% is
-% only one p-Sylow subgroup, then that subgroup must be normal8 .
-% Theorem 2.11 (Third Sylow theorem). Let p be a prime integer, and let G be
-% a finite group of order |G| = pr m. Assume that p does not divide m. Then the
-% number of p-Sylow subgroups of G divides m and is congruent to 1 modulo p.
-% Proof. Let Np denote the number of p-Sylow subgroups of G.
-% By Theorem 2.8, the p-Sylow subgroups of G are the conjugates of any given
-% p-Sylow subgroup P . By Lemma 1.13, Np is the index of the normalizer NG (P )
-% of P ; thus (Corollary 1.14) it divides the index m of P . In fact,
-% m = [G : P ] = [G : NG(P )] \cdot  [NG (P ) : P ] = Np \cdot  [NG (P ) : P ].
-% Now, by Lemma 2.9 we have
-% m = [G : P ] \equiv  [NG (P ) : P ]multiplying by Np , we get
-% mNp \equiv  m
-%  mod p.
-% Since m \equiv  0 mod p and p is prime, this implies
-% Np \equiv  1 mod p,
-% as needed.
-% mod p;
-% ?
-% Of course there are other ways to prove Theorem 2.11: see for example Exer-
-% cise 2.11.
-% 8For an alternative viewpoint, see Exercise 2.2.
+By \cref{thm:groups2:sylow-ii}, the $p$-Sylow subgroups of $G$ are the
+conjugates of any given $p$-Sylow subgroup $P$. By
+\cref{lem:groups2:conjugate-subgroups-count}, $N_p$ is the index of the
+normalizer $N_G(P)$ of $P$; thus (\cref{coro:groups2:conjugate-subgroups-divides-index})
+it divides the index $m$ of $P$. In fact,
+\[
+  m = [G : P] = [G : N_G(P)] \cdot [N_G(P) : P] = N_p \cdot [N_G(P) : P].
+\]
+Now, by \cref{lem:groups2:normalizer-index-mod-p} we have
+\[
+  m = [G : P] \equiv [N_G(P) : P] \bmod p;
+\]
+multiplying by $N_p$, we get
+\[
+  mN_p \equiv m \bmod p.
+\]
+Since $m \not\equiv 0 \bmod p$ and $p$ is prime, this implies
+\[
+  N_p \equiv 1 \bmod p,
+\]
+as needed.
+\end{proof}
+Of course there are other ways to prove \cref{thm:groups2:sylow-iii}: see for
+example Exercise~2.11.
 
 \subsection{Applications}
 \label{subsec:groups2:applications}
