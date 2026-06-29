@@ -1,25 +1,28 @@
 \chapter{Linear algebra}
 \label{chap:linalg}
 
-% In several branches of science, `algebra' means `linear algebra': the study of
-% vector
-% spaces and linear maps, that is, of the category of modules over a ring R in the
-% very
-% special case in which R is a field (and often one restricts attention to very
-% special
-% fields, such as R or C).
-% This will be one of the main themes in this chapter. However, I will stress
-% that much of what can be done over a field can in fact be done over less special
-% rings. In fact, I will argue that working out the general theory over integral
-% domains
-% produces invaluable tools when we are working over fields: the paramount example
-% being canonical forms for matrices with entries in a field, which will be
-% obtained as
-% a corollary of the classification of finitely generated modules over a PID.
-% Throughout the main body of this chapter (but not necessarily in the exercises)
-% R will denote an integral domain; most of the theory can be extended to
-% arbitrary
-% commutative1 rings without major difficulty.
+In several branches of science, `algebra' means `linear algebra': the study
+of vector spaces and linear maps, that is, of the category of modules over a
+ring $R$ in the very special case in which $R$ is a \emph{field} (and often
+one restricts attention to very special fields, such as $\mathbb{R}$ or
+$\mathbb{C}$).
+
+This will be one of the main themes in this chapter. However, I will stress
+that much of what can be done over a field can in fact be done over less
+special rings. In fact, I will argue that working out the general theory over
+\emph{integral domains} produces invaluable tools when we are working over
+\emph{fields}: the paramount example being canonical forms for matrices with
+entries in a field, which will be obtained as a corollary of the
+classification of finitely generated modules over a PID.
+
+Throughout the main body of this chapter (but not necessarily in the
+exercises) $R$ will denote an integral domain; most of the theory can be
+extended to arbitrary commutative\footnote{The hypothesis of commutativity
+is very convenient, as it allows us to identify the notion of \emph{left}-
+and \emph{right}-modules, and the fact that integral domains have fields of
+fractions simplifies many arguments. The reader should keep in mind that
+many results in this chapter can be extended to more general rings.} rings
+without major difficulty.
 
 \section{Free modules revisited}
 \label{sec:linalg:free-modules-revisited}
@@ -27,262 +30,228 @@
 
 \subsection{R-Mod}
 \label{subsec:linalg:r-mod}
-%For generalities on modules, see \S{}III.5}
-% A module over R is an abelian
+For generalities on modules, see \S{}III.5. A \emph{module} over $R$ is an
+abelian group $M$, endowed with an action of $R$. The action of $r \in R$
+on $m \in M$ is denoted $rm$: there is a notational bias towards
+\emph{left}-modules (but the distinction between left- and right-modules
+will be immaterial here as $R$ is commutative). The defining axioms of a
+module tell us that for all $r_1, r_2, r \in R$ and $m, m_1, m_2 \in M$,
+\begin{itemize}
+\item $(r_1 + r_2)m = r_1 m + r_2 m$,
+\item $1m = m$ and $(r_1 r_2)m = r_1(r_2 m)$,
+\item $r(m_1 + m_2) = rm_1 + rm_2$.
+\end{itemize}
+Modules over a ring $R$ form the category $R$-\textsf{Mod}, which we
+encountered in Chapter~III. This category reflects subtle and important
+properties of $R$, and we are going to attempt to uncover some of these
+features. As a first approximation, we look at the `full subcategory'
+(cf.\ Exercise~I.3.8) of $R$-\textsf{Mod} whose objects are \emph{free}
+modules and in which morphisms are ordinary morphisms in $R$-\textsf{Mod},
+that is, $R$-linear group homomorphisms.
 
-% group M , endowed with an action of R. The action of r \in  R on m \in  M is
-% denoted rm: there is a notational bias towards left-modules (but the distinction
-% between left- and right-modules will be immaterial here as R is commutative).
-% The
-% defining axioms of a module tell us that for all r1 , r2 , r \in  R and m, m1,
-% m2 \in  M ,
-% \bullet \bullet \bullet (r1 + r2 )m = r1m + r2 m,
-% 1m = m and (r1r2 )m = r1 (r2 m),
-% r(m1 + m2 ) = rm1 + rm2 .
-% 1The hypothesis of commutativity is very convenient, as it allows us to identify
-% the notion of
-% left- and right-modules, and the fact that integral domains have fields of
-% fractions simplifies many
-% arguments. The reader should keep in mind that many results in this chapter can
-% be extended to
-% more general rings.
-% Modules over a ring R form the category R-Mod, which we encountered in
-% Chapter III. This category reflects subtle and important properties of R, and we
-% are going to attempt to uncover some of these features. As a first
-% approximation,
-% we look at the `full subcategory' (cf. Exercise I.3.8) of R-Mod whose objects
-% are
-% free modules and in which morphisms are ordinary morphisms in R-Mod, that is,
-% R-linear group homomorphisms.
-% The goal of the first few sections of this chapter is to give a very explicit
-% description of this subcategory: in the case of finitely generated free modules,
-% this
-% can be done by means of matrices with entries in R. Later in the chapter, we
-% will see that matrices may also be used to describe important classes of nonfree
-% modules.
+The goal of the first few sections of this chapter is to give a very
+explicit description of this subcategory: in the case of finitely generated
+free modules, this can be done by means of \emph{matrices} with entries in
+$R$. Later in the chapter, we will see that matrices may also be used to
+describe important classes of nonfree modules.
 
 \subsection{Linear independence and bases}
 \label{subsec:linalg:linear-independence-and-bases}
-% The reader is invited to review the defi-
+The reader is invited to review the definition of free $R$-modules given in
+\S{}III.6.3: $F^R(S)$ denotes an $R$-module containing a given set $S$ and
+universal with respect to the existence of a set-map from $S$. We proved
+(Claim~III.6.3) that the module $R^{\oplus S}$ with `one component for each
+element of $S$' gives an explicit realization of $F^R(S)$.
 
-% nition of free R-modules given in \S{}III.6.3: F R(S) denotes an R-module
-% containing
-% a given set S and universal with respect to the existence of a set-map from S.
-% We
-% proved (Claim III.6.3) that the module R\oplus S with `one component for each
-% element
-% of S' gives an explicit realization of F R (S).
-% The main point of this subsection will be that, for reasonable rings R, the
-% set S can be recovered2 `abstractly' from the free module F R (S). For example,
-% it
-% will follow easily that Rm = \sim 
-%  Rn if and only if m = n; this is the first indication
-% that the category of (finitely generated) free modules does indeed admit a
-% simple
-% description.
-% Our main tool will be the famous concepts of linearly independent subsets and
-% bases. It is easy to be imprecise in defining these notions. In order to avoid
-% obvious
-% traps, I will give the definitions for indexed sets (cf. \S{}I.2.2), that is,
-% for functions
-% i : I \to  M from a (nonempty) indexing set I to a given module M . The reader
-% should think of i as a selection of elements of M , allowing for the possibility
-% that
-% the elements m\alpha  \in  M corresponding to \alpha  \in  I may not all be
-% distinct.
-% Recall that for all sets I there is a canonical injection j : I \to  F R(I) and
-% any
-% function i : I \to  M determines a unique R-module homomorphism \phi  : F R (I)
-% \to  M
-% making the diagram
-% F R (I)
-%  \phi 
-%  / M
-% j
-%  O
-%  x x
-%  x
-%  x x x i
-%  x
-%  x
-%  x
-%  x <
-% I
-% commute: this is precisely the universal property satisfied by F R (I).
-% Definition 1.1. We say that the indexed set i : I \to  M is linearly independent
-% if
-% \phi  is injective; i is linearly dependent otherwise. We say that i generates M if \phi  is
-% surjective.
-%  ?
-% Put in a slightly messier, but perhaps more common, way, an indexed set
-% S = {m\alpha  }\alpha \in I of elements of M is linearly independent if the only
-% vanishing linear
-% 2This is not necessarily the case if R is not commutative.
-% combination
-%  ?
-% r\alpha  m\alpha  = 0
-% \alpha \in I
-% is obtained by choosing r\alpha  = 0 \forall \alpha  \in  I; S is linearly
-% dependent otherwise.
-%  The
-% ?
-% indexed set generates M if every element of M may be written as \alpha \in I
-% r\alpha  m\alpha  for
-% some choice of r\alpha  . (As a notational warning/reminder, keep in mind that
-%  ? only finite
-% sums are defined in a module; ?
-%  therefore, in this context the notation
-%  stands for
-% a finite sum. When writing
-%  \alpha \in I
-%  m
-% \alpha 
-%  in
-%  an
-%  ordinary
-%  module,
-%  one
-%  is
-%  implicitly
-% assuming that m\alpha  = 0 for all but finitely many \alpha  \in  I.)
-% Using indexed sets in Definition 1.1 takes care of obvious particular cases such
-% as m and m being linearly dependent since 1 \cdot  m + (-1) \cdot  m = 0: if i :
-% I \to  M is not
-% itself injective, then \phi  is surely not injective (by the commutativity of
-% the diagram
-% and the injectivity of j), so that i is linearly dependent in this case. Because
-% of
-% this fact, the datum of a linearly independent i : I \to  M amounts to a
-% (special)
-% choice of distinct elements of M ; the temptation to identify the elements of I
-% with
-% the corresponding elements of M is historically irresistible and essentially
-% harmless.
-% Thus, it is common to speak about linearly dependent/independent subsets of M .
-% I will conform to this common practice; the reader should parse the statements
-% carefully and correct obvious imprecisions that may arise.
-% A simple application of Zorn's lemma shows that every module has maximal
-% linearly independent subsets. In fact, it gives the following conveniently
-% stronger
-% statement:
-% Lemma 1.2. Let M be an R-module, and let S \subseteq  M be a linearly
-% independent
-% subset. Then there exists a maximal linearly independent subset of M containing
-% S.
-% Proof. Consider the family S of linearly independent subsets of M containing S,
-% ordered by inclusion. Since S is linearly independent, S = \emptyset . By Zorn's
-% lemma, it
-% suffices to verify that every chain in S has an upper bound. Indeed, the union
-% of
-% a chain of linearly independent subsets containing S is also linearly
-% independent:
-% because any relation of linear dependence only involves finitely many elements
-% and
-% these elements would all belong to one subset in the chain.
-%  ?
-% Remark 1.3. This statement is in fact known to be equivalent to the axiom of
-% choice; therefore, the use of Zorn's lemma in one form or another cannot be by-
-% passed.
-%  ?
-% Note that the singleton {2} \subseteq  Z is a `maximal linearly independent
-% subset' of Z,
-% but it does not generate Z. In general this is an additional requirement,
-% leading to
-% the definition of a basis.
-% Definition 1.4. An indexed set B \to  M is a basis if it generates M and is
-% linearly
-% independent.
-%  ?
-% Again, one often talks of bases as `subsets' of the module M ; since the images
-% of all b \in  B are necessarily distinct elements, this is rather harmless. When
-% B is
-% finite (or at any rate countable), the extra information carried by the indexed
-% set
-% can be encoded by ordering the elements of B; to emphasize this, one talks about
-% ordered bases.
-% Bases are necessarily maximal linearly independent subsets and minimal gen-
-% erating subsets; this holds over every ring. What will make modules over a
-% field,
-% i.e., vector spaces, so special is that the converse will also hold.
-% In any case, only very special modules admit bases:
-% Lemma 1.5. An R-module M is free if and only if it admits a basis. In fact,
-% B \subseteq  M is a basis if and only if the natural homomorphism R\oplus B \to
-% M is an
-% isomorphism.
-% Proof. This is immediate from Definition 1.1: if B \subseteq  M is linearly
-% independent
-% and generates M , then the corresponding homomorphism R\oplus B \to  M is
-% injective
-% and surjective. Conversely, if \phi  : R\oplus B \to  M is an isomorphism, then
-% B is identified
-% with a subset of M which generates it (because \phi  is surjective) and is
-% linearly
-% independent (because \phi  is injective).
-%  ?
-% By Lemma 1.5, the choice of a basis B of a free module M amounts to the
-% choice of an isomorphism R\oplus B = \sim 
-%  M ; this will be an important observation in due
-% time (e.g., in \S{}2.2).
-% Once a basis B has been chosen for a free module M , then every element m \in  M
-% can be written uniquely as a linear combination
-% ?
-% m =
-%  r b b
-% b\in B
-% with rb \in  R. As always, remember that all but finitely many of the
-% coefficients rb
-% are 0 in any such expression.
+The main point of this subsection will be that, for reasonable rings $R$,
+the set $S$ can be recovered\footnote{This is not necessarily the case if
+$R$ is not commutative.} `abstractly' from the free module $F^R(S)$. For
+example, it will follow easily that $R^m \cong R^n$ if and only if $m = n$;
+this is the first indication that the category of (finitely generated) free
+modules does indeed admit a simple description.
+Our main tool will be the famous concepts of \emph{linearly independent
+subsets} and \emph{bases}. It is easy to be imprecise in defining these
+notions. In order to avoid obvious traps, I will give the definitions for
+\emph{indexed sets} (cf.\ \S{}I.2.2), that is, for functions $i : I \to M$
+from a (nonempty) indexing set $I$ to a given module $M$. The reader should
+think of $i$ as a selection of elements of $M$, allowing for the possibility
+that the elements $m_\alpha \in M$ corresponding to $\alpha \in I$ may not
+all be distinct.
+
+Recall that for all sets $I$ there is a canonical injection $j : I \to
+F^R(I)$ and any function $i : I \to M$ determines a unique $R$-module
+homomorphism $\varphi : F^R(I) \to M$ making the diagram
+\[\begin{tikzcd}
+  F^R(I) \arrow[r, "\varphi"] & M \\
+  I \arrow[u, "j"] \arrow[ur, "i"']
+\end{tikzcd}\]
+commute: this is precisely the universal property satisfied by $F^R(I)$.
+\begin{defn}{}{linalg:1.1}
+We say that the indexed set $i : I \to M$ is \emph{linearly independent} if
+$\varphi$ is injective; $i$ is \emph{linearly dependent} otherwise. We say
+that $i$ \emph{generates} $M$ if $\varphi$ is surjective.
+\end{defn}
+Put in a slightly messier, but perhaps more common, way, an indexed set $S
+= \{m_\alpha\}_{\alpha \in I}$ of elements of $M$ is linearly independent
+if the only vanishing linear combination
+\[\sum_{\alpha \in I} r_\alpha m_\alpha = 0\]
+is obtained by choosing $r_\alpha = 0$ $\forall \alpha \in I$; $S$ is
+linearly dependent otherwise. The indexed set generates $M$ if every
+element of $M$ may be written as $\sum_{\alpha \in I} r_\alpha m_\alpha$
+for some choice of $r_\alpha$. (As a notational warning/reminder, keep in
+mind that only finite sums are defined in a module; therefore, in this
+context the notation $\sum$ stands for a finite sum. When writing
+$\sum_{\alpha \in I} m_\alpha$ in an ordinary module, one is implicitly
+assuming that $m_\alpha = 0$ for all but finitely many $\alpha \in I$.)
+Using indexed sets in \cref{defn:linalg:1.1} takes care of obvious
+particular cases such as $m$ and $m$ being linearly dependent since $1
+\cdot m + (-1) \cdot m = 0$: if $i : I \to M$ is not itself injective,
+then $\varphi$ is surely not injective (by the commutativity of the diagram
+and the injectivity of $j$), so that $i$ is linearly dependent in this
+case. Because of this fact, the datum of a linearly independent $i : I \to
+M$ amounts to a (special) choice of \emph{distinct} elements of $M$; the
+temptation to identify the elements of $I$ with the corresponding elements
+of $M$ is historically irresistible and essentially harmless. Thus, it is
+common to speak about linearly dependent/independent \emph{subsets} of $M$.
+I will conform to this common practice; the reader should parse the
+statements carefully and correct obvious imprecisions that may arise.
+A simple application of Zorn's lemma shows that every module has maximal
+linearly independent subsets. In fact, it gives the following conveniently
+stronger statement:
+
+\begin{lem}{}{linalg:1.2}
+Let $M$ be an $R$-module, and let $S \subseteq M$ be a linearly independent
+subset. Then there exists a maximal linearly independent subset of $M$
+containing $S$.
+\end{lem}
+\begin{proof}
+Consider the family $\mathscr{S}$ of linearly independent subsets of $M$
+containing $S$, ordered by inclusion. Since $S$ is linearly independent,
+$\mathscr{S} \neq \emptyset$. By Zorn's lemma, it suffices to verify that
+every chain in $\mathscr{S}$ has an upper bound. Indeed, the union of a
+chain of linearly independent subsets containing $S$ is also linearly
+independent: because any relation of linear dependence only involves
+finitely many elements and these elements would all belong to one subset in
+the chain.
+\end{proof}
+\begin{rem}{}{linalg:1.3}
+This statement is in fact known to be equivalent to the axiom of choice;
+therefore, the use of Zorn's lemma in one form or another cannot be
+by-passed.
+\end{rem}
+
+Note that the singleton $\{2\} \subseteq \mathbb{Z}$ is a `maximal
+linearly independent subset' of $\mathbb{Z}$, but it does not generate
+$\mathbb{Z}$. In general this is an additional requirement, leading to the
+definition of a basis.
+
+\begin{defn}{}{linalg:1.4}
+An indexed set $B \to M$ is a \emph{basis} if it generates $M$ and is
+linearly independent.
+\end{defn}
+Again, one often talks of bases as `subsets' of the module $M$; since the
+images of all $b \in B$ are necessarily distinct elements, this is rather
+harmless. When $B$ is finite (or at any rate countable), the extra
+information carried by the indexed set can be encoded by \emph{ordering}
+the elements of $B$; to emphasize this, one talks about \emph{ordered
+bases}.
+
+Bases are necessarily maximal linearly independent subsets and minimal
+generating subsets; this holds over every ring. What will make modules over
+a \emph{field}, i.e., vector spaces, so special is that the converse will
+also hold.
+
+In any case, only very special modules admit bases:
+\begin{lem}{}{linalg:1.5}
+An $R$-module $M$ is free if and only if it admits a basis. In fact, $B
+\subseteq M$ is a basis if and only if the natural homomorphism $R^{\oplus
+B} \to M$ is an isomorphism.
+\end{lem}
+
+\begin{proof}
+This is immediate from \cref{defn:linalg:1.1}: if $B \subseteq M$ is
+linearly independent and generates $M$, then the corresponding homomorphism
+$R^{\oplus B} \to M$ is injective and surjective. Conversely, if $\varphi :
+R^{\oplus B} \to M$ is an isomorphism, then $B$ is identified with a subset
+of $M$ which generates it (because $\varphi$ is surjective) and is linearly
+independent (because $\varphi$ is injective).
+\end{proof}
+By \cref{lem:linalg:1.5}, the choice of a basis $B$ of a free module $M$
+amounts to the choice of an isomorphism $R^{\oplus B} \cong M$; this will
+be an important observation in due time (e.g., in \S{}2.2).
+
+Once a basis $B$ has been chosen for a free module $M$, then every element
+$m \in M$ can be written uniquely as a linear combination
+\[m = \sum_{b \in B} r_b b\]
+with $r_b \in R$. As always, remember that all but finitely many of the
+coefficients $r_b$ are $0$ in any such expression.
 
 \subsection{Vector spaces}
 \label{subsec:linalg:vector-spaces}
-% Lemma 1.5 is all that is needed to prove the fundamental
+\cref{lem:linalg:1.5} is all that is needed to prove the fundamental
+observation that modules over a field are necessarily free. Recall that
+modules over a field $k$ are called \emph{$k$-vector spaces} (Example
+III.5.5). Elements of a vector space are called (surprise, surprise)
+\emph{vectors}, while elements of the field are called\footnote{This
+terminology is also often used for free modules over any ring.}
+\emph{scalars}.
 
-% observation that modules over a field are necessarily free. Recall that modules
-% over
-% a field k are called k-vector spaces (Example III.5.5). Elements of a vector
-% space
-% are called (surprise, surprise) vectors, while elements of the field are called3
-% scalars.
-% By Lemma 1.5, proving that vector spaces are free modules amounts to proving
-% that they admit bases; Lemma 1.2 reduces the matter to the following:
-% Lemma 1.6. Let R = k be a field, and let V be a k-vector space. Let B be a
-% maximal linearly independent subset of V ; then B is a basis of V .
-% Again, this should be contrasted with the situation over rings: {2} is a maximal
-% linearly independent subset of Z, but it is not a basis.
-% Proof. Let v \in  V , v \in  B. Then B \cup  {v} is not linearly independent, by
-% the
-% maximality of B; therefore, there exist c0 , . . . , ct \in  k and (distinct) b1
-% , . . . , bt \in  B
-% such that
-% c0 v + c1 b1 + \dots  + ct bt = 0,
-% 3This terminology is also often used for free modules over any ring.
-% with not all c0, . . . , ct equal to 0. Now, c0 = 0: otherwise we would get a
-% linear
-% dependence relation among elements of B. Since k is a field, c0 is a unit; but
-% then
-% v = (-c-1
-%  0 c1 )b1 + \dots  + (-c0 -1
-%  ct )bt ,
-% proving that v is in the span of B. It follows that B generates V , as needed.
-%  ?
-% Summarizing,
-% Proposition 1.7. Let R = k be a field, and let V be a k-vector space. Let S
-% be a linearly independent set of vectors of V . Then there exists a basis B of V
-% containing S.
-% In particular, V is free as a k-module.
-% Proof. Put Lemma 1.2, Lemma 1.5, and Lemma 1.6 together.
-%  ?
-% We could also contemplate this situation from the `mirror' point of view of
-% generating sets:
-% Lemma 1.8. Let R = k be a field, and let V be a k-vector space. Let B be a
-% minimal generating set for V ; then B is a basis of V .
-% Every set generating V contains a basis of V .
-% Proof. Exercise 1.6.
-%  ?
-% Lemma 1.8 also fails on more general rings (Exercise 1.5). To reiterate, over
-% fields (but not over general rings) a subset B of a vector space is a basis \iff
-% it is
-% a maximal linearly independent subset \iff  it is a minimal generating set.
+By \cref{lem:linalg:1.5}, proving that vector spaces are free modules
+amounts to proving that they admit bases; \cref{lem:linalg:1.2} reduces
+the matter to the following:
+
+\begin{lem}{}{linalg:1.6}
+Let $R = k$ be a field, and let $V$ be a $k$-vector space. Let $B$ be a
+maximal linearly independent subset of $V$; then $B$ is a basis of $V$.
+\end{lem}
+
+Again, this should be contrasted with the situation over rings: $\{2\}$ is
+a maximal linearly independent subset of $\mathbb{Z}$, but it is not a
+basis.
+\begin{proof}
+Let $v \in V$, $v \notin B$. Then $B \cup \{v\}$ is not linearly
+independent, by the maximality of $B$; therefore, there exist $c_0, \dots,
+c_t \in k$ and (distinct) $b_1, \dots, b_t \in B$ such that
+\[c_0 v + c_1 b_1 + \dots + c_t b_t = 0,\]
+with not all $c_0, \dots, c_t$ equal to $0$. Now, $c_0 \neq 0$: otherwise
+we would get a linear dependence relation among elements of $B$. Since $k$
+is a field, $c_0$ is a unit; but then
+\[v = (-c_0^{-1} c_1) b_1 + \dots + (-c_0^{-1} c_t) b_t,\]
+proving that $v$ is in the span of $B$. It follows that $B$ generates $V$,
+as needed.
+\end{proof}
+Summarizing,
+
+\begin{prop}{}{linalg:1.7}
+Let $R = k$ be a field, and let $V$ be a $k$-vector space. Let $S$ be a
+linearly independent set of vectors of $V$. Then there exists a basis $B$
+of $V$ containing $S$.
+
+In particular, $V$ is free as a $k$-module.
+\end{prop}
+
+\begin{proof}
+Put \cref{lem:linalg:1.2}, \cref{lem:linalg:1.5}, and \cref{lem:linalg:1.6}
+together.
+\end{proof}
+We could also contemplate this situation from the `mirror' point of view of
+generating sets:
+
+\begin{lem}{}{linalg:1.8}
+Let $R = k$ be a field, and let $V$ be a $k$-vector space. Let $B$ be a
+minimal generating set for $V$; then $B$ is a basis of $V$.
+
+Every set generating $V$ contains a basis of $V$.
+\end{lem}
+
+\begin{proof}
+Exercise~1.6.
+\end{proof}
+
+\cref{lem:linalg:1.8} also fails on more general rings (Exercise~1.5). To
+reiterate, over fields (but not over general rings) a subset $B$ of a
+vector space is a basis $\iff$ it is a maximal linearly independent subset
+$\iff$ it is a minimal generating set.
 
 \subsection{Recovering B from F R (B)}
 \label{subsec:linalg:recovering-b-from-f-r-b}
