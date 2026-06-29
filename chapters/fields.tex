@@ -365,240 +365,223 @@ otherwise.
 The extension $k \subseteq F$ is \emph{algebraic} if every $\alpha \in F$
 is algebraic over $k$.
 \end{defn}
-% By Proposition 1.3, \alpha  \in  F is algebraic over k if and only if there
-% exists a
-% nonzero polynomial f (x) \in  k[x] such that f (\alpha ) = 0. The minimal
-% polynomial of \alpha
-% is the monic polynomial of smallest degree satisfying this condition; as we have
-% seen, it is necessarily irreducible.
-% Also note that if \alpha  is algebraic over k, then every element of k(\alpha )
-% may in fact
-% be written as a polynomial with coefficients in k.
-% Finite extensions are necessarily algebraic:
-% Lemma 1.9. Let k \subseteq  F be a finite extension. Then every \alpha  \in  F
-% is algebraic
-% over k, of degree \leq  [F : k].
-% Proof. Since k \subseteq  k(\alpha ) \subseteq  F , the dimension of k(\alpha )
-% as a k-vector space is bounded
-% by dimk F = [F : k].
-%  ?
-% Concretely, if k \subseteq  F is finite and \alpha  \in  F , then the powers 1,
-% \alpha , \alpha  2 . . . are
-% necessarily linearly dependent; and any nontrivial linear dependence relation
-% among
-% them provides us with a nonzero polynomial f (x) \in  k[x] such that f (\alpha )
-% = 0.
-% The literal converse of the claim that `finite extensions are algebraic' is not
-% true;
-% we will see an example in a moment. However, something along these lines holds;
-% understanding the situation requires a more careful look at finiteness
-% conditions.
-% First of all, compositions of finite extensions are finite extensions, and the
-% degree behaves nicely with respect to this operation:
-% Proposition 1.10. Let k \subseteq  E \subseteq  F be field extensions. Then k
-% \subseteq  F is finite if and
-% only if both k \subseteq  E and E \subseteq  F are finite. In this case,
-% [F : k] = [F : E][E : k].
-% Proof. If F is finite-dimensional as a vector space over k, then so is its
-% subspace E;
-% and any linear dependence relation of elements of F over the field k gives one
-% over
-% the larger field E. It follows that if k \subseteq  F is finite, then so are k
-% \subseteq  E and E \subseteq  F .
-% Conversely, assume k \subseteq  E and E \subseteq  F are both finite. Let (e1 ,
-% . . . , em ) be a
-% basis for E over k, and let (f1 , . . . , fn ) be a basis for F over E. It will
-% suffice to
-% show that the mn products
-% (e1 f1 , e1 f2 , . . . , em fn )
-% form a basis for F over k.
-% Let g \in  F . Then \exists d1 , . . . , dn \in  E such that
-% ?
-%  n
-% g =
-%  dj fj ,
-% j=1
-% since the elements fj span F over E. Since E is spanned by the elements ei over
-% k,
-% \exists c1j , . . . , cmj \in  k such that \forall j
-% ?
-%  m
-% dj =
-%  cij ei .
-% i=1
-% It follows that
-% ?
-%  m ?
-%  n
-% g =
-%  cij ei fj :
-% i=1 j=1
-% therefore the products ei fj span F over k. (This suffices to prove that k
-% \subseteq  F is
-% finite.)
-% To verify that these elements are linearly independent, assume
-% ?
-% \lambda ij ei fj = 0
-% i,j
-% for \lambda ij \in  k. Then we have
-% ? ?
-% (
-%  \lambda ij ei )fj = 0,
-% j
-%  i
-% ?
-% implying
-%  i \lambda ij ei = 0 for all j, since the elements f j are linearly independent
-% over E. As the elements ei are linearly independent over k, this shows that all
-% \lambda ij
-% equal 0, as needed.
-%  ?
-% The formula given in the statement should look familiar to the reader: glance
-% at the end of \S{}II.8.5. Of course this is not accidental; the reader should
-% take it as
-% another hint that the world of groups and the world of fields have deep interac-
-% tion. As in the case of groups, we draw the immediate (but powerful)
-% consequence,
-% reminiscent of Lagrange's theorem:
-% Corollary 1.11. Let k \subseteq  F be a finite extension, and let E be an
-% intermediate
-% field (that is, k \subseteq  E \subseteq  F ). Then both [E : k] and [F : E]
-% divide [F : k].
-% As with Lagrange's theorem, judicious use of this result will make otherwise
-% mysterious statements melt into trivialities.
-% Example 1.12. Let k \subseteq  F be a field extension, and let \alpha  \in  F be
-% an algebraic
-% element over k, of odd degree. Then I claim that \alpha  may be written as a
-% polynomial
-% in \alpha 2 , with coefficients in k.
-% Indeed, k(\alpha 2 ) is intermediate between k and k(\alpha ):
-% k \subseteq  k(\alpha 2) \subseteq  k(\alpha );
-% what can we say about the degree d of k(\alpha ) over k(\alpha 2 )? Since \alpha
-% satisfies the
-% polynomial t2 - \alpha 2 \in  k(\alpha 2 )[t], d \leq  2. On the other hand, d
-% divides [k(\alpha ) : k]
-% by Corollary 1.11, and [k(\alpha ) : k] is odd, so d = 2. Therefore d = 1,
-% proving
-% k(\alpha ) = k(\alpha 2 ), and in particular \alpha  \in  k(\alpha 2 ), which is
-% the claim.
-%  ?
-% Here is something else that should evoke fond memories for the reader: back
-% in \S{}III.6.5 we had encountered an important distinction between finite
-% algebras
-% and algebras of finite type. An algebra is finite over the base ring if it is
-% finitely
-% generated as a module, that is, if it admits an onto homomorphism (of modules)
-% from a finitely generated free module; a commutative algebra is of finite type
-% if
-% it admits an onto homomorphism (of algebras) from a polynomial ring in finitely
-% many variables.
-% Something along the same lines is going to occur here. An extension k \subseteq
-% F is
-% finite if and only if dimk F is finite, that is, if and only if F is a finite
-% k-algebra.
-% The other finiteness condition takes the following form.
-% Definition 1.13. A field extension k \subseteq  F is finitely generated if there
-% exist
-% \alpha 1 , . . . , \alpha n \in  F such that
-% F = k(\alpha 1 )(\alpha 2 ) . . . (\alpha n).
-%  ?
-% Remark 1.14. This is not the same as saying that F is generated by the \alpha i
-% 's as a
-% (finite-type) k-algebra: even in the case of simple extensions, if \alpha  is
-% transcendental,
-% then the natural evaluation map ? : k[t] \to  k(\alpha ) of Proposition 1.3 is
-% not onto.
-% However, this is an epimorphism of rings in the categorical sense, as the reader
-% will
-% check (Exercise 1.17); thus, the `categorical spirit' behind the finite-type
-% condition
-% is preserved in this context.
-% This subtlety raises an interesting question: what if a field extension k
-% \subseteq  F
-% really is a finite-type k-algebra? This turns out to be an important issue, and
-% we
-% will come back to it in \S{}2.2.
-%  ?
-% We will use the notation
-% k(\alpha 1 , \alpha 2 , . . . , \alpha n)
-% for the field k(\alpha 1 )(\alpha 2 ) . . . (\alpha n). For k \subseteq  F and
-% \alpha 1, . . . , \alpha n \in  F , the elements
-% of the field F = k(\alpha 1 , . . . , \alpha n) are all the elements of F which
-% may be written
-% as rational functions in the \alpha i 's, with coefficients in k (cf. Exercise
-% 1.3). Put
-% otherwise, k(\alpha 1 , . . . , \alpha n ) is the smallest subfield of F
-% containing k(\alpha 1 ), . . . , k(\alpha n )
-% (it is the composite of these subfields). It is clear that the order of the
-% elements \alpha i
-% is irrelevant.
-% Coming back to the issue of finite vs. algebraic, these two notions do coincide
-% for finitely generated extensions.
-% Proposition 1.15. Let k \subseteq  F = k(\alpha 1 , . . . , \alpha n ) be a
-% finitely generated field exten-
-% sion. Then the following are equivalent:
-% (i) k \subseteq  F is a finite extension.
-% (ii) k \subseteq  F is an algebraic extension.
-% (iii) Each \alpha i is algebraic over k.
-% If these conditions are satisfied, then [F : k] \leq  the product of the degrees
-% of \alpha i
-% over k.
-% Proof. Lemma 1.9 shows that (i) \implies  (ii); (ii) \implies  (iii) trivially.
-% Thus, we only
-% need to prove that (iii) \implies  (i), and to bound the degree of F over k in
-% the process.
-% Assume that each \alpha i is algebraic over k, and let di be the degree of
-% \alpha i over k.
-% By definition, k \subseteq  k(\alpha i ) is finite, of degree di. By Exercise
-% 1.16, each extension
-% k(\alpha 1, . . . , \alpha i-1 ) \subseteq  k(\alpha 1 , . . . , \alpha i )
-% is finite, of degree \leq  di . Applying Proposition 1.10 to the composition of
-% extensions
-% k \subseteq  k(\alpha 1 ) \subseteq  k(\alpha 1 , \alpha 2 ) \subseteq  \dots
-% \subseteq  k(\alpha 1, . . . , \alpha n ) = F
-% proves that k \subseteq  F is finite and [F : k] \leq  d1 \dots  dn, as needed.
-%  ?
-% While rather straightforward, Proposition 1.15 has always seemed remarkable
-% to us: it says (in particular) that if \alpha  and \beta  are algebraic over a
-% field k, then so are
-% \alpha  \pm  \beta , \alpha \beta , \alpha \beta  -1, and any other rational function of \alpha  and \beta . If all we knew were
-% the simple-minded definition of `algebraic' (that is, `root of a polynomial'),
-% this
-% would seem rather mysterious: given a polynomial f (x) of which \alpha  is a
-% root and a
-% polynomial g(x) of which \beta  is a root, how do we construct a polynomial h(x)
-% such
-% that (for example) h(\alpha  + \beta ) = 0? The answer is that we do not need to
-% perform
-% any such construction, by virtue of Proposition 1.15.
-% One immediate consequence of this observation is that the set of algebraic
-% elements of any extension forms a field:
-% Corollary 1.16. Let k \subseteq  F be a field extension. Let
-% E = {\alpha  \in  F | \alpha  is algebraic over k}.
-% Then E is a field.
-% Example 1.17. Let Q \subseteq  C be the set of complex numbers that are
-% algebraic
-% over Q; then Q is a field, by Corollary 1.16, and the extension Q \subseteq  Q
-% is (tau-
-% tologically) algebraic. Note that Q \subseteq  Q is not a finite extension,
-% because in it
-% there are elements of arbitrarily high degree over Q: indeed, there exist
-% irreducible
-% polynomials in Q[x] of arbitrarily high degree, as we observed in Corollary
-% V.5.16.
-% Elements of Q are called algebraic numbers; the complex numbers in the com-
-% plement of Q are transcendental over Q (by definition); they are simply called
-% transcendental numbers. Elementary cardinality considerations show that Q is
-% countable; thus, the set of transcendental numbers is uncountable. Surprisingly,
-% it may be substantially difficult to prove that a given number is
-% transcendental:
-% for example, the fact that e is transcendental was only proved around 1870, by
-% Charles Hermite. The number \pi  is transcendental (Lindemann, ca. 1880); e\pi
-% is
-% transcendental (Gelfond-Schneider, 1934). No one knows whether \pi e, \pi  + e,
-% or \pi e
-% are transcendental.
-%  ?
+By \cref{prop:fields:1.3}, $\alpha \in F$ is algebraic over $k$ if and only
+if there exists a nonzero polynomial $f(x) \in k[x]$ such that $f(\alpha) =
+0$. The minimal polynomial of $\alpha$ is the monic polynomial of smallest
+degree satisfying this condition; as we have seen, it is necessarily
+irreducible.
+Also note that if $\alpha$ is algebraic over $k$, then every element of
+$k(\alpha)$ may in fact be written as a \emph{polynomial} with coefficients
+in $k$.
+
+\emph{Finite extensions are necessarily algebraic:}
+\begin{lem}{}{fields:1.9}
+Let $k \subseteq F$ be a finite extension. Then every $\alpha \in F$ is
+algebraic over $k$, of degree $\leq [F : k]$.
+\end{lem}
+\begin{proof}
+Since $k \subseteq k(\alpha) \subseteq F$, the dimension of $k(\alpha)$ as a
+$k$-vector space is bounded by $\dim_k F = [F : k]$.
+\end{proof}
+Concretely, if $k \subseteq F$ is finite and $\alpha \in F$, then the powers
+$1, \alpha, \alpha^2 \dots$ are necessarily linearly dependent; and any
+nontrivial linear dependence relation among them provides us with a nonzero
+polynomial $f(x) \in k[x]$ such that $f(\alpha) = 0$.
+The literal converse of the claim that `finite extensions are algebraic' is
+not true; we will see an example in a moment. However, something along these
+lines holds; understanding the situation requires a more careful look at
+finiteness conditions.
+First of all, compositions of finite extensions are finite extensions, and
+the degree behaves nicely with respect to this operation:
+\begin{prop}{}{fields:1.10}
+Let $k \subseteq E \subseteq F$ be field extensions. Then $k \subseteq F$ is
+finite if and only if both $k \subseteq E$ and $E \subseteq F$ are finite.
+In this case,
+\[
+  [F : k] = [F : E][E : k].
+\]
+\end{prop}
+\begin{proof}
+If $F$ is finite-dimensional as a vector space over $k$, then so is its
+subspace $E$; and any linear dependence relation of elements of $F$ over the
+field $k$ gives one over the larger field $E$. It follows that if $k
+\subseteq F$ is finite, then so are $k \subseteq E$ and $E \subseteq F$.
+Conversely, assume $k \subseteq E$ and $E \subseteq F$ are both finite. Let
+$(e_1, \dots, e_m)$ be a basis for $E$ over $k$, and let $(f_1, \dots, f_n)$
+be a basis for $F$ over $E$. It will suffice to show that the $mn$ products
+\[
+  (e_1 f_1, e_1 f_2, \dots, e_m f_n)
+\]
+form a basis for $F$ over $k$.
+Let $g \in F$. Then $\exists d_1, \dots, d_n \in E$ such that
+\[
+  g = \sum_{j=1}^{n} d_j f_j,
+\]
+since the elements $f_j$ span $F$ over $E$. Since $E$ is spanned by the
+elements $e_i$ over $k$, $\exists c_{1j}, \dots, c_{mj} \in k$ such that
+$\forall j$
+\[
+  d_j = \sum_{i=1}^{m} c_{ij} e_i.
+\]
+It follows that
+\[
+  g = \sum_{i=1}^{m} \sum_{j=1}^{n} c_{ij} e_i f_j:
+\]
+therefore the products $e_i f_j$ span $F$ over $k$. (This suffices to prove
+that $k \subseteq F$ is finite.)
+To verify that these elements are linearly independent, assume
+\[
+  \sum_{i,j} \lambda_{ij} e_i f_j = 0
+\]
+for $\lambda_{ij} \in k$. Then we have
+\[
+  \sum_{j} \Bigl(\sum_{i} \lambda_{ij} e_i\Bigr) f_j = 0,
+\]
+implying $\sum_i \lambda_{ij} e_i = 0$ for all $j$, since the elements $f_j$
+are linearly independent over $E$. As the elements $e_i$ are linearly
+independent over $k$, this shows that all $\lambda_{ij}$ equal $0$, as
+needed.
+\end{proof}
+The formula given in the statement should look familiar to the reader: glance
+at the end of \S{}II.8.5. Of course this is not accidental; the reader
+should take it as another hint that the world of groups and the world of
+fields have deep interaction. As in the case of groups, we draw the
+immediate (but powerful) consequence, reminiscent of Lagrange's theorem:
+\begin{coro}{}{fields:1.11}
+Let $k \subseteq F$ be a finite extension, and let $E$ be an intermediate
+field (that is, $k \subseteq E \subseteq F$). Then both $[E : k]$ and $[F :
+E]$ divide $[F : k]$.
+\end{coro}
+As with Lagrange's theorem, judicious use of this result will make otherwise
+mysterious statements melt into trivialities.
+\begin{exam}{}{fields:exam:1.12}
+Let $k \subseteq F$ be a field extension, and let $\alpha \in F$ be an
+algebraic element over $k$, of odd degree. Then I claim that $\alpha$ may be
+written as a polynomial in $\alpha^2$, with coefficients in $k$.
+Indeed, $k(\alpha^2)$ is intermediate between $k$ and $k(\alpha)$:
+\[
+  k \subseteq k(\alpha^2) \subseteq k(\alpha);
+\]
+what can we say about the degree $d$ of $k(\alpha)$ over $k(\alpha^2)$?
+Since $\alpha$ satisfies the polynomial $t^2 - \alpha^2 \in k(\alpha^2)[t]$,
+$d \leq 2$. On the other hand, $d$ divides $[k(\alpha) : k]$ by
+\cref{coro:fields:1.11}, and $[k(\alpha) : k]$ is odd, so $d \neq 2$.
+Therefore $d = 1$, proving $k(\alpha) = k(\alpha^2)$, and in particular
+$\alpha \in k(\alpha^2)$, which is the claim.
+\end{exam}
+Here is something else that should evoke fond memories for the reader: back
+in \S{}III.6.5 we had encountered an important distinction between
+\emph{finite} algebras and algebras \emph{of finite type}. An algebra is
+finite over the base ring if it is finitely generated as a module, that is,
+if it admits an onto homomorphism (of modules) from a finitely generated free
+module; a commutative algebra is of finite type if it admits an onto
+homomorphism (of algebras) from a polynomial ring in finitely many
+variables.
+Something along the same lines is going to occur here. An extension $k
+\subseteq F$ is finite if and only if $\dim_k F$ is finite, that is, if and
+only if $F$ is a finite $k$-algebra. The other finiteness condition takes the
+following form.
+\begin{defn}{}{fields:1.13}
+A field extension $k \subseteq F$ is \emph{finitely generated} if there exist
+$\alpha_1, \dots, \alpha_n \in F$ such that
+\[
+  F = k(\alpha_1)(\alpha_2)\dots(\alpha_n).
+\]
+\end{defn}
+\begin{rem}{}{fields:1.14}
+This is not the same as saying that $F$ is generated by the $\alpha_i$'s as
+a (finite-type) $k$-algebra: even in the case of simple extensions, if
+$\alpha$ is transcendental, then the natural evaluation map $\epsilon : k[t]
+\to k(\alpha)$ of \cref{prop:fields:1.3} is not onto. However, this is an
+epimorphism of rings in the categorical sense, as the reader will check
+(Exercise~1.17); thus, the `categorical spirit' behind the finite-type
+condition is preserved in this context.
+This subtlety raises an interesting question: what if a field extension $k
+\subseteq F$ really is a finite-type $k$-algebra? This turns out to be an
+important issue, and we will come back to it in \S{}2.2.
+\end{rem}
+We will use the notation
+\[
+  k(\alpha_1, \alpha_2, \dots, \alpha_n)
+\]
+for the field $k(\alpha_1)(\alpha_2)\dots(\alpha_n)$. For $k \subseteq F$
+and $\alpha_1, \dots, \alpha_n \in F$, the elements of the field $F =
+k(\alpha_1, \dots, \alpha_n)$ are all the elements of $F$ which may be
+written as rational functions in the $\alpha_i$'s, with coefficients in $k$
+(cf.\ Exercise~1.3). Put otherwise, $k(\alpha_1, \dots, \alpha_n)$ is the
+smallest subfield of $F$ containing $k(\alpha_1), \dots, k(\alpha_n)$ (it is
+the \emph{composite} of these subfields). It is clear that the order of the
+elements $\alpha_i$ is irrelevant.
+Coming back to the issue of finite vs.\ algebraic, these two notions do
+coincide for finitely generated extensions.
+\begin{prop}{}{fields:1.15}
+Let $k \subseteq F = k(\alpha_1, \dots, \alpha_n)$ be a finitely generated
+field extension. Then the following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+  \item $k \subseteq F$ is a finite extension.
+  \item $k \subseteq F$ is an algebraic extension.
+  \item Each $\alpha_i$ is algebraic over $k$.
+\end{enumerate}
+If these conditions are satisfied, then $[F : k] \leq$ the product of the
+degrees of $\alpha_i$ over $k$.
+\end{prop}
+\begin{proof}
+\cref{lem:fields:1.9} shows that (i)$\implies$(ii); (ii)$\implies$(iii)
+trivially. Thus, we only need to prove that (iii)$\implies$(i), and to bound
+the degree of $F$ over $k$ in the process.
+Assume that each $\alpha_i$ is algebraic over $k$, and let $d_i$ be the
+degree of $\alpha_i$ over $k$. By definition, $k \subseteq k(\alpha_i)$ is
+finite, of degree $d_i$. By Exercise~1.16, each extension $k(\alpha_1, \dots,
+\alpha_{i-1}) \subseteq k(\alpha_1, \dots, \alpha_i)$ is finite, of degree
+$\leq d_i$. Applying \cref{prop:fields:1.10} to the composition of
+extensions
+\[
+  k \subseteq k(\alpha_1) \subseteq k(\alpha_1, \alpha_2) \subseteq \dots
+  \subseteq k(\alpha_1, \dots, \alpha_n) = F
+\]
+proves that $k \subseteq F$ is finite and $[F : k] \leq d_1 \dots d_n$, as
+needed.
+\end{proof}
+While rather straightforward, \cref{prop:fields:1.15} has always seemed
+remarkable to us: it says (in particular) that if $\alpha$ and $\beta$ are
+algebraic over a field $k$, then so are $\alpha \pm \beta$, $\alpha\beta$,
+$\alpha\beta^{-1}$, and any other rational function of $\alpha$ and $\beta$.
+If all we knew were the simple-minded definition of `algebraic' (that is,
+`root of a polynomial'), this would seem rather mysterious: given a
+polynomial $f(x)$ of which $\alpha$ is a root and a polynomial $g(x)$ of
+which $\beta$ is a root, how do we construct a polynomial $h(x)$ such that
+(for example) $h(\alpha + \beta) = 0$? The answer is that we do not need to
+perform any such construction, by virtue of \cref{prop:fields:1.15}.
+One immediate consequence of this observation is that the set of algebraic
+elements of any extension forms a field:
+
+\begin{coro}{}{fields:1.16}
+Let $k \subseteq F$ be a field extension. Let
+\[
+  E = \{\alpha \in F \mid \alpha \text{ is algebraic over } k\}.
+\]
+Then $E$ is a field.
+\end{coro}
+\begin{exam}{}{fields:exam:1.17}
+Let $\overline{\Q} \subseteq \C$ be the set of complex numbers that are
+algebraic over $\Q$; then $\overline{\Q}$ is a field, by
+\cref{coro:fields:1.16}, and the extension $\Q \subseteq \overline{\Q}$ is
+(tautologically) algebraic. Note that $\Q \subseteq \overline{\Q}$ is not a
+finite extension, because in it there are elements of arbitrarily high degree
+over $\Q$: indeed, there exist irreducible polynomials in $\Q[x]$ of
+arbitrarily high degree, as we observed in Corollary~V.5.16.
+Elements of $\overline{\Q}$ are called \emph{algebraic numbers}; the complex
+numbers in the complement of $\overline{\Q}$ are transcendental over $\Q$ (by
+definition); they are simply called \emph{transcendental numbers}. Elementary
+cardinality considerations show that $\overline{\Q}$ is countable; thus, the
+set of transcendental numbers is uncountable. Surprisingly, it may be
+substantially difficult to prove that a given number is transcendental: for
+example, the fact that $e$ is transcendental was only proved around 1870, by
+\name{Charles Hermite}. The number $\pi$ is transcendental (\name{Lindemann},
+ca.\ 1880); $e^\pi$ is transcendental (\name{Gelfond}--\name{Schneider},
+1934). No one knows whether $\pi^e$, $\pi + e$, or $\pi e$ are
+transcendental.
+\end{exam}
 % Another consequence of Proposition 1.15 is the important fact that composi-
 % tions of algebraic extensions are algebraic (whether finitely generated or not):
 % Corollary 1.18. Let k \subseteq  E \subseteq  F be field extensions. Then k
