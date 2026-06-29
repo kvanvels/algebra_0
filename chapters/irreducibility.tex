@@ -2708,844 +2708,813 @@ polynomial, and assume that
 \end{enumerate}
 Then $f$ is not the product of polynomials of degree $< n$ in $R[x]$.
 \end{prop}
-% Proof. Argue by contradiction. Assume f = gh in R[x], with both d = deg g
-% and e = deg h less than n = deg f ; write
-% g = b0 + b1 x + \dots  + bd xd ,
-%  h = c0 + c1 x + \dots  + ce xe,
-% and note that necessarily d > 0 and e > 0. Consider f modulo p: thus
-% f = gh
-%  in (R/p)[x],
-% where f denotes f modulo p, etc.
-% By hypothesis, f = an xn modulo p, where an = 0 in R/p. Since R/p is an
-% integral domain, factors of f must also be monomials: that is, necessarily
-% g = bd xd ,
-%  h = c exe .
-% Since d > 0, e > 0, this implies b0 \in  p, c0 \in  p.
-% But then a0 = b0 c0 \in  p2 , contradicting the hypothesis.
-%  ?
-% For example, x4 +2x2 +2 must be irreducible in Z[x] (and hence in Q[x]): apply
-% Eisenstein's criterion with R = Z, p = (2). More exciting applications involve
-% whole
-% classes of polynomials:
-% Example 5.18. For all n and all primes p, the polynomial xn - p is irreducible
-% in Z[x]. This follows immediately from Eisenstein's criterion and gives an
-% alterna-
-% tive proof of Corollary 5.16.
-%  ?
+\begin{proof}
+Argue by contradiction. Assume $f = gh$ in $R[x]$, with both $d = \deg g$
+and $e = \deg h$ less than $n = \deg f$; write
+\[g = b_0 + b_1 x + \cdots + b_d x^d, \quad
+  h = c_0 + c_1 x + \cdots + c_e x^e,\]
+and note that necessarily $d > 0$ and $e > 0$. Consider $f$ modulo
+$\mathfrak{p}$: thus
+\[\underline{f} = \underline{g}\,\underline{h}
+  \quad \text{in } (R/\mathfrak{p})[x],\]
+where $\underline{f}$ denotes $f$ modulo $\mathfrak{p}$, etc.
+
+By hypothesis, $\underline{f} = \underline{a_n} x^n$ modulo $\mathfrak{p}$,
+where $\underline{a_n} \neq 0$ in $R/\mathfrak{p}$. Since $R/\mathfrak{p}$
+is an integral domain, factors of $\underline{f}$ must also be monomials:
+that is, necessarily
+\[\underline{g} = \underline{b_d} x^d,
+  \quad \underline{h} = \underline{c_e} x^e.\]
+Since $d > 0$, $e > 0$, this implies $b_0 \in \mathfrak{p}$,
+$c_0 \in \mathfrak{p}$.
+
+But then $a_0 = b_0 c_0 \in \mathfrak{p}^2$, contradicting the hypothesis.
+\end{proof}
+
+For example, $x^4 + 2x^2 + 2$ must be irreducible in $\mathbb{Z}[x]$ (and
+hence in $\mathbb{Q}[x]$): apply Eisenstein's criterion with $R =
+\mathbb{Z}$, $\mathfrak{p} = (2)$. More exciting applications involve whole
+classes of polynomials:
+
+\begin{exam}{}{irred:exam:5.18}
+For all $n$ and all primes $p$, the polynomial $x^n - p$ is irreducible in
+$\mathbb{Z}[x]$. This follows immediately from Eisenstein's criterion and
+gives an alternative proof of \cref{coro:irred:5.16}.
+\end{exam}
+
+\begin{exam}{}{irred:exam:5.19}
+This is probably the most famous application of Eisenstein's criterion.
+Let $p$ be a prime integer, and let
+\[f(x) = 1 + x + x^2 + \cdots + x^{p-1} \in \mathbb{Z}[x].\]
+These polynomials are called \emph{cyclotomic}; we will encounter them
+again in~\S{}VII.5.2.
+
+It may not look like it, but Eisenstein's criterion may be used to prove
+that $f(x)$ is irreducible. The trick (which the reader should endeavor to
+remember) is to apply the shift $x \to x + 1$. It is hopefully clear that
+$f(x)$ is irreducible if and only if $f(x + 1)$ is; thus we are reduced to
+showing that
+\[f(x + 1) = 1 + (x + 1) + (x + 1)^2 + \cdots + (x + 1)^{p-1}\]
+is irreducible. This is better than it looks: since $f(x) = (x^p - 1)/(x
+- 1)$,
+\[f(x + 1) = \frac{(x + 1)^p - 1}{(x + 1) - 1}
+  = x^{p-1} + \binom{p}{p-1} x^{p-2} + \cdots
+  + \binom{p}{2} x + \binom{p}{1};\]
+Eisenstein's criterion proves that this is irreducible, since $\binom{p}{1}
+= p$ and
+
+\begin{fact}{Claim~5.20}{irred:claim:5.20}
+For $p$ prime and $k = 1, \ldots, p - 1$, $p$ divides $\binom{p}{k}$.
+\end{fact}
+
+There is nothing to this, because $\binom{p}{k} = \frac{p!}{k!(p - k)!}$
+and $p$ divides the numerator and does not divide the denominator; the
+claim follows as $p$ is prime. It may be worthwhile noting that this fact
+does \emph{not} hold if $p$ is not prime: for example, $4$ does not
+divide~$\binom{4}{2}$.
+\end{exam}
 
 \subsection*{Exercises}
+\begin{exer}{}{irred:exer:5.1}
+$\lnot$ Let $f(x) \in \mathbb{C}[x]$. Prove that $a \in \mathbb{C}$ is a
+root of $f$ with multiplicity $r$ if and only if $f(a) = f'(a) = \cdots =
+f^{(r-1)}(a) = 0$ and $f^{(r)}(a) \neq 0$, where $f^{(k)}(a)$ denotes the
+value of the $k$-th derivative of $f$ at $a$. Deduce that $f(x) \in
+\mathbb{C}[x]$ has multiple roots if and only if $\gcd(f(x), f'(x)) \neq
+1$. [5.2]
+\end{exer}
+\begin{exer}{}{irred:exer:5.2}
+Let $F$ be a subfield of $\mathbb{C}$, and let $f(x)$ be an irreducible
+polynomial in $F[x]$. Prove that $f(x)$ has no multiple roots in
+$\mathbb{C}$. (Use Exercises~2.22 and~5.1.)
+\end{exer}
+\begin{exer}{}{irred:exer:5.3}
+Let $R$ be a ring, and let $f(x) = a_{2n} x^{2n} + a_{2n-2} x^{2n-2} +
+\cdots + a_2 x^2 + a_0 \in R[x]$ be a polynomial only involving even
+powers of $x$. Prove that if $g(x)$ is a factor of $f(x)$, so is $g(-x)$.
+\end{exer}
+\begin{exer}{}{irred:exer:5.4}
+Show that $x^4 + x^2 + 1$ is reducible in $\mathbb{Z}[x]$. Prove that it
+has no rational roots, without finding its (complex) roots.
+\end{exer}
+\begin{exer}{}{irred:exer:5.5}
+\exerused{} Prove Proposition~5.3. [\S{}5.1]
+\end{exer}
+\begin{exer}{}{irred:exer:5.6}
+\exerused{} Construct fields with 27 elements and with 121 elements.
+[\S{}5.1]
+\end{exer}
+\begin{exer}{}{irred:exer:5.7}
+Let $R$ be an integral domain, and let $f(x) \in R[x]$ be a polynomial of
+degree $d$. Prove that $f(x)$ is determined by its value at any $d + 1$
+distinct elements of $R$.
+\end{exer}
+\begin{exer}{}{irred:exer:5.8}
+$\lnot$ Let $K$ be a field, and let $a_0, \ldots, a_d$ be distinct
+elements of $K$. Given any elements $b_0, \ldots, b_d$ in $K$, construct
+explicitly a polynomial $f(x) \in K[x]$ of degree at most $d$ such that
+$f(a_0) = b_0, \ldots, f(a_d) = b_d$, and show that this polynomial is
+unique. (Hint: First solve the problem assuming that only one $b_i$ is not
+equal to zero.) This process is called Lagrange interpolation. [5.9]
+\end{exer}
+\begin{exer}{}{irred:exer:5.9}
+$\lnot$ Pretend you can factor integers, and then use Lagrange
+interpolation (cf.\ Exercise~5.8) to give a finite algorithm to factor
+polynomials with integer coefficients over $\mathbb{Q}[x]$. Use your
+algorithm to factor $(x - 1)(x - 2)(x - 3)(x - 4) + 1$. [5.10]
+\end{exer}
+\begin{exer}{}{irred:exer:5.10}
+Prove that the polynomial $(x - 1)(x - 2) \cdots (x - n) - 1$ is
+irreducible in $\mathbb{Q}[x]$ for all $n \geq 1$. (Hint: Think along the
+lines of Exercise~5.9.)
+\end{exer}
+\begin{exer}{}{irred:exer:5.11}
+\exerused{} Let $F$ be a finite field. Prove that there are irreducible
+polynomials in $F[x]$ of arbitrarily high degree. (Hint: Exercise~2.24.)
+[\S{}5.3]
+\end{exer}
+\begin{exer}{}{irred:exer:5.12}
+Prove that applying the construction in Proposition~5.7 to an irreducible
+linear polynomial in $k[x]$ produces a field isomorphic to $k$.
+\end{exer}
+\begin{exer}{}{irred:exer:5.13}
+\exerused{} Let $k$ be a field, and let $f \in k[x]$ be any polynomial.
+Prove that there is an extension $k \subseteq F$ in which $f$ factors
+completely as a product of linear terms. [\S{}5.2, \S{}VI.7.3]
+\end{exer}
+\begin{exer}{}{irred:exer:5.14}
+How many different embeddings of the field $\mathbb{Q}[t]/(t^3 - 2)$ are
+there in $\mathbb{R}$? How many in $\mathbb{C}$?
+\end{exer}
+\begin{exer}{}{irred:exer:5.15}
+Prove Lemma~5.10.
+\end{exer}
+\begin{exer}{}{irred:exer:5.16}
+\exerused{} If you know about the `maximum modulus principle' in complex
+analysis: formulate and prove the `minimum modulus principle' used in the
+sketch of the proof of the fundamental theorem of algebra. [\S{}5.3]
+\end{exer}
+\begin{exer}{}{irred:exer:5.17}
+\exerused{} Let $f \in \mathbb{R}[x]$ be a polynomial of odd degree. Use
+the intermediate value theorem to give an `algebra-free' proof of the fact
+that $f$ has real roots. [\S{}5.3, \S{}VII.7.1]
+\end{exer}
+\begin{exer}{}{irred:exer:5.18}
+Let $f \in \mathbb{Z}[x]$ be a cubic polynomial such that $f(0)$ and
+$f(1)$ are odd and with odd leading coefficient. Prove that $f$ is
+irreducible in $\mathbb{Q}[x]$.
+\end{exer}
+\begin{exer}{}{irred:exer:5.19}
+Give a proof of the fact that $\sqrt{2}$ is not rational by using
+Eisenstein's criterion.
+\end{exer}
+\begin{exer}{}{irred:exer:5.20}
+Prove that $x^6 + 4x^3 + 1$ is irreducible by using Eisenstein's
+criterion.
+\end{exer}
+\begin{exer}{}{irred:exer:5.21}
+Prove that $1 + x + x^2 + \cdots + x^{n-1}$ is reducible over $\mathbb{Z}$
+if $n$ is not prime.
+\end{exer}
+\begin{exer}{}{irred:exer:5.22}
+Let $R$ be a UFD, and let $a \in R$ be an element that is not divisible by
+the square of some irreducible element in its factorization. Prove that
+$x^n - a$ is irreducible for every integer $n \geq 1$.
+\end{exer}
+\begin{exer}{}{irred:exer:5.23}
+Decide whether $y^5 + x^2 y^3 + x^3 y^2 + x$ is reducible or irreducible
+in $\mathbb{C}[x, y]$.
+\end{exer}
 
-% Example 5.19. This is probably the most famous application of Eisenstein's cri-
-% terion. Let p be a prime integer, and let
-% f (x) = 1 + x + x2 + \dots  + xp-1 \in  Z[x].
-% These polynomials are called cyclotomic; we will encounter them again in
-% \S{}VII.5.2.
-% It may not look like it, but Eisenstein's criterion may be used to prove that
-% f (x) is irreducible. The trick (which the reader should endeavor to remember)
-% is
-% to apply the shift x \to  x + 1. It is hopefully clear that f (x) is irreducible
-% if and
-% only if f (x + 1) is; thus we are reduced to showing that
-% f (x + 1) = 1 + (x + 1) + (x + 1)2 + \dots  + (x + 1)p-1
-% is irreducible. This is better than it looks: since f (x) = (xp - 1)/(x - 1),
-% (x + 1)p - 1
-%  p
-%  p 2
-%  p
-%  p
-% f (x + 1) =
-%  = xp-1 +
-%  xp-2 + \dots  +
-%  x +
-%  x +
-%  ;
-% (x + 1) - 1
-%  p - 1
-% ?p?
-% Eisenstein's criterion proves that this is irreducible, since = p and
-% 1p
-% Claim 5.20. For p prime and k = 1, . . . , p - 1, p divides
-%  .
-% k
-% There is nothing to this, because
-% p
-%  p!
-% =
-% k
-%  k!(p - k)!
-% and p divides the numerator and does not divide the denominator; the claim
-% follows
-% as p is prime. It may be worthwhile noting
-%  ? ? that this fact does not hold if p is not
-% prime: for example, 4 does not divide 42 .
-%  ?
-% 5.1. \lnot  Let f (x) \in  C[x]. Prove that a \in  C is a root of f with
-% multiplicity r if and
-% only if f (a) = f \setminus (a) = \dots  = f (r-1) (a) = 0 and f (r) (a)=0,
-% where f (k) (a) denotes
-% the value of the k-th derivative of f at a. Deduce that f (x) \in  C[x] has
-% multiple
-% roots if and only if gcd(f (x), f \setminus (x)) = 1. [5.2]
-% 5.2. Let F be a subfield of C, and let f (x) be an irreducible polynomial in F
-% [x].
-% Prove that f (x) has no multiple roots in C. (Use Exercises 2.22 and 5.1.)
-% 5.3. Let R be a ring, and let f (x) = a2n x2n + a2n-2 x2n-2 + \dots  + a2 x2 +
-% a0 \in  R[x]
-% be a polynomial only involving even powers of x. Prove that if g(x) is a factor
-% of
-% f (x), so is g(-x).
-% 5.4. Show that x4 + x2 + 1 is reducible in Z[x]. Prove that it has no rational
-% roots,
-% without finding its (complex) roots.
-% 5.5. ? Prove Proposition 5.3. [\S{}5.1]
-% 5.6. ? Construct fields with 27 elements and with 121 elements. [\S{}5.1]
-% 5.7. Let R be an integral domain, and let f (x) \in  R[x] be a polynomial of
-% degree d.
-% Prove that f (x) is determined by its value at any d + 1 distinct elements of R.
-% 5.8. \lnot  Let K be a field, and let a0 , . . . , ad be distinct elements of K.
-% Given any
-% elements b0 , . . . , bd in K, construct explicitly a polynomial f (x) \in  K[x]
-% of degree
-% at most d such that f (a0 ) = b0 , . . . , f (ad) = bd , and show that this
-% polynomial is
-% unique. (Hint: First solve the problem assuming that only one bi is not equal to
-% zero.) This process is called Lagrange interpolation. [5.9]
-% 5.9. \lnot  Pretend you can factor integers, and then use Lagrange interpolation
-% (cf. Ex-
-% ercise 5.8) to give a finite algorithm to factor polynomials22 with integer
-% coefficients
-% over Q[x]. Use your algorithm to factor (x - 1)(x - 2)(x - 3)(x - 4) + 1. [5.10]
-% 5.10. Prove that the polynomial (x - 1)(x - 2) \dots  (x - n) - 1 is irreducible
-% in Q[x]
-% for all n \geq  1. (Hint: Think along the lines of Exercise 5.9.)
-% 5.11. ? Let F be a finite field. Prove that there are irreducible polynomials in
-% F [x]
-% of arbitrarily high degree. (Hint: Exercise 2.24.) [\S{}5.3]
-% 5.12. Prove that applying the construction in Proposition 5.7 to an irreducible
-% linear polynomial in k[x] produces a field isomorphic to k.
-% 5.13. ? Let k be a field, and let f \in  k[x] be any polynomial. Prove that
-% there is an
-% extension k \subseteq  F in which f factors completely as a product of linear
-% terms. [\S{}5.2,
-% \S{}VI.7.3]
-% 5.14. How many different embeddings of the field Q[t]/(t3 - 2) are there in R?
-% How many in C?
-% 5.15. Prove Lemma 5.10.
-% 5.16. ? If you know about the `maximum modulus principle' in complex analysis:
-% formulate and prove the `minimum modulus principle' used in the sketch of the
-% proof of the fundamental theorem of algebra. [\S{}5.3]
-% 5.17. ? Let f \in  R[x] be a polynomial of odd degree. Use the intermediate
-% value
-% theorem to give an `algebra-free' proof of the fact that f has real roots.
-% [\S{}5.3,
-% \S{}VII.7.1]
-% 5.18. Let f \in  Z[x] be a cubic polynomial such that f (0) and f (1) are odd
-% and
-% with odd leading coefficient. Prove that f is irreducible in Q[x].
-% \sqrt 
-% 5.19. Give a proof of the fact that 2 is not rational by using Eisenstein's
-% criterion.
-% 5.20. Prove that x6 + 4x3 + 1 is irreducible by using Eisenstein's criterion.
-% 5.21. Prove that 1 + x + x2 + \dots  + xn-1 is reducible over Z if n is not
-% prime.
-% 5.22. Let R be a UFD, and let a \in  R be an element that is not divisible by
-% the square of some irreducible element in its factorization. Prove that xn - a
-% is
-% irreducible for every integer n \geq  1.
-% 5.23. Decide whether y 5 + x2y 3 + x3 y2 + x is reducible or irreducible in C[x,
-% y].
-% 22It is in fact much harder to factor integers than integer polynomials.
+\begin{exer}{}{irred:exer:5.24}
+Prove that $\mathbb{C}[x, y, z, w]/(xw - yz)$ is an integral domain, by
+using Eisenstein's criterion. (I used this ring as an example in~\S{}2.2,
+but I did not have the patience to prove that it was a domain back then!)
+\end{exer}
 
 \section{Further remarks and examples}
 \label{sec:irred:further-remarks-and-examples}
 
 
-\subsection{Prove that C[x, y, z, w]/(xw -yz) is an integral domain, by using Eisenstein's}
-\label{subsec:irred:prove-that-c-x-y-z-w-xw-yz-is-an-integral-domain-by-using-eisenstein-s}
-
-% criterion. (I used this ring as an example in \S{}2.2, but I did not have the
-% patience
-% to prove that it was a domain back then!)
-
 \subsection{Chinese remainder theorem}
 \label{subsec:irred:chinese-remainder-theorem}
-% Suppose all you know about an integer is
+Suppose all you know about an integer is its class modulo several numbers;
+can you reconstruct the integer? Also, if you are given arbitrary classes in
+$\mathbb{Z}/n\mathbb{Z}$ for several integers $n$, can you find an $N \in
+\mathbb{Z}$ satisfying all these congruences simultaneously?
 
-% its class modulo several numbers; can you reconstruct the integer? Also, if you
-% are given arbitrary classes in Z/nZ for several integers n, can you find an N
-% \in  Z
-% satisfying all these congruences simultaneously?
-% The answer is no in both cases, for trivial reasons. If an integer N satisfies
-% given
-% congruences modulo n1 , . . . , nk , then adding any multiple of n1 \dots  nk to
-% N produces
-% an integer satisfying the same congruences (so N cannot be entirely
-% reconstructed
-% from the given data); and there is no integer N such that N \equiv  1 mod 2 and
-% N \equiv
-% 2 mod 4, so there are plenty of congruences which cannot be simultaneously
-% satisfied.
-% The Chinese remainder theorem (CRT) sharpens these questions so that they
-% can in fact be answered affirmatively, and (in its modern form) it generalizes
-% them
-% to a much broader setting. Its statement is most pleasant for PIDs; it is very
-% impressive23 even in the limited context of Z. Protoversions of the theorem have
-% already appeared here and there in this book, e.g., Lemma IV.6.1.
-% I will first give the more general version, which is in some way simpler. Let R
-% be any commutative ring.
-% Theorem 6.1. Let I1 , . . . , Ik be ideals of R such that Ii + Ij = (1) for all
-% i = j.
-% Then the natural homomorphism
-% \phi  : R
-%  / R \times  \cdot \cdot \cdot  \times  R
-% I1
-%  Ik
-% is surjective and induces an isomorphism
-% \tilde{\phi } :
-%  R
-%  \sim 
-%  / R \times  \cdot \cdot \cdot  \times  R .
-% I1 \dots  Ik
-%  I1
-%  Ik
-% The `natural' homomorphism \phi  is determined by the canonical projections
-% R \to  R/Ij and the universal property of products; the homomorphism \tilde{\phi
-% } is induced
-% by virtue of the universal property of quotients, since I1 \dots  Ik \subseteq
-% Ij for all j, hence
-% I1 \dots  Ik \subseteq  ker \phi . Theorem 6.1 is proven by an induction relying
-% on the following
-% lemma.
-% Lemma 6.2. Let I1 , . . . , Ik be ideals of R such that Ii + Ik = (1) for all i
-% =
-% 1, . . . , k - 1. Then (I1 \dots  Ik-1 ) + Ik = (1).
-% Proof.Then
-% By hypothesis, for i = 1, . . . , k - 1 there exists ai \in  Ik such that 1 - ai
-% \in  Ii .
-% (1 - a1 ) \dots  (1 - ak-1) \in  I1 \dots  Ik-1,
-% 23 Allegedly, a large number of `Putnam' problems can be solved by clever
-% applications of
-% the CRT.
-% and
-% 1 - (1 - a1 ) \dots  (1 - ak-1 ) \in  Ik ,
-% because it is a combination of a1, . . . , ak-1 \in  Ik .
-% ?
-% Since clearly ker \phi  = I1 \cap  \dots  \cap  Ik , the second part of the
-% statement of Theo-
-% rem 6.1 follows immediately from the first part, the `first isomorphism
-% theorem',
-% and the following (independently interesting) observation:
-% Lemma 6.3. Let I1 , . . . , Ik be ideals of R such that Ii + Ij = (1) for all i
-% = j.
-% Then I1 \dots  Ik = I1 \cap  \dots  \cap  Ik .
-% Proof. By Lemma 6.2, under the stated hypotheses we have that I1 \dots  Ik-1 +
-% Ik =
-% (1) for k \geq  3. Thus, the general statement is reduced by induction to the
-% case k = 2.
-% (By the way, this case is Exercise III.4.5!) Assume I and J are ideals of R such
-% that I + J = (1). The inclusion IJ \subseteq  I \cap  J holds for all ideals I,
-% J, so the task
-% amounts to proving I \cap  J \subseteq  IJ when I + J = (1). If I + J = (1),
-% then there exist
-% elements a \in  I, b \in  J such that a + b = 1. But if r \in  I \cap  J, then
-% r = r \cdot  1 = r(a + b) = ra + rb \in  IJ :
-% because ra \in  IJ as r \in  J and a \in  I, while rb \in  IJ as r \in  I and b
-% \in  J. The
-% statement follows.
-%  ?
-% Thus, we only need to prove the first part of Theorem 6.1.
-% Proof of Theorem 6.1. Argue by induction on k. For k = 1, there is nothing to
-% show. For k > 1, assume the statement is known for fewer ideals. Thus, we may
-% assume that the natural projection induces an isomorphism
-% R
-%  \sim 
-%  =
-%  R
-%  \times  \cdot \cdot \cdot  \times 
-%  R
-%  ;
-% I1 \dots  Ik-1
-%  I1
-%  Ik-1
-% and all that we have left to prove is that the natural homomorphism
-% R
-%  R
-% R \to 
-%  \times 
-% I1 \dots  Ik-1
-%  Ik
-% is surjective. By Lemma 6.2, (I1 \dots  Ik-1 ) + Ik = (1); thus we are reduced
-% to the
-% case of two ideals.
-% Let then I, J be ideals of a commutative ring R, such that I + J = (1), and let
-% rI , rJ \in  R; we have to verify that \exists r \in  R such that r \equiv  rI
-% mod I and r \equiv  rJ mod J.
-% Since I + J = (1), there are a \in  I, b \in  J such that a + b = 1. Let r = arJ
-% + brI :
-% then
-% r = arJ + (1 - a)rI = rI + a(rJ - rI ) \equiv  rI mod I
-% as a \in  I, and
-% r = (1 - b)rJ + brI = rJ + b(rI - rJ ) \equiv  rJ
-%  mod J
-% as b \in  J, as needed, and completing the proof.
-%  ?
-% In a PID, the CRT takes the following form:
-% Corollary 6.4. Let R be a PID, and let a1 , . . . , ak \in  R be elements such
-% that
-% gcd(ai , aj ) = 1 for all i = j. Let a = a1 \dots  ak . Then the function
-% R
-%  R
-%  R
-% \phi  :
-%  \to 
-%  \times  \cdot \cdot \cdot  \times 
-% (a)
-%  (a1 )
-%  (ak )
-% defined by r + (a) ?\to  (r + (a1 ), . . . , r + (ak )) is an isomorphism.
-% This is an immediate consequence of Theorem 6.1, since (in a PID!) gcd(a, b) =
-% 1 if and only if (a, b) = (1) as ideals. This is not the case for arbitrary
-% UFDs, and
-% indeed the natural map
-% Z[x] Z[x]
-% Z[x] \to 
-%  \times 
-% (2)
-%  (x)
-% is not surjective (check this!), even though gcd(2, x) = 1. But the kernel of
-% this
-% map is (2x); and this is what can be expected in general from the CRT over UFDs
-% (Exercise 6.6).
-% As Z is a PID, Corollary 6.4 holds for Z and gives the promised answer to a
-% revised version of the questions posed at the beginning of this subsection. In
-% fact,
-% tracing the proof in this case gives an effective procedure to solve
-% simultaneous
-% congruences over Z (or in fact over any Euclidean domain, as will be apparent
-% from
-% the argument).
-% To see this more explicitly, let n1 , . . . , nk be pairwise relatively prime
-% integers,
-% and let n = n1 \dots  nk ; for each i, let mi = n/ni. Then ni and mi are
-% relatively
-% prime24 , and we can use the Euclidean algorithm to explicitly find integers ai
-% , bi
-% such that
-% ai ni + bi mi = 1.
-% The numbers qi = bi mi have the property that
-% qi \equiv  1 mod ni ,
-%  qi \equiv  0 mod nj
-%  \forall j = i
-% (why?). These integers may be used to solve any given system of congruences
-% modulo n1, . . . , nk : indeed, if r1 , . . . , rk \in  Z are given, then
-% N := r1 q1 + \dots  + rk qk
-% satisfies
-% N \equiv  r1 \cdot  0 + \dots  + ri \cdot  1 + \dots  + rk \cdot  0 \equiv  ri
-%  mod ni
-% for all i.
-% The same procedure can be applied over any Euclidean domain R; see Exer-
-% cise 6.7 for an example.
+The answer is no in both cases, for trivial reasons. If an integer $N$
+satisfies given congruences modulo $n_1, \ldots, n_k$, then adding any
+multiple of $n_1 \cdots n_k$ to $N$ produces an integer satisfying the same
+congruences (so $N$ cannot be entirely reconstructed from the given data);
+and there is no integer $N$ such that $N \equiv 1 \bmod 2$ and $N \equiv 2
+\bmod 4$, so there are plenty of congruences which cannot be simultaneously
+satisfied.
+
+The \emph{Chinese remainder theorem} (CRT) sharpens these questions so that
+they can in fact be answered affirmatively, and (in its modern form) it
+generalizes them to a much broader setting. Its statement is most pleasant
+for PIDs; it is very impressive\footnote{Allegedly, a large number of
+`Putnam' problems can be solved by clever applications of the CRT.} even in
+the limited context of $\mathbb{Z}$. Protoversions of the theorem have
+already appeared here and there in this book, e.g., Lemma~IV.6.1.
+
+I will first give the more general version, which is in some way simpler.
+Let $R$ be any commutative ring.
+\begin{thm}{}{irred:6.1}
+Let $I_1, \ldots, I_k$ be ideals of $R$ such that $I_i + I_j = (1)$ for
+all $i \neq j$. Then the natural homomorphism
+\[\varphi : R \longrightarrow \frac{R}{I_1} \times \cdots \times \frac{R}{I_k}\]
+is surjective and induces an isomorphism
+\[\tilde{\varphi} : \frac{R}{I_1 \cdots I_k}
+  \xrightarrow{\;\sim\;}
+  \frac{R}{I_1} \times \cdots \times \frac{R}{I_k}.\]
+\end{thm}
+
+The `natural' homomorphism $\varphi$ is determined by the canonical
+projections $R \to R/I_j$ and the universal property of products; the
+homomorphism $\tilde\varphi$ is induced by virtue of the universal property
+of quotients, since $I_1 \cdots I_k \subseteq I_j$ for all $j$, hence
+$I_1 \cdots I_k \subseteq \ker\varphi$. \cref{thm:irred:6.1} is proven by
+an induction relying on the following lemma.
+\begin{lem}{}{irred:6.2}
+Let $I_1, \ldots, I_k$ be ideals of $R$ such that $I_i + I_k = (1)$ for
+all $i = 1, \ldots, k-1$. Then $(I_1 \cdots I_{k-1}) + I_k = (1)$.
+\end{lem}
+
+\begin{proof}
+By hypothesis, for $i = 1, \ldots, k-1$ there exists $a_i \in I_k$ such
+that $1 - a_i \in I_i$. Then
+\[(1 - a_1) \cdots (1 - a_{k-1}) \in I_1 \cdots I_{k-1},\]
+and
+\[1 - (1 - a_1) \cdots (1 - a_{k-1}) \in I_k,\]
+because it is a combination of $a_1, \ldots, a_{k-1} \in I_k$.
+\end{proof}
+Since clearly $\ker\varphi = I_1 \cap \cdots \cap I_k$, the second part of
+the statement of \cref{thm:irred:6.1} follows immediately from the first
+part, the `first isomorphism theorem', and the following (independently
+interesting) observation:
+\begin{lem}{}{irred:6.3}
+Let $I_1, \ldots, I_k$ be ideals of $R$ such that $I_i + I_j = (1)$ for
+all $i \neq j$. Then $I_1 \cdots I_k = I_1 \cap \cdots \cap I_k$.
+\end{lem}
+
+\begin{proof}
+By \cref{lem:irred:6.2}, under the stated hypotheses we have that $I_1
+\cdots I_{k-1} + I_k = (1)$ for $k \geq 3$. Thus, the general statement
+is reduced by induction to the case $k = 2$. (By the way, this case is
+Exercise~III.4.5!) Assume $I$ and $J$ are ideals of $R$ such that $I + J =
+(1)$. The inclusion $IJ \subseteq I \cap J$ holds for all ideals $I$, $J$,
+so the task amounts to proving $I \cap J \subseteq IJ$ when $I + J = (1)$.
+If $I + J = (1)$, then there exist elements $a \in I$, $b \in J$ such that
+$a + b = 1$. But if $r \in I \cap J$, then
+\[r = r \cdot 1 = r(a + b) = ra + rb \in IJ:\]
+because $ra \in IJ$ as $r \in J$ and $a \in I$, while $rb \in IJ$ as $r
+\in I$ and $b \in J$. The statement follows.
+\end{proof}
+Thus, we only need to prove the first part of \cref{thm:irred:6.1}.
+
+\begin{proof}[Proof of \cref{thm:irred:6.1}]
+Argue by induction on $k$. For $k = 1$, there is nothing to show. For $k >
+1$, assume the statement is known for fewer ideals. Thus, we may assume that
+the natural projection induces an isomorphism
+\[\frac{R}{I_1 \cdots I_{k-1}} \cong
+  \frac{R}{I_1} \times \cdots \times \frac{R}{I_{k-1}};\]
+and all that we have left to prove is that the natural homomorphism
+\[R \to \frac{R}{I_1 \cdots I_{k-1}} \times \frac{R}{I_k}\]
+is surjective. By \cref{lem:irred:6.2}, $(I_1 \cdots I_{k-1}) + I_k =
+(1)$; thus we are reduced to the case of two ideals.
+Let then $I$, $J$ be ideals of a commutative ring $R$, such that $I + J =
+(1)$, and let $r_I, r_J \in R$; we have to verify that $\exists r \in R$
+such that $r \equiv r_I \bmod I$ and $r \equiv r_J \bmod J$.
+Since $I + J = (1)$, there are $a \in I$, $b \in J$ such that $a + b = 1$.
+Let $r = ar_J + br_I$: then
+\[r = ar_J + (1 - a)r_I = r_I + a(r_J - r_I) \equiv r_I \bmod I\]
+as $a \in I$, and
+\[r = (1 - b)r_J + br_I = r_J + b(r_I - r_J) \equiv r_J \bmod J\]
+as $b \in J$, as needed, and completing the proof.
+\end{proof}
+In a PID, the CRT takes the following form:
+
+\begin{coro}{}{irred:6.4}
+Let $R$ be a PID, and let $a_1, \dots, a_k \in R$ be elements such that
+$\gcd(a_i, a_j) = 1$ for all $i \neq j$. Let $a = a_1 \cdots a_k$. Then
+the function
+\[\phi : \frac{R}{(a)} \to
+  \frac{R}{(a_1)} \times \cdots \times \frac{R}{(a_k)}\]
+defined by $r + (a) \mapsto (r + (a_1), \dots, r + (a_k))$ is an
+isomorphism.
+\end{coro}
+This is an immediate consequence of \cref{thm:irred:6.1}, since (in a PID!)
+$\gcd(a, b) = 1$ if and only if $(a, b) = (1)$ as ideals. This is not the
+case for arbitrary UFDs, and indeed the natural map
+\[\mathbb{Z}[x] \to \frac{\mathbb{Z}[x]}{(2)} \times
+  \frac{\mathbb{Z}[x]}{(x)}\]
+is not surjective (check this!), even though $\gcd(2, x) = 1$. But the
+kernel of this map is $(2x)$; and this is what can be expected in general
+from the CRT over UFDs (Exercise~6.6).
+As $\mathbb{Z}$ is a PID, \cref{coro:irred:6.4} holds for $\mathbb{Z}$ and
+gives the promised answer to a revised version of the questions posed at the
+beginning of this subsection. In fact, tracing the proof in this case gives
+an effective procedure to solve simultaneous congruences over $\mathbb{Z}$
+(or in fact over any Euclidean domain, as will be apparent from the
+argument).
+To see this more explicitly, let $n_1, \dots, n_k$ be pairwise relatively
+prime integers, and let $n = n_1 \cdots n_k$; for each $i$, let $m_i =
+n/n_i$. Then $n_i$ and $m_i$ are relatively prime,\footnote{This is a particular
+case of \cref{lem:irred:6.2} and is clear anyway from gcd considerations.}
+and we can use the Euclidean algorithm to explicitly find
+integers $a_i$, $b_i$ such that
+\[a_i n_i + b_i m_i = 1.\]
+The numbers $q_i = b_i m_i$ have the property that
+\[q_i \equiv 1 \bmod n_i, \quad q_i \equiv 0 \bmod n_j \quad \forall j
+  \neq i\]
+(why?). These integers may be used to solve any given system of congruences
+modulo $n_1, \dots, n_k$: indeed, if $r_1, \dots, r_k \in \mathbb{Z}$ are
+given, then
+\[N := r_1 q_1 + \dots + r_k q_k\]
+satisfies
+\[N \equiv r_1 \cdot 0 + \dots + r_i \cdot 1 + \dots + r_k \cdot 0
+  \equiv r_i \bmod n_i\]
+for all $i$.
+
+The same procedure can be applied over any Euclidean domain $R$; see
+Exercise~6.7 for an example.
 
 \subsection{Gaussian integers}
 \label{subsec:irred:gaussian-integers}
-% The rings Z and k[x] (where k is a field) may be the
+The rings $\mathbb{Z}$ and $k[x]$ (where $k$ is a field) may be the only
+examples of Euclidean domains known to our reader. The next most famous
+example is the ring of \emph{Gaussian integers}; this is a very pretty
+ring, and it has elementary but striking applications in number theory (one
+instance of which we will see in \S{}6.3).
+Abstractly, we may define this ring as
+\[\mathbb{Z}[i] := \frac{\mathbb{Z}[x]}{(x^2 + 1)};\]
+and we are going to verify that $\mathbb{Z}[i]$ is a Euclidean domain.
+The notation $\mathbb{Z}[i]$ is justified by the discussion in \S{}5.2
+(cf.\ especially Proposition~5.7): $\mathbb{Z}[i]$ may be viewed as the
+`smallest' ring containing $\mathbb{Z}$ and a root of $x^2 + 1$, that is,
+a square root $i$ of $-1$. The natural embedding
+\[\frac{\mathbb{Z}[x]}{(x^2 + 1)} \subseteq \frac{\mathbb{R}[x]}{(x^2 +
+  1)}\]
+and the identification of the rightmost ring with $\mathbb{C}$ (Example
+III.4.8) realize $\mathbb{Z}[i]$ as a subring of $\mathbb{C}$; tracing
+this embedding shows that we could equivalently define
+\[\mathbb{Z}[i] = \{a + bi \in \mathbb{C} \mid a, b \in \mathbb{Z}\}.\]
+Thus, the reader should think of $\mathbb{Z}[i]$ as consisting of the
+complex numbers whose real and imaginary parts are integers; this may be
+referred to as the `integer lattice' in $\mathbb{C}$.
 
-% only examples of Euclidean domains known to our reader. The next most famous
-% example is the ring of Gaussian integers; this is a very pretty ring, and it has
-% elementary but striking applications in number theory (one instance of which we
-% will see in \S{}6.3).
-% 24This is a particular case of Lemma 6.2 and is clear anyway from gcd
-% considerations.
-% Abstractly, we may define this ring as
-% Z[x]
-% Z[i] :=
-%  ;
-% (x2 + 1)
-% and we are going to verify that Z[i] is a Euclidean domain.
-% The notation Z[i] is justified by the discussion in \S{}5.2 (cf. especially
-% Proposi-
-% tion 5.7): Z[i] may be viewed as the `smallest' ring containing Z and a root of
-% x2 +1,
-% that is, a square root i of -1. The natural embedding
-% Z[x]
-%  R[x]
-% \subseteq  2
-% (x2 + 1)
-%  (x + 1)
-% and the identification of the rightmost ring with C (Example III.4.8) realize
-% Z[i] as
-% a subring of C; tracing this embedding shows that we could equivalently define
-% Z[i] = {a + bi \in  C | a, b \in  Z}.
-% Thus, the reader should think of Z[i] as consisting of the complex numbers whose
-% real and imaginary parts are integers; this may be referred to as the `integer
-% lattice'
-% in C:
-% -2 - i
-% i
-% This picture is particularly compelling, because it allows us to `visualize'
-% principal
-% ideals in Z[i]: simple properties of complex multiplication show that the
-% multiples
-% of a fixed w \in  Z[i] form a regular lattice superimposed on Z[i]. For example,
-% the
-% fattened dots in the picture
-% -2 - i
-% represent the ideal (-2 - i) in Z[i]: an enlarged, tilted lattice superimposed
-% on
-% the integer lattice in C. The reader should stop reading now and make sure to
-% understand why this works out so neatly.
-% A Gaussian integer is a complex number, and as such it has a norm
-% N (a + bi) := (a + bi)(a - bi) = a2 + b2 .
-% Geometrically, this is the square of the distance from the origin to a + bi.
-% The norm of a Gaussian integer is a nonnegative integer; thus N is a function
-% Z[i] \to  Z\geq 0 .
-% Lemma 6.5. The function N is a Euclidean valuation on Z[i]; further, N is mul-
-% tiplicative in the sense that \forall z, w \in  Z[i]
-% N (zw) = N (z)N (w).
-% Proof. The multiplicativity is an immediate consequence of the elementary prop-
-% erties of complex conjugation:
-% N (zw) = (zw)(zw) = (zz)(ww) = N (z)N (w).
-% To see that N is a Euclidean valuation, we have to show how to perform a
-% `division
-% with remainder' in Z[i]. It is not hard, but it is a bit messy, to do this
-% algebraically;
-% I will attempt to convince the reader that this is in fact visually evident (and
-% then
-% the reader can have fun producing the needed algebraic computations).
-% Let z, w \in  Z[i], and assume w = 0. The ideal (w) is a lattice superimposed
-% on Z[i]. The given z is either one of the vertices of this lattice (in which
-% case z is a
-% multiple of w, so that the division z/w can be performed in Z[i], with remainder
-% 0)
-% or it sits inside one of the `boxes' of the lattice. In the latter case, pick
-% any of the
-% vertices of that box, that is, a multiple qw of w, and let r = z - qw. The
-% situation
-% may look as follows:
-% w
-% z
-% qw
-% Then we have obtained
-% z = qw + r,
-% and the norm of r is the square of the length of the segment between qw and z.
-% Since this segment is contained in a box, and the square of the size of the box
-% is N (w), we have achieved
-% N (r) < N (w),
-% completing the proof.
-%  ?
-% As we know, all sorts of amazing properties hold for the ring of Gaussian
-% integers as a consequence of Lemma 6.5: Z[i] is a PID and a UFD; irreducible
-% elements are prime in Z[i]; greatest common divisors exist and may be found by
-% applying the Euclidean algorithm, etc. Any one of these facts would seem fairly
-% challenging in itself, but they are all immediate consequences of the existence
-% of a
-% Euclidean valuation and of the general considerations in \S{}2.
-% The fact that the norm is multiplicative simplifies further the analysis of the
-% ring Z[i].
-% Lemma 6.6. The units of Z[i] are \pm 1, \pm i.
-% Proof. If u is a unit in Z[i], then there exists v \in  Z[i] such that uv = 1.
-% But
-% then N (u)N (v) = N (uv) = N (1) = 1 by multiplicativity, so N (u) is a unit in
-% Z.
-% This implies N (u) = 1, and the only elements in Z[i] with norm 1 are \pm 1, \pm
-% i. The
-% statement follows.
-%  ?
-% Lemma 6.7. Let q \in  Z[i] be a prime element. Then there is a prime integer p
-% \in  Z
-% such that N (q) = p or N (q) = p 2 .
-% Proof. Since q is not a unit, N (q) = 1 (by Lemma 6.6). Thus N (q) is a
-% nontrivial
-% product of (integer) primes, and since q is prime in Z[i] \supseteq  Z, q must
-% divide one
-% of the prime integer factors of N (q); let p be this integer prime. But then q |
-% p
-% in Z[i], and it follows (by multiplicativity of the norm) that N (q) | N (p) =
-% p2 .
-% Since N (q) = 1, the only possibilities are N (q) = p and N (q) = p2 , as
-% claimed. ?
-% Both possibilities presented in Lemma 6.7 occur, and studying this dichotomy
-% further will be key to the result in \S{}6.3. But we can already work out
-% several cases
-% `by hand':
-% Example 6.8. The prime integer 3 is a prime element of Z[i]; this can be
-% verified
-% by proving that 3 is irreducible in Z[i] (since Z[i] is a UFD). For this
-% purpose, note
-% that since N (3) = 9, the norm of a factor of 3 would have to be a divisor of 9,
-% that is, 1, 3, or 9. Gaussian integers with norm 1 are units, and those with
-% norm 9
-% are associates of 3 (Exercise 6.10); thus a nontrivial factor of 3 would
-% necessarily
-% have norm equal to 3. But there are no such elements in Z[i]; hence 3 is indeed
-% irreducible.
-% The prime integer 5 is not a prime element of Z[i]: running through the same
-% argument as we just did for 3, we find that a factor of 5 should have norm 5,
-% and
-% 2 + i does. In fact, 5 = (2 + i)(2 - i) is a prime factorization of 5 in Z[i].
-% Visually, what happens is that the lattice generated by 3 in Z[i] cannot be
-% refined further into a tighter lattice, while the one generated by 5 does admit
-% a
-% refinement:
-% (the circles represent complex numbers with norm 3, 5, respectively).
-%  ?
-% The reader is encouraged to work out several other examples and to try to figure
-% out what property of an integer prime makes it split in Z[i] (like 5 and unlike
-% 3).
-% But this should be done before reading on!
+This picture is particularly compelling, because it allows us to
+`visualize' principal ideals in $\mathbb{Z}[i]$: simple properties of
+complex multiplication show that the multiples of a fixed $w \in
+\mathbb{Z}[i]$ form a regular lattice superimposed on $\mathbb{Z}[i]$.
+For example, the fattened dots represent the ideal $(-2 - i)$ in
+$\mathbb{Z}[i]$: an enlarged, tilted lattice superimposed on the integer
+lattice in $\mathbb{C}$. The reader should stop reading now and make sure
+to understand why this works out so neatly.
+A Gaussian integer is a complex number, and as such it has a \emph{norm}
+\[N(a + bi) := (a + bi)(a - bi) = a^2 + b^2.\]
+Geometrically, this is the square of the distance from the origin to $a +
+bi$.
+The norm of a Gaussian integer is a nonnegative integer; thus $N$ is a
+function $\mathbb{Z}[i] \to \mathbb{Z}^{\geq 0}$.
+
+\begin{lem}{}{irred:6.5}
+The function $N$ is a Euclidean valuation on $\mathbb{Z}[i]$; further, $N$
+is multiplicative in the sense that $\forall z, w \in \mathbb{Z}[i]$
+\[N(zw) = N(z)N(w).\]
+\end{lem}
+\begin{proof}
+The multiplicativity is an immediate consequence of the elementary
+properties of complex conjugation:
+\[N(zw) = (zw)\overline{(zw)} = (z\bar{z})(w\bar{w}) = N(z)N(w).\]
+To see that $N$ is a Euclidean valuation, we have to show how to perform a
+`division with remainder' in $\mathbb{Z}[i]$. It is not hard, but it is a
+bit messy, to do this algebraically; I will attempt to convince the reader
+that this is in fact visually evident (and then the reader can have fun
+producing the needed algebraic computations).
+Let $z, w \in \mathbb{Z}[i]$, and assume $w \neq 0$. The ideal $(w)$ is a
+lattice superimposed on $\mathbb{Z}[i]$. The given $z$ is either one of
+the vertices of this lattice (in which case $z$ is a multiple of $w$, so
+that the division $z/w$ can be performed in $\mathbb{Z}[i]$, with remainder
+$0$) or it sits inside one of the `boxes' of the lattice. In the latter
+case, pick any of the vertices of that box, that is, a multiple $qw$ of
+$w$, and let $r = z - qw$. Then we have obtained
+\[z = qw + r,\]
+and the norm of $r$ is the square of the length of the segment between $qw$
+and $z$. Since this segment is contained in a box, and the square of the
+size of the box is $N(w)$, we have achieved
+\[N(r) < N(w),\]
+completing the proof.
+\end{proof}
+As we know, all sorts of amazing properties hold for the ring of Gaussian
+integers as a consequence of \cref{lem:irred:6.5}: $\mathbb{Z}[i]$ is a
+PID and a UFD; irreducible elements are prime in $\mathbb{Z}[i]$; greatest
+common divisors exist and may be found by applying the Euclidean algorithm,
+etc. Any one of these facts would seem fairly challenging in itself, but
+they are all immediate consequences of the existence of a Euclidean
+valuation and of the general considerations in \S{}2.
+
+The fact that the norm is multiplicative simplifies further the analysis of
+the ring $\mathbb{Z}[i]$.
+\begin{lem}{}{irred:6.6}
+The units of $\mathbb{Z}[i]$ are $\pm 1, \pm i$.
+\end{lem}
+
+\begin{proof}
+If $u$ is a unit in $\mathbb{Z}[i]$, then there exists $v \in \mathbb{Z}[i]$
+such that $uv = 1$. But then $N(u)N(v) = N(uv) = N(1) = 1$ by
+multiplicativity, so $N(u)$ is a unit in $\mathbb{Z}$. This implies $N(u) =
+1$, and the only elements in $\mathbb{Z}[i]$ with norm $1$ are $\pm 1, \pm
+i$. The statement follows.
+\end{proof}
+\begin{lem}{}{irred:6.7}
+Let $q \in \mathbb{Z}[i]$ be a prime element. Then there is a prime integer
+$p \in \mathbb{Z}$ such that $N(q) = p$ or $N(q) = p^2$.
+\end{lem}
+
+\begin{proof}
+Since $q$ is not a unit, $N(q) \neq 1$ (by \cref{lem:irred:6.6}). Thus
+$N(q)$ is a nontrivial product of (integer) primes, and since $q$ is prime
+in $\mathbb{Z}[i] \supseteq \mathbb{Z}$, $q$ must divide one of the prime
+integer factors of $N(q)$; let $p$ be this integer prime. But then $q \mid
+p$ in $\mathbb{Z}[i]$, and it follows (by multiplicativity of the norm)
+that $N(q) \mid N(p) = p^2$. Since $N(q) \neq 1$, the only possibilities
+are $N(q) = p$ and $N(q) = p^2$, as claimed.
+\end{proof}
+Both possibilities presented in \cref{lem:irred:6.7} occur, and studying
+this dichotomy further will be key to the result in \S{}6.3. But we can
+already work out several cases `by hand':
+\begin{exam}{}{irred:exam:6.8}
+The prime integer $3$ is a prime element of $\mathbb{Z}[i]$; this can be
+verified by proving that $3$ is irreducible in $\mathbb{Z}[i]$ (since
+$\mathbb{Z}[i]$ is a UFD). For this purpose, note that since $N(3) = 9$,
+the norm of a factor of $3$ would have to be a divisor of $9$, that is,
+$1$, $3$, or $9$. Gaussian integers with norm $1$ are units, and those with
+norm $9$ are associates of $3$ (Exercise~6.10); thus a nontrivial factor of
+$3$ would necessarily have norm equal to $3$. But there are no such
+elements in $\mathbb{Z}[i]$; hence $3$ is indeed irreducible.
+The prime integer $5$ is \emph{not} a prime element of $\mathbb{Z}[i]$:
+running through the same argument as we just did for $3$, we find that a
+factor of $5$ should have norm $5$, and $2 + i$ does. In fact, $5 = (2 +
+i)(2 - i)$ is a prime factorization of $5$ in $\mathbb{Z}[i]$.
+
+Visually, what happens is that the lattice generated by $3$ in
+$\mathbb{Z}[i]$ cannot be refined further into a tighter lattice, while the
+one generated by $5$ does admit a refinement (the circles represent complex
+numbers with norm $3$, $5$, respectively).
+\end{exam}
+
+The reader is encouraged to work out several other examples and to try to
+figure out what property of an integer prime makes it split in $\mathbb{Z}[i]$
+(like $5$ and unlike $3$). But this should be done before reading on!
 
 \subsection{Fermat's theorem on sums of squares}
 \label{subsec:irred:fermat-s-theorem-on-sums-of-squares}
-% Once armed with our knowledge
+Once armed with our knowledge about rings, playing with $\mathbb{Z}[i]$ a
+little further teaches us something new about $\mathbb{Z}$---this is a
+beautiful and famous example of the success achieved by judicious use of
+generalization over brute force.
 
-% about rings, playing with Z[i] a little further teaches us something new about
-% Z---
-% this is a beautiful and famous example of the success achieved by judicious use
-% of
-% generalization over brute force.
-% First, let us complete the circle of thought begun with Lemma 6.7. Say that
-% a prime integer p splits in Z[i] if it is not a prime element of Z[i]; we have
-% seen in
-% Example 6.8 that 5 splits in Z[i], while 3 does not.
-% Lemma 6.9. A positive integer prime p \in  Z splits in Z[i] if and only if it is
-% the
-% sum of two squares in Z.
-% Proof. First assume that p = a2 + b2 , with a, b \in  Z. Then
-% p = (a + bi)(a - bi)
-% in Z[i], and N (a \pm  bi) = a2 + b2 = p = 1, so neither of the two factors is a
-% unit
-% in Z[i] (Lemma 6.6). Thus p is not irreducible, hence not prime, in Z[i].
-% Conversely, assume that p is not irreducible in Z[i]: then it has an irreducible
-% factor q \in  Z[i], which is not an associate of p. Since q | p, by
-% multiplicativity of
-% the norm we have N (q) | N (p) = p2, and hence N (q) = p since q and p are not
-% associates (thus N (q) = p2 ) and q is not a unit (thus N (q) = 1). If q = a +
-% bi, we
-% find
-% p = N (q) = a2 + b2 ,
-% verifying that p is the sum of two squares and completing the proof.
-%  ?
-% Thus, 2 splits (as 2 = 12 + 12 ), and so do
-% 5 = 12 + 22 ,
-%  13 = 22 + 32 ,
-% 17 = 12 + 42 ,
-% ...
-% while
-% 3,
-%  7,
-%  11,
-%  19,
-%  23,
-%  ...
-% remain prime if viewed as elements of Z[i].
-% The next puzzle is as follows: what else distinguishes the primes in the first
-% list from the primes in the second list? Again, the reader who does not know the
-% answer already should pause and try to come up with a conjecture and then prove
-% that conjecture! Do not read the next statement before trying this on your own25
-% !
-% Lemma 6.10. A positive odd prime integer p splits in Z[i] if and only if it is
-% congruent to 1 modulo 4.
-% Proof. The question is whether p is prime as an element of Z[i], that is,
-% whether
-% Z[i]/(p) is an integral domain. But we have isomorphisms
-% Z[i] Z[x]/(x2 + 1) Z[x]
-%  Z[x]/(p) Z/pZ[x]
-% \sim  =
-%  \sim 
-%  =
-%  \sim 
-%  = \sim  =(p)
-%  (p)
-%  (p, x2
-%  + 1)
-%  (x2
-%  + 1)
-%  (x 2
-%  + 1)
-% by virtue of the usual isomorphism theorems (including an appearance of Lemma
-% 4.1)
-% and taking some liberties with the language (for example, (p) means three
-% different
-% 25 The point I am trying to make is that these are not difficult facts, and a
-% conscientious reader
-% really is in the position of discovering and proving them on his or her own.
-% This is extremely
-% remarkable: the theorem we are heading towards was stated by Fermat, without
-% proof, in 1640,
-% and had to wait about one hundred years before being proven rigorously (by
-% Euler, using `infinite
-% descent'). Proofs using Gaussian integers are due to Dedekind and had to wait
-% another hundred
-% years. The moral is, of course, that the modern algebraic apparatus acts as a
-% tremendous amplifier
-% of our skills.
-% things, hopefully self-clarifying through the context). Therefore,
-% p splits in Z[i] \iff \iff \iff \iff \iff Z[i]/(p) is not an integral domain
-% Z/pZ[x]/(x2 + 1) is not an integral domain
-% x2 + 1 is not irreducible in Z/pZ[x]
-% x2 + 1 has a root in Z/pZ
-% there is an integer n such that n2 \equiv  -1 mod p,
-% and we are reduced to verifying that this last condition is equivalent to p
-% \equiv  1 mod
-% 4, provided that p is an odd prime.
-% For this purpose, recall (Theorem IV.6.10) that the multiplicative group G of
-% Z/pZ is cyclic; let g \in  G be a generator of G. Since p is assumed to be odd,
-% p - 1
-% is an even number, say 2 : thus g has order |G| = 2 . Also, denote the class of
-% an
-% integer n mod (p) by n. Since g is a generator of G, for every integer n \in
-% (p) there
-% is an integer m such that n = gm .
-% The class -1 generates the unique subgroup of order 2 of G (unique by the
-% classification of subgroups of a cyclic group, Proposition II.6.11); since g ?
-% does the
-% same, we have
-% g? = -1.
-% Therefore, with n = gm , we see that n2 \equiv  -1 mod p if and only if g2m = g
-% ? , that
-% is, if and only if
-% 2m \equiv  mod 2 .
-% Summarizing, \exists n \in  Z such that n2 \equiv  -1 mod p if and only if
-% \exists m \in  Z such that
-% 2m \equiv  mod 2 . Now this is clearly the case if and only if is even, that is,
-% if and
-% only if (p - 1) = 2 is a multiple of 4, that is, if and only if p \equiv  1 mod
-% 4; and we
-% are done.
-%  ?
-% Putting together Lemma 6.9 and Lemma 6.10 gives the following beautiful
-% number-theoretic statement:
-% Theorem 6.11 (Fermat). A positive odd prime p \in  Z is a sum of two squares if
-% and only if p \equiv  1 mod 4.
-% Remark 6.12. Lagrange proved (in 1770) that every positive integer is the sum of
-% four squares. One way to prove this is not unlike the proof given for Theorem
-% 6.11:
-% it boils down to analyzing the splitting of (integer) primes in a ring; the role
-% of Z[i]
-% is taken here by a ring of `integral quaternions'.
-%  ?
-% The reader should pause and note that there is no mention of UFDs, Euclidean
-% domains, complex numbers, cyclic groups, etc., in the statement of Theorem 6.11,
-% although a large selection of these tools was used in its proof. This is of
-% course the
-% dream of the generalizer: to set up an abstract machinery making interesting
-% facts
-% (nearly) evident---facts that would be extremely mysterious or that would
-% require
-% Fermat-grade cleverness to be understood without that machinery.
+First, let us complete the circle of thought begun with \cref{lem:irred:6.7}.
+Say that a prime integer $p$ \emph{splits} in $\mathbb{Z}[i]$ if it is not
+a prime element of $\mathbb{Z}[i]$; we have seen in \cref{exam:irred:6.8}
+that $5$ splits in $\mathbb{Z}[i]$, while $3$ does not.
+\begin{lem}{}{irred:6.9}
+A positive integer prime $p \in \mathbb{Z}$ splits in $\mathbb{Z}[i]$ if
+and only if it is the sum of two squares in $\mathbb{Z}$.
+\end{lem}
+\begin{proof}
+First assume that $p = a^2 + b^2$, with $a, b \in \mathbb{Z}$. Then
+\[p = (a + bi)(a - bi)\]
+in $\mathbb{Z}[i]$, and $N(a \pm bi) = a^2 + b^2 = p \neq 1$, so neither
+of the two factors is a unit in $\mathbb{Z}[i]$ (\cref{lem:irred:6.6}).
+Thus $p$ is not irreducible, hence not prime, in $\mathbb{Z}[i]$.
+Conversely, assume that $p$ is not irreducible in $\mathbb{Z}[i]$: then it
+has an irreducible factor $q \in \mathbb{Z}[i]$, which is not an associate
+of $p$. Since $q \mid p$, by multiplicativity of the norm we have $N(q)
+\mid N(p) = p^2$, and hence $N(q) = p$ since $q$ and $p$ are not
+associates (thus $N(q) \neq p^2$) and $q$ is not a unit (thus $N(q) \neq
+1$). If $q = a + bi$, we find
+\[p = N(q) = a^2 + b^2,\]
+verifying that $p$ is the sum of two squares and completing the proof.
+\end{proof}
+Thus, $2$ splits (as $2 = 1^2 + 1^2$), and so do
+\[5 = 1^2 + 2^2, \quad 13 = 2^2 + 3^2, \quad 17 = 1^2 + 4^2, \quad \dots\]
+while $3, 7, 11, 19, 23, \dots$ remain prime if viewed as elements of
+$\mathbb{Z}[i]$.
+
+The next puzzle is as follows: what else distinguishes the primes in the
+first list from the primes in the second list? Again, the reader who does
+not know the answer already should pause and try to come up with a
+conjecture and then prove that conjecture! Do not read the next statement
+before trying this on your own!
+\begin{lem}{}{irred:6.10}
+A positive odd prime integer $p$ splits in $\mathbb{Z}[i]$ if and only if
+it is congruent to $1$ modulo $4$.
+\end{lem}
+
+\begin{proof}
+The question is whether $p$ is prime as an element of $\mathbb{Z}[i]$,
+that is, whether $\mathbb{Z}[i]/(p)$ is an integral domain. But we have
+isomorphisms
+\[\frac{\mathbb{Z}[i]}{(p)} \cong \frac{\mathbb{Z}[x]/(x^2+1)}{(p)} \cong
+  \frac{\mathbb{Z}[x]}{(p, x^2+1)} \cong \frac{\mathbb{Z}[x]/(p)}{(x^2+1)}
+  \cong \frac{\mathbb{Z}/p\mathbb{Z}[x]}{(x^2+1)}\]
+by virtue of the usual isomorphism theorems (including an appearance of
+Lemma~4.1)\footnote{The point I am trying to make is that these are not
+difficult facts, and a conscientious reader really is in the position of
+discovering and proving them on his or her own. This is extremely
+remarkable: the theorem we are heading towards was stated by Fermat, without
+proof, in 1640, and had to wait about one hundred years before being proven
+rigorously (by Euler, using `infinite descent'). Proofs using Gaussian
+integers are due to Dedekind and had to wait another hundred years. The
+moral is, of course, that the modern algebraic apparatus acts as a
+tremendous amplifier of our skills.} and taking some liberties with the
+language (for example, $(p)$ means three different things, hopefully
+self-clarifying through the context). Therefore,
+\begin{align*}
+p \text{ splits in } \mathbb{Z}[i]
+  &\iff \mathbb{Z}[i]/(p) \text{ is not an integral domain} \\
+  &\iff \mathbb{Z}/p\mathbb{Z}[x]/(x^2+1) \text{ is not an integral domain}
+  \\
+  &\iff x^2 + 1 \text{ is not irreducible in } \mathbb{Z}/p\mathbb{Z}[x] \\
+  &\iff x^2 + 1 \text{ has a root in } \mathbb{Z}/p\mathbb{Z} \\
+  &\iff \exists\, n \in \mathbb{Z} \text{ such that } n^2 \equiv -1 \bmod p,
+\end{align*}
+and we are reduced to verifying that this last condition is equivalent to $p
+\equiv 1 \bmod 4$, provided that $p$ is an odd prime.
+For this purpose, recall (Theorem~IV.6.10) that the multiplicative group
+$G$ of $\mathbb{Z}/p\mathbb{Z}$ is cyclic; let $g \in G$ be a generator of
+$G$. Since $p$ is assumed to be odd, $p - 1$ is an even number, say $2\ell$:
+thus $g$ has order $|G| = 2\ell$. Also, denote the class of an integer $n
+\bmod (p)$ by $\underline{n}$. Since $g$ is a generator of $G$, for every
+integer $n \notin (p)$ there is an integer $m$ such that $\underline{n} =
+g^m$.
+The class $\underline{-1}$ generates the unique subgroup of order $2$ of
+$G$ (unique by the classification of subgroups of a cyclic group,
+Proposition~II.6.11); since $g^\ell$ does the same, we have
+\[g^\ell = \underline{-1}.\]
+Therefore, with $\underline{n} = g^m$, we see that $n^2 \equiv -1 \bmod p$
+if and only if $g^{2m} = g^\ell$, that is, if and only if
+\[2m \equiv \ell \bmod 2\ell.\]
+Summarizing, $\exists n \in \mathbb{Z}$ such that $n^2 \equiv -1 \bmod p$
+if and only if $\exists m \in \mathbb{Z}$ such that $2m \equiv \ell \bmod
+2\ell$. Now this is clearly the case if and only if $\ell$ is even, that
+is, if and only if $(p - 1) = 2\ell$ is a multiple of $4$, that is, if and
+only if $p \equiv 1 \bmod 4$; and we are done.
+\end{proof}
+Putting together \cref{lem:irred:6.9} and \cref{lem:irred:6.10} gives the
+following beautiful number-theoretic statement:
+
+\begin{thm}{Fermat}{irred:6.11}
+A positive odd prime $p \in \mathbb{Z}$ is a sum of two squares if and only
+if $p \equiv 1 \bmod 4$.
+\end{thm}
+\begin{rmk}{}{irred:6.12}
+Lagrange proved (in 1770) that every positive integer is the sum of four
+squares. One way to prove this is not unlike the proof given for
+\cref{thm:irred:6.11}: it boils down to analyzing the splitting of
+(integer) primes in a ring; the role of $\mathbb{Z}[i]$ is taken here by a
+ring of `integral quaternions'.
+\end{rmk}
+The reader should pause and note that there is no mention of UFDs,
+Euclidean domains, complex numbers, cyclic groups, etc., in the statement
+of \cref{thm:irred:6.11}, although a large selection of these tools was
+used in its proof. This is of course the dream of the generalizer: to set
+up an abstract machinery making interesting facts (nearly) evident---facts
+that would be extremely mysterious or that would require Fermat-grade
+cleverness to be understood without that machinery.
 
 \subsection*{Exercises}
 
-% 6.1. Generalize the CRT for two ideals, as follows. Let I, J be ideals in a
-% commu-
-% tative ring R; prove that there is an exact sequence of R-modules
-%  / I \cap  J
-%  / R
-%  \phi 
-%  / R \times  R
-%  /
-%  R
-%  / 0
-% I
-%  J
-%  I + J
-% where \phi  is the natural map. (Also, explain why this implies the first part
-% of
-% Theorem 6.1, for k = 2.)
-% 6.2. Let R be a commutative ring, and let a \in  R be an element such that a2 =
-% a.
-% Prove that R \sim 
-%  = R/(a) \times  R/(1 - a).
-% Show that the multiplication in R endows the ideal (a) with a ring structure,
-% with a as the identity26 . Prove that (a) \sim 
-%  = R/(1 - a) as rings. Prove that R =
-%  \sim 
-% (a) \times  (1 - a) as rings.
-% 6.3. Recall (Exercise III.3.15) that a ring R is called Boolean if a2 = a for
-% all
-% a \in  R. Let R be a finite Boolean ring; prove that R = \sim 
-%  Z/2Z \times  \dots  \times  Z/2Z.
-% 6.4. Let R be a finite commutative ring, and let p be the smallest prime
-% dividing
-% |R|. Let I1 , . . . , Ik be proper ideals such that Ii + Ij = (1) for i = j.
-% Prove that
-% k \leq  log p |R|. (Hint: Prove |R|k-1 \leq  |I1 | \dots  |Ik | \leq  (|R|/p)k
-% .)
-% 6.5. Show that the map Z[x] \to  Z[x]/(2) \times  Z[x]/(x) is not surjective.
-% 6.6. ? Let R be a UFD.
-% \bullet  Let a, b \in  R such that gcd(a, b) = 1. Prove that (a) \cap  (b) = (ab).
-% \bullet  Under the hypotheses of Corollary 6.4 (but only assuming that R is a UFD)
-% prove that the function \phi  is injective.
-% [\S{}6.1]
-% 6.7. ? Find a polynomial f \in  Q[x] such that f \equiv  1 mod(x2 +1) and f
-% \equiv  x mod x100 .
-% [\S{}6.1]
-% 6.8. \lnot  Let n \in  Z be a positive integer and n = pa 11 \dots  pa r r its
-% prime factoriza-
-% tion. By the classification theorem for finite abelian groups (or, in fact,
-% simpler
-% considerations; cf. Exercise II.4.9)
-% Z Z
-%  Z
-% \sim  = a1 \times  \dots  \times  ar
-% (n)
-%  (p1 )
-%  (pr )
-% as abelian groups.
-% \bullet  Use the CRT to prove that this is in fact a ring isomorphism.
-% 26 This is an extremely unusual situation. Note that this ring (a) is not a
-% subring of R if
-% a ?= 1 according to Definition III.2.5, since the identities in (a) and R
-% differ.
-% \bullet  Prove that
-% Z
-%  \ast 
-%  Z
-%  \ast 
-%  Z
-%  \ast 
-% \sim 
-%  =
-%  1 \times  \cdot \cdot \cdot \times 
-%  r(n)
-%  (pa 1 )
-%  (pa r )
-% (recall that (Z/nZ)\ast  denotes the group of units of Z/nZ).
-% \bullet  Recall (Exercise II.6.14) that Euler's \varphi -function \varphi (n) denotes the number of
-% positive integers \leq  n that are relatively prime to n. Prove that
-% \varphi (n) = pa 11 -1 (p1 - 1) \dots  pa r r -1 (p r - 1).
-% [II.2.15, VII.5.19]
-% 6.9. Let I be a nonzero ideal of Z[i]. Prove that Z[i]/I is finite.
-% 6.10. ? Let z, w \in  Z[i]. Show that if z and w are associates, then N (z) = N
-% (w).
-% Show that if w \in  (z) and N (z) = N (w), then z and w are associates.
-% [\S{}6.2]
-% 6.11. Prove that the irreducible elements in Z[i] are, up to associates: 1 + i;
-% the
-% integer primes congruent to 3 mod 4; and the elements a \pm  bi with a2 + b2 an
-% integer
-% prime congruent to 1 mod 4.
-% 6.12. \lnot  Prove Lemma 6.5 without any `visual' aid. (Hint: Let z = a+bi, w =
-% c+di
-% be Gaussian integers, with w = 0. Then z/w = ac+bd
-%  + bc-ad
-%  i. Find integers e, f
-% c2 +d2 c2 +d2such that |e - c2 ac+bd
-%  +d2 | \leq  1
-%  2 and |f - bc-ad
-%  c2 +d2 | \leq  2 1
-%  , and set q = e + if . Prove that
-% | w z
-%  - q|< 1. Why does this do the job?) [6.13]
-% \sqrt 
-%  \sqrt 
-% 6.13. \lnot  Consider the set Z[ 2] = {a + b 2 | a, b \in  Z} \subseteq  C.
-% \sqrt 
-% \bullet  Prove that Z[ 2] is a ring, isomorphic to Z[t]/(t2 - 2).
-% \sqrt 
-%  \sqrt 
-% \bullet  Prove that the function N : Z[ 2] \to  Z defined by N (a + b 2) = a2 - 2b2 is
-% multiplicative: N (zw) = N (z)N (w). (Cf. Exercise III.4.10.)
-% \sqrt 
-% \bullet  Prove that Z[ 2] has infinitely many units.
-% \sqrt 
-% \bullet  Prove that Z[ 2] is a Euclidean domain, by using the absolute value of N as
-% valuation. (Hint: Follow the same steps as in Exercise 6.12.)
-% [6.14]
-% \sqrt 
-% 6.14. Working as in Exercise 6.13, prove that Z[ -2] is a Euclidean domain. (Use
-% \sqrt 
-% the norm N (a + b -2) = a2 + 2b2 .)
-% \sqrt 
-% If you are particularly adventurous, prove that Z[(1+ d)/2] is also a Euclidean
-% \sqrt 
-% domain27 for d = -3, -7, -11. (You can still use the norm defined by N (a+b d) =
-% \sqrt 
-% a2 - db2 ; note that this is still an integer on Z[(1 + d)/2], if d \equiv  1
-% mod 4.)
-% \sqrt The five values \sqrt 
-%  d = -1, -2, resp., -3, -7, -11, are the only ones for which
-% Z[ d], resp., Z[(1
-%  \sqrt  + d)/2], is Euclidean. For the values d = -19, -43, -67, -163,
-% the ring Z[(1 + d)/2] is still a PID (cf. \S{}2.4 and Exercise 2.18 for d =
-% -19);\sqrt  the
-% fact that there are no other negative values for which the ring of integers in
-% Q( d)
-% is a PID was conjectured by Gauss and only proven by Alan Baker and Harold
-% \sqrt 
-%  \sqrt 
-% 27 You are probably wondering why we switched from Z[
-%  d] to Z[(1 + d)/2]. These rings
-% \sqrt 
-% are the `rings of integers' in Q( d); the form they take depends on the class of
-% d modulo 4. Their
-% study is a cornerstone of algebraic number theory.
-% \sqrt 
-% Stark around 1966. Also, keep in mind that Z[ -5] is not even a UFD, as you
-% have proved all by yourself in Exercise 1.17.
-% 6.15. Give an elementary proof (using modular arithmetic) of the fact that if an
-% integer n is congruent to 3 modulo 4, then it is not the sum of two squares.
-% 6.16. Prove that if m and n are two integers both of which can be written as
-% sums
-% of two squares, then mn can also be written as the sum of two squares.
-% 6.17. Let n be a positive integer.
-% \bullet  Prove that n is a sum of two squares if and only if it is the norm of a Gaussian
-% integer a + bi.
-% \bullet  By factoring a2 + b2 in Z and a + bi in Z[i], prove that n is a sum of two squares
-% if and only if each integer prime factor p of n such that p \equiv  3 mod 4
-% appears
-% with an even power in n.
-% 6.18. \lnot  One ingredient in the proof of Lagrange's theorem on four squares
-% is the
-% following result, which can be proven by completely elementary means. Let p > 0
-% be an odd prime integer. Then there exists an integer n, 0 < n < p, such that np
-% may be written as 1 + a2 + b2 for two integers a, b. Prove this result, as
-% follows:
-% \bullet  Prove that the numbers a2 , 0 \leq  a \leq  (p - 1)/2, represent (p + 1)/2 distinct
-% congruence classes mod p.
-% \bullet  Prove the same for numbers of the form -1 - b2 , 0 \leq  b \leq  (p - 1)/2.
-% \bullet  Now conclude, using the pigeon-hole principle.
-% [6.21]
-% 6.19. \lnot  Let I \subseteq  H be the set of quaternions (cf. Exercise
-% III.1.12) of the form
-% 2 a
-%  (1 + i + j + k) + bi + cj + dk with a, b, c, d \in  Z.
-% \bullet  Prove that I is a (noncommutative) subring of the ring of quaternions.
-% \bullet  Prove that the norm N (w) (Exercise III.2.5) of an integral quaternion w \in  I is
-% an integer and N (w1 w2 ) = N (w1 )N (w2 ).
-% \bullet  Prove I has exactly 24 units in I: \pm 1, \pm i, \pm j, \pm k, and 12 (\pm 1 \pm  i \pm  j \pm  k).
-% \bullet  Prove that every w \in  I is an associate of an element a + bi + cj + dk \in  I with
-% a, b, c, d \in  Z.
-% The ring I is called the ring of integral quaternions. [6.20, 6.21]
-% 6.20. \lnot  Let I be as in Exercise 6.19. Prove that I shares most good
-% properties of
-% a Euclidean domain, notwithstanding the fact that it is noncommutative.
-% \bullet  Let z, w \in  I, with w = 0. Prove that \exists q, r \in  I such that z = qw + r, with
-% N (r) < N (w). (This is a little tricky; don't feel too bad if you have to cheat
-% and look it up somewhere.)
-% \bullet  Prove that every left-ideal in I is of the form Iw for some w \in  I.
-% \bullet  Prove that every z, w \in  I, not both zero, have a `greatest common right-divisor'
-% d in I, of the form \alpha z + \beta w for \alpha , \beta  \in  I.
-% [6.21]
-% 6.21. Prove Lagrange's theorem on four squares. Use notation as in Exercises
-% 6.19
-% and 6.20.
-% \bullet  Let z \in  I and n \in  Z. Prove that the greatest common right-divisor of z
-% and n in I is 1 if and only if (N (z), n) = 1 in Z. (If \alpha z + \beta n = 1,
-% then
-% N (\alpha )N (z) = N (1 - \beta n) = (1 - \beta n)(1 - \beta n), where \beta  is
-% obtained by changing
-% the signs of the coefficients of i, j, k. Expand, and deduce that (N (z), n) |
-% 1.)
-% \bullet  For an odd prime integer p, use Exercise 6.18 to obtain an integral quaternion
-% z = 1 + ai + bj such that p | N (z). Prove that z and p have a common
-% right-divisor that is not a unit and not an associate of p.
-% \bullet  Say that w \in  I is irreducible if w = \alpha \beta  implies that either \alpha  or \beta  is a unit.
-% Prove that integer primes are not irreducible in I. Deduce that every positive
-% prime integer is the norm of some integral quaternion.
-% \bullet  Prove that every positive integer is the norm of some integral quaternion.
-% \bullet  Finally, use the last point of Exercise 6.19 to deduce that every positive integer
-% may be written as the sum of four perfect squares.
+\begin{exer}{}{irred:exer:6.1}
+Generalize the CRT for two ideals, as follows. Let $I$, $J$ be ideals in a
+commutative ring $R$; prove that there is an exact sequence of $R$-modules
+\[0 \longrightarrow I \cap J \longrightarrow R \xrightarrow{\;\varphi\;}
+  \frac{R}{I} \times \frac{R}{J} \longrightarrow \frac{R}{I + J}
+  \longrightarrow 0\]
+where $\varphi$ is the natural map. (Also, explain why this implies the
+first part of \cref{thm:irred:6.1}, for $k = 2$.)
+\end{exer}
+\begin{exer}{}{irred:exer:6.2}
+Let $R$ be a commutative ring, and let $a \in R$ be an element such that
+$a^2 = a$. Prove that $R \cong R/(a) \times R/(1 - a)$.
+
+Show that the multiplication in $R$ endows the ideal $(a)$ with a ring
+structure, with $a$ as the identity.\footnote{This is an extremely unusual
+situation. Note that this ring $(a)$ is \emph{not} a subring of $R$ if $a
+\neq 1$ according to Definition~III.2.5, since the identities in $(a)$ and
+$R$ differ.} Prove that $(a) \cong R/(1 - a)$ as rings. Prove that $R
+\cong (a) \times (1 - a)$ as rings.
+\end{exer}
+\begin{exer}{}{irred:exer:6.3}
+Recall (Exercise~III.3.15) that a ring $R$ is called \emph{Boolean} if
+$a^2 = a$ for all $a \in R$. Let $R$ be a finite Boolean ring; prove that
+$R \cong \mathbb{Z}/2\mathbb{Z} \times \dots \times \mathbb{Z}/2\mathbb{Z}$.
+\end{exer}
+\begin{exer}{}{irred:exer:6.4}
+Let $R$ be a finite commutative ring, and let $p$ be the smallest prime
+dividing $|R|$. Let $I_1, \dots, I_k$ be proper ideals such that $I_i + I_j
+= (1)$ for $i \neq j$. Prove that $k \leq \log_p |R|$. (Hint: Prove
+$|R|^{k-1} \leq |I_1| \cdots |I_k| \leq (|R|/p)^k$.)
+\end{exer}
+\begin{exer}{}{irred:exer:6.5}
+Show that the map $\mathbb{Z}[x] \to \mathbb{Z}[x]/(2) \times
+\mathbb{Z}[x]/(x)$ is not surjective.
+\end{exer}
+\begin{exer}{}{irred:exer:6.6}
+\exerused{}Let $R$ be a UFD.
+\begin{itemize}
+\item Let $a, b \in R$ such that $\gcd(a, b) = 1$. Prove that $(a) \cap
+  (b) = (ab)$.
+\item Under the hypotheses of \cref{coro:irred:6.4} (but only assuming
+  that $R$ is a UFD) prove that the function $\varphi$ is injective.
+\end{itemize}
+\end{exer}
+\begin{exer}{}{irred:exer:6.7}
+\exerused{}Find a polynomial $f \in \mathbb{Q}[x]$ such that $f \equiv 1
+\bmod (x^2 + 1)$ and $f \equiv x \bmod x^{100}$.
+\end{exer}
+\begin{exer}{}{irred:exer:6.8}
+$\lnot$ Let $n \in \mathbb{Z}$ be a positive integer and $n = p_1^{a_1}
+\cdots p_r^{a_r}$ its prime factorization. By the classification theorem
+for finite abelian groups (or, in fact, simpler considerations; cf.\
+Exercise~II.4.9)
+\[\frac{\mathbb{Z}}{(n)} \cong \frac{\mathbb{Z}}{(p_1^{a_1})} \times
+  \dots \times \frac{\mathbb{Z}}{(p_r^{a_r})}\]
+as abelian groups.
+\begin{itemize}
+\item Use the CRT to prove that this is in fact a ring isomorphism.
+\item Prove that
+\[\left(\frac{\mathbb{Z}}{(n)}\right)^* \cong
+  \left(\frac{\mathbb{Z}}{(p_1^{a_1})}\right)^* \times \cdots \times
+  \left(\frac{\mathbb{Z}}{(p_r^{a_r})}\right)^*\]
+(recall that $(\mathbb{Z}/n\mathbb{Z})^*$ denotes the group of units of
+$\mathbb{Z}/n\mathbb{Z}$).
+\item Recall (Exercise~II.6.14) that Euler's $\varphi$-function $\varphi(n)$
+  denotes the number of positive integers $\leq n$ that are relatively prime
+  to $n$. Prove that
+\[\varphi(n) = p_1^{a_1 - 1}(p_1 - 1) \cdots p_r^{a_r - 1}(p_r - 1).\]
+\end{itemize}
+\end{exer}
+\begin{exer}{}{irred:exer:6.9}
+Let $I$ be a nonzero ideal of $\mathbb{Z}[i]$. Prove that $\mathbb{Z}[i]/I$
+is finite.
+\end{exer}
+\begin{exer}{}{irred:exer:6.10}
+\exerused{}Let $z, w \in \mathbb{Z}[i]$. Show that if $z$ and $w$ are
+associates, then $N(z) = N(w)$. Show that if $w \in (z)$ and $N(z) = N(w)$,
+then $z$ and $w$ are associates.
+\end{exer}
+\begin{exer}{}{irred:exer:6.11}
+Prove that the irreducible elements in $\mathbb{Z}[i]$ are, up to
+associates: $1 + i$; the integer primes congruent to $3 \bmod 4$; and the
+elements $a \pm bi$ with $a^2 + b^2$ an integer prime congruent to $1 \bmod
+4$.
+\end{exer}
+\begin{exer}{}{irred:exer:6.12}
+$\lnot$ Prove \cref{lem:irred:6.5} without any `visual' aid. (Hint: Let $z
+= a + bi$, $w = c + di$ be Gaussian integers, with $w \neq 0$. Then $z/w =
+\frac{ac+bd}{c^2+d^2} + \frac{bc-ad}{c^2+d^2} i$. Find integers $e$, $f$
+such that $|e - \frac{ac+bd}{c^2+d^2}| \leq \frac{1}{2}$ and $|f -
+\frac{bc-ad}{c^2+d^2}| \leq \frac{1}{2}$, and set $q = e + if$. Prove
+that $|\frac{z}{w} - q| < 1$. Why does this do the job?)
+\end{exer}
+\begin{exer}{}{irred:exer:6.13}
+$\lnot$ Consider the set $\mathbb{Z}[\sqrt{2}] = \{a + b\sqrt{2} \mid a, b
+\in \mathbb{Z}\} \subseteq \mathbb{C}$.
+\begin{itemize}
+\item Prove that $\mathbb{Z}[\sqrt{2}]$ is a ring, isomorphic to
+  $\mathbb{Z}[t]/(t^2 - 2)$.
+\item Prove that the function $N : \mathbb{Z}[\sqrt{2}] \to \mathbb{Z}$
+  defined by $N(a + b\sqrt{2}) = a^2 - 2b^2$ is multiplicative: $N(zw) =
+  N(z)N(w)$. (Cf.\ Exercise~III.4.10.)
+\item Prove that $\mathbb{Z}[\sqrt{2}]$ has infinitely many units.
+\item Prove that $\mathbb{Z}[\sqrt{2}]$ is a Euclidean domain, by using
+  the absolute value of $N$ as valuation. (Hint: Follow the same steps as
+  in Exercise~6.12.)
+\end{itemize}
+\end{exer}
+\begin{exer}{}{irred:exer:6.14}
+Working as in Exercise~6.13, prove that $\mathbb{Z}[\sqrt{-2}]$ is a
+Euclidean domain. (Use the norm $N(a + b\sqrt{-2}) = a^2 + 2b^2$.)
+
+If you are particularly adventurous, prove that $\mathbb{Z}[(1 +
+\sqrt{d})/2]$ is also a Euclidean domain\footnote{You are probably
+wondering why we switched from $\mathbb{Z}[\sqrt{d}]$ to $\mathbb{Z}[(1 +
+\sqrt{d})/2]$. These rings are the `rings of integers' in
+$\mathbb{Q}(\sqrt{d})$; the form they take depends on the class of $d$
+modulo $4$. Their study is a
+cornerstone of algebraic number theory.} for $d = -3, -7, -11$. (You can
+still use the norm defined by $N(a + b\sqrt{d}) = a^2 - db^2$; note that
+this is still an integer on $\mathbb{Z}[(1 + \sqrt{d})/2]$, if $d \equiv 1
+\bmod 4$.)
+
+The five values $d = -1, -2$, resp., $-3, -7, -11$, are the only ones for
+which $\mathbb{Z}[\sqrt{d}]$, resp., $\mathbb{Z}[(1 + \sqrt{d})/2]$, is
+Euclidean. For the values $d = -19, -43, -67, -163$, the ring $\mathbb{Z}[(1
++ \sqrt{d})/2]$ is still a PID (cf.\ \S{}2.4 and Exercise~2.18 for $d =
+-19$); the fact that there are no other negative values for which the ring
+of integers in $\mathbb{Q}(\sqrt{d})$ is a PID was conjectured by Gauss and
+only proven by Alan Baker and Harold Stark around 1966. Also, keep in mind
+that $\mathbb{Z}[\sqrt{-5}]$ is not even a UFD, as you have proved all by
+yourself in Exercise~1.17.
+\end{exer}
+\begin{exer}{}{irred:exer:6.15}
+Give an elementary proof (using modular arithmetic) of the fact that if an
+integer $n$ is congruent to $3$ modulo $4$, then it is not the sum of two
+squares.
+\end{exer}
+\begin{exer}{}{irred:exer:6.16}
+Prove that if $m$ and $n$ are two integers both of which can be written as
+sums of two squares, then $mn$ can also be written as the sum of two
+squares.
+\end{exer}
+\begin{exer}{}{irred:exer:6.17}
+Let $n$ be a positive integer.
+\begin{itemize}
+\item Prove that $n$ is a sum of two squares if and only if it is the norm
+  of a Gaussian integer $a + bi$.
+\item By factoring $a^2 + b^2$ in $\mathbb{Z}$ and $a + bi$ in
+  $\mathbb{Z}[i]$, prove that $n$ is a sum of two squares if and only if
+  each integer prime factor $p$ of $n$ such that $p \equiv 3 \bmod 4$
+  appears with an even power in $n$.
+\end{itemize}
+\end{exer}
+\begin{exer}{}{irred:exer:6.18}
+$\lnot$ One ingredient in the proof of Lagrange's theorem on four squares
+is the following result, which can be proven by completely elementary means.
+Let $p > 0$ be an odd prime integer. Then there exists an integer $n$, $0 <
+n < p$, such that $np$ may be written as $1 + a^2 + b^2$ for two integers
+$a$, $b$. Prove this result, as follows:
+\begin{itemize}
+\item Prove that the numbers $a^2$, $0 \leq a \leq (p-1)/2$, represent
+  $(p+1)/2$ distinct congruence classes $\bmod p$.
+\item Prove the same for numbers of the form $-1 - b^2$, $0 \leq b \leq
+  (p-1)/2$.
+\item Now conclude, using the pigeon-hole principle.
+\end{itemize}
+\end{exer}
+\begin{exer}{}{irred:exer:6.19}
+$\lnot$ Let $\mathbb{I} \subseteq \mathbb{H}$ be the set of quaternions
+(cf.\ Exercise~III.1.12) of the form $\frac{a}{2}(1 + i + j + k) + bi +
+cj + dk$ with $a, b, c, d \in \mathbb{Z}$.
+\begin{itemize}
+\item Prove that $\mathbb{I}$ is a (noncommutative) subring of the ring of
+  quaternions.
+\item Prove that the norm $N(w)$ (Exercise~III.2.5) of an integral
+  quaternion $w \in \mathbb{I}$ is an integer and $N(w_1 w_2) =
+  N(w_1)N(w_2)$.
+\item Prove $\mathbb{I}$ has exactly $24$ units in $\mathbb{I}$: $\pm 1,
+  \pm i, \pm j, \pm k$, and $\frac{1}{2}(\pm 1 \pm i \pm j \pm k)$.
+\item Prove that every $w \in \mathbb{I}$ is an associate of an element $a
+  + bi + cj + dk \in \mathbb{I}$ with $a, b, c, d \in \mathbb{Z}$.
+\end{itemize}
+The ring $\mathbb{I}$ is called the ring of \emph{integral quaternions}.
+\end{exer}
+\begin{exer}{}{irred:exer:6.20}
+$\lnot$ Let $\mathbb{I}$ be as in Exercise~6.19. Prove that $\mathbb{I}$
+shares most good properties of a Euclidean domain, notwithstanding the fact
+that it is noncommutative.
+\begin{itemize}
+\item Let $z, w \in \mathbb{I}$, with $w \neq 0$. Prove that $\exists q, r
+  \in \mathbb{I}$ such that $z = qw + r$, with $N(r) < N(w)$. (This is a
+  little tricky; don't feel too bad if you have to cheat and look it up
+  somewhere.)
+\item Prove that every left-ideal in $\mathbb{I}$ is of the form
+  $\mathbb{I}w$ for some $w \in \mathbb{I}$.
+\item Prove that every $z, w \in \mathbb{I}$, not both zero, have a
+  `greatest common right-divisor' $d$ in $\mathbb{I}$, of the form $\alpha
+  z + \beta w$ for $\alpha, \beta \in \mathbb{I}$.
+\end{itemize}
+\end{exer}
+\begin{exer}{}{irred:exer:6.21}
+Prove Lagrange's theorem on four squares. Use notation as in
+Exercises~6.19 and~6.20.
+\begin{itemize}
+\item Let $z \in \mathbb{I}$ and $n \in \mathbb{Z}$. Prove that the
+  greatest common right-divisor of $z$ and $n$ in $\mathbb{I}$ is $1$ if
+  and only if $(N(z), n) = 1$ in $\mathbb{Z}$. (If $\alpha z + \beta n =
+  1$, then $N(\alpha)N(z) = N(1 - \beta n) = (1 - \beta n)(1 -
+  \overline{\beta n})$, where $\overline{\beta}$ is obtained by changing the
+  signs of the coefficients of $i, j, k$. Expand, and deduce that $(N(z),
+  n) \mid 1$.)
+\item For an odd prime integer $p$, use Exercise~6.18 to obtain an integral
+  quaternion $z = 1 + ai + bj$ such that $p \mid N(z)$. Prove that $z$ and
+  $p$ have a common right-divisor that is not a unit and not an associate of
+  $p$.
+\item Say that $w \in \mathbb{I}$ is irreducible if $w = \alpha\beta$
+  implies that either $\alpha$ or $\beta$ is a unit. Prove that integer
+  primes are not irreducible in $\mathbb{I}$. Deduce that every positive
+  prime integer is the norm of some integral quaternion.
+\item Prove that every positive integer is the norm of some integral
+  quaternion.
+\item Finally, use the last point of Exercise~6.19 to deduce that every
+  positive integer may be written as the sum of four perfect squares.
+\end{itemize}
+\end{exer}
 
 %%% Local Variables:
 %%% mode: LaTeX
