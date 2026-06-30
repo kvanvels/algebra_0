@@ -2228,147 +2228,143 @@ extensions $\Q \subseteq \mathcal{C}_\mathbb{R} \subseteq
 
 \subsection{Constructible numbers and quadratic extensions}
 \label{subsec:fields:constructible-numbers-and-quadratic-extensions}
-% Our goal is to prove
+Our goal is to prove the following amazingly explicit description of
+$\mathcal{C}_\mathbb{R}$ (immediately implying one for
+$\mathcal{C}_\mathbb{C}$).
+\begin{thm}{}{fields:3.4}
+  Let $\gamma \in \mathbb{R}$. Then $\gamma \in \mathcal{C}_\mathbb{R}$ if
+  and only if there exist real numbers $\delta_1, \dots, \delta_k$ such
+  that for all $j = 1, \dots, k$,
+  \[
+    [\Q(\delta_1, \dots, \delta_j) : \Q(\delta_1, \dots, \delta_{j-1})]
+    = 2,
+  \]
+  and $\gamma \in \Q(\delta_1, \dots, \delta_k)$.
 
-% the following amazingly explicit description of CR (immediately implying one for
-% CC).
-% Theorem 3.4. Let \gamma  \in  R. Then \gamma  \in  CR if and only if there exist
-% real numbers
-% \delta 1 , . . . , \delta k such that \forall j = 1, . . . , k
-% [Q(\delta 1, . . . , \delta j ) : Q(\delta 1 , . . . , \delta j-1 )] = 2
-% and \gamma  \in  Q(\delta 1, . . . , \delta k ).
-% In other words, \gamma  \in  R is constructible if and only if it can be placed
-% in the
-% top field of a sequence of (real) quadratic extensions over Q. Since CC = CR
-% (i),
-% the same statement holds for constructible complex numbers, including i in the
-% list
-% of \delta j (or simply allowing the \delta j to be complex numbers; cf. Exercise
-% 3.9).
-% The proof of this theorem is as explicit as one can possibly hope. From a given
-% straightedge-and-compass construction of a point (x, y) one can obtain an
-% explicit
-% sequence \delta 1 , . . . , \delta k as in the statement, such that x and y
-% belong to the extension
-% Q(\delta 1 , . . . , \delta k ); conversely, from any element \gamma  of any
-% such extension one can obtain
-% an explicit construction of a point (\gamma , 0) by straightedge and compass.
-% Proof. Let's first argue in the `geometry to algebra' direction. A configuration
-% of points, lines, and circles obtained by a straightedge-and-compass
-% construction
-% may be described by the coordinates of the points and the equations of the lines
-% and circles. Suppose that at one stage in a given construction all coordinates
-% of all
-% points and all coefficients in the equations of lines and circles belong to a
-% field F ;
-% I will say that the configuration is defined over F .
-% Then I claim that for every object constructed at the next stage, there exists
-% a number \delta  \in  R, of degree at most 2 over F , such that the new
-% configuration is
-% defined over F (\delta ). The `only if' part of the theorem follows by induction
-% on the
-% number of steps in the construction, since at the beginning the configuration
-% (that
-% is, the pair of points O = (0, 0), P = (1, 0)) is defined over Q.
-% Verifying my claim amounts to verifying it for the basic operations defining
-% straightedge-and-compass constructions. The reader will check (Exercise 3.5)
-% that
-% the point of intersection of two lines defined over F has coordinates in F and
-% that
-% lines and circles determined by points with coordinates in F are defined over F
-% . So
-% \delta  = 1 works in all these cases.
-% For the intersection of a line and a circle C, assume that is not parallel to
-% the y-axis (the argument is entirely analogous otherwise) and that it does meet
-% C;
-% let
-% y = mx + r
-% be the equation of and let
-% x2 + y 2 + ax + by + c = 0
-% be the equation of C. We are assuming that a, b, c, m, r \in  F . Then the x-
-% coordinates of the points of intersection of and C are the solutions of the
-% equation
-% x2 + (mx + r)2 + ax + b(mx + r) + c = 0.
-% \sqrt 
-% The `quadratic formula' shows that these coordinates belong to the field F ( D),
-% where D is the discriminant of this polynomial: explicitly,
-% D = (2mr + bm + a)2 - 4(m2 + 1)(r2 + br + c),
-% \sqrt 
-% but this is unimportant. What is important is that D \in  F ; hence \delta  =
-%  D satisfies
-% our requirement.
-% For the intersection of two (distinct) circles defined over F , nothing new is
-% needed: if
-%  ? 2
-% x + y2 + a1x + b1 y + c1 = 0,
-% x2 + y2 + a2x + b2 y + c2 = 0
-% are two circles, subtracting the two equations shows that their points of
-% intersection
-% coincide with the points of intersection of a circle and a line:
-% ?x2
-%  + y2 + a1 x + b1 y + c1 = 0,
-% (a1 - a2)x + (b1 - b2 )y + (c1 - c2) = 0,
-% with the same conclusion as in the previous case.
-% This completes the verification of the `only if' part of the theorem.
-% To prove that every element of an extension as stated is constructible, again
-% argue by induction: it suffices to show that if (i) \delta  \in  R, (ii) all
-% elements of F are
-% constructible, and (iii) r = \delta  2 \in  F , then \delta  is constructible
-% (note that in order to
-% construct an element of degree 2 over F , it suffices to construct the square
-% root of
-% the discriminant of its minimal polynomial). Therefore, all we have to show is
-% that
-% we can `take square roots' by a straightedge-and-compass construction. Here is
-% the
-% picture (if r > 1):
-% If A = (r, 0) is constructible, so is B = (-r, 0); C is the midpoint of the seg-
-% ment BP (midpoints are constructible, Exercise 3.1); the circle with center C
-% and
-% containing P intersects the positive y-axis at a point Q = (0, \delta ), and
-% elementary
-% geometry shows that \delta  2 = r. Therefore \delta  is constructible,
-% concluding the proof of
-% the theorem.
-%  ?
-% For example, one can construct an angle of 3\circ  : allegedly
-% +
-% 1 \sqrt 
-%  \sqrt 
-%  1 \sqrt 
-%  \sqrt  \sqrt 
-% cos 3\circ  = ( 3 + 1) 5 + 5 + ( 6 - 2)( 5 - 1),
-% and this expression shows that
-% +
-% \sqrt  \sqrt  \sqrt 
-%  \sqrt 
-% cos 3\circ 
-%  \in  Q( 2, 3, 5)( 5 + 5);
-% that is (by Theorem 3.4), cos 3\circ  is constructible. Of course once A = (cos
-% \theta , 0) is
-% constructed, so is the angle \theta :
-% Here is another example of a `constructive' application of Theorem 3.4:
-% Example 3.5. Regular pentagons are constructible.
-% Indeed, it suffices to construct the point A = (cos(2\pi /5), 0), and it so
-% happens that
-% \gamma  = cos(2\pi /5) satisfies
-% (*)
-%  4\gamma  2 + 2\gamma  - 1 = 0
-% \sqrt 
-% (in fact, \gamma  is half of the inverse of the golden ratio: \gamma  = 5-1
-%  ). It follows that
-% \sqrt 
-%  4\gamma  \in  Q( 5), and hence
-%  it is constructible by Theorem 3.4. In fact, the proof shows
-% \sqrt how to construct 5, so the reader should now have no difficulty producing a
-% straightedge-and-compass construction of a regular pentagon (Exercise 3.6).
-%  ?
-% We will come back to constructions of regular polygons once we have studied
-% field theory a little more thoroughly (cf. \S{}7.2). By the way, how does one
-% figure
-% out that \gamma  = cos(2\pi /5) should satisfy the identity (*)? This is easy
-% modulo some
-% complex number arithmetic; see Exercise 3.11.
+  In other words, $\gamma \in \mathbb{R}$ is constructible if and only if
+  it can be placed in the top field of a sequence of (real) quadratic
+  extensions over $\Q$. Since $\mathcal{C}_\mathbb{C} =
+  \mathcal{C}_\mathbb{R}(i)$, the same statement holds for constructible
+  complex numbers, including $i$ in the list of $\delta_j$ (or simply
+  allowing the $\delta_j$ to be complex numbers; cf.\ Exercise~3.9).
+\end{thm}
+The proof of this theorem is as explicit as one can possibly hope. From a
+given straightedge-and-compass construction of a point $(x,y)$ one can
+obtain an explicit sequence $\delta_1, \dots, \delta_k$ as in the
+statement, such that $x$ and $y$ belong to the extension $\Q(\delta_1,
+\dots, \delta_k)$; conversely, from any element $\gamma$ of any such
+extension one can obtain an explicit construction of a point $(\gamma, 0)$
+by straightedge and compass.
+\begin{proof}
+  Let's first argue in the `geometry to algebra' direction. A
+  configuration of points, lines, and circles obtained by a
+  straightedge-and-compass construction may be described by the coordinates
+  of the points and the equations of the lines and circles. Suppose that at
+  one stage in a given construction all coordinates of all points and all
+  coefficients in the equations of lines and circles belong to a field $F$;
+  I will say that the configuration is \emph{defined over $F$}. Then I
+  claim that for every object constructed at the next stage, there exists a
+  number $\delta \in \mathbb{R}$, of degree at most $2$ over $F$, such that
+  the new configuration is defined over $F(\delta)$. The `only if' part of
+  the theorem follows by induction on the number of steps in the
+  construction, since at the beginning the configuration (that is, the pair
+  of points $O = (0,0)$, $P = (1,0)$) is defined over $\Q$.
+  Verifying my claim amounts to verifying it for the basic operations
+  defining straightedge-and-compass constructions. The reader will check
+  (Exercise~3.5) that the point of intersection of two lines defined over
+  $F$ has coordinates in $F$, and that lines and circles determined by
+  points with coordinates in $F$ are defined over $F$; so $\delta = 1$
+  works in all these cases.
+
+  For the intersection of a line $\ell$ and a circle $C$, assume that
+  $\ell$ is not parallel to the $y$-axis (the argument is entirely
+  analogous otherwise) and that it does meet $C$; let $y = mx + r$ be the
+  equation of $\ell$ and let $x^2 + y^2 + ax + by + c = 0$ be the equation
+  of $C$. We are assuming that $a, b, c, m, r \in F$. Then the
+  $x$-coordinates of the points of intersection of $\ell$ and $C$ are the
+  solutions of the equation
+  \[
+    x^2 + (mx + r)^2 + ax + b(mx + r) + c = 0.
+  \]
+  The `quadratic formula' shows that these coordinates belong to the field
+  $F(\sqrt{D})$, where $D$ is the discriminant of this polynomial:
+  explicitly,
+  \[
+    D = (2mr + bm + a)^2 - 4(m^2 + 1)(r^2 + br + c),
+  \]
+  but this is unimportant. What is important is that $D \in F$; hence
+  $\delta = \sqrt{D}$ satisfies our requirement.
+  For the intersection of two (distinct) circles defined over $F$, nothing
+  new is needed: if
+  \[
+    \begin{cases}
+      x^2 + y^2 + a_1 x + b_1 y + c_1 = 0, \\
+      x^2 + y^2 + a_2 x + b_2 y + c_2 = 0
+    \end{cases}
+  \]
+  are two circles, subtracting the two equations shows that their points of
+  intersection coincide with the points of intersection of a circle and a
+  line:
+  \[
+    \begin{cases}
+      x^2 + y^2 + a_1 x + b_1 y + c_1 = 0, \\
+      (a_1 - a_2)x + (b_1 - b_2)y + (c_1 - c_2) = 0,
+    \end{cases}
+  \]
+  with the same conclusion as in the previous case. This completes the
+  verification of the `only if' part of the theorem.
+  To prove that every element of an extension as stated is constructible,
+  again argue by induction: it suffices to show that if (i) $\delta \in
+  \mathbb{R}$, (ii) all elements of $F$ are constructible, and (iii)
+  $r = \delta^2 \in F$, then $\delta$ is constructible (note that in order
+  to construct an element of degree $2$ over $F$, it suffices to construct
+  the square root of the discriminant of its minimal polynomial). Therefore,
+  all we have to show is that we can `take square roots' by a
+  straightedge-and-compass construction.
+
+  If $A = (r, 0)$ is constructible, so is $B = (-r, 0)$; $C$ is the
+  midpoint of the segment $BP$ (midpoints are constructible, Exercise~3.1);
+  the circle with center $C$ and containing $P$ intersects the positive
+  $y$-axis at a point $Q = (0, \delta)$, and elementary geometry shows that
+  $\delta^2 = r$. Therefore $\delta$ is constructible, concluding the proof
+  of the theorem.
+\end{proof}
+For example, one can construct an angle of $3^\circ$: allegedly
+\[
+  \cos 3^\circ
+  = \tfrac{1}{8}\bigl[(\sqrt{3}+1)\sqrt{5+\sqrt{5}}
+    + (\sqrt{6}-\sqrt{2})(\sqrt{5}-1)\bigr],
+\]
+and this expression shows that
+\[
+  \cos 3^\circ \in
+  \Q(\sqrt{2},\sqrt{3},\sqrt{5})\bigl(\sqrt{5+\sqrt{5}}\bigr);
+\]
+that is (by \cref{thm:fields:3.4}), $\cos 3^\circ$ is constructible. Of
+course once $A = (\cos\theta, 0)$ is constructed, so is the angle
+$\theta$.
+Here is another example of a `constructive' application of
+\cref{thm:fields:3.4}:
+\begin{exam}{}{fields:exam:3.5}
+  Regular pentagons are constructible. Indeed, it suffices to construct the
+  point $A = (\cos(2\pi/5), 0)$, and it so happens that $\gamma =
+  \cos(2\pi/5)$ satisfies
+  \[
+    4\gamma^2 + 2\gamma - 1 = 0 \tag{$*$}
+  \]
+  (in fact, $\gamma$ is half of the inverse of the golden ratio: $\gamma =
+  \frac{\sqrt{5}-1}{4}$). It follows that $4\gamma \in \Q(\sqrt{5})$, and
+  hence it is constructible by \cref{thm:fields:3.4}. In fact, the proof
+  shows how to construct $\sqrt{5}$, so the reader should now have no
+  difficulty producing a straightedge-and-compass construction of a regular
+  pentagon (Exercise~3.6).
+
+  We will come back to constructions of regular polygons once we have
+  studied field theory a little more thoroughly (cf.\ \S{}7.2). By the way,
+  how does one figure out that $\gamma = \cos(2\pi/5)$ should satisfy the
+  identity $(*)$? This is easy modulo some complex number arithmetic; see
+  Exercise~3.11.
+\end{exam}
 
 \subsection{Famous impossibilities}
 \label{subsec:fields:famous-impossibilities}
