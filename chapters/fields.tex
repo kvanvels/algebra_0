@@ -2765,517 +2765,516 @@ a root. This makes splitting fields normal extensions:
   linear map $V \to W$ must be an isomorphism. Finite dimensionality is
   necessary in order to draw this conclusion; cf.\ Exercise~VI.6.5.
 \end{rem}
-% Example 4.10. If a complex root of an irreducible polynomial p(x) \in  Q[x] may
-% \sqrt 
-%  4be expressed as a polynomial in i and 2 with rational
-%  \sqrt 
-%  coefficients, then all roots
-% of p(x) may be expressed
-%  \sqrt 
-%  likewise
-%  in
-%  terms
-%  of
-%  i
-%  and
-%  2.
-%  Indeed, we have checked
-% (Example 4.6) that Q(i, 2) is a splitting field over Q; hence it is a normal
-% extension
-% of Q.
-%  ?
+\begin{exam}{}{fields:exam:4.10}
+  If a complex root of an irreducible polynomial $p(x) \in \Q[x]$ may be
+  expressed as a polynomial in $i$ and $\sqrt[4]{2}$ with rational
+  coefficients, then all roots of $p(x)$ may be expressed likewise in terms
+  of $i$ and $\sqrt[4]{2}$. Indeed, we have checked
+  (\cref{exam:fields:exam:4.6}) that $\Q(i, \sqrt[4]{2})$ is a splitting
+  field over $\Q$; hence it is a normal extension of $\Q$.
+\end{exam}
 
 \subsection{Separable polynomials}
 \label{subsec:fields:separable-polynomials}
-% Our intuition may lead us to think that if a poly-
+Our intuition may lead us to think that if a polynomial factors as a
+product of linear factors and we are not `purposely' repeating one of the
+factors (as in $(x-1)^2(x-2)$), then these will be distinct. For example,
+surely irreducible polynomials necessarily split as products of distinct
+factors in an algebraic closure, right? Wrong.
+\begin{exam}{}{fields:exam:4.11}
+  Let $p$ be a prime, and consider the field $\mathbb{F}_p(t)$ of rational
+  functions over $\mathbb{F}_p$. Then the polynomial
+  \[
+    x^p - t \in \mathbb{F}_p(t)[x]
+  \]
+  is irreducible: by Eisenstein's criterion it is irreducible in
+  $\mathbb{F}_p[t][x]$ (since $(t)$ is prime in $\mathbb{F}_p[t]$), hence
+  in $\mathbb{F}_p(t)[x]$ by Proposition~V.4.16. Let $u$ be a root of
+  this polynomial in an extension $L$ of $\mathbb{F}_p(t)$ (for example
+  $L$ could be the algebraic closure of $\mathbb{F}_p(t)$, or more
+  modestly a splitting field for the polynomial). Then (Exercise~4.8)
+  \[
+    x^p - t = (x - u)^p
+  \]
+  in $L[x]$; that is, $u$ has multiplicity $p$ as a root of $f(x)$.
 
-% nomial factors as a product of linear factors and we are not `purposely'
-% repeating
-% one of the factors (as in (x - 1)2 (x - 2)), then these will be distinct. For
-% example,
-% surely irreducible polynomials necessarily split as products of distinct factors
-% in an
-% algebraic closure, right? Wrong.
-% Example 4.11. Let p be a prime, and consider the field Fp (t) of rational
-% functions
-% over Fp . Then the polynomial
-% xp - t \in  Fp(t)[x]
-% is irreducible: by Eisenstein's criterion it is irreducible in Fp [t][x] (since
-% (t) is prime
-% in Fp [t]), hence in Fp (t)[x] by Proposition V.4.16. Let u be a root of this
-% polynomial
-% in an extension L of Fp (t) (for example L could be the algebraic closure of Fp
-% (t),
-% or more modestly a splitting field for the polynomial). Then (Exercise 4.8)
-% xp - t = (x - u)p
-% in L[x]; that is, u has multiplicity p as a root of f (x).
-% In other words, the minimal polynomial over Fp (t) of u \in  L vanishes p times
-% at u, and there is nothing to do about this: no smaller power of (x - u) than
-% (x - u)p = xp - t has coefficients in Fp(t) (a smaller power would give a
-% nontrivial
-% factor of xp - t, and xp - t is irreducible).
-%  ?
-% I have always found this example difficult to visualize, because of intuition
-% developed in characteristic 0, and as we will see, no such pathology can occur
-% in
-% characteristic 0.
-% Definition 4.12. Let k be a field. A polynomial f (x) \in  k[x] is separable if
-% it
-% has no multiple factors over its splitting field; f (x) is inseparable if it has
-% multiple
-% factors over its splitting field.
-%  ?
-% Thus, the polynomial xp - t in Example 4.11 is inseparable. I suppose the
-% terminology reflects the fact that we cannot `separate' its roots: they come
-% clumped
-% together like quarks in a proton, and we cannot take them apart.
-% Of course Definition 4.12 does not depend on the chosen splitting field, since
-% these are unique up to isomorphism (Lemma 4.2). In fact, to detect separability,
-% we can use any field in which the polynomial splits as a product of linear
-% factors
-% (by Exercise 4.1). The first, somewhat surprising, observation about
-% separability is
-% that we can in fact detect it without leaving the field of coefficients of f
-% (x). This
-% fact uses a notion borrowed from calculus: for a polynomial
-% f (x) = a0 + a1 x + a2 x2 + \dots  + an xn ,
-% \setminus we denote by f (x) the `derivative'
-% f \setminus  (x) = a1 + 2a2x + \dots  + nan xn-1.
-% Of course this is a purely formal operation; no limiting process is at work over
-% arbitrary fields. Still, all expected properties of derivatives hold, as the
-% reader
-% should check: for example, (f g)\setminus  = f \setminus  g + f g\setminus  as
-% usual.
-% Lemma 4.13. Let k be a field, and let f (x) \in  k[x]. Then f (x) is separable
-% if and
-% only if f (x) and f \setminus (x) are relatively prime.
-% \setminus By definition, f (x) and f (x) are relatively prime precisely when the greatest
-% common divisor of f (x) and f \setminus  (x) is 1. Note that if k \subseteq  F ,
-% the gcd of f (x) and f \setminus  (x)
-% is the same whether it is considered in k[x] or in F [x]: for example because it
-% can
-% be computed by applying the Euclidean algorithm (\S{}V.2.4), and this proceeds
-% in
-% exactly the same way whether it is performed in k[x] or in F [x].
-% Proof. First assume that f (x) is not separable. Then f (x) has a multiple root
-% in
-% a splitting field F ; that is,
-% f (x) = (x - \alpha )m g(x)
-% for some \alpha  \in  F , g(x) \in  F [x], and m \geq  2. Therefore
-% f \setminus  (x) = m(x - \alpha )m-1 g(x) + (x - \alpha )mg \setminus  (x),
-% and it follows that (x - \alpha ) is a common factor of f (x) and f \setminus
-% (x) in F [x]. Therefore
-% \setminus  \setminus  \setminus gcd(f (x), f (x)) = 1 in F [x]; hence gcd(f (x), f (x)) = 1 in k[x]; that is, f (x), f (x)
-% are not relatively prime.
-% \setminus  \setminus Conversely, assume gcd(f (x), f (x)) = 1, so f (x) and f (x) have a common
-% irreducible factor (x - \alpha ) in the algebraic closure k of k. Write f (x) =
-% (x - \alpha )h(x);
-% we have
-% f \setminus  (x) = h(x) + (x - \alpha )h\setminus (x),
-% and it follows that x - \alpha  divides h(x) since it divides f \setminus  (x).
-% But then
-% (x - \alpha ) 2 | f (x);
-% hence f (x) is inseparable.
-%  ?
-% For example, the polynomial xp - t of Example 4.11 may be seen to be insepa-
-% rable without invoking splitting fields: the derivative of xp - t equals pxp-1 =
-% 0 in
-% characteristic p, and gcd(xp - t, 0) = xp - t = 1. This example captures one of
-% the
-% key features of inseparability:
-% Lemma 4.14. Let k be a field, and let f (x) \in  k[x] be an inseparable
-% irreducible
-% \setminus polynomial. Then f (x) = 0.
-% \setminus Proof. Since f (x) is inseparable, f (x) and f (x) have a common irreducible fac-
-% tor q(x) by Lemma 4.13; but as f (x) is itself irreducible, q(x) must be an
-% associate
-% of f (x), and in particular its degree is larger than the degree of f \setminus
-% (x) if f \setminus  (x) = 0.
-% As q(x) | f \setminus  (x), the only option is that f \setminus  (x) = 0.
-%  ?
-% This already tells us that irreducible polynomials are necessarily separable in
-% characteristic 0: in characteristic 0, the derivative of a nonconstant
-% polynomial
-% clearly cannot vanish. In fact, Lemma 4.14 gives us a precise picture of what
-% inseparable, irreducible polynomials must look like. If
-% ?
-%  n
-% f (x) =
-%  ai xi
-% i=0
-% is irreducible and inseparable, then the characteristic of the field must be a
-% positive
-% prime p, and by Lemma 4.14 we must have
-% ?
-%  n
-% f \setminus (x) =
-%  iai xi-1 = 0;
-% i=0
-% that is, iai = 0 for all i. Now iai = 0 is automatic if i is a multiple of p,
-% and it
-% implies ai = 0 for all the indices i which are not multiples of p. Therefore,
-% the only
-% nonvanishing coefficients in f (x) must be those corresponding to indices which
-% are
-% multiples of p:
-% f (x) = a0 + ap xp + a2px2p + . . . ;
-% therefore, f (x) must in fact be a polynomial in xp . (The reader will refine
-% this
-% picture further by working out Exercise 4.13 and following.)
-% This leads us to a precise result linking separability and a flavor of fields
-% that
-% we have not yet run into.
-% Definition 4.15. Let k be a field of characteristic p > 0. The Frobenius homo-
-% morphism is the map k \to  k defined by x ?\to  xp .
-%  ?
-% The Frobenius homomorphism may not look like a homomorphism of rings, but
-% it is (Exercise 4.8). It must be injective, as is every nontrivial ring
-% homomorphism
-% from a field; but it is not necessarily surjective.
-% Definition 4.16. A field k is perfect if char k = 0 or if char k > 0 and the
-% Frobenius
-% homomorphism is surjective.
-%  ?
-% Proposition 4.17. Let k be a field. Then k is perfect if and only if all
-% irreducible
-% polynomials in k[x] are separable.
-% Proof. I will prove that irreducible polynomials over a perfect field are
-% separable,
-% leaving the other implication to the reader (Exercise 4.12).
-% We have already noted that irreducible polynomials are separable over fields of
-% characteristic zero. In positive characteristic p, we have observed that an
-% insepara-
-% ble irreducible polynomial must be of the form
-% ?
-%  m
-% f (x) =
-%  ai \cdot  (xp )i .
-% i=0
-% Since Frobenius is surjective, there exist bi such that bpi = ai . Thus
-% ? ?p
-% ?
-%  m
-%  ?
-%  m
-%  ?
-%  m
-% f (x) =
-%  bi p (xp ) i
-%  =
-%  (bi xi )p
-%  =
-%  bi x
-% i
-%  = g(x)p ,
-% i=0
-%  i=0
-%  i=0
-% ?
-%  i
-% where g(x) =
-%  bi x and keeping in mind that the Frobenius map is a homomor-
-% phism. But this contradicts the irreducibility of f (x), so there is no such
-% polyno-
-% mial.
-%  ?
-% Corollary 4.18. Finite fields are perfect. Therefore, over finite fields,
-% irreducible
-% polynomials are separable.
-% Proof. The Frobenius map is injective (because it is a homomorphism of fields),
-% so
-% it is surjective over finite fields, by the pigeon-hole principle. Therefore
-% finite fields
-% are perfect, and the second part of the statement follows from Proposition 4.17.
-% ?
-% The reader now sees why I have chosen the somewhat unusual field Fp (t) in
-% Example 4.11: we need a field of positive characteristic, but no example of
-% irre-
-% ducible inseparable polynomial can be found over Fp , by Corollary 4.18; to
-% concoct
-% an example, we need to enlarge the field so that it is infinite and to throw in
-% an
-% element (that is, t) for which there is no p-th root, that is, which is not in
-% the image
-% of Frobenius.
+  In other words, the minimal polynomial over $\mathbb{F}_p(t)$ of $u \in
+  L$ vanishes $p$ times at $u$, and there is nothing to do about this: no
+  smaller power of $(x-u)$ than $(x-u)^p = x^p - t$ has coefficients in
+  $\mathbb{F}_p(t)$ (a smaller power would give a nontrivial factor of
+  $x^p - t$, and $x^p - t$ is irreducible).
+\end{exam}
+I have always found this example difficult to visualize, because of
+intuition developed in characteristic $0$, and as we will see, no such
+pathology can occur in characteristic $0$.
+\begin{defn}{}{fields:4.12}
+  Let $k$ be a field. A polynomial $f(x) \in k[x]$ is \emph{separable} if
+  it has no multiple factors over its splitting field; $f(x)$ is
+  \emph{inseparable} if it has multiple factors over its splitting field.
+\end{defn}
+Thus, the polynomial $x^p - t$ in \cref{exam:fields:exam:4.11} is
+inseparable. I suppose the terminology reflects the fact that we cannot
+`separate' its roots: they come clumped together like quarks in a proton,
+and we cannot take them apart.
+
+Of course \cref{defn:fields:4.12} does not depend on the chosen splitting
+field, since these are unique up to isomorphism (\cref{lem:fields:4.2}).
+In fact, to detect separability, we can use any field in which the
+polynomial splits as a product of linear factors (by Exercise~4.1). The
+first, somewhat surprising, observation about separability is that we can
+in fact detect it without leaving the field of coefficients of $f(x)$. This
+fact uses a notion borrowed from calculus: for a polynomial
+\[
+  f(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n,
+\]
+we denote by $f'(x)$ the `derivative'
+\[
+  f'(x) = a_1 + 2a_2 x + \dots + na_n x^{n-1}.
+\]
+Of course this is a purely formal operation; no limiting process is at work
+over arbitrary fields. Still, all expected properties of derivatives hold,
+as the reader should check: for example, $(fg)' = f'g + fg'$ as
+usual.
+\begin{lem}{}{fields:4.13}
+  Let $k$ be a field, and let $f(x) \in k[x]$. Then $f(x)$ is separable
+  if and only if $f(x)$ and $f'(x)$ are relatively prime.
+\end{lem}
+By definition, $f(x)$ and $f'(x)$ are relatively prime precisely when
+$\gcd(f(x), f'(x)) = 1$. Note that if $k \subseteq F$, the gcd of $f(x)$
+and $f'(x)$ is the same whether it is considered in $k[x]$ or in $F[x]$:
+for example because it can be computed by applying the Euclidean algorithm
+(\S{}V.2.4), and this proceeds in exactly the same way whether it is
+performed in $k[x]$ or in $F[x]$.
+\begin{proof}
+  First assume that $f(x)$ is not separable. Then $f(x)$ has a multiple
+  root in a splitting field $F$; that is, $f(x) = (x - \alpha)^m g(x)$ for
+  some $\alpha \in F$, $g(x) \in F[x]$, and $m \geq 2$. Therefore
+  \[
+    f'(x) = m(x-\alpha)^{m-1}g(x) + (x-\alpha)^m g'(x),
+  \]
+  and it follows that $(x - \alpha)$ is a common factor of $f(x)$ and
+  $f'(x)$ in $F[x]$. Therefore $\gcd(f(x), f'(x)) \neq 1$ in $F[x]$;
+  hence $\gcd(f(x), f'(x)) \neq 1$ in $k[x]$; that is, $f(x)$, $f'(x)$
+  are not relatively prime.
+
+  Conversely, assume $\gcd(f(x), f'(x)) \neq 1$, so $f(x)$ and $f'(x)$
+  have a common irreducible factor $(x - \alpha)$ in the algebraic closure
+  $\bar{k}$ of $k$. Write $f(x) = (x - \alpha)h(x)$; we have
+  \[
+    f'(x) = h(x) + (x-\alpha)h'(x),
+  \]
+  and it follows that $x - \alpha$ divides $h(x)$ since it divides
+  $f'(x)$. But then $(x-\alpha)^2 \mid f(x)$; hence $f(x)$ is inseparable.
+\end{proof}
+For example, the polynomial $x^p - t$ of \cref{exam:fields:exam:4.11} may
+be seen to be inseparable without invoking splitting fields: the derivative
+of $x^p - t$ equals $px^{p-1} = 0$ in characteristic $p$, and $\gcd(x^p -
+t, 0) = x^p - t \neq 1$. This example captures one of the key features of
+inseparability:
+\begin{lem}{}{fields:4.14}
+  Let $k$ be a field, and let $f(x) \in k[x]$ be an inseparable
+  irreducible polynomial. Then $f'(x) = 0$.
+\end{lem}
+\begin{proof}
+  Since $f(x)$ is inseparable, $f(x)$ and $f'(x)$ have a common
+  irreducible factor $q(x)$ by \cref{lem:fields:4.13}; but as $f(x)$ is
+  itself irreducible, $q(x)$ must be an associate of $f(x)$, and in
+  particular its degree is larger than the degree of $f'(x)$ if $f'(x)
+  \neq 0$. As $q(x) \mid f'(x)$, the only option is that $f'(x) = 0$.
+\end{proof}
+This already tells us that irreducible polynomials are necessarily
+separable in characteristic $0$: in characteristic $0$, the derivative of
+a nonconstant polynomial clearly cannot vanish. In fact,
+\cref{lem:fields:4.14} gives us a precise picture of what inseparable,
+irreducible polynomials must look like. If $f(x) = \sum_{i=0}^n a_i x^i$
+is irreducible and inseparable, then the characteristic of the field must
+be a positive prime $p$, and by \cref{lem:fields:4.14} we must have
+\[
+  f'(x) = \sum_{i=0}^n i a_i x^{i-1} = 0;
+\]
+that is, $ia_i = 0$ for all $i$. Now $ia_i = 0$ is automatic if $i$ is a
+multiple of $p$, and it implies $a_i = 0$ for all indices $i$ which are
+not multiples of $p$. Therefore, the only nonvanishing coefficients in
+$f(x)$ must be those corresponding to indices which are multiples of $p$:
+\[
+  f(x) = a_0 + a_p x^p + a_{2p} x^{2p} + \cdots;
+\]
+therefore, $f(x)$ must in fact be a polynomial in $x^p$. (The reader will
+refine this picture further by working out Exercise~4.13 and following.)
+This leads us to a precise result linking separability and a flavor of
+fields that we have not yet run into.
+\begin{defn}{}{fields:4.15}
+  Let $k$ be a field of characteristic $p > 0$. The \emph{Frobenius
+  homomorphism} is the map $k \to k$ defined by $x \mapsto x^p$.
+\end{defn}
+The Frobenius homomorphism may not look like a homomorphism of rings, but
+it is (Exercise~4.8). It must be injective, as is every nontrivial ring
+homomorphism from a field; but it is not necessarily surjective.
+\begin{defn}{}{fields:4.16}
+  A field $k$ is \emph{perfect} if $\operatorname{char} k = 0$ or if
+  $\operatorname{char} k > 0$ and the Frobenius homomorphism is surjective.
+\end{defn}
+\begin{prop}{}{fields:4.17}
+  Let $k$ be a field. Then $k$ is perfect if and only if all irreducible
+  polynomials in $k[x]$ are separable.
+\end{prop}
+\begin{proof}
+  I will prove that irreducible polynomials over a perfect field are
+  separable, leaving the other implication to the reader (Exercise~4.12).
+
+  We have already noted that irreducible polynomials are separable over
+  fields of characteristic zero. In positive characteristic $p$, we have
+  observed that an inseparable irreducible polynomial must be of the form
+  \[
+    f(x) = \sum_{i=0}^m a_i \cdot (x^p)^i.
+  \]
+  Since Frobenius is surjective, there exist $b_i$ such that $b_i^p = a_i$.
+  Thus
+  \[
+    f(x)
+    = \sum_{i=0}^m b_i^p (x^p)^i
+    = \sum_{i=0}^m (b_i x^i)^p
+    = \left(\sum_{i=0}^m b_i x^i\right)^p
+    = g(x)^p,
+  \]
+  where $g(x) = \sum b_i x^i$, keeping in mind that the Frobenius map is a
+  homomorphism. But this contradicts the irreducibility of $f(x)$, so there
+  is no such polynomial.
+\end{proof}
+\begin{coro}{}{fields:4.18}
+  Finite fields are perfect. Therefore, over finite fields, irreducible
+  polynomials are separable.
+\end{coro}
+\begin{proof}
+  The Frobenius map is injective (because it is a homomorphism of fields),
+  so it is surjective over finite fields, by the pigeon-hole principle.
+  Therefore finite fields are perfect, and the second part of the statement
+  follows from \cref{prop:fields:4.17}.
+\end{proof}
+The reader now sees why I have chosen the somewhat unusual field
+$\mathbb{F}_p(t)$ in Example~4.11: we need a field of positive
+characteristic, but no example of irreducible inseparable polynomial can be
+found over $\mathbb{F}_p$, by \cref{coro:fields:4.18}; to concoct an
+example, we need to enlarge the field so that it is infinite and to throw
+in an element (that is, $t$) for which there is no $p$-th root, that is,
+which is not in the image of Frobenius.
 
 \subsection{Separable extensions and embeddings in algebraic closures}
 \label{subsec:fields:separable-extensions-and-embeddings-in-algebraic-closures}
-% The ter-
+The terminology examined in the previous section extends to the language of
+field extensions. If $k \subseteq F$ is an extension and $\alpha \in F$ is
+algebraic over $k$, we say that $\alpha$ is \emph{separable over $k$} if
+the minimal polynomial of $\alpha$ over $k$ is separable; $\alpha$ is
+\emph{inseparable} otherwise.
+\begin{defn}{}{fields:4.19}
+  An algebraic field extension $k \subseteq F$ is \emph{separable} if every
+  $\alpha \in F$ is separable over $k$.
+\end{defn}
+With this terminology, \cref{prop:fields:4.17} may be restated in the
+following more impressive form:
+\begin{prop}{}{fields:4.20}
+  A field $k$ is perfect if and only if every algebraic extension of $k$ is
+  separable.
+\end{prop}
+In particular, algebraic extensions of $\Q$ (or any field of characteristic
+zero) and of every finite field are necessarily separable.
+The separability condition is exceedingly convenient, and we will
+essentially adopt it henceforth: all extensions we will seriously consider
+will be separable. One convenient feature of separable extensions is the
+following alternative description of the separability condition.
 
-% minology examined in the previous section extends to the language of field
-% exten-
-% sions. If k \subseteq  F is an extension and \alpha  \in  F is algebraic over k,
-% we say that \alpha  is
-% separable over k if the minimal polynomial of \alpha  over k is separable;
-% \alpha  is inseparable
-% otherwise.
-% Definition 4.19. An algebraic field extension k \subseteq  F is separable if
-% every \alpha  \in  F is
-% separable over k.
-%  ?
-% With this terminology, Proposition 4.17 may be restated in the following more
-% impressive form:
-% Proposition 4.20. A field k is perfect if and only if every algebraic extension
-% of k
-% is separable.
-% In particular, algebraic extensions of Q (or any field of characteristic zero)
-% and
-% of every finite field are necessarily separable.
-% The separability condition is exceedingly convenient, and we will essentially
-% adopt it henceforth: all extensions we will seriously consider will be
-% separable. One
-% convenient feature of separable extensions is the following alternative
-% description
-% of the separability condition.
-% We have seen (Lemma 2.8) that every algebraic extension k \subseteq  F may be
-% embedded in an algebraic closure k \subseteq  k, and I pointed out that this can
-% in general
-% be done in many different ways. If finite, the number of different homomorphisms
-% F \to  k extending the identity on k is denoted by
-% [F : k]s .
-% Definition 4.21. This is the separable degree of F over k.
-%  ?
-% It is clear that this number is independent of the chosen algebraic closure k
-% \subseteq  k.
-% What does it have to do with separability?
-% Lemma 4.22. Let k \subseteq  k(\alpha ) be a simple algebraic extension. Then
-% [k(\alpha ) : k]s equals
-% the number of distinct roots in k of the minimal polynomial of \alpha . In
-% particular,
-% [k(\alpha ) : k]s \leq  [k(\alpha ) : k], with equality if and only if \alpha
-% is separable over k.
-% Proof. The proof is essentially (and not by coincidence) a rehash of the proof
-% of
-% Corollary 1.7. Associate with each \iota  : k(\alpha ) \to  k extending idk the
-% image \iota (\alpha ), which
-% must be a root of the minimal polynomial of \alpha . This correspondence is
-% injective,
-% since \iota (\alpha ) determines \iota  (as \iota  extends the identity on k).
-% To see it is surjective, let
-% \beta  \in  k be any other root, and consider the extension k(\beta ) \subseteq  k; by Proposition 1.5
-% there is an isomorphism k(\alpha ) \to  k(\beta ) sending \alpha  to \beta , and
-% composing with the
-% embedding k(\beta ) \subseteq  k defines the corresponding \iota , as needed.
-%  ?
-% Thus, the `separable degree' does detect separability, for simple extensions.
-% Further, it is multiplicative over successive extensions:
-% Lemma 4.23. Let k \subseteq  E \subseteq  F be algebraic extensions. Then [F :
-% k]s is finite if
-% and only if both [F : E]s, [E : k]s are finite, and in this case
-% [F : k]s = [F : E]s [E : k]s .
-% Proof. Different embeddings of E into k extend to different embeddings of F into
-% k,
-% by Lemma 2.8; and embeddings of F into E = k extending the identity on E extend
-% a fortiori the identity on k. Therefore, if any of [F : E]s , [E : k]s is
-% infinite, then
-% so is [F : k]s .
-% For the converse implication, it suffices to prove the stated degree formula.
-% But
-% every embedding F \subseteq  k extending the identity on k may be obtained in
-% two steps:
-% first extend the identity to an embedding E \subseteq  k, which can be done in
-% [E : k]s ways;
-% and then extend the chosen embedding E \subseteq  k = E to an embedding F
-% \subseteq  E = k,
-% which can be done in [F : E]s ways. There are precisely [F : E]s[E : k]s ways to
-% do this, as stated.
-%  ?
-% Lemmas 4.22 and 4.23 allow us to recast separability of finite extensions
-% entirely
-% in the light of counting embeddings in an algebraic closure:
-% Proposition 4.24. Let k \subseteq  F be a finite extension. Then [F : k]s \leq
-% [F : k], and
-% the following are equivalent:
-% (i) F = k(\alpha 1, . . . , \alpha r ), where each \alpha i is separable over k;
-% (ii) k \subseteq  F is separable;
-% (iii) [F : k]s = [F : k].
-% Proof. Since F is finite over k, it is finitely generated. Let F = k(\alpha 1 ,
-% . . . , \alpha r ).
-% Then using Lemma 4.23, Lemma 4.22, and Proposition 1.10,
-% [F : k]s = [k(\alpha 1 , . . . , \alpha r-1)(\alpha r ) : k(\alpha 1 , . . . ,
-% \alpha r-1 )]s \dots  [k(\alpha 1 ) : k]s
-% \leq  [k(\alpha 1 , . . . , \alpha r-1)(\alpha r ) : k(\alpha 1 , . . . , \alpha r-1 )] \dots  [k(\alpha 1 ) : k]
-% = [F : k].
-% This proves the stated inequality.
-% (i) \implies  (iii): If each \alpha i is separable over k, then it is separable
-% over the field
-% k(\alpha 1 , . . . , \alpha i-1 ) (Exercise 4.15), so the inequality is an
-% equality by Lemma 4.22.
-% (iii) \implies  (ii): Assume [F : k]s = [F : k], and let \alpha  \in  F . We
-% have k \subseteq  k(\alpha ) \subseteq  F ;
-% hence by Lemma 4.23
-% [F : k(\alpha )]s [k(\alpha ) : k]s = [F : k]s = [F : k] = [F : k(\alpha
-% )][k(\alpha ) : k].
-% Since both separable degrees are less than or equal to their plain counterparts,
-% the
-% equality implies
-% [k(\alpha ) : k]s = [k(\alpha ) : k],
-% proving that \alpha  is separable, by Lemma 4.22. Therefore the extension k
-% \subseteq  F is
-% separable according to Definition 4.19.
-% (ii) \implies  (i) is immediate from Definition 4.19, since finite extensions
-% are finitely
-% generated.
-%  ?
-% For example, if \alpha  is separable over k, then every \beta  \in  k(\alpha )
-% is separable. This
-% would seem rather mysterious from the definition alone: why should the fact that
-% the minimal polynomial of \alpha  has distinct roots in k imply the same for the
-% minimal
-% polynomial of \beta ? It does, by virtue of Proposition 4.24.
-% Remark 4.25. While we have only proved [F : k]s \leq  [F : k], one can in fact
-% prove
-% that [F : k]s divides [F : k]: in fact, [F : k]s is the degree of a certain
-% intermediate
-% field Fsep over k. The diligent reader will prove this in Exercise 4.18.
+We have seen (\cref{lem:fields:2.8}) that every algebraic extension
+$k \subseteq F$ may be embedded in an algebraic closure $k \subseteq \bar{k}$,
+and I pointed out that this can in general be done in many different ways.
+If finite, the number of different homomorphisms $F \to \bar{k}$ extending
+the identity on $k$ is denoted by $[F : k]_s$.
+\begin{defn}{}{fields:4.21}
+  The number $[F : k]_s$ is the \emph{separable degree} of $F$ over $k$.
+\end{defn}
+It is clear that this number is independent of the chosen algebraic closure
+$k \subseteq \bar{k}$. What does it have to do with separability?
+\begin{lem}{}{fields:4.22}
+  Let $k \subseteq k(\alpha)$ be a simple algebraic extension. Then
+  $[k(\alpha) : k]_s$ equals the number of distinct roots in $\bar{k}$ of
+  the minimal polynomial of $\alpha$. In particular,
+  $[k(\alpha) : k]_s \leq [k(\alpha) : k]$, with equality if and only if
+  $\alpha$ is separable over $k$.
+\end{lem}
+\begin{proof}
+  The proof is essentially (and not by coincidence) a rehash of the proof
+  of \cref{coro:fields:1.7}. Associate with each $\iota : k(\alpha) \to
+  \bar{k}$ extending $\mathrm{id}_k$ the image $\iota(\alpha)$, which must
+  be a root of the minimal polynomial of $\alpha$. This correspondence is
+  injective, since $\iota(\alpha)$ determines $\iota$ (as $\iota$ extends
+  the identity on $k$). To see it is surjective, let $\beta \in \bar{k}$ be
+  any other root, and consider the extension $k(\beta) \subseteq \bar{k}$;
+  by \cref{prop:fields:1.5} there is an isomorphism $k(\alpha) \to k(\beta)$
+  sending $\alpha$ to $\beta$, and composing with the embedding
+  $k(\beta) \subseteq \bar{k}$ defines the corresponding $\iota$, as
+  needed.
+\end{proof}
+Thus, the `separable degree' does detect separability, for simple
+extensions. Further, it is multiplicative over successive extensions:
+\begin{lem}{}{fields:4.23}
+  Let $k \subseteq E \subseteq F$ be algebraic extensions. Then $[F : k]_s$
+  is finite if and only if both $[F : E]_s$, $[E : k]_s$ are finite, and
+  in this case
+  \[
+    [F : k]_s = [F : E]_s [E : k]_s.
+  \]
+\end{lem}
+\begin{proof}
+  Different embeddings of $E$ into $\bar{k}$ extend to different embeddings
+  of $F$ into $\bar{k}$, by \cref{lem:fields:2.8}; and embeddings of $F$
+  into $\bar{k}$ extending the identity on $E$ extend a fortiori the
+  identity on $k$. Therefore, if any of $[F : E]_s$, $[E : k]_s$ is
+  infinite, then so is $[F : k]_s$.
+
+  For the converse implication, it suffices to prove the stated degree
+  formula. But every embedding $F \to \bar{k}$ extending the identity on
+  $k$ may be obtained in two steps: first extend the identity to an
+  embedding $E \to \bar{k}$, which can be done in $[E : k]_s$ ways; and
+  then extend the chosen embedding $E \to \bar{k}$ to an embedding
+  $F \to \bar{k}$, which can be done in $[F : E]_s$ ways. There are
+  precisely $[F : E]_s [E : k]_s$ ways to do this, as stated.
+\end{proof}
+\cref{lem:fields:4.22,lem:fields:4.23} allow us to recast separability of
+finite extensions entirely in the light of counting embeddings in an
+algebraic closure:
+\begin{prop}{}{fields:4.24}
+  Let $k \subseteq F$ be a finite extension. Then $[F : k]_s \leq [F : k]$,
+  and the following are equivalent:
+  \begin{enumerate}[(i)]
+    \item $F = k(\alpha_1, \dots, \alpha_r)$, where each $\alpha_i$ is
+      separable over $k$;
+    \item $k \subseteq F$ is separable;
+    \item $[F : k]_s = [F : k]$.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  Since $F$ is finite over $k$, it is finitely generated. Let
+  $F = k(\alpha_1, \dots, \alpha_r)$. Then using \cref{lem:fields:4.23},
+  \cref{lem:fields:4.22}, and \cref{prop:fields:1.10},
+  \begin{align*}
+    [F : k]_s
+    &= [k(\alpha_1, \dots, \alpha_{r-1})(\alpha_r)
+      : k(\alpha_1, \dots, \alpha_{r-1})]_s
+      \cdots [k(\alpha_1) : k]_s \\
+    &\leq [k(\alpha_1, \dots, \alpha_{r-1})(\alpha_r)
+      : k(\alpha_1, \dots, \alpha_{r-1})]
+      \cdots [k(\alpha_1) : k] \\
+    &= [F : k].
+  \end{align*}
+  This proves the stated inequality.
+
+  (i) $\Rightarrow$ (iii): If each $\alpha_i$ is separable over $k$, then
+  it is separable over the field $k(\alpha_1, \dots, \alpha_{i-1})$
+  (Exercise~4.15), so the inequality is an equality by \cref{lem:fields:4.22}.
+
+  (iii) $\Rightarrow$ (ii): Assume $[F : k]_s = [F : k]$, and let
+  $\alpha \in F$. We have $k \subseteq k(\alpha) \subseteq F$; hence by
+  \cref{lem:fields:4.23}
+  \[
+    [F : k(\alpha)]_s [k(\alpha) : k]_s = [F : k]_s = [F : k]
+    = [F : k(\alpha)][k(\alpha) : k].
+  \]
+  Since both separable degrees are less than or equal to their plain
+  counterparts, the equality implies $[k(\alpha) : k]_s = [k(\alpha) : k]$,
+  proving that $\alpha$ is separable, by \cref{lem:fields:4.22}. Therefore
+  the extension $k \subseteq F$ is separable according to
+  \cref{defn:fields:4.19}.
+
+  (ii) $\Rightarrow$ (i) is immediate from \cref{defn:fields:4.19}, since
+  finite extensions are finitely generated.
+\end{proof}
+For example, if $\alpha$ is separable over $k$, then every
+$\beta \in k(\alpha)$ is separable. This would seem rather mysterious from
+the definition alone: why should the fact that the minimal polynomial of
+$\alpha$ has distinct roots in $\bar{k}$ imply the same for the minimal
+polynomial of $\beta$? It does, by virtue of \cref{prop:fields:4.24}.
+\begin{rem}{}{fields:4.25}
+  While we have only proved $[F : k]_s \leq [F : k]$, one can in fact
+  prove that $[F : k]_s$ divides $[F : k]$: in fact, $[F : k]_s$ is the
+  degree of a certain intermediate field $F_{\mathrm{sep}}$ over $k$. The
+  diligent reader will prove this in Exercise~4.18.
+\end{rem}
 
 \subsection*{Exercises}
 
-% 4.1. ? Let k be a field, f (x) \in  k[x], and let F be the splitting field for f
-% (x) over k.
-% Let k \subseteq  K be an extension such that f (x) splits as a product of linear
-% factors
-% over K. Prove that there is a homomorphism F \to  K extending the identity on k.
-% [\S{}4.2]
-% 4.2. Describe the splitting field of x6 + x3 + 1 over Q. Do the same for x4 + 4.
-% 4.3. ? Find the order of the automorphism group of the splitting field of x4 + 2
-% over Q (cf. Example 4.6). [\S{}4.1]
-% \sqrt 
-%  44.4. Prove that the field Q( 2) is not the splitting field of any polynomial
-%  over Q.
-% 4.5. ? Let F be a splitting field for a polynomial f (x) \in  k[x], and let g(x)
-% \in  k[x] be
-% a factor of f (x). Prove that F contains a unique copy of the splitting field of
-% g(x).
-% [\S{}5.1]
-% 4.6. Let k \subseteq  F 1 , k \subseteq  F2 be two finite extensions, viewed as
-% embedded in the
-% algebraic closure k of k. Assume that F1 and F2 are splitting fields of
-% polynomials
-% in k[x]. Prove that the intersection F1 \cap  F2 and the composite F1 F2 (the
-% small-
-% est subfield of k containing both F1 and F2 ) are both also splitting fields
-% over k.
-% (Theorem 4.8 is likely going to be helpful.)
-% 4.7. ? Let k \subseteq  F = k(\alpha ) be a simple algebraic extension. Prove
-% that F is normal
-% over k if and only if for every algebraic extension F \subseteq  K and every
-% \sigma  \in  Aut k (K),
-% \sigma (F ) = F . [\S{}6.1]
-% 4.8. ? Let p be a prime, and let k be a field of characteristic p. For a, b \in
-% K, prove
-% that16 (a + b)p = ap + bp . [\S{}4.2, \S{}5.1, \S{}5.2]
-% 4.9. Using the notion of `derivative' given in \S{}4.2, prove that (f
-% g)\setminus  = f \setminus  g + f g\setminus  for
-% all polynomials f , g.
-% 4.10. Let k \subseteq  F be a finite extension in characteristic p > 0. Assume
-% that p does
-% not divide [F : k]. Prove that k \subseteq  F is separable.
-% 4.11. ? Let p be a prime integer. Prove that the Frobenius homomorphism on Fp
-% is the identity. (Hint: Fermat.) [\S{}5.1]
-% 4.12. ? Let k be a field, and assume that k is not perfect. Prove that there are
-% inseparable irreducible polynomials in k[x]. (If char k = p and u \in  k, how
-% many
-% roots does xp - u have in k?) [\S{}4.2]
-% 4.13. ? Let k be a field of positive characteristic p, and let f (x) be an
-% irreducible
-% polynomial. Prove that there exist an integer d and a separable irreducible
-% polyno-
-% mial fsep (x) such that
-% d
-% f (x) = fsep (xp ).
-% The number pd is called the inseparable degree of f (x). If f (x) is the minimal
-% polynomial of an algebraic element \alpha , the inseparable degree of \alpha  is
-% defined to
-% be the inseparable degree of f (x). Prove that \alpha  is inseparable if and
-% only if its
-% inseparable degree is \geq  p.
-% The picture to keep in mind is as follows: the roots of the minimal polyno-
-% mial f (x) of \alpha  are distributed into deg fsep `clumps', each collecting a
-% number of
-% coincident roots equal to the inseparable degree of \alpha . We say that \alpha
-% is `purely
-% inseparable' if there is only one clump, that is, if all roots of f (x) coincide
-% (see
-% Exercise 4.14). [\S{}4.2, 4.14, 4.18]
-% 4.14. \lnot  Let k \subseteq  F be an algebraic extension, in positive
-% characteristic p. An
-% element \alpha  \in  F is purely inseparable over k if \alpha  pd
-%  \in  k for some17 d \geq  0. The
-% extension is defined to be purely inseparable if every \alpha  \in  F is purely
-% inseparable
-% over k.
-% Prove that \alpha  is purely inseparable if and only if [k(\alpha ) : k]s = 1,
-% if and only if
-% its degree equals its inseparability degree (Exercise 4.13). [4.13, 4.17]
-% 4.15. ? Let k \subseteq  F be an algebraic extension, and let \alpha  \in  F be
-% separable over k.
-% For every intermediate field k \subseteq  E \subseteq  F , prove that \alpha  is
-% separable over E. [\S{}4.3]
-% 4.16. \lnot  Let k \subseteq  E \subseteq  F be algebraic field extensions, and
-% assume that k \subseteq  E is
-% separable. Prove that if \alpha  \in  F is separable over E, then k \subseteq
-% E(\alpha ) is a separable
-% extension. (Reduce to the case of finite extensions.)
-% Deduce that the set of elements of F which are separable over k form an inter-
-% mediate field Fsep , such that every element \alpha  \in  F , \alpha  \in  Fsep
-% is inseparable over Fsep .
-% For F = k, k sep is called the separable closure of k. [4.17, 4.18]
-% 16 This is sometimes referred to as the freshman's dream, for painful reasons
-% that are likely
-% all too familiar to the reader.
-% 17 Note the slightly annoying clash of notation: elements of k are not
-% inseparable, yet they
-% are purely inseparable according to this definition.
-% 4.17. \lnot  Let k \subseteq  F be an algebraic extension, in positive
-% characteristic. With
-% notation as in Exercises 4.14 and 4.16, prove that the extension Fsep \subseteq
-% F is purely
-% inseparable. Prove that an extension k \subseteq  F is purely inseparable if and
-% only if
-% Fsep = k. [4.18]
-% 4.18. ? Let k \subseteq  F be a finite extension, in positive characteristic.
-% Define the
-% inseparable degree [F : k]i to be the quotient [F : k]/[F : k]s .
-% \bullet  Prove that [k(\alpha ) : k]i equals the inseparable degree of \alpha , as defined in Exer-
-% cise 4.13.
-% \bullet  Prove that the inseparable degree is multiplicative: if k \subseteq  E \subseteq  F are finite
-% extensions, then [F : k]i = [F : E]i [E : k]i .
-% \bullet  Prove that a finite extension is purely inseparable if and only if its inseparable
-% degree equals its degree.
-% \bullet  With notation as in Exercise 4.16, prove that [F : k]s = [Fsep : k] and [F : k]i =
-% [F : Fsep ]. (Use Exercise 4.17.)
-% In particular, [F : k]s divides [F : k]; the inseparable degree [F : k]i is an
-% integer.
-% [\S{}4.3]
-% 4.19. \lnot  Let k \subseteq  F be a finite separable extension, and let \iota 1
-% , . . . , \iota d be the distinct
-% embeddings of F in k extending idk . For \alpha  \in  F , prove that the norm
-% Nk\subseteq F (\alpha )
-% ?d
-% (cf. Exercise 1.12) equals i=1 \iota i (\alpha ) and its trace trk\subseteq F
-% (\alpha ) (Exercise 1.13) equals
-% ?d
-% i=1 \iota i (\alpha ). (Hint: Exercises 1.14 and 1.15.) [4.21, 4.22, 6.15]
-% 4.20. \lnot  Let k \subseteq  F be a finite separable extension, and let \alpha
-% \in  F . Prove that for
-% all \sigma  \in  Autk (F ), Nk\subseteq F (\alpha /\sigma (\alpha )) = 1 and
-% trk\subseteq F (\alpha  - \sigma (\alpha )) = 0. [6.16, 6.19]
-% 4.21. \lnot  Let k \subseteq  E \subseteq  F be finite separable extensions, and
-% let \alpha  \in  F . Prove that
-% Nk\subseteq F (\alpha ) = Nk\subseteq E (NE\subseteq F (\alpha )) and
-%  trk\subseteq F (\alpha ) = trk\subseteq E (trE\subseteq F (\alpha )).
-% (Hint: Use Exercise 4.19: if d = [E : k] and e = [F : E], the de embeddings of F
-% into k lifting idk must divide into d groups of e each, according to their
-% restriction
-% to E.)
-% This `transitivity' of norm and trace extends the result of Exercise 1.15 to
-% separable extensions. The separability restriction is actually unnecessary; cf.
-% Exer-
-% cise 4.22. [4.22]
-% 4.22. Generalize Exercises 4.19---4.21 to all finite extensions k \subseteq  F .
-% (For the norm,
-% raise to power [F : k]i ; for the trace, multiply by [F : k]i .)
+\begin{exer}{}{fields:exer:4.1}
+  Let $k$ be a field, $f(x) \in k[x]$, and let $F$ be the splitting field
+  for $f(x)$ over $k$. Let $k \subseteq K$ be an extension such that
+  $f(x)$ splits as a product of linear factors over $K$. Prove that there
+  is a homomorphism $F \to K$ extending the identity on $k$. [$\S$4.2]
+\end{exer}
+\begin{exer}{}{fields:exer:4.2}
+  Describe the splitting field of $x^6 + x^3 + 1$ over $\Q$. Do the same
+  for $x^4 + 4$.
+\end{exer}
+\begin{exer}{}{fields:exer:4.3}
+  Find the order of the automorphism group of the splitting field of
+  $x^4 + 2$ over $\Q$ (cf.\ Example~4.6). [$\S$4.1]
+\end{exer}
+\begin{exer}{}{fields:exer:4.4}
+  Prove that the field $\Q(\sqrt{2})$ is not the splitting field of any
+  polynomial over $\Q$.
+\end{exer}
+\begin{exer}{}{fields:exer:4.5}
+  Let $F$ be a splitting field for a polynomial $f(x) \in k[x]$, and let
+  $g(x) \in k[x]$ be a factor of $f(x)$. Prove that $F$ contains a unique
+  copy of the splitting field of $g(x)$. [$\S$5.1]
+\end{exer}
+\begin{exer}{}{fields:exer:4.6}
+  Let $k \subseteq F_1$, $k \subseteq F_2$ be two finite extensions, viewed
+  as embedded in the algebraic closure $\bar{k}$ of $k$. Assume that $F_1$
+  and $F_2$ are splitting fields of polynomials in $k[x]$. Prove that the
+  intersection $F_1 \cap F_2$ and the composite $F_1 F_2$ (the smallest
+  subfield of $\bar{k}$ containing both $F_1$ and $F_2$) are both also
+  splitting fields over $k$. (\cref{thm:fields:4.8} is likely going to be
+  helpful.)
+\end{exer}
+\begin{exer}{}{fields:exer:4.7}
+  Let $k \subseteq F = k(\alpha)$ be a simple algebraic extension. Prove
+  that $F$ is normal over $k$ if and only if for every algebraic extension
+  $F \subseteq K$ and every $\sigma \in \mathrm{Aut}_k(K)$, $\sigma(F) =
+  F$. [$\S$6.1]
+\end{exer}
+\begin{exer}{}{fields:exer:4.8}
+  Let $p$ be a prime, and let $k$ be a field of characteristic $p$. For
+  $a, b \in k$, prove that\footnote{This is sometimes referred to as the
+  \emph{freshman's dream}, for painful reasons that are likely all too
+  familiar to the reader.} $(a + b)^p = a^p + b^p$. [$\S$4.2, $\S$5.1,
+  $\S$5.2]
+\end{exer}
+\begin{exer}{}{fields:exer:4.9}
+  Using the notion of `derivative' given in $\S$4.2, prove that
+  $(fg)' = f'g + fg'$ for all polynomials $f$, $g$.
+\end{exer}
+\begin{exer}{}{fields:exer:4.10}
+  Let $k \subseteq F$ be a finite extension in characteristic $p > 0$.
+  Assume that $p$ does not divide $[F : k]$. Prove that $k \subseteq F$
+  is separable.
+\end{exer}
+\begin{exer}{}{fields:exer:4.11}
+  Let $p$ be a prime integer. Prove that the Frobenius homomorphism on
+  $\mathbb{F}_p$ is the identity. (Hint: Fermat.) [$\S$5.1]
+\end{exer}
+\begin{exer}{}{fields:exer:4.12}
+  Let $k$ be a field, and assume that $k$ is not perfect. Prove that there
+  are inseparable irreducible polynomials in $k[x]$. (If $\operatorname{char}
+  k = p$ and $u \in k$, how many roots does $x^p - u$ have in $\bar{k}$?)
+  [$\S$4.2]
+\end{exer}
+\begin{exer}{}{fields:exer:4.13}
+  Let $k$ be a field of positive characteristic $p$, and let $f(x)$ be an
+  irreducible polynomial. Prove that there exist an integer $d$ and a
+  separable irreducible polynomial $f_{\mathrm{sep}}(x)$ such that
+  $f(x) = f_{\mathrm{sep}}(x^{p^d})$. The number $p^d$ is called the
+  \emph{inseparable degree} of $f(x)$. If $f(x)$ is the minimal polynomial
+  of an algebraic element $\alpha$, the inseparable degree of $\alpha$ is
+  defined to be the inseparable degree of $f(x)$. Prove that $\alpha$ is
+  inseparable if and only if its inseparable degree is $\geq p$.
+
+  The picture to keep in mind is as follows: the roots of the minimal
+  polynomial $f(x)$ of $\alpha$ are distributed into $\deg f_{\mathrm{sep}}$
+  `clumps', each collecting a number of coincident roots equal to the
+  inseparable degree of $\alpha$. We say that $\alpha$ is `purely
+  inseparable' if there is only one clump, that is, if all roots of $f(x)$
+  coincide (see Exercise~4.14). [$\S$4.2, 4.14, 4.18]
+\end{exer}
+\begin{exer}{}{fields:exer:4.14}
+  Let $k \subseteq F$ be an algebraic extension, in positive characteristic
+  $p$. An element $\alpha \in F$ is \emph{purely inseparable} over $k$ if
+  $\alpha^{p^d} \in k$ for some\footnote{Note the slightly annoying clash
+  of notation: elements of $k$ are not inseparable, yet they are purely
+  inseparable according to this definition.} $d \geq 0$. The extension is
+  defined to be \emph{purely inseparable} if every $\alpha \in F$ is purely
+  inseparable over $k$.
+
+  Prove that $\alpha$ is purely inseparable if and only if
+  $[k(\alpha) : k]_s = 1$, if and only if its degree equals its
+  inseparability degree (Exercise~4.13). [4.13, 4.17]
+\end{exer}
+\begin{exer}{}{fields:exer:4.15}
+  Let $k \subseteq F$ be an algebraic extension, and let $\alpha \in F$ be
+  separable over $k$. For every intermediate field $k \subseteq E \subseteq
+  F$, prove that $\alpha$ is separable over $E$. [$\S$4.3]
+\end{exer}
+\begin{exer}{}{fields:exer:4.16}
+  Let $k \subseteq E \subseteq F$ be algebraic field extensions, and assume
+  that $k \subseteq E$ is separable. Prove that if $\alpha \in F$ is
+  separable over $E$, then $k \subseteq E(\alpha)$ is a separable
+  extension. (Reduce to the case of finite extensions.)
+
+  Deduce that the set of elements of $F$ which are separable over $k$ form
+  an intermediate field $F_{\mathrm{sep}}$, such that every element
+  $\alpha \in F$, $\alpha \notin F_{\mathrm{sep}}$ is inseparable over
+  $F_{\mathrm{sep}}$. For $F = \bar{k}$, $k_{\mathrm{sep}}$ is called the
+  \emph{separable closure} of $k$. [4.17, 4.18]
+\end{exer}
+\begin{exer}{}{fields:exer:4.17}
+  Let $k \subseteq F$ be an algebraic extension, in positive characteristic.
+  With notation as in Exercises~4.14 and~4.16, prove that the extension
+  $F_{\mathrm{sep}} \subseteq F$ is purely inseparable. Prove that an
+  extension $k \subseteq F$ is purely inseparable if and only if
+  $F_{\mathrm{sep}} = k$. [4.18]
+\end{exer}
+\begin{exer}{}{fields:exer:4.18}
+  Let $k \subseteq F$ be a finite extension, in positive characteristic.
+  Define the \emph{inseparable degree} $[F : k]_i$ to be the quotient
+  $[F : k] / [F : k]_s$.
+  \begin{itemize}
+    \item Prove that $[k(\alpha) : k]_i$ equals the inseparable degree of
+      $\alpha$, as defined in Exercise~4.13.
+    \item Prove that the inseparable degree is multiplicative: if
+      $k \subseteq E \subseteq F$ are finite extensions, then
+      $[F : k]_i = [F : E]_i [E : k]_i$.
+    \item Prove that a finite extension is purely inseparable if and only
+      if its inseparable degree equals its degree.
+    \item With notation as in Exercise~4.16, prove that
+      $[F : k]_s = [F_{\mathrm{sep}} : k]$ and
+      $[F : k]_i = [F : F_{\mathrm{sep}}]$. (Use Exercise~4.17.)
+  \end{itemize}
+  In particular, $[F : k]_s$ divides $[F : k]$; the inseparable degree
+  $[F : k]_i$ is an integer. [$\S$4.3]
+\end{exer}
+\begin{exer}{}{fields:exer:4.19}
+  Let $k \subseteq F$ be a finite separable extension, and let
+  $\iota_1, \dots, \iota_d$ be the distinct embeddings of $F$ in $\bar{k}$
+  extending $\mathrm{id}_k$. For $\alpha \in F$, prove that the norm
+  $N_{k \subseteq F}(\alpha)$ (cf.\ Exercise~1.12) equals
+  $\prod_{i=1}^d \iota_i(\alpha)$ and its trace $\mathrm{tr}_{k \subseteq F}
+  (\alpha)$ (Exercise~1.13) equals $\sum_{i=1}^d \iota_i(\alpha)$. (Hint:
+  Exercises~1.14 and~1.15.) [4.21, 4.22, 6.15]
+\end{exer}
+\begin{exer}{}{fields:exer:4.20}
+  Let $k \subseteq F$ be a finite separable extension, and let $\alpha \in
+  F$. Prove that for all $\sigma \in \mathrm{Aut}_k(F)$,
+  $N_{k \subseteq F}(\alpha / \sigma(\alpha)) = 1$ and
+  $\mathrm{tr}_{k \subseteq F}(\alpha - \sigma(\alpha)) = 0$. [6.16, 6.19]
+\end{exer}
+\begin{exer}{}{fields:exer:4.21}
+  Let $k \subseteq E \subseteq F$ be finite separable extensions, and let
+  $\alpha \in F$. Prove that
+  \begin{align*}
+    N_{k \subseteq F}(\alpha) &= N_{k \subseteq E}(N_{E \subseteq F}(\alpha)),
+    \\
+    \mathrm{tr}_{k \subseteq F}(\alpha)
+      &= \mathrm{tr}_{k \subseteq E}(\mathrm{tr}_{E \subseteq F}(\alpha)).
+  \end{align*}
+  (Hint: Use Exercise~4.19: if $d = [E : k]$ and $e = [F : E]$, the $de$
+  embeddings of $F$ into $\bar{k}$ lifting $\mathrm{id}_k$ must divide into
+  $d$ groups of $e$ each, according to their restriction to $E$.)
+
+  This `transitivity' of norm and trace extends the result of Exercise~1.15
+  to separable extensions. The separability restriction is actually
+  unnecessary; cf.\ Exercise~4.22. [4.22]
+\end{exer}
+\begin{exer}{}{fields:exer:4.22}
+  Generalize Exercises~4.19--4.21 to all finite extensions $k \subseteq F$.
+  (For the norm, raise to power $[F : k]_i$; for the trace, multiply by
+  $[F : k]_i$.)
+\end{exer}
 
 \section{Field extensions, III}
 \label{sec:fields:field-extensions-iii}
