@@ -1272,143 +1272,136 @@ closed. Therefore $i$ is an isomorphism, as needed. \qed
 
 \subsection{The Nullstellensatz}
 \label{subsec:fields:the-nullstellensatz}
-% If K is an algebraically closed field, then every maxi-
+If $K$ is an algebraically closed field, then every maximal ideal in
+$K[x]$ is of the form $(x - c)$, for $c \in K$ (Exercise~III.4.21).
+This statement has a straightforward-looking generalization to polynomial
+rings in more indeterminates: if $K$ is algebraically closed, then every
+maximal ideal in $K[x_1, \dots, x_n]$ is of the form
+$(x_1 - c_1, \dots, x_n - c_n)$.
 
-% mal ideal in K[x] is of the form (x-c), for c \in  K (Exercise III.4.21). This
-% statement
-% has a straightforward-looking generalization to polynomial rings in more
-% indeter-
-% minates: if K is algebraically closed, then every maximal ideal in K[x1 , . . .
-% , xn] is
-% of the form (x1 - c1 , . . . , xn - cn ).
-% Proving this statement is more challenging than it may seem from the looks of
-% it; it is one facet of the famous theorem known as Hilbert's Nullstellensatz
-% (``theorem
-% on the position of zeros''). The Nullstellensatz has made a few cameo
-% appearances
-% earlier (see Example III.4.15 and \S{}III.6.5 in particular), and we will spend
-% a little
-% time on it now. We will not prove the Nullstellensatz in its natural generality,
-% that
-% is, for all fields; this would take us too far. Actually, there are reasonably
-% short
-% proofs of the theorem in this generality, but the short arguments I have run
-% into
-% end up replacing a wider (and useful) context with ingenious cleverness; I do
-% not
-% find these arguments particularly insightful or memorable.
-% By contrast, the theorem has a very simple and memorable proof if we make
-% the further assumption that the field is uncountable. Therefore, the reader will
-% have
-% a complete proof of the theorem (in the form given below, which does not assume
-% the field to be algebraically closed) for fields such as R and C but will have
-% to trust
-% on faith regarding other extremely important fields such as Q.
-% The most vivid applications of the Nullstellensatz involve basic definitions in
-% algebraic geometry, and we will get a small taste of this in the next section;
-% but the
-% theorem itself is best understood in the context of the considerations on
-% `finiteness'
-% mentioned in \S{}1.3; see especially Remark 1.14. I pointed out that if k
-% \subseteq  F is finitely
-% generated as a field extension, then F need not be finitely generated (that is,
-% `finite-
-% type') as a k-algebra, and I raised the question of understanding extensions F
-% that
-% are finite-type k-algebras. The following result answers this question. It is my
-% favorite version of the Nullstellensatz; therefore I will name it so:
-% Theorem 2.9 (Nullstellensatz). Let k \subseteq  F be a field extension, and
-% assume that F
-% is a finite-type k-algebra. Then k \subseteq  F is a finite (hence algebraic)
-% extension.
-% The reader should pause and savor this statement for a moment. As pointed
-% out in \S{}III.6.5, an algebra k \to  S may very well be of finite type (as an
-% algebra),
-% without being finite (i.e., finitely generated as a module): S = k[t] is an
-% obvious
-% example. The content of Theorem 2.9 is that the distinction between finite-type
-% and finite disappears if S is a field.
-% As mentioned above, we will only prove this statement under an additional
-% (and somewhat unnatural) assumption, which reduces the argument to elementary
-% linear algebra.
-% Proof for uncountable fields. Assume that k is uncountable.
-% Let k \subseteq  F be a field extension, and assume that F is finitely generated
-% as an
-% algebra over k; in particular, it is finitely generated as a field extension. We
-% have
-% to prove that k \subseteq  F is a finite extension, or equivalently (by
-% Proposition 1.15) that
-% it is algebraic, that is, that every \alpha  \in  F \setminus  k is the root of
-% a nonzero f (x) \in  k[x].
-% Now, by hypothesis F is the quotient of a polynomial ring over k:
-% k[x1 , . . . , xn ]
-%  / / F ;
-% this implies that there is a countable basis of F as a vector space over k,
-% because
-% this is the case for k[x1 , . . . , xn ]. Consider then the set
-% ?
-%  ?
-% :
-% \alpha  - c c\in k
-% this is an uncountable subset of F ; therefore it is linearly dependent over k
-% (Propo-
-% sition VI.1.9). That is, there exist distinct c1 , . . . , cm \in  k and nonzero
-% coefficients
-% \lambda 1 , . . . , \lambda m \in  k, such that
-% \lambda 1
-%  \lambda m
-% + \cdot \cdot \cdot  +
-%  = 0.
-% \alpha  - c1
-%  \alpha  - cm
-% Expressing the left-hand side with a common denominator gives
-% f (\alpha )
-% = 0,
-% g(\alpha )
-% for f (x) = 0 in k[x] and g(\alpha ) = 0 (Exercise 2.4). This implies f (\alpha
-% ) = 0 for a
-% nonzero f (x) \in  k[x], and we are done.
-%  ?
-% Regardless of its proof, the form of the Nullstellensatz given in Theorem 2.9
-% does not look much like the other results I have mentioned as associated with
-% it.
-% For one thing, it is not too clear why Theorem 2.9 should be called a theorem on
-% the `position of zeros'. The result deserves a little more attention.
-% The form stated at the beginning of this section is obtained as follows:
-% Corollary 2.10. Let K be an algebraically closed field, and let I be an ideal of
-% K[x1 , . . . , xn]. Then I is maximal if and only if
-% I = (x1 - c1 , . . . , xn - cn ),
-% for c1, . . . , c n \in  K.
-% Proof. For c1 , . . . , cn \in  K
-% K[x1 , . . . , xn]
-%  \sim 
-%  = K
-% (x1 - c1 , . . . , xn - cn )
-% (Exercise III.4.12) is a field; therefore (x1 - c1, . . . , xn - cn ) is
-% maximal. Conversely,
-% let m be a maximal ideal in K[x1 , . . . , xn ], so that the quotient is a field
-% and the
-% natural map
-% K[x1 , . . . , xn ]
-% K \to  L :=
-% m
-% is a field extension. The field L is finitely generated as a K-algebra;
-% therefore
-% K \subseteq  L is an algebraic extension by Theorem 2.9. Since K is
-% algebraically closed,
-% this implies that L = K (Lemma 2.1); therefore, there is a surjective
-% homomorphism
-% \phi  : K[x1, . . . , xn ] \to  K
-% such that m = ker \phi . Let ci := \phi (xi). Then
-% (x1 - c1, . . . , xn - cn ) \subseteq  ker \phi  = m;
-% but (x1 - c1 , . . . , xn - cn) is maximal, so this implies m = (x1 - c1 , . . .
-% , xn - cn ), as
-% needed.
-%  ?
-% Note how very (trivially) false the statement of Corollary 2.10 is over fields
-% which are not algebraically closed: (x2 + 1) is maximal in R[x]. No such
-% silliness
-% may occur over C, for any number of variables.
+Proving this statement is more challenging than it may seem from the looks
+of it; it is one facet of the famous theorem known as \name{Hilbert}'s
+Nullstellensatz (``theorem on the position of zeros''). The Nullstellensatz
+has made a few cameo appearances earlier (see Example~III.4.15 and
+\S{}III.6.5 in particular), and we will spend a little time on it now.
+We will not prove the Nullstellensatz in its natural generality, that is,
+for all fields; this would take us too far. Actually, there are reasonably
+short proofs of the theorem in this generality, but the short arguments I
+have run into end up replacing a wider (and useful) context with ingenious
+cleverness; I do not find these arguments particularly insightful or
+memorable.
+
+By contrast, the theorem has a very simple and memorable proof if we make
+the further assumption that the field is uncountable. Therefore, the
+reader will have a complete proof of the theorem (in the form given below,
+which does not assume the field to be algebraically closed) for fields
+such as $\R$ and $\C$ but will have to trust on faith regarding other
+extremely important fields such as $\Q$.
+
+The most vivid applications of the Nullstellensatz involve basic
+definitions in algebraic geometry, and we will get a small taste of this
+in the next section; but the theorem itself is best understood in the
+context of the considerations on `finiteness' mentioned in \S{}1.3; see
+especially \cref{rem:fields:1.14}. I pointed out that if $k \subseteq F$
+is finitely generated as a field extension, then $F$ need not be finitely
+generated (that is, `finite-type') as a $k$-algebra, and I raised the
+question of understanding extensions $F$ that are finite-type
+$k$-algebras. The following result answers this question. It is my
+favorite version of the Nullstellensatz; therefore I will name it so:
+\begin{thm}{Nullstellensatz}{fields:2.9}
+Let $k \subseteq F$ be a field extension, and assume that $F$ is a
+finite-type $k$-algebra. Then $k \subseteq F$ is a finite (hence
+algebraic) extension.
+\end{thm}
+The reader should pause and savor this statement for a moment. As pointed
+out in \S{}III.6.5, an algebra $k \to S$ may very well be of finite type
+(as an algebra), without being finite (i.e., finitely generated as a
+module): $S = k[t]$ is an obvious example. The content of
+\cref{thm:fields:2.9} is that the distinction between finite-type and
+finite disappears if $S$ is a field.
+
+As mentioned above, we will only prove this statement under an additional
+(and somewhat unnatural) assumption, which reduces the argument to
+elementary linear algebra.
+\begin{proof}[Proof for uncountable fields]
+Assume that $k$ is uncountable. Let $k \subseteq F$ be a field extension,
+and assume that $F$ is finitely generated as an algebra over $k$; in
+particular, it is finitely generated as a field extension. We have to
+prove that $k \subseteq F$ is a finite extension, or equivalently (by
+\cref{prop:fields:1.15}) that it is algebraic, that is, that every
+$\alpha \in F \setminus k$ is the root of a nonzero $f(x) \in k[x]$.
+
+Now, by hypothesis $F$ is the quotient of a polynomial ring over $k$:
+\[
+  k[x_1, \dots, x_n] \twoheadrightarrow F;
+\]
+this implies that there is a countable basis of $F$ as a vector space
+over $k$, because this is the case for $k[x_1, \dots, x_n]$. Consider
+then the set
+\[
+  \left\{ \frac{1}{\alpha - c} \right\}_{c \in k};
+\]
+this is an uncountable subset of $F$; therefore it is linearly dependent
+over $k$ (Proposition~VI.1.9). That is, there exist distinct
+$c_1, \dots, c_m \in k$ and nonzero coefficients
+$\lambda_1, \dots, \lambda_m \in k$ such that
+\[
+  \frac{\lambda_1}{\alpha - c_1} + \cdots + \frac{\lambda_m}{\alpha - c_m}
+  = 0.
+\]
+Expressing the left-hand side with a common denominator gives
+\[
+  \frac{f(\alpha)}{g(\alpha)} = 0,
+\]
+for $f(x) \neq 0$ in $k[x]$ and $g(\alpha) \neq 0$ (Exercise~2.4).
+This implies $f(\alpha) = 0$ for a nonzero $f(x) \in k[x]$, and we are
+done.
+\end{proof}
+Regardless of its proof, the form of the Nullstellensatz given in
+\cref{thm:fields:2.9} does not look much like the other results I have
+mentioned as associated with it. For one thing, it is not too clear why
+\cref{thm:fields:2.9} should be called a theorem on the `position of
+zeros'. The result deserves a little more attention.
+
+The form stated at the beginning of this section is obtained as follows:
+\begin{coro}{}{fields:2.10}
+Let $K$ be an algebraically closed field, and let $I$ be an ideal of
+$K[x_1, \dots, x_n]$. Then $I$ is maximal if and only if
+\[
+  I = (x_1 - c_1, \dots, x_n - c_n),
+\]
+for $c_1, \dots, c_n \in K$.
+\end{coro}
+\begin{proof}
+For $c_1, \dots, c_n \in K$,
+\[
+  \frac{K[x_1, \dots, x_n]}{(x_1 - c_1, \dots, x_n - c_n)} \cong K
+\]
+(Exercise~III.4.12) is a field; therefore $(x_1 - c_1, \dots, x_n - c_n)$
+is maximal. Conversely, let $\mathfrak{m}$ be a maximal ideal in
+$K[x_1, \dots, x_n]$, so that the quotient is a field and the natural map
+\[
+  K \to L := \frac{K[x_1, \dots, x_n]}{\mathfrak{m}}
+\]
+is a field extension. The field $L$ is finitely generated as a
+$K$-algebra; therefore $K \subseteq L$ is an algebraic extension by
+\cref{thm:fields:2.9}. Since $K$ is algebraically closed, this implies
+that $L = K$ (\cref{lem:fields:2.1}); therefore, there is a surjective
+homomorphism
+\[
+  \phi : K[x_1, \dots, x_n] \to K
+\]
+such that $\mathfrak{m} = \ker\phi$. Let $c_i := \phi(x_i)$. Then
+\[
+  (x_1 - c_1, \dots, x_n - c_n) \subseteq \ker\phi = \mathfrak{m};
+\]
+but $(x_1 - c_1, \dots, x_n - c_n)$ is maximal, so this implies
+$\mathfrak{m} = (x_1 - c_1, \dots, x_n - c_n)$, as needed.
+\end{proof}
+Note how very (trivially) false the statement of \cref{coro:fields:2.10}
+is over fields which are not algebraically closed: $(x^2 + 1)$ is maximal
+in $\R[x]$. No such silliness may occur over $\C$, for any number of
+variables.
 
 \subsection{A little affine algebraic geometry}
 \label{subsec:fields:a-little-affine-algebraic-geometry}
