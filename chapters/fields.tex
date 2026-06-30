@@ -1020,252 +1020,255 @@ itself a simple transcendental extension of $k$; that is, it is purely
 transcendental (Exercise~1.29).
 \end{exer}
 
-\section{Algebraic closure, Nullstellensatz, and a little algebraic}
+\section{Algebraic closure, Nullstellensatz, and a little algebraic
+geometry}
 \label{sec:fields:algebraic-closure-nullstellensatz-and-a-little-algebraic}
 
-% geometry
-% One of the most important extensions of a field k is its algebraic closure k
-% \subseteq  k; this
-% was mentioned already in \S{}V.5.2, and we can now prove that k exists and is
-% unique
-% (up to isomorphism). Once this circle of ideas is approached, the temptation to
-% say
-% a few words about the important result known as Hilbert's Nullstellensatz, at
-% the
-% cost of a small digression into algebraic geometry, will simply be irresistible.
+One of the most important extensions of a field $k$ is its algebraic
+closure $k \subseteq \overline{k}$; this was mentioned already in
+\S{}V.5.2, and we can now prove that $\overline{k}$ exists and is unique
+(up to isomorphism). Once this circle of ideas is approached, the
+temptation to say a few words about the important result known as
+Hilbert's Nullstellensatz, at the cost of a small digression into
+algebraic geometry, will simply be irresistible.
 
 \subsection{Algebraic closure}
 \label{subsec:fields:algebraic-closure}
-% Recall (Definition V.5.9) that a field K is algebraically
+Recall (Definition~V.5.9) that a field $K$ is algebraically closed if all
+irreducible polynomials in $K[x]$ have degree $1$, that is, if every
+polynomial in $K[x]$ factors completely as a product of linear terms.
+Equivalently (Exercise~III.4.21) every maximal ideal in $K[x]$ is of the
+form $(x - c)$, for $c \in K$. Now that we have a little more vocabulary,
+we can recast this definition yet again, as follows.
+\begin{lem}{}{fields:2.1}
+For a field $K$, the following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+  \item $K$ is algebraically closed.
+  \item $K$ has no nontrivial algebraic extensions.
+  \item If $K \subseteq L$ is any extension and $\alpha \in L$ is
+    algebraic over $K$, then $\alpha \in K$.
+\end{enumerate}
+\end{lem}
+The proof is a straightforward application of the definitions and a good
+exercise (Exercise~2.1).
+\begin{defn}{}{fields:2.2}
+An \emph{algebraic closure} of a field $k$ is an algebraic extension
+$k \subseteq \overline{k}$ such that $\overline{k}$ is algebraically
+closed.
+\end{defn}
+Of course, every polynomial $f(x) \in k[x]$ will split into linear factors
+over $\overline{k}$: so does every polynomial in the much larger
+$\overline{k}[x]$, as $\overline{k}$ is algebraically closed. The
+requirement that $k \subseteq \overline{k}$ be algebraic ensures that no
+other intermediate field $L$,
+\[
+  k \subseteq L \subsetneq \overline{k},
+\]
+may be algebraically closed: indeed, $L \subseteq \overline{k}$ would be a
+nontrivial algebraic extension, contradicting \cref{lem:fields:2.1}. In
+fact, the only subfield of $\overline{k}$ containing all roots of all
+nonconstant polynomials in $k[x]$ is $\overline{k}$ itself
+(Exercise~2.2); thus, the algebraic closure of a field is `as small as
+possible' subject to this requirement. Not surprisingly, $\overline{k}$
+turns out to be unique up to isomorphism, so that we can speak of
+\emph{the} algebraic closure of $k$.
+\begin{thm}{}{fields:2.3}
+Every field $k$ admits an algebraic closure $k \subseteq \overline{k}$;
+this extension is unique up to isomorphism.
+\end{thm}
+Concerning existence, the idea is to construct `by hand' a huge extension
+$K$ of $k$ where every polynomial $f(x) \in k[x]$ factors completely. The
+elements of $K$ which are algebraic over $k$ will form an algebraic
+closure of $k$.
 
-% closed if all irreducible polynomials in K[x] have degree 1, that is, if every
-% polyno-
-% mial in K[x] factors completely as a product of linear terms. Equivalently
-% (Exer-
-% cise III.4.21) every maximal ideal in K[x] is of the form (x - c), for c \in  K.
-% Now that we have a little more vocabulary, we can recast this definition yet
-% again, as follows.
-% Lemma 2.1. For a field K, the following are equivalent:
-% \bullet  K is algebraically closed.
-% \bullet  K has no nontrivial algebraic extensions.
-% \bullet  If K \subseteq  L is any extension and \alpha  \in  L is algebraic over K, then \alpha  \in  K.
-% The proof is a straightforward application of the definitions and a good
-% exercise
-% (Exercise 2.1).
-% Definition 2.2. An algebraic closure of a field k is an algebraic extension k
-% \subseteq  k
-% such that k is algebraically closed.
-%  ?
-% Of course, every polynomial f (x) \in  k[x] will split into linear factors over
-% k: so
-% does every polynomial in the much larger k[x], as k is algebraically closed. The
-% requirement that k \subseteq  k be algebraic ensures that no other intermediate
-% field L,
-% k \subseteq  L ? k,
-% may be algebraically closed: indeed, L \subseteq  k would be a nontrivial
-% algebraic exten-
-% sion, contradicting Lemma 2.1. In fact, the only subfield of k containing all
-% roots
-% of all nonconstant polynomials in k[x] is k itself (Exercise 2.2); thus, the
-% algebraic
-% closure of a field is `as small as possible' subject to this requirement. Not
-% surpris-
-% ingly, k turns out to be unique up to isomorphism, so that we can speak of the
-% algebraic closure of k.
-% Theorem 2.3. Every field k admits an algebraic closure k \subseteq  k; this
-% extension is
-% unique up to isomorphism.
-% Concerning existence, the idea is to construct `by hand' a huge extension K
-% of k where every polynomial f (x) \in  k[x] factors completely. The elements of
-% K
-% which are algebraic over k will form an algebraic closure of k.
-% The construction is done in steps, each step including `one more root' of all
-% nonconstant polynomials in k[x]. Here is a formalization of this step.
-% Lemma 2.4. Let k be a field. Then there exists an extension k \subseteq  K such
-% that
-% every nonconstant polynomial f (x) \in  k[x] has at least one root in K.
-% Proof. (This construction is apparently due to Emil Artin.) Consider a set T =
-% {tf } in bijection with the set of nonconstant monic polynomials f (x) \in
-% k[x], and
-% let k[T ] be the corresponding polynomial ring5 in all the indeterminates tf .
-% Let
-% I \subseteq  k[T ] be the ideal generated by all polynomials f (tf ).
-% Then I is a proper ideal. Indeed, otherwise we could write
-% ?
-%  n
-% (*)
-%  1=
-%  ai \cdot  fi (tfi ),
-% i=1
-% where ai \in  k[T ]. I claim that this cannot be done: indeed, we can construct
-% an extension k \subseteq  F where the polynomials f1 (x), . . . , fn (x) have
-% roots \alpha 1 , . . . , \alpha n ,
-% 5 Here is another rare occasion where we need to consider polynomial rings with
-% possibly infin-
-% itely many indeterminates. An element of k[T ] is simply an ordinary polynomial
-% with coefficients
-% in k, involving a finite number of indeterminates from T .
-% respectively (apply Proposition V.5.7 n times); view (*) as an identity in F [T
-% ],
-% and plug in tfi = \alpha i, obtaining
-% ?
-%  n
-%  ?
-%  n
-% 1=
-%  ai \cdot  fi (\alpha i ) =
-%  ai \cdot  0 = 0,
-% i=1
-%  i=1
-% which is nonsense.
-% Since I is proper, it is contained in a maximal ideal m (Proposition V.3.5).
-% Thus, we obtain a field extension
-% k[T ]
-% k \subseteq  K :=
-%  ;
-% m
-% by construction every nonconstant monic (and hence every nonconstant) polyno-
-% mial f (x) has a root in K, namely the coset of tf .
-%  ?
-% The field constructed in Lemma 2.4 contains at least one root of each noncon-
-% stant polynomial f (x) \in  k[x], but this is not good enough: we are seeking a
-% field
-% which contains all roots of such polynomials. Equivalently, not only should f
-% (x)
-% have (at least) one linear factor x - \alpha  in K[x], but we need the quotient
-% polynomial
-% f (x)/(x - \alpha ) \in  K[x] to have a linear factor and the quotient by that
-% new factor to
-% have one, etc. This prompts us to consider a whole chain of extensions
-% k \subseteq  K1 \subseteq  K2 \subseteq  K3 \subseteq  \dots 
-% where K1 is obtained from k by applying Lemma 2.4, K2 is similarly obtained
-% from K1 , etc.
-% Now consider the union L of this chain6 . For every two a, b \in  L, there is an
-% i
-% such that a, b \in  Ki; we can define a + b, a \cdot  b in L by adopting their
-% definition in Ki ,
-% and the result does not depend on the choice of i. It follows easily that L is a
-% field.
-% Claim 2.5. The field L is algebraically closed.
-% Proof. If f (x) \in  L[x] is a nonconstant polynomial, then f (x) \in  Ki [x]
-% for some i;
-% hence f (x) has a root in Ki+1 \subseteq  L. That is, every nonconstant
-% polynomial in L[x]
-% has a root in L, as needed.
-%  ?
-% Proof of the existence of algebraic closures. The existence of algebraic clo-
-% sures is now completely transparent, because of the following simple
-% observation:
-% Lemma 2.6. Let k \subseteq  L be a field extension, with L algebraically closed.
-% Let
-% k := {\alpha  \in  L | \alpha  is algebraic over k}.
-% Then k is an algebraic closure of k.
-% The construction reviewed above provides us with an algebraically closed field L
-% containing any given field k, so the lemma is all we need to prove.
-% By Corollary 1.16, k is a field, and the extension k \subseteq  k is
-% tautologically alge-
-% braic. To verify that k is algebraically closed, let k \subseteq  k(\alpha ) be
-% a simple algebraic
-% extension. The minimal polynomial of \alpha  has a root in L since L is
-% algebraically
-% 6 This is an example of direct limit, a notion which we will introduce more
-% formally in
-% \S{}VIII.1.4.
-% closed, so by versality (Proposition V.5.7) there exists an embedding k(\alpha )
-% \subseteq  L. We
-% can then view \alpha  as an element of L; k \subseteq  k \subseteq  k(\alpha )
-% is a composition of algebraic ex-
-% tensions, so k \subseteq  k(\alpha ) is algebraic (Corollary 1.18), and in
-% particular \alpha  is algebraic
-% over k. But then \alpha  \in  k, by definition of the latter. It follows that k
-% is algebraically
-% closed, by Lemma 2.1.
-%  ?
-% Remark 2.7. Zorn's lemma was sneakily used in this proof (we used the existence
-% of maximal ideals, which relies upon Zorn's lemma), and it is natural to wonder
-% whether the existence of algebraic closures may be another statement equivalent
-% to
-% the axiom of choice. Apparently, this is not the case7 .
-%  ?
-% Next, we deal with uniqueness. It may be tempting to try to set things up
-% in such a way that algebraic closures would end up being solutions to a
-% universal
-% problem; this would guarantee uniqueness by abstract nonsense. However, we run
-% into the same obstacle encountered in Proposition V.5.7: morphisms between ex-
-% tensions depend on choices of roots of polynomials, so that algebraic closures
-% are
-% not `universal' in the most straightforward sense of the term.
-% Therefore, a bit of independent work is needed.
-% Lemma 2.8. Let k \subseteq  L be a field extension, with L algebraically closed.
-% Let k \subseteq  F
-% be any algebraic extension. Then there exists a morphism of extensions i : F \to
-% L.
-% As pointed out above, i is by no means unique!
-% Proof. This argument also relies on Zorn's lemma. Consider the set Z of homo-
-% morphisms
-% iK : K \to  L
-% where K is an intermediate field, k \subseteq  K \subseteq  F , and iK restricts
-% to the identity on k;
-% Z is nonempty, since the extension ik : k \subseteq  L defines an element of Z.
-% We give a
-% poset structure to Z by defining
-% iK ? iK ?
-% if K \subseteq  K \setminus  \subseteq  F and iK ? restricts to iK on K. To
-% verify that every chain C in Z has
-% an upper bound in Z, let KC be the union of the sources of all iK \in  C (KC is
-% clearly
-% a field); if \alpha  \in  KC , define iKC (\alpha ) to be iK (\alpha ), where iK
-% is any element of C such
-% that \alpha  \in  K. This prescription is clearly independent of the chosen K
-% and defines
-% a homomorphism KC \to  L restricting to the identity on k. This homomorphism is
-% an upper bound for C.
-% By Zorn's lemma, Z admits a maximal element iG , corresponding to an inter-
-% mediate field k \subseteq  G \subseteq  F . Let H = iG (G) be the image of G in
-% L.
-% I claim that G = F : this will prove the statement, because it will imply that
-% there is a homomorphism iF : F \to  L extending the identity on k.
-% Arguing by contradiction, assume that there exists an \alpha  \in  F \setminus
-% G, and consider
-% the extension G \subseteq  G(\alpha ). Since \alpha  \in  F is algebraic over k,
-% it is algebraic over G;
-% 7 Allegedly, the existence of algebraic closures is a consequence of the
-% compactness theorem
-% for first-order logic, which is known to be weaker than the axiom of choice.
-% thus, it is a root of an irreducible polynomial g(x) \in  G[x]. Consider the
-% induced
-% homomorphism
-% iG : G[x] \to  H[x],
-% and let h(x) = iG(g(x)). Then h(x) is an irreducible polynomial over H, and it
-% has
-% a root \beta  in L (this is where we use the hypothesis that L is algebraically
-% closed!).
-% We are in the situation considered in Proposition 1.5: we have an isomorphism of
-% fields iG : G \to  H; we have simple extensions G(\alpha ), H(\beta ); and
-% \alpha , \beta  are roots of
-% irreducible polynomials g(x), h(x) = iG (g(x)). By Proposition 1.5, iG lifts to
-% an
-% isomorphism
-% iG(\alpha ) : G(\alpha ) \to  H(\beta ) \subseteq  L
-% sending \alpha  to \beta . This contradicts the maximality of iG ; hence G = F ,
-% concluding
-% the argument.
-%  ?
-% Proof of uniqueness of algebraic closures. Let k \subseteq  k, k \subseteq  k1
-% be two algebraic
-% closures of k; we have to prove that there exists an isomorphism k 1 \to  k
-% extending
-% the identity on k.
-% Since k \subseteq  k1 is algebraic and k is algebraically closed, by Lemma 2.8
-% there
-% exists a homomorphism i : k 1 \to  k extending the identity on k; this
-% homomorphism
-% is trivially injective, since k1 is a field. It is also surjective, by Lemma
-% 2.1: oth-
-% erwise k1 \subseteq  k is a nontrivial algebraic extension, contradicting the
-% fact that k1 is
-% algebraically closed. Therefore i is an isomorphism, as needed.
-%  ?
+The construction is done in steps, each step including `one more root' of
+all nonconstant polynomials in $k[x]$. Here is a formalization of this
+step.
+\begin{lem}{}{fields:2.4}
+Let $k$ be a field. Then there exists an extension $k \subseteq K$ such
+that every nonconstant polynomial $f(x) \in k[x]$ has at least one root
+in $K$.
+\end{lem}
+\begin{proof}
+(This construction is apparently due to \name{Emil Artin}.) Consider a
+set $T = \{t_f\}$ in bijection with the set of nonconstant monic
+polynomials $f(x) \in k[x]$, and let $k[T]$ be the corresponding
+polynomial ring\footnote{Here is another rare occasion where we need to
+consider polynomial rings with possibly infinitely many indeterminates. An
+element of $k[T]$ is simply an ordinary polynomial with coefficients in
+$k$, involving a finite number of indeterminates from $T$.} in all the
+indeterminates $t_f$. Let $I \subseteq k[T]$ be the ideal generated by
+all polynomials $f(t_f)$.
+
+Then $I$ is a proper ideal. Indeed, otherwise we could write
+\begin{equation}
+  \label{eq:fields:2.4-star}
+  1 = \sum_{i=1}^{n} a_i \cdot f_i(t_{f_i}),
+\end{equation}
+where $a_i \in k[T]$. I claim that this cannot be done: indeed, we can
+construct an extension $k \subseteq F$ where the polynomials
+$f_1(x), \dots, f_n(x)$ have roots $\alpha_1, \dots, \alpha_n$,
+respectively (apply Proposition~V.5.7 $n$ times); view
+\eqref{eq:fields:2.4-star} as an identity in $F[T]$, and plug in
+$t_{f_i} = \alpha_i$, obtaining
+\[
+  1 = \sum_{i=1}^{n} a_i \cdot f_i(\alpha_i)
+    = \sum_{i=1}^{n} a_i \cdot 0 = 0,
+\]
+which is nonsense.
+
+Since $I$ is proper, it is contained in a maximal ideal $\mathfrak{m}$
+(Proposition~V.3.5). Thus, we obtain a field extension
+\[
+  k \subseteq K := \frac{k[T]}{\mathfrak{m}};
+\]
+by construction every nonconstant monic (and hence every nonconstant)
+polynomial $f(x)$ has a root in $K$, namely the coset of $t_f$.
+\end{proof}
+The field constructed in \cref{lem:fields:2.4} contains at least one root
+of each nonconstant polynomial $f(x) \in k[x]$, but this is not good
+enough: we are seeking a field which contains all roots of such
+polynomials. Equivalently, not only should $f(x)$ have (at least) one
+linear factor $x - \alpha$ in $K[x]$, but we need the quotient polynomial
+$f(x)/(x - \alpha) \in K[x]$ to have a linear factor and the quotient by
+that new factor to have one, etc. This prompts us to consider a whole
+chain of extensions
+\[
+  k \subseteq K_1 \subseteq K_2 \subseteq K_3 \subseteq \dots
+\]
+where $K_1$ is obtained from $k$ by applying \cref{lem:fields:2.4}, $K_2$
+is similarly obtained from $K_1$, etc.
+
+Now consider the union $L$ of this chain\footnote{This is an example of
+direct limit, a notion which we will introduce more formally in
+\S{}VIII.1.4.}. For every two $a, b \in L$, there is an $i$ such that
+$a, b \in K_i$; we can define $a + b$, $a \cdot b$ in $L$ by adopting
+their definition in $K_i$, and the result does not depend on the choice
+of $i$. It follows easily that $L$ is a field.
+\begin{fact}{}{fields:2.5}
+The field $L$ is algebraically closed.
+\end{fact}
+\begin{proof}
+If $f(x) \in L[x]$ is a nonconstant polynomial, then $f(x) \in K_i[x]$
+for some $i$; hence $f(x)$ has a root in $K_{i+1} \subseteq L$. That is,
+every nonconstant polynomial in $L[x]$ has a root in $L$, as needed.
+\end{proof}
+\paragraph{Proof of the existence of algebraic closures.}
+The existence of algebraic closures is now completely transparent, because
+of the following simple observation:
+\begin{lem}{}{fields:2.6}
+Let $k \subseteq L$ be a field extension, with $L$ algebraically closed.
+Let
+\[
+  \overline{k} := \{\alpha \in L \mid \alpha \text{ is algebraic over }
+  k\}.
+\]
+Then $\overline{k}$ is an algebraic closure of $k$.
+\end{lem}
+The construction reviewed above provides us with an algebraically closed
+field $L$ containing any given field $k$, so the lemma is all we need to
+prove.
+
+By \cref{coro:fields:1.16}, $\overline{k}$ is a field, and the extension
+$k \subseteq \overline{k}$ is tautologically algebraic. To verify that
+$\overline{k}$ is algebraically closed, let $k \subseteq \overline{k}(\alpha)$
+be a simple algebraic extension. The minimal polynomial of $\alpha$ has a
+root in $L$ since $L$ is algebraically closed, so by versality
+(Proposition~V.5.7) there exists an embedding $\overline{k}(\alpha)
+\subseteq L$. We can then view $\alpha$ as an element of $L$;
+$k \subseteq \overline{k} \subseteq \overline{k}(\alpha)$ is a
+composition of algebraic extensions, so $k \subseteq \overline{k}(\alpha)$
+is algebraic (\cref{coro:fields:1.18}), and in particular $\alpha$ is
+algebraic over $k$. But then $\alpha \in \overline{k}$, by definition of
+the latter. It follows that $\overline{k}$ is algebraically closed, by
+\cref{lem:fields:2.1}. \qed
+
+\begin{rem}{}{fields:2.7}
+Zorn's lemma was sneakily used in this proof (we used the existence of
+maximal ideals, which relies upon Zorn's lemma), and it is natural to
+wonder whether the existence of algebraic closures may be another
+statement equivalent to the axiom of choice. Apparently, this is not the
+case.\footnote{Allegedly, the existence of algebraic closures is a
+consequence of the compactness theorem for first-order logic, which is
+known to be weaker than the axiom of choice.}
+\end{rem}
+Next, we deal with uniqueness. It may be tempting to try to set things up
+in such a way that algebraic closures would end up being solutions to a
+universal problem; this would guarantee uniqueness by abstract nonsense.
+However, we run into the same obstacle encountered in Proposition~V.5.7:
+morphisms between extensions depend on choices of roots of polynomials,
+so that algebraic closures are not `universal' in the most straightforward
+sense of the term. Therefore, a bit of independent work is needed.
+\begin{lem}{}{fields:2.8}
+Let $k \subseteq L$ be a field extension, with $L$ algebraically closed.
+Let $k \subseteq F$ be any algebraic extension. Then there exists a
+morphism of extensions $i : F \to L$.
+\end{lem}
+As pointed out above, $i$ is by no means unique!
+\begin{proof}
+This argument also relies on Zorn's lemma. Consider the set $\mathcal{Z}$
+of homomorphisms
+\[
+  i_K : K \to L
+\]
+where $K$ is an intermediate field, $k \subseteq K \subseteq F$, and
+$i_K$ restricts to the identity on $k$; $\mathcal{Z}$ is nonempty, since
+the extension $i_k : k \hookrightarrow L$ defines an element of
+$\mathcal{Z}$. We give a poset structure to $\mathcal{Z}$ by defining
+$i_K \leq i_{K'}$ if $K \subseteq K' \subseteq F$ and $i_{K'}$ restricts
+to $i_K$ on $K$. To verify that every chain $\mathcal{C}$ in $\mathcal{Z}$
+has an upper bound in $\mathcal{Z}$, let $K_{\mathcal{C}}$ be the union
+of the sources of all $i_K \in \mathcal{C}$ ($K_{\mathcal{C}}$ is clearly
+a field); if $\alpha \in K_{\mathcal{C}}$, define $i_{K_{\mathcal{C}}}(\alpha)$
+to be $i_K(\alpha)$, where $i_K$ is any element of $\mathcal{C}$ such
+that $\alpha \in K$. This prescription is clearly independent of the
+chosen $K$ and defines a homomorphism $K_{\mathcal{C}} \to L$ restricting
+to the identity on $k$. This homomorphism is an upper bound for
+$\mathcal{C}$.
+
+By Zorn's lemma, $\mathcal{Z}$ admits a maximal element $i_G$,
+corresponding to an intermediate field $k \subseteq G \subseteq F$. Let
+$H = i_G(G)$ be the image of $G$ in $L$.
+
+I claim that $G = F$: this will prove the statement, because it will imply
+that there is a homomorphism $i_F : F \to L$ extending the identity on $k$.
+
+Arguing by contradiction, assume that there exists an $\alpha \in F
+\setminus G$, and consider the extension $G \subseteq G(\alpha)$. Since
+$\alpha \in F$ is algebraic over $k$, it is algebraic over $G$; thus, it
+is a root of an irreducible polynomial $g(x) \in G[x]$. Consider the
+induced homomorphism
+\[
+  i_G : G[x] \to H[x],
+\]
+and let $h(x) = i_G(g(x))$. Then $h(x)$ is an irreducible polynomial
+over $H$, and it has a root $\beta$ in $L$ (this is where we use the
+hypothesis that $L$ is algebraically closed!). We are in the situation
+considered in \cref{prop:fields:1.5}: we have an isomorphism of fields
+$i_G : G \to H$; we have simple extensions $G(\alpha)$, $H(\beta)$; and
+$\alpha$, $\beta$ are roots of irreducible polynomials $g(x)$,
+$h(x) = i_G(g(x))$. By \cref{prop:fields:1.5}, $i_G$ lifts to an
+isomorphism
+\[
+  i_{G(\alpha)} : G(\alpha) \to H(\beta) \subseteq L
+\]
+sending $\alpha$ to $\beta$. This contradicts the maximality of $i_G$;
+hence $G = F$, concluding the argument.
+\end{proof}
+\paragraph{Proof of uniqueness of algebraic closures.}
+Let $k \subseteq \overline{k}$, $k \subseteq \overline{k}_1$ be two
+algebraic closures of $k$; we have to prove that there exists an
+isomorphism $\overline{k}_1 \to \overline{k}$ extending the identity on
+$k$.
+
+Since $k \subseteq \overline{k}_1$ is algebraic and $\overline{k}$ is
+algebraically closed, by \cref{lem:fields:2.8} there exists a
+homomorphism $i : \overline{k}_1 \to \overline{k}$ extending the identity
+on $k$; this homomorphism is trivially injective, since $\overline{k}_1$
+is a field. It is also surjective, by \cref{lem:fields:2.1}: otherwise
+$\overline{k}_1 \subseteq \overline{k}$ is a nontrivial algebraic
+extension, contradicting the fact that $\overline{k}_1$ is algebraically
+closed. Therefore $i$ is an isomorphism, as needed. \qed
 
 \subsection{The Nullstellensatz}
 \label{subsec:fields:the-nullstellensatz}
