@@ -2063,193 +2063,168 @@ a ring $R$, $\operatorname{Spec} R$, back in \S{}III.4.3.
 \section{Geometric impossibilities}
 \label{sec:fields:geometric-impossibilities}
 
-% Very simple considerations in field theory dispose easily of a whole class of
-% geometric
-% problems which had seemed unapproachable for a very long time---problems which
-% preoccupied the Greeks and were only solved in the relatively recent past.
-% These problems have to do with the construction of certain geometric fig-
-% ures with `straightedge and compass', that is, subject to certain very strict
-% rules.
-% The practical utility of these constructions would appear to be absolute zero,
-% but
-% the intellectual satisfaction of being able to thoroughly understand matters
-% which
-% stumped extremely intelligent people for a very long time is well worth the
-% little
-% side trip.
+Very simple considerations in field theory dispose easily of a whole class
+of geometric problems which had seemed unapproachable for a very long
+time---problems which preoccupied the Greeks and were only solved in the
+relatively recent past. These problems have to do with the construction of
+certain geometric figures with `straightedge and compass', that is, subject
+to certain very strict rules. The practical utility of these constructions
+would appear to be absolute zero, but the intellectual satisfaction of being
+able to thoroughly understand matters which stumped extremely intelligent
+people for a very long time is well worth the little side trip.
 
 \subsection{Constructions by straightedge and compass}
 \label{subsec:fields:constructions-by-straightedge-and-compass}
-% We begin with two points
+We begin with two points $O$, $P$ in the ordinary, real plane. You are
+allowed to mark (`construct') more points and other geometric figures in the
+plane, but only according to the following rules:
+\begin{itemize}
+  \item If you have constructed two points $A$, $B$, then you can draw the
+    line joining them (using your straightedge).
+  \item If you have constructed two points $A$, $B$, then you can draw the
+    circle with center at $A$ and containing $B$ (using your compass).
+  \item You can mark any number of points of intersection of any two
+    distinct lines, line and circle, or circles that you have drawn
+    already.
+\end{itemize}
+Performing these actions leads to complex (and beautiful) collections of
+lines and circles; we say that we have `constructed' a geometric figure if
+that figure appears as a subset of the whole picture.
+For example, here is a recipe to construct an equilateral triangle with
+$O$, $P$ as two of its vertices:
+\begin{enumerate}
+  \item draw the circle with center $O$, through $P$;
+  \item draw the circle with center $P$, through $O$;
+  \item let $Q$ be any of the two points of intersection of the two
+    circles;
+  \item draw the lines through $O$, $P$; $O$, $Q$; and $P$, $Q$.
+\end{enumerate}
+Of course $O$, $P$, $Q$ are vertices of an equilateral triangle.
+It is a pleasant exercise to try to come up with a specific sequence of
+basic moves constructing a given figure or geometric configuration. The
+enterprising reader could try to produce the vertices of a pentagon by a
+straightedge-and-compass construction, without looking it up and before we
+learn enough to thwart pure geometric intuition.
+The general question is to decide whether a figure can or cannot be
+constructed this way. Three problems of this kind became famous in
+antiquity:
+\begin{itemize}
+  \item trisecting angles;
+  \item squaring circles;
+  \item doubling cubes.
+\end{itemize}
+For example, one assumes one has already constructed two lines forming an
+angle $\theta$ and asks whether one can construct two lines forming
+$\theta/3$. This is trivially possible for some constructible $\theta$: we
+just constructed an angle of $\pi/3$, so evidently we were able to trisect
+the angle $\pi$; but can this be done for all constructible angles? The
+answer is no. Similarly, it is not possible to construct a square whose
+area equals the area of a (constructible) circle, and it is not possible
+to construct the side of a cube whose volume is twice as large as a cube
+with given (constructible) side.
+Field theory will allow us to establish all this.\footnote{However, for
+the impossibility of squaring circles we will use the transcendence of
+$\pi$, which we are taking on faith.} Later we will return to these
+constructions and study the question of the constructibility of regular
+polygons with a given side: it is very easy to construct equilateral
+triangles (we just did), squares, hexagons; it is not too hard to construct
+pentagons; but the question of which polygons are constructible and which
+are not connects beautifully with deeper questions in field theory.
+The three problems listed above have an illustrious history; they
+apparently date back to at least 414 B.C., if one is to take this fragment
+from \name{Aristophanes}' ``The Birds'' as an indication:\footnote{I thank
+\name{Matilde Marcolli} for the translation. For those who are less
+ignorant than I am: ὀρθῷ μετρήσω κανόνι προστιθεὶς ἵνα, / ὁ κύκλος
+γένηταί σοι τετράγωνος κἂν μέσωι ἀγορά.}
+\begin{quote}
+  \textsc{Meton}: By measuring with a straightedge there \\
+  the circle becomes a square with a court within.
+\end{quote}
+The problems depend on the precise restrictions imposed on the
+constructions. For example, one can trisect angles if one is allowed to
+mark points on the straightedge (thus making it a ruler); in fact, this was
+already known to \name{Archimedes} (Exercise~3.13).
+Translating these geometric problems into algebra requires establishing the
+feasibility of a few basic constructions.
+First of all, one can construct a line containing a given point $A$ and
+perpendicular to a given line $\ell$ (thus, $\ell$ contains at least
+another constructible point $B$). For this, draw the circle with center $A$
+and containing $B$; if this circle only intersects $\ell$ at $B$, then the
+line through $A$ and $B$ is perpendicular to $\ell$; otherwise, the circle
+intersects $\ell$ at a second point $C$ (whether $A$ is on $\ell$ or not),
+and the line through $A$ perpendicular to $\ell$ may be found by joining
+the two points of intersection $D$, $E$ of the two circles with centers at
+$B$, resp., $C$, and containing $C$, resp., $B$. Applying this
+construction twice gives the line through a point $A$ and parallel to a
+given line, which is often handy.
+Judicious application of these operations allows us to bring a Cartesian
+reference system into the picture. Starting with the initial two points
+$O$, $P$, we can construct perpendicular Cartesian axes centered at $O$,
+with $P$ marking (say) the point $(1,0)$ on the `$x$-axis'; constructing a
+point $A = (x, y)$ is equivalent to constructing its projections $X =
+(x,0)$, $Y = (0,y)$ onto the axes, and in fact it is equivalent to
+constructing the two points $X = (x,0)$ and $Y = (y,0)$. It follows that
+determining which figures are constructible by straightedge and compass is
+equivalent to determining which numbers may be realized as coordinates of a
+constructible point.
+\begin{defn}{}{fields:3.1}
+  A real number $r$ is \emph{constructible} if the point $(r, 0)$ is
+  constructible with straightedge and compass (assuming $O = (0,0)$ and
+  $P = (1,0)$, as above). I will denote by $\mathcal{C}_\mathbb{R}
+  \subseteq \mathbb{R}$ the set of constructible real numbers.
 
-% O, P in the ordinary, real plane. You are allowed to mark (`construct') more
-% points
-% and other geometric figures in the plane, but only according to the following
-% rules:
-% \bullet  If you have constructed two points A, B, then you can draw the line joining
-% them (using your straightedge).
-% \bullet  If you have constructed two points A, B, then you can draw the circle with
-% center at A and containing B (using your compass).
-% \bullet  You can mark any number of points of intersection of any two distinct lines,
-% line and circle, or circles that you have drawn already.
-% Performing these actions leads to complex (and beautiful) collections of lines
-% and
-% circles; we say that we have `constructed' a geometric figure if that figure
-% appears
-% as a subset of the whole picture.
-% For example, here is a recipe to construct an equilateral triangle with O, P as
-% two of its vertices:
-% (1) draw the circle with center O, through P ;
-% (2) draw the circle with center P , through O;
-% (3) let Q be any of the two points of intersection of the two circles;
-% (4) draw the lines through O, P ; O, Q; and P , Q.
-% Of course O, P , Q are vertices of an equilateral triangle.
-% It is a pleasant exercise to try to come up with a specific sequence of basic
-% moves
-% constructing a given figure or geometric configuration. The enterprising reader
-% could try to produce the vertices of a pentagon by a straightedge-and-compass
-% construction, without looking it up and before we learn enough to thwart pure
-% geometric intuition.
-% The general question is to decide whether a figure can or cannot be constructed
-% this way. Three problems of this kind became famous in antiquity:
-% \bullet  trisecting angles;
-% \bullet  squaring circles;
-% \bullet  doubling cubes.
-% For example, one assumes one has already constructed two lines forming an angle
-% \theta
-% and asks whether one can construct two lines forming \theta /3. This is
-% trivially possible
-% for some constructible \theta : we just constructed an angle of \pi /3, so
-% evidently we were
-% able to trisect the angle \pi ; but can this be done for all constructible
-% angles?
-% The answer is no. Similarly, it is not possible to construct a square whose area
-% equals the area of a (constructible) circle, and it is not possible to construct
-% the
-% side of a cube whose volume is twice as large as a cube with given
-% (constructible)
-% side.
-% Field theory will allow us to establish all this13 . Later we will return to
-% these
-% constructions and study the question of the constructibility of regular polygons
-% 13 However, for the impossibility of squaring circles we will use the
-% transcendence of \pi , which
-% we are taking on faith.
-% with a given side: it is very easy to construct equilateral triangles (we just
-% did),
-% squares, hexagons; it is not too hard to construct pentagons; but the question
-% of which polygons are constructible and which are not connects beautifully with
-% deeper questions in field theory.
-% The three problems listed above have an illustrious history; they apparently
-% date back to at least 414 B.C., if one is to take this fragment from
-% Aristophanes'
-% ``The birds'' as an indication:
-% METON: By measuring with a straightedge there
-% the circle becomes a square with a court within.14
-% The problems depend on the precise restrictions imposed on the constructions.
-% For example, one can trisect angles if one is allowed to mark points on the
-% straight-
-% edge (thus making it a ruler ); in fact, this was already known to Archimedes
-% (Ex-
-% ercise 3.13).
-% Translating these geometric problems into algebra requires establishing the fea-
-% sibility of a few basic constructions.
-% First of all, one can construct a line containing a given point A and perpendic-
-% ular to a given line (thus, contains at least another constructible point B).
-% For
-% this, draw the circle with center A and containing B;
-% ---if this circle only intersects
-%  at B, then the line through A and B is perpen-
-% dicular to :
-% A
-% B
-% ---otherwise, the circle intersects
-%  at a second point C (whether A is on
-% or not):
-% 14 I thank Matilde Marcolli for the translation. For those who are less ignorant
-% than I am:
-% o ' \rho \theta \tilde{\omega }\iota  \mu \varepsilon \tau \rho \eta \sigma
-% \omega  \kappa \alpha \nu o\nu \iota  \pi \rho o\sigma \tau \iota \theta
-% \varepsilon \iota \varsigma  ` \iota \nu \alpha
-% ,
-% o ` \kappa \upsilon \kappa \lambda o\varsigma  \gamma \varepsilon \nu \eta \tau
-% \alpha \iota  \sigma o\iota  \tau \varepsilon \tau \rho \alpha \gamma \omega \nu
-% o\varsigma  \kappa \alpha \nu  \mu \varepsilon \sigma \omega \iota  \alpha
-% \gamma o\rho \alpha
-% and once C is determined, the line through A and perpendicular to may be found
-% by joining the two points of intersection D, E of the two circles with centers
-% at B,
-% resp., C, and containing C, resp., B:
-% Applying this construction twice gives the line through a point A and parallel
-% to a given line:
-% A
-% which is often handy.
-% Judicious application of these operations allows us to bring a Cartesian refer-
-% ence system into the picture. Starting with the initial two points O, P , we can
-% construct perpendicular Cartesian axes centered at O, with P marking (say) the
-% point (1, 0) on the `x-axis':
-% and constructing a point A = (x, y) is equivalent to constructing its
-% projections
-% X = (x, 0), Y = (0, y) onto the axes, and in fact it is equivalent to
-% constructing the
-% \setminus two points X = (x, 0) and Y = (y, 0):
-% It follows that determining which figures are constructible by straightedge and
-% compass is equivalent to determining which numbers may be realized as
-% coordinates
-% of a constructible point.
-% Definition 3.1. A real number r is constructible if the point (r, 0) is
-% constructible
-% with straightedge and compass (assuming O = (0, 0) and P = (1, 0), as above). I
-% will denote by CR \subseteq  R the set of constructible real numbers.
-%  ?
-% Also, we can identify the real plane with C, placing O at 0 and P at 1, and we
-% say that z = x+iy is constructible if the point (x, y) is constructible by
-% straightedge
-% and compass. I will denote by CC \subseteq  C the set of constructible complex
-% numbers.
-% Summarizing the foregoing discussion, we have proved:
-% Lemma 3.2. A point (x, y) is constructible by straightedge and compass if and
-% only
-% if x + iy \in  CC , if and only if x, y \in  CR .
-% The next obvious question is what kind of structure these sets of constructible
-% numbers carry, and this prompts us to look at a few more basic straightedge-and-
-% compass constructions.
-% Lemma 3.3. The subset CR \subseteq  R of constructible numbers is a subfield of
-% R.
-% Likewise, CC is a subfield of C, and in fact CC = CR (i).
-% Proof. The set CR \subseteq  R is nonempty, so in order to show it is a field,
-% we only
-% need to show that it is closed with respect to subtraction and division by a
-% nonzero
-% constructible number (cf. Proposition II.6.2).
-% The reader will check that CR is closed under subtraction (Exercise 3.2). To
-% see that CR is closed under division, let a, b \in  CR, with b = 0. Since A =
-% (0, a) and
-% B = (b, 0) are constructible by hypothesis, we can construct C as the
-% y-intersect
-% of the line through P = (1, 0) and parallel to the line through A and B, as in
-% the
-% following picture15 :
-% 15 In the picture I am assuming a > 0 and b > 1; the reader will check that
-% other possibilities
-% lead to the same conclusion.
-% Since the triangles AOB and COP are similar, we see that C = (0, a/b); it
-% follows
-% that a/b is constructible.
-% The fact that CC is a subfield of C is an immediate consequence of the fact that
-% CR is a field, and the proof of this is left to the enjoyment of the reader
-% (Exercise 3.7).
-% The fact that CC = CR (i) is a restatement of the fact that x + iy \in  CC if
-% and only
-% if x and y are in CR.
-%  ?
-% We may view CR and CC as extensions of Q, drawing a bridge between con-
-% structibility by straightedge and compass and field theory: we will be able to
-% under-
-% stand constructibility of geometric figures if we can understand the field
-% extensions
-% Q \subseteq  CR \subseteq  CC.
-% Happily, we can understand these extensions!
+  Also, we can identify the real plane with $\mathbb{C}$, placing $O$ at
+  $0$ and $P$ at $1$, and we say that $z = x + iy$ is constructible if the
+  point $(x,y)$ is constructible by straightedge and compass. I will denote
+  by $\mathcal{C}_\mathbb{C} \subseteq \mathbb{C}$ the set of constructible
+  complex numbers.
+\end{defn}
+Summarizing the foregoing discussion, we have proved:
+\begin{lem}{}{fields:3.2}
+  A point $(x,y)$ is constructible by straightedge and compass if and only
+  if $x + iy \in \mathcal{C}_\mathbb{C}$, if and only if $x, y \in
+  \mathcal{C}_\mathbb{R}$.
+\end{lem}
+The next obvious question is what kind of structure these sets of
+constructible numbers carry, and this prompts us to look at a few more
+basic straightedge-and-compass constructions.
+\begin{lem}{}{fields:3.3}
+  The subset $\mathcal{C}_\mathbb{R} \subseteq \mathbb{R}$ of constructible
+  numbers is a subfield of $\mathbb{R}$. Likewise, $\mathcal{C}_\mathbb{C}$
+  is a subfield of $\mathbb{C}$, and in fact $\mathcal{C}_\mathbb{C} =
+  \mathcal{C}_\mathbb{R}(i)$.
+\end{lem}
+\begin{proof}
+  The set $\mathcal{C}_\mathbb{R} \subseteq \mathbb{R}$ is nonempty, so in
+  order to show it is a field, we only need to show that it is closed with
+  respect to subtraction and division by a nonzero constructible number
+  (cf.\ Proposition~II.6.2).
+
+  The reader will check that $\mathcal{C}_\mathbb{R}$ is closed under
+  subtraction (Exercise~3.2). To see that $\mathcal{C}_\mathbb{R}$ is
+  closed under division, let $a, b \in \mathcal{C}_\mathbb{R}$, with $b
+  \neq 0$. Since $A = (0, a)$ and $B = (b, 0)$ are constructible by
+  hypothesis, we can construct $C$ as the $y$-intercept of the line
+  through $P = (1, 0)$ and parallel to the line through $A$ and
+  $B$.\footnote{I am assuming $a > 0$ and $b > 1$; the reader will check
+  that other possibilities lead to the same conclusion.} Since the
+  triangles $AOB$ and $COP$ are similar, we see that $C = (0, a/b)$; it
+  follows that $a/b$ is constructible.
+
+  The fact that $\mathcal{C}_\mathbb{C}$ is a subfield of $\mathbb{C}$ is
+  an immediate consequence of the fact that $\mathcal{C}_\mathbb{R}$ is a
+  field, and the proof of this is left to the enjoyment of the reader
+  (Exercise~3.7). The fact that $\mathcal{C}_\mathbb{C} =
+  \mathcal{C}_\mathbb{R}(i)$ is a restatement of the fact that $x + iy \in
+  \mathcal{C}_\mathbb{C}$ if and only if $x$ and $y$ are in
+  $\mathcal{C}_\mathbb{R}$.
+\end{proof}
+We may view $\mathcal{C}_\mathbb{R}$ and $\mathcal{C}_\mathbb{C}$ as
+extensions of $\Q$, drawing a bridge between constructibility by
+straightedge and compass and field theory: we will be able to understand
+constructibility of geometric figures if we can understand the field
+extensions $\Q \subseteq \mathcal{C}_\mathbb{R} \subseteq
+\mathcal{C}_\mathbb{C}$. Happily, we can understand these extensions!
 
 \subsection{Constructible numbers and quadratic extensions}
 \label{subsec:fields:constructible-numbers-and-quadratic-extensions}
