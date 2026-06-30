@@ -2368,174 +2368,177 @@ Here is another example of a `constructive' application of
 
 \subsection{Famous impossibilities}
 \label{subsec:fields:famous-impossibilities}
-% Theorem 3.4 easily settles the three problems men-
-
-% tioned in \S{}3.1, via the following immediate consequence:
-% Corollary 3.6. Let \gamma  \in  CC be a constructible number. Then [Q(\gamma ) :
-% Q] is a power
-% of 2.
-% Proof. By Lemma 3.3 and Theorem 3.4, there exist \delta 1 . . . , \delta k \in
-% R such that
-% \gamma  \in  Q(\delta 1 , . . . , \delta k , i),
-% and each \delta j has degree \leq  2 over Q(\delta 1, . . . , \delta j-1).
-% Repeated application of Proposi-
-% tion 1.10 shows that
-% [Q(\delta 1 , . . . , \delta k , i) : Q]
-% is a power of 2, and since
-% Q \subseteq  Q(\gamma ) \subseteq  Q(\delta 1, . . . , \delta k , i),
-% the statement follows from Corollary 1.11.
-%  ?
-% In particular, constructible real numbers must satisfy the same condition.
-% Consider the problem of trisecting an angle. We know we can construct an
-% angle of 60\circ  (this is a subproduct of the construction of an equilateral
-% triangle).
-% Constructing an angle of 20\circ  is equivalent (Exercise 3.10) to constructing
-% the com-
-% plex number \gamma  on the unit circle and with argument \pi /9:
-% Now \gamma  9 = -1; that is, \gamma  satisfies the polynomial
-% t9 + 1 = (t3 + 1)(t6 - t3 + 1).
-% It does not satisfy t3 + 1; therefore its minimal polynomial over Q is a factor
-% of
-% t6 - t3 + 1.
-% However, this polynomial is irreducible over Q (substitute t ?\to  t - 1, and
-% apply
-% Eisenstein's criterion), so
-% [Q(\gamma ) : Q] = 6.
-% By Corollary 3.6, \gamma  is not constructible. Therefore there exist
-% constructible angles
-% which cannot be trisected.
-% Similarly,
-%  \sqrt 
-%  3 cubes cannot be doubled because that would imply the constructibil-
-% ity of 2, which has degree 3 over Q, contradicting Corollary 3.6.
-% Squaring circles amounts to constructing \pi , and \pi  is not even algebraic
-% (al-
-% though, as I have mentioned, the proof of this fact is not elementary), so this
-% is
-% also not possible.
-% As another example, constructing a regular 7-gon would amount to constructing
-% a 7-th (complex) root of 1, \zeta :
-% By definition, \zeta  satisfies
-% t7 - 1 = (t - 1)(t6 + t5 + \dots  + t + 1);
-% as \zeta  = 1, \zeta  must satisfy the cyclotomic polynomial t6 + \dots  + 1.
-% This is irreducible
-% (Example V.5.19); hence again we find that \zeta  has degree 6 over Q, and
-% Corollary 3.6
-% implies that the regular 7-gon cannot be constructed with straightedge and
-% compass.
-% Of course `7' is not too special: if p is a positive prime integer, the
-% cyclotomic
-% polynomial of degree p - 1 is irreducible (Example V.5.19 again); hence
-% [Q(\zeta p ) : Q] = p - 1,
-% where \zeta p is the complex p-th root of 1 with argument 2\pi /p. Therefore,
-% Corollary 3.6
-% reveals that if p is prime, then the regular p-gon can be constructed only if p
-% - 1 is
-% a power of 2. This is even more restrictive than it looks at first, since if p =
-% 2k + 1
-
+\cref{thm:fields:3.4} easily settles the three problems mentioned in
+\S{}3.1, via the following immediate consequence:
+\begin{coro}{}{fields:3.6}
+  Let $\gamma \in \mathcal{C}_\mathbb{C}$ be a constructible number. Then
+  $[\Q(\gamma) : \Q]$ is a power of $2$.
+\end{coro}
+\begin{proof}
+  By \cref{lem:fields:3.3} and \cref{thm:fields:3.4}, there exist
+  $\delta_1, \dots, \delta_k \in \mathbb{R}$ such that $\gamma \in
+  \Q(\delta_1, \dots, \delta_k, i)$, and each $\delta_j$ has degree $\leq
+  2$ over $\Q(\delta_1, \dots, \delta_{j-1})$. Repeated application of
+  \cref{prop:fields:1.10} shows that $[\Q(\delta_1, \dots, \delta_k, i) :
+  \Q]$ is a power of $2$, and since $\Q \subseteq \Q(\gamma) \subseteq
+  \Q(\delta_1, \dots, \delta_k, i)$, the statement follows from
+  \cref{coro:fields:1.11}.
+\end{proof}
+In particular, constructible real numbers must satisfy the same condition.
+Consider the problem of trisecting an angle. We know we can construct an
+angle of $60^\circ$ (this is a subproduct of the construction of an
+equilateral triangle). Constructing an angle of $20^\circ$ is equivalent
+(Exercise~3.10) to constructing the complex number $\gamma$ on the unit
+circle and with argument $\pi/9$. Now $\gamma^9 = -1$; that is, $\gamma$
+satisfies the polynomial
+\[
+  t^9 + 1 = (t^3 + 1)(t^6 - t^3 + 1).
+\]
+It does not satisfy $t^3 + 1$; therefore its minimal polynomial over $\Q$
+is a factor of $t^6 - t^3 + 1$. However, this polynomial is irreducible
+over $\Q$ (substitute $t \mapsto t-1$, and apply Eisenstein's criterion),
+so $[\Q(\gamma) : \Q] = 6$. By \cref{coro:fields:3.6}, $\gamma$ is not
+constructible. Therefore there exist constructible angles which cannot be
+trisected.
+Similarly, cubes cannot be doubled because that would imply the
+constructibility of $\sqrt[3]{2}$, which has degree $3$ over $\Q$,
+contradicting \cref{coro:fields:3.6}. Squaring circles amounts to
+constructing $\pi$, and $\pi$ is not even algebraic (although, as I have
+mentioned, the proof of this fact is not elementary), so this is also not
+possible.
+As another example, constructing a regular $7$-gon would amount to
+constructing a $7$th (complex) root of $1$, $\zeta$. By definition,
+$\zeta$ satisfies
+\[
+  t^7 - 1 = (t-1)(t^6 + t^5 + \dots + t + 1);
+\]
+as $\zeta \neq 1$, $\zeta$ must satisfy the cyclotomic polynomial $t^6 +
+\dots + 1$. This is irreducible (Example~V.5.19); hence again we find that
+$\zeta$ has degree $6$ over $\Q$, and \cref{coro:fields:3.6} implies that
+the regular $7$-gon cannot be constructed with straightedge and compass.
+Of course $7$ is not too special: if $p$ is a positive prime integer, the
+cyclotomic polynomial of degree $p-1$ is irreducible (Example~V.5.19
+again); hence $[\Q(\zeta_p) : \Q] = p - 1$, where $\zeta_p$ is the complex
+$p$th root of $1$ with argument $2\pi/p$. Therefore, \cref{coro:fields:3.6}
+reveals that if $p$ is prime, then the regular $p$-gon can be constructed
+only if $p - 1$ is a power of $2$. This is even more restrictive than it
+looks at first, since if $p = 2^k + 1$ is prime, then necessarily $k$ is
+itself a power of $2$ (Exercise~3.15). Primes of the form $2^{2^n} + 1$
+are called \emph{Fermat primes}:
+$3, 5, 17, 257, 65537$
+(the `next one', $2^{32} + 1 = 4294967297 = 641 \cdot 6700417$, is not
+prime; in fact, no one knows if there are any other Fermat primes, and yet
+some people conjecture that there are infinitely many).
+These considerations alone do not tell us that if $p$ is a Fermat prime,
+then the regular $p$-gon can be constructed with straightedge and compass;
+but they do tell us that the next case to consider would be $p = 2^4 + 1 =
+17$, and it just so happens that
+\[
+  \cos\frac{2\pi}{17} = \frac{-1 + \sqrt{17}
+    + \sqrt{2(17-\sqrt{17})}
+    + 2\sqrt{17 + 3\sqrt{17}
+      - \sqrt{2(17-\sqrt{17})}
+      - 2\sqrt{2(17+\sqrt{17})}}}{16},
+\]
+as noted by \name{Gauss} at age 19. Therefore (by \cref{thm:fields:3.4})
+the $17$-gon is constructible by straightedge and compass. As I have
+announced already, the situation will be further clarified soon, allowing
+us to bypass heavy-duty trigonometry.
 \subsection*{Exercises}
 
-% is prime, then necessarily k is itself a power of 2 (Exercise 3.15). Primes of
-% the
-% ?
-% form 22 + 1 are called Fermat primes:
-% 3 , 5 , 17 , 257 , 65537
-% (the `next one', 232 + 1 = 4294967297 = 641 \cdot  6700417, is not prime; in
-% fact, no one
-% knows if there are any other Fermat primes, and yet some people conjecture that
-% there are infinitely many).
-% These considerations alone do not tell us that if p is a Fermat prime, then the
-% regular p-gon can be constructed with straightedge and compass; but they do tell
-% us that the next case to consider would be p = 24 + 1 = 17, and it just so
-% happens
-% that
-% \sqrt 
-%  \sqrt 
-%  ?
-%  \sqrt 
-%  \sqrt  \sqrt 
-%  \setminus 
-%  \sqrt 
-%  \sqrt  \setminus 
-%  \sqrt 
-%  \sqrt  \setminus 
-%  \sqrt 
-% 2\pi 
-%  17 - 1 +
-%  2 34 + 6 17 + 2( 17 - 1) 17 - 17 - 8 2 17 + 17 + 2 17 - 17
-% cos
-%  =
-% as noted by Gauss at age 19. Therefore (by Theorem 3.4) the 17-gon is
-% constructible
-% by straightedge and compass. As I have announced already, the situation will be
-% further clarified soon, allowing us to bypass heavy-duty trigonometry.
-% 3.1. ? Prove that if A, B are constructible, then the midpoint of the segment AB
-% is also constructible. Prove that if two lines 1 , 2 are constructible and not
-% parallel,
-% then the two lines bisecting the angles formed by 1 and 2 are also
-% constructible.
-% [\S{}3.2]
-% 3.2. ? Prove that if a, b are constructible numbers, then so is a - b. [\S{}3.1]
-% 3.3. Find an explicit straightedge-and-compass construction for the product of
-% two
-% real numbers.
-% 3.4. Show how to square a triangle by straightedge and compass.
-% 3.5. ? Let F be a subfield of R.
-% \bullet  Let A = (xA , yA ), B = (xB , yB ) be two points in R2 , with xA , yA , xB , yB \in  F .
-% Prove that the line through A, B is defined over F (that is, it admits an
-% equation
-% with coefficients in F ).
-% \bullet  Prove that the circle with center at A and containing B is defined over F .
-% \bullet  Let 1, 2 be two distinct, nonparallel lines in R2, defined over F , and let (x, y) =
-% 1 \cap  2 . Prove that x, y \in  F .
-% [\S{}3.2]
-% 3.6. ? Devise a way to construct a regular pentagon with straightedge and
-% compass.
-% [\S{}3.2]
-% 3.7. ? Identify the (real) plane with C, and place O, P at 0, 1 \in  C. Let CC
-% be the
-% set of all constructible points, viewed as a subset of C. Prove that CC is a
-% subfield
-% of C. [\S{}3.1]
-% 3.8. For \delta  \in  C, \delta  = 0, let \theta \delta  be the argument of
-% \delta  (that is, the angle formed by
-% the line through 0 and \delta  with the real axis). Prove that \delta  \in  CC
-% if and only if |\delta |,
-% cos \theta \delta  , sin \theta \delta  are all constructible real numbers.
-% 3.9. ? Let \gamma 1 , . . . , \gamma k \in  CC be constructible complex numbers,
-% and let K be the
-% field Q(\gamma 1 , . . . , \gamma k ) \subseteq  CC . Let \delta  be a complex
-% number such that [K(\delta ) : K] = 2.
-% Prove that \delta  \in  CC .
-% Deduce that there are no irreducible polynomials of degree 2 over CC and that
-% CC is the smallest subfield of C with this property. [\S{}3.2]
-% 3.10. ? Prove that if two lines in any constructible configuration form an angle
-% of \theta , then the line through O forming an angle of \theta  clockwise with
-% respect to the
-% line OP is constructible.
-% Deduce that an angle \theta  is constructible anywhere in the plane if and only
-% if
-% cos \theta  is constructible. [\S{}3.3]
-% 3.11. ? Verify that \gamma  = cos(2\pi /5) satisfies the relation (*) given in
-% \S{}3.2. (If
-% \sigma  = sin(2\pi /5), note that z = \gamma  + i\sigma  satisfies z 5 - 1.) [\S{}3.2]
-% 3.12. Prove that the angles of 1\circ  and 2\circ  are not constructible. (Hint:
-% Given what
-% we know at this point, you only need to recall that there exist trigonometric
-% formulas
-% for the sum of two angles; the exact shape of these formulas is not important.)
-% For
-% what integers n is the angle n\circ  constructible?
-% 3.13. ? Prove that \alpha  = \theta  in the following picture:
-% 3This says that angles can be trisected if we allow the use of a `ruler', that
-% is, a
-% straightedge with markings (here, the construction works if we can mark a fixed
-% distance of 1 on the ruler). Apparently, this construction was known to
-% Archimedes.
-% [\S{}3.1]
-% 3.14. Prove that the regular 9-gon is not constructible.
-% 3.15. ? Prove that if 2k + 1 is prime, then k is a power of 2. [\S{}3.3]
+\begin{exer}{}{fields:exer:3.1}
+  Prove that if $A$, $B$ are constructible, then the midpoint of the
+  segment $AB$ is also constructible. Prove that if two lines $\ell_1$,
+  $\ell_2$ are constructible and not parallel, then the two lines bisecting
+  the angles formed by $\ell_1$ and $\ell_2$ are also constructible.
+\end{exer}
+\begin{exer}{}{fields:exer:3.2}
+  Prove that if $a$, $b$ are constructible numbers, then so is $a - b$.
+\end{exer}
+\begin{exer}{}{fields:exer:3.3}
+  Find an explicit straightedge-and-compass construction for the product of
+  two real numbers.
+\end{exer}
+\begin{exer}{}{fields:exer:3.4}
+  Show how to square a triangle by straightedge and compass.
+\end{exer}
+\begin{exer}{}{fields:exer:3.5}
+  Let $F$ be a subfield of $\mathbb{R}$.
+  \begin{itemize}
+    \item Let $A = (x_A, y_A)$, $B = (x_B, y_B)$ be two points in
+      $\mathbb{R}^2$, with $x_A, y_A, x_B, y_B \in F$. Prove that the
+      line through $A$, $B$ is defined over $F$ (that is, it admits an
+      equation with coefficients in $F$).
+    \item Prove that the circle with center at $A$ and containing $B$ is
+      defined over $F$.
+    \item Let $\ell_1$, $\ell_2$ be two distinct, nonparallel lines in
+      $\mathbb{R}^2$, defined over $F$, and let $(x, y) = \ell_1 \cap
+      \ell_2$. Prove that $x, y \in F$.
+  \end{itemize}
+\end{exer}
+\begin{exer}{}{fields:exer:3.6}
+  Devise a way to construct a regular pentagon with straightedge and
+  compass.
+\end{exer}
+\begin{exer}{}{fields:exer:3.7}
+  Identify the (real) plane with $\mathbb{C}$, and place $O$, $P$ at $0,
+  1 \in \mathbb{C}$. Let $\mathcal{C}_\mathbb{C}$ be the set of all
+  constructible points, viewed as a subset of $\mathbb{C}$. Prove that
+  $\mathcal{C}_\mathbb{C}$ is a subfield of $\mathbb{C}$.
+\end{exer}
+\begin{exer}{}{fields:exer:3.8}
+  For $\delta \in \mathbb{C}$, $\delta \neq 0$, let $\theta_\delta$ be the
+  argument of $\delta$ (that is, the angle formed by the line through $0$
+  and $\delta$ with the real axis). Prove that $\delta \in
+  \mathcal{C}_\mathbb{C}$ if and only if $|\delta|$, $\cos\theta_\delta$,
+  $\sin\theta_\delta$ are all constructible real numbers.
+\end{exer}
+\begin{exer}{}{fields:exer:3.9}
+  Let $\gamma_1, \dots, \gamma_k \in \mathcal{C}_\mathbb{C}$ be
+  constructible complex numbers, and let $K$ be the field $\Q(\gamma_1,
+  \dots, \gamma_k) \subseteq \mathcal{C}_\mathbb{C}$. Let $\delta$ be a
+  complex number such that $[K(\delta) : K] = 2$. Prove that $\delta \in
+  \mathcal{C}_\mathbb{C}$.
+
+  Deduce that there are no irreducible polynomials of degree $2$ over
+  $\mathcal{C}_\mathbb{C}$ and that $\mathcal{C}_\mathbb{C}$ is the
+  smallest subfield of $\mathbb{C}$ with this property.
+\end{exer}
+\begin{exer}{}{fields:exer:3.10}
+  Prove that if two lines in any constructible configuration form an angle
+  of $\theta$, then the line through $O$ forming an angle of $\theta$
+  clockwise with respect to the line $OP$ is constructible.
+
+  Deduce that an angle $\theta$ is constructible anywhere in the plane if
+  and only if $\cos\theta$ is constructible.
+\end{exer}
+\begin{exer}{}{fields:exer:3.11}
+  Verify that $\gamma = \cos(2\pi/5)$ satisfies the relation $(*)$ given in
+  \S{}3.2. (If $\sigma = \sin(2\pi/5)$, note that $z = \gamma + i\sigma$
+  satisfies $z^5 = 1$.)
+\end{exer}
+\begin{exer}{}{fields:exer:3.12}
+  Prove that the angles of $1^\circ$ and $2^\circ$ are not constructible.
+  (Hint: Given what we know at this point, you only need to recall that
+  there exist trigonometric formulas for the sum of two angles; the exact
+  shape of these formulas is not important.) For what integers $n$ is the
+  angle $n^\circ$ constructible?
+\end{exer}
+\begin{exer}{}{fields:exer:3.13}
+  Prove that $\alpha = \theta$ in the following picture: [the angle
+  trisection construction with a marked ruler, as in \S{}3.1]. This says
+  that angles can be trisected if we allow the use of a `ruler', that is,
+  a straightedge with markings (here, the construction works if we can mark
+  a fixed distance of $1$ on the ruler). Apparently, this construction was
+  known to \name{Archimedes}.
+\end{exer}
+\begin{exer}{}{fields:exer:3.14}
+  Prove that the regular $9$-gon is not constructible.
+\end{exer}
+
+\begin{exer}{}{fields:exer:3.15}
+  Prove that if $2^k + 1$ is prime, then $k$ is a power of $2$.
+\end{exer}
 
 \section{Field extensions, II}
 \label{sec:fields:field-extensions-ii}
