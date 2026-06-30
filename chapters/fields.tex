@@ -2543,311 +2543,228 @@ us to bypass heavy-duty trigonometry.
 \section{Field extensions, II}
 \label{sec:fields:field-extensions-ii}
 
-% It is time to continue our survey of different flavors of field extensions. The
-% keywords
-% here are splitting fields, normal, separable.
+It is time to continue our survey of different flavors of field
+extensions. The keywords here are splitting fields, normal, separable.
 
 \subsection{Splitting fields and normal extensions}
 \label{subsec:fields:splitting-fields-and-normal-extensions}
-% In \S{}2 we have constructed the
+In \S{}2 we have constructed the algebraic closure $\bar{k}$ of any given
+field $k$: every polynomial in $k[x]$ factors as a product of linear terms
+(that is, `splits') in $\bar{k}[x]$, and $\bar{k}$ is the `smallest'
+extension of $k$ satisfying this property.
 
-% algebraic closure k of any given field k: every polynomial in k[x] factors as a
-% product of linear terms (that is, `splits' ) in k[x], and k is the `smallest'
-% extension
-% of k satisfying this property.
-% Here is an analogous, but more modest, requirement: given a subset F \subseteq
-% k[x]
-% of polynomials, construct an extension k \subseteq  F such that every polynomial
-% in F
-% splits as a product of linear terms over F , and require F to be as small as
-% pos-
-% sible with this property. We then call F the splitting field for F . In practice
-% we
-% will only be interested in the case in which F is a finite collection of
-% polynomi-
-% als f1 (x), . . . , fr (x); then requiring that each fi (x) splits over F is
-% equivalent to
-% requiring that the product f 1 (x) \dots  fr (x) splits over F .
-% That is, for our purposes it is not restrictive to assume that F consists of a
-% single polynomial f (x) \in  k[x].
-% Definition 4.1. Let k be a field, and let f (x) \in  k[x] be a polynomial of
-% degree d.
-% The splitting field for f (x) over k is an extension F of k such that
-% ?
-%  d
-% f (x) = c
-%  (x - \alpha i)
-% i=1
-% splits in F [x], and further F = k(\alpha 1 , . . . , \alpha d ) is generated
-% over k by the roots of f (x)
-% in F .
-%  ?
-% Note that it is clear that a splitting field exists: given f (x) \in  k[x], the
-% subfield
-% F \subseteq  k generated over k by the roots of f (x) in k satisfies the
-% requirements in
-% Definition 4.1. But I have written the splitting field, and this is justified by
-% the
-% uniqueness part of the following basic observation, which also evaluates `how
-% big'
-% this extension can be.
-% Lemma 4.2. Let k be a field, and let f (x) \in  k[x]. Then the splitting field F
-% for
-% f (x) over k is unique up to isomorphism, and [F : k] \leq  (deg f )!.
-% In fact, if \iota  : k\setminus  \to  k is any isomorphism of fields and g(x)
-% \in  k \setminus  [x] is such that
-% f (x) = \iota (g(x)), then \iota  extends to an isomorphism of any splitting
-% field of g(x) over
-% \setminus k to any splitting field of f (x) over k.
-% Proof. We first construct explicitly a splitting field and obtain the bound on
-% the
-% degree mentioned in the statement. Then we prove the second part, which implies
-% uniqueness up to isomorphism.
-% The construction of a splitting field and the given bound on the degree are an
-% easy application of our basic simple extension found in Proposition V.5.7.
-% Arguing
-% inductively, assume the splitting field has been constructed and the bound has
-% been proved for all fields and all polynomials of degree (deg f - 1). Let q(t)
-% be any
-% irreducible factor of f (t) over k; then
-% k[t]
-% k \subseteq  F \setminus  :=
-% (q(t))
-% is an extension of degree deg q \leq  deg f , in which q(x) (and hence f (x))
-% has a root
-% (the coset \alpha  of t) and therefore a linear factor x - \alpha . The
-% polynomial h(x) :=
-% f (x)/(x - \alpha ) \in  F \setminus  [x] has degree (deg f - 1); therefore a
-% splitting field F exists for
-% h(x), and
-% [F : F \setminus ] \leq  (deg f - 1)!.
-% The factors of f (x) over F are (x - \alpha ) and the factors of h(x), which are
-% linear; it
-% follows that F is a splitting field for f (x) and
-% [F : k] = [F : F \setminus ][F \setminus  : k] \leq  (deg f )(deg f - 1)! = (deg
-% f )!
-% as stated.
-% To prove that isomorphisms \iota  : k\setminus  \to  k extend to isomorphisms of
-% splitting
-% fields as stated, let G be a splitting field for g(x) and consider the
-% composition
-% k\setminus  \to  k \subseteq  k. Since the extension k \setminus  \subseteq  G
-% is algebraic, by Lemma 2.8 there exists
-% a morphism of extensions \iota  : G \to  k over k \setminus  . Since G is
-% generated over k \setminus  by the
-% roots of g(x) in G, we have
-% \iota (G) = k(\alpha 1 , . . . , \alpha d ) \subseteq  k,
-% where the \alpha i's are the roots of f (x) = \iota (g(x)) in k. Therefore L :=
-% \iota (G) is indepen-
-% dent of the chosen isomorphism \iota  and splitting field G. Applying this
-% observation
-% to the given \iota  and to the identity k \to  k proves the statement (as both G
-% and F
-% are isomorphic to L).
-%  ?
-% Example 4.3. By definition, Q(i) is the splitting field of x2 + 1 over Q, and C
-% is
-% the splitting field for the same polynomial, over R.
-%  ?
-% Example 4.4. The splitting field F of x8 - 1 over Q is generated by \zeta  :=
-% e2\pi i/8 :
-% indeed, the roots of x8 - 1 are all the 8-th roots of 1, and all of them are
-% powers
-% of \zeta :
-% i
-% \zeta 
-% \sqrt 
-% In fact, \zeta  is a root of the polynomial x4 + 1, which is irreducible over Q;
-% therefore
-% F = Q(\zeta ) is `already' the splitting field of x4 + 1. The degree of F over Q
-% is
-% [Q(\zeta ) : Q] = 4,
-% way less than the bounds 8!, 4! obtained in Lemma 4.2.
-% To understand this splitting field (even) better, note that i = \zeta  2 is in F
-% , and
-% \sqrt 
-%  \sqrt 
-%  \sqrt 2 \sqrt 
-% so is 2 = \zeta  + \zeta  7 ; thus F contains Q(i, 2). Conversely, \zeta  = 2 (1
-% + i) \in  Q(i, 2).
-% \sqrt 
-% Therefore, the splitting
-%  field of x4
-%  +1 (a.k.a. the splitting field of x8
-%  -1) is Q(i, 2).
-% \sqrt Analyzing Q \subseteq  Q(i, 2) (as we did for the extension in Example 1.19) shows that
-% its group of automorphisms over Q is Z/2Z \times  Z/2Z.
-%  ?
-% Example 4.5. Variation on the theme: x4 - 1. The situation changes if instead
-% of x4 + 1 we consider x4 - 1: this polynomial factors over Q,
-% x4 - 1 = (x - 1)(x + 1)(x2 + 1),
-% and it follows that the splitting field is the same as for x2 + 1, that is, just
-% Q(i). ?
-% Example 4.6. Variation on the theme: x4 +2. The overoptimistic reader may now
-% hope that the difference between the splitting fields of x4 +1 vs. x4 -1 over Q
-% is just
-% due to the fact that the first polynomial is irreducible over Q and the second
-% is not.
-% This example will nip any such guess in the bud. With notation as in Example
-% 4.4,
-% the roots of x4 + 2 are
-%  \sqrt 
-%  \sqrt 
-%  3 \sqrt 
-%  5 \sqrt 
-%  72\zeta  , 2\zeta  , 2\zeta  , 2\zeta  .
-% \sqrt 
-%  4 \sqrt 
-%  4 3 \sqrt 
-%  4 5 \sqrt 
-%  4 7Therefore, with K = Q( 2\zeta , 2\zeta  , 2\zeta  , 2\zeta  ) the splitting
-%  field of x4 + 2,
-% \sqrt 
-%  \sqrt  \sqrt 
-%  \sqrt 
-% K \subseteq  Q(\zeta , 2) = Q(i, 2, 2) = Q(i, 2).
-% \sqrt 
-%  \sqrt 
-%  4 \sqrt 
-%  4 \sqrt 
-%  4 \sqrt 
-% On the
-%  other hand, 2 = ( 2\zeta )3 /( 2\zeta  3) \in  K; hence i = ( 2\zeta )2 / 2 \in
-%  K; hence
-% \sqrt 
-% 2 \sqrt 
-%  4 \sqrt 
-%  4 \sqrt 
-%  4\zeta  = 2 (1 + i) \in  K; hence 2 = ( 2\zeta )/\zeta  \in  K. Therefore, Q(i,
-%  2) \subseteq  K, and the
-% \sqrt 
-%  4conclusion is that the splitting field of x4 + 2 equals K = Q(i, 2). A simple
-%  degree
-% computation (Exercise 4.3) shows [K : Q] = 8 and in particular the splitting
-% field
-% of x4 + 2 is certainly not isomorphic to the splitting field of x4 + 1.
-%  ?
-% Examples such as these have always left me with the impression that field
-% theory must be rather mysterious: innocent-looking variations on the parameters
-% of a problem may cause dramatic changes in the corresponding field extensions.
-% On
-% the plus side, this hints that field theory can indeed be a very precise tool in
-% (for
-% example) the study of polynomials.
-% Splitting fields will play an important role in the rest of the story. They are
-% even more special than they may appear to be at first: it turns out that not
-% only do
-% they split the given polynomial, but they also automatically split any
-% irreducible
-% polynomial which dares touch them with a root. This makes splitting fields
-% normal
-% extensions:
-% Definition 4.7. A field extension k \subseteq  F is normal if for every
-% irreducible poly-
-% nomial f (x) \in  k[x], f (x) has a root in F if and only if f (x) splits as a
-% product of
-% linear factors over F .
-%  ?
-% Theorem 4.8. A field extension k \subseteq  F is finite and normal if and only
-% if F is the
-% splitting field of some polynomial f (x) \in  k[x].
-% Proof. Assume k \subseteq  F is finite and normal. Then F is finitely generated:
-% F =
-% k(\alpha 1 , . . . , \alpha r ) with \alpha i algebraic over k. Let pi(t) be the
-% minimal polynomial of \alpha i
-% over k. As F is normal over k, each pi(t) splits completely over F , and hence
-% so
-% does f (t) = p1 (t) \dots  pr (t). It follows that F is the splitting field of f
-% (x).
-% Conversely, assume that F is a splitting field for a polynomial f (x) \in  k[x],
-% and
-% let p(x) \in  k[x] be an irreducible polynomial, such that F contains a root
-% \alpha  of p(x).
-% Viewing F as a subfield of the algebraic closure k, let \beta  \in  k be any
-% other root
-% of p(x); we are going to show that \beta  \in  F . This will prove that F
-% contains all roots
-% of p(x), implying that k \subseteq  F is normal, and k \subseteq  F is finite by
-% Lemma 4.2.
-% By Proposition 1.5, there exists an isomorphism \iota  : k(\alpha ) \to  k(\beta
-% ) extending the
-% identity on k and sending \alpha  ?\to  \beta . We also consider the subfield F
-% (\beta ) \subseteq  k, viewed
-% as an extension of k(\beta ). Putting everything in one diagram:
-% k(\alpha ) ?
-%  ?
-%  / F ??
-%  / k
-% k) ? n P u n P n
-%  P
-%  n
-%  P n
-%  P n
-%  P 7
-% '
-%  k(\beta ) \sqcup 
-%  \iota 
-%  ?
-%  ?
-%  / F (\beta ) ? ?
-%  / k
-% (Note: If we join the two copies of k on the right by the identity map, the
-% corre-
-% sponding diagram does not commute: \iota  sends \alpha  \in  k in the top row to
-% \beta  \in  k in
-% the bottom row.) Now observe that F may be viewed as the splitting field of f
-% (x)
-% over k(\alpha ): indeed, it contains all the roots of f (x) and is generated
-% over k (and
-% hence over k(\alpha )) by these roots. By the same token, F (\beta ) is the
-% splitting field
-% for f (x) over k(\beta ). By Lemma 4.2, \iota  extends to an isomorphism \iota
-% \setminus  : F \to  F (\beta ).
-% Since \iota  restricts to the identity on k, \iota \setminus  is an isomorphism
-% of k-vector spaces; in
-% particular, dim k F = dimk F (\beta ) (keep in mind that splitting fields are
-% finite exten-
-% sions).
-% Now consider the different k-linear map of k-vector spaces i : F \to  F (\beta )
-% simply
-% given by the inclusion within k:
-% k \subseteq  F \subseteq  F (\beta ) \subseteq  k.
-% Since F and F (\beta ) are k-vector spaces of the same finite dimension, i must
-% also be
-% an isomorphism. In other words,
-% [F (\beta ) : F ] = 1;
-% that is, \beta  \in  F as needed.
-%  ?
-% Remark 4.9. This argument is somewhat delicate. With notation as in the proof,
-% the diagram
-% k(\alpha ) ?
-%  ?
-%  / F
-% \iota 
-% \sqcup  ?
-%  ?
-% k(\beta )is commutative, while the diagram
-% ?
-%  ?
-% k(\alpha )/\iota ?
-% \sqcup 
-% F (\beta )
-% / F
-% \iota 
-% \sqcup  ?
-%  ?
-% k(\beta )/i
-% \sqcup 
-% F (\beta )
-% is not commutative if \beta  = \alpha . Indeed, \iota  sends \alpha  to \beta ,
-% while i sends \alpha  to \alpha . The
-% key point in the argument is the observation that if there exists one
-% isomorphism
-% between two finite-dimensional vector spaces V , W , then every injective linear
-% map
-% V \to  W must be an isomorphism. Finite dimensionality is necessary in order to
-% draw this conclusion; cf. Exercise VI.6.5.
-%  ?
+Here is an analogous, but more modest, requirement: given a subset $\mathcal{F}
+\subseteq k[x]$ of polynomials, construct an extension $k \subseteq F$ such
+that every polynomial in $\mathcal{F}$ splits as a product of linear terms
+over $F$, and require $F$ to be as small as possible with this property. We
+then call $F$ the \emph{splitting field} for $\mathcal{F}$. In practice we
+will only be interested in the case in which $\mathcal{F}$ is a finite
+collection of polynomials $f_1(x), \dots, f_r(x)$; then requiring that
+each $f_i(x)$ splits over $F$ is equivalent to requiring that the product
+$f_1(x) \cdots f_r(x)$ splits over $F$. That is, for our purposes it is
+not restrictive to assume that $\mathcal{F}$ consists of a single polynomial
+$f(x) \in k[x]$.
+\begin{defn}{}{fields:4.1}
+  Let $k$ be a field, and let $f(x) \in k[x]$ be a polynomial of degree
+  $d$. The \emph{splitting field} for $f(x)$ over $k$ is an extension $F$
+  of $k$ such that
+  \[
+    f(x) = c \prod_{i=1}^d (x - \alpha_i)
+  \]
+  splits in $F[x]$, and further $F = k(\alpha_1, \dots, \alpha_d)$ is
+  generated over $k$ by the roots of $f(x)$ in $F$.
+\end{defn}
+Note that it is clear that a splitting field exists: given $f(x) \in k[x]$,
+the subfield $F \subseteq \bar{k}$ generated over $k$ by the roots of
+$f(x)$ in $\bar{k}$ satisfies the requirements in \cref{defn:fields:4.1}.
+But I have written \emph{the} splitting field, and this is justified by the
+uniqueness part of the following basic observation, which also evaluates
+`how big' this extension can be.
+\begin{lem}{}{fields:4.2}
+  Let $k$ be a field, and let $f(x) \in k[x]$. Then the splitting field
+  $F$ for $f(x)$ over $k$ is unique up to isomorphism, and $[F:k] \leq
+  (\deg f)!$.
+
+  In fact, if $\iota : k' \to k$ is any isomorphism of fields and $g(x)
+  \in k'[x]$ is such that $f(x) = \iota(g(x))$, then $\iota$ extends to
+  an isomorphism of any splitting field of $g(x)$ over $k'$ to any
+  splitting field of $f(x)$ over $k$.
+\end{lem}
+\begin{proof}
+  We first construct explicitly a splitting field and obtain the bound on
+  the degree mentioned in the statement. Then we prove the second part,
+  which implies uniqueness up to isomorphism.
+
+  The construction of a splitting field and the given bound on the degree
+  are an easy application of our basic simple extension found in
+  Proposition~V.5.7. Arguing inductively, assume the splitting field has
+  been constructed and the bound has been proved for all fields and all
+  polynomials of degree $(\deg f - 1)$. Let $q(t)$ be any irreducible
+  factor of $f(t)$ over $k$; then
+  \[
+    k \subseteq F' := \frac{k[t]}{(q(t))}
+  \]
+  is an extension of degree $\deg q \leq \deg f$, in which $q(x)$ (and
+  hence $f(x)$) has a root (the coset $\alpha$ of $t$) and therefore a
+  linear factor $x - \alpha$. The polynomial $h(x) := f(x)/(x - \alpha)
+  \in F'[x]$ has degree $(\deg f - 1)$; therefore a splitting field $F$
+  exists for $h(x)$, and $[F : F'] \leq (\deg f - 1)!$. The factors of
+  $f(x)$ over $F$ are $(x - \alpha)$ and the factors of $h(x)$, which are
+  linear; it follows that $F$ is a splitting field for $f(x)$ and
+  \[
+    [F : k] = [F : F'][F' : k] \leq (\deg f)(\deg f - 1)! = (\deg f)!
+  \]
+  as stated.
+  To prove that isomorphisms $\iota : k' \to k$ extend to isomorphisms of
+  splitting fields as stated, let $G$ be a splitting field for $g(x)$ and
+  consider the composition $k' \to k \subseteq \bar{k}$. Since the
+  extension $k' \subseteq G$ is algebraic, by \cref{lem:fields:2.8} there
+  exists a morphism of extensions $\tilde\iota : G \to \bar{k}$ over $k'$.
+  Since $G$ is generated over $k'$ by the roots of $g(x)$ in $G$, we have
+  \[
+    \tilde\iota(G) = k(\alpha_1, \dots, \alpha_d) \subseteq \bar{k},
+  \]
+  where the $\alpha_i$'s are the roots of $f(x) = \iota(g(x))$ in
+  $\bar{k}$. Therefore $L := \tilde\iota(G)$ is independent of the chosen
+  isomorphism $\iota$ and splitting field $G$. Applying this observation to
+  the given $\iota$ and to the identity $k \to k$ proves the statement (as
+  both $G$ and $F$ are isomorphic to $L$).
+\end{proof}
+\begin{exam}{}{fields:exam:4.3}
+  By definition, $\Q(i)$ is the splitting field of $x^2 + 1$ over $\Q$,
+  and $\mathbb{C}$ is the splitting field for the same polynomial, over
+  $\mathbb{R}$.
+\end{exam}
+\begin{exam}{}{fields:exam:4.4}
+  The splitting field $F$ of $x^8 - 1$ over $\Q$ is generated by $\zeta :=
+  e^{2\pi i/8}$: indeed, the roots of $x^8 - 1$ are all the $8$th roots of
+  $1$, and all of them are powers of $\zeta$. In fact, $\zeta$ is a root
+  of the polynomial $x^4 + 1$, which is irreducible over $\Q$; therefore
+  $F = \Q(\zeta)$ is `already' the splitting field of $x^4 + 1$. The
+  degree of $F$ over $\Q$ is $[\Q(\zeta) : \Q] = 4$, way less than the
+  bounds $8!$, $4!$ obtained in \cref{lem:fields:4.2}.
+
+  To understand this splitting field even better, note that $i = \zeta^2$
+  is in $F$, and so is $\sqrt{2} = \zeta + \zeta^7$; thus $F$ contains
+  $\Q(i, \sqrt{2})$. Conversely, $\zeta = \frac{\sqrt{2}}{2}(1 + i) \in
+  \Q(i, \sqrt{2})$. Therefore, the splitting field of $x^4 + 1$ (a.k.a.\
+  the splitting field of $x^8 - 1$) is $\Q(i, \sqrt{2})$. Analyzing $\Q
+  \subseteq \Q(i, \sqrt{2})$ (as we did for the extension in
+  \cref{exam:fields:exam:1.19}) shows that its group of automorphisms over
+  $\Q$ is $\Z/2\Z \times \Z/2\Z$.
+\end{exam}
+\begin{exam}{}{fields:exam:4.5}
+  Variation on the theme: $x^4 - 1$. The situation changes if instead of
+  $x^4 + 1$ we consider $x^4 - 1$: this polynomial factors over $\Q$,
+  \[
+    x^4 - 1 = (x-1)(x+1)(x^2+1),
+  \]
+  and it follows that the splitting field is the same as for $x^2 + 1$,
+  that is, just $\Q(i)$.
+\end{exam}
+\begin{exam}{}{fields:exam:4.6}
+  Variation on the theme: $x^4 + 2$. The overoptimistic reader may now
+  hope that the difference between the splitting fields of $x^4 + 1$ vs.\
+  $x^4 - 1$ over $\Q$ is just due to the fact that the first polynomial is
+  irreducible over $\Q$ and the second is not. This example will nip any
+  such guess in the bud. With notation as in \cref{exam:fields:exam:4.4},
+  the roots of $x^4 + 2$ are
+  \[
+    \sqrt[4]{2}\,\zeta,\quad
+    \sqrt[4]{2}\,\zeta^3,\quad
+    \sqrt[4]{2}\,\zeta^5,\quad
+    \sqrt[4]{2}\,\zeta^7.
+  \]
+  Therefore, with $K = \Q(\sqrt[4]{2}\,\zeta, \sqrt[4]{2}\,\zeta^3,
+  \sqrt[4]{2}\,\zeta^5, \sqrt[4]{2}\,\zeta^7)$ the splitting field of
+  $x^4 + 2$,
+  \[
+    K \subseteq
+    \Q\bigl(\zeta,\sqrt[4]{2}\bigr)
+    = \Q\bigl(i,\sqrt{2},\sqrt[4]{2}\bigr)
+    = \Q\bigl(i,\sqrt[4]{2}\bigr).
+  \]
+  On the other hand, $\sqrt{2} = (\sqrt[4]{2}\,\zeta)^3/(\sqrt[4]{2}\,
+  \zeta^3) \in K$; hence $i = (\sqrt[4]{2}\,\zeta)^2/\sqrt{2} \in K$;
+  hence $\zeta = \frac{\sqrt{2}}{2}(1+i) \in K$; hence $\sqrt[4]{2} =
+  (\sqrt[4]{2}\,\zeta)/\zeta \in K$. Therefore, $\Q(i, \sqrt[4]{2})
+  \subseteq K$, and the conclusion is that the splitting field of $x^4 + 2$
+  equals $K = \Q(i, \sqrt[4]{2})$. A simple degree computation
+  (Exercise~4.3) shows $[K : \Q] = 8$, and in particular the splitting
+  field of $x^4 + 2$ is certainly not isomorphic to the splitting field of
+  $x^4 + 1$.
+\end{exam}
+Examples such as these have always left me with the impression that field
+theory must be rather mysterious: innocent-looking variations on the
+parameters of a problem may cause dramatic changes in the corresponding
+field extensions. On the plus side, this hints that field theory can indeed
+be a very precise tool in (for example) the study of polynomials.
+
+Splitting fields will play an important role in the rest of the story. They
+are even more special than they may appear to be at first: it turns out
+that not only do they split the given polynomial, but they also
+automatically split any irreducible polynomial which dares touch them with
+a root. This makes splitting fields normal extensions:
+\begin{defn}{}{fields:4.7}
+  A field extension $k \subseteq F$ is \emph{normal} if for every
+  irreducible polynomial $f(x) \in k[x]$, $f(x)$ has a root in $F$ if and
+  only if $f(x)$ splits as a product of linear factors over $F$.
+\end{defn}
+\begin{thm}{}{fields:4.8}
+  A field extension $k \subseteq F$ is finite and normal if and only if
+  $F$ is the splitting field of some polynomial $f(x) \in k[x]$.
+\end{thm}
+\begin{proof}
+  Assume $k \subseteq F$ is finite and normal. Then $F$ is finitely
+  generated: $F = k(\alpha_1, \dots, \alpha_r)$ with $\alpha_i$ algebraic
+  over $k$. Let $p_i(t)$ be the minimal polynomial of $\alpha_i$ over $k$.
+  As $F$ is normal over $k$, each $p_i(t)$ splits completely over $F$, and
+  hence so does $f(t) = p_1(t) \cdots p_r(t)$. It follows that $F$ is the
+  splitting field of $f(x)$.
+  Conversely, assume that $F$ is a splitting field for a polynomial $f(x)
+  \in k[x]$, and let $p(x) \in k[x]$ be an irreducible polynomial such
+  that $F$ contains a root $\alpha$ of $p(x)$. Viewing $F$ as a subfield
+  of the algebraic closure $\bar{k}$, let $\beta \in \bar{k}$ be any other
+  root of $p(x)$; we are going to show that $\beta \in F$. This will prove
+  that $F$ contains all roots of $p(x)$, implying that $k \subseteq F$ is
+  normal, and $k \subseteq F$ is finite by \cref{lem:fields:4.2}.
+
+  By \cref{prop:fields:1.5}, there exists an isomorphism $\iota : k(\alpha)
+  \to k(\beta)$ extending the identity on $k$ and sending $\alpha \mapsto
+  \beta$. We also consider the subfield $F(\beta) \subseteq \bar{k}$,
+  viewed as an extension of $k(\beta)$. Now observe that $F$ may be viewed
+  as the splitting field of $f(x)$ over $k(\alpha)$: indeed, it contains
+  all the roots of $f(x)$ and is generated over $k$ (and hence over
+  $k(\alpha)$) by these roots. By the same token, $F(\beta)$ is the
+  splitting field for $f(x)$ over $k(\beta)$. By \cref{lem:fields:4.2},
+  $\iota$ extends to an isomorphism $\iota' : F \to F(\beta)$. Since
+  $\iota$ restricts to the identity on $k$, $\iota'$ is an isomorphism of
+  $k$-vector spaces; in particular, $\dim_k F = \dim_k F(\beta)$ (keep in
+  mind that splitting fields are finite extensions).
+
+  Now consider the different $k$-linear map $i : F \to F(\beta)$ simply
+  given by the inclusion $k \subseteq F \subseteq F(\beta) \subseteq
+  \bar{k}$. Since $F$ and $F(\beta)$ are $k$-vector spaces of the same
+  finite dimension, $i$ must also be an isomorphism. In other words,
+  $[F(\beta) : F] = 1$; that is, $\beta \in F$ as needed.
+\end{proof}
+\begin{rem}{}{fields:4.9}
+  This argument is somewhat delicate. With notation as in the proof, the
+  diagram
+  \[
+    \begin{tikzcd}
+      k(\alpha) \ar[r, hook] \ar[d, "\iota"'] & F \\
+      k(\beta)
+    \end{tikzcd}
+  \]
+  is commutative, while the diagram in which both $F$ and $F(\beta)$ appear
+  is not commutative if $\beta \neq \alpha$ (since $\iota$ sends $\alpha$
+  to $\beta$, while $i$ sends $\alpha$ to $\alpha$). The key point in the
+  argument is the observation that if there exists one isomorphism between
+  two finite-dimensional vector spaces $V$, $W$, then every injective
+  linear map $V \to W$ must be an isomorphism. Finite dimensionality is
+  necessary in order to draw this conclusion; cf.\ Exercise~VI.6.5.
+\end{rem}
 % Example 4.10. If a complex root of an irreducible polynomial p(x) \in  Q[x] may
 % \sqrt 
 %  4be expressed as a polynomial in i and 2 with rational
