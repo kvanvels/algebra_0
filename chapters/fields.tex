@@ -4114,316 +4114,274 @@ that we are now in a position to extend the convenient inequality found in
 \section{A little Galois theory}
 \label{sec:fields:a-little-galois-theory}
 
-% Galois theory is a beautiful interplay of field theory and group theory,
-% originally
-% motivated by the problem of determining `symmetries' among roots of a
-% polynomial.
-% Galois was interested in concrete relations which must necessarily hold among
-% the
-% roots of a polynomial, the most trivial example of which being the fact that if
-% \alpha , \beta
-% are the two roots of x2 + px + q, then \alpha  + \beta  = -p and \alpha \beta  =
-% q. Interchanging
-% the roots \alpha , \beta  has no effect on the quantities \alpha  + \beta ,
-% \alpha \beta . More generally, for a
-% higher degree polynomial there may be several quantities which are invariant
-% under
-% certain permutations of the roots. These quantities and the corresponding groups
-% of
-% permutations may be viewed as invariants determined by the polynomial, yielding
-% a sophisticated tool to study the polynomial.
+Galois theory is a beautiful interplay of field theory and group theory,
+originally motivated by the problem of determining `symmetries' among roots
+of a polynomial. \name{Galois} was interested in concrete relations which
+must necessarily hold among the roots of a polynomial, the most trivial
+example of which being the fact that if $\alpha$, $\beta$ are the two roots
+of $x^2 + px + q$, then $\alpha + \beta = -p$ and $\alpha\beta = q$.
+Interchanging the roots $\alpha$, $\beta$ has no effect on the quantities
+$\alpha + \beta$, $\alpha\beta$. More generally, for a higher degree
+polynomial there may be several quantities which are invariant under certain
+permutations of the roots. These quantities and the corresponding groups of
+permutations may be viewed as invariants determined by the polynomial,
+yielding a sophisticated tool to study the polynomial.
 
 \subsection{The Galois correspondence and Galois extensions}
 \label{subsec:fields:the-galois-correspondence-and-galois-extensions}
-% In the language
+In the language of field theory, subsets of the roots of a polynomial
+$f(x)$ determine intermediate fields of the splitting field of $f(x)$, and
+groups of permutations of the roots give automorphisms of these
+intermediate fields. With this in mind, it is not surprising that splitting
+fields should come to the fore; the fact that one can characterize such
+fields in terms of groups of automorphisms (Theorem~6.9 below) will be key
+to the whole discussion. Before wading into these waters, we should
+formalize the precise relation between groups of automorphisms of an
+extension and intermediate fields.
+\begin{defn}{}{fields:6.1}
+  Let $k \subseteq F$ be a field extension, and let $G \subseteq
+  \mathrm{Aut}_k(F)$ be a group of automorphisms of the extension. The
+  \emph{fixed field} of $G$ is the intermediate field
+  \[
+    F^G := \{\alpha \in F \mid \forall g \in G,\; g\alpha = \alpha\}.
+  \]
+\end{defn}
+The fact that $F^G$ is indeed a subfield of $F$ containing $k$ is
+immediate. The notion of fixed field allows us to set up a correspondence
+\[
+  \{\text{intermediate fields } E : k \subseteq E \subseteq F\}
+  \rightleftharpoons
+  \{\text{subgroups of } \mathrm{Aut}_k(F)\},
+\]
+sending the intermediate field $E$ to the subgroup $\mathrm{Aut}_E(F)$ of
+$\mathrm{Aut}_k(F)$ and the subgroup $G \subseteq \mathrm{Aut}_k(F)$ to
+the fixed field $F^G$.
+\begin{defn}{}{fields:6.2}
+  This is known as the \emph{Galois correspondence}.
+\end{defn}
+\begin{lem}{}{fields:6.3}
+  The Galois correspondence is inclusion-reversing: for all subgroups $G$
+  of $\mathrm{Aut}_k(F)$ and all intermediate fields $k \subseteq E
+  \subseteq F$:
+  \begin{itemize}
+    \item $E \subseteq F^{\mathrm{Aut}_E(F)}$;
+    \item $G \subseteq \mathrm{Aut}_{F^G}(F)$.
+  \end{itemize}
+  Further, denote by $E_1 E_2$ the smallest subfield of $F$ containing two
+  intermediate fields $E_1$, $E_2$, and denote by $\langle G_1, G_2
+  \rangle$ the smallest subgroup of $\mathrm{Aut}_k(F)$ containing two
+  subgroups $G_1$, $G_2$. Then
+  \begin{itemize}
+    \item $\mathrm{Aut}_{E_1 E_2}(F) = \mathrm{Aut}_{E_1}(F) \cap
+      \mathrm{Aut}_{E_2}(F)$;
+    \item $F^{\langle G_1, G_2 \rangle} = F^{G_1} \cap F^{G_2}$.
+  \end{itemize}
+\end{lem}
+\begin{proof}
+  Exercise~6.1.
+\end{proof}
+Of course the reader should start wondering whether there are situations
+guaranteeing that the inclusions appearing in \cref{lem:fields:6.3} are
+equalities, making the Galois correspondence a bijection. This is precisely
+where we are heading. The first observation is that this is not always the
+case:
+\begin{exam}{}{fields:exam:6.4}
+  Consider the extension $\Q \subseteq \Q(\sqrt[3]{2})$. Since
+  $[\Q(\sqrt[3]{2}) : \Q] = 3$ is prime, the only intermediate fields are
+  $\Q$ and $\Q(\sqrt[3]{2})$ (by \cref{coro:fields:1.11}). Concerning
+  $\mathrm{Aut}_\Q(\Q(\sqrt[3]{2}))$: since $\sqrt[3]{2} \in \R$, we have
+  an extension $\Q(\sqrt[3]{2}) \subseteq \R$; since $\sqrt[3]{2}$ is the
+  only cube root of $2$ in $\R$, the minimal polynomial $t^3 - 2$ of
+  $\sqrt[3]{2}$ has a single root in $\Q(\sqrt[3]{2})$. By
+  \cref{coro:fields:1.7}, $\mathrm{Aut}_\Q(\Q(\sqrt[3]{2}))$ consists of a
+  single element: it is trivial.
 
-% of field theory, subsets of the roots of a polynomial f (x) determine
-% intermediate
-% fields of the splitting field of f (x), and groups of permutations of the roots
-% give
-% automorphisms of these intermediate fields. With this in mind, it is not
-% surprising
-% that splitting fields should come to the fore; the fact that one can
-% characterize such
-% fields in terms of groups of automorphisms (Theorem 6.9 below) will be key to
-% the
-% whole discussion.
-% Before wading into these waters, we should formalize the precise relation be-
-% tween groups of automorphisms of an extension and intermediate fields.
-% Definition 6.1. Let k \subseteq  F be a field extension, and let G \subseteq
-% Autk (F ) be a group
-% of automorphisms of the extension. The fixed field of G is the intermediate
-% field
-% F G := {\alpha  \in  F | \forall g \in  G, g\alpha  = \alpha }.
-%  ?
-% The fact that F G is indeed a subfield of F containing k is immediate. The
-% notion of fixed field allows us to set up a correspondence
-% {intermediate fields E: k \subseteq  E \subseteq  F } o
-%  / {subgroups of Autk
-%  (F )} ,
-% sending the intermediate field E to the subgroup AutE (F ) of Autk (F ) and the
-% subgroup G \subseteq  Autk (F ) to the fixed field F G .
-% Definition 6.2. This is known as the Galois correspondence.
-%  ?
-% Lemma 6.3. The Galois correspondence is inclusion-reversing.subgroups G of Autk
-% (F ) and all intermediate fields k \subseteq  E \subseteq  F :
-% \bullet  E \subseteq  F AutE (F ) ;
-% \bullet  G \subseteq  AutF G (F ).
-% Further, for all
-% Further still, denote by E1 E2 the smallest subfield of F containing two
-% intermediate
-% fields E1 , E2 , and denote by ?G1 , G2 ? the smallest subgroup of Autk (F )
-% containing
-% two subgroups G 1 , G2 . Then
-% \bullet \bullet AutE1E2 (F ) = AutE1 (F ) \cap  AutE2 (F );
-% F ?G1 ,G 2 ? = F G 1 \cap  F G2 .
-% Proof. Exercise 6.1.
-%  ?
-% Of course the reader should start wondering whether there are situations guar-
-% anteeing that the inclusions appearing in Lemma 6.3 are equalities, making the
-% Galois correspondence a bijection. This is precisely where we are heading. The
-% first observation is that this is not always the case:
-% \sqrt 
-%  3Example 6.4. Consider the extension Q \subseteq  Q( 2). Since
-% \sqrt 
-% [Q( 2) : Q] = 3
-% \sqrt 
-%  3is prime, the only intermediate
-%  fields are Q and Q( 2) (by Corollary
-%  1.11). Con-
-% \sqrt  3 \sqrt 
-%  3 \sqrt 
-%  3 \sqrt 
-% cerning AutQ (Q( 2)), since 2 \in  R, we have an extension Q( 2) \subseteq  R;
-% since
-%  2 is
-% \sqrt 
-% the only cube root
-%  \sqrt 
-%  3 of
-%  in
-%  R,
-%  we
-%  see
-%  that
-%  the
-%  minimal
-%  \sqrt 
-%  3 polynomial
-%  t
-%  -
-%  of
-%  has
-%  a
-% single root in Q( 2). By Corollary 1.7, AutQ (Q( 2)) consists of a single
-% element:
-% it is trivial.
-% Thus, in this example the Galois correspondence acts between a set with two
-% elements and a singleton:
-% \sqrt 
-%  3 / \sqrt 
-% {Q, Q( 2)} o
-%  {AutQ
-%  (Q( 2))} = {e} .
-% In particular, the function associating with each intermediate field the
-% correspond-
-% ing automorphism group is not injective in general.
-%  ?
-% This example shows that the inclusion
-%  \sqrt 
-%  E \subseteq  F AutE (F ) in Lemma 6.3 may be
-% proper: Q is properly contained in Q( 2), which is the fixed field of the (only)
-% \sqrt  3subgroup of AutQ(Q( 2)). Fortunately, the situation with the other inclusion is
-% more constrained:
-% Proposition 6.5. Let k \subseteq  F be a finite extension, and let G be a
-% subgroup
-% of Autk (F ). Then |G| = [F : F G ], and
-% G = AutF G (F ).
-% In particular, the Galois correspondence (from intermediate fields to
-% automorphism
-% groups) is surjective for a finite extension.
-% Proving this fact leads us to examining very carefully finite extensions of the
-% type F G \subseteq  F . Surprisingly, these turn out to satisfy just about every
-% property we
-% have encountered so far:
-% Lemma 6.6. Let k \subseteq  F be a finite extension, and let G be a subgroup of
-% Autk (F ).
-% Then F G \subseteq  F is a finite, simple, normal, separable extension.
-% Remark 6.7. The key to this lemma is the following observation, which is worth
-% highlighting.
-% If \alpha  \in  F and g \in  G, note that g\alpha  must be a root of the minimal
-% polynomial
-% of \alpha  over k; there are only finitely many roots, so the G-orbit of \alpha
-% consists of finitely
-% many elements \alpha  = \alpha 1 , . . . , \alpha n. The group G acts on the
-% orbit by permuting its
-% elements; therefore, every element of G leaves the polynomial
-% q\alpha  (t) = (t - \alpha 1 ) \dots  (t - \alpha n )
-% fixed. In other words, the coefficients of this polynomial must be in the fixed
-% field F G . Further, q\alpha  (t) is separable since it has distinct roots.
-% Finally, note
-% that deg q\alpha  (t) \leq  |G|.
-%  ?
-% With this in mind, we are ready to prove the lemma.
-% Proof of Lemma 6.6. The extension F G \subseteq  F is finite because k \subseteq
-% F is finite.
-% Let \alpha  \in  F ; by the remark following the statement of the lemma, \alpha
-% is a root of
-% a separable polynomial q\alpha  (t) with coefficients in F G . It follows that
-% \alpha  is separable
-% over F G ; hence the extension is separable according to Definition 4.12.
-% Since F G \subseteq  F is finite and separable, it is simple by Proposition
-% 5.19; let \alpha  be
-% a generator. The polynomial q\alpha  (t) splits in F , and F is generated over F
-% G by the
-% roots of q\alpha (t) (indeed, \alpha 1 = \alpha  suffices to generate F over F G
-% ); therefore, F is a
-% splitting field for q\alpha  (t) over F G according to Definition 4.1. Therefore
-% F G \subseteq  F is
-% normal by Theorem 4.8, and we are done.
-%  ?
-% Proposition 6.5 is a consequence of Lemma 6.6:
-% Proof of Proposition 6.5. By Lemma 6.3, G is a subgroup of AutF G (F ), and in
-% particular
-% |G| \leq  | AutF G (F )|.
-% In order to verify that G = AutF G , it suffices to prove the converse
-% inequality. By
-% Lemma 6.6, F = F G(\alpha ) for some \alpha  \in  F ; therefore | AutF G (F )|
-% equals the number
-% of distinct roots in F of the minimal polynomial of \alpha  over F G (by
-% Corollary 1.7).
-% With notation as in Remark 6.7, \alpha  is a root of q\alpha  (x) \in  F G [x];
-% hence the minimal
-% polynomial of \alpha  is a factor of q\alpha  (x). Since by construction the
-% number of roots
-% of q\alpha  (x) is \leq  |G|, we obtain
-% | AutF G (F )| \leq  |G|,
-% as needed.
-% To verify that [F : F G ] = |G|, just note that [F : F G ] = | AutF G (F )| by
-% Corollary 5.20, since F G \subseteq  F is normal and separable by Lemma 6.6.
-%  ?
-% Remark 6.8. The hypothesis that the extension is finite in Proposition 6.5 is
-% necessary: the Galois correspondence is not necessarily surjective in the
-% infinite
-% case. Not all is lost, though: one can give a suitable topology to the group of
-% automorphisms and limit the Galois correspondence to closed subgroups of the
-% automorphism group, recovering results such as Proposition 6.5. The reader is
-% welcome to explore this further---we will not be able to take this more general
-% point of view here.
-%  ?
-% Theorem 6.9. Let k \subseteq  F be a finite field extension. Then the following
-% are
-% equivalent:
-% (1) F is the splitting field of a separable polynomial f (t) \in  k[t] over k;
-% (2) k \subseteq  F is normal and separable;
-% (3) | Autk (F )| = [F : k];
-% (4) k = F Autk (F ) is the fixed field of Autk (F );
-% (5) the Galois correspondence for k \subseteq  F is a bijection;
-% (6) k \subseteq  F is separable, and if F \subseteq  K is an algebraic extension
-% and \sigma  \in  Autk (K),
-% then \sigma (F ) = F .
-% Proof. Most of the needed implications have been proven along the way.
-% (1) \iff  (2) by Theorem 4.8; (2) \implies  (3) by Corollary 5.20. (3) \iff  (4)
-% follows
-% from Proposition 6.5, applied to the extension F Autk (F ) \subseteq  F : by
-% Proposition 6.5,
-% we have
-% [F : F Autk (F ) ] = | Autk (F )|;
-% since k \subseteq  F Aut k (F ) \subseteq  F , it follows that k = F Autk (F )
-% if and only if | Autk (F )| =
-% [F : k]. (4) \implies  (2) by Lemma 6.6.
-% (2) \iff  (6) holds by Exercise 4.7, since finite separable extensions are
-% simple
-% (Proposition 5.19).
-% To prove (5) \implies  (4), let E = F Autk (F ) ; by Proposition 6.5, AutE (F )
-% =
-% Autk (F ). Assuming that the Galois correspondence is bijective, it follows that
-% k = E = F Autk (F ) , giving (4).
-% Finally, we prove that (1) \implies  (5). Since k \subseteq  F is a finite
-% extension, we
-% already know that the Galois correspondence from intermediate fields to
-% subgroups
-% of Autk (F ) has a right inverse (Proposition 6.5), so it suffices to show it
-% has a left-
-% inverse. Therefore, it suffices to verify that every intermediate field E equals
-% the
-% fixed field of the corresponding subgroup AutE (F ). Then let E be an
-% intermediate
-% field. By (1), F is the splitting field of a separable polynomial f (t) \in
-% k[t] \subseteq  E[t];
-% therefore, condition (1) holds for the extension E \subseteq  F . As we have
-% already proved
-% that (1) \iff  (4), this implies that E = F AutE (F ), and we are done.
-%  ?
-% Definition 6.10. A finite extension k \subseteq  F is Galois if it satisfies any
-% of the
-% conditions listed in Theorem 6.9.
-%  ?
-% Warning: We will not study the Galois condition for infinite extensions (cf. Re-
-% mark 6.8). Thus Galois extensions will implicitly be finite in what follows.
-% Condition (6) is technically useful and helps with visualizing the Galois condi-
-% tion. If a finite separable extension k \subseteq  F is not Galois, then F can
-% be embedded
-% in some larger extension k \subseteq  K (for example, in the algebraic closure k
-% \subseteq  k) in
-% many possible ways:
-% K
-% k
-% \sigma (F )
-% F
-% If k \subseteq  F is Galois, all these images must coincide:
-% K
-% F = \sigma (F )
-% k
-% Of course there are possibly still many ways21 to embed F in K, but they all
-% have
-% the same image F .
-% The mysterious comments at the end of Example 1.4 are now hopefully clear.
-% Galois extensions of a field k are well-defined subfields of k, preserved by
-% auto-
-% morphisms
-%  \sqrt  3 of k over k. Contrast this situation with the non-Galois extension
-% Q \subseteq  Q( 2), which admits three different embeddings
-%  in Q. For example, it does
-% \sqrt  \sqrt 
-%  3not make sense to talk about `the' composite of Q( 2) and Q( 2), as a subfield
-% \sqrt 
-%  3of (for instance) C: according to the chosen embedding of Q( 2), this may or
-%  may
-% 21 In fact, precisely [F : k]s
-%  = [F : k] = | Autk
-%  (F )| if K = k and hence for all K \supseteq  F .
-% not be a subfield of R. But 22 it does make sense to talk about the composite of
-% two
-% Galois extensions k \subseteq  F1 , k \subseteq  F2 , since both F1 and F2 are
-% well-defined as subfield
-% of k, so their composite F1 F2 is independent of the choice of embeddings F1
-% \subseteq  k,
-% F2 \subseteq  k.
-% Definition 6.11. If k \subseteq  F is a Galois extension, the corresponding
-% automorphism
-% group Autk (F ) is called the Galois group of the extension.
-%  ?
-% \sqrt 
-%  3To reiterate, the extension Q \subseteq 
-%  Q( 2) is not a Galois extension: as we have
-% \sqrt 
-%  3observed in Example 6.4, AutQ (Q( 2)) is trivial (hence, for example,
-%  condition (3)
-% of Theorem 6.9 does not hold).
-% On the other hand, we have already run into several examples of Galois exten-
-% sions: the examples of splitting fields we have seen in \S{}4.1 are all Galois
-% extensions.
-% The `Galois fields' of \S{}5.1 are (surprise, surprise) Galois extensions of
-% their prime
-% subfields, by Theorem 5.1. The cyclotomic fields (\S{}5.2) are Galois extensions
-% of Q.
-% A Galois extension k \subseteq  F is cyclic, abelian, etc., if the corresponding
-% group
-% of automorphisms Autk (F ) is cyclic, abelian, etc. For example, Q \subseteq
-% Q(\zeta 8) is an
-% abelian, but not cyclic, Galois extension (cf. Proposition 5.16 and Example
-% 5.17).
+  Thus, in this example the Galois correspondence acts between a set with
+  two elements and a singleton:
+  \[
+    \{\Q,\; \Q(\sqrt[3]{2})\}
+    \rightleftharpoons
+    \{\mathrm{Aut}_\Q(\Q(\sqrt[3]{2}))\} = \{e\}.
+  \]
+  In particular, the function associating with each intermediate field the
+  corresponding automorphism group is not injective in general.
+\end{exam}
+This example shows that the inclusion $E \subseteq F^{\mathrm{Aut}_E(F)}$
+in \cref{lem:fields:6.3} may be proper: $\Q$ is properly contained in
+$\Q(\sqrt[3]{2})$, which is the fixed field of the (only) subgroup of
+$\mathrm{Aut}_\Q(\Q(\sqrt[3]{2}))$. Fortunately, the situation with the
+other inclusion is more constrained:
+\begin{prop}{}{fields:6.5}
+  Let $k \subseteq F$ be a finite extension, and let $G$ be a subgroup of
+  $\mathrm{Aut}_k(F)$. Then $|G| = [F : F^G]$, and $G = \mathrm{Aut}_{F^G}(F)$.
+  In particular, the Galois correspondence (from intermediate fields to
+  automorphism groups) is surjective for a finite extension.
+\end{prop}
+Proving this fact leads us to examining very carefully finite extensions of
+the type $F^G \subseteq F$. Surprisingly, these turn out to satisfy just
+about every property we have encountered so far:
+\begin{lem}{}{fields:6.6}
+  Let $k \subseteq F$ be a finite extension, and let $G$ be a subgroup of
+  $\mathrm{Aut}_k(F)$. Then $F^G \subseteq F$ is a finite, simple, normal,
+  separable extension.
+\end{lem}
+\begin{rem}{}{fields:6.7}
+  The key to this lemma is the following observation, which is worth
+  highlighting. If $\alpha \in F$ and $g \in G$, note that $g\alpha$ must
+  be a root of the minimal polynomial of $\alpha$ over $k$; there are only
+  finitely many roots, so the $G$-orbit of $\alpha$ consists of finitely
+  many elements $\alpha = \alpha_1, \dots, \alpha_n$. The group $G$ acts on
+  the orbit by permuting its elements; therefore, every element of $G$
+  leaves the polynomial
+  \[
+    q_\alpha(t) = (t - \alpha_1) \cdots (t - \alpha_n)
+  \]
+  fixed. In other words, the coefficients of this polynomial must be in the
+  fixed field $F^G$. Further, $q_\alpha(t)$ is separable since it has
+  distinct roots. Finally, note that $\deg q_\alpha(t) \leq |G|$.
+\end{rem}
+\begin{proof}[Proof of \cref{lem:fields:6.6}]
+  The extension $F^G \subseteq F$ is finite because $k \subseteq F$ is
+  finite. Let $\alpha \in F$; by \cref{rem:fields:6.7}, $\alpha$ is a root
+  of a separable polynomial $q_\alpha(t)$ with coefficients in $F^G$. It
+  follows that $\alpha$ is separable over $F^G$; hence the extension is
+  separable according to \cref{defn:fields:4.12}.
+
+  Since $F^G \subseteq F$ is finite and separable, it is simple by
+  \cref{prop:fields:5.19}; let $\alpha$ be a generator. The polynomial
+  $q_\alpha(t)$ splits in $F$, and $F$ is generated over $F^G$ by the
+  roots of $q_\alpha(t)$ (indeed, $\alpha_1 = \alpha$ suffices to generate
+  $F$ over $F^G$); therefore, $F$ is a splitting field for $q_\alpha(t)$
+  over $F^G$ according to \cref{defn:fields:4.1}. Therefore $F^G \subseteq
+  F$ is normal by \cref{thm:fields:4.8}, and we are done.
+\end{proof}
+\begin{proof}[Proof of \cref{prop:fields:6.5}]
+  By \cref{lem:fields:6.3}, $G$ is a subgroup of $\mathrm{Aut}_{F^G}(F)$,
+  and in particular $|G| \leq |\mathrm{Aut}_{F^G}(F)|$. In order to
+  verify that $G = \mathrm{Aut}_{F^G}(F)$, it suffices to prove the
+  converse inequality. By \cref{lem:fields:6.6}, $F = F^G(\alpha)$ for
+  some $\alpha \in F$; therefore $|\mathrm{Aut}_{F^G}(F)|$ equals the
+  number of distinct roots in $F$ of the minimal polynomial of $\alpha$
+  over $F^G$ (by \cref{coro:fields:1.7}). With notation as in
+  \cref{rem:fields:6.7}, $\alpha$ is a root of $q_\alpha(x) \in F^G[x]$;
+  hence the minimal polynomial of $\alpha$ is a factor of $q_\alpha(x)$.
+  Since by construction the number of roots of $q_\alpha(x)$ is $\leq
+  |G|$, we obtain $|\mathrm{Aut}_{F^G}(F)| \leq |G|$, as needed.
+
+  To verify that $[F : F^G] = |G|$, just note that $[F : F^G] =
+  |\mathrm{Aut}_{F^G}(F)|$ by \cref{coro:fields:5.20}, since $F^G
+  \subseteq F$ is normal and separable by \cref{lem:fields:6.6}.
+\end{proof}
+\begin{rem}{}{fields:6.8}
+  The hypothesis that the extension is finite in \cref{prop:fields:6.5} is
+  necessary: the Galois correspondence is not necessarily surjective in the
+  infinite case. Not all is lost, though: one can give a suitable topology
+  to the group of automorphisms and limit the Galois correspondence to
+  closed subgroups of the automorphism group, recovering results such as
+  \cref{prop:fields:6.5}. The reader is welcome to explore this
+  further---we will not be able to take this more general point of view
+  here.
+\end{rem}
+\begin{thm}{}{fields:6.9}
+  Let $k \subseteq F$ be a finite field extension. Then the following are
+  equivalent:
+  \begin{enumerate}[(1)]
+    \item $F$ is the splitting field of a separable polynomial
+      $f(t) \in k[t]$ over $k$;
+    \item $k \subseteq F$ is normal and separable;
+    \item $|\mathrm{Aut}_k(F)| = [F : k]$;
+    \item $k = F^{\mathrm{Aut}_k(F)}$ is the fixed field of
+      $\mathrm{Aut}_k(F)$;
+    \item the Galois correspondence for $k \subseteq F$ is a bijection;
+    \item $k \subseteq F$ is separable, and if $F \subseteq K$ is an
+      algebraic extension and $\sigma \in \mathrm{Aut}_k(K)$, then
+      $\sigma(F) = F$.
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  Most of the needed implications have been proven along the way.
+  $(1) \iff (2)$ by \cref{thm:fields:4.8}; $(2) \Rightarrow (3)$ by
+  \cref{coro:fields:5.20}. $(3) \iff (4)$ follows from
+  \cref{prop:fields:6.5}, applied to the extension $F^{\mathrm{Aut}_k(F)}
+  \subseteq F$: by \cref{prop:fields:6.5}, we have
+  $[F : F^{\mathrm{Aut}_k(F)}] = |\mathrm{Aut}_k(F)|$; since
+  $k \subseteq F^{\mathrm{Aut}_k(F)} \subseteq F$, it follows that
+  $k = F^{\mathrm{Aut}_k(F)}$ if and only if $|\mathrm{Aut}_k(F)| =
+  [F : k]$. $(4) \Rightarrow (2)$ by \cref{lem:fields:6.6}.
+
+  $(2) \iff (6)$ holds by Exercise~4.7, since finite separable extensions
+  are simple (\cref{prop:fields:5.19}).
+
+  To prove $(5) \Rightarrow (4)$, let $E = F^{\mathrm{Aut}_k(F)}$; by
+  \cref{prop:fields:6.5}, $\mathrm{Aut}_E(F) = \mathrm{Aut}_k(F)$.
+  Assuming that the Galois correspondence is bijective, it follows that
+  $k = E = F^{\mathrm{Aut}_k(F)}$, giving (4).
+
+  Finally, we prove that $(1) \Rightarrow (5)$. Since $k \subseteq F$ is a
+  finite extension, we already know that the Galois correspondence from
+  intermediate fields to subgroups of $\mathrm{Aut}_k(F)$ has a right
+  inverse (\cref{prop:fields:6.5}), so it suffices to show it has a
+  left-inverse. Therefore, it suffices to verify that every intermediate
+  field $E$ equals the fixed field of the corresponding subgroup
+  $\mathrm{Aut}_E(F)$. Let $E$ be an intermediate field. By (1), $F$ is
+  the splitting field of a separable polynomial $f(t) \in k[t] \subseteq
+  E[t]$; therefore, condition (1) holds for the extension $E \subseteq F$.
+  As we have already proved that $(1) \iff (4)$, this implies that
+  $E = F^{\mathrm{Aut}_E(F)}$, and we are done.
+\end{proof}
+\begin{defn}{}{fields:6.10}
+  A finite extension $k \subseteq F$ is \emph{Galois} if it satisfies any
+  of the conditions listed in \cref{thm:fields:6.9}.
+\end{defn}
+\emph{Warning:} We will not study the Galois condition for infinite
+extensions (cf.\ \cref{rem:fields:6.8}). Thus Galois extensions will
+implicitly be finite in what follows.
+
+Condition (6) is technically useful and helps with visualizing the Galois
+condition. If a finite separable extension $k \subseteq F$ is not Galois,
+then $F$ can be embedded in some larger extension $k \subseteq K$ (for
+example, in the algebraic closure $k \subseteq \bar{k}$) in many possible
+ways, with different images $\sigma(F)$. If $k \subseteq F$ is Galois, all
+these images must coincide: $F = \sigma(F)$. Of course there are possibly
+still many ways\footnote{In fact, precisely $[F : k]_s = [F : k] =
+|\mathrm{Aut}_k(F)|$ if $K = \bar{k}$ and hence for all $K \supseteq F$.}
+to embed $F$ in $K$, but they all have the same image $F$.
+
+The mysterious comments at the end of Example~1.4 are now hopefully clear.
+Galois extensions of a field $k$ are well-defined subfields of $\bar{k}$,
+preserved by automorphisms of $\bar{k}$ over $k$. Contrast this situation
+with the non-Galois extension $\Q \subseteq \Q(\sqrt[3]{2})$, which admits
+three different embeddings in $\bar{\Q}$. For example, it does not make
+sense to talk about `the' composite of $\Q(\sqrt[3]{2})$ and
+$\Q(\sqrt[3]{2})$, as a subfield of (for instance) $\C$: according to the
+chosen embedding of $\Q(\sqrt[3]{2})$, this may or may not be a subfield
+of $\R$. But it does make sense to talk about the composite of two Galois
+extensions $k \subseteq F_1$, $k \subseteq F_2$, since both $F_1$ and
+$F_2$ are well-defined as subfields of $\bar{k}$, so their composite
+$F_1 F_2$ is independent of the choice of embeddings $F_1 \subseteq
+\bar{k}$, $F_2 \subseteq \bar{k}$.
+\begin{defn}{}{fields:6.11}
+  If $k \subseteq F$ is a Galois extension, the corresponding automorphism
+  group $\mathrm{Aut}_k(F)$ is called the \emph{Galois group} of the
+  extension.
+\end{defn}
+To reiterate, the extension $\Q \subseteq \Q(\sqrt[3]{2})$ is not a Galois
+extension: as we have observed in Example~6.4, $\mathrm{Aut}_\Q(\Q(
+\sqrt[3]{2}))$ is trivial (hence, for example, condition (3) of
+\cref{thm:fields:6.9} does not hold).
+
+On the other hand, we have already run into several examples of Galois
+extensions: the examples of splitting fields we have seen in $\S$4.1 are
+all Galois extensions. The `Galois fields' of $\S$5.1 are (surprise,
+surprise) Galois extensions of their prime subfields, by
+\cref{thm:fields:5.1}. The cyclotomic fields ($\S$5.2) are Galois
+extensions of $\Q$.
+
+A Galois extension $k \subseteq F$ is \emph{cyclic}, \emph{abelian},
+etc., if the corresponding group of automorphisms $\mathrm{Aut}_k(F)$ is
+cyclic, abelian, etc. For example, $\Q \subseteq \Q(\zeta_8)$ is an
+abelian, but not cyclic, Galois extension (cf.\ \cref{prop:fields:5.16}
+and Example~5.17).
 
 \subsection{The fundamental theorem of Galois theory, I}
 \label{subsec:fields:the-fundamental-theorem-of-galois-theory-i}
