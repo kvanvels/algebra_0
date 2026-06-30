@@ -1628,8 +1628,6 @@ there exist $g_1, \dots, g_n \in K[x_1, \dots, x_n]$ such that
   f(x_1, \dots, x_n)
   = \sum_{i=1}^{n} g_i(x_1, \dots, x_n)(x_i - c_i).
 \]
-% In particular,
-% ?
 In particular,
 \[
   f(c_1, \dots, c_n)
@@ -4385,1497 +4383,1425 @@ and Example~5.17).
 
 \subsection{The fundamental theorem of Galois theory, I}
 \label{subsec:fields:the-fundamental-theorem-of-galois-theory-i}
-% The fundamental theo-
+The fundamental theorem of Galois theory amounts to a more complete
+description of the Galois correspondence for Galois extensions. At this
+stage, this is what we know:\footnote{`Separability' does not play a role
+in these considerations; thus they best convey `Galoisness' in, say,
+characteristic $0$.}
+\begin{itemize}
+  \item If $k \subseteq F$ is a (finite) Galois extension, then there is
+    an inclusion-reversing bijection
+    \[
+      \{\text{intermediate fields } E : k \subseteq E \subseteq F\}
+      \leftrightarrow
+      \{\text{subgroups of } \mathrm{Aut}_k(F)\}:
+    \]
+    through this bijection, the intermediate field $E$ corresponds to the
+    subgroup $\mathrm{Aut}_E(F)$ of $\mathrm{Aut}_k(F)$, and the subgroup
+    $G \subseteq \mathrm{Aut}_k(F)$ corresponds to the fixed field $F^G$.
+  \item For every intermediate field $E$,
+    $[F : E] = |\mathrm{Aut}_E(F)|$. The extension $E \subseteq F$ is
+    then also a Galois extension (Exercise~6.3), and
+    \[
+      [E : k] = [\mathrm{Aut}_k(F) : \mathrm{Aut}_E(F)]:
+    \]
+    this follows from Lagrange's theorem (\cref{coro:fields:II.8.14}) and
+    its field theory counterpart (\cref{prop:fields:1.10}).
+  \item The extension $k \subseteq E$ is not necessarily Galois. (Once
+    more $\Q(\sqrt[3]{2})$ gives a counterexample, since it can be viewed
+    as intermediate in the splitting field of $t^3 - 2$ over $\Q$.)
+\end{itemize}
+The fact that the Galois correspondence is a bijection may be upgraded as
+follows:
+\begin{thm}{}{fields:6.12}
+  Let $k \subseteq F$ be a Galois extension. The Galois correspondence is
+  an inclusion-reversing isomorphism of the lattice of intermediate
+  subfields of $k \subseteq F$ with the lattice of subgroups of
+  $\mathrm{Aut}_k(F)$. That is (with notation as in \cref{lem:fields:6.3}),
+  if $E_1$, $E_2$ are intermediate fields and $G_1$, $G_2$ are the
+  corresponding subgroups of $\mathrm{Aut}_k(F)$, then $E_1 \cap E_2$
+  corresponds to $\langle G_1, G_2 \rangle$ and $E_1 E_2$ corresponds to
+  $G_1 \cap G_2$.
+\end{thm}
+\begin{proof}
+  This follows immediately from \cref{thm:fields:6.9} and
+  \cref{lem:fields:6.3}, which gives
+  \[
+    \mathrm{Aut}_{E_1 E_2}(F) = G_1 \cap G_2,
+    \qquad
+    F^{\langle G_1, G_2 \rangle} = E_1 \cap E_2,
+  \]
+  as needed.
+\end{proof}
+In this context, it is common to use the `vertical' depiction of field
+extensions, with a parallel notation for subgroups: the field $F$ at the
+top corresponds to $\{e\}$, an intermediate field $E$ to $\mathrm{Aut}_E(F)$,
+and $k$ at the bottom to $\mathrm{Aut}_k(F)$.
 
-% rem of Galois theory amounts to a more complete description of the Galois corre-
-% spondence for Galois extensions.
-% At this stage, this is what we know:
-% \bullet  If k \subseteq  F is a (finite) Galois extension, then there is an inclusion-reversing
-% bijection
-% /{intermediate fields E: k \subseteq  E \subseteq  F } o
-%  {subgroups of Autk
-%  (F )} :
-% through this bijection, the intermediate field E corresponds to the subgroup
-% AutE (F ) of Autk (F ), and the subgroup G \subseteq  Autk (F ) corresponds to
-% the fixed
-% field F G .
-% \bullet  For every intermediate field E,
-% [F : E] = | Aut E (F )|.
-% The extension E \subseteq  F is then also a Galois extension (Exercise 6.3), and
-% [E : k] = [Autk (F ) : AutE (F )] :
-% this follows from Lagrange's theorem (Corollary II.8.14) and its field theory
-% counterpart (Proposition 1.10).
-% \sqrt 
-%  3\bullet  The extension k \subseteq  E is not necessarily Galois. (Once more Q(
-%  2) gives a
-% counterexample, since it can be viewed as intermediate in the splitting field
-% of t3 - 2 over Q.)
-% The fact that the Galois correspondence is a bijection may be upgraded as
-% follows:
-% 22 `Separability' does not play a role in these considerations; thus they best
-% convey `Galoisness'
-% in, say, characteristic 0.
-% Theorem 6.12. Let k \subseteq  F be a Galois extension. The Galois
-% correspondence is
-% an inclusion-reversing isomorphism of the lattice of intermediate subfields of k
-% \subseteq  F
-% with the lattice of subgroups of Autk (F ).
-% That is (with notation as in Lemma 6.3), if E1 , E2 are intermediate fields
-% and G1, G2 are the corresponding subgroups of Autk (F ), then E1 \cap  E2
-% corresponds
-% to ?G1 , G2? and E1E2 corresponds to G 1 \cap  G2 .
-% Proof. This follows immediately from Theorem 6.9 and Lemma 6.3, which gives
-% AutE1 E2 (F ) = G1 \cap  G2 ,
-%  F ?G1 ,G2 ? = E1 \cap  E2
-% as needed.
-%  ?
-% In this context, it is common to use the `vertical' depiction of field
-% extensions,
-% with a parallel notation for subgroups:
-% F
-%  {e}
-% E
-%  AutE (F )
-% k
-%  Autk (F )
-% The content of Theorem 6.12 is that the lattice of intermediate fields of a
-% Galois
-% extension k \subseteq  F and the lattice of subgroups of the corresponding
-% Galois group are
-% identical.
-% Example 6.13. For finite fields, this coincidence of lattices was essentially
-% proven
-% `by hand' in Corollary 5.4 and Proposition 5.8. For example, the extension F2
-% \subseteq  F64
-% is Galois, with cyclic Galois group C6, generated by the Frobenius automorphism
-% \phi .
-% The lattices are
-% F8 0
-%  0 |
-%  |
-%  || 0 0
-%  F64 0
-%  }}
-%  0 0
-%  }
-%  }
-%  0 0
-%  F4
-%  ,
-%  {e, \phi 3}
-%  H H
-%  jjj
-%  H H
-%  H H
-%  j
-%  H j
-%  H
-%  j
-%  H jjjj
-%  H
-%  H H
-%  H
-%  {e} J
-%  J J J
-%  J iiii
-%  J J
-%  J J i
-%  J
-%  i
-%  J i
-%  J J
-%  {e, J J
-%  \phi 2 , \phi 4}
-% F2
-%  {e, \phi , \phi 2
-%  , \phi 3
-%  , \phi 4
-%  , \phi 5
-%  }
-% ?
-% Theorem 6.12 is often used in the `groups to fields' direction: finding the
-% lattice
-% of subgroups of a finite group is essentially a combinatorial problem, and
-% through
-% the Galois correspondence it determines the lattice of intermediate fields of a
-% cor-
-% responding Galois extension.
-% \sqrt  \sqrt 
-%  \sqrt 
-%  \sqrt 
-% Example 6.14. The extension Q( 2, 3) = Q( 2 + 3) studied in Example 1.19
-% is the splitting field of the polynomial t4 - 10t2 + 1, so it is Galois. We
-% found that
-% its Galois group is Z/2Z \times  Z/2Z; the lattice of this group has no
-% mysteries for us:
-% ?(0, 0)?
-% ooo
-%  o
-%  O O O
-%  O O O
-%  O
-% ooo
-% ?(1, 0)?
-%  ?(1, 1)?
-%  ?(0, 1)?
-% O O O
-%  O O O
-%  O
-%  ooo
-%  o
-%  o
-%  o
-%  o
-% Z/2Z \times  Z/2Z
-% and therefore the lattice of intermediate fields is just as transparent:
-% \sqrt  \sqrt 
-% Q( 2, 3)
-% \sqrt 
-%  r
-%  rrr
-%  rr
-%  \sqrt 
-%  L L L
-%  L L L
-%  \sqrt 
-% Q( 2)
-%  Q( 6)
-%  Q( 3)
-% M M M
-%  M M M
-%  M M rrr
-% rrrrr
-% Q
-% (The intermediate fields are determined by recalling the \sqrt  generators
-%  \sqrt  of the corre-
-%  \sqrt 
-% sponding subgroups, as found in Example 1.19: the flip 3 ?\to  - 3 leaves Q( 2)
-% fixed, etc.) Galois theory tells us that there is no other intermediate field.
-%  ?
+The content of \cref{thm:fields:6.12} is that the lattice of intermediate
+fields of a Galois extension $k \subseteq F$ and the lattice of subgroups
+of the corresponding Galois group are identical.
+\begin{exam}{}{fields:exam:6.13}
+  For finite fields, this coincidence of lattices was essentially proven
+  `by hand' in \cref{coro:fields:5.4} and \cref{prop:fields:5.8}. For
+  example, the extension $\mathbb{F}_2 \subseteq \mathbb{F}_{64}$ is
+  Galois, with cyclic Galois group $C_6$, generated by the Frobenius
+  automorphism $\phi$. The divisors of $6$ are $1, 2, 3, 6$, corresponding
+  to subgroups $\{e\}$, $\{e, \phi^3\}$, $\{e, \phi^2, \phi^4\}$, and
+  $C_6$; and to intermediate fields $\mathbb{F}_{64}$, $\mathbb{F}_8$,
+  $\mathbb{F}_4$, and $\mathbb{F}_2$, respectively.
+\end{exam}
+\cref{thm:fields:6.12} is often used in the `groups to fields' direction:
+finding the lattice of subgroups of a finite group is essentially a
+combinatorial problem, and through the Galois correspondence it determines
+the lattice of intermediate fields of a corresponding Galois extension.
+\begin{exam}{}{fields:exam:6.14}
+  The extension $\Q(\sqrt{2}, \sqrt{3}) = \Q(\sqrt{2} + \sqrt{3})$ studied
+  in Example~1.19 is the splitting field of the polynomial $t^4 - 10t^2 +
+  1$, so it is Galois. We found that its Galois group is $\Z/2\Z \times
+  \Z/2\Z$; the lattice of subgroups of this group is: $\{(0,0)\}$ at the
+  top, with three index-2 subgroups $\langle(1,0)\rangle$,
+  $\langle(0,1)\rangle$, $\langle(1,1)\rangle$ in the middle, and
+  $\Z/2\Z \times \Z/2\Z$ at the bottom. Therefore the lattice of
+  intermediate fields is: $\Q(\sqrt{2}, \sqrt{3})$ at the top, with three
+  degree-2 extensions $\Q(\sqrt{2})$, $\Q(\sqrt{3})$, $\Q(\sqrt{6})$ in
+  the middle, and $\Q$ at the bottom. (The intermediate fields are
+  determined by recalling the generators of the corresponding subgroups, as
+  found in Example~1.19: the flip $\sqrt{3} \mapsto -\sqrt{3}$ leaves
+  $\Q(\sqrt{2})$ fixed, etc.) Galois theory tells us that there is no other
+  intermediate field.
+\end{exam}
 
 \subsection{The fundamental theorem of Galois theory, II}
 \label{subsec:fields:the-fundamental-theorem-of-galois-theory-ii}
-% Another popular no-
+Another popular notational device is to mark an extension by the
+corresponding Galois group, if the extension is Galois: one writes the
+group label $\mathrm{Aut}_k(F)$ on the segment from $k$ to $F$, and
+$\mathrm{Aut}_E(F)$ on the segment from $E$ to $F$.
 
-% tational device is to mark an extension by the corresponding Galois group, if
-% the
-% extension is Galois:
-% F
-% AutE (F )
-% Autk (F )
-%  E
-% k
-% Example 6.4 shows that the extension k \subseteq  E need not be a Galois
-% extension:
-% \sqrt  3Q( 2) is an intermediate field for the extension of Q into the splitting field for the
-% polynomial t3 - 2 (which is Galois, by part (1) of Theorem 6.9), but as we have
-% seen, it is not Galois.
-%  \sqrt 
-%  3 The splitting field has degree 6 over Q and is a quadratic
-% extension of Q( 2). This is in fact the typical situation: every finite
-% separable
-% extension may be enlarged to a Galois extension (Exercise 6.4).
-% In any case, the question of whether the extension of the base field k in an
-% intermediate field E of a Galois extension k \subseteq  F is Galois is central
-% to the theory.
-% The outcome of the discussion will be very neat, and this is possibly the most
-% striking part of the fundamental theorem of Galois theory:
-% Theorem 6.15. Let k \subseteq  F be a Galois extension, and let E be an
-% intermediate
-% field. Then k \subseteq  E is Galois if and only if AutE (F ) is normal in Autk
-% (F ); in this
-% case, there is an isomorphism
-% Autk (E) \sim 
-%  =
-%  Autk (F )
-%  .
-% AutE (F )
-% \sqrt 
-%  3The `problem' with Q \subseteq  Q( 2) is that the automorphism group of the
-%  splitting
-% field of t3 - 2 is S3 (as we will
-%  soon be able to verify: cf. Example 7.19). The
-% \sqrt  3subgroup corresponding to Q( 2) has index 3; hence (as we know, since we are
-% well acquainted with S3 ) it is not normal.
-% The fact that the Galois group of k \subseteq  E will turn out to be isomorphic
-% to the
-% quotient Autk (F )/ AutE (F ) in the Galois case should not be too surprising,
-% since
-% we know already that in any case [E : k] equals the index of AutE (F ) in Autk
-% (F ),
-% and the index equals the order of the quotient if the subgroup is normal. In
-% general,
-% [E : k] equals the number of cosets of AutE (F ) in Autk (F ), and it is worth
-% shooting
-% for a concrete interpretation of these cosets, even when k \subseteq  E does not
-% turn out to
-% be a Galois extension.
-% We already know that the number of left-cosets of AutE (F ) equals the index
-% of AutE (F ) in Autk (F ), hence [E : k], hence [E : k]s (because k \subseteq  E
-% is separable,
-% as a subextension of a separable extension), and hence there must exist a
-% bijection
-% between the set of left-cosets g AutE (F ) as g ranges in Autk (F ) and the set
-% of
-% different embeddings \iota  : E \to  k in an algebraic closure of k, extending
-% idk . Not
-% surprisingly, there is a reason for this---that is, a `meaningful' bijection
-% between
-% these two sets.
-% This is an excellent moment to review the material on group actions we covered
-% in \S{}II.9, especially \S{}II.9.3. Recall in particular that we were able to
-% classify all
-% transitive actions of a group G on a set S (Proposition II.9.9): these G-sets
-% are all
-% isomorphic to the set of left-cosets of a subgroup H of G under the natural
-% action
-% of G; and H may be taken to be the stabilizer of any element of S.
-% We are going to define a natural action of Autk (F ) on the set I of embeddings
-% of E in k extending the identity, and prove that, as an Autk (F )-set, I is
-% isomorphic
-% to the set of left-cosets of AutE (F ) in Autk (F ). This will be our
-% `meaningful
-% bijection', and after this is done Theorem 6.15 will look perfectly reasonable.
-% Fix an embedding F \subseteq  k of F in an algebraic closure of k, and let I be
-% the
-% set of embeddings \iota  : E \setminus \to  k extending the identity on k. It is
-% a good idea to
-% view k \subseteq  E as an abstract extension, rather than identifying E with a
-% specific
-% intermediate field in F ; the fact that we can view E as an intermediate field
-% of the
-% extension k \subseteq  F simply means that \iota (E) \subseteq  F for some \iota
-% \in  I.
-% \bullet  For all \iota  \in  I, \iota (E) \subseteq  F .
-% Indeed, k \subseteq  E is simple (finite and separable \implies  simple,
-% Proposition 5.19). If
-% E = k(\alpha ), then \iota  is determined by \iota (\alpha ), which is
-% necessarily a root of the minimal
-% polynomial of \alpha  over k. But k \subseteq  F is normal and contains some
-% root \iota (\alpha ) of this
-% polynomial; hence F contains all of them (Definition 4.7). That is, \iota
-% (\alpha ) \in  F for all
-% \iota  \in  I, implying \iota (k(\alpha )) \subseteq  F for all \iota  \in  I.
-% \bullet  Let \iota  \in  I, and let g \in  Autk (F ); then g \circ  \iota  \in  I. Therefore, Autk (F ) acts on I.
-% Here g \circ  \iota  is interpreted in the following way: \iota (E) \subseteq  F
-% , as we have seen; hence
-% g restricts to a homomorphism \iota (E) \to  F , and g \circ  \iota  is the
-% composition of this
-% homomorphism with \iota .
-% \bullet  The action of Autk (F ) on I is transitive.
-% This follows from the `uniqueness of splitting fields', Lemma 4.2. Indeed, let
-% \iota 1 , \iota 2 \in
-% I. Both \iota 1 (E), \iota 2 (E) contain k, and F is a splitting field over k
-% (part (1) of
-% Theorem 6.9); hence F is a splitting field (for the same polynomial) over both
-% \iota 1 (E)
-% and \iota 2(E). By Lemma 4.2, there exists an automorphism g : F \to  F
-% extending the
-% isomorphism
-% \iota 2 \circ  \iota -1
-%  1 : \iota 1 (E) \to  \iota 2 (E).
-% Then g \in  Autk (F ) (since \iota 2 \circ  \iota 1 -1
-%  restricts to the identity on k), and the fact that
-% g restricts to \iota 2 \circ  \iota -1
-%  1 means precisely that g \circ  \iota 1 = \iota 2.
-% Now choose one \iota  \in  I, and use it to identify E with an intermediate
-% field
-% of k \subseteq  F . Then AutE (F ) = Aut\iota (E)(F ) is the subgroup of Autk (F
-% ) consisting of
-% those elements g which restrict to the identity on E = \iota (E), that is, the
-% stabilizer
-% of \iota . At this point, Proposition II.9.9 is all that is needed to conclude
-% the promised
-% result:
-% \bullet  As an Autk (F )-set, I is isomorphic to the set of left-cosets of AutE (F ) in
-% Autk (F ).
-% I view this observation as an integral part of the fundamental theorem of Galois
-% theory. The conventional statement (Theorem 6.15) is an essentially immediate
-% consequence of this fact.
-% Proof of Theorem 6.15. As observed above, the Autk (F )-stabilizer of \iota  \in
-% I
-% equals Aut\iota (E) (F ). By Proposition II.9.12, stabilizers of different \iota
-% are conjugates
-% of each other; if AutE (F ) is normal, it follows that for all \iota  \in  I
-% Aut\iota (E) (F ) = AutE (F ).
-% This implies that \iota (E) = E for all \iota  \in  I, since the Galois
-% correspondence is bijective
-% for the Galois extension k \subseteq  F . It follows that k \subseteq  E
-% satisfies condition (6) of
-% Theorem 6.9; hence it is Galois.
-% Conversely, assume that k \subseteq  E is Galois; by the same condition (6),
-% \iota (E) = E
-% for all \iota  \in  I. Restriction to E = \iota (E) then defines a homomorphism
-% \rho  : Autk (F )
-%  / Aut k (E).
-% This homomorphism is surjective (because the Autk (F )-action on I is
-% transitive),
-% and its kernel consists of those g \in  Autk (F ) which restrict to the identity
-% on E,
-% that is, precisely of AutE (F ). This shows that AutE (F ) is normal and
-% establishes
-% the stated isomorphism by virtue of the `first isomorphism theorem' for groups,
-% Corollary II.8.2.
-%  ?
-% Remark 6.16. There is a parallel between Galois theory and the theory of
-% covering
-% spaces in topology. In this analogy, Galois extensions correspond to regular
-% covers;
-% the Galois group of an extension corresponds to the group of deck
-% transformations;
-% and Theorem 6.15 corresponds to the fact that the quotient of a regular cover by
-% a
-% normal subgroup of the group of deck transformations is again a regular cover.
-% More general (connected) covers correspond to more general algebraic exten-
-% sions. A space is simply connected if and only if it admits no nontrivial
-% connected
-% covers, so this notion corresponds in field theory to the condition that a field
-% K
-% admits no nontrivial algebraic extensions, that is, that K is algebraically
-% closed.
-% Viewing the fundamental group of a space as the group of deck transformations
-% of its fundamental cover suggests that we should think of the Galois group of
-% the
-% algebraic closure23 k \subseteq  k as `the fundamental group' of a field k.
-% In algebraic geometry this analogy is carried out to its natural consequences.
-% A covering map of algebraic varieties X \to  Y determines a field extension K(Y
-% ) \subseteq
-% K(X), where K(X), K(Y ) are the `fields of rational functions' (in the affine
-% case,
-% these are just the fields of fractions of the corresponding coordinate rings;
-% cf. Ex-
-% ercise 2.16). One can then use Galois theory to transfer to the
-% algebro-geometric
-% environment notions such as the fundamental group, without appealing to topolog-
-% ical notions (such as `continuous maps from S 1 '), which would be problematic
-% in,
-% e.g., positive characteristic.
-%  ?
+Example~6.4 shows that the extension $k \subseteq E$ need not be a Galois
+extension: $\Q(\sqrt[3]{2})$ is an intermediate field for the extension of
+$\Q$ into the splitting field for the polynomial $t^3 - 2$ (which is
+Galois, by part (1) of \cref{thm:fields:6.9}), but as we have seen, it is
+not Galois. The splitting field has degree $6$ over $\Q$ and is a quadratic
+extension of $\Q(\sqrt[3]{2})$. This is in fact the typical situation:
+every finite separable extension may be enlarged to a Galois extension
+(Exercise~6.4).
+
+In any case, the question of whether the extension of the base field $k$
+in an intermediate field $E$ of a Galois extension $k \subseteq F$ is
+Galois is central to the theory. The outcome of the discussion will be very
+neat, and this is possibly the most striking part of the fundamental theorem
+of Galois theory:
+\begin{thm}{}{fields:6.15}
+  Let $k \subseteq F$ be a Galois extension, and let $E$ be an intermediate
+  field. Then $k \subseteq E$ is Galois if and only if $\mathrm{Aut}_E(F)$
+  is normal in $\mathrm{Aut}_k(F)$; in this case, there is an isomorphism
+  \[
+    \mathrm{Aut}_k(E) \cong \frac{\mathrm{Aut}_k(F)}{\mathrm{Aut}_E(F)}.
+  \]
+\end{thm}
+The `problem' with $\Q \subseteq \Q(\sqrt[3]{2})$ is that the automorphism
+group of the splitting field of $t^3 - 2$ is $S_3$ (as we will soon be
+able to verify: cf.\ Example~7.19). The subgroup corresponding to
+$\Q(\sqrt[3]{2})$ has index $3$; hence (as we know, since we are well
+acquainted with $S_3$) it is not normal.
+
+The fact that the Galois group of $k \subseteq E$ will turn out to be
+isomorphic to the quotient $\mathrm{Aut}_k(F)/\mathrm{Aut}_E(F)$ in the
+Galois case should not be too surprising, since we know already that in
+any case $[E : k]$ equals the index of $\mathrm{Aut}_E(F)$ in
+$\mathrm{Aut}_k(F)$, and the index equals the order of the quotient if the
+subgroup is normal. In general, $[E : k]$ equals the number of cosets of
+$\mathrm{Aut}_E(F)$ in $\mathrm{Aut}_k(F)$, and it is worth shooting for
+a concrete interpretation of these cosets, even when $k \subseteq E$ does
+not turn out to be a Galois extension.
+We already know that the number of left-cosets of $\mathrm{Aut}_E(F)$
+equals the index of $\mathrm{Aut}_E(F)$ in $\mathrm{Aut}_k(F)$, hence
+$[E : k]$, hence $[E : k]_s$ (because $k \subseteq E$ is separable, as a
+subextension of a separable extension), and hence there must exist a
+bijection between the set of left-cosets $g\,\mathrm{Aut}_E(F)$ as $g$
+ranges in $\mathrm{Aut}_k(F)$ and the set of different embeddings
+$\iota : E \to \bar{k}$ in an algebraic closure of $k$, extending
+$\mathrm{id}_k$. Not surprisingly, there is a reason for this---that is,
+a `meaningful' bijection between these two sets.
+This is an excellent moment to review the material on group actions we
+covered in \S{}II.9, especially \S{}II.9.3. Recall in particular that we
+were able to classify all transitive actions of a group $G$ on a set $S$
+(Proposition~II.9.9): these $G$-sets are all isomorphic to the set of
+left-cosets of a subgroup $H$ of $G$ under the natural action of $G$; and
+$H$ may be taken to be the stabilizer of any element of $S$.
+We are going to define a natural action of $\mathrm{Aut}_k(F)$ on the set
+$I$ of embeddings of $E$ in $\bar{k}$ extending the identity, and prove
+that, as an $\mathrm{Aut}_k(F)$-set, $I$ is isomorphic to the set of
+left-cosets of $\mathrm{Aut}_E(F)$ in $\mathrm{Aut}_k(F)$. This will be
+our `meaningful bijection', and after this is done Theorem~6.15 will look
+perfectly reasonable.
+Fix an embedding $F \subseteq \bar{k}$ of $F$ in an algebraic closure of
+$k$, and let $I$ be the set of embeddings $\iota : E \to \bar{k}$
+extending the identity on $k$. It is a good idea to view $k \subseteq E$
+as an abstract extension, rather than identifying $E$ with a specific
+intermediate field in $F$; the fact that we can view $E$ as an
+intermediate field of the extension $k \subseteq F$ simply means that
+$\iota(E) \subseteq F$ for some $\iota \in I$.
+\begin{itemize}
+  \item For all $\iota \in I$, $\iota(E) \subseteq F$.
+
+    Indeed, $k \subseteq E$ is simple (finite and separable $\Rightarrow$
+    simple, Proposition~5.19). If $E = k(\alpha)$, then $\iota$ is
+    determined by $\iota(\alpha)$, which is necessarily a root of the
+    minimal polynomial of $\alpha$ over $k$. But $k \subseteq F$ is normal
+    and contains some root $\iota(\alpha)$ of this polynomial; hence $F$
+    contains all of them (Definition~4.7). That is, $\iota(\alpha) \in F$
+    for all $\iota \in I$, implying $\iota(k(\alpha)) \subseteq F$ for all
+    $\iota \in I$.
+  \item Let $\iota \in I$, and let $g \in \mathrm{Aut}_k(F)$; then
+    $g \circ \iota \in I$. Therefore, $\mathrm{Aut}_k(F)$ acts on $I$.
+
+    Here $g \circ \iota$ is interpreted in the following way:
+    $\iota(E) \subseteq F$, as we have seen; hence $g$ restricts to a
+    homomorphism $\iota(E) \to F$, and $g \circ \iota$ is the composition
+    of this homomorphism with $\iota$.
+  \item The action of $\mathrm{Aut}_k(F)$ on $I$ is transitive.
+
+    This follows from the `uniqueness of splitting fields', Lemma~4.2.
+    Indeed, let $\iota_1, \iota_2 \in I$. Both $\iota_1(E)$, $\iota_2(E)$
+    contain $k$, and $F$ is a splitting field over $k$ (part~(1) of
+    Theorem~6.9); hence $F$ is a splitting field (for the same polynomial)
+    over both $\iota_1(E)$ and $\iota_2(E)$. By Lemma~4.2, there exists
+    an automorphism $g : F \to F$ extending the isomorphism
+    $\iota_2 \circ \iota_1^{-1} : \iota_1(E) \to \iota_2(E)$.
+    Then $g \in \mathrm{Aut}_k(F)$ (since
+    $\iota_2 \circ \iota_1^{-1}$ restricts to the identity on $k$), and
+    the fact that $g$ restricts to $\iota_2 \circ \iota_1^{-1}$ means
+    precisely that $g \circ \iota_1 = \iota_2$.
+  \item As an $\mathrm{Aut}_k(F)$-set, $I$ is isomorphic to the set of
+    left-cosets of $\mathrm{Aut}_E(F)$ in $\mathrm{Aut}_k(F)$.
+\end{itemize}
+
+Now choose one $\iota \in I$, and use it to identify $E$ with an
+intermediate field of $k \subseteq F$. Then
+$\mathrm{Aut}_E(F) = \mathrm{Aut}_{\iota(E)}(F)$ is the subgroup of
+$\mathrm{Aut}_k(F)$ consisting of those elements $g$ which restrict to the
+identity on $E = \iota(E)$, that is, the stabilizer of $\iota$. At this
+point, Proposition~II.9.9 is all that is needed to conclude the promised
+result in the last bullet above.
+
+I view this observation as an integral part of the fundamental theorem of
+Galois theory. The conventional statement (Theorem~6.15) is an essentially
+immediate consequence of this fact.
+\begin{proof}[Proof of \cref{thm:fields:6.15}]
+  As observed above, the $\mathrm{Aut}_k(F)$-stabilizer of $\iota \in I$
+  equals $\mathrm{Aut}_{\iota(E)}(F)$. By Proposition~II.9.12,
+  stabilizers of different $\iota$ are conjugates of each other; if
+  $\mathrm{Aut}_E(F)$ is normal, it follows that for all $\iota \in I$,
+  $\mathrm{Aut}_{\iota(E)}(F) = \mathrm{Aut}_E(F)$.
+  This implies that $\iota(E) = E$ for all $\iota \in I$, since the Galois
+  correspondence is bijective for the Galois extension $k \subseteq F$. It
+  follows that $k \subseteq E$ satisfies condition~(6) of Theorem~6.9;
+  hence it is Galois.
+
+  Conversely, assume that $k \subseteq E$ is Galois; by the same
+  condition~(6), $\iota(E) = E$ for all $\iota \in I$. Restriction to
+  $E = \iota(E)$ then defines a homomorphism
+  $\rho : \mathrm{Aut}_k(F) \to \mathrm{Aut}_k(E)$.
+  This homomorphism is surjective (because the $\mathrm{Aut}_k(F)$-action
+  on $I$ is transitive), and its kernel consists of those
+  $g \in \mathrm{Aut}_k(F)$ which restrict to the identity on $E$, that
+  is, precisely of $\mathrm{Aut}_E(F)$. This shows that $\mathrm{Aut}_E(F)$
+  is normal and establishes the stated isomorphism by virtue of the first
+  isomorphism theorem for groups, Corollary~II.8.2.
+\end{proof}
+\begin{rem}{}{fields:6.16}
+  There is a parallel between Galois theory and the theory of covering
+  spaces in topology. In this analogy, Galois extensions correspond to
+  regular covers; the Galois group of an extension corresponds to the group
+  of deck transformations; and Theorem~6.15 corresponds to the fact that
+  the quotient of a regular cover by a normal subgroup of the group of deck
+  transformations is again a regular cover. More general (connected) covers
+  correspond to more general algebraic extensions. A space is simply
+  connected if and only if it admits no nontrivial connected covers, so
+  this notion corresponds in field theory to the condition that a field $K$
+  admits no nontrivial algebraic extensions, that is, that $K$ is
+  algebraically closed. Viewing the fundamental group of a space as the
+  group of deck transformations of its fundamental cover suggests that we
+  should think of the Galois group of the algebraic closure
+  $k \subseteq \bar{k}$ as `the fundamental group' of a field
+  $k$.\footnote{In algebraic geometry this analogy is carried out to its
+  natural consequences. A covering map of algebraic varieties $X \to Y$
+  determines a field extension $K(Y) \subseteq K(X)$, where $K(X)$,
+  $K(Y)$ are the `fields of rational functions' (in the affine case, these
+  are just the fields of fractions of the corresponding coordinate rings;
+  cf.\ Exercise~2.16). One can then use Galois theory to transfer to the
+  algebro-geometric environment notions such as the fundamental group,
+  without appealing to topological notions (such as `continuous maps from
+  $S^1$'), which would be problematic in, e.g., positive characteristic.}
+\end{rem}
 
 \subsection{Further remarks and examples}
 \label{subsec:fields:further-remarks-and-examples}
-% Suppose k \subseteq  F and k \subseteq  K are two finite
+Suppose $k \subseteq F$ and $k \subseteq K$ are two finite extensions
+contained in a larger extension of $k$ (for example, we could choose
+specific embeddings $F \subseteq \bar{k}$, $K \subseteq \bar{k}$ in an
+algebraic closure of $k$). Then we can consider the composite $KF$ (cf.\
+Lemma~6.3) of $F$, $K$ in the larger extension. It is natural to question
+how the Galois condition behaves under this operation.
+\begin{prop}{}{fields:6.17}
+  Suppose $k \subseteq F$ is a Galois extension and $k \subseteq K$ is any
+  finite extension. Then $K \subseteq KF$ is a Galois extension, and
+  $\mathrm{Aut}_K(KF) \cong \mathrm{Aut}_{F \cap K}(F)$.
+\end{prop}
 
-% extensions contained in a larger extension of k (for example, we could choose
-% specific
-% embeddings F \subseteq  k, K \subseteq  k in an algebraic closure of k). Then we
-% can consider the
-% composite KF (cf. Lemma 6.3) of F , K in the larger extension. It is natural to
-% question how the Galois condition behaves under this operation.
-% Proposition 6.17. Suppose k \subseteq  F is a Galois extension and k \subseteq
-% K is any finite
-% extension. Then K \subseteq  KF is a Galois extension, and AutK (KF ) \sim 
-%  = AutF \cap K (F ).
-% Pictorially,
-% sss
-%  s
-% KF L L L G
-%  L
-% F K K
-%  K
-%  rrr
-%  K
-% G
-%  F \cap  K
-% k
-% Proof. As k \subseteq  F is Galois, it is the splitting field of a separable
-% polynomial
-% f (x) \in  k[x] \subseteq  K[x]. The roots of f (x) generate F over k, so they
-% generate KF
-% over K; in other words, KF is the splitting field of f (x) over K, so K
-% \subseteq  KF is
-% Galois.
-% If \sigma  : KF \to  KF is an automorphism extending the identity on K (and
-% hence
-% on k), then \sigma  restricts to a homomorphism F \to  \sigma (F ) extending the
-% identity on k.
-% Since k \subseteq  F is Galois, \sigma (F ) = F ((6) in Theorem 6.9). Thus,
-% `restriction' defines
-% a natural group homomorphism
-% \rho  : AutK (KF ) -\to  Aut k (F ).
-% I claim that \rho  is injective. Indeed, by definition every \sigma  \in  AutK
-% (KF ) is the identity
-% on K; if \sigma  restricts to the identity on F , then \sigma  is the identity
-% on the composite KF ;
-% that is, \sigma  = id in AutK (KF ).
-% Therefore, AutK (KF ) may be identified with a subgroup G of Autk (F ). Since
-% every \sigma  \in  AutK (KF ) fixes K, the restriction \rho (\sigma ) fixes F
-% \cap K; that is, F G \supseteq  F \cap K.
-% 23 Of course the extension k \subseteq  k is not finite in general, so one needs
-% the infinite version of
-% Galois theory; cf. Remark 6.8.
-% Conversely, suppose \alpha  \in  F G ; then K(\alpha ) is in the fixed field of
-% AutK (KF ), which
-% is K itself since K \subseteq  KF is Galois (condition (4) of Theorem 6.9). That
-% is, \alpha  \in  K,
-% and it follows that F G = F \cap  K. By Proposition 6.5, G = AutF \cap K (F ),
-% concluding
-% the proof.
-%  ?
-% I will leave to the reader the pleasure of verifying that if both k \subseteq  F
-% and k \subseteq  K
-% are Galois, then KF is also Galois over k, and so is F \cap  K (Exercise 6.13).
-% Example 6.18. We have studied cyclotomic fields Q(\zeta n) as extensions of Q;
-% Q(\zeta n)
-% is the splitting field of xn - 1, so these extensions are Galois; we have proved
-% (Proposition 5.16) that AutQ (Q(\zeta n)) is isomorphic to the group of units in
-% Z/nZ.
-% Now let k be any field of characteristic zero. The splitting field of xn - 1
-% over k
-% is the composite k(\zeta ) of k and Q(\zeta ). By Proposition 6.17 the extension
-% k \subseteq  k(\zeta ) is
-% Galois, and Autk (k(\zeta )) is isomorphic to a subgroup of the group of units
-% of Z/nZ.
-% In particular, it is abelian.
-%  ?
-% The previous example gives an important class of abelian Galois extensions.
-% Remarkably, we can classify all cyclic Galois extensions, if we impose some
-% restric-
-% tion on the base field k.
-% Proposition 6.19. Let k \subseteq  F be an extension of degree m. Assume that k
-% contains
-% a primitive m-th root of 1 and char k does not divide24 m. Then k \subseteq  F
-% is Galois
-% and cyclic if and only if F = k(\delta ), with \delta m \in  k.
-% That is, under the given hypotheses m \sqrt 
-%  on k, the cyclic Galois extensions of k
-% are precisely those of the form k \subseteq  k( c), with c \in  k. This is part
-% of Kummer
-% theory, a basic tool in the study of abelian extensions. Proposition 6.19 will
-% be a
-% key ingredient in our application of Galois theory to the solvability of
-% polynomial
-% equations.
-% Proof. Let \zeta  \in  k be a primitive m-th root of 1.
-% First assume that F = k(\delta ), with \delta m = c \in  k.polynomial xm - c,
-% \delta  , \zeta \delta  , \zeta  2\delta  , \dots  , \zeta  m-1 \delta ,
-% Then all m roots of the
-% are in F , and F is generated by them; therefore F is the splitting field of the
-% separa-
-% ble (since char k does not divide m) polynomial xm - c over k; hence (Theorem
-% 6.9,
-% part (1)) k \subseteq  F is Galois.
-% To see that Autk (F ) is cyclic, note that every \phi  \in  Autk (F ) is
-% determined
-% by \phi (\delta ), which is necessarily a root of xm - c; therefore \phi (\delta
-% ) = \zeta  i \delta  for some
-% i, determined up to a multiple of m. This defines an isomorphism of Autk (F )
-% with Z/mZ, as is immediately verified.
-% Conversely, assume that k \subseteq  F is Galois and Autk (F ) is cyclic,
-% generated by \phi .
-% The automorphisms \phi  i , i = 0, . . . , m-1, are pairwise distinct; thus they
-% are linearly
-% independent over F (Exercise 6.14). Therefore, there exists an \alpha  \in  F
-% such that25
-% \delta  := \alpha  + \zeta  -1 \phi (\alpha ) + \dots  + \zeta  -(m-2)\phi m-2 (\alpha ) + \zeta  -(m-1) \phi m-1 (\alpha ) = 0.
-% 24 We will apply this result in \S{}7.4; for convenience, we will take char k =
-% 0 in that application.
-% 25This is called a Lagrange resolvent.
-% Note that
-% \phi (\delta ) = \phi (\alpha ) + \zeta  -1 \phi 2 (\alpha ) + \dots  + \zeta  -(m-2)\phi m-1 (\alpha ) + \zeta  -(m-1) \alpha  = \zeta \delta 
-% (since \zeta  \in  k, so \phi (\zeta ) = \zeta ). This implies that \delta  is
-% not fixed by any nonidentity
-% element of Autk (F ); that is, Autk(\delta ) (F ) = {e}; that is, k(\delta ) = F
-% . Further,
-% \phi (\delta  m ) = (\phi (\delta ))m = \zeta  m\delta m = \delta  m ;
-% that is, \delta  m is fixed by \phi , and hence by the whole of Autk (F ). Since
-% k \subseteq  F is
-% Galois, this implies \delta  m \in  k (Theorem 6.9, part (4)). That is, \delta
-% satisfies the stated
-% conditions.
-%  ?
+The situation is depicted in the lattice:
+\[
+  \begin{array}{ccc}
+    KF & & \\
+    \big\uparrow & \nwarrow & \\
+    F & & K \\
+    & \nwarrow & \big\uparrow \\
+    & & k
+  \end{array}
+  \qquad
+  \begin{array}{c}
+    \mathrm{Aut}_K(KF) \cong \mathrm{Aut}_{F \cap K}(F)
+  \end{array}
+\]
+\begin{proof}
+  As $k \subseteq F$ is Galois, it is the splitting field of a separable
+  polynomial $f(x) \in k[x] \subseteq K[x]$. The roots of $f(x)$ generate
+  $F$ over $k$, so they generate $KF$ over $K$; in other words, $KF$ is
+  the splitting field of $f(x)$ over $K$, so $K \subseteq KF$ is Galois.
+
+  If $\sigma : KF \to KF$ is an automorphism extending the identity on $K$
+  (and hence on $k$), then $\sigma$ restricts to a homomorphism
+  $F \to \sigma(F)$ extending the identity on $k$. Since $k \subseteq F$
+  is Galois, $\sigma(F) = F$ (condition~(6) in Theorem~6.9). Thus,
+  `restriction' defines a natural group homomorphism
+  $\rho : \mathrm{Aut}_K(KF) \to \mathrm{Aut}_k(F)$.
+
+  I claim that $\rho$ is injective. Indeed, by definition every
+  $\sigma \in \mathrm{Aut}_K(KF)$ is the identity on $K$; if $\sigma$
+  restricts to the identity on $F$, then $\sigma$ is the identity on the
+  composite $KF$; that is, $\sigma = \mathrm{id}$ in
+  $\mathrm{Aut}_K(KF)$.
+
+  Therefore, $\mathrm{Aut}_K(KF)$ may be identified with a subgroup $G$
+  of $\mathrm{Aut}_k(F)$. Since every $\sigma \in \mathrm{Aut}_K(KF)$
+  fixes $K$, the restriction $\rho(\sigma)$ fixes $F \cap K$; that is,
+  $F^G \supseteq F \cap K$. Conversely, suppose $\alpha \in F^G$; then
+  $K(\alpha)$ is in the fixed field of $\mathrm{Aut}_K(KF)$, which is $K$
+  itself since $K \subseteq KF$ is Galois (condition~(4) of
+  Theorem~6.9). That is, $\alpha \in K$, and it follows that
+  $F^G = F \cap K$. By Proposition~6.5, $G = \mathrm{Aut}_{F \cap K}(F)$,
+  concluding the proof.
+\end{proof}
+I will leave to the reader the pleasure of verifying that if both
+$k \subseteq F$ and $k \subseteq K$ are Galois, then $KF$ is also Galois
+over $k$, and so is $F \cap K$ (Exercise~6.13).
+\begin{exam}{}{fields:exam:6.18}
+  We have studied cyclotomic fields $\Q(\zeta_n)$ as extensions of $\Q$;
+  $\Q(\zeta_n)$ is the splitting field of $x^n - 1$, so these extensions
+  are Galois; we have proved (Proposition~5.16) that
+  $\mathrm{Aut}_\Q(\Q(\zeta_n))$ is isomorphic to the group of units in
+  $\Z/n\Z$.
+
+  Now let $k$ be any field of characteristic zero. The splitting field of
+  $x^n - 1$ over $k$ is the composite $k(\zeta)$ of $k$ and $\Q(\zeta)$.
+  By Proposition~6.17 the extension $k \subseteq k(\zeta)$ is Galois, and
+  $\mathrm{Aut}_k(k(\zeta))$ is isomorphic to a subgroup of the group of
+  units of $\Z/n\Z$. In particular, it is abelian.
+\end{exam}
+The previous example gives an important class of abelian Galois
+extensions. Remarkably, we can classify all cyclic Galois extensions, if
+we impose some restriction on the base field $k$.
+
+\begin{prop}{}{fields:6.19}
+  Let $k \subseteq F$ be an extension of degree $m$. Assume that $k$
+  contains a primitive $m$-th root of $1$ and $\mathrm{char}\,k$ does not
+  divide\footnote{We will apply this result in \S{}7.4; for convenience,
+  we will take $\mathrm{char}\,k = 0$ in that application.} $m$. Then
+  $k \subseteq F$ is Galois and cyclic if and only if $F = k(\delta)$,
+  with $\delta^m \in k$.
+\end{prop}
+
+That is, under the given hypotheses on $k$, the cyclic Galois extensions
+of $k$ are precisely those of the form $k \subseteq k(\sqrt[m]{c})$, with
+$c \in k$. This is part of Kummer theory, a basic tool in the study of
+abelian extensions. Proposition~6.19 will be a key ingredient in our
+application of Galois theory to the solvability of polynomial equations.
+\begin{proof}
+  Let $\zeta \in k$ be a primitive $m$-th root of $1$.
+
+  First assume that $F = k(\delta)$, with $\delta^m = c \in k$. Then all
+  $m$ roots of the polynomial $x^m - c$,
+  \[
+    \delta,\; \zeta\delta,\; \zeta^2\delta,\; \dots,\; \zeta^{m-1}\delta,
+  \]
+  are in $F$, and $F$ is generated by them; therefore $F$ is the splitting
+  field of the separable (since $\mathrm{char}\,k$ does not divide $m$)
+  polynomial $x^m - c$ over $k$; hence (Theorem~6.9, part~(1))
+  $k \subseteq F$ is Galois. To see that $\mathrm{Aut}_k(F)$ is cyclic,
+  note that every $\phi \in \mathrm{Aut}_k(F)$ is determined by
+  $\phi(\delta)$, which is necessarily a root of $x^m - c$; therefore
+  $\phi(\delta) = \zeta^i \delta$ for some $i$, determined up to a
+  multiple of $m$. This defines an isomorphism of $\mathrm{Aut}_k(F)$
+  with $\Z/m\Z$, as is immediately verified.
+  Conversely, assume that $k \subseteq F$ is Galois and
+  $\mathrm{Aut}_k(F)$ is cyclic, generated by $\phi$. The automorphisms
+  $\phi^i$, $i = 0, \dots, m-1$, are pairwise distinct; thus they are
+  linearly independent over $F$ (Exercise~6.14). Therefore, there exists
+  an $\alpha \in F$ such that\footnote{This is called a Lagrange
+  resolvent.}
+  \[
+    \delta := \alpha + \zeta^{-1}\phi(\alpha) + \dots
+    + \zeta^{-(m-2)}\phi^{m-2}(\alpha)
+    + \zeta^{-(m-1)}\phi^{m-1}(\alpha) \neq 0.
+  \]
+  Note that
+  \[
+    \phi(\delta) = \phi(\alpha) + \zeta^{-1}\phi^2(\alpha) + \dots
+    + \zeta^{-(m-2)}\phi^{m-1}(\alpha) + \zeta^{-(m-1)}\alpha
+    = \zeta\delta
+  \]
+  (since $\zeta \in k$, so $\phi(\zeta) = \zeta$). This implies that
+  $\delta$ is not fixed by any nonidentity element of $\mathrm{Aut}_k(F)$;
+  that is, $\mathrm{Aut}_{k(\delta)}(F) = \{e\}$; that is,
+  $k(\delta) = F$. Further,
+  \[
+    \phi(\delta^m) = (\phi(\delta))^m = \zeta^m \delta^m = \delta^m;
+  \]
+  that is, $\delta^m$ is fixed by $\phi$, and hence by the whole of
+  $\mathrm{Aut}_k(F)$. Since $k \subseteq F$ is Galois, this implies
+  $\delta^m \in k$ (Theorem~6.9, part~(4)). That is, $\delta$ satisfies
+  the stated conditions.
+\end{proof}
 
 \subsection*{Exercises}
 
-% 6.1. ? Prove Lemma 6.3. [\S{}6.1]
-% 6.2. Prove that quadratic extensions in characteristic= 2 are Galois.
-% 6.3. ? Let k \subseteq  F be a Galois extension, and let E be an intermediate
-% field. Prove
-% that E \subseteq  F is a Galois extension. [\S{}6.2]
-% 6.4. ? Let k \subseteq  E be a finite separable extension. Prove that E may be
-% identified
-% with an intermediate field of a Galois extension k \subseteq  F of k.
-% In fact, prove that there is a smallest such extension k \subseteq  F , in the
-% sense that
-% if k \subseteq  E \subseteq  K, with k \subseteq  K Galois, then there exists an
-% embedding of F in K which
-% is the identity on E. (The extension k \subseteq  F is the Galois closure of the
-% extension
-% k \subseteq  E. It is clearly uniquely determined up to isomorphism.) [\S{}6.3,
-% 6.5]
-% 6.5. We have proved (Proposition 5.19) that all finite separable extensions k
-% \subseteq  E
-% are simple. Let k \subseteq  F be a Galois closure of k \subseteq  E (Exercise
-% 6.4). For \alpha  \in  E,
-% prove that E = k(\alpha ) if and only if \alpha  is moved by all \sigma  \in
-% Autk (F ) \setminus  AutE (F ).
-% *
-%  \sqrt 
-% 6.6. \bullet  Prove that Q \subseteq  Q( 2 + 2) is Galois, with cyclic Galois
-% group. (Cf. Ex-
-% ercise 1.25.)
-% *
-%  \sqrt 
-% \bullet  Prove that Q \subseteq  Q( 3 + 5) is Galois and its Galois group is isomorphic to
-% (Z/2Z) \times  (Z/2Z).
-% *
-%  \sqrt 
-% \bullet  Prove that Q \subseteq  Q( 1 + 2) is not Galois, and compute its Galois closure
-% Q \subseteq  F . Prove that AutQ (F ) \sim 
-%  = D8 . (Use Exercise IV.2.16.)
-% 6.7. Let p > 0 be prime, and let d | e be positive integers, so that there is an
-% extension Fpd \subseteq  Fpe . Prove that AutFpd Fpe is cyclic, and describe a
-% generator of
-% this group. (This generalizes Proposition 5.8; use Galois theory.)
-% 6.8. Let k \subseteq  F be a Galois extension of degree n, and let E be an
-% intermediate
-% field. Assume that [E : k] is the smallest prime dividing n. Prove k \subseteq
-% E is Galois.
-% 6.9. Let k \subseteq  F be a Galois extension of degree 75. Prove that there
-% exists an
-% intermediate field E, with k ? E ? F , such that the extension k \subseteq  E is
-% Galois.
-% 6.10. Let k \subseteq  F be a Galois extension and E an intermediate field.
-% Prove that the
-% normalizer of AutE (F ) in Autk (F ) is the set of \sigma  \in  Autk (F ) such
-% that \sigma (E) \subseteq  E.
-% Use this to give an alternative proof of the fact that E is Galois over k if and
-% only if AutE (F ) is normal in Autk (F ).
-% 6.11. Let k \subseteq  E and E \subseteq  F be Galois extensions.
-% \bullet  Find an example showing that k \subseteq  F is not necessarily Galois.
-% \bullet  Prove that if every \sigma  \in  Autk (E) is the restriction of an element of Autk (F ),
-% then k \subseteq  F is Galois.
-% 6.12. Find two algebraic extensions k \subseteq  F , k \subseteq  K and
-% embeddings F \subseteq  k,
-% \sigma 1 : K \subseteq  k, \sigma 2 : K \subseteq  k extending k \subseteq  k, such that the composites F \sigma 1 (K),
-% F \sigma 2(K) are not isomorphic.
-% Prove that no such example exists if F and K are Galois over k.
-% 6.13. ? Let k \subseteq  F and k \subseteq  K be Galois extensions, and assume F
-% and K are
-% subfields of a larger field. Prove that k \subseteq  F K and k \subseteq  F \cap
-% K are both Galois
-% extensions. [\S{}6.4, \S{}7.4]
-% 6.14. ? Let k \subseteq  F be a field extension, and let \phi 1 , . . . , \phi m
-% \in  Autk (F ) be pairwise
-% distinct automorphisms. Prove that \phi 1, . . . , \phi m are linearly
-% independent over F .
-% (Recycle/adapt the hint for Exercise VI.6.15.) [\S{}6.4, 6.16, \S{}IX.7.6]
-% 6.15. Let k \subseteq  F be a Galois extension, and let \alpha  \in  F . Prove
-% that
-% ?
-%  ?
-% Nk\subseteq F (\alpha ) =
-%  \sigma (\alpha ), trk\subseteq F (\alpha ) =
-%  \sigma (\alpha ).
-% \sigma \in Autk (F )
-%  \sigma \in Autk (F )
-% (Exercise 4.19.)
-% 6.16. ? Let k \subseteq  F be a cyclic Galois extension of degree d, and let
-% \phi  be a generator
-% of Autk (F ). Let \alpha  \in  F be an element such that Nk\subseteq F (\alpha )
-% = 1.
-% \bullet  Prove that the automorphisms idF , \phi , . . . , \phi d-1 are linearly independent
-% over F . (Exercise 6.14.)
-% \bullet  Prove that there exists a \gamma  \in  F such that
-% \beta  := \gamma  + \alpha \phi (\gamma ) + \alpha \phi (\alpha )\phi 2 (\gamma ) + \dots  + \alpha \phi (\alpha ) \dots  \phi d-2 (\alpha )\phi d-1 (\gamma ) = 0.
-% \bullet  Prove that \alpha \phi (\alpha )\phi 2(\alpha ) \dots  \phi d-1 (\alpha )\phi d (\gamma ) = \gamma , and deduce that \alpha  = \beta /\phi (\beta ).
-% Together with the result of Exercise 4.20, the conclusion is that an element
-% \alpha  of
-% a cyclic Galois extension as above has norm 1 if and only if there exists a
-% \beta  such
-% that \alpha  = \beta /\phi (\beta ).
-% This is Hilbert's theorem 90 (the 90-th theorem in Hilbert's Zahlbericht, a
-% report
-% on the state of number theory at the end of the nineteenth century commissioned
-% by the German Mathematical Society). [6.17, \S{}IX.7.6, IX.7.18]
-% 6.17. Exercise 6.16 should remind the reader of the proof of Proposition 6.19,
-% and
-% for good reasons. Assume that k \subseteq  F is a cyclic Galois extension of
-% degree m and
-% that k contains a primitive m-th root \zeta  of 1. Use Hilbert's theorem 90 to
-% prove
-% that F = k(\delta ) for a \delta  such that \delta m \in  k, thereby recovering
-% one direction of the
-% statement of Proposition 6.19. (Hint: What is Nk\subseteq F (\zeta  -1)?)
-% The case of Hilbert's theorem 90 needed here is due to Kummer.
-% 6.18. Use Hilbert's theorem 90 to find all rational roots a, b of the equation
-% a2 +
-% b2 d = 1, where d \sqrt 
-%  is a positive integer that is not a square. (Hint: a2 + b2d equals
-% NQ\subseteq Q(\sqrt 
-% -d) (a + b -d); cf. Exercise 1.12.)
-% 6.19. \lnot  Let k \subseteq  F be a cyclic Galois extension of degree d, and
-% let \phi  be a generator
-% of Autk (F ). Let \alpha  \in  F be an element such that trk\subseteq F (\alpha
-% ) = 0. Prove an `additive
-% version' of Hilbert's theorem 90:
-% \bullet  Prove that there exists a \gamma  \in  F such that trk\subseteq F (\gamma ) = 0.
-% \bullet  Stare at the expression
-% \alpha \phi (\gamma ) + (\alpha  + \phi (\alpha ))\phi 2 (\gamma ) + \dots  + (\alpha  + \phi (\alpha ) + \dots  + \phi d-2 (\alpha ))\phi d-1 (\gamma ).
-% \bullet  Prove that there exists a \beta  \in  F such that \alpha  = \beta  - \phi (\beta ).
-% Together with Exercise 4.20, this says that an element \alpha  of a cyclic
-% Galois extension
-% as above has trace 0 if and only if there exists a \beta  such that \alpha  =
-% \beta  - \phi (\beta ). For an
-% application, see Exercise 7.15. [7.15]
+\begin{exer}{}{fields:exer:6.1}
+  Prove Lemma~6.3. [\S{}6.1]
+\end{exer}
+\begin{exer}{}{fields:exer:6.2}
+  Prove that quadratic extensions in characteristic $\neq 2$ are Galois.
+\end{exer}
+\begin{exer}{}{fields:exer:6.3}
+  Let $k \subseteq F$ be a Galois extension, and let $E$ be an
+  intermediate field. Prove that $E \subseteq F$ is a Galois extension.
+  [\S{}6.2]
+\end{exer}
+\begin{exer}{}{fields:exer:6.4}
+  Let $k \subseteq E$ be a finite separable extension. Prove that $E$ may
+  be identified with an intermediate field of a Galois extension
+  $k \subseteq F$ of $k$. In fact, prove that there is a smallest such
+  extension $k \subseteq F$, in the sense that if $k \subseteq E
+  \subseteq K$, with $k \subseteq K$ Galois, then there exists an
+  embedding of $F$ in $K$ which is the identity on $E$. (The extension
+  $k \subseteq F$ is the \emph{Galois closure} of the extension
+  $k \subseteq E$. It is clearly uniquely determined up to isomorphism.)
+  [\S{}6.3, 6.5]
+\end{exer}
+\begin{exer}{}{fields:exer:6.5}
+  We have proved (Proposition~5.19) that all finite separable extensions
+  $k \subseteq E$ are simple. Let $k \subseteq F$ be a Galois closure of
+  $k \subseteq E$ (Exercise~6.4). For $\alpha \in E$, prove that
+  $E = k(\alpha)$ if and only if $\alpha$ is moved by all
+  $\sigma \in \mathrm{Aut}_k(F) \setminus \mathrm{Aut}_E(F)$.
+\end{exer}
+\begin{exer}{}{fields:exer:6.6}
+  \begin{enumerate}[(i)]
+    \item Prove that $\Q \subseteq \Q(\sqrt{2 + \sqrt{2}})$ is Galois,
+      with cyclic Galois group. (Cf.\ Exercise~1.25.)
+    \item Prove that $\Q \subseteq \Q(\sqrt{3 + \sqrt{5}})$ is Galois and
+      its Galois group is isomorphic to $(\Z/2\Z) \times (\Z/2\Z)$.
+    \item Prove that $\Q \subseteq \Q(\sqrt{1 + \sqrt{2}})$ is not Galois,
+      and compute its Galois closure $\Q \subseteq F$. Prove that
+      $\mathrm{Aut}_\Q(F) \cong D_8$. (Use Exercise~IV.2.16.)
+  \end{enumerate}
+\end{exer}
+\begin{exer}{}{fields:exer:6.7}
+  Let $p > 0$ be prime, and let $d \mid e$ be positive integers, so that
+  there is an extension $\F_{p^d} \subseteq \F_{p^e}$. Prove that
+  $\mathrm{Aut}_{\F_{p^d}}(\F_{p^e})$ is cyclic, and describe a generator
+  of this group. (This generalizes Proposition~5.8; use Galois theory.)
+\end{exer}
+\begin{exer}{}{fields:exer:6.8}
+  Let $k \subseteq F$ be a Galois extension of degree $n$, and let $E$ be
+  an intermediate field. Assume that $[E : k]$ is the smallest prime
+  dividing $n$. Prove $k \subseteq E$ is Galois.
+\end{exer}
+\begin{exer}{}{fields:exer:6.9}
+  Let $k \subseteq F$ be a Galois extension of degree $75$. Prove that
+  there exists an intermediate field $E$, with $k \subsetneq E \subsetneq
+  F$, such that the extension $k \subseteq E$ is Galois.
+\end{exer}
+\begin{exer}{}{fields:exer:6.10}
+  Let $k \subseteq F$ be a Galois extension and $E$ an intermediate field.
+  Prove that the normalizer of $\mathrm{Aut}_E(F)$ in $\mathrm{Aut}_k(F)$
+  is the set of $\sigma \in \mathrm{Aut}_k(F)$ such that
+  $\sigma(E) \subseteq E$. Use this to give an alternative proof of the
+  fact that $E$ is Galois over $k$ if and only if $\mathrm{Aut}_E(F)$ is
+  normal in $\mathrm{Aut}_k(F)$.
+\end{exer}
+\begin{exer}{}{fields:exer:6.11}
+  Let $k \subseteq E$ and $E \subseteq F$ be Galois extensions.
+  \begin{enumerate}[(i)]
+    \item Find an example showing that $k \subseteq F$ is not necessarily
+      Galois.
+    \item Prove that if every $\sigma \in \mathrm{Aut}_k(E)$ is the
+      restriction of an element of $\mathrm{Aut}_k(F)$, then
+      $k \subseteq F$ is Galois.
+  \end{enumerate}
+\end{exer}
+\begin{exer}{}{fields:exer:6.12}
+  Find two algebraic extensions $k \subseteq F$, $k \subseteq K$ and
+  embeddings $F \subseteq \bar{k}$, $\sigma_1 : K \to \bar{k}$,
+  $\sigma_2 : K \to \bar{k}$ extending $k \subseteq \bar{k}$, such that
+  the composites $F\sigma_1(K)$, $F\sigma_2(K)$ are not isomorphic.
+  Prove that no such example exists if $F$ and $K$ are Galois over $k$.
+\end{exer}
+\begin{exer}{}{fields:exer:6.13}
+  Let $k \subseteq F$ and $k \subseteq K$ be Galois extensions, and assume
+  $F$ and $K$ are subfields of a larger field. Prove that $k \subseteq FK$
+  and $k \subseteq F \cap K$ are both Galois extensions. [\S{}6.4,
+  \S{}7.4]
+\end{exer}
+\begin{exer}{}{fields:exer:6.14}
+  Let $k \subseteq F$ be a field extension, and let
+  $\phi_1, \dots, \phi_m \in \mathrm{Aut}_k(F)$ be pairwise distinct
+  automorphisms. Prove that $\phi_1, \dots, \phi_m$ are linearly
+  independent over $F$. (Recycle/adapt the hint for
+  Exercise~VI.6.15.) [\S{}6.4, 6.16, \S{}IX.7.6]
+\end{exer}
+\begin{exer}{}{fields:exer:6.15}
+  Let $k \subseteq F$ be a Galois extension, and let $\alpha \in F$. Prove
+  that
+  \[
+    N_{k \subseteq F}(\alpha) = \prod_{\sigma \in \mathrm{Aut}_k(F)}
+    \sigma(\alpha), \qquad
+    \mathrm{tr}_{k \subseteq F}(\alpha) = \sum_{\sigma \in \mathrm{Aut}_k(F)}
+    \sigma(\alpha).
+  \]
+  (Exercise~4.19.)
+\end{exer}
+\begin{exer}{}{fields:exer:6.16}
+  Let $k \subseteq F$ be a cyclic Galois extension of degree $d$, and let
+  $\phi$ be a generator of $\mathrm{Aut}_k(F)$. Let $\alpha \in F$ be an
+  element such that $N_{k \subseteq F}(\alpha) = 1$.
+  \begin{enumerate}[(i)]
+    \item Prove that the automorphisms $\mathrm{id}_F, \phi, \dots,
+      \phi^{d-1}$ are linearly independent over $F$. (Exercise~6.14.)
+    \item Prove that there exists a $\gamma \in F$ such that
+      \[
+        \beta := \gamma + \alpha\phi(\gamma)
+        + \alpha\phi(\alpha)\phi^2(\gamma) + \dots
+        + \alpha\phi(\alpha)\cdots\phi^{d-2}(\alpha)\phi^{d-1}(\gamma)
+        \neq 0.
+      \]
+    \item Prove that
+      $\alpha\phi(\alpha)\phi^2(\alpha)\cdots\phi^{d-1}(\alpha)\phi^d(\gamma)
+      = \gamma$, and deduce that $\alpha = \beta/\phi(\beta)$.
+  \end{enumerate}
+  Together with the result of Exercise~4.20, the conclusion is that an
+  element $\alpha$ of a cyclic Galois extension as above has norm $1$ if
+  and only if there exists a $\beta$ such that $\alpha = \beta/\phi(\beta)$.
+  This is \emph{\name{Hilbert}'s theorem 90} (the 90th theorem in
+  \name{Hilbert}'s \emph{Zahlbericht}, a report on the state of number
+  theory at the end of the nineteenth century commissioned by the German
+  Mathematical Society). [6.17, \S{}IX.7.6, IX.7.18]
+\end{exer}
+\begin{exer}{}{fields:exer:6.17}
+  Exercise~6.16 should remind the reader of the proof of
+  Proposition~6.19, and for good reasons. Assume that $k \subseteq F$ is
+  a cyclic Galois extension of degree $m$ and that $k$ contains a
+  primitive $m$-th root $\zeta$ of $1$. Use Hilbert's theorem 90 to prove
+  that $F = k(\delta)$ for a $\delta$ such that $\delta^m \in k$, thereby
+  recovering one direction of the statement of Proposition~6.19. (Hint:
+  What is $N_{k \subseteq F}(\zeta^{-1})$?) The case of Hilbert's theorem
+  90 needed here is due to \name{Kummer}.
+\end{exer}
+\begin{exer}{}{fields:exer:6.18}
+  Use Hilbert's theorem 90 to find all rational solutions $a, b$ of the
+  equation $a^2 + b^2 d = 1$, where $d$ is a positive integer that is not
+  a perfect square. (Hint: $a^2 + b^2 d$ equals
+  $N_{\Q \subseteq \Q(\sqrt{-d})}(a + b\sqrt{-d})$; cf.\
+  Exercise~1.12.)
+\end{exer}
+\begin{exer}{}{fields:exer:6.19}
+  Let $k \subseteq F$ be a cyclic Galois extension of degree $d$, and let
+  $\phi$ be a generator of $\mathrm{Aut}_k(F)$. Let $\alpha \in F$ be an
+  element such that $\mathrm{tr}_{k \subseteq F}(\alpha) = 0$. Prove an
+  `additive version' of Hilbert's theorem 90:
+  \begin{enumerate}[(i)]
+    \item Prove that there exists a $\gamma \in F$ such that
+      $\mathrm{tr}_{k \subseteq F}(\gamma) \neq 0$.
+    \item Consider the expression
+      \[
+        \alpha\phi(\gamma) + (\alpha + \phi(\alpha))\phi^2(\gamma)
+        + \dots
+        + (\alpha + \phi(\alpha) + \dots + \phi^{d-2}(\alpha))
+          \phi^{d-1}(\gamma).
+      \]
+    \item Prove that there exists a $\beta \in F$ such that
+      $\alpha = \beta - \phi(\beta)$.
+  \end{enumerate}
+  Together with Exercise~4.20, this says that an element $\alpha$ of a
+  cyclic Galois extension as above has trace $0$ if and only if there
+  exists a $\beta$ such that $\alpha = \beta - \phi(\beta)$. For an
+  application, see Exercise~7.15. [7.15]
+\end{exer}
 
 \section{Short march through applications of Galois theory}
 \label{sec:fields:short-march-through-applications-of-galois-theory}
 
-% Galois theory is a pervasive tool, with wide-ranging applications. I have
-% neither
-% the competence nor room in this book for an adequate survey of applications of
-% the
-% theory, but even the few examples reviewed in this section should suffice to
-% convey
-% its considerable power.
+Galois theory is a pervasive tool, with wide-ranging applications. I have
+neither the competence nor room in this book for an adequate survey of
+applications of the theory, but even the few examples reviewed in this
+section should suffice to convey its considerable power.
 
 \subsection{Fundamental theorem of algebra}
 \label{subsec:fields:fundamental-theorem-of-algebra}
-% Theorem 6.15 and a little group theory
+Theorem~6.15 and a little group theory are essentially all that is
+needed\footnote{I am cheating a little, actually, since the intermediate
+value theorem will also be used behind the scenes. This is not too
+surprising: the completeness of $\R$ must enter the proof somewhere.}
+to give an algebraic proof of the fundamental theorem of algebra,
+promised back in \S{}V.5.3.
+\begin{thm}{}{fields:7.1}
+  $\C$ is algebraically closed.
+\end{thm}
 
-% are essentially all that is needed26 to give an algebraic proof of the
-% fundamental
-% theorem of algebra, promised back in \S{}V.5.3.
-% Theorem 7.1. C is algebraically closed.
-% Proof. Let f (x) \in  C[x] be a nonconstant polynomial; we have to prove that f
-% (x)
-% has roots in C. Note that if f (x) has no roots in C, then neither does f (x)f
-% (x) \in
-% R[x]; that is, we may assume that f (x) has real coefficients. Let F be a
-% splitting
-% field for f (x) over R; embed F in an algebraic closure of R (we `don't know
-% yet'
-% that C is algebraically closed!), and consider the extension
-% R \subseteq  F (i).
-% This extension is Galois: it is the splitting field of the square-free part27 of
-% f (x)(x2 +
-% 1). Let G = AutR(F (i)).
-% 26 I am cheating a little, actually, since the intermediate value theorem will
-% also be used behind
-% the scenes. This is not too surprising: the completeness of R must enter the
-% proof somewhere.
-% 27 That is, take each irreducible factor of the polynomial with a power of
-% exactly 1. Over a
-% perfect field, square-free polynomials are clearly separable.
-% By Sylow I (Theorem IV.2.5), G has a 2-Sylow subgroup H. The index [G : H]
-% is odd, so it corresponds to a finite, separable extension R \subseteq  E with
-% [E : R] odd.
-% However, every polynomial of odd degree over R has a real root (Exercise V.5.17,
-% which only uses elementary calculus), and it follows that R \subseteq  E is
-% trivial (Exer-
-% cise 5.23).
-% Therefore [G : H] = 1, proving that G is a 2-group. Since C = R(i) \subseteq  F
-% (i),
-% the Galois group of the (Galois) extension
-% C \subseteq  F (i)
-% is a subgroup of G; therefore it is a 2-group: | AutC (F (i))| = 2n for some n
-% \geq  0.
-% Now recall (Proposition IV.2.6) that every group of order pn , with p prime,
-% contains subgroups of order pm for all 0 \leq  m \leq  n. In particular, if n
-% \geq  1, then
-% AutC (F (i)) contains a subgroup of order 2n-1, which corresponds to a quadratic
-% extension of C via the Galois correspondence. However, there are no quadratic
-% extensions of C, because there are no irreducible quadratic polynomials in C[x]
-% (Exercise 5.23 again).
-% This contradiction shows that n = 0; that is, AutC (F (i)) is necessarily
-% trivial.
-% This proves that F (i) = C and in particular that C contains the roots of f (x).
-% ?
-% The argument can be simplified further, bypassing the use of Sylow's theorem
-% at the price of a slight increase in length. But why should we attempt to bypass
-% Sylow's theorem, after the effort put into proving it in Chapter IV?
+\begin{proof}
+  Let $f(x) \in \C[x]$ be a nonconstant polynomial; we have to prove
+  that $f(x)$ has roots in $\C$. Note that if $f(x)$ has no roots in
+  $\C$, then neither does $f(x)\overline{f(x)} \in \R[x]$; that is, we
+  may assume that $f(x)$ has real coefficients. Let $F$ be a splitting
+  field for $f(x)$ over $\R$; embed $F$ in an algebraic closure of $\R$
+  (we `don't know yet' that $\C$ is algebraically closed!), and consider
+  the extension $\R \subseteq F(i)$.
+
+  This extension is Galois: it is the splitting field of the
+  square-free part\footnote{That is, take each irreducible factor of the
+  polynomial with a power of exactly $1$. Over a perfect field,
+  square-free polynomials are clearly separable.} of $f(x)(x^2 + 1)$.
+  Let $G = \mathrm{Aut}_\R(F(i))$.
+  By Sylow I (Theorem~IV.2.5), $G$ has a $2$-Sylow subgroup $H$. The
+  index $[G : H]$ is odd, so it corresponds to a finite, separable
+  extension $\R \subseteq E$ with $[E : \R]$ odd. However, every
+  polynomial of odd degree over $\R$ has a real root (Exercise~V.5.17,
+  which only uses elementary calculus), and it follows that
+  $\R \subseteq E$ is trivial (Exercise~5.23). Therefore $[G : H] = 1$,
+  proving that $G$ is a $2$-group.
+
+  Since $\C = \R(i) \subseteq F(i)$, the Galois group of the (Galois)
+  extension $\C \subseteq F(i)$ is a subgroup of $G$; therefore it is a
+  $2$-group: $|\mathrm{Aut}_\C(F(i))| = 2^n$ for some $n \geq 0$. Now
+  recall (Proposition~IV.2.6) that every group of order $p^n$, with $p$
+  prime, contains subgroups of order $p^m$ for all $0 \leq m \leq n$. In
+  particular, if $n \geq 1$, then $\mathrm{Aut}_\C(F(i))$ contains a
+  subgroup of order $2^{n-1}$, which corresponds to a quadratic extension
+  of $\C$ via the Galois correspondence. However, there are no quadratic
+  extensions of $\C$, because there are no irreducible quadratic
+  polynomials in $\C[x]$ (Exercise~5.23 again).
+
+  This contradiction shows that $n = 0$; that is,
+  $\mathrm{Aut}_\C(F(i))$ is necessarily trivial. This proves that
+  $F(i) = \C$ and in particular that $\C$ contains the roots of $f(x)$.
+\end{proof}
+The argument can be simplified further, bypassing the use of Sylow's
+theorem at the price of a slight increase in length. But why should we
+attempt to bypass Sylow's theorem, after the effort put into proving it
+in Chapter~IV?
 
 \subsection{Constructibility of regular n-gons}
 \label{subsec:fields:constructibility-of-regular-n-gons}
-% We return one last time to the issue
+We return one last time to the issue of constructing regular $n$-gons.
+Simpler considerations have given us constraints on $n$ that must
+necessarily be fulfilled for the regular $n$-gon to be constructible: if
+$n = p$ is prime, we have found that $p - 1$ must be a power of $2$
+(\S{}3.3); this was upgraded for any $n$ to the condition that $\varphi(n)$
+is a power of $2$, in \S{}5.2 (and an even more explicit condition is
+given in Exercise~5.19). But these are all `negative' results: we have
+not as yet proved that if $\varphi(n)$ is a power of $2$, then the
+regular $n$-gon is constructible. This is where Galois theory comes into
+the picture.
+\begin{prop}{}{fields:7.2}
+  Let $k \subseteq F$ be a Galois extension, and assume $[F : k] = p^r$
+  for some prime $p$ and $r \geq 0$. Then there exist intermediate fields
+  \[
+    k = E_0 \subseteq E_1 \subseteq E_2 \subseteq \dots \subseteq E_r = F
+  \]
+  such that $[E_i : E_{i-1}] = p$ for $i = 1, \dots, r$.
+\end{prop}
 
-% of constructing regular n-gons. Simpler considerations have given us constraints
-% on n that must necessarily be fulfilled for the regular n-gon to be
-% constructible: if
-% n = p is prime, we have found that p - 1 must be a power of 2 (\S{}3.3); this
-% was
-% upgraded for any n to the condition that \varphi (n) is a power of 2, in \S{}5.2
-% (and an
-% even more explicit condition is given in Exercise 5.19). But these are all
-% `negative'
-% results: we have not as yet proved that if \varphi (n) is a power of 2, then the
-% regular
-% n-gon is constructible. This is where Galois theory comes into the picture.
-% Proposition 7.2. Let k \subseteq  F be a Galois extension, and assume [F : k] =
-% pr for
-% some prime p and r \geq  0. Then there exist intermediate fields
-% k = E0 \subseteq  E 1 \subseteq  E2 \subseteq  \dots  \subseteq  Er = F
-% such that [Ei : Ei-1 ] = p for i = 1, . . . , r.
-% Proof. As the Galois correspondence is bijective for Galois extensions (Theo-
-% rem 6.9, part (5)), this statement follows immediately from the fact that a
-% group
-% of order pr , with p prime, has a complete series of p-subgroups; cf. for
-% example the
-% discussion following the statement of Theorem IV.2.8.
-%  ?
-% Theorem 7.3. The regular n-gon is constructible by straightedge and compass if
-% and only if \varphi (n) is a power of 2.
-% Proof. As recalled above, we have already established the \implies  direction.
-% For the converse, assume \varphi (n) = 2r for some r. The extension Q \subseteq
-% Q(\zeta n)
-% is Galois (it is the splitting field of \Phi n (x)), of order [Q(\zeta n ) : Q]
-% = \varphi (n) = 2r
-% (Proposition 5.14). Proposition 7.2 shows that the condition given in Theorem
-% 3.4
-% is satisfied and therefore that \zeta n is constructible, as needed.
-%  ?
-% For example, \varphi (17) = 16 = 24; the Galois group of Q(\zeta 17 ) over Q is
-% isomorphic
-% to (Z/17Z)\ast  (by Proposition 5.16), and therefore (Theorem IV.6.10) it is
-% cyclic, of
-% order 16. A generator of (Z/17Z)\ast  is [6]17 ; it follows that AutQ (Q(\zeta
-% 17 )) is generated
-% by the automorphism \sigma  defined by \zeta 17 ?\to  \zeta 17
-%  . The sequence of subgroups
-% AutQ (Q(\zeta 17 )) = ?\sigma ? \supseteq  ?\sigma  2 ? \supseteq  ?\sigma 4 ?
-% \supseteq  ?\sigma  8 ? \supseteq  {e}
-% corresponds via the Galois correspondence to a sequence
-% Q \subseteq  Q(\delta 1 ) \subseteq  Q(\delta 2) \subseteq  Q(\delta 3 )
-% \subseteq  Q(\zeta 17 ).
-% It is instructive to apply what we now know to see how one may determine a
-% generator \delta 1 for the first extension, that is, the fixed field of \sigma
-% 2 . Let \zeta  = \zeta 17 . As
-% a Q-vector space, Q(\zeta ) is generated by \zeta , \zeta  2 , . . . , \zeta  16
-% . To find the fixed field of \sigma  2 ,
-% write out a general element of Q(\zeta ):
-% a1 \zeta  + a2 \zeta  2 + a3 \zeta  3 + a4 \zeta  4 + a5\zeta  5 + a6 \zeta  6 +
-% a7 \zeta  7 + a8 \zeta  8 + a9 \zeta  9
-% + a10 \zeta  10 + a11\zeta  11 + a12 \zeta  12 + a13 \zeta  13 + a14 \zeta  14 +
-% a15 \zeta  15 + a 16 \zeta  16
-% and apply \sigma 2 : \zeta  ?\to  (\zeta  6 )6 = \zeta  36 = \zeta  2 :
-% a1 \zeta  2 + a2 \zeta  4 + a3 \zeta  6 + a4\zeta  8 + a5 \zeta  10 + a6 \zeta
-% 12 + a7 \zeta  14 + a8\zeta  16 + a9 \zeta
-% + a10\zeta  3 + a11\zeta  5 + a12\zeta  7 + a13 \zeta  9 + a14 \zeta  11 +
-% a15\zeta  13 + a16 \zeta  15 .
-% The element is fixed if and only if
-% a1 = a2 = a4 = a8 = a16 = a15 = a13 = a 9 ,
-% a3 = a6 = a12 = a7 = a14 = a11 = a5 = a10 ,
-% and it follows that the fixed field of \sigma  2 is generated by
-% \delta 1 = \zeta  + \zeta  2 + \zeta  4 + \zeta  8 + \zeta  16 + \zeta  15 + \zeta  13 + \zeta  9
-% and by \zeta  3 + \zeta  6 + \zeta  12 + \zeta  7 + \zeta  14 + \zeta  11 +
-% \zeta  5 + \zeta  10 = -1 - \delta 1 (remember that \zeta  is a
-% root of \Phi 17 (x) = x16 + \dots  + x + 1). Pictorially,
-% \zeta 
-% The sum of the roots marked by black dots is \delta 1; the white roots add up to
-% -1 - \delta 1 .
-% The theory tells us that \delta 1 has degree 2 over Q, so \delta 1 2 must be a
-% rational combination
-% of 1 and \delta 1 . Indeed, pencil and paper and a bit of patience (and the
-% relation \zeta  17 = 1)
-% give
-% \delta 1 2 = (\zeta  + \zeta  2 + \zeta  4 + \zeta  8 + \zeta  16 + \zeta  15 + \zeta  13 + \zeta  9 )2
-% = 3(\zeta  + \zeta  2 + \zeta  4 + \zeta  8 + \zeta  16 + \zeta  15 + \zeta  13
-% + \zeta  9)
-% + 4(\zeta  3 + \zeta  6 + \zeta  12 + \zeta  7 + \zeta  14 + \zeta  11 + \zeta
-% 5 + \zeta  10) + 8
-% = 3\delta 1 + 4(-1 - \delta 1 ) + 8
-% = -\delta 1 + 4.
-% Thus, we find that \delta 1 2 + \delta 1 - 4 = 0. Solving for \delta 1 (note
-% that \delta 1 > 0, as the black
-% dots to the right of 0 outweigh those to the left),
-% \sqrt 
-% -1 + 17
-% \delta 1 =
-%  .
-% So we could easily construct \delta 1 . The same procedure applied to the other
-% extensions
-% may be used to produce \delta 2 , \delta 3 , and finally \zeta 17 , whose real
-% part is the complicated
-% expression given at the end of \S{}3.3.
+\begin{proof}
+  As the Galois correspondence is bijective for Galois extensions
+  (Theorem~6.9, part~(5)), this statement follows immediately from the
+  fact that a group of order $p^r$, with $p$ prime, has a complete series
+  of $p$-subgroups; cf.\ for example the discussion following the
+  statement of Theorem~IV.2.8.
+\end{proof}
+\begin{thm}{}{fields:7.3}
+  The regular $n$-gon is constructible by straightedge and compass if and
+  only if $\varphi(n)$ is a power of $2$.
+\end{thm}
+
+\begin{proof}
+  As recalled above, we have already established the $(\Rightarrow)$
+  direction. For the converse, assume $\varphi(n) = 2^r$ for some $r$.
+  The extension $\Q \subseteq \Q(\zeta_n)$ is Galois (it is the splitting
+  field of $\Phi_n(x)$), of order $[\Q(\zeta_n) : \Q] = \varphi(n) = 2^r$
+  (Proposition~5.14). Proposition~7.2 shows that the condition given in
+  Theorem~3.4 is satisfied and therefore that $\zeta_n$ is constructible,
+  as needed.
+\end{proof}
+For example, $\varphi(17) = 16 = 2^4$; the Galois group of $\Q(\zeta_{17})$
+over $\Q$ is isomorphic to $(\Z/17\Z)^\ast$ (by Proposition~5.16), and
+therefore (Theorem~IV.6.10) it is cyclic, of order $16$. A generator of
+$(\Z/17\Z)^\ast$ is $[6]_{17}$; it follows that $\mathrm{Aut}_\Q(\Q(\zeta_{17}))$
+is generated by the automorphism $\sigma$ defined by
+$\zeta_{17} \mapsto \zeta_{17}^6$. The sequence of subgroups
+\[
+  \mathrm{Aut}_\Q(\Q(\zeta_{17})) = \langle\sigma\rangle \supseteq
+  \langle\sigma^2\rangle \supseteq \langle\sigma^4\rangle \supseteq
+  \langle\sigma^8\rangle \supseteq \{e\}
+\]
+corresponds via the Galois correspondence to a sequence
+\[
+  \Q \subseteq \Q(\delta_1) \subseteq \Q(\delta_2) \subseteq
+  \Q(\delta_3) \subseteq \Q(\zeta_{17}).
+\]
+It is instructive to apply what we now know to see how one may determine
+a generator $\delta_1$ for the first extension, that is, the fixed field
+of $\sigma^2$. Let $\zeta = \zeta_{17}$. As a $\Q$-vector space,
+$\Q(\zeta)$ is generated by $\zeta, \zeta^2, \dots, \zeta^{16}$. To find
+the fixed field of $\sigma^2$, write out a general element of $\Q(\zeta)$:
+\begin{align*}
+  &a_1\zeta + a_2\zeta^2 + a_3\zeta^3 + a_4\zeta^4 + a_5\zeta^5
+  + a_6\zeta^6 + a_7\zeta^7 + a_8\zeta^8 \\
+  &\quad + a_9\zeta^9 + a_{10}\zeta^{10} + a_{11}\zeta^{11}
+  + a_{12}\zeta^{12} + a_{13}\zeta^{13} + a_{14}\zeta^{14}
+  + a_{15}\zeta^{15} + a_{16}\zeta^{16}
+\end{align*}
+and apply $\sigma^2 : \zeta \mapsto (\zeta^6)^6 = \zeta^{36} = \zeta^2$:
+\begin{align*}
+  &a_1\zeta^2 + a_2\zeta^4 + a_3\zeta^6 + a_4\zeta^8 + a_5\zeta^{10}
+  + a_6\zeta^{12} + a_7\zeta^{14} + a_8\zeta^{16} + a_9\zeta \\
+  &\quad + a_{10}\zeta^3 + a_{11}\zeta^5 + a_{12}\zeta^7
+  + a_{13}\zeta^9 + a_{14}\zeta^{11} + a_{15}\zeta^{13}
+  + a_{16}\zeta^{15}.
+\end{align*}
+The element is fixed if and only if
+\[
+  a_1 = a_2 = a_4 = a_8 = a_{16} = a_{15} = a_{13} = a_9,\quad
+  a_3 = a_6 = a_{12} = a_7 = a_{14} = a_{11} = a_5 = a_{10},
+\]
+and it follows that the fixed field of $\sigma^2$ is generated by
+\[
+  \delta_1 = \zeta + \zeta^2 + \zeta^4 + \zeta^8 + \zeta^{16}
+  + \zeta^{15} + \zeta^{13} + \zeta^9
+\]
+and by $\zeta^3 + \zeta^6 + \zeta^{12} + \zeta^7 + \zeta^{14}
++ \zeta^{11} + \zeta^5 + \zeta^{10} = -1 - \delta_1$ (remember that
+$\zeta$ is a root of $\Phi_{17}(x) = x^{16} + \dots + x + 1$).
+The theory tells us that $\delta_1$ has degree $2$ over $\Q$, so
+$\delta_1^2$ must be a rational combination of $1$ and $\delta_1$. Indeed,
+pencil and paper and a bit of patience (and the relation $\zeta^{17} = 1$)
+give
+\begin{align*}
+  \delta_1^2 &= (\zeta + \zeta^2 + \zeta^4 + \zeta^8 + \zeta^{16}
+    + \zeta^{15} + \zeta^{13} + \zeta^9)^2 \\
+  &= 3(\zeta + \zeta^2 + \zeta^4 + \zeta^8 + \zeta^{16} + \zeta^{15}
+    + \zeta^{13} + \zeta^9) \\
+  &\quad + 4(\zeta^3 + \zeta^6 + \zeta^{12} + \zeta^7 + \zeta^{14}
+    + \zeta^{11} + \zeta^5 + \zeta^{10}) + 8 \\
+  &= 3\delta_1 + 4(-1 - \delta_1) + 8 = -\delta_1 + 4.
+\end{align*}
+Thus, we find that $\delta_1^2 + \delta_1 - 4 = 0$. Solving for $\delta_1$
+(note that $\delta_1 > 0$),
+\[
+  \delta_1 = \frac{-1 + \sqrt{17}}{2}.
+\]
+So we could easily construct $\delta_1$. The same procedure applied to
+the other extensions may be used to produce $\delta_2$, $\delta_3$, and
+finally $\zeta_{17}$, whose real part is the complicated expression given
+at the end of \S{}3.3.
 
 \subsection{Fundamental theorem on symmetric functions}
 \label{subsec:fields:fundamental-theorem-on-symmetric-functions}
-% Let t1 , . . . , tn be inde-
+Let $t_1, \dots, t_n$ be indeterminates. The polynomial
+\[
+  P_n(x) := (x - t_1)\cdots(x - t_n) \in \Z[t_1, \dots, t_n][x]
+\]
+is universal in the sense that every polynomial of degree $n$ with
+coefficients in (say) an integral domain may be obtained from $P_n(x)$
+by suitably specifying $t_1, \dots, t_n$, possibly in a larger ring
+(Exercise~7.2). The coefficients of the expansion
+\[
+  P_n(x) = x^n - s_1(t_1, \dots, t_n)x^{n-1} + \dots
+  + (-1)^n s_n(t_1, \dots, t_n)
+\]
+are (up to sign) the \emph{elementary symmetric functions} of
+$t_1, \dots, t_n$. For example, for $n = 3$,
+\begin{align*}
+  s_1(t_1,t_2,t_3) &= t_1 + t_2 + t_3, \\
+  s_2(t_1,t_2,t_3) &= t_1 t_2 + t_1 t_3 + t_2 t_3, \\
+  s_3(t_1,t_2,t_3) &= t_1 t_2 t_3.
+\end{align*}
+The functions $s_i(t_1, \dots, t_n)$ are \emph{symmetric} in the sense
+that they are invariant under permutations of $t_1, \dots, t_n$ (because
+$P_n(x)$ is invariant); they are elementary by virtue of the following
+important result, which has a particularly simple proof thanks to Galois
+theory.
+\begin{thm}{Fundamental theorem on symmetric functions}{fields:7.4}
+  Let $K$ be a field, and let $\phi \in K(t_1, \dots, t_n)$. Then $\phi$
+  is symmetric if and only if it is a rational function (with coefficients
+  in $K$) of the elementary symmetric functions $s_1, \dots, s_n$.
+\end{thm}
 
-% terminates. The polynomial
-% Pn(x) := (x - t1 ) \dots  (x - tn ) \in  Z[t1 , . . . , tn ][x]
-% is universal in the sense that every polynomial of degree n with coefficients in
-% (say)
-% an integral domain may be obtained from Pn (x) by suitably specifying t1 , . . .
-% , tn ,
-% possibly in a larger ring (Exercise 7.2). The coefficients of the expansion
-% P n(x) = xn - s1 (t1, . . . , tn)xn-1 + \dots  + (-1)nsn (t1, . . . , tn )
-% are (up to sign) the elementary symmetric functions of t1 , . . . , tn . For
-% example, for
-% n = 3,
-% s1(t1 , t2, t3 ) = t1 + t2 + t3 ,
-% s2(t1 , t2, t3 ) = t1 t2 + t1 t3 + t2t3 ,
-% s3(t1 , t2, t3 ) = t1 t2 t3.
-% The functions si (t1, . . . , tn) are symmetric in the sense that they are
-% invariant
-% under permutations of t1 , . . . , tn (because Pn(x) is invariant); they are
-% elementary
-% by virtue of the following important result, which has a particularly simple
-% proof
-% thanks to Galois theory.
-% Theorem 7.4 (Fundamental theorem on symmetric functions). Let K be a field,
-% and let \phi  \in  K(t1 , . . . , tn ). Then \phi  is symmetric if and only if
-% it is a rational
-% function (with coefficients in K) of the elementary symmetric functions s1 , . .
-% . , sn .
-% Here we are viewing the si 's as elements of K[t1 , . . . , tn ], which we can
-% do
-% unambiguously since Z is initial in Ring.
-% Proof. Let F = K(t1, . . . , tn ), and let k = K(s1, . . . , sn ) be the
-% subfield generated
-% by the elementary symmetric functions over K.
-% Then F is a splitting field of the separable polynomial Pn (x) over k. In
-% partic-
-% ular k \subseteq  F is a Galois extension, and
-% | Autk (F )| = [F : k] \leq  n!
-% by Lemma 4.2. The symmetric group Sn acts (faithfully) on F by permuting
-% t1 , . . . , tn , and this action is the identity on k = K(s1, . . . , sn )
-% since each si is
-% symmetric. Thus Sn may be identified with a subgroup of Autk (F ); but |Sn | =
-% n!,
-% so it follows that Autk (F ) = Sn.
-% Since k \subseteq  F is Galois, we obtain k = F Sn . This says precisely that if
-% \phi  \in
-% K(t1, . . . , tn), then \phi  is invariant under the Sn action on t1, . . . , tn
-% if and only if
-% \phi  \in  k = K(s1, . . . , sn ), which is the statement.
-%  ?
-% It is not difficult to strengthen the result of Theorem 7.4 and prove that every
-% symmetric polynomial is in fact a polynomial in the elementary symmetric
-% functions.
-% Note that the argument given in the proof amounts to the following result,
-% which should be recorded for individual attention:
-% Lemma 7.5. Let K be a field, t1 , . . . , tn indeterminates, and let s1, . . . ,
-% sn be the
-% elementary symmetric functions on t1 , . . . , tn . Then the extension
-% K(s1 , . . . , sn) \subseteq  K(t1 , . . . , tn )
-% is Galois, with Galois group Sn .
-% This result and Cayley's theorem (Theorem II.9.5) immediately yield the fol-
-% lowing:
-% Corollary 7.6. Let G be a finite group. Then there exists a Galois extension k
-% \subseteq  F
-% such that Autk (F ) \sim 
-%  = G.
-% Proof. Exercise 7.4.
-%  ?
-% It is not known whether k may be chosen to be Q in Corollary 7.6. The proof
-% hinted at above realizes k as a rather large field, and it is not at all clear
-% how one
-% may `descend' from this field to Q. This is the inverse Galois problem, a
-% subject
-% of current research. The reader can appreciate the difficulty of this problem by
-% noting that even realizing Sn as a Galois group over Q (for all n) is not so
-% easy,
-% although it is true that for every n there are infinitely many polynomials of
-% degree n
-% in Z[x] whose splitting fields have Galois group Sn over Q (see Example 7.20 and
-% Exercise 7.11 for the case n = p prime). If you want a memorable example to
-% carry
-% with you, Schur showed (1931) that the splitting field of the `truncated
-% exponential'
-% x2
-%  x3
-%  xn
-% 1+ x +
-%  +
-%  + \cdot \cdot \cdot  +
-% 2!
-%  3!
-%  n!
-% has Galois group Sn over Q for n = 4 (and An for n = 4).
-% It is known (Shafarevich, 1954) that every finite solvable group is the Galois
-% group of a Galois extension over Q.
-% The inverse Galois problem may be rephrased as asking whether every finite
-% group is a quotient of the Galois group of Q over Q. I have already mentioned
-% that this object (which may be interpreted as the `fundamental group of Q'; cf.
-% Re-
-% mark 6.16) is mysterious and extremely interesting28 .
-% Going back to Lemma 7.5, the alternating group An has index 2 in Sn , so
-% it corresponds to a quadratic extension of K(s1, . . . , sn ) via the Galois
-% correspon-
-% dence. It is easy to determine a generator of this extension: it must be a
-% function
-% of t1, . . . , t n which is invariant under the action of all even permutations
-% and not
-% invariant under the action of odd permutations. We have used such a function
-% precisely to define even/odd permutations, in \S{}IV.4.3:
-% ?
-% \Delta =
-%  (ti - tj ).
-% 1\leq i<j\leq n
-% To see that \Delta  has degree 2 over K(s1 , . . . , sn), simply note that the
-% discriminant
-% ?
-% D = \Delta 2 =
-%  (ti - tj )2
-% 1\leq i<j\leq n
-% is invariant under the action of all permutations, and therefore it belongs to
-% the
-% field K(s1, . . . , sn ) by Theorem 7.4. This proves
-% Corollary 7.7. With notation as above, the extension
-% \sqrt 
-% K(s1 , . . . , s n)( D) \subseteq  K(t1 , . . . , tn )
-% is Galois, with Galois group An .
-% 28 According to J. S. Milne, the `most interesting object in mathematics' is the
-% \'etale fun-
-% damental group of the projective line over Q with the three points 0, 1, \infty
-% removed. This is an
-% extension of the Galois group of Q over Q.
+Here we are viewing the $s_i$'s as elements of $K[t_1, \dots, t_n]$,
+which we can do unambiguously since $\Z$ is initial in $\mathsf{Ring}$.
+
+\begin{proof}
+  Let $F = K(t_1, \dots, t_n)$, and let $k = K(s_1, \dots, s_n)$ be the
+  subfield generated by the elementary symmetric functions over $K$. Then
+  $F$ is a splitting field of the separable polynomial $P_n(x)$ over $k$.
+  In particular $k \subseteq F$ is a Galois extension, and
+  $|\mathrm{Aut}_k(F)| = [F : k] \leq n!$ by Lemma~4.2. The symmetric
+  group $S_n$ acts (faithfully) on $F$ by permuting $t_1, \dots, t_n$,
+  and this action is the identity on $k = K(s_1, \dots, s_n)$ since each
+  $s_i$ is symmetric. Thus $S_n$ may be identified with a subgroup of
+  $\mathrm{Aut}_k(F)$; but $|S_n| = n!$, so it follows that
+  $\mathrm{Aut}_k(F) = S_n$.
+
+  Since $k \subseteq F$ is Galois, we obtain $k = F^{S_n}$. This says
+  precisely that if $\phi \in K(t_1, \dots, t_n)$, then $\phi$ is
+  invariant under the $S_n$ action on $t_1, \dots, t_n$ if and only if
+  $\phi \in k = K(s_1, \dots, s_n)$, which is the statement.
+\end{proof}
+It is not difficult to strengthen the result of Theorem~7.4 and prove
+that every symmetric polynomial is in fact a polynomial in the elementary
+symmetric functions. Note that the argument given in the proof amounts to
+the following result, which should be recorded for individual attention:
+\begin{lem}{}{fields:7.5}
+  Let $K$ be a field, $t_1, \dots, t_n$ indeterminates, and let
+  $s_1, \dots, s_n$ be the elementary symmetric functions on
+  $t_1, \dots, t_n$. Then the extension
+  $K(s_1, \dots, s_n) \subseteq K(t_1, \dots, t_n)$ is Galois, with
+  Galois group $S_n$.
+\end{lem}
+
+This result and Cayley's theorem (Theorem~II.9.5) immediately yield the
+following:
+
+\begin{coro}{}{fields:7.6}
+  Let $G$ be a finite group. Then there exists a Galois extension
+  $k \subseteq F$ such that $\mathrm{Aut}_k(F) \cong G$.
+\end{coro}
+
+\begin{proof}
+  Exercise~7.4.
+\end{proof}
+It is not known whether $k$ may be chosen to be $\Q$ in
+Corollary~7.6. The proof hinted at above realizes $k$ as a rather large
+field, and it is not at all clear how one may `descend' from this field
+to $\Q$. This is the \emph{inverse Galois problem}, a subject of current
+research. The reader can appreciate the difficulty of this problem by
+noting that even realizing $S_n$ as a Galois group over $\Q$ (for all
+$n$) is not so easy, although it is true that for every $n$ there are
+infinitely many polynomials of degree $n$ in $\Z[x]$ whose splitting
+fields have Galois group $S_n$ over $\Q$ (see Example~7.20 and
+Exercise~7.11 for the case $n = p$ prime). If you want a memorable
+example to carry with you, \name{Schur} showed (1931) that the splitting
+field of the `truncated exponential'
+\[
+  1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!}
+\]
+has Galois group $S_n$ over $\Q$ for $n \neq 4$ (and $A_n$ for $n = 4$).
+It is known (\name{Shafarevich}, 1954) that every finite solvable group
+is the Galois group of a Galois extension over $\Q$. The inverse Galois
+problem may be rephrased as asking whether every finite group is a
+quotient of the Galois group of $\Q$ over $\Q$. I have already mentioned
+that this object (which may be interpreted as the `fundamental group of
+$\Q$'; cf.\ Remark~6.16) is mysterious and extremely
+interesting.\footnote{According to J.~S.\ \name{Milne}, the `most
+interesting object in mathematics' is the \'etale fundamental group of
+the projective line over $\Q$ with the three points $0, 1, \infty$
+removed. This is an extension of the Galois group of $\Q$ over $\Q$.}
+Going back to Lemma~7.5, the alternating group $A_n$ has index $2$ in
+$S_n$, so it corresponds to a quadratic extension of $K(s_1, \dots, s_n)$
+via the Galois correspondence. It is easy to determine a generator of
+this extension: it must be a function of $t_1, \dots, t_n$ which is
+invariant under the action of all even permutations and not invariant
+under the action of odd permutations. We have used such a function
+precisely to define even/odd permutations, in \S{}IV.4.3:
+\[
+  \Delta = \prod_{1 \leq i < j \leq n} (t_i - t_j).
+\]
+To see that $\Delta$ has degree $2$ over $K(s_1, \dots, s_n)$, simply
+note that the discriminant
+\[
+  D = \Delta^2 = \prod_{1 \leq i < j \leq n} (t_i - t_j)^2
+\]
+is invariant under the action of all permutations, and therefore it
+belongs to the field $K(s_1, \dots, s_n)$ by Theorem~7.4. This proves
+
+\begin{coro}{}{fields:7.7}
+  With notation as above, the extension
+  $K(s_1, \dots, s_n)(\sqrt{D}) \subseteq K(t_1, \dots, t_n)$ is Galois,
+  with Galois group $A_n$.
+\end{coro}
 
 \subsection{Solvability of polynomial equations by radicals}
 \label{subsec:fields:solvability-of-polynomial-equations-by-radicals}
-% This is possibly the
+This is possibly the most famous elementary application of Galois theory
+and one that is very close to \name{Galois}' own original motivation.
+Quadratic polynomial equations
+\[
+  x^2 + bx + c = 0
+\]
+are famously solved (in\footnote{The formula requires extracting a square
+root; in characteristic $2$ this may not be possible.} characteristic
+$\neq 2$) by the quadratic formula:
+\[
+  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2}.
+\]
+Analogous, but more complicated, formulas exist for equations of degree
+$3$ and $4$ (\name{Tartaglia}/\name{Cardano}/\name{Ferrari}, around 1540;
+this generated a priority dispute which degenerated into base personal
+attacks). Equations of degree $5$ and higher resisted the best efforts of
+mathematicians for centuries. The most ambitious goal, in line with what
+occurs for degrees $2$, $3$, and $4$, would be to produce a formula for
+the solutions to the `general' polynomial equation
+\[
+  x^n + a_{n-1}x^{n-1} + \dots + a_0 = 0
+\]
+in terms of the coefficients $a_i$ and basic operations such as taking
+roots. This would be a solution `by radicals' of the equation. Well, such
+a formula simply does not exist:
+\begin{thm}{}{fields:7.8}
+  The general polynomial equation of degree $5$ or higher admits no
+  solution by radicals.
+\end{thm}
 
-% most famous elementary application of Galois theory and one that is very close
-% to
-% Galois' own original motivation.
-% Quadratic polynomial equations
-% x2 + bx + c = 0
-% are famously solved (in29 characteristic = 2) by the quadratic formula:
-% \sqrt 
-% -b \pm  b2 - 4ac
-% x =
-%  .
-% Analogous, but more complicated, formulas exist for equations of degree 3 and 4
-% (Tartaglia/Cardano/Ferrari, around 1540; this generated a priority dispute which
-% degenerated into base personal attacks). Equations of degree 5 and higher
-% resisted
-% the best efforts of mathematicians for centuries. The most ambitious goal, in
-% line
-% with what occurs for degrees 2, 3, and 4, would be to produce a formula for the
-% solutions to the `general' polynomial equation
-% xn + an-1xn-2 + \dots  + a0 = 0
-% in terms of the coefficients ai and basic operations such as taking roots. This
-% would
-% be a solution `by radicals' of the equation.
-% Well, such a formula simply does not exist:
-% Theorem 7.8. The general polynomial equation of degree 5 or higher admits no
-% solution by radicals.
-% I am being intentionally vague about the ground field in which the problem
-% is posed; a `formula' such as the quadratic formula ought to hold over any field
-% in which it makes sense; for example, the field should not have characteristic 2
-% in the case of the quadratic formula. An easy way to avoid any such snag is
-% to work in characteristic zero: this has the main technical advantage of
-% ensuring
-% automatic separability of polynomials xm - 1, whose roots define the `radicals';
-% cf. Proposition 6.19. Therefore, we will assume in what follows that the ground
-% field has characteristic 0.
-% The `general polynomial' is the `universal' polynomial Pn (x) introduced in
-% \S{}7.3,
-% taken over a chosen ground field K: the general polynomial
-% xn - s1 xn-1 + \dots  + (-1)n sn \in  k[x],
-% with k = K(s1, . . . , sn ) and si elementary symmetric functions in
-% (`indeterminate')
-% roots t1 , . . . , tn . It is in fact no harder to deal with the more general
-% case of arbitrary
-% irreducible polynomials f (x) \in  k[x], over any field k (of characteristic
-% zero); this is
-% what we will do.
-% A formula by radicals expresses a root ti of f (x) as an element of an extension
-% obtained from k in the following fashion:
-% k \subseteq  k(\delta 1 ) \subseteq  k(\delta 1, \delta 2 ) \subseteq  \dots
-% \subseteq  k(\delta 1 , . . . , \delta r )
-% where for all i = 1, . . . , r we have \delta i mi \in  k(\delta 1 , . . . ,
-% \delta i-1) for some exponent mi .
-% 29 In characteristic 2, one can give a formula in terms of `2-roots', which are
-% roots of the
-% Artin-Schreier equation, and avoid the problematic division by 2; see Exercise
-% 7.16.
-% Definition 7.9. Extensions of this type are called radical extensions.
-%  ?
-% Some facts about radical extensions are immediate from the definition: for ex-
-% ample, if k \subseteq  F and k \subseteq  K are two radical extensions and F , K
-% are subfields
-% of a larger field, then k \subseteq  F K is radical (Exercise 7.5). Further,
-% radical exten-
-% sions are composite of cyclic ones provided the appropriate roots of 1 are in k,
-% by
-% Proposition 6.19. Also,
-% Lemma 7.10. Every separable radical extension is contained in a Galois radical
-% extension.
-% Proof. Let k \subseteq  F be a separable radical extension. In particular k
-% \subseteq  F is finite
-% and separable, so F = k(\alpha ) for some \alpha  \in  F (Proposition 5.19). Let
-% p(x) be the
-% minimal polynomial of \alpha  over k. The splitting field L of p(x) over k may
-% be obtained
-% as the composite of \sigma (F ) as \sigma  ranges over the embeddings of F in k,
-% extending idk :
-% indeed, this composite is generated over k by all \sigma (\alpha ), which range
-% over all roots
-% of p(x). As a composite of radical extensions, L is radical over k. As a
-% splitting
-% field of a separable polynomial, L is Galois over k (Theorem 6.9, part (1)), and
-% we
-% are done.
-%  ?
-% Galois theory will allow us to relate solvability by radicals of a polynomial f
-% (x)
-% with a precise statement on the splitting field of f (x). Here is a first
-% formalization
-% of this connection:
-% Lemma 7.11. Let k be a field of characteristic 0, and let f (x) \in  k[x] be an
-% irre-
-% ducible polynomial. Then there exists a formula solving f (x) by radicals if and
-% only
-% if the splitting field of f (x) is contained in a Galois radical extension.
-% Proof. If the splitting field of f (x) is contained in a radical extension
-% (Galois or
-% not), then the roots may be written as combinations of field operations and
-% radicals,
-% as needed.
-% For the converse, assume f (x) is solvable by radicals. A formula for a root t1
-% can be turned into a formula for any other root ti by applying an element \sigma
-% i of
-% (for example) Autk (k) sending t1 to ti (such an automorphism exists since f (x)
-% is
-% irreducible). Thus, if a formula exists for one root, then a formula exists for
-% all
-% roots. The composite of all the corresponding radical extensions gives one,
-% possibly
-% larger, radical extension of k containing all roots of f (x). Therefore, the
-% splitting
-% field of f (x) is contained in a radical extension of k. By Lemma 7.10, this
-% extension
-% may be assumed to be Galois, as needed.
-%  ?
-% In a nutshell, we will understand solvability of polynomial equations by
-% radicals
-% if we understand radical Galois extensions. As demanded by the general
-% philosophy
-% underlying Galois theory, we should aim to characterize these extensions in
-% terms
-% of their Galois groups. It turns out that the right condition (modulo technical
-% considerations) is that the Galois group should be solvable.
-% Definition 7.12. A Galois extension k \subseteq  F is solvable if Autk (F ) is a
-% solvable
-% group.
-%  ?
-% The reader may want to revisit \S{}IV.3.3 now, for a reminder on solvability in
-% group theory. (We are approaching an explanation for the `solvable'
-% terminology!)
-% Just as radical extensions decompose as sequence of cyclic extensions, solvable
-% groups have cyclic composition factors (Proposition IV.3.11). I will say30 that
-% a radical, resp., solvable, extension k \subseteq  F `has enough roots of 1' if
-% k contains a
-% primitive M -th root of 1 for a common multiple M of the order of the
-% corresponding
-% cyclic factors.
-% Lemma 7.13. Let k \subseteq  F be a Galois extension, with char k = 0. Provided
-% it has
-% enough roots of 1, k \subseteq  F is radical if and only if it is solvable.
-% Proof. Modulo the fundamental theorem of Galois theory, this is a
-% straightforward
-% generalization of Proposition 6.19.
-% Indeed, assume that k \subseteq  F is radical:
-% k \subseteq  k(\delta 1 ) \subseteq  \dots  \subseteq  k(\delta 1 , . . . ,
-% \delta r ) = F
-% with \delta i mi \in  k(\delta 1, . . . , \delta i-1 ). By hypothesis, k
-% contains primitive mi-th roots of 1 for
-% all i. Consider the corresponding series of subgroups of G = Autk (F (\zeta )):
-% G = G0 \supseteq  G 1 \supseteq  \dots  \supseteq  Gr = {e},
-% with Gi = Autk(\delta  1 ,...,\delta i ) (F ). Note that F is Galois over each
-% intermediate field.
-% Each extension
-% k(\delta 1 , . . . , \delta i-1 ) \subseteq  k(\delta 1 , . . . , \delta i )
-% satisfies the hypothesis of Proposition 6.19, and it follows that it is Galois
-% and
-% cyclic. By the fundamental theorem (Theorem 6.15) each Gi is normal in the
-% previous Gi-1 , with cyclic quotient, and it follows that G is solvable
-% (Proposi-
-% tion IV.3.11 (ii)).
-% The same argument in reverse, using the converse implication in Proposi-
-% tion 6.19, proves that solvable extensions with enough roots of 1 are radical.
-%  ?
-% How do we account for the possible absence of the needed roots of 1? Surpris-
-% ingly, this affects the statement in a rather minor way.
-% Proposition 7.14. Let k be a field of characteristic 0, and let k \subseteq  F
-% be a Galois
-% extension. Then k \subseteq  F is solvable if and only if it is contained in a
-% Galois radical
-% extension.
-% The characteristic 0 in Proposition 7.14 is an overshoot; as in Proposition
-% 6.19,
-% it would suffice to require that char k does not divide the relevant degrees.
-% Proof. Assume Autk (F ) is solvable. Let M be a common multiple of the order
-% of the cyclic quotients, and let \zeta  be a primitive M -th root of 1 in an
-% algebraic
-% closure k of k. The splitting field k(\zeta ) of xM - 1 over k is Galois over k
-% (xM - 1 is
-% separable since k has characteristic 0). By Proposition 6.17, the extension
-% k(\zeta ) \subseteq
-% F (\zeta ) is also Galois, with Galois group isomorphic to Autk(\zeta )\cap F (F
-% ). It follows that
-% Autk(\zeta )(F (\zeta )) is solvable, since Autk(\zeta )\cap F (F ) is a
-% subgroup of Autk F and the latter
-% is solvable by assumption. (See the comment following Corollary IV.3.13.)
-% 30Warning! This is nonstandard terminology.
-% Since k(\zeta ) \subseteq  F (\zeta ) has enough roots of 1, Lemma 7.13 implies
-% that it is rad-
-% ical. So is k \subseteq  F (\zeta ), since k \subseteq  k(\zeta ) is itself
-% trivially radical. This proves that
-% k \subseteq  F is contained in a radical extension, hence in a Galois radical
-% extension by
-% Lemma 7.10.
-% Conversely, assume that k \subseteq  F is Galois and contained in a radical
-% Galois
-% extension k \subseteq  L. Let M be a common multiple of the order of cyclic
-% factors in this
-% extension, and let \zeta  be a primitive M -th root of 1. The composite L(\zeta
-% ) is Galois
-% and radical over k(\zeta ) (Proposition 6.17 and Exercise 7.5); further, it has
-% enough
-% roots of 1.
-% By Lemma 7.13, k(\zeta ) \subseteq  L(\zeta ) is solvable. It follows that k
-% \subseteq  L(\zeta ) is solvable.
-% Indeed, this extension is Galois (Exercise 6.13); apply the fundamental theorem
-% to
-% k \subseteq  k(\zeta ) \subseteq  L(\zeta )
-% to establish that Autk (k(\zeta )) is isomorphic to the quotient of Autk
-% (L(\zeta )) by its nor-
-% mal subgroup Autk(\zeta ) (L(\zeta )). Both Autk(\zeta )(L(\zeta )) (as shown
-% above) and Autk (k(\zeta ))
-% (an abelian group; cf. Example 6.18) are solvable, and it follows that Autk
-% (L(\zeta ))
-% is solvable as promised, by Corollary IV.3.13.
-% Since F is an intermediate field and Galois over k, by the fundamental theorem
-% Autk (F ) is a homomorphic image of Autk (L(\zeta )). This shows that Autk (F )
-% is a
-% homomorphic image of a solvable group; hence it is itself solvable (Corollary
-% IV.3.13
-% again), and we are done.
-%  ?
-% We may have lost sight of where we were heading; but we are ready to reconnect
-% with the study of solutions to polynomial equations.
-% Definition 7.15. The Galois group Galk (f (x)) of a separable polynomial f (x)
-% \in
-% k[x] is the Galois group of the splitting field of f (x) over k.
-%  ?
-% Corollary 7.16. Let k be a field of characteristic 0, and let f (x) \in  k[x] be
-% an
-% irreducible polynomial. Then f (x) is solvable by radicals if and only if its
-% Galois
-% group is solvable.
-% Proof. This is an immediate consequence of Lemma 7.11 and Proposition 7.14.
-%  ?
-% Corollary 7.16 is called Galois' criterion. Ruffini (1799) and Abel (1824) had
-% previously established that general formulas in radicals for the solutions of
-% equa-
-% tions of degree \geq  5 do not exist (that is, Theorem 7.8); but it was Galois
-% who
-% identified the precise condition given in Corollary 7.16. Of course, Theorem 7.8
-% follows immediately from Galois' criterion:
-% Proof of Theorem 7.8. By Lemma 7.5, the Galois group of the general polyno-
-% mial of degree n is Sn . The group Sn is not solvable for n \geq  5 (Corollary
-% IV.4.21);
-% hence the statement follows from Corollary 7.16.
-%  ?
-% In fact, we could now do more: we know that S3 and S4 are solvable (cf. Exer-
-% cise IV.3.16); from a composition series with cyclic quotients we could in
-% principle
-% decompose explicitly the splitting field of general polynomials of degree 3 and
-% 4
-% as radical extensions and as a consequence recover the Tartaglia/Cardano/Ferrari
-% formulas for their solutions.
+I am being intentionally vague about the ground field in which the
+problem is posed; a `formula' such as the quadratic formula ought to hold
+over any field in which it makes sense; for example, the field should not
+have characteristic $2$ in the case of the quadratic formula. An easy way
+to avoid any such snag is to work in characteristic zero: this has the
+main technical advantage of ensuring automatic separability of polynomials
+$x^m - 1$, whose roots define the `radicals'; cf.\ Proposition~6.19.
+Therefore, we will assume in what follows that the ground field has
+characteristic $0$.
+The `general polynomial' is the `universal' polynomial $P_n(x)$
+introduced in \S{}7.3, taken over a chosen ground field $K$: the general
+polynomial
+\[
+  x^n - s_1 x^{n-1} + \dots + (-1)^n s_n \in k[x],
+\]
+with $k = K(s_1, \dots, s_n)$ and $s_i$ elementary symmetric functions
+in (`indeterminate') roots $t_1, \dots, t_n$. It is in fact no harder to
+deal with the more general case of arbitrary irreducible polynomials
+$f(x) \in k[x]$, over any field $k$ (of characteristic zero); this is
+what we will do.
+
+A formula by radicals expresses a root $t_i$ of $f(x)$ as an element of
+an extension obtained from $k$ in the following fashion:
+\[
+  k \subseteq k(\delta_1) \subseteq k(\delta_1, \delta_2) \subseteq
+  \dots \subseteq k(\delta_1, \dots, \delta_r)
+\]
+where for all $i = 1, \dots, r$ we have $\delta_i^{m_i}
+\in k(\delta_1, \dots, \delta_{i-1})$ for some exponent $m_i$.
+
+\begin{defn}{}{fields:7.9}
+  Extensions of this type are called \emph{radical extensions}.
+\end{defn}
+Some facts about radical extensions are immediate from the definition:
+for example, if $k \subseteq F$ and $k \subseteq K$ are two radical
+extensions and $F$, $K$ are subfields of a larger field, then
+$k \subseteq FK$ is radical (Exercise~7.5). Further, radical extensions
+are composites of cyclic ones provided the appropriate roots of $1$ are
+in $k$, by Proposition~6.19. Also,
+
+\begin{lem}{}{fields:7.10}
+  Every separable radical extension is contained in a Galois radical
+  extension.
+\end{lem}
+
+\begin{proof}
+  Let $k \subseteq F$ be a separable radical extension. In particular
+  $k \subseteq F$ is finite and separable, so $F = k(\alpha)$ for some
+  $\alpha \in F$ (Proposition~5.19). Let $p(x)$ be the minimal polynomial
+  of $\alpha$ over $k$. The splitting field $L$ of $p(x)$ over $k$ may be
+  obtained as the composite of $\sigma(F)$ as $\sigma$ ranges over the
+  embeddings of $F$ in $\bar{k}$, extending $\mathrm{id}_k$: indeed, this
+  composite is generated over $k$ by all $\sigma(\alpha)$, which range
+  over all roots of $p(x)$. As a composite of radical extensions, $L$ is
+  radical over $k$. As a splitting field of a separable polynomial, $L$
+  is Galois over $k$ (Theorem~6.9, part~(1)), and we are done.
+\end{proof}
+Galois theory will allow us to relate solvability by radicals of a
+polynomial $f(x)$ with a precise statement on the splitting field of
+$f(x)$. Here is a first formalization of this connection:
+
+\begin{lem}{}{fields:7.11}
+  Let $k$ be a field of characteristic $0$, and let $f(x) \in k[x]$ be
+  an irreducible polynomial. Then there exists a formula solving $f(x)$
+  by radicals if and only if the splitting field of $f(x)$ is contained
+  in a Galois radical extension.
+\end{lem}
+
+\begin{proof}
+  If the splitting field of $f(x)$ is contained in a radical extension
+  (Galois or not), then the roots may be written as combinations of field
+  operations and radicals, as needed.
+
+  For the converse, assume $f(x)$ is solvable by radicals. A formula for
+  a root $t_1$ can be turned into a formula for any other root $t_i$ by
+  applying an element $\sigma_i$ of (for example) $\mathrm{Aut}_k(\bar{k})$
+  sending $t_1$ to $t_i$ (such an automorphism exists since $f(x)$ is
+  irreducible). Thus, if a formula exists for one root, then a formula
+  exists for all roots. The composite of all the corresponding radical
+  extensions gives one, possibly larger, radical extension of $k$
+  containing all roots of $f(x)$. Therefore, the splitting field of
+  $f(x)$ is contained in a radical extension of $k$. By Lemma~7.10, this
+  extension may be assumed to be Galois, as needed.
+\end{proof}
+In a nutshell, we will understand solvability of polynomial equations by
+radicals if we understand radical Galois extensions. As demanded by the
+general philosophy underlying Galois theory, we should aim to
+characterize these extensions in terms of their Galois groups. It turns
+out that the right condition (modulo technical considerations) is that the
+Galois group should be solvable.
+
+\begin{defn}{}{fields:7.12}
+  A Galois extension $k \subseteq F$ is \emph{solvable} if
+  $\mathrm{Aut}_k(F)$ is a solvable group.
+\end{defn}
+
+The reader may want to revisit \S{}IV.3.3 now, for a reminder on
+solvability in group theory. (We are approaching an explanation for the
+`solvable' terminology!) Just as radical extensions decompose as a
+sequence of cyclic extensions, solvable groups have cyclic composition
+factors (Proposition~IV.3.11). I will say\footnote{This is a harmless
+simplification; the precise condition is a little more careful about
+which roots of unity are needed.} that a radical, resp., solvable,
+extension $k \subseteq F$ `has enough roots of $1$' if $k$ contains a
+primitive $M$-th root of $1$ for a common multiple $M$ of the order of
+the corresponding cyclic factors.
+\begin{lem}{}{fields:7.13}
+  Let $k \subseteq F$ be a Galois extension, with $\mathrm{char}\,k = 0$.
+  Provided it has enough roots of $1$, $k \subseteq F$ is radical if and
+  only if it is solvable.
+\end{lem}
+\begin{proof}
+  Modulo the fundamental theorem of Galois theory, this is a
+  straightforward generalization of Proposition~6.19.
+
+  Indeed, assume that $k \subseteq F$ is radical:
+  \[
+    k \subseteq k(\delta_1) \subseteq \dots \subseteq
+    k(\delta_1, \dots, \delta_r) = F
+  \]
+  with $\delta_i^{m_i} \in k(\delta_1, \dots, \delta_{i-1})$. By
+  hypothesis, $k$ contains primitive $m_i$-th roots of $1$ for all $i$.
+  Consider the corresponding series of subgroups of
+  $G = \mathrm{Aut}_k(F)$:
+  \[
+    G = G_0 \supseteq G_1 \supseteq \dots \supseteq G_r = \{e\},
+  \]
+  with $G_i = \mathrm{Aut}_{k(\delta_1,\dots,\delta_i)}(F)$. Note that
+  $F$ is Galois over each intermediate field. Each extension
+  $k(\delta_1, \dots, \delta_{i-1}) \subseteq k(\delta_1, \dots,
+  \delta_i)$ satisfies the hypothesis of Proposition~6.19, and it follows
+  that it is Galois and cyclic. By the fundamental theorem
+  (Theorem~6.15) each $G_i$ is normal in the previous $G_{i-1}$, with
+  cyclic quotient, and it follows that $G$ is solvable
+  (Proposition~IV.3.11~(ii)). The same argument in reverse, using the
+  converse implication in Proposition~6.19, proves that solvable
+  extensions with enough roots of $1$ are radical.
+\end{proof}
+How do we account for the possible absence of the needed roots of $1$?
+Surprisingly, this affects the statement in a rather minor way.
+\begin{prop}{}{fields:7.14}
+  Let $k$ be a field of characteristic $0$, and let $k \subseteq F$ be a
+  Galois extension. Then $k \subseteq F$ is solvable if and only if it is
+  contained in a Galois radical extension.
+\end{prop}
+
+The characteristic $0$ in Proposition~7.14 is an overshoot; as in
+Proposition~6.19, it would suffice to require that $\mathrm{char}\,k$
+does not divide the relevant degrees.
+\begin{proof}
+  Assume $\mathrm{Aut}_k(F)$ is solvable. Let $M$ be a common multiple
+  of the orders of the cyclic quotients, and let $\zeta$ be a primitive
+  $M$-th root of $1$ in an algebraic closure $\bar{k}$ of $k$. The
+  splitting field $k(\zeta)$ of $x^M - 1$ over $k$ is Galois over $k$
+  ($x^M - 1$ is separable since $k$ has characteristic $0$). By
+  Proposition~6.17, the extension $k(\zeta) \subseteq F(\zeta)$ is also
+  Galois, with Galois group isomorphic to $\mathrm{Aut}_{k(\zeta) \cap F}(F)$.
+  It follows that $\mathrm{Aut}_{k(\zeta)}(F(\zeta))$ is solvable, since
+  $\mathrm{Aut}_{k(\zeta) \cap F}(F)$ is a subgroup of $\mathrm{Aut}_k(F)$
+  and the latter is solvable by assumption. (See the comment following
+  Corollary~IV.3.13.) Since $k(\zeta) \subseteq F(\zeta)$ has enough
+  roots of $1$, Lemma~7.13 implies that it is radical. So is
+  $k \subseteq F(\zeta)$, since $k \subseteq k(\zeta)$ is itself
+  trivially radical. This proves that $k \subseteq F$ is contained in a
+  radical extension, hence in a Galois radical extension by Lemma~7.10.
+
+  Conversely, assume that $k \subseteq F$ is Galois and contained in a
+  radical Galois extension $k \subseteq L$. Let $M$ be a common multiple
+  of the orders of cyclic factors in this extension, and let $\zeta$ be a
+  primitive $M$-th root of $1$. The composite $L(\zeta)$ is Galois and
+  radical over $k(\zeta)$ (Proposition~6.17 and Exercise~7.5); further,
+  it has enough roots of $1$. By Lemma~7.13, $k(\zeta) \subseteq L(\zeta)$
+  is solvable. It follows that $k \subseteq L(\zeta)$ is solvable. Indeed,
+  this extension is Galois (Exercise~6.13); apply the fundamental theorem
+  to $k \subseteq k(\zeta) \subseteq L(\zeta)$ to establish that
+  $\mathrm{Aut}_k(k(\zeta))$ is isomorphic to the quotient of
+  $\mathrm{Aut}_k(L(\zeta))$ by its normal subgroup
+  $\mathrm{Aut}_{k(\zeta)}(L(\zeta))$. Both $\mathrm{Aut}_{k(\zeta)}(L(\zeta))$
+  (as shown above) and $\mathrm{Aut}_k(k(\zeta))$ (an abelian group;
+  cf.\ Example~6.18) are solvable, and it follows that
+  $\mathrm{Aut}_k(L(\zeta))$ is solvable as promised, by
+  Corollary~IV.3.13. Since $F$ is an intermediate field and Galois over
+  $k$, by the fundamental theorem $\mathrm{Aut}_k(F)$ is a homomorphic
+  image of $\mathrm{Aut}_k(L(\zeta))$. This shows that $\mathrm{Aut}_k(F)$
+  is a homomorphic image of a solvable group; hence it is itself solvable
+  (Corollary~IV.3.13 again), and we are done.
+\end{proof}
+We may have lost sight of where we were heading; but we are ready to
+reconnect with the study of solutions to polynomial equations.
+\begin{defn}{}{fields:7.15}
+  The \emph{Galois group} $\mathrm{Gal}_k(f(x))$ of a separable
+  polynomial $f(x) \in k[x]$ is the Galois group of the splitting field
+  of $f(x)$ over $k$.
+\end{defn}
+\begin{coro}{}{fields:7.16}
+  Let $k$ be a field of characteristic $0$, and let $f(x) \in k[x]$ be
+  an irreducible polynomial. Then $f(x)$ is solvable by radicals if and
+  only if its Galois group is solvable.
+\end{coro}
+
+\begin{proof}
+  This is an immediate consequence of Lemma~7.11 and
+  Proposition~7.14.
+\end{proof}
+Corollary~7.16 is called \emph{\name{Galois}' criterion}.
+\name{Ruffini} (1799) and \name{Abel} (1824) had previously established
+that general formulas in radicals for the solutions of equations of
+degree $\geq 5$ do not exist (that is, Theorem~7.8); but it was
+\name{Galois} who identified the precise condition given in
+Corollary~7.16. Of course, Theorem~7.8 follows immediately from
+\name{Galois}' criterion:
+
+\begin{proof}[Proof of \cref{thm:fields:7.8}]
+  By Lemma~7.5, the Galois group of the general polynomial of degree $n$
+  is $S_n$. The group $S_n$ is not solvable for $n \geq 5$ (Corollary
+  IV.4.21); hence the statement follows from Corollary~7.16.
+\end{proof}
+In fact, we could now do more: we know that $S_3$ and $S_4$ are solvable
+(cf.\ Exercise~IV.3.16); from a composition series with cyclic quotients
+we could in principle decompose explicitly the splitting field of general
+polynomials of degree $3$ and $4$ as radical extensions and as a
+consequence recover the \name{Tartaglia}/\name{Cardano}/\name{Ferrari}
+formulas for their solutions.
 
 \subsection{Galois groups of polynomials}
 \label{subsec:fields:galois-groups-of-polynomials}
-% Impressive as Galois' criterion is, it does
+Impressive as \name{Galois}' criterion is, it does not in itself produce
+a single polynomial of degree (say) $5$ over $\Q$ that is not solvable
+by radicals. Finding such polynomials requires a certain amount of extra
+work; we will be able to do this by the end of this subsection.
+Computing Galois groups of polynomials is in fact a popular sport among
+algebraists, excelling at which would require much more information than
+the reader will glean here. I will just list a few straightforward
+observations.
+To begin with, recall that an element of $\mathrm{Aut}_k(F)$ must send
+roots of a polynomial $f(x) \in k[x]$ to roots of the same polynomial,
+and if $f(x)$ is irreducible and $F$ is its splitting field, then there
+are automorphisms of $F$ sending any root of $f(x)$ to any other root
+(Proposition~1.5, Lemma~4.2). This observation may be rephrased as
+follows:
+\begin{lem}{}{fields:7.17}
+  Let $f(x) \in k[x]$ be a separable irreducible polynomial of degree
+  $n$. Then $\mathrm{Gal}_k(f(x))$ acts transitively on the set of roots
+  of $f(x)$ in $\bar{k}$. In particular, $\mathrm{Gal}_k(f(x))$ may be
+  identified with a transitive subgroup of the symmetric group $S_n$.
+\end{lem}
+Of course a subgroup of $S_n$ is transitive if the corresponding action
+on $\{1, \dots, n\}$ is transitive; the diligent reader has run across
+this terminology in Exercise~IV.4.12.
+The reader will easily produce a statement analogous to Lemma~7.17 in
+case $f(x)$ is reducible. Of course the action is not transitive in this
+case, and if the factors of $f(x)$ have degrees $n_1, \dots, n_r$, then
+$\mathrm{Gal}_k(f(x))$ is contained in a subgroup of $S_n$ isomorphic
+to $S_{n_1} \times \dots \times S_{n_r}$.
+Lemma~7.17 (or its `reducible' variations) already give some
+information. For example, we see that the Galois group of a separable
+irreducible cubic can only be $A_3$ or $S_3$, since these are the only
+transitive subgroups of $S_3$. Similarly, the range of possibilities for
+irreducible polynomials of degree $4$ is rather restricted: $S_4$, $A_4$,
+and isomorphic copies of the dihedral group $D_8$, of
+$\Z/2\Z \times \Z/2\Z$, and of $\Z/4\Z$ (Exercise~7.8). One approach to
+the computation of Galois groups of polynomials amounts to defining
+invariants imposing further restrictions, leading to algorithms deciding
+which of such possibilities occurs for a given polynomial.
+We have already encountered the most important of these invariants: if
+the roots of a separable polynomial $f(x) \in k[x]$ in its splitting
+field are $\alpha_1, \dots, \alpha_n$, the \emph{discriminant} of $f(x)$
+is the element $D = \Delta^2$, where
+\[
+  \Delta = \prod_{1 \leq i < j \leq n} (\alpha_i - \alpha_j).
+\]
+Every permutation of the roots fixes $D$, so $D$ must be fixed by the
+whole Galois group; therefore, $D \in k$. Odd permutations move $\Delta$
+(if $\mathrm{char}\,k \neq 2$), and even permutations fix it; therefore
+$\Delta$ is fixed by the Galois group $G$ (in other words, $\Delta \in k$)
+if and only if $G \subseteq A_n$. This proves
+\begin{lem}{}{fields:7.18}
+  Let $k$ be a field of characteristic $\neq 2$, and let $f(x) \in k[x]$
+  be a separable polynomial with discriminant $D$. Then the Galois group
+  of $f(x)$ is contained in the alternating group $A_n$ if and only if
+  $D$ is a square in $k$.
+\end{lem}
+\begin{exam}{}{fields:exam:7.19}
+  Lemma~7.18 and a discriminant computation are all that is needed to
+  compute the Galois group of an irreducible cubic polynomial
+  $f(x) = x^3 + ax^2 + bx + c$. It would be futile to try to remember
+  the discriminant
+  \[
+    D = a^2 b^2 - 4a^3 c - 4b^3 + 18abc - 27c^2;
+  \]
+  but one may remember the trick of shifting $x$ by $a/3$ (in
+  characteristic $\neq 3$), with the effect of killing the coefficient of
+  $x^2$:
+  \[
+    f\!\left(x - \tfrac{a}{3}\right) = x^3 + px + q
+  \]
+  for suitable $p$ and $q$. This does not change $D$ (shifting all roots
+  $\alpha_i$ by the same amount has no effect on the differences
+  $\alpha_i - \alpha_j$), yet $D = -4p^3 - 27q^2$ is a little more
+  memorable. By Lemma~7.18 and the preceding considerations, the Galois
+  group is $A_3$ if $D$ is a square and $S_3$ otherwise. For example,
+  $x^3 - 2$ has Galois group $S_3$ over $\Q$, since $D = -108$ is not a
+  square in $\Q$; $x^3 - 3x + 1$ has discriminant $81 = 9^2$, and
+  therefore it has Galois group $A_3 \cong \Z/3\Z$.
+\end{exam}
+The reader will have no difficulty locating a discussion of the different
+possibilities for polynomials of degree $4$ and detailed information for
+higher degree polynomials. I will just highlight the following simple
+observation.
+\begin{exam}{}{fields:exam:7.20}
+  Let $f(x) \in \Q[x]$ be an irreducible polynomial of degree $p$, where
+  $p$ is prime. Assume that $f(x)$ has $p - 2$ real roots and $2$
+  nonreal, complex roots. Then the Galois group of $f(x)$ is $S_p$.
 
-% not in itself produce a single polynomial of degree (say) 5 over Q that is not
-% solvable
-% by radicals. Finding such polynomials requires a certain amount of extra work;
-% we
-% will be able to do this by the end of this subsection.
-% Computing Galois groups of polynomials is in fact a popular sport among
-% algebraists, excelling at which would require much more information than the
-% reader
-% will glean here. I will just list a few straightforward observations.
-% To begin with, recall that an element of Autk (F ) must send roots of a polyno-
-% mial f (x) \in  k[x] to roots of the same polynomial, and if f (x) is
-% irreducible and F
-% is its splitting field, then there are automorphisms of F sending any root of f
-% (x) to
-% any other root (Proposition 1.5, Lemma 4.2). This observation may be rephrased
-% as follows:
-% Lemma 7.17. Let f (x) \in  k[x] be a separable irreducible polynomial of degree
-% n.
-% Then Galk (f (x)) acts transitively on the set of roots of f (x) in k. In
-% particular,
-% Galk (f (x)) may be identified with a transitive subgroup of the symmetric group
-% Sn .
-% Of course a subgroup of Sn is transitive if the corresponding action on {1, . .
-% . , n}
-% is transitive; the diligent reader has run across this terminology in Exercise
-% IV.4.12.
-% The reader will easily produce a statement analogous to Lemma 7.17 in case
-% f (x) is reducible. Of course the action is not transitive in this case, and if
-% the
-% factors of f (x) have degrees n1 , . . . , nr , then Gal k (f (x)) is contained
-% in a subgroup
-% of Sn isomorphic to Sn1 \times  \dots  \times  Snr .
-% Lemma 7.17 (or its `reducible' variations) already give some information. For
-% example, we see that the Galois group of a separable irreducible cubic can only
-% be
-% A3 or S3 , since these are the only transitive subgroups of S3 . Similarly, the
-% range
-% of possibilities for irreducible polynomials of degree 4 is rather restricted:
-% S4 , A4 ,
-% and isomorphic copies of the dihedral group D8 , of Z/2Z \times  Z/2Z, and of
-% Z/4Z
-% (Exercise 7.8). One approach to the computation of Galois groups of polynomials
-% amounts to defining invariants imposing further restrictions, leading to
-% algorithms
-% deciding which of such possibilities occurs for a given polynomial.
-% We have already encountered the most important of these invariants: if the
-% roots of a separable polynomial f (x) \in  k[x] in its splitting field are
-% \alpha 1 , . . . , \alpha n , the
-% discriminant of f (x) is the element D = \Delta 2 , where
-% ?
-% \Delta =
-%  (\alpha i - \alpha j ).
-% 1\leq i<j\leq n
-% Every permutation of the roots fixes D, so D must be fixed by the whole Galois
-% group; therefore, D \in  k. Odd permutations move \Delta  (if char k = 2), and
-% even
-% permutations fix it; therefore \Delta  is fixed by the Galois group G (in other
-% words,
-% \Delta  \in  k) if and only if G \subseteq  An . This proves
-% Lemma 7.18. Let k be a field of characteristic = 2, and let f (x) \in  k[x] be a
-% sepa-
-% rable polynomial, with discriminant D. Then the Galois group of f (x) is
-% contained
-% in the alternating group An if and only if D is a square in k.
-% Example 7.19. Lemma 7.18 and a discriminant computation are all that is needed
-% to compute the Galois group of an irreducible cubic polynomial
-% f (x) = x3 + ax2 + bx + c.
-% It would be futile to try to remember the discriminant
-% D = a2 b2 - 4a3 c - 4b3 + 18abc - 27c2 ;
-% but one may remember the trick of shifting x by a/3 (in characteristic = 3),
-% with
-% the effect of killing the coefficient of x2 :
-% a
-% f (x - ) = x3 + px + q
-% for suitable p and q. This does not change D (shifting all roots \alpha i by the
-% same
-% amount has no effect on the differences \alpha i - \alpha j ), yet
-% D = -4p3 - 27q 2
-% is a little more memorable.
-% By Lemma 7.18 and the preceding considerations, the Galois group is A3 if D
-% is a square and S3 otherwise. For example, x3 - 2 has Galois group S3 over Q,
-% since
-% D = -108 is not a square in Q; x3 - 3x + 1 has discriminant 81 = 92, and
-% therefore
-% it has Galois group A3 \sim 
-%  = Z/3Z.
-%  ?
-% The reader will have no difficulty locating a discussion of the different pos-
-% sibilities for polynomials of degree 4 and detailed information for higher
-% degree
-% polynomials. I will just highlight the following simple observation.
-% Example 7.20. Let f (x) \in  Q[x] be an irreducible polynomial of degree p,
-% where
-% p is prime. Assume that f (x) has p - 2 real roots and 2 nonreal, complex roots.
-% Then the Galois group of f (x) is S p .
-% Indeed, complex conjugation induces an automorphism of the splitting field and
-% acts by interchanging the two nonreal roots, so the Galois group G, as a
-% subgroup
-% of Sp , contains a transposition. On the other hand, the degree of the splitting
-% field
-% (and hence |G|) is divisible by p, because it contains a simple extension of
-% order p,
-% obtained by adjoining any one root to Q. Since p is prime, G contains an element
-% of
-% order p by Cauchy's theorem (Theorem IV.2.1); the only elements of order p in Sp
-% are p-cycles, so G contains a p-cycle. It follows that G = Sp , by (a simple
-% variation
-% of) Exercise IV.4.7.
-% For example, the Galois group of f (x) = x5 - 5x - 1 over Q is S5, giving a
-% concrete example of a quintic that cannot be solved by radicals (Exercise 7.10).
-% The reader will use this technique to produce polynomials of every prime de-
-% gree p in Z[x] whose Galois group is Sp (Exercise 7.11).
-%  ?
+  Indeed, complex conjugation induces an automorphism of the splitting
+  field and acts by interchanging the two nonreal roots, so the Galois
+  group $G$, as a subgroup of $S_p$, contains a transposition. On the
+  other hand, the degree of the splitting field (and hence $|G|$) is
+  divisible by $p$, because it contains a simple extension of order $p$,
+  obtained by adjoining any one root to $\Q$. Since $p$ is prime, $G$
+  contains an element of order $p$ by \name{Cauchy}'s theorem
+  (Theorem~IV.2.1); the only elements of order $p$ in $S_p$ are
+  $p$-cycles, so $G$ contains a $p$-cycle. It follows that $G = S_p$,
+  by (a simple variation of) Exercise~IV.4.7. For example, the Galois
+  group of $f(x) = x^5 - 5x - 1$ over $\Q$ is $S_5$, giving a concrete
+  example of a quintic that cannot be solved by radicals
+  (Exercise~7.10). The reader will use this technique to produce
+  polynomials of every prime degree $p$ in $\Z[x]$ whose Galois group is
+  $S_p$ (Exercise~7.11).
+\end{exam}
 
 \subsection{Abelian groups as Galois groups over Q}
 \label{subsec:fields:abelian-groups-as-galois-groups-over-q}
-% Having mentioned the inverse
-
-% Galois problem in \S{}7.3, I should point out that the reader is now in the
-% position of
-% proving that every finite abelian group may be realized as the Galois group of
-% an
-% extension over Q.
-% In fact, the reader can prove a much more precise result: every finite abelian
-% group may be realized as the group of some intermediate field of the extension
-% Q \subseteq  Q(\zeta n) of Q in a cyclotomic field. This uses a number-theoretic
-% fact:
-% For every integer N , there are infinitely many primes p such that p \equiv  1
-% mod N .
-% This is a particular case of Dirichlet's theorem (1837), which states that if a,
-% b are
-% positive integers and gcd(a, b) = 1, then there are infinitely many primes of
-% the form
-% a + nb with n > 0. The particular case a = 1, b = N needed here was apparently
-% already known to Euler and can be proven by elementary means (in fact, there is
-% a
-% proof using cyclotomic polynomials: see Exercise 5.18). Assuming this fact,
-% argue
-% as follows:
-% ---By the classification theorem (Theorem IV.6.6), every finite abelian group G
-% is isomorphic to a product of cyclic groups
-% (Z/n1 Z) \times  \dots  \times  (Z/nr Z).
-% ---By Dirichlet's theorem, we can then choose distinct primes pi such that pi
-% \equiv  1
-% mod ni .
-% ---Let n = p1 \dots  pr ; by the Chinese Remainder Theorem (Theorem V.6.1)
-% (Z/nZ) \ast  \sim 
-%  = (Z/p1Z)\ast  \times  \dots  \times  (Z/pr Z)\ast  ,
-% and the i-th factor on the right-hand side is cyclic of order pi - 1, a multiple
-% of ni .
-% ---It follows that (Z/nZ)\ast  has a subgroup H such that G \sim 
-%  = (Z/nZ)\ast  /H.
-% ---Since (Z/nZ)\ast  \sim 
-%  = AutQ(Q(\zeta n )) (Proposition 5.16) and cyclotomic fields are
-% Galois over Q, H corresponds to an intermediate field F , Q \subseteq  F
-% \subseteq  Q(\zeta n).
-% ---Since AutQ (Q(\zeta n)) is abelian, H is automatically normal; hence, Q
-% \subseteq  F is
-% Galois, and AutQ (F ) \sim 
-%  = G, as needed.
-% Thus, the `inverse Galois problem' has an easy solution for abelian groups.
-% A much stronger result is true: it can be proven that every finite abelian
-% extension of Q is contained in some cyclotomic field. This is the
-% Kronecker-Weber
-% theorem, dating back to the second half of the nineteenth century. The natural
-% context for this result is class field theory and is well beyond the scope of
-% this book.
-% The reader will be able to verify (Exercise 7.19) that every quadratic extension
-% of Q
-% is contained in some cyclotomic field.
+Having mentioned the inverse Galois problem in \S{}7.3, I should point
+out that the reader is now in the position of proving that every finite
+abelian group may be realized as the Galois group of an extension over
+$\Q$.
+In fact, the reader can prove a much more precise result: every finite
+abelian group may be realized as the Galois group of some intermediate
+field of the extension $\Q \subseteq \Q(\zeta_n)$ of $\Q$ in a
+cyclotomic field. This uses a number-theoretic fact: for every integer
+$N$, there are infinitely many primes $p$ such that $p \equiv 1 \pmod{N}$.
+This is a particular case of \name{Dirichlet}'s theorem (1837), which
+states that if $a$, $b$ are positive integers and $\gcd(a, b) = 1$, then
+there are infinitely many primes of
+the form $a + nb$ with $n > 0$. The particular case $a = 1$, $b = N$
+needed here was apparently already known to \name{Euler} and can be
+proven by elementary means (in fact, there is a proof using cyclotomic
+polynomials: see Exercise~5.18). Assuming this fact, argue as follows:
+\begin{itemize}
+  \item By the classification theorem (Theorem~IV.6.6), every finite
+    abelian group $G$ is isomorphic to a product of cyclic groups
+    $(\Z/n_1\Z) \times \dots \times (\Z/n_r\Z)$.
+  \item By \name{Dirichlet}'s theorem, we can then choose distinct primes
+    $p_i$ such that $p_i \equiv 1 \pmod{n_i}$.
+  \item Let $n = p_1 \cdots p_r$; by the Chinese Remainder Theorem
+    (Theorem~V.6.1),
+    $(\Z/n\Z)^\ast \cong (\Z/p_1\Z)^\ast \times \dots \times
+    (\Z/p_r\Z)^\ast$, and the $i$-th factor on the right-hand side is
+    cyclic of order $p_i - 1$, a multiple of $n_i$.
+  \item It follows that $(\Z/n\Z)^\ast$ has a subgroup $H$ such that
+    $G \cong (\Z/n\Z)^\ast / H$.
+  \item Since $(\Z/n\Z)^\ast \cong \mathrm{Aut}_\Q(\Q(\zeta_n))$
+    (Proposition~5.16) and cyclotomic fields are Galois over $\Q$, $H$
+    corresponds to an intermediate field $F$,
+    $\Q \subseteq F \subseteq \Q(\zeta_n)$.
+  \item Since $\mathrm{Aut}_\Q(\Q(\zeta_n))$ is abelian, $H$ is
+    automatically normal; hence $\Q \subseteq F$ is Galois, and
+    $\mathrm{Aut}_\Q(F) \cong G$, as needed.
+\end{itemize}
+Thus, the `inverse Galois problem' has an easy solution for abelian
+groups. A much stronger result is true: it can be proven that every
+finite abelian extension of $\Q$ is contained in some cyclotomic field.
+This is the \emph{\name{Kronecker}--\name{Weber} theorem}, dating back
+to the second half of the nineteenth century. The natural context for
+this result is class field theory and is well beyond the scope of this
+book. The reader will be able to verify (Exercise~7.19) that every
+quadratic extension of $\Q$ is contained in some cyclotomic field.
 
 \subsection*{Exercises}
 
-% 7.1. Find explicitly a generator of a quadratic intermediate field of the
-% extension
-% Q \subseteq  Q(\zeta 10 ).
-% 7.2. ? Let R be an integral domain, and let f (x) \in  R[x] be a polynomial of
-% degree n.
-% Show how to obtain f (x) by specializing the `universal' polynomial Pn (x)
-% defined
-% in \S{}7.3. [\S{}7.3]
-% 7.3. Prove that the elementary symmetric functions s1, . . . , sn (see \S{}7.3)
-% are alge-
-% braically independent. (Hint: Use Exercise 1.28.)
-% 7.4. ? Prove that every finite group is isomorphic to the group of automorphisms
-% of some Galois extension. [\S{}7.3]
-% 7.5. ? Let k \subseteq  F be a radical extension, and let k \subseteq  K be any
-% extension; assume
-% F and K are contained in a larger field. Prove that K \subseteq  F K is radical.
-% [\S{}7.4]
-% 7.6. Let f (x) \in  Q[x] be an irreducible cubic, and
-%  let \rho  be a real root of f (x). Prove
-% \sqrt that the splitting field of f (x) over Q is Q(\rho , D), where D is the discriminant
-% of f (x).
-% 7.7. Let f (x) \in  Q[x] be an irreducible cubic with exactly one real root.
-% Prove that
-% the discriminant of f (x) is not a square in Q.
-% 7.8. ? (Cf. Exercise IV.4.12.) Find (mathematically or by library search) the
-% lattice
-% of subgroups of S4 , and verify that the transitive subgroups of S4 are
-% (isomorphic
-% to) S4, A4 , D8 , Z/2Z \times  Z/2Z, and Z/4Z. [\S{}7.5]
-% 7.9. Compute the Galois group of the polynomial x4 - 2.
-% 7.10. ? Prove that the polynomial x5 - 5x - 1 has exactly 3 real roots (this is
-% a
-% calculus exercise!) and is irreducible over Q. Prove that its Galois group is S5
-% .
-% [\S{}7.5]
-% 7.11. ? Let n > 0 be an integer. Note that
-% fn (x) := (x2 + 2) \cdot  x \cdot  (x - 2) \dots  (x - 2(n - 4)) \cdot  (x - 2(n
-% - 3))
-% has n - 2 rational roots and 2 nonreal, complex roots. Prove that for infinitely
-% many integers q, the polynomial
-% qfn (x) + 2 \in  Z[x]
-% has (n - 2) real roots, 2 nonreal complex roots, and is irreducible over Q.
-% Conclude
-% that for each prime p there are infinitely many polynomials of degree p in Z[x]
-% whose Galois group is Sp . [\S{}7.3, \S{}7.5]
-% 7.12. \lnot  Let f (x) \in  k[x] be a separable irreducible polynomial of prime
-% degree p
-% over a field k, and let \alpha 1 , . . . , \alpha p be the roots of f (x) in its
-% splitting field F . Prove
-% that the Galois group of f (x) contains an element \sigma  of order p, `cycling'
-% through
-% the roots. [7.13]
-% 7.13. \lnot  Let f (x) \in  k[x] be a separable irreducible polynomial of prime
-% degree p
-% over a field k. Let \alpha  be a root of f (x) in k, and suppose you can express
-% another root
-% of f (x) as a polynomial in \alpha , with coefficients in k. Prove that you can
-% express
-% all roots as polynomials in \alpha  and that the Galois group of f (x) is Z/pZ.
-% (Use
-% Exercise 7.12.) [7.14]
-% 7.14. \lnot  Let k be a field of characteristic p > 0, and let f (x) = xp - x -
-% a \in  k[x].
-% Assume that f (x) has no roots in k. Prove that f (x) is irreducible and that
-% its
-% Galois group is Z/pZ. (Note that if \alpha  is a root of f (x), so is \alpha  +
-% 1; use Exercises 1.8
-% and 7.13.)
-% The splitting field of f (x) is an Artin-Schreier extension of Fp . [7.16]
-% 7.15. \lnot  Let k \subseteq  F be a cyclic Galois extension of degree p, where
-% char k = p > 0.
-% Prove that it is an Artin-Schreier extension. (Hint: What is tr k\subseteq F
-% (1)? Use the
-% additive version of Hilbert's theorem 90, Exercise 6.19.) [6.19]
-% 7.16. ? The Artin-Schreier map on a field k of positive characteristic p is the
-% function
-% x ?\to  xp - x.
-% AS \sqrt 
-% Denote this function by AS, and let \cdot  denote its inverse (which is only
-% defined
-% up to the addition of an element of Fp : see Exercise 7.14).
-% Express the
-%  solutions of a quadratic equation x2
-%  + bx + c = 0 in characteristic 2
-% AS \sqrt in terms of \cdot , for b = 0. (For b = 0, the roots must live in an
-% Artin-Schreier
-% extension of k, since the polynomial is then separable. It is inseparable for b
-% = 0;
-% solving the equation in this case amounts to extending k by the unique square
-% root
-% of c.) [\S{}7.4]
-% 7.17. \lnot  Let f (x) \in  k[x] be a separable irreducible polynomial of degree
-% n over a
-% field k, and let F be its splitting field. Assume Autk (F ) = \sim 
-%  Sn , and let \alpha  be a root
-% of f (x) in F .
-% \bullet  Prove that Autk(\alpha ) (F ) \sim 
-%  = Sn-1 .
-% \bullet  Prove that there are no proper subfields of k(\alpha ) properly containing k. (Hint:
-% Exercise IV.4.8.)
-% [7.18]
-% 7.18. Let f (x) \in  k[x] be a separable irreducible polynomial of degree n over
-% a
-% field k, with Galois group Sn . Let \alpha  be a root of f (x) in k, and let
-% g(x) \in  k[x] be
-% any nonconstant polynomial of degree < n. Prove that \alpha  may be expressed as
-% a
-% polynomial in g(\alpha ), with coefficients in k. (Use Exercise 7.17.)
-% 7.19. ? Let d be a positive integer.
-% ?d
-% \bullet  Prove that the discriminant of a polynomial f (x) =
-%  i=1 (x - \alpha i ) equals the
-% ?
-% product \pm  di=1 f \setminus  (\alpha i ).
-% \bullet  Prove that the discriminant of xd - 1 is \pm dd , and note that this is a square
-% in Q(\zeta d ).
-% \bullet  Prove that Q(\zeta 8d ) contains square roots of d and -d.
-% \bullet  Conclude that every quadratic extension of Q may be embedded in a cyclotomic
-% field Q(\zeta n ), for a suitable n.
-% (This is a very special case of the Kronecker-Weber theorem.) [\S{}7.6]
+\begin{exer}{}{fields:exer:7.1}
+  Find explicitly a generator of a quadratic intermediate field of the
+  extension $\Q \subseteq \Q(\zeta_{10})$.
+\end{exer}
+\begin{exer}{}{fields:exer:7.2}
+  Let $R$ be an integral domain, and let $f(x) \in R[x]$ be a polynomial
+  of degree $n$. Show how to obtain $f(x)$ by specializing the
+  `universal' polynomial $P_n(x)$ defined in \S{}7.3. [\S{}7.3]
+\end{exer}
+\begin{exer}{}{fields:exer:7.3}
+  Prove that the elementary symmetric functions $s_1, \dots, s_n$ (see
+  \S{}7.3) are algebraically independent. (Hint: Use Exercise~1.28.)
+\end{exer}
+\begin{exer}{}{fields:exer:7.4}
+  Prove that every finite group is isomorphic to the group of
+  automorphisms of some Galois extension. [\S{}7.3]
+\end{exer}
+\begin{exer}{}{fields:exer:7.5}
+  Let $k \subseteq F$ be a radical extension, and let $k \subseteq K$ be
+  any extension; assume $F$ and $K$ are contained in a larger field.
+  Prove that $K \subseteq FK$ is radical. [\S{}7.4]
+\end{exer}
+\begin{exer}{}{fields:exer:7.6}
+  Let $f(x) \in \Q[x]$ be an irreducible cubic, and let $\rho$ be a real
+  root of $f(x)$. Prove that the splitting field of $f(x)$ over $\Q$ is
+  $\Q(\rho, \sqrt{D})$, where $D$ is the discriminant of $f(x)$.
+\end{exer}
+\begin{exer}{}{fields:exer:7.7}
+  Let $f(x) \in \Q[x]$ be an irreducible cubic with exactly one real
+  root. Prove that the discriminant of $f(x)$ is not a square in $\Q$.
+\end{exer}
+\begin{exer}{}{fields:exer:7.8}
+  (Cf.\ Exercise~IV.4.12.) Find (mathematically or by library search)
+  the lattice of subgroups of $S_4$, and verify that the transitive
+  subgroups of $S_4$ are (isomorphic to) $S_4$, $A_4$, $D_8$,
+  $\Z/2\Z \times \Z/2\Z$, and $\Z/4\Z$. [\S{}7.5]
+\end{exer}
+\begin{exer}{}{fields:exer:7.9}
+  Compute the Galois group of the polynomial $x^4 - 2$.
+\end{exer}
+\begin{exer}{}{fields:exer:7.10}
+  Prove that the polynomial $x^5 - 5x - 1$ has exactly $3$ real roots
+  (this is a calculus exercise!) and is irreducible over $\Q$. Prove
+  that its Galois group is $S_5$. [\S{}7.5]
+\end{exer}
+\begin{exer}{}{fields:exer:7.11}
+  Let $n > 0$ be an integer. Note that
+  \[
+    f_n(x) := (x^2 + 2) \cdot x \cdot (x-2) \cdots (x - 2(n-4))
+    \cdot (x - 2(n-3))
+  \]
+  has $n - 2$ rational roots and $2$ nonreal, complex roots. Prove that
+  for infinitely many integers $q$, the polynomial $qf_n(x) + 2 \in \Z[x]$
+  has $(n-2)$ real roots, $2$ nonreal complex roots, and is irreducible
+  over $\Q$. Conclude that for each prime $p$ there are infinitely many
+  polynomials of degree $p$ in $\Z[x]$ whose Galois group is $S_p$.
+  [\S{}7.3, \S{}7.5]
+\end{exer}
+\begin{exer}{}{fields:exer:7.12}
+  Let $f(x) \in k[x]$ be a separable irreducible polynomial of prime
+  degree $p$ over a field $k$, and let $\alpha_1, \dots, \alpha_p$ be
+  the roots of $f(x)$ in its splitting field $F$. Prove that the Galois
+  group of $f(x)$ contains an element $\sigma$ of order $p$, `cycling'
+  through the roots. [7.13]
+\end{exer}
+\begin{exer}{}{fields:exer:7.13}
+  Let $f(x) \in k[x]$ be a separable irreducible polynomial of prime
+  degree $p$ over a field $k$. Let $\alpha$ be a root of $f(x)$ in
+  $\bar{k}$, and suppose you can express another root of $f(x)$ as a
+  polynomial in $\alpha$, with coefficients in $k$. Prove that you can
+  express all roots as polynomials in $\alpha$ and that the Galois group
+  of $f(x)$ is $\Z/p\Z$. (Use Exercise~7.12.) [7.14]
+\end{exer}
+\begin{exer}{}{fields:exer:7.14}
+  Let $k$ be a field of characteristic $p > 0$, and let
+  $f(x) = x^p - x - a \in k[x]$. Assume that $f(x)$ has no roots in
+  $k$. Prove that $f(x)$ is irreducible and that its Galois group is
+  $\Z/p\Z$. (Note that if $\alpha$ is a root of $f(x)$, so is
+  $\alpha + 1$; use Exercises~1.8 and~7.13.) The splitting field of
+  $f(x)$ is an \emph{\name{Artin}--\name{Schreier} extension} of
+  $\F_p$. [7.16]
+\end{exer}
+\begin{exer}{}{fields:exer:7.15}
+  Let $k \subseteq F$ be a cyclic Galois extension of degree $p$, where
+  $\mathrm{char}\,k = p > 0$. Prove that it is an
+  \name{Artin}--\name{Schreier} extension. (Hint: What is
+  $\mathrm{tr}_{k \subseteq F}(1)$? Use the additive version of
+  Hilbert's theorem~90, Exercise~6.19.) [6.19]
+\end{exer}
+\begin{exer}{}{fields:exer:7.16}
+  The \emph{\name{Artin}--\name{Schreier} map} on a field $k$ of
+  positive characteristic $p$ is the function $x \mapsto x^p - x$.
+  Denote this function by $\mathrm{AS}$, and let $\sqrt[\mathrm{AS}]{\cdot}$
+  denote its inverse (which is only defined up to the addition of an
+  element of $\F_p$: see Exercise~7.14). Express the solutions of a
+  quadratic equation $x^2 + bx + c = 0$ in characteristic $2$ in terms
+  of $\sqrt[\mathrm{AS}]{\cdot}$, for $b \neq 0$. (For $b \neq 0$, the
+  roots must live in an \name{Artin}--\name{Schreier} extension of $k$,
+  since the polynomial is then separable. It is inseparable for $b = 0$;
+  solving the equation in this case amounts to extending $k$ by the
+  unique square root of $c$.) [\S{}7.4]
+\end{exer}
+\begin{exer}{}{fields:exer:7.17}
+  Let $f(x) \in k[x]$ be a separable irreducible polynomial of degree
+  $n$ over a field $k$, and let $F$ be its splitting field. Assume
+  $\mathrm{Aut}_k(F) \cong S_n$, and let $\alpha$ be a root of $f(x)$
+  in $F$.
+  \begin{enumerate}[(i)]
+    \item Prove that $\mathrm{Aut}_{k(\alpha)}(F) \cong S_{n-1}$.
+    \item Prove that there are no proper subfields of $k(\alpha)$
+      properly containing $k$. (Hint: Exercise~IV.4.8.)
+  \end{enumerate}
+  [7.18]
+\end{exer}
+\begin{exer}{}{fields:exer:7.18}
+  Let $f(x) \in k[x]$ be a separable irreducible polynomial of degree
+  $n$ over a field $k$, with Galois group $S_n$. Let $\alpha$ be a root
+  of $f(x)$ in $\bar{k}$, and let $g(x) \in k[x]$ be any nonconstant
+  polynomial of degree $< n$. Prove that $\alpha$ may be expressed as a
+  polynomial in $g(\alpha)$, with coefficients in $k$. (Use
+  Exercise~7.17.)
+\end{exer}
+\begin{exer}{}{fields:exer:7.19}
+  Let $d$ be a positive integer.
+  \begin{enumerate}[(i)]
+    \item Prove that the discriminant of a polynomial
+      $f(x) = \prod_{i=1}^{d}(x - \alpha_i)$ equals the product
+      $\pm \prod_{i=1}^{d} f'(\alpha_i)$.
+    \item Prove that the discriminant of $x^d - 1$ is $\pm d^d$, and
+      note that this is a square in $\Q(\zeta_d)$.
+    \item Prove that $\Q(\zeta_{8d})$ contains square roots of $d$ and
+      $-d$.
+    \item Conclude that every quadratic extension of $\Q$ may be
+      embedded in a cyclotomic field $\Q(\zeta_n)$, for a suitable $n$.
+  \end{enumerate}
+  (This is a very special case of the
+  \name{Kronecker}--\name{Weber} theorem.) [\S{}7.6]
+\end{exer}
 
 %%% Local Variables:
 %%% mode: LaTeX
