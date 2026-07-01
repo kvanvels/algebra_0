@@ -230,127 +230,123 @@ easy to understand and picture in one's mind but rather awkward to
 write down precisely. This seems to be a feature of many
 arrow-theoretic arguments and probably reflects inveterate biases
 acquired by early exposure to $\mathsf{Set}$.
-% Proof. Let \phi  : A \to  B be a morphism in an additive category A, and let
-% coker \phi  :
-% B \to  C be its cokernel. Let \gamma  : C \to  Z be a morphism such that \gamma
-% \circ  coker \phi  = 0.
-% The composition (\gamma  \circ  coker \phi ) \circ  \phi  is 0; by definition of
-% cokernel, \gamma  \circ  coker \phi  factors
-% uniquely through C:
-% A
-% \phi 
-% coker / B C \gamma  \phi  C
-%  C \circ  C coker C
-%  !
-%  \gamma 
-% \phi =0 \exists !
-%  /9 C
-% Z
-% C
-% Since \gamma  \circ  coker \phi  = 0 = 0 \circ  coker \phi , the uniqueness
-% forces \gamma  = 0. This proves that
-% coker \phi  is an epimorphism, by Lemma 1.3.
-% The proof that kernels are monomorphisms is analogous and is left to the reader
-% (Exercise 1.9).
+\begin{proof}
+  Let $\varphi : A \to B$ be a morphism in an additive category
+  $\mathsf{A}$, and let $\operatorname{coker}\varphi : B \to C$ be its
+  cokernel. Let $\gamma : C \to Z$ be a morphism such that
+  $\gamma \circ \operatorname{coker}\varphi = 0$. The composition
+  $(\gamma \circ \operatorname{coker}\varphi) \circ \varphi$ is $0$; by
+  definition of cokernel, $\gamma \circ \operatorname{coker}\varphi$
+  factors uniquely through $C$:
+  \[\begin{tikzcd}
+    A \arrow[r, "\varphi"] &
+    B \arrow[r, "\gamma \circ \operatorname{coker}\varphi = 0"]
+      \arrow[d, "\operatorname{coker}\varphi"'] & Z \\
+    & C \arrow[ur, dashed, "\gamma"', "\exists!"']
+  \end{tikzcd}\]
+  Since $\gamma \circ \operatorname{coker}\varphi = 0 = 0 \circ
+  \operatorname{coker}\varphi$, the uniqueness forces $\gamma = 0$.
+  This proves that $\operatorname{coker}\varphi$ is an epimorphism, by
+  Lemma~\ref{homol:1.3}.
+
+  The proof that kernels are monomorphisms is analogous and is left to
+  the reader (Exercise~1.9).
+\end{proof}
 %  ?
-% Certain limits are guaranteed to exist in an additive category: finite products
-% and coproducts do. On the other hand, kernels and cokernels (which are also
-% limits)
-% do not necessarily exist in an additive category. For example, the category of
-% finitely
-% generated modules over a ring is additive, but it does not have kernels in
-% general
-% (essentially because a submodule of a finitely generated module is not
-% necessarily
-% finitely generated). But as soon as a morphism \phi  does have kernels or
-% cokernels
-% in an additive category, the basic qualities of that morphism can be detected
-% `as
-% usual' by looking at ker \phi  and coker \phi . This is the case for
-% monomorphisms and
-% epimorphisms:
-% Lemma 1.5. Let \phi  : A \to  B be a morphism in an additive category. Then \phi
-% is a
-% monomorphism if and only if 0 \to  A is its kernel, and \phi  is an epimorphism
-% if and
-% only if B \to  0 is its cokernel.
-% Compare this statement with Proposition III.6.2!
-% Proof. Let's do kernels this time.
-% First assume \phi  : A \to  B is a monomorphism. If \zeta  : Z \to  A is any
-% morphism
-% such that the composition Z \to  A \to  B is 0, then \zeta  is 0 by Lemma 1.3,
-% and in
-% particular \zeta  factors (uniquely) through 0 \to  A. This proves that 0 \to  A
-% is a kernel
-% of \phi , as stated.
-% Conversely, assume that 0 \to  A is a kernel for \phi  : A \to  B, and let \zeta
-% : Z \to  A
-% be a morphism such that \phi  \circ  \zeta  = 0. It follows that \zeta  factors
-% through 0 \to  A, since
-% the latter is a kernel for \phi :
-% Z
-%  / A
-%  '/
-%  B
-% \zeta 
-%  ? B
-%  \phi 
-% \exists !
+Certain limits are guaranteed to exist in an additive category: finite
+products and coproducts do. On the other hand, kernels and cokernels
+(which are also limits) do not necessarily exist in an additive
+category. For example, the category of finitely generated modules over
+a ring is additive, but it does not have kernels in general
+(essentially because a submodule of a finitely generated module is not
+necessarily finitely generated). But as soon as a morphism $\varphi$
+does have kernels or cokernels in an additive category, the basic
+qualities of that morphism can be detected `as usual' by looking at
+$\ker\varphi$ and $\operatorname{coker}\varphi$. This is the case for
+monomorphisms and epimorphisms:
+\begin{lem}{}{homol:1.5}
+  Let $\varphi : A \to B$ be a morphism in an additive category. Then
+  $\varphi$ is a monomorphism if and only if $0 \to A$ is its kernel,
+  and $\varphi$ is an epimorphism if and only if $B \to 0$ is its
+  cokernel.
+\end{lem}
+
+Compare this statement with Proposition~III.6.2!
+
+\begin{proof}
+  Let's do kernels this time.
+  First assume $\varphi : A \to B$ is a monomorphism. If
+  $\zeta : Z \to A$ is any morphism such that the composition
+  $Z \to A \to B$ is $0$, then $\zeta$ is $0$ by Lemma~\ref{homol:1.3},
+  and in particular $\zeta$ factors (uniquely) through $0 \to A$. This
+  proves that $0 \to A$ is a kernel of $\varphi$, as stated.
+  Conversely, assume that $0 \to A$ is a kernel for
+  $\varphi : A \to B$, and let $\zeta : Z \to A$ be a morphism such
+  that $\varphi \circ \zeta = 0$. It follows that $\zeta$ factors
+  through $0 \to A$, since the latter is a kernel for $\varphi$:
+  \[\begin{tikzcd}
+    Z \arrow[rr, "0", bend left=40] \arrow[r, "\zeta"]
+      \arrow[d, dashed, "\exists!"'] &
+    A \arrow[r, "\varphi"] & B \\
+    0 \arrow[ur]
+  \end{tikzcd}\]
+  This implies $\zeta = 0$, proving that $\varphi$ is a monomorphism.
+
+  The statement about epimorphisms and cokernels is left to the reader
+  (Exercise~1.9).
+\end{proof}
 %  ?
-%  ? ?
-%  ?
-% This implies \zeta  = 0, proving that \phi  is a monomorphism.
-% The statement about epimorphisms and cokernels is left to the reader (Exer-
-% cise 1.9).
-%  ?
-% In view of Lemma 1.5, we should be able to use diagrams
-% 0 \to  A \to  B,
-%  A \to  B \to  0
-% to signal that A \to  B is a monomorphism, resp., an epimorphism: think `exact'.
-% However, the fact that kernels and cokernels do not necessarily exist makes
-% talking
-% about exactness problematic in a category that is `only' additive. This
-% situation
-% will be rectified very soon.
-% Incidentally, it is common to denote monomorphisms and epimorphisms by
-% suitably decorated arrows; popular choices are / / and
-%  / / , respectively.
+In view of Lemma~\ref{homol:1.5}, we should be able to use diagrams
+\[
+  0 \to A \to B, \quad A \to B \to 0
+\]
+to signal that $A \to B$ is a monomorphism, resp., an epimorphism:
+think `exact'. However, the fact that kernels and cokernels do not
+necessarily exist makes talking about exactness problematic in a
+category that is `only' additive. This situation will be rectified
+very soon.
+
+Incidentally, it is common to denote monomorphisms and epimorphisms by
+suitably decorated arrows; popular choices are $\rightarrowtail$ and
+$\twoheadrightarrow$, respectively.
 
 \subsection{Abelian categories}
 \label{subsec:homol:abelian-categories}
-% The moral at this point is that if a morphism in an
-
-% additive category has kernels and cokernels, then these will behave as expected.
-% But
-% kernels and cokernels do not necessarily exist, and this prevents us from going
-% much
-% further. Also, while (as we have seen) kernels are monomorphisms and cokernels
-% are
-% epimorphisms in an additive category, there is no guarantee that monomorphisms
-% should necessarily be kernels and epimorphisms should be cokernels. In the end,
-% we simply demand these additional features explicitly.
-% Definition 1.6. An additive category A is abelian if kernels and cokernels exist
-% in A; every monomorphism is the kernel of some morphism; and every epimorphism
-% is the cokernel of some morphism.
+The moral at this point is that if a morphism in an additive category
+has kernels and cokernels, then these will behave as expected. But
+kernels and cokernels do not necessarily exist, and this prevents us
+from going much further. Also, while (as we have seen) kernels are
+monomorphisms and cokernels are epimorphisms in an additive category,
+there is no guarantee that monomorphisms should necessarily be kernels
+and epimorphisms should be cokernels. In the end, we simply demand
+these additional features explicitly.
+\begin{defn}{}{homol:1.6}
+  An additive category $\mathsf{A}$ is \emph{abelian} if kernels and
+  cokernels exist in $\mathsf{A}$; every monomorphism is the kernel of
+  some morphism; and every epimorphism is the cokernel of some
+  morphism.
+\end{defn}
 %  ?
-% As mentioned already, R-Mod is an abelian category, for every ring R. The
-% prototype of an abelian category is Ab: this1 is why these categories are called
-% abelian.
-% Since kernels are necessarily monomorphisms (by Lemma 1.4), we see that in
-% an abelian category we can adopt a mantra entirely analogous to the useful
-% `kernel
-% \iff  submodule' of \S{}III.5.3 vintage: in abelian categories, the slogan would be
-% `kernel \iff  monomorphism' (and similarly for cokernels vs. epimorphisms).
-% Remark 1.7. Just as it is convenient to think of monomorphisms A / / B as defin-
-% ing A as a `subobject' of B, it is occasionally convenient to think of
-% epimorphisms
-% as `quotients': if \phi  : A / / B is a monomorphism, we can use B/A to denote
-% (the
-% target of) coker \phi . We will have no real use for this notation in this
-% section, but it
-% will come in handy later on.
-%  ?
-% 1There is nothing particularly `commutative' about an abelian category.
+As mentioned already, $R\text{-}\mathsf{Mod}$ is an abelian category,
+for every ring $R$. The prototype of an abelian category is
+$\mathsf{Ab}$: this\footnote{There is nothing particularly
+`commutative' about an abelian category.} is why these categories are
+called abelian.
+Since kernels are necessarily monomorphisms (by
+Lemma~\ref{homol:1.4}), we see that in an \emph{abelian} category we
+can adopt a mantra entirely analogous to the useful `kernel $\iff$
+submodule' of \S{}III.5.3 vintage: in abelian categories, the slogan
+would be `kernel $\iff$ monomorphism' (and similarly for cokernels vs.
+epimorphisms).
+\begin{rem}{}{homol:1.7}
+  Just as it is convenient to think of monomorphisms
+  $A \rightarrowtail B$ as defining $A$ as a `subobject' of $B$, it is
+  occasionally convenient to think of epimorphisms as `quotients': if
+  $\varphi : A \rightarrowtail B$ is a monomorphism, we can use $B/A$
+  to denote (the target of) $\operatorname{coker}\varphi$. We will
+  have no real use for this notation in this section, but it will come
+  in handy later on.
+\end{rem}
 % The very existence of kernels and cokernels links these two notions tightly in
 % an abelian category:
 % Lemma 1.8. In an abelian category A, every kernel is the kernel of its cokernel;
