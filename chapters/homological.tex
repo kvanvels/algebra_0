@@ -1,84 +1,67 @@
 \chapter{Homological algebra}
 \label{chap:homol}
 
-% The limited exposure to the Tor and Ext functors given in \S{}VIII.2 and
-% \S{}VIII.6
-% should assist the reader in occasional encounters with these functors. However,
-% it is
-% very worthwhile to go back, dotting all i's and crossing all t's as necessary to
-% prove
-% the wonderful facts responsible for the existence and the behavior of these
-% functors.
-% This is one motivation for the material covered in this chapter. Tor and Ext
-% are examples of derived functors, a machinery that would give us access to
-% several
-% other important constructions, such as group or sheaf cohomology. Exploring any
-% of
-% these applications would take us too far, but understanding the basics of
-% homological
-% algebra, including a thorough look at derived functors, is in itself a very
-% worthwhile
-% goal. The material covered here should arm the reader with enough information to
-% be able to absorb any application quickly when the time comes and the
-% opportunity
-% arises. All the wonderful mysteries about Tor and Ext stated in Chapter VIII
-% will
-% be recovered as very particular cases of the results presented in this chapter.
-% The natural context in which to play this game is that of abelian categories:
-% these are categories carrying good notions of kernels and cokernels, with
-% properties
-% to which the reader is accustomed due to long exposure to the category R-Mod
-% of modules over a ring. In fact, elementary (and not so elementary) presenta-
-% tions of homological algebra often take the standpoint that one may as well work
-% with R-Mod; allegedly, nothing of substance is lost by doing this rather than
-% trying
-% to work in the more natural context of abelian categories.
-% I am not completely convinced. This pedagogical device has strong theoretical
-% backing, provided by the Freyd-Mitchell embedding theorem: every small abelian
-% category is equivalent to a full subcategory of the category of left-modules
-% over
-% a (not necessarily commutative) ring. However, I believe that some exposure to
-% purely `arrow-theoretic' arguments is intrinsically beneficial, and the reader
-% should
-% have the chance to acquire a taste for this type of reasoning. In any case, I
-% dislike
-% the idea of simply asking the reader to believe that `most of what follows works
-% in
-% a more general setting', without providing some evidence for this fact.
-% Therefore, we will take a little time to look at abelian categories before
-% getting
-% into homological algebra proper; this will be done in the first two sections of
-% this
-% chapter, which an impatient reader could probably skip over without much harm.
-% While we will not prove the Freyd-Mitchell embedding theorem, I will give a
-% solid
-% justification for the fact that we can indeed perform diagram chases by working
-% with
-% `elements', in the sense of (for example) checking whether a diagram is
-% commutative
-% or whether a given sequence is exact. Proving this will give us good practice in
-% maneuvering arrow-theoretic arguments; once we are done with it, we can indeed
-% develop homological algebra using conventional `element-theoretic' arguments,
-% with
-% a relatively clean conscience.
-% As for homological algebra proper, my general guiding principle will be to hunt
-% for the `essence of (co)homology': what information in a complex (see \S{}III.7)
-% is
-% really responsible for its homology. This will motivate most constructions in
-% this
-% chapter, including derived functors. A guiding beacon throughout the chapter
-% will
-% be the notion of derived category: I will not construct derived categories in
-% full
-% generality, but the reader should nevertheless emerge with a basic understanding
-% of what they are. One reason for this compromise is that I felt that delving
-% into
-% triangulated categories would take us too far; they are only mentioned in
-% passing
-% at the end of the chapter. Balancing Tor and Ext will motivate the introduction
-% of double complexes, and these in turn will motivate a quick treatment of
-% spectral
-% sequences, in the last section.
+The limited exposure to the Tor and Ext functors given in \S{}VIII.2
+and \S{}VIII.6 should assist the reader in occasional encounters with
+these functors. However, it is very worthwhile to go back, dotting all
+i's and crossing all t's as necessary to prove the wonderful facts
+responsible for the existence and the behavior of these functors. This
+is one motivation for the material covered in this chapter. Tor and
+Ext are examples of derived functors, a machinery that would give us
+access to several other important constructions, such as group or
+sheaf cohomology. Exploring any of these applications would take us too
+far, but understanding the basics of homological algebra, including a
+thorough look at derived functors, is in itself a very worthwhile goal.
+The material covered here should arm the reader with enough
+information to be able to absorb any application quickly when the time
+comes and the opportunity arises. All the wonderful mysteries about
+Tor and Ext stated in Chapter~VIII will be recovered as very particular
+cases of the results presented in this chapter.
+
+The natural context in which to play this game is that of abelian
+categories: these are categories carrying good notions of kernels and
+cokernels, with properties to which the reader is accustomed due to
+long exposure to the category $R\text{-}\mathsf{Mod}$ of modules over a
+ring. In fact, elementary (and not so elementary) presentations of
+homological algebra often take the standpoint that one may as well
+work with $R\text{-}\mathsf{Mod}$; allegedly, nothing of substance is
+lost by doing this rather than trying to work in the more natural
+context of abelian categories.
+I am not completely convinced. This pedagogical device has strong
+theoretical backing, provided by the Freyd--Mitchell embedding theorem:
+every small abelian category is equivalent to a full subcategory of the
+category of left-modules over a (not necessarily commutative) ring.
+However, I believe that some exposure to purely `arrow-theoretic'
+arguments is intrinsically beneficial, and the reader should have the
+chance to acquire a taste for this type of reasoning. In any case, I
+dislike the idea of simply asking the reader to believe that `most of
+what follows works in a more general setting', without providing some
+evidence for this fact.
+Therefore, we will take a little time to look at abelian categories
+before getting into homological algebra proper; this will be done in
+the first two sections of this chapter, which an impatient reader
+could probably skip over without much harm. While we will not prove
+the Freyd--Mitchell embedding theorem, I will give a solid
+justification for the fact that we can indeed perform diagram chases
+by working with `elements', in the sense of (for example) checking
+whether a diagram is commutative or whether a given sequence is exact.
+Proving this will give us good practice in maneuvering
+arrow-theoretic arguments; once we are done with it, we can indeed
+develop homological algebra using conventional `element-theoretic'
+arguments, with a relatively clean conscience.
+As for homological algebra proper, my general guiding principle will
+be to hunt for the `essence of (co)homology': what information in a
+complex (see \S{}III.7) is really responsible for its homology. This
+will motivate most constructions in this chapter, including derived
+functors. A guiding beacon throughout the chapter will be the notion
+of derived category: I will not construct derived categories in full
+generality, but the reader should nevertheless emerge with a basic
+understanding of what they are. One reason for this compromise is that
+I felt that delving into triangulated categories would take us too
+far; they are only mentioned in passing at the end of the chapter.
+Balancing Tor and Ext will motivate the introduction of double
+complexes, and these in turn will motivate a quick treatment of
+spectral sequences, in the last section.
 
 \section{(Un)necessary categorical preliminaries}
 \label{sec:homol:un-necessary-categorical-preliminaries}
@@ -86,45 +69,47 @@
 
 \subsection{Undesirable features of otherwise reasonable categories}
 \label{subsec:homol:undesirable-features-of-otherwise-reasonable-categories}
-% The cate-
-
-% gory of modules over a ring R is the template example of an abelian category: a
-% category for which it makes sense to talk about `kernels' and `cokernels', `com-
-% plexes', `exactness', etc., and in which convenient results such as the `snake
-% lemma'
-% hold. We begin by trying to concretize these thoughts a little.
-% As motivation for the key definitions, I will first list a few annoying features
-% of
-% some of the categories we have encountered.
-% \bullet  A category may not have initial or final objects; even if they are there, they
-% may not be the same objects (as in Set).
-% \bullet  Products, coproducts may not exist (if the product of F2 and F3 existed in Fld,
-% what would its characteristic be?).
-% \bullet  It may make no sense to talk about kernels and cokernels in a category; even
-% when it does make sense, they may not exist (kernels do not necessarily exist
-% in the category of finitely generated modules over a ring; cf. Example III.6.5).
-% \bullet  Even when there are kernels and cokernels, monomorphisms need not be ker-
-% nels (nonnormal subgroups are not kernels: remember \S{}II.7.6), and epimor-
-% phisms need not be cokernels (the injection Z \to  Q is an epimorphism in Ring;
-% see \S{}III.2.3).
-% \bullet  A morphism may be a monomorphism and an epimorphism without being an
-% isomorphism (Ring again, same example).
-% Homological algebra will deal extensively with kernels, cokernels, exact
-% sequences,
-% and the like: the material covered in \S{}III.7 will be our starting point. That
-% material
-% was developed for the category R-Mod of (left-)modules over a ring, for which
-% none of the annoying things listed above occurs: in R-Mod every epimorphism is
-% a cokernel, a map is an isomorphism if and only if it is a monomorphism and an
-% epimorphism, there is a zero-object (= both initial and final), and so on.
-% The notions of `additive' and `abelian' category extract the few key properties
-% that guarantee that no pathologies such as those listed above may occur. Working
-% in such categories `feels' quite a bit like working in R-Mod, in the sense that
-% all
-% expected properties of kernels and cokernels hold. The Freyd-Mitchell embedding
-% theorem (see \S{}2.4) will provide a mathematical reason supporting this
-% psychological
-% fact.
+The category of modules over a ring $R$ is the template example of an
+abelian category: a category for which it makes sense to talk about
+`kernels' and `cokernels', `complexes', `exactness', etc., and in which
+convenient results such as the `snake lemma' hold. We begin by trying
+to concretize these thoughts a little.
+As motivation for the key definitions, I will first list a few annoying
+features of some of the categories we have encountered.
+\begin{itemize}
+  \item A category may not have initial or final objects; even if
+    they are there, they may not be the same objects (as in
+    $\mathsf{Set}$).
+  \item Products, coproducts may not exist (if the product of
+    $\mathbb{F}_2$ and $\mathbb{F}_3$ existed in $\mathsf{Fld}$, what
+    would its characteristic be?).
+  \item It may make no sense to talk about kernels and cokernels in a
+    category; even when it does make sense, they may not exist
+    (kernels do not necessarily exist in the category of finitely
+    generated modules over a ring; cf.\ Example~III.6.5).
+  \item Even when there are kernels and cokernels, monomorphisms need
+    not be kernels (nonnormal subgroups are not kernels: remember
+    \S{}II.7.6), and epimorphisms need not be cokernels (the injection
+    $\Z \to \mathbb{Q}$ is an epimorphism in $\mathsf{Ring}$; see
+    \S{}III.2.3).
+  \item A morphism may be a monomorphism and an epimorphism without
+    being an isomorphism ($\mathsf{Ring}$ again, same example).
+\end{itemize}
+Homological algebra will deal extensively with kernels, cokernels,
+exact sequences, and the like: the material covered in \S{}III.7 will
+be our starting point. That material was developed for the category
+$R\text{-}\mathsf{Mod}$ of (left-)modules over a ring, for which none
+of the annoying things listed above occurs: in $R\text{-}\mathsf{Mod}$
+every epimorphism is a cokernel, a map is an isomorphism if and only if
+it is a monomorphism and an epimorphism, there is a zero-object
+($=$ both initial and final), and so on.
+The notions of `additive' and `abelian' category extract the few key
+properties that guarantee that no pathologies such as those listed
+above may occur. Working in such categories `feels' quite a bit like
+working in $R\text{-}\mathsf{Mod}$, in the sense that all expected
+properties of kernels and cokernels hold. The Freyd--Mitchell embedding
+theorem (see \S{}2.4) will provide a mathematical reason supporting
+this psychological fact.
 
 \subsection{Additive categories}
 \label{subsec:homol:additive-categories}
