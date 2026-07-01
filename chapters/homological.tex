@@ -114,133 +114,122 @@ this psychological fact.
 \subsection{Additive categories}
 \label{subsec:homol:additive-categories}
 
-% Definition 1.1. A category A is additive if it has a zero-object, A has both
-% finite
-% products and finite coproducts, and each set of morphisms HomA(A, B) is endowed
-% with an abelian group structure, in such a way that the composition maps are
-% bilinear. A functor between two additive categories is additive if it preserves
-% the
-% abelian group structures on Hom-sets.
-%  ?
-% None of the categories mentioned in the list in \S{}1.1 is additive. Even Grp
-% (which
-% has kernels and cokernels, products, etc.) is not an additive category: the
-% Hom-sets
-% in Grp do not have a natural abelian group structure. Of course Ab is additive,
-% and
-% so are all categories R-Mod.
-% If a category A is additive, it makes sense to talk about `zero-morphisms'
-% (which
-% I will denote by 0) and to add or subtract morphisms; two morphisms \alpha ,
-% \beta  are equal
-% if and only if \alpha -\beta  = 0. One can also talk about kernels and cokernels
-% in A, by adopt-
-% ing the categorical definitions as suitable limits and colimits (Example
-% VIII.1.11).
-% Here are those definitions again, expanded for intelligibility:
-% Definition 1.2. Let \phi  : A \to  B be a morphism in an additive category A. A
-% morphism \iota  : K \to  A is a kernel of \phi  if \phi  \circ  \iota  = 0 and
-% for all morphisms \zeta  : Z \to  A
-% such that \phi  \circ  \zeta  = 0 there exists a unique \tilde{\zeta } : Z \to
-% K making the diagram
-% Z
-%  / A
-%  (/
-%  B
-% \exists !\tilde{\zeta }
-%  ?
-%  \zeta 
-%  \setminus  \setminus  \setminus 
-%  \iota 
-%  \setminus  A
-%  \phi 
-% K
-% commute. A morphism \pi  : B \to  C is a cokernel of \phi  if \pi  \circ  \phi
-% = 0 and for all
-% morphisms \beta  : B \to  Z such that \beta  \circ  \phi  = 0 there exists a
-% unique \tilde{\beta } : C \to  Z making
-% the diagram
-% \pi \setminus  \setminus  \setminus 
-%  A C \exists !\tilde{\beta }
-% \phi 
-%  \setminus  \beta 
-%  ?
+\begin{defn}{}{homol:1.1}
+  A category $\mathsf{A}$ is \emph{additive} if it has a zero-object,
+  $\mathsf{A}$ has both finite products and finite coproducts, and each
+  set of morphisms $\mathrm{Hom}_{\mathsf{A}}(A, B)$ is endowed with an
+  abelian group structure, in such a way that the composition maps are
+  bilinear. A functor between two additive categories is
+  \emph{additive} if it preserves the abelian group structures on
+  Hom-sets.
+\end{defn}
+None of the categories mentioned in the list in \S{}1.1 is additive.
+Even $\mathsf{Grp}$ (which has kernels and cokernels, products, etc.)
+is not an additive category: the Hom-sets in $\mathsf{Grp}$ do not have
+a natural abelian group structure. Of course $\mathsf{Ab}$ is additive,
+and so are all categories $R\text{-}\mathsf{Mod}$.
+If a category $\mathsf{A}$ is additive, it makes sense to talk about
+`zero-morphisms' (which I will denote by $0$) and to add or subtract
+morphisms; two morphisms $\alpha$, $\beta$ are equal if and only if
+$\alpha - \beta = 0$. One can also talk about kernels and cokernels in
+$\mathsf{A}$, by adopting the categorical definitions as suitable
+limits and colimits (Example~VIII.1.11). Here are those definitions
+again, expanded for intelligibility:
+\begin{defn}{}{homol:1.2}
+  Let $\varphi : A \to B$ be a morphism in an additive category
+  $\mathsf{A}$. A morphism $\iota : K \to A$ is a \emph{kernel} of
+  $\varphi$ if $\varphi \circ \iota = 0$ and for all morphisms
+  $\zeta : Z \to A$ such that $\varphi \circ \zeta = 0$ there exists a
+  unique $\tilde\zeta : Z \to K$ making the diagram
+  \[\begin{tikzcd}
+    Z \arrow[rr, "0", bend left=40] \arrow[r, "\zeta"]
+      \arrow[d, dashed, "\exists! \, \tilde\zeta"'] &
+    A \arrow[r, "\varphi"] & B \\
+    K \arrow[ur, "\iota"']
+  \end{tikzcd}\]
+  commute. A morphism $\pi : B \to C$ is a \emph{cokernel} of $\varphi$
+  if $\pi \circ \varphi = 0$ and for all morphisms $\beta : B \to Z$
+  such that $\beta \circ \varphi = 0$ there exists a unique
+  $\tilde\beta : C \to Z$ making the diagram
+  \[\begin{tikzcd}
+    A \arrow[r, "\varphi"] \arrow[rrd, "0"', bend right=20] &
+    B \arrow[r, "\pi"] \arrow[dr, "\beta"'] &
+    C \arrow[d, dashed, "\exists! \, \tilde\beta"] \\
+    & & Z
+  \end{tikzcd}\]
+  commute.
+\end{defn}
+
+Here is the same in sound-bite format: if $\varphi \circ \zeta = 0$,
+then $\zeta$ factors uniquely through $\ker\varphi$. If
+$\beta \circ \varphi = 0$, then $\beta$ factors uniquely through
+$\operatorname{coker}\varphi$.
+We have to get used to the fact that morphisms may have `many' kernels
+(or cokernels), uniquely identified with each other by virtue of being
+answers to a universal question (Proposition~I.5.4); it is common to
+harmlessly abuse language and talk about the kernel and the cokernel of
+a morphism. Further, we have to get used to the fact that the kernel
+$\iota : K \to A$ of a morphism $A \to B$ is a morphism. In a category
+such as $\mathsf{Ab}$ we are used to thinking of the kernel as a
+subobject of $A$, but this is really nothing but the datum of an
+inclusion map: the kernel is really that map. In an arbitrary category
+one cannot talk about `subobjects' or `inclusions'; the closest one can
+get to these notions is monomorphism. Similarly, `surjective' is not
+really an option; epimorphism is the appropriate replacement. Recall
+(\S{}I.2.6)
+that $\varphi : A \to B$ is a monomorphism if for all parallel
+morphisms $\zeta_1, \zeta_2 : Z \to A$,
+\[
+  Z \xrightarrow[\zeta_2]{\zeta_1} A \xrightarrow{\varphi} B,
+\]
+$\varphi \circ \zeta_1 = \varphi \circ \zeta_2 \implies \zeta_1 =
+\zeta_2$. It is an epimorphism if for all parallel
+$\beta_1, \beta_2 : B \to Z$,
 % A
-%  / B
-%  /6 Z
-% commute.
-%  ?
-% Here is the same in sound-bite format:
-% If \phi  \circ  \zeta  = 0, then \zeta  factors uniquely through ker \phi .
-% If \beta  \circ  \phi  = 0, then \beta  factors uniquely through coker \phi .
-% We have to get used to the fact that morphisms may have `many' kernels (or
-% cokernels), uniquely identified with each other by virtue of being answers to a
-% universal question (Proposition I.5.4); it is common to harmlessly abuse
-% language
-% and talk about the kernel and the cokernel of a morphism. Further, we have to
-% get
-% used to the fact that the kernel \iota  : K \to  A of a morphism A \to  B is a
-% morphism. In
-% a category such as Ab we are used to thinking of the kernel as a subobject of A,
-% but
-% this is really nothing but the datum of an inclusion map: the kernel is really
-% that
-% map. In an arbitrary category one cannot talk about `subobjects' or
-% `inclusions';
-% the closest one can get to these notions is monomorphism. Similarly,
-% `surjective' is
-% not really an option; epimorphism is the appropriate replacement. Recall
-% (\S{}I.2.6)
-% that \phi  : A \to  B is a monomorphism if for all parallel morphisms \zeta 1 ,
-% \zeta 2 : Z \to  A,
-% Z
-%  \zeta 1
-%  // A
-%  \phi 
-%  / B,
-% \zeta 2
-% \phi  \circ  \zeta 1 = \phi  \circ  \zeta 2 \implies  \zeta  1 = \zeta 2 . It is an epimorphism if for all parallel \beta 1 , \beta 2 : B \to  Z,
-% A
-%  \phi 
-%  / B
-%  \beta 1
-%  // Z,
-% \beta 2
-% \beta 1 \circ  \phi  = \beta 2 \circ  \phi  \implies  \beta 1 = \beta 2 . One benefit of working in an additive category is
-% that these definitions simplify a little:
-% Lemma 1.3. A morphism \phi  : A \to  B in an additive category is a monomorphism
-% if and only if for all \zeta  : Z \to  A,
-% \phi  \circ  \zeta  = 0 \implies  \zeta  = 0.
-% It is an epimorphism if and only if for all \beta  : B \to  Z,
-% \beta  \circ  \phi  = 0 \implies  \beta  = 0.
-% Proof. This is simply because two morphisms with the same source and target
-% are equal if and only if their difference in the corresponding Hom-set (which is
-% an
-% abelian group by hypothesis) is 0.
-%  ?
-% Are kernels necessarily monomorphisms? Yes:
-% Lemma 1.4. In any additive category, kernels are monomorphisms and cokernels
-% are epimorphisms.
-% We will run into several such `dual' statements, and I will give the proof for
-% one half, leaving the other half to the reader; as a rule, the two proofs mirror
-% each
-% other closely. There is a good reason for this: the opposite (cf. Exercise
-% I.3.1) of
-% an additive category is additive, and kernels, monomorphisms, etc., in one
-% corre-
-% spond to cokernels, epimorphisms, etc., in the other. Thus, proving one of these
-% statements for all additive categories establishes at the same time the truth of
-% its
-% dual statement.
-% However, going through the motions necessary to produce stand-alone proofs
-% of the dual statements makes for good practice, and I invite the reader to work
-% out the corresponding exercises at the end of this section. It is invariably the
-% case
-% that these arguments are relatively easy to understand and picture in one's mind
-% but rather awkward to write down precisely. This seems to be a feature of many
-% arrow-theoretic arguments and probably reflects inveterate biases acquired by
-% early
-% exposure to Set.
+\[
+  A \xrightarrow{\varphi} B \xrightarrow[\beta_2]{\beta_1} Z,
+\]
+$\beta_1 \circ \varphi = \beta_2 \circ \varphi \implies \beta_1 =
+\beta_2$. One benefit of working in an additive category is that these
+definitions simplify a little:
+\begin{lem}{}{homol:1.3}
+  A morphism $\varphi : A \to B$ in an additive category is a
+  monomorphism if and only if for all $\zeta : Z \to A$,
+  \[
+    \varphi \circ \zeta = 0 \implies \zeta = 0.
+  \]
+  It is an epimorphism if and only if for all $\beta : B \to Z$,
+  \[
+    \beta \circ \varphi = 0 \implies \beta = 0.
+  \]
+\end{lem}
+\begin{proof}
+  This is simply because two morphisms with the same source and target
+  are equal if and only if their difference in the corresponding
+  Hom-set (which is an abelian group by hypothesis) is $0$.
+\end{proof}
+
+Are kernels necessarily monomorphisms? Yes:
+\begin{lem}{}{homol:1.4}
+  In any additive category, kernels are monomorphisms and cokernels
+  are epimorphisms.
+\end{lem}
+We will run into several such `dual' statements, and I will give the
+proof for one half, leaving the other half to the reader; as a rule,
+the two proofs mirror each other closely. There is a good reason for
+this: the opposite (cf.\ Exercise~I.3.1) of an additive category is
+additive, and kernels, monomorphisms, etc., in one correspond to
+cokernels, epimorphisms, etc., in the other. Thus, proving one of these
+statements for all additive categories establishes at the same time
+the truth of its dual statement.
+However, going through the motions necessary to produce stand-alone
+proofs of the dual statements makes for good practice, and I invite
+the reader to work out the corresponding exercises at the end of this
+section. It is invariably the case that these arguments are relatively
+easy to understand and picture in one's mind but rather awkward to
+write down precisely. This seems to be a feature of many
+arrow-theoretic arguments and probably reflects inveterate biases
+acquired by early exposure to $\mathsf{Set}$.
 % Proof. Let \phi  : A \to  B be a morphism in an additive category A, and let
 % coker \phi  :
 % B \to  C be its cokernel. Let \gamma  : C \to  Z be a morphism such that \gamma
