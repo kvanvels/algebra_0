@@ -347,89 +347,87 @@ epimorphisms).
   have no real use for this notation in this section, but it will come
   in handy later on.
 \end{rem}
-% The very existence of kernels and cokernels links these two notions tightly in
-% an abelian category:
-% Lemma 1.8. In an abelian category A, every kernel is the kernel of its cokernel;
-% every cokernel is the cokernel of its kernel.
-% Proof. I will prove the second half and leave the first half to the reader
-% (Exer-
-% cise 1.9).
-% Let \phi  : A \to  B be the cokernel of some morphism Z \to  A; since A is
-% abelian,
-% \phi  has a kernel \iota  : K \to  A. The composition Z \to  A \to  B is 0, so Z \to  A factors
-% through \iota  by definition of kernel:
-% Z
-%  / A
-%  \phi 
-%  / B
-% \exists !
+The very existence of kernels and cokernels links these two notions
+tightly in an abelian category:
+
+\begin{lem}{}{homol:1.8}
+  In an abelian category $\mathsf{A}$, every kernel is the kernel of
+  its cokernel; every cokernel is the cokernel of its kernel.
+\end{lem}
+
+\begin{proof}
+  I will prove the second half and leave the first half to the reader
+  (Exercise~1.9).
+
+  Let $\varphi : A \to B$ be the cokernel of some morphism
+  $Z \to A$; since $\mathsf{A}$ is abelian, $\varphi$ has a kernel
+  $\iota : K \to A$. The composition $Z \to A \to B$ is $0$, so
+  $Z \to A$ factors through $\iota$ by definition of kernel:
+  \[\begin{tikzcd}
+    Z \arrow[r] \arrow[d, dashed, "\exists!"'] &
+    A \arrow[r, "\varphi"] & B \\
+    K \arrow[ur, "\iota"']
+  \end{tikzcd}\]
+  Now let $A \to C$ be a morphism such that the composition
+  $K \to A \to C$ is the zero-morphism; then so is the composition
+  $Z \to A \to C$. Therefore $A \to C$ factors through a unique
+  morphism $B \to C$,
+  \[\begin{tikzcd}
+    Z \arrow[r] \arrow[d, dashed, "\exists!"'] &
+    A \arrow[r, "\varphi"] \arrow[rrd, near start] &
+    B \arrow[dr, dashed, "\exists!"] & \\
+    K \arrow[ur, "\iota"'] \arrow[rrr, "0"', bend right=20] &
+    & & C
+  \end{tikzcd}\]
+  since $\varphi$ is the cokernel of $Z \to A$. But this shows that
+  $\varphi : A \to B$ satisfies the property defining the cokernel of
+  its kernel $K \to A$, as stated.
+\end{proof}
 %  ?
-%  \setminus  \setminus  \setminus 
-%  \iota 
-%  \setminus  A
-% K
-% Now let A \to  C be a morphism such that the composition K \to  A \to  C is the
-% zero-morphism; then so is the composition Z \to  A \to  C. Therefore A \to  C
-% factors
-% through a unique morphism B \to  C,
-% 1 C
-%  ? ? ?
-%  ? A \exists !
-%  ]
-% Z
-%  / A
-%  / B
-% \setminus 
-%  \setminus  A
-%  \phi 
-% \exists !
-%  ?
-%  \setminus  \setminus  \iota 
-% K
-% since \phi  is the cokernel of Z \to  A. But this shows that \phi  : A \to  B
-% satisfies the
-% property defining the cokernel of its kernel K \to  A, as stated.
-%  ?
-% Putting together Lemma 1.8 and Lemma 1.5, we can rephrase Definition 1.6
-% by listing the following requirements on a category A:
-% \bullet  A is additive;
-% \bullet  kernels and cokernels exist in A;
-% \bullet  if \phi  : A \to  B is a morphism whose kernel is 0, then \phi  is the kernel of its
-% cokernel;
-% \bullet  if \psi  : B \to  C is a morphism whose cokernel is 0, then \psi  is the cokernel of its
-% kernel.
-% This is a popular equivalent reformulation of the definition of abelian
-% category. The
-% last two requirements should call to mind the exact sequence
-%  / A
-%  \phi 
-%  / B
-%  \psi 
-%  / C
-%  / 0
-% familiar from the R-Mod context. The reader can already entertain the sense in
-% which such a sequence can be `exact' in an abelian category: the third
-% requirement
-% identifies A (or, rather, A \to  B) with the kernel of \psi , and the fourth one
-% identifies C
-% with the cokernel of \phi .
-% Now suppose that A \to  B is sandwiched between zeros:
-%  / A /
-%  / / B
-%  / 0
-% in an exact sequence. One of our many Pavlovian reactions would make us want
-% to deduce that A \to  B is an isomorphism, because this is the case in R-Mod,
-% and
-% this indeed works in any abelian category:
-% Lemma 1.9. Let \phi  : A \to  B be a morphism in an abelian category A, and
-% assume
-% that \phi  is both a monomorphism and an epimorphism. Then \phi  is an
-% isomorphism.
-% Remark 1.10. This fact does not hold in general additive categories. In fact,
-% the reader will encounter in Exercise 3.4 an example of an additive category
-% with
-% kernels and cokernels (but nevertheless not abelian) and with morphisms that are
-% both monomorphisms and epimorphisms, without being isomorphisms.
+Putting together Lemma~\ref{homol:1.8} and Lemma~\ref{homol:1.5}, we
+can rephrase Definition~\ref{homol:1.6} by listing the following
+requirements on a category $\mathsf{A}$:
+\begin{itemize}
+  \item $\mathsf{A}$ is additive;
+  \item kernels and cokernels exist in $\mathsf{A}$;
+  \item if $\varphi : A \to B$ is a morphism whose kernel is $0$, then
+    $\varphi$ is the kernel of its cokernel;
+  \item if $\psi : B \to C$ is a morphism whose cokernel is $0$, then
+    $\psi$ is the cokernel of its kernel.
+\end{itemize}
+This is a popular equivalent reformulation of the definition of
+abelian category. The last two requirements should call to mind the
+exact sequence
+\[
+  0 \to A \xrightarrow{\varphi} B \xrightarrow{\psi} C \to 0
+\]
+familiar from the $R\text{-}\mathsf{Mod}$ context. The reader can
+already entertain the sense in which such a sequence can be `exact' in
+an abelian category: the third requirement identifies $A$ (or, rather,
+$A \to B$) with the kernel of $\psi$, and the fourth one identifies $C$
+with the cokernel of $\varphi$.
+
+Now suppose that $A \to B$ is sandwiched between zeros:
+\[
+  0 \to A \to B \to 0
+\]
+in an exact sequence. One of our many Pavlovian reactions would make us
+want to deduce that $A \to B$ is an isomorphism, because this is the
+case in $R\text{-}\mathsf{Mod}$, and this indeed works in any abelian
+category:
+\begin{lem}{}{homol:1.9}
+  Let $\varphi : A \to B$ be a morphism in an abelian category
+  $\mathsf{A}$, and assume that $\varphi$ is both a monomorphism and
+  an epimorphism. Then $\varphi$ is an isomorphism.
+\end{lem}
+
+\begin{rem}{}{homol:1.10}
+  This fact does not hold in general additive categories. In fact, the
+  reader will encounter in Exercise~3.4 an example of an additive
+  category with kernels and cokernels (but nevertheless not abelian)
+  and with morphisms that are both monomorphisms and epimorphisms,
+  without being isomorphisms.
+\end{rem}
 %  ?
 % Proof. By Lemma 1.5 the kernel of \phi  is 0 \to  A, since \phi  is a
 % monomorphism.
