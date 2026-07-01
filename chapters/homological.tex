@@ -429,60 +429,53 @@ category:
   without being isomorphisms.
 \end{rem}
 %  ?
-% Proof. By Lemma 1.5 the kernel of \phi  is 0 \to  A, since \phi  is a
-% monomorphism.
-% Similarly, B \to  0 is a cokernel of \phi . Further, \phi  is the cokernel of 0
-% \to  A and the
-% kernel of B \to  0, by Lemma 1.8.
-% Now consider the identity B \to  B:
-% B
-% id
-% \phi 
-%  \sqcup 
-%  / A /
-%  / / B
-%  / 0
-% Since B \to  B \to  0 is (trivially) the zero morphism and \phi  is the kernel
-% of B \to  0,
-% we obtain a unique morphism \psi  : B \to  A making the diagram commute:
-% B
-% \exists !\psi 
-%  }
-%  }
-%  }}
-%  id
-% }}
-% ~}}
-%  \sqcup 
-%  / A /
-%  / / B
-%  / 0
-% \phi 
-% As \phi \psi  = idB , this shows that \phi  has a right-inverse. Similarly,
-% consider the identity
-% A \to  A, as follows:
-% A O
-% id
-%  / A / \phi  / / B
-%  / 0
-% The composition 0 \to  A \to  A is the zero morphism, and \phi  is the cokernel
-% of 0 \to  A,
-% so we have a unique morphism \eta  : B \to  A making this diagram commute:
-% A O `AA
-% AA \exists !\eta 
-% id
-%  AA
-% AA
-%  / A /
-%  / / B
-%  / 0
-% \phi 
-% This says \eta \phi  = idA , so \phi  has a left-inverse as well.
-% Thus, \phi  has both a left-inverse \eta  and a right-inverse \psi . It follows
-% that \eta  = \psi
-% is a two-sided inverse of \phi  and that \phi  is an isomorphism as promised
-% (cf. Proposi-
-% tion I.4.2).
+\begin{proof}
+  By Lemma~\ref{homol:1.5} the kernel of $\varphi$ is $0 \to A$, since
+  $\varphi$ is a monomorphism. Similarly, $B \to 0$ is a cokernel of
+  $\varphi$. Further, $\varphi$ is the cokernel of $0 \to A$ and the
+  kernel of $B \to 0$, by Lemma~\ref{homol:1.8}.
+
+  Now consider the identity $B \to B$:
+  \[\begin{tikzcd}
+    & & B \arrow[d, "\mathrm{id}"] & \\
+    0 \arrow[r] & A \arrow[r, "\varphi", tail, two heads] &
+    B \arrow[r] & 0
+  \end{tikzcd}\]
+  Since $B \to B \to 0$ is (trivially) the zero morphism and $\varphi$
+  is the kernel of $B \to 0$, we obtain a unique morphism
+  $\psi : B \to A$ making the diagram commute:
+  \[\begin{tikzcd}
+    & & B \arrow[d, "\mathrm{id}"] \arrow[dl, dashed, "\exists! \psi"'] & \\
+    0 \arrow[r] & A \arrow[r, "\varphi", tail, two heads] &
+    B \arrow[r] & 0
+  \end{tikzcd}\]
+
+  As $\varphi\psi = \mathrm{id}_B$, this shows that $\varphi$ has a
+  right-inverse. Similarly, consider the identity $A \to A$, as
+  follows:
+  \[\begin{tikzcd}
+    & A & & \\
+    0 \arrow[r] & A \arrow[u, "\mathrm{id}"] \arrow[r, "\varphi", tail, two heads] &
+    B \arrow[r] & 0
+  \end{tikzcd}\]
+
+  The composition $0 \to A \to A$ is the zero morphism, and $\varphi$
+  is the cokernel of $0 \to A$, so we have a unique morphism
+  $\eta : B \to A$ making this diagram commute:
+  \[\begin{tikzcd}
+    & A & & \\
+    0 \arrow[r] & A \arrow[u, "\mathrm{id}"] \arrow[r, "\varphi", tail, two heads] &
+    B \arrow[r] \arrow[ul, dashed, "\exists! \eta"'] & 0
+  \end{tikzcd}\]
+
+  This says $\eta\varphi = \mathrm{id}_A$, so $\varphi$ has a
+  left-inverse as well.
+
+  Thus, $\varphi$ has both a left-inverse $\eta$ and a right-inverse
+  $\psi$. It follows that $\eta = \psi$ is a two-sided inverse of
+  $\varphi$ and that $\varphi$ is an isomorphism as promised (cf.\
+  Proposition~I.4.2).
+\end{proof}
 %  ?
 % The reader should note the arrow-theoretic nature of this argument. In the
 % category R-Mod we could have given the following (possibly) simpler argument:
