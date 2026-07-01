@@ -568,112 +568,105 @@ diagram commute:
   A \times B \arrow[u, "\rho_A"'] \arrow[d, "\rho_B"] \\
   & B
 \end{tikzcd}\]
-%  L %
-% 1 B
-% \pi B
-% Now I claim that this morphism (\pi A , \pi B ) : A\sqcup B \to  A\times B is
-% both a monomorphism
-% and an epimorphism. By Lemma 1.9, this (and a simple induction) will prove
-% Proposition 1.12. In an abelian category, finite products and coproducts
-% coincide.
-% As it happens, this fact is already true in additive categories, and the
-% argument
-% for this more general claim is (even) more straightforward than what follows
-% (Ex-
-% ercise 1.22). Here I will prove directly that the morphism (\pi A, \pi B ) is a
-% monomor-
-% phism, leaving to the reader the similar arguments needed to show that the same
-% morphism is an epimorphism. In the process, we recover for these objects all the
-% properties we expect on the basis of our experience with R-Mod.
-% \bullet  \pi B : A \sqcup  B \to  B is the cokernel of iA : A \to  A \sqcup  B:
-% Indeed, suppose A \to  A \sqcup  B \to  C is the zero-morphism; stare at
-% A
-%  iA
-%  / \pi B
-%  A \sqcup  \sqcup  O
-%  iB B
-%  x x x x x \gamma  x
-%  \gamma 
-%  x
-%  \circ  x
-%  iB
-%  x ;
-% / C
-% B
-% and keep in mind that \pi B is determined by the requirements that \pi B \circ
-% iA = 0 and
-% \pi B \circ  iB = idB . We have to show that \gamma  factors uniquely through \pi B . Note that if
-% it factors at all, then the factorization is unique: indeed, if \gamma  = \delta
-% \circ  \pi B , then
-% \delta  = \delta  \circ (\pi B \circ  iB ) = (\delta  \circ  \pi B ) \circ  iB = \gamma  \circ  iB .
-% So the only morphism that can work is \gamma  \circ  iB . Therefore, consider
-% (\gamma  \circ  iB ) \circ  \pi B :
-% --- (\gamma  \circ  iB ) \circ  \pi B \circ  iA = 0 = \gamma  \circ  i A (since
-% \pi B \circ  iA = 0); and
-% --- (\gamma  \circ  iB ) \circ  \pi B \circ  iB = \gamma  \circ  iB (since \pi B
-% \circ  iB = idB ).
-% By the universal property of coproducts, it follows that (\gamma  \circ  iB )
-% \circ  \pi B = \gamma , proving
-% that \gamma  indeed factors uniquely through \pi B . This confirms that \pi B :
-% A \sqcup  B \to  B is
-% the cokernel of iA .
-% \bullet  iA : A \to  A \sqcup  B is the kernel of \pi B : A \sqcup  B \to  B:
-% Indeed, iA is a monomorphism since A
-%  iA
-%  / A \sqcup  B \pi A / A is the identity;
-% hence it is a kernel (definition of abelian category!); hence it is the kernel
-% of its
-% cokernel (Lemma 1.8).
-% By the same token, \pi A : A \sqcup  B \to  A is the cokernel of iB : B \to  A
-% \sqcup  B and
-% iB : B \to  A \sqcup  B is the kernel of \pi A : A \sqcup  B \to  A.
-% \bullet  The morphism (\pi A , \pi B ) : A \sqcup  B \to  A \times  B constructed above is a monomor-
-% phism:
-% Consider the kernel \iota  of (\pi A , \pi B ). Composing with the projection to
-% B gives
-% the zero-morphism:
-% \pi B
-% K
-%  \iota 
-%  / A \sqcup  B
-%  / A \times  B
-%  /)3 B
-% It follows that \iota  factors through the kernel of \pi B , that is, through iA
-% , and through iB ,
-% by the same token. Therefore we have the following commutative diagram:
-% } }
-%  }
-%  } > A
-%  \iota 
-%  I I I i I A
-%  $
-% K A
-%  A A A
-%  B
-%  u u u / iB
-%  u A u
-%  :
-%  \sqcup  B
-%  I I I \pi B
-%  I I
-%  $/
-%  B
-% id
-% The composition K
-%  / A
-%  / A \sqcup  B
-%  / B is zero (because \pi B \circ  iA = 0); therefore so
-% is the composition K
-%  / B
-%  id /
-%  B . That is, K \to  B is actually the zero-morphism;
-% a fortiori, \iota  = 0: the kernel of A \sqcup  B \to  A \times  B is 0, so this
-% morphism is indeed a
-% monomorphism (by Lemma 1.5).
-% The same technique (or an appeal to the opposite category) proves that
-% \bullet  the morphism (\pi A , \pi B ) : A\sqcup B \to  A\times B constructed above is an epimorphism.
-% I will happily leave this to the reader (Exercise 1.17).
-% This will conclude the proof of Proposition 1.12, by Lemma 1.9.
+Now I claim that this morphism
+$(\pi_A, \pi_B) : A \sqcup B \to A \times B$ is both a monomorphism and
+an epimorphism. By Lemma~\ref{homol:1.9}, this (and a simple induction)
+will prove
+
+\begin{prop}{}{homol:1.12}
+  In an abelian category, finite products and coproducts coincide.
+\end{prop}
+
+As it happens, this fact is already true in additive categories, and
+the argument for this more general claim is (even) more straightforward
+than what follows (Exercise~1.22). Here I will prove directly that the
+morphism $(\pi_A, \pi_B)$ is a monomorphism, leaving to the reader the
+similar arguments needed to show that the same morphism is an
+epimorphism. In the process, we recover for these objects all the
+properties we expect on the basis of our experience with
+$R\text{-}\mathsf{Mod}$.
+\begin{itemize}
+  \item $\pi_B : A \sqcup B \to B$ is the cokernel of
+    $i_A : A \to A \sqcup B$:
+
+    Indeed, suppose $A \to A \sqcup B \to C$ is the zero-morphism;
+    stare at
+    \[\begin{tikzcd}
+      A \arrow[r, "i_A"] & A \sqcup B \arrow[r, "\gamma"]
+        \arrow[d, shift right, "\pi_B"'] & C \\
+      & B \arrow[u, shift right, "i_B"'] \arrow[ur, "\gamma \circ i_B"'] &
+    \end{tikzcd}\]
+    and keep in mind that $\pi_B$ is determined by the requirements
+    that $\pi_B \circ i_A = 0$ and $\pi_B \circ i_B = \mathrm{id}_B$.
+    We have to show that $\gamma$ factors uniquely through $\pi_B$.
+    Note that if it factors at all, then the factorization is unique:
+    indeed, if $\gamma = \delta \circ \pi_B$, then
+    $\delta = \delta \circ (\pi_B \circ i_B) = (\delta \circ \pi_B)
+    \circ i_B = \gamma \circ i_B$.
+    So the only morphism that can work is $\gamma \circ i_B$. Therefore,
+    consider $(\gamma \circ i_B) \circ \pi_B$:
+    \begin{itemize}
+      \item $(\gamma \circ i_B) \circ \pi_B \circ i_A = 0 = \gamma
+        \circ i_A$ (since $\pi_B \circ i_A = 0$); and
+      \item $(\gamma \circ i_B) \circ \pi_B \circ i_B = \gamma \circ
+        i_B$ (since $\pi_B \circ i_B = \mathrm{id}_B$).
+    \end{itemize}
+    By the universal property of coproducts, it follows that
+    $(\gamma \circ i_B) \circ \pi_B = \gamma$, proving that $\gamma$
+    indeed factors uniquely through $\pi_B$. This confirms that
+    $\pi_B : A \sqcup B \to B$ is the cokernel of $i_A$.
+
+  \item $i_A : A \to A \sqcup B$ is the kernel of
+    $\pi_B : A \sqcup B \to B$:
+
+    Indeed, $i_A$ is a monomorphism since
+    $A \xrightarrow{i_A} A \sqcup B \xrightarrow{\pi_A} A$ is the
+    identity; hence it is a kernel (definition of abelian category!);
+    hence it is the kernel of its cokernel (Lemma~\ref{homol:1.8}).
+
+    By the same token, $\pi_A : A \sqcup B \to A$ is the cokernel of
+    $i_B : B \to A \sqcup B$ and $i_B : B \to A \sqcup B$ is the kernel
+    of $\pi_A : A \sqcup B \to A$.
+  \item The morphism
+    $(\pi_A, \pi_B) : A \sqcup B \to A \times B$ constructed above is
+    a monomorphism:
+
+    Consider the kernel $\iota$ of $(\pi_A, \pi_B)$. Composing with
+    the projection to $B$ gives the zero-morphism:
+    \[\begin{tikzcd}
+      K \arrow[r, "\iota"] \arrow[rrr, "0"', bend right=20] &
+      A \sqcup B \arrow[r, "{(\pi_A, \pi_B)}"] &
+      A \times B \arrow[r, "\rho_B"] & B
+    \end{tikzcd}\]
+    It follows that $\iota$ factors through the kernel of $\pi_B$,
+    that is, through $i_A$, and through $i_B$, by the same token.
+    Therefore we have the following commutative diagram:
+    \[\begin{tikzcd}
+      & A \arrow[d, "i_A"] & \\
+      K \arrow[ur] \arrow[dr]' \arrow[r, "\iota"] &
+      A \sqcup B \arrow[dr, "\pi_B"] & \\
+      & B \arrow[u, "i_B"'] \arrow[r, "\mathrm{id}"'] & B
+    \end{tikzcd}\]
+    The composition $K \to A \to A \sqcup B \to B$ is zero (because
+    $\pi_B \circ i_A = 0$); therefore so is the composition
+    $K \to B \xrightarrow{\mathrm{id}} B$. That is, $K \to B$ is
+    actually the zero-morphism; a fortiori, $\iota = 0$: the kernel of
+    $A \sqcup B \to A \times B$ is $0$, so this morphism is indeed a
+    monomorphism (by Lemma~\ref{homol:1.5}).
+\end{itemize}
+
+The same technique (or an appeal to the opposite category) proves that
+
+\begin{itemize}
+  \item the morphism
+    $(\pi_A, \pi_B) : A \sqcup B \to A \times B$ constructed above is
+    an epimorphism.
+\end{itemize}
+
+I will happily leave this to the reader (Exercise~1.17).
+
+This will conclude the proof of Proposition~\ref{homol:1.12}, by
+Lemma~\ref{homol:1.9}.
 %  ?
 % In view of Proposition 1.12, we can adopt for any abelian category A the conven-
 % tion of identifying A \sqcup  B and A \times  B, calling this object (defined up
