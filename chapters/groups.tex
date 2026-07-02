@@ -2964,518 +2964,623 @@ easy.) [$\S$6.5]
 
 \subsection{Normal subgroups}
 \label{subsec:groups:normal-subgroups}
-% Before tackling `quotient groups', I should clarify in
+Before tackling `quotient groups', I should clarify in what sense
+kernels are \emph{special} subgroups, as claimed in $\S$6.2.
 
-% what sense kernels are special subgroups, as claimed in \S{}6.2.
-% Definition 7.1. A subgroup N of a group G is normal if \forall g \in  G, \forall
-% n \in  N ,
-% gng-1 \in  N.
-%  ?
-% Note that every subgroup of a commutative group is normal (because then \forall
-% g \in
-% G, gng -1 = n \in  N ). However, in general not all subgroups are normal:
-% examples
-% may be found already in S3 (cf. Exercise 7.1). There exist noncommutative groups
-% in which every subgroup is normal (one example is the `quaternionic group' Q8 ;
-% cf. Exercise III.1.12 (iv)), but they are very rare.
-% Lemma 7.2. If \phi  : G \to  G\setminus  is any group homomorphism, then ker
-% \phi  is a normal
-% subgroup of G.
-% Proof. We already know that ker \phi  is a subgroup of G; to verify it is normal
-% note
-% that \forall g \in  G, \forall n \in  ker \phi 
-% \phi (gng -1 ) = \phi (g)\phi (n)\phi (g-1 ) = \phi (g)eG? \phi (g)-1 = eG? ,
-% proving that gng-1 \in  ker \phi .
-%  ?
-% Loosely speaking, therefore, kernel \implies  normal. In fact more is true, as
-% we
-% will see in a little while; for now I don't want to spoil the surprise for the
-% reader.
-% (Can the reader guess?)
-% There is a convenient shorthand to express conditions such as normality: if
-% g \in  G and A \subseteq  G is any subset, we denote by gA, Ag, respectively,
-% the following
-% subsets of G:
-% gA := {h \in  G | (\exists a \in  A) : h = ga},
-% Ag := {h \in  G | (\exists a \in  A) : h = ag}.
-% Then the normality condition can be expressed by
-% (\forall g \in  G) :
-%  gN g -1 \subseteq  N,
-% or in a number of other ways:
-% gN g -1 = N
-%  or
-%  gN \subseteq  N g
-%  or
-%  gN = N g
-% for all g \in  G. The reader should check that these are indeed equivalent
-% conditions
-% (Exercise 7.3) and keep in mind that `gN = N g' does not mean that g commutes
-% with every element of N ; it means that if n \in  N , then there are elements
-% n\setminus  , n\setminus \setminus  \in  N ,
-% in general different from n, such that gn = n\setminus  g (so that gN \subseteq
-% N g) and ng = gn\setminus \setminus
-% (so that N g \subseteq  gN ).
+\begin{defn}{Normal subgroup}{defn:groups:normal-subgroup}
+A subgroup $N$ of a group $G$ is \emph{normal} if $\forall g \in G$,
+$\forall n \in N$,
+\[
+  gng^{-1} \in N.
+\]
+\end{defn}
+
+Note that \emph{every} subgroup of a commutative group is normal
+(because then $\forall g \in G$, $gng^{-1} = n \in N$). However, in
+general \emph{not all} subgroups are normal: examples may be found
+already in $S_3$ (cf.\ Exercise~7.1). There exist noncommutative groups
+in which every subgroup is normal (one example is the `quaternionic
+group' $Q_8$; cf.\ Exercise~III.1.12 (iv)), but they are very rare.
+
+\begin{lem}{If $\varphi : G \to G'$ is any group homomorphism, then
+$\ker\varphi$ is a normal subgroup of $G$.}{lem:groups:kernel-is-normal}
+\end{lem}
+\begin{proof}
+We already know that $\ker\varphi$ is a subgroup of $G$; to verify it is
+normal note that $\forall g \in G$, $\forall n \in \ker\varphi$
+\[
+  \varphi(gng^{-1}) = \varphi(g)\varphi(n)\varphi(g^{-1})
+  = \varphi(g)e_{G'}\varphi(g)^{-1} = e_{G'},
+\]
+proving that $gng^{-1} \in \ker\varphi$.
+\end{proof}
+
+Loosely speaking, therefore, \emph{kernel $\implies$ normal}. In fact
+more is true, as we will see in a little while; for now I don't want to
+spoil the surprise for the reader. (Can the reader guess?)
+
+There is a convenient shorthand to express conditions such as
+normality: if $g \in G$ and $A \subseteq G$ is any subset, we denote by
+$gA$, $Ag$, respectively, the following subsets of $G$:
+\[
+  gA := \{h \in G \mid (\exists a \in A) : h = ga\}, \qquad
+  Ag := \{h \in G \mid (\exists a \in A) : h = ag\}.
+\]
+Then the normality condition can be expressed by
+\[
+  (\forall g \in G) : \quad gNg^{-1} \subseteq N,
+\]
+or in a number of other ways:
+\[
+  gNg^{-1} = N \quad \text{or} \quad gN \subseteq Ng \quad \text{or}
+  \quad gN = Ng
+\]
+for all $g \in G$. The reader should check that these are indeed
+equivalent conditions (Exercise~7.3) and keep in mind that `$gN = Ng$'
+does \emph{not} mean that $g$ commutes with every element of $N$; it
+means that if $n \in N$, then there are elements $n', n'' \in N$, in
+general different from $n$, such that $gn = n'g$ (so that
+$gN \subseteq Ng$) and $ng = gn''$ (so that $Ng \subseteq gN$).
 
 \subsection{Quotient group}
 \label{subsec:groups:quotient-group}
-% Recall that we have the notion of a quotient of a set by
+Recall that we have the notion of a quotient of a \emph{set} by an
+equivalence relation ($\S$I.1.5) and that this notion satisfies a
+universal property (clumsily stated in $\S$I.5.3). It is natural to
+investigate this notion in $\mathsf{Grp}$.
 
-% an equivalence relation (\S{}I.1.5) and that this notion satisfies a universal
-% property
-% (clumsily stated in \S{}I.5.3). It is natural to investigate this notion in Grp.
-% We consider then an equivalence relation \sim  on (the set underlying) a group
-% G;
-% we seek a group G/\sim  and a group homomorphism \pi  : G \to  G/\sim
-% satisfying the ap-
-% propriate universal property, that is, initial with respect to group
-% homomorphisms
-% \phi  : G \to  G\setminus  such that a \sim  b \implies  \phi (a) = \phi (b).
-% It is natural to try to construct the group G/\sim  by defining an operation
-% \bullet  on the
-% set G/\sim . The situation is tightly constrained by the requirement that the
-% quotient
-% map \pi  : G \to  G/\sim  (as in \S{}I.2.6) be a group homomorphism: for if [a]
-% = \pi (a),
-% [b] = \pi (b) are elements of G/\sim  (that is, equivalence classes with respect
-% to \sim ),
-% then the homomorphism condition forces
-% [a] \bullet  [b] = \pi (a) \bullet  \pi (b) = \pi (ab) = [ab].
-% But is this operation well-defined? This amounts to conditions on the
-% equivalence
-% relation, which we proceed to unearth.
-% For the operation to be well-defined `in the first factor', it is necessary that
-% if
-% [a] = [a\setminus  ], then [ab] = [a\setminus b] regardless of what b is; that
-% is,
-% (\forall g \in  G) :
-%  a \sim  a\setminus  \implies  ag \sim  a\setminus g.
-% Similarly, for the operation to be well-defined in the second factor we need
-% (\forall g \in  G) :
-%  a \sim  a\setminus  \implies  ga \sim  ga\setminus  .
-% Luckily, this is all that there is to it:
-% Proposition 7.3. With notation as above, the operation
-% [a] \bullet  [b] := [ab]
-% defines a group structure on G/\sim  if and only if \forall a, a\setminus , g
-% \in  G
-% a \sim  a\setminus  \implies  ga \sim  ga\setminus  and ag \sim  a\setminus  g.
-% In this case the quotient function \pi  : G \to  G/\sim  is a homomorphism and
-% is universal
-% with respect to homomorphisms \phi  : G \to  G\setminus  such that a \sim
-% a\setminus  \implies  \phi (a) = \phi (a\setminus  ).
-% Proof. We have already noted that the condition is necessary. To prove it is
-% sufficient, with the stated consequences, assume \forall a, a\setminus  , g \in
-% G
-% a \sim  a\setminus  \implies  ga \sim  ga\setminus  and ag \sim  a\setminus  g.
-% Then the operation
-% [a] \bullet  [b] := [ab]
-% is well-defined, and we have to verify that it defines a group structure on
-% G/\sim . The
-% associativity of \bullet  is inherited from the associativity of G: \forall a,
-% b, c \in  G
-% ([a] \bullet  [b]) \bullet  [c] = [ab] \bullet  [c] = [(ab)c] = [a(bc)] = [a]
-% \bullet  [bc] = [a] \bullet  ([b] \bullet  [c]).
-% The class [eG ] is an identity with respect to this operation: \forall g \in  G
-% [g] \bullet  [eG ] = [geG ] = [g],
-%  [eG ] \bullet  [g] = [eG g] = [g].
-% The class [g
-% -1
-%  ] is the inverse of [g]:
-% [g -1] \bullet  [g] = [g-1 g] = [eG ],
-%  [g] \bullet  [g -1] = [gg -1 ] = [eG ].
-% This shows G/\sim  is indeed a group, and we have already observed that \pi  : G
-% \to  G/\sim
-% is a homomorphism: this is what led us to the definition of \bullet .
-% To prove that G/\sim  satisfies the universal property, assume
-% \phi  : G \to  G\setminus 
-% is a group homomorphism such that a \sim  a\setminus  \implies  \phi (a) = \phi
-% (a\setminus ). Since (cf. \S{}I.5.3)
-% the set G/\sim  satisfies the corresponding universal property in Set, we know
-% that
-% there exists a unique set-function
-% \tilde{\phi } : G/\sim  \to  G\setminus  ,
-% defined31 by \tilde{\phi }([a]) := \phi (a). So we only need to check that this
-% function \tilde{\phi } is in fact
-% a group homomorphism, and this is immediate:
-% \tilde{\phi }([a] \bullet  [b]) = \tilde{\phi }([ab]) = \phi (ab) = \phi (a)\phi (b) = \tilde{\phi }([a])\tilde{\phi }([b])
-% for all [a], [b] \in  G/\sim , as needed.
-%  ?
-% I will say that \sim  is compatible with the group structure of G if the
-% condition given
-% in Proposition 7.3 holds. Since the operation \bullet  on the quotient G/\sim
-% is uniquely
-% determined by the operation on G, I yield to the usual abuse of language and
-% omit
-% it. If \sim  is compatible, I will call G/\sim  the quotient group of G by \sim
-% .
+We consider then an equivalence relation $\sim$ on (the set underlying)
+a group $G$; we seek a group $G/\!\sim$ and a group homomorphism
+$\pi : G \to G/\!\sim$ satisfying the appropriate universal property,
+that is, initial with respect to group homomorphisms
+$\varphi : G \to G'$ such that $a \sim b \implies \varphi(a) = \varphi(b)$.
+
+It is natural to try to construct the group $G/\!\sim$ by defining an
+operation $\bullet$ on the \emph{set} $G/\!\sim$. The situation is
+tightly constrained by the requirement that the quotient map
+$\pi : G \to G/\!\sim$ (as in $\S$I.2.6) be a group homomorphism: for if
+$[a] = \pi(a)$, $[b] = \pi(b)$ are elements of $G/\!\sim$ (that is,
+equivalence classes with respect to $\sim$), then the homomorphism
+condition \emph{forces}
+\[
+  [a] \bullet [b] = \pi(a) \bullet \pi(b) = \pi(ab) = [ab].
+\]
+But is this operation well-defined? This amounts to conditions on the
+equivalence relation, which we proceed to unearth.
+
+For the operation to be well-defined `in the first factor', it is
+necessary that if $[a] = [a']$, then $[ab] = [a'b]$ regardless of what
+$b$ is; that is,
+\[
+  (\forall g \in G) : \quad a \sim a' \implies ag \sim a'g.
+\]
+Similarly, for the operation to be well-defined in the second factor we
+need
+\[
+  (\forall g \in G) : \quad a \sim a' \implies ga \sim ga'.
+\]
+Luckily, this is all that there is to it:
+
+\begin{prop}{With notation as above, the operation
+\[
+  [a] \bullet [b] := [ab]
+\]
+defines a group structure on $G/\!\sim$ if and only if
+$\forall a, a', g \in G$
+\[
+  a \sim a' \implies ga \sim ga' \text{ and } ag \sim a'g.
+\]
+In this case the quotient function $\pi : G \to G/\!\sim$ is a
+homomorphism and is universal with respect to homomorphisms
+$\varphi : G \to G'$ such that $a \sim a' \implies \varphi(a) =
+\varphi(a')$.}{prop:groups:quotient-group-universal-property}
+\end{prop}
+\begin{proof}
+We have already noted that the condition is necessary. To prove it is
+sufficient, with the stated consequences, assume $\forall a, a', g \in G$
+\[
+  a \sim a' \implies ga \sim ga' \text{ and } ag \sim a'g.
+\]
+Then the operation
+\[
+  [a] \bullet [b] := [ab]
+\]
+is well-defined, and we have to verify that it defines a group
+structure on $G/\!\sim$. The associativity of $\bullet$ is inherited
+from the associativity of $G$: $\forall a,b,c \in G$
+\[
+  ([a] \bullet [b]) \bullet [c] = [ab] \bullet [c] = [(ab)c] = [a(bc)]
+  = [a] \bullet [bc] = [a] \bullet ([b] \bullet [c]).
+\]
+The class $[e_G]$ is an identity with respect to this operation:
+$\forall g \in G$
+\[
+  [g] \bullet [e_G] = [ge_G] = [g], \qquad [e_G] \bullet [g] = [e_Gg] = [g].
+\]
+The class $[g^{-1}]$ is the inverse of $[g]$:
+\[
+  [g^{-1}] \bullet [g] = [g^{-1}g] = [e_G], \qquad
+  [g] \bullet [g^{-1}] = [gg^{-1}] = [e_G].
+\]
+This shows $G/\!\sim$ is indeed a group, and we have already observed
+that $\pi : G \to G/\!\sim$ is a homomorphism: this is what led us to
+the definition of $\bullet$.
+
+To prove that $G/\!\sim$ satisfies the universal property, assume
+\[
+  \varphi : G \to G'
+\]
+is a group homomorphism such that
+$a \sim a' \implies \varphi(a) = \varphi(a')$. Since (cf.\ $\S$I.5.3)
+the \emph{set} $G/\!\sim$ satisfies the corresponding universal
+property in $\mathsf{Set}$, we know that there exists a unique
+set-function
+\[
+  \bar\varphi : G/\!\sim \to G',
+\]
+defined\footnote{The point of $\S$I.5.3 is precisely that this function
+is well-defined.} by $\bar\varphi([a]) := \varphi(a)$. So we only need
+to check that this function $\bar\varphi$ is in fact a group
+homomorphism, and this is immediate:
+\[
+  \bar\varphi([a] \bullet [b]) = \bar\varphi([ab]) = \varphi(ab)
+  = \varphi(a)\varphi(b) = \bar\varphi([a])\bar\varphi([b])
+\]
+for all $[a], [b] \in G/\!\sim$, as needed.
+\end{proof}
+
+I will say that $\sim$ is \emph{compatible} with the group structure of
+$G$ if the condition given in
+Proposition~\ref{prop:groups:quotient-group-universal-property} holds.
+Since the operation $\bullet$ on the quotient $G/\!\sim$ is uniquely
+determined by the operation on $G$, I yield to the usual abuse of
+language and omit it. If $\sim$ is compatible, I will call $G/\!\sim$
+the \emph{quotient group} of $G$ by $\sim$.
 
 \subsection{Cosets}
 \label{subsec:groups:cosets}
-% The conditions obtained in Proposition 7.3,
+The conditions obtained in Proposition~\ref{prop:groups:quotient-group-universal-property},
+\begin{align}
+  \tag{$\dagger$} (\forall g \in G) &: \quad a \sim b \implies ga \sim gb, \\
+  \tag{$\dagger\dagger$} (\forall g \in G) &: \quad a \sim b \implies ag \sim bg,
+\end{align}
+lead to a complete description of \emph{all} compatible relations on a
+group $G$. In fact, each of these two conditions leads to a description
+of the relations satisfying it, and we will analyze them separately;
+the reader should keep in mind that we have a group structure on
+$G/\!\sim$ only if \emph{both} are satisfied.
 
-% (\dagger )
-%  (\forall g \in  G) :
-%  a \sim  b \implies  ga \sim  gb,
-% (\dagger \dagger )
-%  (\forall g \in  G) :
-%  a \sim  b \implies  ag \sim  bg,
-% lead to a complete description of all compatible relations on a group G. In
-% fact,
-% each of these two conditions leads to a description of the relations satisfying
-% it, and
-% we will analyze them separately; the reader should keep in mind that we have a
-% group structure on G/\sim  only if both are satisfied.
-% Let's begin with (\dagger ). Here is the description:
-% 31 The point of \S{}I.5.3 is precisely that this function is well-defined.
-% Proposition 7.4. Let \sim  be an equivalence relation on a group G, satisfying
-% (\dagger ).
-% Then
-% \bullet  the equivalence class of eG is a subgroup H of G; and
-% \bullet  a \sim  b \iff  a-1b \in  H \iff  aH = bH.
-% Proof. Let H \subseteq  G be the equivalence class of the identity; H =
-% \emptyset  as eG \in  H. For
-% a, b \in  H, we have eG \sim  b and hence b-1 \sim  eG (applying (\dagger ),
-% multiplying on the left
-% by b-1 ); hence ab-1 \sim  a (by (\dagger ) again, multiplying on the left by
-% a); and hence
-% ab-1 \sim  a \sim  eG
-% by the transitivity of \sim  and since a \in  H. This shows that ab-1 \in  H for
-% all a, b \in  H,
-% proving that H is a subgroup (by Proposition 6.2).
-% Next, assume a, b \in  G and a \sim  b. Multiplying on the left by a-1 ,
-% (\dagger ) implies
-% eG \sim  a-1b, that is, a-1b \in  H. Since H is closed under the operation, this
-% implies
-% a-1 bH \subseteq  H, hence bH \subseteq  aH; as \sim  is symmetric, the same
-% reasoning gives aH \subseteq
-% bH; and hence aH = bH. Thus, we have proved
-% a \sim  b \implies  a-1b \in  H \implies  aH = bH.
-% Finally, assume aH = bH. Then a = aeG \in  bH, and hence a-1 b \in  H. By
-% definition
-% of H, this means eG \sim  a-1b. Multiplying on the left by a shows (by (\dagger
-% ) again)
-% that a \sim  b, completing the proof.
-%  ?
-% Proposition 7.4 shows that the equivalence classes of an equivalence relation
-% satisfying (\dagger ) are in fact all of the form
-% aH
-% for a fixed subgroup H, as a ranges in G. These important subsets determined by
-% a subgroup H deserve a name.
-% Definition 7.5. The left-cosets of a subgroup H in a group G are the sets aH,
-% for
-% a \in  G. The right-cosets of H are the sets Ha, a \in  G.
-%  ?
-% Now, a `converse' to Proposition 7.4 holds:
-% Proposition 7.6. If H is any subgroup of a group G, the relation \sim L defined
-% by
-% (\forall a, b \in  G) :
-%  a \sim L b \iff  a-1 b \in  H
-% is an equivalence relation satisfying (\dagger ).
-% Proof. This is straightforward and is mostly left to the reader (Exercise 7.8).
-% To
-% see that the relation satisfies (\dagger ), note that
-% a \sim L b \implies  a-1 b \in  H \implies  a-1 (g-1 g)b \in  H \implies  (ga)-1
-% (gb) \in  H \implies  ga \sim L gb
-% for all g \in  G.
-%  ?
-% Taken together, Propositions 7.4 and 7.6 show
-% Proposition 7.7. There is a one-to-one correspondence between subgroups of G
-% and equivalence relations on G satisfying (\dagger ); for the relation \sim L
-% corresponding to
-% a subgroup H, G/\sim L may be described as the set of left-cosets aH of H.
-% The reader should have no difficulty producing the mirror statements (and
-% proofs) giving a similarly exhaustive description of all equivalence relations
-% satisfy-
-% ing (\dagger \dagger ). The end result will be
-% Proposition 7.8. There is a one-to-one correspondence between subgroups of G
-% and equivalence relations on G satisfying (\dagger \dagger ); for the relation
-% \sim R corresponding to
-% a subgroup H, G/\sim R may be described as the set of right-cosets Ha of H.
-% The relation corresponding to H in this second way is defined by
-% a \sim R b \iff  ab-1 \in  H \iff  Ha = Hb.
-% What may be surprising at first is that the relations \sim L and \sim R
-% corresponding
-% to the same subgroup H may very well not be the same relation. That is,
-% left-cosets
-% and right-cosets of a subgroup need not coincide. Of course eH = He = H, and
-% more generally
-% (\forall h \in  H) : hH = Hh = H.
-% Further
-% (\forall a \in  G) : a \in  aH \cap  Ha;
-% hence, if aH = Hb for any b, then in fact necessarily aH = Ha. This is of course
-% automatically true if G is commutative, but it is simply not the case in
-% general.
-% Example 7.9. Let G = S3 , and let H be the subgroup consisting of the identity
-% and the 1 \leftrightarrow  2 switch:
-% ?
-%  ?
-% 1 2 3
-%  1 2 3
-% H =
-%  ,
-%  .
-% 1 2 3
-%  2 1 3
-% Then
-%  ?
-%  ?
-% 1 2 3
-%  2 3
-%  1 2 3
-% H =
-%  ,
-%  ,
-% 3 1 2
-%  1 2
-%  3 2 1
-% while
-%  ?
-%  ?
-% 1 2 3
-%  2 3
-%  1 2 3
-% H
-%  =
-%  ,
-%  .
-% 3 1 2
-%  1 2
-%  1 3 2
-% This state of affairs simply reflects the fact that the two conditions (\dagger
-% ) and (\dagger \dagger )
-% are different: there is no reason to expect that if one holds, the other one
-% should
-% also hold (unless G is commutative, of course). Once more, keep in mind that
-% both
-% have to hold for the quotient G/\sim  to be a group, compatibly with the
-% operation
-% in G; cf. Proposition 7.3.
+Let's begin with $(\dagger)$. Here is the description:
+
+\begin{prop}{Let $\sim$ be an equivalence relation on a group $G$,
+satisfying $(\dagger)$. Then
+\begin{itemize}
+\item the equivalence class of $e_G$ is a subgroup $H$ of $G$; and
+\item $a \sim b \iff a^{-1}b \in H \iff aH = bH$.
+\end{itemize}}{prop:groups:coset-description-dagger}
+\end{prop}
+\begin{proof}
+Let $H \subseteq G$ be the equivalence class of the identity;
+$H \neq \emptyset$ as $e_G \in H$. For $a, b \in H$, we have
+$e_G \sim b$ and hence $b^{-1} \sim e_G$ (applying $(\dagger)$,
+multiplying on the left by $b^{-1}$); hence $ab^{-1} \sim a$ (by
+$(\dagger)$ again, multiplying on the left by $a$); and hence
+\[
+  ab^{-1} \sim a \sim e_G
+\]
+by the transitivity of $\sim$ and since $a \in H$. This shows that
+$ab^{-1} \in H$ for all $a, b \in H$, proving that $H$ is a subgroup (by
+Proposition~\ref{prop:groups:subgroup-criterion}).
+
+Next, assume $a, b \in G$ and $a \sim b$. Multiplying on the left by
+$a^{-1}$, $(\dagger)$ implies $e_G \sim a^{-1}b$, that is,
+$a^{-1}b \in H$. Since $H$ is closed under the operation, this implies
+$a^{-1}bH \subseteq H$, hence $bH \subseteq aH$; as $\sim$ is
+symmetric, the same reasoning gives $aH \subseteq bH$; and hence
+$aH = bH$. Thus, we have proved
+\[
+  a \sim b \implies a^{-1}b \in H \implies aH = bH.
+\]
+Finally, assume $aH = bH$. Then $a = ae_G \in bH$, and hence
+$a^{-1}b \in H$. By definition of $H$, this means $e_G \sim a^{-1}b$.
+Multiplying on the left by $a$ shows (by $(\dagger)$ again) that
+$a \sim b$, completing the proof.
+\end{proof}
+
+Proposition~\ref{prop:groups:coset-description-dagger} shows that the
+equivalence classes of an equivalence relation satisfying $(\dagger)$
+are in fact all of the form
+\[
+  aH
+\]
+for a fixed subgroup $H$, as $a$ ranges in $G$. These important subsets
+determined by a subgroup $H$ deserve a name.
+
+\begin{defn}{Left-/right-cosets}{defn:groups:cosets}
+The \emph{left-cosets} of a subgroup $H$ in a group $G$ are the sets
+$aH$, for $a \in G$. The \emph{right-cosets} of $H$ are the sets $Ha$,
+$a \in G$.
+\end{defn}
+
+Now, a `converse' to Proposition~\ref{prop:groups:coset-description-dagger}
+holds:
+
+\begin{prop}{If $H$ is any subgroup of a group $G$, the relation
+$\sim_L$ defined by
+\[
+  (\forall a, b \in G) : \quad a \sim_L b \iff a^{-1}b \in H
+\]
+is an equivalence relation satisfying $(\dagger)$.}{prop:groups:sim-l-satisfies-dagger}
+\end{prop}
+\begin{proof}
+This is straightforward and is mostly left to the reader
+(Exercise~7.8). To see that the relation satisfies $(\dagger)$, note
+that
+\[
+  a \sim_L b \implies a^{-1}b \in H \implies a^{-1}(g^{-1}g)b \in H
+  \implies (ga)^{-1}(gb) \in H \implies ga \sim_L gb
+\]
+for all $g \in G$.
+\end{proof}
+
+Taken together, Propositions~\ref{prop:groups:coset-description-dagger}
+and~\ref{prop:groups:sim-l-satisfies-dagger} show
+
+\begin{prop}{There is a one-to-one correspondence between subgroups of
+$G$ and equivalence relations on $G$ satisfying $(\dagger)$; for the
+relation $\sim_L$ corresponding to a subgroup $H$, $G/\!\sim_L$ may be
+described as the set of left-cosets $aH$ of
+$H$.}{prop:groups:subgroups-correspond-to-dagger-relations}
+\end{prop}
+
+The reader should have no difficulty producing the mirror statements
+(and proofs) giving a similarly exhaustive description of all
+equivalence relations satisfying $(\dagger\dagger)$. The end result
+will be
+
+\begin{prop}{There is a one-to-one correspondence between subgroups of
+$G$ and equivalence relations on $G$ satisfying $(\dagger\dagger)$; for
+the relation $\sim_R$ corresponding to a subgroup $H$, $G/\!\sim_R$ may
+be described as the set of right-cosets $Ha$ of
+$H$.}{prop:groups:subgroups-correspond-to-daggerdagger-relations}
+\end{prop}
+The relation corresponding to $H$ in this second way is defined by
+\[
+  a \sim_R b \iff ab^{-1} \in H \iff Ha = Hb.
+\]
+
+What may be surprising at first is that the relations $\sim_L$ and
+$\sim_R$ corresponding to the \emph{same} subgroup $H$ may very well
+not be the same relation. That is, left-cosets and right-cosets of a
+subgroup need not coincide. Of course $eH = He = H$, and more generally
+\[
+  (\forall h \in H) : \quad hH = Hh = H.
+\]
+Further
+\[
+  (\forall a \in G) : \quad a \in aH \cap Ha;
+\]
+hence, if $aH = Hb$ for any $b$, then in fact necessarily $aH = Ha$.
+This is of course automatically true if $G$ is commutative, but it is
+simply not the case in general.
+
+\begin{exam}{}{exam:groups:s3-left-right-cosets}
+Let $G = S_3$, and let $H$ be the subgroup consisting of the identity
+and the $1 \leftrightarrow 2$ switch:
+\[
+  H = \left\{ \begin{pmatrix}1&2&3\\1&2&3\end{pmatrix},
+  \begin{pmatrix}1&2&3\\2&1&3\end{pmatrix} \right\}.
+\]
+Then
+\[
+  \begin{pmatrix}1&2&3\\3&1&2\end{pmatrix} H
+  = \left\{ \begin{pmatrix}1&2&3\\3&1&2\end{pmatrix},
+  \begin{pmatrix}1&2&3\\3&2&1\end{pmatrix} \right\},
+\]
+while
+\[
+  H \begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}
+  = \left\{ \begin{pmatrix}1&2&3\\3&1&2\end{pmatrix},
+  \begin{pmatrix}1&2&3\\1&3&2\end{pmatrix} \right\}.
+\]
+This state of affairs simply reflects the fact that the two conditions
+$(\dagger)$ and $(\dagger\dagger)$ are different: there is no reason to
+expect that if one holds, the other one should also hold (unless $G$
+is commutative, of course). Once more, keep in mind that \emph{both}
+have to hold for the quotient $G/\!\sim$ to be a group, compatibly with
+the operation in $G$; cf.\
+Proposition~\ref{prop:groups:quotient-group-universal-property}.
+\end{exam}
 
 \subsection{Quotient by normal subgroups}
 \label{subsec:groups:quotient-by-normal-subgroups}
-% To stress the main point again, an arbi-
+To stress the main point again, an arbitrary subgroup $H$ of $G$ leads
+to two partitions of $G$, which we have denoted
+\[
+  G/\!\sim_L\, = \{aH \mid a \in G\}, \qquad G/\!\sim_R\, = \{Ha \mid a \in G\}.
+\]
+The relation $\sim_L$ satisfies property $(\dagger)$ listed at the
+beginning of $\S$7.3; $\sim_R$ satisfies $(\dagger\dagger)$. A priori,
+these relations, and hence the corresponding partitions, are different.
 
-% trary subgroup H of G leads to two partitions of G, which we have denoted
-% G/\sim L = {aH | a \in  G},
-%  G/\sim R = {Ha | a \in  G}.
-% The relation \sim L satisfies property (\dagger ) listed at the beginning of
-% \S{}7.3; \sim R satisfies
-% (\dagger \dagger ). A priori, these relations, and hence the corresponding
-% partitions, are different.
-% The condition that \sim L and \sim R coincide (as is necessarily the case, for
-% example,
-% if G is commutative) translates into a condition on H: for such `special'
-% subgroups,
-% (\dagger ) and (\dagger \dagger ) get back together. The good news is that this
-% condition is easy to
-% identify and is not new to the reader.
-% Proposition 7.10. The relations \sim L , \sim R corresponding to a subgroup H
-% coincide
-% if and only if H is normal.
-% Proof. Two relations coincide if the corresponding partitions agree. Therefore
-% \sim L =\sim  R \iff  left- and right-cosets of H coincide \iff  (\forall g \in  G) : gH = Hg.
-% But this is one of the equivalent conditions defining the notion of normal
-% subgroup
-% (cf \S{}7.1), proving the statement.
-%  ?
-% The innocent-looking Proposition 7.10 is of fundamental importance. If H is
-% normal, then the one equivalence relation \sim =\sim L =\sim R corresponding to
-% H satisfies
-% both (\dagger ) and (\dagger \dagger ) (by Proposition 7.4 and its mirror
-% statement), and hence (by
-% Proposition 7.3) the quotient
-% G/\sim  = {aH | a \in  G} = {Ha | a \in  G}
-% has a natural group structure.
-% Definition 7.11. Let H be a normal subgroup of a group G. The quotient group
-% of G modulo H, denoted32 G/H, is the group G/\sim  obtained from the relation
-% \sim
-% defined above. In terms of (left-) cosets, the product in G/H is defined by
-% (aH)(bH) := (ab)H.
-% The identity element eG/H of the quotient group G/H is the coset of the
-% identity,
-% eG H = H.
-%  ?
-% By Proposition 7.3, the quotient function
-% \pi  : G \to  G/H
-% sending g \in  G to gH = Hg is a group homomorphism and is universal with
-% respect
-% to group homomorphisms \phi  : G \to  G\setminus  such that aH = bH \implies
-% \phi (a) = \phi (b). This
-% universal property is extremely useful, so I will grace it with theorem status:
-% Theorem 7.12. Let H be a normal subgroup of a group G. Then for every group
-% homomorphism \phi  : G \to  G\setminus  such that H \subseteq  ker \phi  there
-% exists a unique group
-% homomorphism \tilde{\phi } : G/H \to  G\setminus  so that the diagram
-% G \phi 
-%  / G\setminus 
-% =
-%  = \pi  =
-%  = =
-%  = =
-%  ?
-%  \exists !\tilde{\phi }
-%  @
-% G/H
-% commutes.
-% Proof. We only need to match the stated universal property with the one we
-% proved in Proposition 7.3, and indeed,
-% H \subseteq  ker \phi  \iff  (\forall h \in  H) : \phi (h) = eG?
-% is equivalent to
-% (\forall a, b \in  G) : ab-1 \in  H \implies  \phi (ab-1 ) = eG?
-% 32 GIn a large display I sometime use the full `fraction' notation .
-% H
-% that is, to
-% (\forall a, b \in  G) : ab-1 \in  H \implies  \phi (a) = \phi (b)
-% and finally, keeping in mind how the relation \sim  corresponding to H is
-% defined,
-% (\forall a, b \in  G) : a \sim  b \implies  \phi (a) = \phi (b),
-% the condition giving the universal property in Proposition 7.3.
-% ?
+The condition that $\sim_L$ and $\sim_R$ coincide (as is necessarily
+the case, for example, if $G$ is commutative) translates into a
+condition on $H$: for such `special' subgroups, $(\dagger)$ and
+$(\dagger\dagger)$ get back together. The good news is that this
+condition is easy to identify and is not new to the reader.
+
+\begin{prop}{The relations $\sim_L$, $\sim_R$ corresponding to a
+subgroup $H$ coincide if and only if $H$ is
+normal.}{prop:groups:sim-l-sim-r-coincide-iff-normal}
+\end{prop}
+\begin{proof}
+Two relations coincide if the corresponding partitions agree.
+Therefore
+\[
+  \sim_L\, = \sim_R \iff \text{left- and right-cosets of } H \text{ coincide}
+  \iff (\forall g \in G) : gH = Hg.
+\]
+But this is one of the equivalent conditions defining the notion of
+normal subgroup (cf.\ $\S$7.1), proving the statement.
+\end{proof}
+
+The innocent-looking Proposition~\ref{prop:groups:sim-l-sim-r-coincide-iff-normal}
+is of fundamental importance. If $H$ is normal, then the one
+equivalence relation $\sim\, = \sim_L\, = \sim_R$ corresponding to $H$
+satisfies both $(\dagger)$ and $(\dagger\dagger)$ (by
+Proposition~\ref{prop:groups:coset-description-dagger} and its mirror
+statement), and hence (by
+Proposition~\ref{prop:groups:quotient-group-universal-property}) the
+quotient
+\[
+  G/\!\sim\, = \{aH \mid a \in G\} = \{Ha \mid a \in G\}
+\]
+has a natural group structure.
+
+\begin{defn}{Quotient group of $G$ modulo $H$}{defn:groups:quotient-group-modulo-h}
+Let $H$ be a normal subgroup of a group $G$. The \emph{quotient group of
+$G$ modulo $H$}, denoted\footnote{In a large display I sometime use the
+full `fraction' notation $\frac{G}{H}$.} $G/H$, is the group $G/\!\sim$
+obtained from the relation $\sim$ defined above. In terms of
+(left-)cosets, the product in $G/H$ is defined by
+\[
+  (aH)(bH) := (ab)H.
+\]
+The identity element $e_{G/H}$ of the quotient group $G/H$ is the coset
+of the identity, $e_GH = H$.
+\end{defn}
+
+By Proposition~\ref{prop:groups:quotient-group-universal-property}, the
+quotient function
+\[
+  \pi : G \to G/H
+\]
+sending $g \in G$ to $gH = Hg$ is a group homomorphism and is universal
+with respect to group homomorphisms $\varphi : G \to G'$ such that
+$aH = bH \implies \varphi(a) = \varphi(b)$. This universal property is
+extremely useful, so I will grace it with theorem status:
+
+\begin{thm}{Let $H$ be a normal subgroup of a group $G$. Then for every
+group homomorphism $\varphi : G \to G'$ such that
+$H \subseteq \ker\varphi$ there exists a unique group homomorphism
+$\bar\varphi : G/H \to G'$ so that the diagram
+commutes.}{thm:groups:quotient-universal-property}
+\[
+\begin{tikzcd}
+  G \arrow[r, "\varphi"] \arrow[d, "\pi"'] & G' \\
+  G/H \arrow[ur, dashed, "\exists ! \bar\varphi"'] &
+\end{tikzcd}
+\]
+\end{thm}
+\begin{proof}
+We only need to match the stated universal property with the one we
+proved in Proposition~\ref{prop:groups:quotient-group-universal-property},
+and indeed,
+\[
+  H \subseteq \ker\varphi \iff (\forall h \in H) : \varphi(h) = e_{G'}
+\]
+is equivalent to
+\[
+  (\forall a, b \in G) : ab^{-1} \in H \implies \varphi(ab^{-1}) = e_{G'}
+\]
+that is, to
+\[
+  (\forall a, b \in G) : ab^{-1} \in H \implies \varphi(a) = \varphi(b)
+\]
+and finally, keeping in mind how the relation $\sim$ corresponding to
+$H$ is defined,
+\[
+  (\forall a, b \in G) : a \sim b \implies \varphi(a) = \varphi(b),
+\]
+the condition giving the universal property in
+Proposition~\ref{prop:groups:quotient-group-universal-property}.
+\end{proof}
 
 \subsection{Example}
 \label{subsec:groups:example}
-% The reader is already very familiar with an important class of
+The reader is already very familiar with an important class of
+examples: the cyclic groups $\mathbb{Z}/n\mathbb{Z}$. Indeed, in $\S$2.3
+we defined $\mathbb{Z}/n\mathbb{Z}$ as the set of equivalence classes in
+$\mathbb{Z}$ with respect to the congruence equivalence relation
+\[
+  (\forall a, b \in \mathbb{Z}) : \quad a \equiv b \mod n \iff n \mid (b-a).
+\]
+Now we recognize that $n \mid (b-a)$ is equivalent to
+\[
+  b - a \in n\mathbb{Z},
+\]
+which is the relation $\sim_L$ corresponding (in `abelian' notation) to
+the subgroup $n\mathbb{Z}$ of $\mathbb{Z}$. This subgroup is of course
+normal, since $\mathbb{Z}$ is abelian. The `congruence classes mod $n$'
+are nothing but the cosets of the subgroup $n\mathbb{Z}$ in
+$\mathbb{Z}$; using abelian notation for cosets, we could write
+\[
+  [a]_n = a + (n\mathbb{Z}).
+\]
+Of course the operation defined on $\mathbb{Z}/n\mathbb{Z}$ in $\S$2.3
+matches precisely the one defined above for quotient groups. This
+justifies the notation $\mathbb{Z}/n\mathbb{Z}$ introduced in $\S$2.3.
 
-% examples: the cyclic groups Z/nZ. Indeed, in \S{}2.3 we defined Z/nZ as the set
-% of
-% equivalence classes in Z with respect to the congruence equivalence relation
-% (\forall a, b \in  Z) :
-%  a \equiv  b mod n \iff  n | (b - a).
-% Now we recognize that n | (b - a) is equivalent to
-% b - a \in  nZ,
-% which is the relation \sim L corresponding (in `abelian' notation) to the
-% subgroup nZ
-% of Z. This subgroup is of course normal, since Z is abelian. The `congruence
-% classes
-% mod n' are nothing but the cosets of the subgroup nZ in Z; using abelian
-% notation
-% for cosets, we could write
-% [a]n = a + (nZ).
-% Of course the operation defined on Z/nZ in \S{}2.3 matches precisely the one
-% defined
-% above for quotient groups. This justifies the notation Z/nZ introduced in
-% \S{}2.3.
-% The reader can already appreciate in this simple context the usefulness of The-
-% orem 7.12. Let g \in  G be an element of order n and consider the exponential
-% map
-% ?g : Z \to  G,
-%  N ?\to  g N .
-% By Corollary 1.11,
-% ker ?g = {N \in  Z | N is a multiple of |g|} = nZ.
-% Theorem 7.12 then implies right away that ?g factors through the quotient:
-% Z =
-%  \pi n = =
-%  = =
-%  = =
-%  ?
-%  g
-% Z/nZ
-% / G
-% @
-% \exists !\tilde{g}
-% That is, there is an induced map
-% Z/nZ \to  ?g?.
-% In fact, the `canonical decomposition' of \S{}I.2.8 implies that this is an
-% isomorphism
-% (verifying that ?g? is cyclic in the sense of Definition 4.7, as the reader
-% should have
-% checked `by hand' already in Exercise 6.4). We will formalize this observation
-% in
-% general in the next section.
-% Also note that |g| = n = |?g?| in this case.
+The reader can already appreciate in this simple context the
+usefulness of Theorem~\ref{thm:groups:quotient-universal-property}. Let
+$g \in G$ be an element of order $n$ and consider the exponential map
+\[
+  \epsilon_g : \mathbb{Z} \to G, \quad N \mapsto g^N.
+\]
+By Corollary~\ref{coro:groups:order-multiple},
+\[
+  \ker\epsilon_g = \{N \in \mathbb{Z} \mid N \text{ is a multiple of } |g|\}
+  = n\mathbb{Z}.
+\]
+Theorem~\ref{thm:groups:quotient-universal-property} then implies right
+away that $\epsilon_g$ factors through the quotient:
+\[
+\begin{tikzcd}
+  \mathbb{Z} \arrow[r, "\epsilon_g"] \arrow[d, "\pi_n"'] & G \\
+  \mathbb{Z}/n\mathbb{Z} \arrow[ur, dashed, "\exists ! \bar\epsilon_g"'] &
+\end{tikzcd}
+\]
+That is, there is an induced map
+\[
+  \mathbb{Z}/n\mathbb{Z} \to \langle g \rangle.
+\]
+In fact, the `canonical decomposition' of $\S$I.2.8 implies that this
+is an isomorphism (verifying that $\langle g \rangle$ is cyclic in the
+sense of Definition~4.7, as the reader should have checked `by hand'
+already in Exercise~6.4). We will formalize this observation in general
+in the next section.
+
+Also note that $|g| = n = |\langle g \rangle|$ in this case.
 
 \subsection{\texorpdfstring{kernel $\Leftrightarrow$ normal}{kernel iff normal}}
 \label{subsec:groups:kernel-iff-normal}
-% If H is a normal subgroup, we have now constructed
+If $H$ is a normal subgroup, we have now constructed in gory detail a
+group $G/H$ and a surjective homomorphism
+\[
+  \pi : G \to G/H.
+\]
+What is the kernel of $\pi$? The identity of $G/H$ is the coset $e_GH$,
+that is, $H$ itself. Therefore
+\[
+  \ker\pi = \{g \in G \mid gH = H\} = H.
+\]
+This observation completes the circle of ideas begun in $\S$7.1: there
+we had noticed that every kernel (of a group homomorphism) is a normal
+subgroup; and now we have verified that every normal subgroup is in
+fact a \emph{kernel} (of some group homomorphism). I encapsulate this in
+the slogan
+\[
+  \text{kernel} \iff \text{normal}:
+\]
+in group theory\footnote{We will run into analogous observations in
+ring theory, where we will verify that kernels and \emph{ideals}
+coincide, and for modules, as kernels and \emph{submodules} again
+coincide.}, `kernel' and `normal subgroup' are equivalent concepts.
 
-% in gory detail a group G/H and a surjective homomorphism
-% \pi  : G \to  G/H.
-% What is the kernel of \pi ? The identity of G/H is the coset eG H, that is, H
-% itself.
-% Therefore
-% ker \pi  = {g \in  G | gH = H} = H.
-% This observation completes the circle of ideas begun in \S{}7.1: there we had
-% noticed
-% that every kernel (of a group homomorphism) is a normal subgroup; and now
-% we have verified that every normal subgroup is in fact a kernel (of some group
-% homomorphism). I encapsulate this in the slogan
-% kernel \iff  normal :
-% in group theory33 , `kernel' and `normal subgroup' are equivalent concepts.
-% For example, every subgroup in an abelian group is the kernel of some homo-
-% morphism: yet another indication that life is simpler in Ab than in Grp.
+For example, every subgroup in an abelian group is the kernel of some
+homomorphism: yet another indication that life is simpler in
+$\mathsf{Ab}$ than in $\mathsf{Grp}$.
 
 \subsection*{Exercises}
 
-% 7.1. ? List all subgroups of S3 (cf. Exercise 6.13) and determine which
-% subgroups
-% are normal and which are not normal. [\S{}7.1]
-% 7.2. Is the image of a group homomorphism necessarily a normal subgroup of the
-% target?
-% 7.3. ? Verify that the equivalent conditions for normality given in \S{}7.1 are
-% indeed
-% equivalent. [\S{}7.1]
-% 7.4. Prove that the relation defined in Exercise 5.10 on a free abelian group F
-% =
-% F ab(A) is compatible with the group structure. Determine the quotient F/\sim
-% as a
-% better known group.
-% 7.5. \lnot  Define an equivalence relation \sim  on SL2 (Z) by letting A \sim
-% A\setminus  \iff  A\setminus  =
-% \pm A. Prove that \sim  is compatible with the group structure. The quotient SL2(Z)/\sim 
-% is denoted PSL2 (Z) and is called the modular group; it would be a serious
-% contender
-% in a contest for `the most important group in mathematics', due to its role in
-% algebraic geometry and number theory. Prove that PSL2 (Z) is generated by the
-% (cosets of the) matrices
-% 0 -1
-%  1 -1
-% and
-%  .
-% (You will not need to work very hard, if you use the result of Exercise 6.10.)
-% Note
-% that the first has order 2 in PSL2 (Z), the second has order 3, and their
-% product has
-% infinite order. [9.14]
-% 33 We will run into analogous observations in ring theory, where we will verify
-% that kernels
-% and ideals coincide, and for modules, as kernels and submodules again coincide.
-% 7.6. Let G be a group, and let n be a positive integer. Consider the relation
-% a \sim  b \iff  (\exists g \in  G) ab-1 = g n .
-% \bullet  Show that in general \sim  is not an equivalence relation.
-% \bullet  Prove that \sim  is an equivalence relation if G is commutative, and determine the
-% corresponding subgroup of G.
-% 7.7. Let G be a group, n a positive integer, and let H \subseteq  G be the
-% subgroup
-% generated by all elements of order n in G. Prove that H is normal.
-% 7.8. ? Prove Proposition 7.6. [\S{}7.3]
-% 7.9. State and prove the `mirror' statements of Propositions 7.4 and 7.6,
-% leading
-% to the description of relations satisfying (\dagger \dagger ).
-% 7.10. \lnot  Let G be a group, and H \subseteq  G a subgroup. With notation as
-% in Exercise 6.7,
-% show that H is normal in G if and only if \forall \gamma  \in  Inn(G), \gamma
-% (H) \subseteq  H.
-% Conclude that if H is normal in G, then there is an interesting homomorphism
-% Inn(G) \to  Aut(H). [8.25]
-% 7.11. ? Let G be a group, and let [G, G] be the subgroup of G generated by all
-% elements of the form aba-1 b-1 . (This is the commutator subgroup of G; we will
-% return to it in \S{}IV.3.3.) Prove that [G, G] is normal in G. (Hint: With
-% notation
-% as in Exercise 4.8, g \cdot  aba -1 b-1 \cdot  g-1 = \gamma g (aba-1 b-1 ).)
-% Prove that G/[G, G] is
-% commutative. [7.12, \S{}IV.3.3]
-% 7.12. ? Let F = F (A) be a free group, and let f : A \to  G be a set-function
-% from the set A to a commutative group G. Prove that f induces a unique homo-
-% morphism F/[F, F ] \to  G, where [F, F ] is the commutator subgroup of F defined
-% in Exercise 7.11. (Use Theorem 7.12.) Conclude that F/[F, F ] = \sim 
-%  F ab (A). (Use
-% Proposition I.5.4.) [\S{}6.4, 7.13, VI.1.20]
-% 7.13. \lnot  Let A, B be sets and F (A), F (B) the corresponding free groups.
-% Assume
-% F (A) \sim 
-%  = F (B). If A is finite, prove that B is also and A = \sim 
-%  B. (Use Exercise 7.12
-% to upgrade Exercise 5.10.) [5.10, VI.1.20]
-% 7.14. Let G be a group. Prove that Inn(G) is a normal subgroup of Aut(G).
+\begin{exer}{\exerused}{exer:groups:s3-normal-subgroups}
+List all subgroups of $S_3$ (cf.\ Exercise~6.13) and determine which
+subgroups are normal and which are not normal. [$\S$7.1]
+\end{exer}
+\begin{exer}{}{exer:groups:image-not-necessarily-normal}
+Is the \emph{image} of a group homomorphism necessarily a normal
+subgroup of the target?
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:normality-conditions-equivalent}
+Verify that the equivalent conditions for normality given in $\S$7.1 are
+indeed equivalent. [$\S$7.1]
+\end{exer}
+\begin{exer}{}{exer:groups:exercise-5-10-relation-compatible}
+Prove that the relation defined in Exercise~5.10 on a free abelian group
+$F = F^{ab}(A)$ is compatible with the group structure. Determine the
+quotient $F/\!\sim$ as a better known group.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:psl2z-modular-group}
+Define an equivalence relation $\sim$ on $\mathrm{SL}_2(\mathbb{Z})$ by
+letting $A \sim A' \iff A' = \pm A$. Prove that $\sim$ is compatible
+with the group structure. The quotient $\mathrm{SL}_2(\mathbb{Z})/\!\sim$
+is denoted $\mathrm{PSL}_2(\mathbb{Z})$ and is called the \emph{modular
+group}; it would be a serious contender in a contest for `the most
+important group in mathematics', due to its role in algebraic geometry
+and number theory. Prove that $\mathrm{PSL}_2(\mathbb{Z})$ is generated
+by the (cosets of the) matrices
+\[
+  \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
+  \quad \text{and} \quad
+  \begin{pmatrix} 1 & -1 \\ 1 & 0 \end{pmatrix}.
+\]
+(You will not need to work very hard, if you use the result of
+Exercise~6.10.) Note that the first has order $2$ in
+$\mathrm{PSL}_2(\mathbb{Z})$, the second has order $3$, and their
+product has infinite order. [9.14]
+\end{exer}
+\begin{exer}{}{exer:groups:gn-relation-equivalence-commutative}
+Let $G$ be a group, and let $n$ be a positive integer. Consider the
+relation
+\[
+  a \sim b \iff (\exists g \in G)\ ab^{-1} = g^n.
+\]
+\begin{itemize}
+\item Show that in general $\sim$ is \emph{not} an equivalence
+  relation.
+\item Prove that $\sim$ is an equivalence relation if $G$ is
+  commutative, and determine the corresponding subgroup of $G$.
+\end{itemize}
+\end{exer}
+\begin{exer}{}{exer:groups:order-n-elements-generate-normal}
+Let $G$ be a group, $n$ a positive integer, and let $H \subseteq G$ be
+the subgroup generated by all elements of order $n$ in $G$. Prove that
+$H$ is normal.
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:prove-prop-7-6}
+Prove Proposition~\ref{prop:groups:sim-l-satisfies-dagger}. [$\S$7.3]
+\end{exer}
+\begin{exer}{}{exer:groups:mirror-statements-daggerdagger}
+State and prove the `mirror' statements of
+Propositions~\ref{prop:groups:coset-description-dagger}
+and~\ref{prop:groups:sim-l-satisfies-dagger}, leading to the
+description of relations satisfying $(\dagger\dagger)$.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:normal-iff-inn-stabilizes}
+Let $G$ be a group, and $H \subseteq G$ a subgroup. With notation as in
+Exercise~6.7, show that $H$ is normal in $G$ if and only if
+$\forall \gamma \in \operatorname{Inn}(G), \gamma(H) \subseteq H$.
+
+Conclude that if $H$ is normal in $G$, then there is an interesting
+homomorphism $\operatorname{Inn}(G) \to \operatorname{Aut}(H)$. [8.25]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:commutator-subgroup-normal}
+Let $G$ be a group, and let $[G,G]$ be the subgroup of $G$ generated by
+all elements of the form $aba^{-1}b^{-1}$. (This is the \emph{commutator
+subgroup} of $G$; we will return to it in $\S$IV.3.3.) Prove that
+$[G,G]$ is normal in $G$. (Hint: With notation as in Exercise~4.8,
+$g \cdot aba^{-1}b^{-1} \cdot g^{-1} = \gamma_g(aba^{-1}b^{-1})$.) Prove
+that $G/[G,G]$ is commutative. [7.12, $\S$IV.3.3]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:free-mod-commutator-is-fab}
+Let $F = F(A)$ be a free group, and let $f : A \to G$ be a set-function
+from the set $A$ to a commutative group $G$. Prove that $f$ induces a
+unique homomorphism $F/[F,F] \to G$, where $[F,F]$ is the commutator
+subgroup of $F$ defined in Exercise~7.11. (Use
+Theorem~\ref{thm:groups:quotient-universal-property}.) Conclude that
+$F/[F,F] \cong F^{ab}(A)$. (Use Proposition~I.5.4.) [$\S$6.4, 7.13,
+VI.1.20]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:free-groups-isomorphic-implies-sets-isomorphic}
+Let $A$, $B$ be sets and $F(A)$, $F(B)$ the corresponding free groups.
+Assume $F(A) \cong F(B)$. If $A$ is finite, prove that $B$ is also and
+$A \cong B$. (Use Exercise~7.12 to upgrade Exercise~5.10.) [5.10,
+VI.1.20]
+\end{exer}
+\begin{exer}{}{exer:groups:inn-normal-in-aut}
+Let $G$ be a group. Prove that $\operatorname{Inn}(G)$ is a normal
+subgroup of $\operatorname{Aut}(G)$.
+\end{exer}
 
 \section{Canonical decomposition and Lagrange's theorem}
 \label{sec:groups:canonical-decomposition-and-lagrange-s-theorem}
