@@ -682,237 +682,234 @@ satisfying all the properties to which we have grown accustomed.
 
 \subsection{Images; canonical decomposition of morphisms}
 \label{subsec:homol:images-canonical-decomposition-of-morphisms}
-% Yet another example
+Yet another example of the application of an arrow-theoretic
+perspective is the existence of `canonical decompositions' of
+morphisms in any abelian category, in terms completely analogous to
+the decompositions studied in $\categ{Set}$ (\S{}I.2.8), $\categ{Grp}$
+(\S{}II.8.1), $\categ{Ring}$ (\S{}III.3.3), $R\text{-}\mathsf{Mod}$
+(\S{}III.5.4). In each of these previous examples we could simply
+argue that the decomposition was the original decomposition obtained
+in $\categ{Set}$, enriched as the case may be with additional
+structures adapted to the category under examination. This is not an
+option in the context of an abelian category, and yet the
+decomposition holds just as well: every morphism may be written as an
+epimorphism, followed by an isomorphism, followed by a monomorphism.
+Here is the precise statement:
+\begin{thm}{}{homol:1.13}
+  Every morphism $\varphi : A \to B$ in an abelian category $\mathsf{A}$
+  may be decomposed as
+  \[\begin{tikzcd}
+    A \arrow[r, two heads] \arrow[rr, bend left, "\varphi"] &
+    C \arrow[r, "\tilde{\varphi}", "\sim"'] &
+    K \arrow[r, hook] & B
+  \end{tikzcd}\]
+  where $A \to C$ is the cokernel of the kernel of $\varphi$ and
+  $K \to B$ is the kernel of the cokernel of $\varphi$. The induced
+  morphism $\tilde{\varphi} : C \to K$ is uniquely determined and is
+  an isomorphism.
+\end{thm}
+This theorem will follow from useful related considerations. Comparing
+the statement with its set-theoretic counterpart suggests that
+\[
+  \ker(\operatorname{coker}\varphi) : \quad K \rightarrowtail B
+\]
+should play the role of the `image of $\varphi$'. Again note that the
+set-theoretic definition of `image' is not an option in the general
+context we are exploring: unlike groups, rings, etc., the objects of a
+general abelian category are not `just' sets endowed with extra
+structure.\footnote{However, we will soon recover a sense in which
+images in abelian categories can be `understood' in set-theoretic
+terms: see Lemma~2.7.} But look at your mental image of what the image
+of a function $\varphi$ is; mine looks like this:
+\begin{center}
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \draw (0,0) ellipse (0.9 and 1.1);
+    \draw (2.6,0) ellipse (0.9 and 1.1);
+    \draw[fill=black!70] (2.6,0) ellipse (0.35 and 0.7);
+    \draw[->] (0.9,0) -- (1.7,0) node[midway, above] {$\varphi$};
+    \node at (0,1.4) {$A$};
+    \node at (2.6,1.4) {$B$};
+    \node at (2.6,-1.4) {$\operatorname{im}\varphi$};
+  \end{tikzpicture}
+\end{center}
+We can fit many `subobjects' in $B$ to which $A$ maps via $\varphi$:
+\begin{center}
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \draw (0,0) ellipse (0.9 and 1.1);
+    \draw (2.6,0) ellipse (0.9 and 1.1);
+    \draw (2.6,0) ellipse (0.7 and 0.86);
+    \draw (2.6,0) ellipse (0.5 and 0.62);
+    \draw[fill=black!70] (2.6,0) ellipse (0.3 and 0.38);
+    \draw[->] (0.9,0) -- (1.7,0) node[midway, above] {$\varphi$};
+    \node at (0,1.4) {$A$};
+    \node at (2.6,1.4) {$B$};
+  \end{tikzpicture}
+\end{center}
+and $\operatorname{im}\varphi$ is the `smallest' such subobject; that
+is, it is initial with the property of being a subobject of $B$
+through which $\varphi$ factors. This intuition is precisely captured
+by $\ker(\operatorname{coker}\varphi)$, once we adapt to thinking of
+`subobjects' as `monomorphisms':
+\begin{lem}{}{homol:1.14}
+  Let $\varphi : A \to B$ be a morphism in an abelian category, and
+  let $\iota : K \to B$ be the kernel of the cokernel of $\varphi$.
+  Then
+  \begin{itemize}
+    \item $\iota$ is a monomorphism;
+    \item $\varphi$ factors through $\iota$; and
+    \item $\iota$ is initial with these properties.
+  \end{itemize}
+\end{lem}
 
-% of the application of an arrow-theoretic perspective is the existence of
-% `canonical
-% decompositions' of morphisms in any abelian category, in terms completely anal-
-% ogous to the decompositions studied in Set (\S{}I.2.8), Grp (\S{}II.8.1), Ring
-% (\S{}III.3.3),
-% R-Mod (\S{}III.5.4). In each of these previous examples we could simply argue
-% that
-% the decomposition was the original decomposition obtained in Set, enriched as
-% the
-% case may be with additional structures adapted to the category under
-% examination.
-% This is not an option in the context of an abelian category, and yet the
-% decomposi-
-% tion holds just as well: every morphism may be written as an epimorphism,
-% followed
-% by an isomorphism, followed by a monomorphism. Here is the precise statement:
-% Theorem 1.13. Every morphism \phi  : A \to  B in an abelian category A may be
-% decomposed as
-% \phi 
-% A
-%  / / C
-%  \sim 
-%  / K /
-%  )/
-%  B
-% \tilde{\phi }
-% where A \to  C is the cokernel of the kernel of \phi  and K \to  B is the kernel
-% of the
-% cokernel of \phi . The induced morphism \tilde{\phi } : C \to  K is uniquely
-% determined and is an
-% isomorphism.
-% This theorem will follow from useful related considerations. Comparing the
-% statement with its set-theoretic counterpart suggests that
-% ker(coker \phi ) :
-%  K /
-%  / B
-% should play the role of the `image of \phi '. Again note that the set-theoretic
-% definition
-% of `image' is not an option in the general context we are exploring: unlike
-% groups,
-% rings, etc., the objects of a general abelian category are not `just' sets
-% endowed with
-% extra structure3. But look at your mental image of what the image of a function
-% \phi
-% is; mine looks like this:
-% 3 However, we will soon recover a sense in which images in abelian categories
-% can be `under-
-% stood' in set-theoretic terms: see Lemma 2.7.
-% A
-% \phi 
-% B
-% im \phi 
-% We can fit many `subobjects' in B to which A maps via \phi :
-% A
-%  B
-% \phi 
-% and im \phi  is the `smallest' such subobject; that is, it is initial with the
-% property of
-% being a subobject of B through which \phi  factors. This intuition is precisely
-% captured
-% by ker(coker \phi ), once we adapt to thinking of `subobjects' as
-% `monomorphisms':
-% Lemma 1.14. Let \phi  : A \to  B be a morphism in an abelian category, and let
-% \iota  : K \to  B be the kernel of the cokernel of \phi . Then
-% \bullet  \iota  is a monomorphism;
-% \bullet  \phi  factors through \iota ; and
-% \bullet  \iota  is initial with these properties.
-% By Lemma 1.4, \iota  is a monomorphism. It is clear that \phi  factors through
-% \iota :
-% the composition A \to  B \to  coker \phi  is the zero-morphism, so there is a
-% naturally
-% induced A \to  K by the universal property of kernels. The more interesting part
-% of the statement of Lemma 1.14 asserts that if \lambda  : L / / B is any
-% monomorphism
-% through which \phi  also factors, then \iota  must factor uniquely through
-% \lambda :
-% |
-%  |
-%  | | |
-%  | |
-%  \exists !
-%  | >L
-%  O B B B
-%  B \iota 
-%  B \lambda 
-%  B B
-%  B
-% A
-%  / K /
-%  /7 B
-% \phi 
-% Proof. Consider coker \lambda :
-% A
-%  q
-%  q
-%  q
-%  q q q
-%  / 8 K L &M /
-%  M M \lambda 
-%  M M M
-%  /& B N
-%  N N coker
-%  N
-%  N N ' \lambda 
-% Cok\lambda 
-% Since \phi  factors through \lambda , the composition A \to  B \to  Cok\lambda
-% is 0; by the universal
-% property of coker \phi , we have an induced map:
-% s s s
-%  s s
-%  s 9
-%  L %L L
-%  L \lambda 
-%  L L L coker \phi 
-% A
-%  /
-%  K \phi 
-%  /
-%  /%7 B coker M
-%  M M M \lambda 
-%  M M /
-%  & Cok\phi 
-%  \sqcup  \exists !
-% Cok\lambda 
-% Since K \to  Cok\phi  is the zero-morphism, this implies that
-% K
-%  / B coker \lambda  / Cok\lambda 
-% is the zero-morphism. Since \lambda  : L \to  B is the kernel of its cokernel
-% (Lemma 1.8), it
-% follows that there is a unique morphism K \to  L making the diagram commute, as
-% stated.
+By Lemma~\ref{homol:1.4}, $\iota$ is a monomorphism. It is clear that
+$\varphi$ factors through $\iota$: the composition
+$A \to B \to \operatorname{coker}\varphi$ is the zero-morphism, so
+there is a naturally induced $A \to K$ by the universal property of
+kernels. The more interesting part of the statement of Lemma~1.14
+asserts that if $\lambda : L \rightarrowtail B$ is any monomorphism
+through which $\varphi$ also factors, then $\iota$ must factor
+uniquely through $\lambda$:
+\[\begin{tikzcd}
+  & L \arrow[dr, hook, "\lambda"] & \\
+  A \arrow[r] \arrow[rr, bend right, "\varphi"'] &
+  K \arrow[u, dashed, "\exists!"] \arrow[r, hook, "\iota"'] & B
+\end{tikzcd}\]
+\begin{proof}
+  Consider $\operatorname{coker}\lambda$:
+  \[\begin{tikzcd}
+    & L \arrow[dr, "\lambda"] & \\
+    A \arrow[ur] \arrow[r] & K \arrow[r, hook] &
+    B \arrow[dr, "\operatorname{coker}\lambda"'] \\
+    & & & \operatorname{Cok}\lambda
+  \end{tikzcd}\]
+  Since $\varphi$ factors through $\lambda$, the composition
+  $A \to B \to \operatorname{Cok}\lambda$ is $0$; by the universal
+  property of $\operatorname{coker}\varphi$, we have an induced map:
+  \[\begin{tikzcd}
+    & L \arrow[dr, "\lambda"] & & \\
+    A \arrow[ur] \arrow[r] & K \arrow[r, hook] &
+    B \arrow[r, "\operatorname{coker}\varphi"]
+      \arrow[dr, "\operatorname{coker}\lambda"'] &
+    \operatorname{Cok}_\varphi \arrow[d, dashed, "\exists!"] \\
+    & & & \operatorname{Cok}\lambda
+  \end{tikzcd}\]
+  Since $K \to \operatorname{Cok}_\varphi$ is the zero-morphism, this
+  implies that
+  \[
+    K \to B \xrightarrow{\operatorname{coker}\lambda} \operatorname{Cok}\lambda
+  \]
+  is the zero-morphism. Since $\lambda : L \to B$ is the kernel of its
+  cokernel (Lemma~\ref{homol:1.8}), it follows that there is a unique
+  morphism $K \to L$ making the diagram commute, as stated.
+\end{proof}
+
+\begin{defn}{}{homol:1.15}
+  Let $\varphi : A \to B$ be a morphism in an abelian category. The
+  \emph{image} of $\varphi$, denoted $\operatorname{im}\varphi$, is
+  $\ker(\operatorname{coker}\varphi)$. The \emph{coimage} of $\varphi$,
+  denoted $\operatorname{coim}\varphi$, is
+  $\operatorname{coker}(\ker\varphi)$.
+\end{defn}
+
+Lemma~\ref{homol:1.14} motivates the first definition: every
+monomorphism through which $\varphi$ factors must factor uniquely
+through $\operatorname{im}\varphi$. (Of course in this context the
+source of $\operatorname{im}\varphi$ is only defined up to (unique)
+isomorphism, as is every solution to a universal problem.) As for the
+second definition, the reader will formulate the universal property
+satisfied by $\operatorname{coim}\varphi$ (Exercise~1.19). With the
+convention mentioned in Remark~1.7 and allowing for some abuse of
+language, the (target of the) coimage of $\varphi : A \to B$ is the
+`quotient' $A/\ker\varphi$.
+
+My mental image, and surely yours, suggests that if $K \to B$ is the
+image of $\varphi$, then the induced morphism
+$\overline{\varphi} : A \to K$,
+\[\begin{tikzcd}
+  A \arrow[r, "\overline{\varphi}"] \arrow[rr, bend right, "\varphi"'] &
+  K \arrow[r, hook] & B,
+\end{tikzcd}\]
+should be an epimorphism. This is indeed the case:
+\begin{lem}{}{homol:1.16}
+  Let $\varphi : A \to B$ be a morphism in an abelian category, and
+  let $\operatorname{im}\varphi : K \to B$,
+  $\operatorname{coim}\varphi : A \to C$ be its image and coimage,
+  respectively. Then the induced morphisms $A \to K$ and $C \to B$
+  are, respectively, an epimorphism and a monomorphism.
+\end{lem}
+
+\begin{proof}
+  As usual, I will prove half of the statement and leave the other
+  half to the reader (Exercise~1.20.)
+
+  To verify that $\overline{\varphi} : A \to K$ is an epimorphism,
+  consider its image $K' \to K$:
+  \[\begin{tikzcd}
+    K' \arrow[r, hook,
+      "\operatorname{im}\overline{\varphi} = \ker\operatorname{coker}\overline{\varphi}"] &
+    K \arrow[r, two heads, "\operatorname{coker}\overline{\varphi}"] &
+    \operatorname{Cok}.
+  \end{tikzcd}\]
+  Recall that every epimorphism is the cokernel of its kernel
+  (Lemma~\ref{homol:1.8}); in particular,
+  $\operatorname{coker}\overline{\varphi} = \operatorname{coker}(\operatorname{im}\overline{\varphi})$.
+  Now, $K' \to K$ is a monomorphism through which $\varphi$ factors:
+  \[\begin{tikzcd}
+    A \arrow[r] \arrow[rr, bend left, "\varphi"] &
+    K' \arrow[r, hook, "\operatorname{im}\overline{\varphi}"] &
+    K \arrow[r, hook] & B.
+  \end{tikzcd}\]
+  Therefore, $K' \to B$ is a monomorphism through which $\varphi$
+  factors and `preceding' $\operatorname{im}\varphi : K \to B$. Since
+  the image of $\varphi$ is initial among such morphisms (as proven in
+  Lemma~\ref{homol:1.14}), necessarily $\operatorname{im}\overline{\varphi}$
+  is an isomorphism. It follows that
+  $0 = \operatorname{coker}\operatorname{im}\overline{\varphi} =
+  \operatorname{coker}\overline{\varphi}$, proving that
+  $\overline{\varphi}$ is an epimorphism by Lemma~\ref{homol:1.5}.
+\end{proof}
 %  ?
-% Definition 1.15. Let \phi  : A \to  B be a morphism in an abelian category. The
-% image of \phi , denoted im \phi , is ker(coker \phi ). The coimage of \phi ,
-% denoted coim \phi , is
-% coker(ker \phi ).
-%  ?
-% Lemma 1.14 motivates the first definition: every monomorphism through which
-% \phi  factors must factor uniquely through im \phi . (Of course in this context the source
-% of im \phi  is only defined up to (unique) isomorphism, as is every solution to
-% a universal
-% problem.) As for the second definition, the reader will formulate the universal
-% property satisfied by coim \phi  (Exercise 1.19). With the convention mentioned
-% in
-% Remark 1.7 and allowing for some abuse of language, the (target of the) coimage
-% of \phi  : A \to  B is the `quotient' A/ ker \phi .
-% My mental image, and surely yours, suggests that if K \to  B is the image of
-% \phi ,
-% then the induced morphism \phi  : A \to  K,
-% A
-% \phi 
-%  / K /
-% \phi 
-% /7 B ,
-% should be an epimorphism. This is indeed the case:
-% Lemma 1.16. Let \phi  : A \to  B be a morphism in an abelian category, and let
-% im \phi  : K \to  B, coim \phi  : A \to  C be its image and coimage,
-% respectively. Then the
-% induced morphisms A \to  K and C \to  B are, respectively, an epimorphism and a
-% monomorphism.
-% Proof. As usual, I will prove half of the statement and leave the other half to
-% the
-% reader (Exercise 1.20.)
-% To verify that \phi  : A \to  K is an epimorphism, consider its image K
-% \setminus  \to  K:
-% K \setminus  /
-%  im \phi =ker coker \phi 
-%  / K
-%  coker \phi 
-%  / / Cok .
-% Recall that every epimorphism is the cokernel of its kernel (Lemma 1.8); in
-% partic-
-% ular, coker \phi  = coker(im \phi ). Now, K \setminus  \to  K is a monomorphism
-% through which \phi
-% factors:
-% \phi 
-% A
-%  / K \setminus  / im \phi  /6 K /
-%  '/
-%  B.
-% \phi 
-% Therefore, K \setminus  \to  B is a monomorphism through which \phi  factors and
-% `preceding'
-% im \phi  : K \to  B. Since the image of \phi  is initial among such morphisms
-% (as proven in
-% Lemma 1.14), necessarily im \phi  is an isomorphism. It follows that 0 = coker
-% im \phi  =
-% coker \phi , proving that \phi  is an epimorphism by Lemma 1.5.
-%  ?
-% To summarize the situation, we have the following commutative diagram of
-% epimorphisms and monomorphisms factoring a given morphism \phi  in an abelian
-% category:
-% \phi 
-%  0 0 K ,
-%  im \phi 
-% \phi 
-%  ?
-% A
-%  / B.
-% coim \phi 
-%  , , C 0
-%  \phi 
-% Hopefully we have not lost track of our sought-for `canonical decomposition':
-% \phi  :
-%  A
-%  / / C
-%  \sim 
-%  / K /
-%  / B.
-% \tilde{\phi }
-% We now see that this amounts to the statement that in an abelian category, there
-% is an induced isomorphism linking the coimage and the image of every morphism.
-% Proof of Theorem 1.13. A unique morphism \psi  : K \to  C making the above
-% diagram commute exists, by the universal property of im \phi  (Lemma 1.14), as
-% well
-% as by the universal property of coim \phi . Since \phi  \circ  \psi  = im \phi
-% is a monomorphism,
-% so is \psi . Since \psi  \circ  \phi  = coim \phi  is an epimorphism, so is \psi
-% . It follows that \psi  is an
-% isomorphism (Lemma 1.9), and letting \tilde{\phi } : C \to  K be the inverse of
-% \psi  concludes
-% the proof.
-%  ?
-% Loosely speaking, we can say that, in an abelian category, `image and coimage
-% are naturally isomorphic'. This is imprecise, since image and coimage are them-
-% selves morphisms; the isomorphism holds between the target of coimage and the
-% source of image. Of course, for friendly categories such as R-Mod this
-% distinction
-% is immaterial.
+To summarize the situation, we have the following commutative diagram
+of epimorphisms and monomorphisms factoring a given morphism $\varphi$
+in an abelian category:
+\[\begin{tikzcd}
+  & K \arrow[dr, hook, "\operatorname{im}\varphi"] & \\
+  A \arrow[ur, "\overline{\varphi}"] \arrow[rr, "\varphi"']
+    \arrow[dr, two heads, "\operatorname{coim}\varphi"'] & & B. \\
+  & C \arrow[ur, hook, "\underline{\varphi}"'] &
+\end{tikzcd}\]
+
+Hopefully we have not lost track of our sought-for `canonical
+decomposition':
+\[
+  \varphi : \quad
+  \begin{tikzcd}
+    A \arrow[r, two heads] & C \arrow[r, "\tilde{\varphi}", "\sim"'] &
+    K \arrow[r, hook] & B.
+  \end{tikzcd}
+\]
+We now see that this amounts to the statement that \emph{in an abelian
+category, there is an induced isomorphism linking the coimage and the
+image of every morphism.}
+
+\begin{proof}[Proof of \cref{homol:1.13}]
+  A unique morphism $\psi : K \to C$ making the above diagram commute
+  exists, by the universal property of $\operatorname{im}\varphi$
+  (Lemma~\ref{homol:1.14}), as well as by the universal property of
+  $\operatorname{coim}\varphi$. Since
+  $\underline{\varphi} \circ \psi = \operatorname{im}\varphi$ is a
+  monomorphism, so is $\psi$. Since
+  $\psi \circ \overline{\varphi} = \operatorname{coim}\varphi$ is an
+  epimorphism, so is $\psi$. It follows that $\psi$ is an isomorphism
+  (Lemma~\ref{homol:1.9}), and letting $\tilde{\varphi} : C \to K$ be
+  the inverse of $\psi$ concludes the proof.
+\end{proof}
+Loosely speaking, we can say that, in an abelian category, `image and
+coimage are naturally isomorphic'. This is imprecise, since image and
+coimage are themselves morphisms; the isomorphism holds between the
+target of coimage and the source of image. Of course, for friendly
+categories such as $R\text{-}\mathsf{Mod}$ this distinction is
+immaterial.
 
 \subsection*{Exercises}
 
