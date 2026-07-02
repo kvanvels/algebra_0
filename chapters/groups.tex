@@ -1636,119 +1636,143 @@ given order (same exercise).
 
 \subsection{Homomorphisms of abelian groups}
 \label{subsec:groups:homomorphisms-of-abelian-groups}
-% I have already mentioned that Ab
+I have already mentioned that $\mathsf{Ab}$ is in some ways `better behaved'
+than $\mathsf{Grp}$, and I am ready to highlight another instance of this
+observation. As we have seen, $\operatorname{Hom}_{\mathsf{Grp}}(G,H)$ is a
+pointed set for any two groups $G$, $H$. In $\mathsf{Ab}$, we can say much
+more: $\operatorname{Hom}_{\mathsf{Ab}}(G,H)$ is a group (in fact, an abelian
+group) for any two abelian groups $G$, $H$.
 
-% is in some ways `better behaved' than Grp, and I am ready to highlight another
-% instance of this observation. As we have seen, HomGrp (G, H) is a pointed set
-% for
-% any two groups G, H. In Ab, we can say much more: HomAb (G, H) is a group (in
-% fact, an abelian group) for any two abelian groups G, H.
-% The operation in HomAb (G, H) is `inherited' from the operation in H: if \phi ,
-% \psi  :
-% G \to  H are two group homomorphisms, let \phi  + \psi  be the function defined
-% by
-% (\forall a \in  G) :
-%  (\phi  + \psi )(a) := \phi (a) + \psi (a).
-% Is \phi  + \psi  a group homomorphism? Yes, because \forall a, b \in  G
-% (\phi  + \psi )(a + b) = \phi (a + b) + \psi (a + b) = (\phi (a) + \phi (b)) +
-% (\psi (a) + \psi (b))
-% !
-% = (\phi (a) + \psi (a)) + (\phi (b) + \psi (b)) = (\phi  + \psi )(a) + (\phi  +
-% \psi )(b).
-% Note that the equality marked by ! uses crucially the fact that H is
-% commutative.
-% With this operation, HomAb(G, H) is clearly a group: the associativity of + is
-% inherited from that of the operation in H; the trivial homomorphism is the
-% identity
-% element, and the inverse20 of \phi  : G \to  H is defined (not surprisingly) by
-% (\forall a \in  G) :
-%  (-\phi )(a) = -\phi (a).
-% In fact, note that these conclusions may be drawn as soon as H is commutative:
-% HomGrp (G, H) is a group if H is commutative (even if G is not). In fact, if H
-% is
-% 20 Unfortunate clash of terminology! I mean the `inverse' as in `group inverse',
-% not as a
-% possible function H \to  G.
-% a commutative group, then H A = HomSet (A, H) is a commutative group for all
-% sets A; we will come back to this group in \S{}5.4.
+The operation in $\operatorname{Hom}_{\mathsf{Ab}}(G,H)$ is `inherited' from
+the operation in $H$: if $\varphi, \psi : G \to H$ are two group
+homomorphisms, let $\varphi + \psi$ be the function defined by
+\[ (\forall a \in G) \colon \quad (\varphi + \psi)(a) := \varphi(a) + \psi(a). \]
+Is $\varphi + \psi$ a group homomorphism? Yes, because $\forall a, b \in G$
+\begin{align*}
+  (\varphi + \psi)(a + b) &= \varphi(a + b) + \psi(a + b)
+  = (\varphi(a) + \varphi(b)) + (\psi(a) + \psi(b)) \\
+  &\overset{!}{=} (\varphi(a) + \psi(a)) + (\varphi(b) + \psi(b))
+  = (\varphi + \psi)(a) + (\varphi + \psi)(b).
+\end{align*}
+Note that the equality $\overset{!}{=}$ uses crucially the fact that $H$ is
+commutative.
+
+With this operation, $\operatorname{Hom}_{\mathsf{Ab}}(G,H)$ is clearly a
+group: the associativity of $+$ is inherited from that of the operation in
+$H$; the trivial homomorphism is the identity element, and the
+inverse\footnote{Unfortunate clash of terminology! I mean the `inverse' as
+in `group inverse', not as a possible function $H \to G$.} of
+$\varphi : G \to H$ is defined (not surprisingly) by
+\[ (\forall a \in G) \colon \quad (-\varphi)(a) = -\varphi(a). \]
+In fact, note that these conclusions may be drawn as soon as $H$ is
+commutative: $\operatorname{Hom}_{\mathsf{Grp}}(G,H)$ is a group if $H$ is
+commutative (even if $G$ is not). In fact, if $H$ is a commutative group,
+then $H^A = \operatorname{Hom}_{\mathsf{Set}}(A,H)$ is a commutative group
+for all sets $A$; we will come back to this group in $\S$5.4.
 
 \subsection*{Exercises}
 
-% 4.1. ? Check that the function \pi m
-%  n
-%  defined in \S{}4.1 is well-defined and makes the
-% diagram commute. Verify that it is a group homomorphism. Why is the hypothe-
-% sis m | n necessary? [\S{}4.1]
-% 4.2. Show that the homomorphism \pi 2 4 \times  \pi 2 4 : C4 \to  C2 \times  C 2
-% is not an isomorphism.
-% In fact, is there any isomorphism C4 \to  C2 \times  C2 ?
-% 4.3. ? Prove that a group of order n is isomorphic to Z/nZ if and only if it
-% contains
-% an element of order n. [\S{}4.3]
-% 4.4. Prove that no two of the groups (Z, +), (Q, +), (R, +) are isomorphic to
-% one
-% another. Can you decide whether (R, +), (C, +) are isomorphic to one another?
-% (Cf. Exercise VI.1.1.)
-% 4.5. Prove that the groups (R \setminus  {0}, \cdot ) and (C \setminus  {0},
-% \cdot ) are not isomorphic.
-% 4.6. We have seen that (R, +) and (R>0 , \cdot ) are isomorphic (Example 4.4).
-% Are the
-% groups (Q, +) and (Q>0 , \cdot ) isomorphic?
-% 4.7. Let G be a group. Prove that the function G \to  G defined by g ?\to  g -1
-% is a
-% homomorphism if and only if G is abelian. Prove that g ?\to  g2 is a
-% homomorphism
-% if and only if G is abelian.
-% 4.8. \lnot  Let G be a group, and let g \in  G. Prove that the function \gamma g
-% : G \to  G defined
-% by (\forall a \in  G) : \gamma g (a) = gag -1 is an automorphism of G. (The
-% automorphisms \gamma g are
-% called `inner' automorphisms of G.) Prove that the function G \to  Aut(G)
-% defined
-% by g ?\to  \gamma g is a homomorphism. Prove that this homomorphism is trivial
-% if and
-% only if G is abelian. [6.7, 7.11, IV.1.5]
-% 4.9. ? Prove that if m, n are positive integers such that gcd(m, n) = 1, then
-% Cmn \sim 
-%  = Cm \times  Cn . [\S{}4.3, 4.10, \S{}IV.6.1, V.6.8]
-% 4.10. ? Let p = q be odd prime integers; show that (Z/pqZ)\ast  is not cyclic.
-% (Hint:
-% Use Exercise 4.9 to compute the order N of (Z/pqZ)\ast , and show that no
-% element
-% can have order N .) [\S{}4.3]
-% 4.11. ? In due time we will prove the easy fact that if p is a prime integer,
-% then
-% the equation xd = 1 can have at most d solutions in Z/pZ. Assume this fact, and
-% prove that the multiplicative group G = (Z/pZ)\ast  is cyclic. (Hint: Let g \in
-% G be an
-% element of maximal order; use Exercise 1.15 to show that h|g| = 1 for all h \in
-% G.
-% Therefore. . . .) [\S{}4.3, 4.15, 4.16, \S{}IV.6.3]
-% 4.12. \lnot  \bullet  Compute the order of [9]31 in the group (Z/31Z)\ast  .
-% \bullet  Does the equation x3 - 9 = 0 have solutions in Z/31Z? (Hint: Plugging in
-% all 31 elements of Z/31Z is too laborious and will not teach you much. Instead,
-% use the result of the first part: if c is a solution of the equation, what can
-% you say
-% about |c|?) [VII.5.15]
-% 4.13. \lnot  Prove that AutGrp (Z/2Z \times  Z/2Z) \sim 
-%  = S3 . [IV.5.14]
-% 4.14. ? Prove that the order of the group of automorphisms of a cyclic group Cn
-% is
-% the number of positive integers r \leq  n that are relatively prime to n. (This
-% is called
-% Euler's \varphi -function; cf. Exercise 6.14.) [\S{}IV.1.4, IV.1.22, \S{}IV.2.5]
-% 4.15. \lnot  Compute the group of automorphisms of (Z, +). Prove that if p is
-% prime,
-% then AutGrp (Cp) \sim 
-%  = Cp-1 . (Use Exercise 4.11.) [IV.5.12]
-% 4.16. \lnot  Prove Wilson's theorem: an integer p > 1 is prime if and only if
-% (p - 1)! \equiv  -1 mod p.
-% (For one direction, use Exercises 1.8 and 4.11. For the other, assume d is a
-% proper
-% divisor of p, and note that d divides (p - 1)!; therefore. . . .) [IV.4.11]
-% 4.17. For a few small (but not too small) primes p, find a generator of
-% (Z/pZ)\ast  .
-% 4.18. Prove the second part of Proposition 4.8.
+\begin{exer}{\exerused}{exer:groups:pi-nm-well-defined}
+Check that the function $\pi^n_m$ defined in $\S$4.1 is well-defined and makes
+the diagram commute. Verify that it is a group homomorphism. Why is the
+hypothesis $m \mid n$ necessary? [$\S$4.1]
+\end{exer}
+\begin{exer}{}{exer:groups:pi42-not-isomorphism}
+Show that the homomorphism $\pi^4_2 \times \pi^4_2 : C_4 \to C_2 \times C_2$ is
+not an isomorphism. In fact, is there any isomorphism $C_4 \to C_2 \times C_2$?
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:order-n-iff-znz}
+Prove that a group of order $n$ is isomorphic to $\mathbb{Z}/n\mathbb{Z}$ if
+and only if it contains an element of order $n$. [$\S$4.3]
+\end{exer}
+\begin{exer}{}{exer:groups:z-q-r-not-isomorphic}
+Prove that no two of the groups $(\mathbb{Z}, +)$, $(\mathbb{Q}, +)$,
+$(\mathbb{R}, +)$ are isomorphic to one another. Can you decide whether
+$(\mathbb{R}, +)$, $(\mathbb{C}, +)$ are isomorphic to one another? (Cf.\
+Exercise~VI.1.1.)
+\end{exer}
+\begin{exer}{}{exer:groups:rstar-cstar-not-isomorphic}
+Prove that the groups $(\mathbb{R} \setminus \{0\}, \cdot)$ and
+$(\mathbb{C} \setminus \{0\}, \cdot)$ are not isomorphic.
+\end{exer}
+\begin{exer}{}{exer:groups:q-qpos-isomorphic}
+We have seen that $(\mathbb{R}, +)$ and $(\mathbb{R}_{>0}, \cdot)$ are
+isomorphic (Example~4.4). Are the groups $(\mathbb{Q}, +)$ and
+$(\mathbb{Q}_{>0}, \cdot)$ isomorphic?
+\end{exer}
+\begin{exer}{}{exer:groups:inverse-square-homomorphism-iff-abelian}
+Let $G$ be a group. Prove that the function $G \to G$ defined by
+$g \mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian. Prove that
+$g \mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:inner-automorphisms}
+Let $G$ be a group, and let $g \in G$. Prove that the function
+$\gamma_g : G \to G$ defined by $(\forall a \in G) : \gamma_g(a) = gag^{-1}$ is
+an automorphism of $G$. (The automorphisms $\gamma_g$ are called `inner'
+automorphisms of $G$.) Prove that the function $G \to \operatorname{Aut}(G)$
+defined by $g \mapsto \gamma_g$ is a homomorphism. Prove that this
+homomorphism is trivial if and only if $G$ is abelian. [6.7, 7.11, IV.1.5]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:cmn-iso-cm-times-cn}
+Prove that if $m$, $n$ are positive integers such that $\gcd(m,n) = 1$, then
+$C_{mn} \cong C_m \times C_n$. [$\S$4.3, 4.10, $\S$IV.6.1, V.6.8]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:zpqz-star-not-cyclic}
+Let $p \ne q$ be odd prime integers; show that $(\mathbb{Z}/pq\mathbb{Z})^*$
+is not cyclic. (Hint: Use Exercise~4.9 to compute the order $N$ of
+$(\mathbb{Z}/pq\mathbb{Z})^*$, and show that no element can have order $N$.)
+[$\S$4.3]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:zpz-star-cyclic}
+In due time we will prove the easy fact that if $p$ is a prime integer, then
+the equation $x^d = 1$ can have at most $d$ solutions in
+$\mathbb{Z}/p\mathbb{Z}$. Assume this fact, and prove that the multiplicative
+group $G = (\mathbb{Z}/p\mathbb{Z})^*$ is cyclic. (Hint: Let $g \in G$ be an
+element of maximal order; use Exercise~1.15 to show that $h^{|g|} = 1$ for all
+$h \in G$. Therefore\dots.) [$\S$4.3, 4.15, 4.16, $\S$IV.6.3]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:order-9-mod-31}
+\begin{itemize}
+\item Compute the order of $[9]_{31}$ in the group
+  $(\mathbb{Z}/31\mathbb{Z})^*$.
+\item Does the equation $x^3 - 9 = 0$ have solutions in
+  $\mathbb{Z}/31\mathbb{Z}$? (Hint: Plugging in all $31$ elements of
+  $\mathbb{Z}/31\mathbb{Z}$ is too laborious and will not teach you much.
+  Instead, use the result of the first part: if $c$ is a solution of the
+  equation, what can you say about $|c|$?) [VII.5.15]
+\end{itemize}
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:aut-c2xc2-iso-s3}
+Prove that $\operatorname{Aut}_{\mathsf{Grp}}(\mathbb{Z}/2\mathbb{Z} \times
+\mathbb{Z}/2\mathbb{Z}) \cong S_3$. [IV.5.14]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:aut-cn-euler-phi}
+Prove that the order of the group of automorphisms of a cyclic group $C_n$ is
+the number of positive integers $r \leq n$ that are relatively prime to $n$.
+(This is called Euler's $\varphi$-function; cf.\ Exercise~6.14.)
+[$\S$IV.1.4, IV.1.22, $\S$IV.2.5]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:aut-z-aut-cp}
+Compute the group of automorphisms of $(\mathbb{Z}, +)$. Prove that if $p$ is
+prime, then $\operatorname{Aut}_{\mathsf{Grp}}(C_p) \cong C_{p-1}$. (Use
+Exercise~4.11.) [IV.5.12]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:wilsons-theorem}
+Prove Wilson's theorem: an integer $p > 1$ is prime if and only if
+\[
+  (p-1)! \equiv -1 \pmod{p}.
+\]
+(For one direction, use Exercises~1.8 and 4.11. For the other, assume $d$ is a
+proper divisor of $p$, and note that $d$ divides $(p-1)!$; therefore\dots.)
+[IV.4.11]
+\end{exer}
+\begin{exer}{}{exer:groups:generator-zpz-star}
+For a few small (but not too small) primes $p$, find a generator of
+$(\mathbb{Z}/p\mathbb{Z})^*$.
+\end{exer}
+\begin{exer}{}{exer:groups:second-part-prop-4-8}
+Prove the second part of \Cref{prop:groups:iso-preserves-order-commutativity}.
+\end{exer}
 
 \section{Free groups}
 \label{sec:groups:free-groups}
