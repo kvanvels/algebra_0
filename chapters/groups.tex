@@ -1891,143 +1891,183 @@ property for free groups over a singleton.
 
 \subsection{Concrete construction}
 \label{subsec:groups:concrete-construction}
-% As we know, terminal objects of a category need
+As we know, terminal objects of a category need not exist. So I have to
+convince the reader that free groups $F(A)$ exist, for every set $A$.
 
-% not exist. So I have to convince the reader that free groups F (A) exist, for
-% every
-% set A.
-% Given any set A, we are going to think of A as an `alphabet' and construct
-% `words' whose letters are elements of A or `inverses' of elements of A. To
-% formalize
-% this, consider a set A\setminus  isomorphic to A and disjoint from it; call a-1
-% the element
-% in A\setminus  corresponding to a \in  A. A word on the set A is an ordered list
-% (a1 , a2 , \dots  , an ),
-% which we denote by the juxtaposition
-% w = a1 a2 \dots  an ,
-% where each `letter' ai is either an element a \in  A or an element a-1 \in
-% A\setminus  . I will
-% denote the set of words on A by W (A); the number n of letters is the `length'
-% of w;
-% I include in W (A) the `empty word' w = ( ), consisting of no letters.
-% For example, if A = {a} is a singleton, then an element of W (A) may look like
-% a-1a-1aaaa-1aa-1 .
-% An element of W ({x, y}) may look like
-% xxx-1 yy -1 xxy-1 x-1 yy -1 xy -1 x.
-% Now the notation I have chosen hints that elements in W (A) may be redundant:
-% for example,
-% xyy -1x
-%  and
-%  xx
-% are distinct words, but they ought to end up being the same element of a group
-% having to do with words. Therefore, we want to have a process of `reduction'
-% which
-% takes a word and cleans it up by performing all cancellations. Note that we have
-% to do this `by hand', since we have not come close yet to defining an operation
-% or
-% -1making formal sense of considering a to be the `inverse' of a.
-% Describing the reduction process is invariably awkward---it is a completely ev-
-% ident procedure, but writing it down precisely and elegantly is a challenge. I
-% will
-% settle for the following.
-% \bullet  Define an `elementary' reduction r : W (A) \to  W (A): given w \in  W (A), search
-% for the first occurrence (from left to right) of a pair aa-1 or a-1 a, and let
-% r(w) be the word obtained by removing such a pair. In the two examples
-% given above,
-% r(a-1a-1aaaa-1aa-1 ) = a-1 aaa-1aa-1 ,
-% -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1r(xxx yy xxy x yy xy x) = xyy xxy x yy xy x.
-% \bullet  Note that r(w) = w precisely when `no cancellation is possible'; We say that
-% w is a `reduced word' in this case.
-% Lemma 5.1. If w \in  W (A) has length n, then22 r? n
-%  2 (w) is a reduced word.
-% Proof. Indeed, either r(w) = w or the length of r(w) is less than the length of
-% w;
-% but one cannot decrease the length of w more than n/2 times, since each non-
-% identity application of r decreases the length by two.
-%  ?
-% \bullet  Now define the `reduction' R : W (A) \to  W (A) by setting R(w) = r ? n
-%  2 (w),
-% where n is the length of w. By the lemma, R(w) is always a reduced word.
-% For example, R(a-1a-1aaaa-1aa-1 ) is the empty word, since
-% r4(a-1 a-1 aaaa-1 aa-1) = r3 (a-1 aaa-1 aa-1 ) = r 2 (aa-1 aa-1 ) = r(aa-1) = (
-% );
-% and R(xxx-1yy-1 xxy-1 x-1yy-1 xy -1 x) = xxxy -1y -1 x, as the reader may
-% check.
-% Let F (A) be the set of reduced words on A, that is, the image of the reduction
-% map R we have just defined.
-% We are ready to (finally) define free groups `concretely'. Define a binary oper-
-% ation on F (A) by juxtaposition & reduction: for reduced words w, w\setminus  ,
-% define w \cdot  w\setminus
-% \setminus as the reduction of the juxtaposition of w and w ,
-% w \cdot  w\setminus  := R(ww\setminus  ).
-% It is essentially evident that F (A) is a group under this operation:
-% \bullet  The operation is associative.
-% \bullet  The empty word e = ( ) is the identity in F (A), since ew = we = w (no
-% reduction is necessary).
-% \bullet  If w is a reduced word, the inverse of w is obtained by reversing the order of
-% the letters of w and replacing each a \in  A by a-1 \in  A\setminus  and each
-% a-1 by a.
-% The most cumbersome of these statements to prove formally is associativity; it
-% follows easily from (for example) Exercise 5.4.
-% There is a function j : A \to  F (A), defined by sending the element a \in  A to
-% the
-% word consisting of the single `letter' a.
-% Proposition 5.2. The pair (j, F (A)) satisfies the universal property for free
-% groups
-% on A.
-% 22 ?q? denotes the largest integer \leq  q.
-% Proof. This is also essentially evident, once one has absorbed all the notation.
-% Any function f : A \to  G to a group extends uniquely to a map \phi  : F (A) \to
-% G, determined by the homomorphism condition and by the requirement that the
-% diagram commutes, which fixes its value on one-letter words a \in  A (as well as
-% on a-1 \in  A\setminus ).
-% To check more formally that \phi  exists as a homomorphism, one can proceed as
-% follows. If f : A \to  G is any function, we can extend f to a set-function
-% \tilde{\phi } : W (A) \to  G
-% by insisting that on one-letter words a or a-1 (for a \in  A),
-% \tilde{\phi }(a) = f (a),
-%  \tilde{\phi }(a -1 ) = f (a)-1,
-% and that \tilde{\phi } is compatible with juxtaposition:
-% \tilde{\phi }(ww\setminus  ) = \tilde{\phi }(w)\tilde{\phi }(w\setminus  )
-% for any two words w, w\setminus  . The key point now is that reduction is
-% invisible for \tilde{\phi }:
-% \tilde{\phi }(R(w)) = \tilde{\phi }(w),
-% since this is clearly the case for elementary reductions; therefore, since \phi
-% : F (A) \to
-% G agrees with \tilde{\phi } on reduced words, we have for w, w\setminus  \in  F
-% (A)
-% \phi (w \cdot  w\setminus  ) = \tilde{\phi }(w \cdot  w \setminus ) = \tilde{\phi }(R(ww\setminus  )) = \tilde{\phi }(ww\setminus  ) = \tilde{\phi }(w)\tilde{\phi }(w\setminus  ) = \phi (w)\phi (w\setminus  ) :
-% that is, \phi  is a homomorphism, as needed.
-%  ?
-% Example 5.3. It is easy to `visualize' F ({a}) \sim 
-%  = Z; but it is already somewhat
-% challenging for the free group on two generators, F ({x, y}). The best I can do
-% is
-% the following: behold the infinite graph23
-% 23This is an example of the Cayley graph of a group (cf. Exercise 8.6): a graph
-% whose vertices
-% correspond to the elements of the group and whose edges connect vertices
-% according to the action
-% of generators.
-% obtained by starting at a point (the center of the picture), then branching out
-% in
-% four directions by a length of 1, then branching out similarly by a length of
-% 1/2, then
-% by 1/4, then by 1/8, then. . . (and I stopped there, to avoid cluttering the
-% picture
-% too much). Then every element of F ({x, y}) corresponds in a rather natural way
-% to
-% exactly one dot in this diagram. Indeed, we can place the empty word at the
-% center;
-% and we can agree that every x in a word takes us one step to the right, every
-% x-1
-% to the left, every y up, and every y -1 down. For example, the word yx-1 yx
-% takes
-% us here:
-% yx-1 yx
-% The reader will surely encounter this group elsewhere: it is the fundamental
-% group of the `figure 8'.
-%  ?
+Given any set $A$, we are going to think of $A$ as an `alphabet' and
+construct `words' whose letters are elements of $A$ or `inverses' of
+elements of $A$. To formalize this, consider a set $A'$ isomorphic to $A$
+and disjoint from it; call $a^{-1}$ the element in $A'$ corresponding to
+$a \in A$. A \emph{word} on the set $A$ is an ordered list
+\[
+  (a_1, a_2, \dots, a_n),
+\]
+which we denote by the juxtaposition
+\[
+  w = a_1 a_2 \cdots a_n,
+\]
+where each `letter' $a_i$ is either an element $a \in A$ or an element
+$a^{-1} \in A'$. I will denote the set of words on $A$ by $W(A)$; the
+number $n$ of letters is the `length' of $w$; I include in $W(A)$ the
+`empty word' $w = ()$, consisting of no letters.
+
+For example, if $A = \{a\}$ is a singleton, then an element of $W(A)$ may
+look like
+\[
+  a^{-1}a^{-1}aaaa^{-1}aa^{-1}.
+\]
+An element of $W(\{x,y\})$ may look like
+\[
+  xxx^{-1}yy^{-1}xxy^{-1}x^{-1}yy^{-1}xy^{-1}x.
+\]
+
+Now the notation I have chosen hints that elements in $W(A)$ may be
+redundant: for example,
+\[
+  xyy^{-1}x \quad \text{and} \quad xx
+\]
+are distinct words, but they ought to end up being the same element of a
+group having to do with words. Therefore, we want to have a process of
+`reduction' which takes a word and cleans it up by performing all
+cancellations. Note that we have to do this `by hand', since we have not
+come close yet to defining an operation or making formal sense of
+considering $a^{-1}$ to be the `inverse' of $a$.
+
+Describing the reduction process is invariably awkward---it is a
+completely evident procedure, but writing it down precisely and elegantly
+is a challenge. I will settle for the following.
+\begin{itemize}
+\item Define an `elementary' reduction $r : W(A) \to W(A)$: given
+  $w \in W(A)$, search for the first occurrence (from left to right) of a
+  pair $aa^{-1}$ or $a^{-1}a$, and let $r(w)$ be the word obtained by
+  removing such a pair. In the two examples given above,
+  \[
+    r(a^{-1}\,\underline{a^{-1}a}\,aaa^{-1}aa^{-1}) = a^{-1}aaa^{-1}aa^{-1},
+  \]
+  \[
+    r(x\,\underline{xx^{-1}}\,yy^{-1}xxy^{-1}x^{-1}yy^{-1}xy^{-1}x)
+    = xyy^{-1}xxy^{-1}x^{-1}yy^{-1}xy^{-1}x.
+  \]
+\item Note that $r(w) = w$ precisely when `no cancellation is possible';
+  we say that $w$ is a `reduced word' in this case.
+\end{itemize}
+
+\begin{lem}{If $w \in W(A)$ has length $n$, then\footnote{$\lfloor q
+\rfloor$ denotes the largest integer $\leq q$.} $r^{\lfloor n/2 \rfloor}
+(w)$ is a reduced word.}{lem:groups:reduction-terminates}
+\end{lem}
+\begin{proof}
+Indeed, either $r(w) = w$ or the length of $r(w)$ is less than the length
+of $w$; but one cannot decrease the length of $w$ more than $n/2$ times,
+since each non-identity application of $r$ decreases the length by two.
+\end{proof}
+
+\begin{itemize}
+\item Now define the `reduction' $R : W(A) \to W(A)$ by setting
+  $R(w) = r^{\lfloor n/2 \rfloor}(w)$, where $n$ is the length of $w$. By
+  the lemma, $R(w)$ is always a reduced word. For example,
+  $R(a^{-1}a^{-1}aaaa^{-1}aa^{-1})$ is the empty word, since
+  \[
+    r^4(a^{-1}a^{-1}aaaa^{-1}aa^{-1}) = r^3(a^{-1}aaa^{-1}aa^{-1})
+    = r^2(aa^{-1}aa^{-1}) = r(aa^{-1}) = ();
+  \]
+  and $R(xxx^{-1}yy^{-1}xxy^{-1}x^{-1}yy^{-1}xy^{-1}x) = xxxy^{-1}y^{-1}x$,
+  as the reader may check.
+\end{itemize}
+
+Let $F(A)$ be the set of reduced words on $A$, that is, the image of the
+reduction map $R$ we have just defined.
+
+We are ready to (finally) define free groups `concretely'. Define a
+binary operation on $F(A)$ by \emph{juxtaposition \& reduction}: for
+reduced words $w$, $w'$, define $w \cdot w'$ as the reduction of the
+juxtaposition of $w$ and $w'$,
+\[
+  w \cdot w' := R(ww').
+\]
+It is essentially evident that $F(A)$ is a group under this operation:
+\begin{itemize}
+\item The operation is associative.
+\item The empty word $e = ()$ is the identity in $F(A)$, since
+  $ew = we = w$ (no reduction is necessary).
+\item If $w$ is a reduced word, the inverse of $w$ is obtained by
+  reversing the order of the letters of $w$ and replacing each $a \in A$
+  by $a^{-1} \in A'$ and each $a^{-1}$ by $a$.
+\end{itemize}
+The most cumbersome of these statements to prove formally is
+associativity; it follows easily from (for example) Exercise~5.4.
+
+There is a function $j : A \to F(A)$, defined by sending the element
+$a \in A$ to the word consisting of the single `letter' $a$.
+
+\begin{prop}{The pair $(j, F(A))$ satisfies the universal property for
+free groups on $A$.}{prop:groups:free-group-concrete-construction}
+\end{prop}
+\begin{proof}
+This is also essentially evident, once one has absorbed all the notation.
+Any function $f : A \to G$ to a group extends uniquely to a map
+$\varphi : F(A) \to G$, determined by the homomorphism condition and by
+the requirement that the diagram commutes, which fixes its value on
+one-letter words $a \in A$ (as well as on $a^{-1} \in A'$).
+
+To check more formally that $\varphi$ exists as a homomorphism, one can
+proceed as follows. If $f : A \to G$ is any function, we can extend $f$
+to a set-function
+\[
+  \tilde\varphi : W(A) \to G
+\]
+by insisting that on one-letter words $a$ or $a^{-1}$ (for $a \in A$),
+\[
+  \tilde\varphi(a) = f(a), \quad \tilde\varphi(a^{-1}) = f(a)^{-1},
+\]
+and that $\tilde\varphi$ is compatible with juxtaposition:
+\[
+  \tilde\varphi(ww') = \tilde\varphi(w)\tilde\varphi(w')
+\]
+for any two words $w$, $w'$. The key point now is that reduction is
+invisible for $\tilde\varphi$:
+\[
+  \tilde\varphi(R(w)) = \tilde\varphi(w),
+\]
+since this is clearly the case for \emph{elementary} reductions;
+therefore, since $\varphi : F(A) \to G$ agrees with $\tilde\varphi$ on
+reduced words, we have for $w, w' \in F(A)$
+\[
+  \varphi(w \cdot w') = \tilde\varphi(w \cdot w') = \tilde\varphi(R(ww'))
+  = \tilde\varphi(ww') = \tilde\varphi(w)\tilde\varphi(w') = \varphi(w)\varphi(w'):
+\]
+that is, $\varphi$ is a homomorphism, as needed.
+\end{proof}
+
+\begin{exam}{}{exam:groups:free-group-two-generators-cayley-graph}
+It is easy to `visualize' $F(\{a\}) \cong \mathbb{Z}$; but it is already
+somewhat challenging for the free group on \emph{two} generators,
+$F(\{x,y\})$. The best I can do is the following: behold the infinite
+graph\footnote{This is an example of the \emph{Cayley graph} of a group
+(cf.\ Exercise~8.6): a graph whose vertices correspond to the elements of
+the group and whose edges connect vertices according to the action of
+generators.}
+
+% TODO: diagram of the Cayley graph of F({x,y}) -- infinite fractal graph
+% branching in four directions (x, x^{-1}, y, y^{-1}) with edge lengths
+% 1, 1/2, 1/4, 1/8, ... (page 74)
+
+obtained by starting at a point (the center of the picture), then
+branching out in four directions by a length of $1$, then branching out
+similarly by a length of $1/2$, then by $1/4$, then by $1/8$, then\dots
+(and I stopped there, to avoid cluttering the picture too much). Then
+every element of $F(\{x,y\})$ corresponds in a rather natural way to
+exactly one dot in this diagram. Indeed, we can place the empty word at
+the center; and we can agree that every $x$ in a word takes us one step
+to the right, every $x^{-1}$ to the left, every $y$ up, and every
+$y^{-1}$ down. For example, the word $yx^{-1}yx$ takes us here:
+
+% TODO: diagram of the same Cayley graph with the point $yx^{-1}yx$
+% marked (page 75)
+
+The reader will surely encounter this group elsewhere: it is the
+\emph{fundamental group} of the `figure~8'.
+\end{exam}
 
 \subsection{Free abelian groups}
 \label{subsec:groups:free-abelian-groups}
