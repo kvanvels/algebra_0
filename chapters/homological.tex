@@ -3023,454 +3023,382 @@ complexes and construct a new `homotopic category' of complexes (see
 
 \subsection{The mapping cone of a morphism}
 \label{subsec:homol:the-mapping-cone-of-a-morphism}
-% Let \alpha \bullet  : L \bullet  \to  M \bullet  be a mor-
 
-% phism of cochain complexes. The mapping cone M C(\alpha )\bullet  of \alpha
-% \bullet  will allow us to
-% recover H \bullet  (\alpha \bullet ) as the connecting morphism in a long exact
-% cohomology sequence,
-% as constructed in \S{}3.3. In fact, the mapping cone will give us the third
-% vertex of a
-% `special' triangle (cf. the end of \S{}3.4):
-% \bullet 
-% (\dagger )
-%  +1 ?
-%  ?
-%  ?
-%  ? ?
-%  ?
-%  ?
-%  M
-%  C > >
-%  > >
-%  > >
-%  > ?
-% L[1]
-% \bullet  o
-%  M C(\alpha )\bullet 
-% The degree-increasing morphism is the zero-morphism here (as in the `special'
-% tri-
-% angles encountered in \S{}3.4); but taking cohomology
-% \bullet  \bullet H (M )
-% +1 ? ?
-%  ? ?
-%  ? ?
-%  ? C > > >
-%  > >
-%  > >
-%  ?
-% H \bullet 
-%  (L[1]\bullet )
-%  o
-%  H \bullet 
-%  (M C(\alpha )\bullet )
-% we will obtain morphisms
-% H i+1 (L\bullet ) = H i (L[1]\bullet  ) -\to  H i+1 (M \bullet )
-% that, I claim, will be nothing but the morphisms induced in cohomology by the
-% given
-% morphism \alpha \bullet  . Thus, the morphisms induced in cohomology cannot be
-% extended to
-% exact sequences (that would clearly be asking too much), but they can be
-% extended
-% to triangles arising by applying cohomology to an appropriate exact sequence of
-% complexes.
-% Incidentally, the triangle (\dagger ) displayed above (but with the
-% degree-increasing
-% morphism replaced by -\alpha \bullet  ) will be the prototype of the
-% `distinguished triangles'
-% mentioned in \S{}3.4 (cf. \S{}9.2).
-% Construction of the mapping cone. The objects of M C(\alpha )\bullet  are simply
-% direct
-% sums of objects of L\bullet  and M \bullet  :
-% M C(\alpha )i := L[1]i \oplus  M i = Li+1 \oplus  M i ;
-% but the morphisms diM C(\alpha )\bullet  : M C(\alpha )i \to  M C(\alpha )i+1
-% are not the `obvious' ones,
-% but rather
-% diM C(\alpha )\bullet  ( , m) := (-di+1
-%  L\bullet  ( ), \alpha 
-% i+1
-% ( ) + diM \bullet  (m)).
-% The sign in the first component is inherited from the shifting of L\bullet  ;
-% thus, the first
-% component is simply the differential of L[1]\bullet  . The second component
-% mixes \alpha \bullet
-% (or rather its shift \alpha [1]\bullet  ) and the differential of M \bullet  .
-% The reader should verify that
-% i+1
-%  i
-%  \bullet 
-% d M C(\alpha )\bullet  \circ  dM C(\alpha )\bullet  = 0, so that M C(\alpha ) is
-% indeed a cochain complex (Exercise 4.1);
-% this is where the sign comes in. The mapping cone is a special case of the
-% `total
-% complex' determined by a double complex, to be explored later (\S{}8.2).
-% Pictorially, M C(\alpha )\bullet  looks like this:
-% \cdot  \cdot \cdot \cdot 
-%  \cdot  \cdot  Q Q
-%  Q Q Q
-%  Q Q Q Q Q / (
-% /Li+1
-%  M \oplus 
-% i
-%  R R R -di+1
-%  R i
-%  \alpha  R L\bullet 
-%  i+1 R
-%  R R R /) / M
-%  L
-% \oplus 
-%  i+2
-%  i+1
-%  Q Q Q
-%  Q
-%  Q
-%  Q
-%  Q Q Q
-%  Q(
-% // \cdot \cdot \cdot 
-%  \cdot \cdot \cdot 
-% dM \bullet 
-% There are evident morphisms of complexes M \bullet  \to  M C(\alpha )\bullet
-% and M C(\alpha )\bullet  \to  L[1]\bullet  ,
-% induced by the natural morphisms M i -\to  Li+1 \oplus M i -\to  Li+1 . Since
-% the sequences
-%  / M i
-%  / L[1]i \oplus  M i
-%  / L[1]i
-%  / 0
-% are all exact, the sequence of complexes
-%  / M \bullet 
-%  / M C(\alpha )\bullet 
-%  / L[1]\bullet 
-%  / 0
-% is exact.
-% Proposition 4.1. There is an exact triangle
-% \bullet  \bullet H (M )
-% \delta ?
-%  +1 ? ?
-%  ?
-%  ?
-%  ? ?
-%  A
-%  B B
-%  B B
-%  B B
-%  B B
-% H \bullet 
-%  (L[1]\bullet  )
-%  o
-%  H \bullet 
-%  (M C(\alpha )\bullet  )
-% where the connecting morphism \delta  is the morphism induced by \alpha \bullet
-% in cohomology.
-% Proof. The existence of the triangle is a direct consequence of Theorem 3.5; all
-% we
-% have to check is that the connecting morphism indeed agrees with the morphism
-% induced by \alpha \bullet  . Chasing the diagram
-% ..
-% .
-%  O..
-% . O
-% ..
-% . O
-% / M i
-% O
-% / M i-1
-% O
-% / Li+1 \oplus  M i
-% O
-% / Li \oplus  M O
-%  i-1
-% /Li+1
-%  O
-% / Li
-% O
-% //0
-% ..
-%  ..
-%  ..
-% .
-%  .
-%  .
-% with a class in H i-1 (L[1]\bullet  ) = H i (L\bullet  ) represented by \in  L i
-% (such that diL\bullet  ( ) = 0),
-% we find
-% \alpha i ( ) ?
-%  / (0, \alpha i( ))
-% O
-% ,
-% _
-% ( , 0) ?
-%  /
-% which verifies the claim.
-%  ?
-% Corollary 4.2. Let \alpha \bullet  : L\bullet  \to  M \bullet  be a morphism of
-% cochain complexes. Then
-% the induced morphism H \bullet  (L\bullet ) \to  H \bullet  (M \bullet  ) is an
-% isomorphism if and only if the
-% mapping cone M C(\alpha )\bullet  is an exact complex.
-% (Cf. Exercise 3.14.)
-% I should mention that mapping cones arose in topology: the mapping cone of
-% a continuous map f : X \to  Y is obtained by considering X \times  [0, 1],
-% identifying
-% X \times  0 to a point, and stitching X \times  1 to Y by means of f . Analyzing
-% chains of this
-% space leads to the (homological version of the) `algebraic' mapping cone
-% considered
-% above.
+Let $\alpha^\bullet : L^\bullet \to M^\bullet$ be a morphism of
+cochain complexes. The \emph{mapping cone} $MC(\alpha)^\bullet$ of
+$\alpha^\bullet$ will allow us to recover $H^\bullet(\alpha^\bullet)$
+as the connecting morphism in a long exact cohomology sequence, as
+constructed in \S{}3.3. In fact, the mapping cone will give us the
+third vertex of a `special' triangle (cf.\ the end of \S{}3.4):
+\[
+  (\dagger) \quad
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (M) at (1,1.3) {$M^\bullet$};
+    \node (L) at (0,0) {$L[1]^\bullet$};
+    \node (C) at (2,0) {$MC(\alpha)^\bullet$};
+    \draw[->] (M) -- (C);
+    \draw[->] (C) -- (L);
+    \draw[->] (L) -- (M) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+The degree-increasing morphism is the zero-morphism here (as in the
+`special' triangles encountered in \S{}3.4); but taking cohomology
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (M) at (1.7,1.3) {$H^\bullet(M^\bullet)$};
+    \node (L) at (0,0) {$H^\bullet(L[1]^\bullet)$};
+    \node (C) at (3.4,0) {$H^\bullet(MC(\alpha)^\bullet)$};
+    \draw[->] (M) -- (C);
+    \draw[->] (C) -- (L);
+    \draw[->] (L) -- (M) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+we will obtain morphisms
+\[
+  H^{i+1}(L^\bullet) = H^i(L[1]^\bullet) \longrightarrow H^{i+1}(M^\bullet)
+\]
+that, I claim, will be nothing but the morphisms induced in
+cohomology by the given morphism $\alpha^\bullet$. Thus, the
+morphisms induced in cohomology cannot be extended to exact sequences
+(that would clearly be asking too much), but they can be extended to
+triangles arising by applying cohomology to an appropriate exact
+sequence of complexes.
+
+Incidentally, the triangle $(\dagger)$ displayed above (but with the
+degree-increasing morphism replaced by $-\alpha^\bullet$) will be the
+prototype of the `distinguished triangles' mentioned in \S{}3.4 (cf.\
+\S{}9.2).
+
+\emph{Construction of the mapping cone.} The objects of
+$MC(\alpha)^\bullet$ are simply direct sums of objects of $L^\bullet$
+and $M^\bullet$:
+\[
+  MC(\alpha)^i := L[1]^i \oplus M^i = L^{i+1} \oplus M^i;
+\]
+but the morphisms $d^i_{MC(\alpha)^\bullet} : MC(\alpha)^i \to
+MC(\alpha)^{i+1}$ are not the `obvious' ones, but rather
+\[
+  d^i_{MC(\alpha)^\bullet}(\ell, m) := (-d^{i+1}_{L^\bullet}(\ell),
+  \alpha^{i+1}(\ell) + d^i_{M^\bullet}(m)).
+\]
+The sign in the first component is inherited from the shifting of
+$L^\bullet$; thus, the first component is simply the differential of
+$L[1]^\bullet$. The second component mixes $\alpha^\bullet$ (or
+rather its shift $\alpha[1]^\bullet$) and the differential of
+$M^\bullet$. The reader should verify that
+$d^{i+1}_{MC(\alpha)^\bullet} \circ d^i_{MC(\alpha)^\bullet} = 0$, so
+that $MC(\alpha)^\bullet$ is indeed a cochain complex
+(Exercise~4.1); this is where the sign comes in. The mapping cone is
+a special case of the `total complex' determined by a double
+complex, to be explored later (\S{}8.2).
+
+Pictorially, $MC(\alpha)^\bullet$ looks like this:
+\[\begin{tikzcd}[column sep=large, row sep=small]
+  \dots \arrow[r] & L^{i+1} \arrow[r, "-d^{i+1}_{L^\bullet}"] &
+    L^{i+2} \arrow[r] & \dots \\
+  & \oplus & \oplus & \\
+  \dots \arrow[r] & M^i \arrow[r, "d^i_{M^\bullet}"'] &
+    M^{i+1} \arrow[r] & \dots
+  \arrow[from=1-2, to=3-3, "\alpha^{i+1}" description]
+\end{tikzcd}\]
+There are evident morphisms of complexes $M^\bullet \to
+MC(\alpha)^\bullet$ and $MC(\alpha)^\bullet \to L[1]^\bullet$,
+induced by the natural morphisms $M^i \longrightarrow L^{i+1} \oplus
+M^i \longrightarrow L^{i+1}$. Since the sequences
+\[
+  0 \longrightarrow M^i \longrightarrow L[1]^i \oplus M^i
+  \longrightarrow L[1]^i \longrightarrow 0
+\]
+are all exact, the sequence of complexes
+\[
+  0 \longrightarrow M^\bullet \longrightarrow MC(\alpha)^\bullet
+  \longrightarrow L[1]^\bullet \longrightarrow 0
+\]
+is exact.
+\begin{prop}{}{homol:4.1}
+  There is an exact triangle
+  \[
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \node (M) at (1.7,1.3) {$H^\bullet(M^\bullet)$};
+      \node (L) at (0,0) {$H^\bullet(L[1]^\bullet)$};
+      \node (C) at (3.4,0) {$H^\bullet(MC(\alpha)^\bullet)$};
+      \draw[->] (M) -- (C);
+      \draw[->] (C) -- (L);
+      \draw[->] (L) -- (M) node[midway, left] {$\substack{+1 \\ \delta}$};
+    \end{tikzpicture}
+  \]
+  where the connecting morphism $\delta$ is the morphism induced by
+  $\alpha^\bullet$ in cohomology.
+\end{prop}
+
+\begin{proof}
+  The existence of the triangle is a direct consequence of
+  Theorem~3.5; all we have to check is that the connecting morphism
+  indeed agrees with the morphism induced by $\alpha^\bullet$.
+  Chasing the diagram
+  \[\begin{tikzcd}[column sep=small]
+    & \vdots & \vdots & \vdots & \\
+    0 \arrow[r] & M^i \arrow[r] \arrow[u] &
+      L^{i+1} \oplus M^i \arrow[r] \arrow[u] & L^{i+1} \arrow[r] \arrow[u] & 0 \\
+    0 \arrow[r] & M^{i-1} \arrow[r] \arrow[u] &
+      L^i \oplus M^{i-1} \arrow[r] \arrow[u] & L^i \arrow[r] \arrow[u] & 0 \\
+    & \vdots \arrow[u] & \vdots \arrow[u] & \vdots \arrow[u] &
+  \end{tikzcd}\]
+  with a class in $H^{i-1}(L[1]^\bullet) = H^i(L^\bullet)$
+  represented by $\ell \in L^i$ (such that $d^i_{L^\bullet}(\ell) =
+  0$), we find that $\alpha^i(\ell)$, viewed as an element of
+  $MC(\alpha)^i$ via $(0, \alpha^i(\ell))$, is cohomologous to
+  $(\ell, 0)$,
+  % TODO: diagram chase verifying (0, alpha^i(ell)) and (ell, 0)
+  % represent the same class in MC(alpha)^i (page 607)
+  which maps to $\ell$ under $MC(\alpha)^\bullet \to L[1]^\bullet$;
+  this verifies the claim.
+\end{proof}
+
+\begin{coro}{}{homol:4.2}
+  Let $\alpha^\bullet : L^\bullet \to M^\bullet$ be a morphism of
+  cochain complexes. Then the induced morphism
+  $H^\bullet(L^\bullet) \to H^\bullet(M^\bullet)$ is an isomorphism
+  if and only if the mapping cone $MC(\alpha)^\bullet$ is an exact
+  complex.
+
+  (Cf.\ Exercise~3.14.)
+\end{coro}
+
+I should mention that mapping cones arose in topology: the mapping
+cone of a continuous map $f : X \to Y$ is obtained by considering
+$X \times [0,1]$, identifying $X \times 0$ to a point, and stitching
+$X \times 1$ to $Y$ by means of $f$. Analyzing chains of this space
+leads to the (homological version of the) `algebraic' mapping cone
+considered above.
 
 \subsection{Quasi-isomorphisms and derived categories}
 \label{subsec:homol:quasi-isomorphisms-and-derived-categories}
-% A component of our main
 
-% strategy consists of understanding when cochain complexes `have a good reason'
-% to have the same cohomology. Corollary 4.2 provides us with such a reason. The
-% morphisms singled out in that statement have a name:
-% Definition 4.3. A morphism \alpha \bullet  of cochain complexes is a
-% quasi-isomorphism if it
-% induces an isomorphism in cohomology.
-%  ?
-% By Corollary 4.2, this condition is equivalent to the exactness of the mapping
-% cone of \alpha \bullet  .
-% \bullet Example 4.4. The datum of a resolution M of an object A of an abelian cate-
-% gory A, as in Definition 3.2 and with M i = 0 for i > 0, is the same as the
-% datum
-% of a quasi-isomorphism
-% M \bullet 
-%  q-iso.
-%  / \iota (A)
-% where \iota  places A in degree 0 and 0 in all other degrees. Here is a larger
-% version of
-% the same diagram:
-% -2
-%  -1
-%  0\cdot \cdot \cdot 
-%  / M -2
-%  dM \bullet 
-%  / M -1
-%  dM \bullet 
-%  / M 0
-%  dM \bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / A
-%  / 0
-%  / \cdot \cdot \cdot 
-% -1
-% where the only nontrivial vertical map is the cokernel of dM \bullet  .
-% ?
-% Thus, quasi-isomorphisms may be viewed as generalizations of more simple-
-% minded resolutions. Also note that the mapping cone of a resolution as in Exam-
-% ple 4.4 is obtained (as the reader should check) by shifting the complex `one
-% step
-% to the left' and completing it with A, obtaining the exact complex:
-% -d-1
-%  M \bullet 
-%  coker d-1
-%  M \bullet 
-% \cdot \cdot \cdot 
-%  / M -1
-%  / M 0
-%  / A
-%  / 0
-%  / \cdot \cdot \cdot  .
-% This is nothing but our other point of view on resolutions (as in \S{}VI.4.2).
-% Remark 4.5. Quasi-isomorphisms with fixed target (resp., source) form a category
-% in a natural way, which I will leave to the reader to make precise. In
-% particular,
-% \leq 0 \geq 0resolutions in C (A) (resp., C (A)) of a given object of A, as in Example 4.4,
-% form a category.
-%  ?
-% Wouldn't it be nice if quasi-isomorphisms were actual isomorphisms, that is,
-% if they were invertible? In general, they are not. The following example will
-% arise
-% several times to ward off any such hopes.
-% Example 4.6. In C(Ab), the morphism of complexes
-% \cdot \cdot \cdot 
-%  / 0
-%  / Z
-%  \cdot 2
-%  / Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% \pi 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / 2Z
-%  Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% where \pi  is the natural projection, is a quasi-isomorphism, but it does not
-% have an
-% inverse since there are no nontrivial homomorphisms Z/2Z \to  ?
-%  Z.
-%  ?
-% In fact, this example shows that `quasi-isomorphism' is not even an equivalence
-% relation (it is not symmetric). This is too bad---if it were, then the
-% `equivalence
-% class of a complex' would be the most natural candidate for the entity carrying
-% the
-% maximal amount of cohomological information of a complex.
-% I will stop short of defining a `quasi-isomorphism relation': in this book,
-% quasi-
-% isomorphism is simply a particular quality of a morphism of cochain complexes,
-% not
-% a relation. In any case recall that, even in the context of sets, taking the
-% quotient
-% by an equivalence relation is not the `primary' object of interest: the quotient
-% is
-% just the solution to the natural universal problem of studying functions to
-% other
-% sets with identical behavior on `equivalent' elements. This is the primary
-% objective.
-% Similarly, the primary objective in the present context is not so much to
-% identify
-% together all complexes linked by a quasi-isomorphism, as it is to be able to
-% shuttle
-% information back and forth between such complexes. The natural way to accomplish
-% this is to study environments in which quasi-isomorphisms do have inverses. More
-% precisely, it consists of studying additive functors
-% F : C(A) -\to  D
-% such that F (\rho \bullet 
-%  ) is an isomorphism for every quasi-isomorphism \rho \bullet  . (Cohomology
-% is such a functor.)
-% This sounds like yet another universal problem, and the natural line of attack
-% would be to solve it as such, that is, to define (if possible) a category D(A)
-% endowed
-% with an additive functor C(A) \to  D(A) such that quasi-isomorphisms in C(A) are
-% mapped to isomorphisms in D(A) and through which every F as above must factor
-% uniquely:
-% C(A)
-%  F
-%  / D
-% \sqcup  |
-%  |
-%  | | | \exists !
-%  |
-%  |
-%  | =
-% D(A)
-% To be honest, we should take such a statement with a grain of salt: the natural
-% environment in which we should pose this universal problem would be a `category
-% of categories', and we have not defined such a thing in this book. A category
-% D(A)
-% as above does exist, at least if a certain `localization' process can be carried
-% out23 :
-% it is the derived category of A. `Bounded' versions D- (A), D+ (A), and more,
-% are
-% solutions to the corresponding universal problems for appropriately bounded com-
-% plexes.
-% These derived categories answer the main question underlying our strategy, of
-% understanding `what' in a complex really determines its cohomology: the answer
-% amounts to viewing the complex in the appropriate derived category. The con-
-% struction of D(A) consists roughly of taking the same objects as C(A) and
-% formally
-% inverting the quasi-isomorphisms. The details of this construction are somewhat
-% involved and are best left to more advanced texts. But we will be able to
-% capture its
-% essence in this book, at least in lucky cases (when the abelian category has
-% `enough
-% injectives' or `enough projectives'; see Definition 5.7).
-% The derived category has the unfortunate reputation of being an overly abstract
-% notion, and there are fundamental questions about whether it really is the best
-% approach to an abstract study of cohomology. This is partly because the derived
-% category of an abelian category is not an abelian category and simple notions
-% such as
-% kernel, cokernel, exact sequences are not available in D(A). This adds a
-% substantial
-% layer of complication to the theory.
-% On the other hand, going past these difficulties, one finds that enough
-% structure
-% remains to do much homological algebra: objects in D(A) have cohomology, and
-% there are `distinguished triangles' (cf. \S{}3.4) abstracting exact sequences
-% and giving
-% 23 There may be set-theoretic issues with this process. However, these play no
-% role in the
-% cases we will consider, in which A has `enough projectives' or `enough
-% injectives'.
-% long exact cohomology sequences. The derived category is a triangulated
-% category,
-% like the more manageable homotopic category K(A) that we will soon define. Its
-% uses go beyond the confines of algebra or even mathematics: an approach to the
-% understanding of `D-branes' in string theory is based on derived categories.
-% To get a sense of how counterintuitive D(A) must be, note that the zero-
-% morphism 0 : M \bullet  \to  M \bullet  may well be a quasi-isomorphism: in
-% fact, this is so
-% \bullet precisely when M is exact. Well, in any category D as above (and in particular
-% in the derived category D(A)) this zero-morphism remains the zero-morphism, but
-% it comes equipped with an inverse when it is a quasi-isomorphism. Thus, in the
-% derived category the zero-morphism on a complex involving nonzero objects may
-% well be invertible! This says that complexes that are nonzero in C(A) may become
-% zero-objects in the derived category.
-% Lemma 4.7. Let D be an additive category, and let F : C(A) \to  D be an additive
-% functor such that F (\rho \bullet  ) is an isomorphism for every
-% quasi-isomorphism \rho \bullet .
-% \bullet  Let M \bullet  be an exact complex in C(A). Then the complex F (M \bullet  ), obtained by
-% applying F to the objects and morphisms of M \bullet  , is a zero-object in D.
-% \bullet  Let \alpha \bullet  : L\bullet  \to  N \bullet  be a morphism in C(A) that factors through an exact
-% complex,
-% L\bullet <
-%  < <
-%  < <
-%  < ?
-%  \alpha 
-% \bullet 
-%  / N @
-%  \bullet 
-%  ,
-% \bullet 
-% M
-% with M \bullet 
-%  exact. Then F (\alpha \bullet 
-% ) is the zero-morphism.
-% Proof. The second claim follows from the first, since by applying F to the given
-% diagram we obtain
-% F (\alpha \bullet  )
-% F (L\bullet  )
-%  / F (N \bullet )
-% A A
-%  A A
-%  A A
-%  | |
-%  |
-%  | |
-%  | >
-%  ,
-% F (M \bullet 
-%  )
-% and we see that F (\alpha \bullet  ) factors through a zero-object of D.
-% To verify the first claim, note that since M \bullet  is exact, the
-% zero-morphism: M \bullet  \to
-% M \bullet  is a quasi-isomorphism; hence it is mapped to an invertible morphism
-% by F :
-% F (M \bullet )
-%  F (0)
-%  / F (M \bullet  ) F (0)-1
-%  /3
-%  F (M \bullet )
-% idF (M \bullet  )
-% Since F is additive, F (0) = 0. It follows that idF (M \bullet  ) = 0 and hence
-% that F (M \bullet )
-% is a zero-object of D, by Exercise 1.6.
-%  ?
-% In the next several sections I will chase the notion of derived category, aiming
-% to understand it rather concretely in particularly favorable circumstances. We
-% will
-% take it for granted that these categories exist. A detailed definition of these
-% objects,
-% or a treatment of triangulated categories, is beyond the scope of this book.
+A component of our main strategy consists of understanding when
+cochain complexes `have a good reason' to have the same cohomology.
+Corollary~4.2 provides us with such a reason. The morphisms singled
+out in that statement have a name:
+
+\begin{defn}{}{homol:4.3}
+  A morphism $\alpha^\bullet$ of cochain complexes is a
+  \emph{quasi-isomorphism} if it induces an isomorphism in
+  cohomology.
+\end{defn}
+
+By Corollary~4.2, this condition is equivalent to the exactness of
+the mapping cone of $\alpha^\bullet$.
+
+\begin{exam}{}{homol:4.4}
+  The datum of a resolution $M^\bullet$ of an object $A$ of an
+  abelian category $\mathsf{A}$, as in Definition~3.2 and with
+  $M^i = 0$ for $i > 0$, is the same as the datum of a
+  quasi-isomorphism
+  \[
+    M^\bullet \xrightarrow{\text{q-iso.}} \iota(A)
+  \]
+  where $\iota$ places $A$ in degree $0$ and $0$ in all other
+  degrees. Here is a larger version of the same diagram:
+  \[\begin{tikzcd}[column sep=small]
+    \dots \arrow[r] & M^{-2} \arrow[r, "d^{-2}_{M^\bullet}"] \arrow[d] &
+      M^{-1} \arrow[r, "d^{-1}_{M^\bullet}"] \arrow[d] &
+      M^0 \arrow[r, "d^0_{M^\bullet}"] \arrow[d] & 0 \arrow[r] \arrow[d] & \dots \\
+    \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & A \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  where the only nontrivial vertical map is the cokernel of
+  $d^{-1}_{M^\bullet}$.
+\end{exam}
+
+Thus, quasi-isomorphisms may be viewed as generalizations of more
+simple-minded resolutions. Also note that the mapping cone of a
+resolution as in Example~4.4 is obtained (as the reader should check)
+by shifting the complex `one step to the left' and completing it with
+$A$, obtaining the \emph{exact} complex:
+\[
+  \dots \longrightarrow M^{-1} \xrightarrow{-d^{-1}_{M^\bullet}} M^0
+  \xrightarrow{\operatorname{coker}d^{-1}_{M^\bullet}} A
+  \longrightarrow 0 \longrightarrow \dots.
+\]
+This is nothing but our other point of view on resolutions (as in
+\S{}VI.4.2).
+
+\begin{rem}{}{homol:4.5}
+  Quasi-isomorphisms with fixed target (resp., source) form a
+  category in a natural way, which I will leave to the reader to make
+  precise. In particular, resolutions in $\mathsf{C}^{\leq 0}(\mathsf{A})$
+  (resp., $\mathsf{C}^{\geq 0}(\mathsf{A})$) of a given object of
+  $\mathsf{A}$, as in Example~4.4, form a category.
+\end{rem}
+
+Wouldn't it be nice if quasi-isomorphisms were actual isomorphisms,
+that is, if they were invertible? In general, they are not. The
+following example will arise several times to ward off any such
+hopes.
+
+\begin{exam}{}{homol:4.6}
+  In $\mathsf{C}(\mathsf{Ab})$, the morphism of complexes
+  \[\begin{tikzcd}[column sep=small]
+    \dots \arrow[r] & 0 \arrow[r] \arrow[d] &
+      \mathbb{Z} \arrow[r, "\cdot 2"] \arrow[d] &
+      \mathbb{Z} \arrow[r] \arrow[d, "\pi"] & 0 \arrow[r] \arrow[d] & \dots \\
+    \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] &
+      \dfrac{\mathbb{Z}}{2\mathbb{Z}} \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  where $\pi$ is the natural projection, is a quasi-isomorphism, but
+  it does not have an inverse since there are no nontrivial
+  homomorphisms $\mathbb{Z}/2\mathbb{Z} \to \mathbb{Z}$.
+\end{exam}
+
+In fact, this example shows that `quasi-isomorphism' is not even an
+equivalence relation (it is not symmetric). This is too bad---if it
+were, then the `equivalence class of a complex' would be the most
+natural candidate for the entity carrying the maximal amount of
+cohomological information of a complex.
+
+I will stop short of defining a `quasi-isomorphism relation': in this
+book, quasi-isomorphism is simply a particular quality of a morphism
+of cochain complexes, not a relation. In any case recall that, even
+in the context of sets, taking the quotient by an equivalence
+relation is not the `primary' object of interest: the quotient is
+just the solution to the natural universal problem of studying
+functions to other sets with identical behavior on `equivalent'
+elements. \emph{This} is the primary objective.
+
+Similarly, the primary objective in the present context is not so
+much to identify together all complexes linked by a
+quasi-isomorphism, as it is to be able to shuttle information back
+and forth between such complexes. The natural way to accomplish this
+is to study environments in which quasi-isomorphisms do have
+inverses. More precisely, it consists of studying additive functors
+\[
+  \mathscr{F} : \mathsf{C}(\mathsf{A}) \longrightarrow \mathsf{D}
+\]
+such that $\mathscr{F}(\rho^\bullet)$ is an isomorphism for every
+quasi-isomorphism $\rho^\bullet$. (Cohomology is such a functor.)
+
+This sounds like yet another universal problem, and the natural line
+of attack would be to solve it as such, that is, to define (if
+possible) a category $\mathsf{D}(\mathsf{A})$ endowed with an
+additive functor $\mathsf{C}(\mathsf{A}) \to \mathsf{D}(\mathsf{A})$
+such that quasi-isomorphisms in $\mathsf{C}(\mathsf{A})$ are mapped
+to isomorphisms in $\mathsf{D}(\mathsf{A})$ and through which every
+$\mathscr{F}$ as above must factor uniquely:
+\[\begin{tikzcd}
+  \mathsf{C}(\mathsf{A}) \arrow[r, "\mathscr{F}"] \arrow[d] & \mathsf{D} \\
+  \mathsf{D}(\mathsf{A}) \arrow[ur, dashed, "\exists!"']
+\end{tikzcd}\]
+To be honest, we should take such a statement with a grain of salt:
+the natural environment in which we should pose this universal
+problem would be a `category of categories', and we have not defined
+such a thing in this book. A category $\mathsf{D}(\mathsf{A})$ as
+above \emph{does} exist, at least if a certain `localization' process
+can be carried out\footnote{There may be set-theoretic issues with
+this process. However, these play no role in the cases we will
+consider, in which $\mathsf{A}$ has `enough projectives' or `enough
+injectives'.}: it is the \emph{derived category} of $\mathsf{A}$.
+`Bounded' versions $\mathsf{D}^-(\mathsf{A})$,
+$\mathsf{D}^+(\mathsf{A})$, and more, are solutions to the
+corresponding universal problems for appropriately bounded complexes.
+
+These derived categories answer the main question underlying our
+strategy, of understanding `what' in a complex really determines its
+cohomology: the answer amounts to viewing the complex in the
+appropriate derived category. The construction of
+$\mathsf{D}(\mathsf{A})$ consists roughly of taking the same objects
+as $\mathsf{C}(\mathsf{A})$ and formally inverting the
+quasi-isomorphisms. The details of this construction are somewhat
+involved and are best left to more advanced texts. But we will be
+able to capture its essence in this book, at least in lucky cases
+(when the abelian
+category has `enough injectives' or `enough projectives'; see
+Definition~5.7).
+
+The derived category has the unfortunate reputation of being an
+overly abstract notion, and there are fundamental questions about
+whether it really is the best approach to an abstract study of
+cohomology. This is partly because the derived category of an
+abelian category is \emph{not} an abelian category and simple
+notions such as kernel, cokernel, exact sequences are not available
+in $\mathsf{D}(\mathsf{A})$. This adds a substantial layer of
+complication to the theory.
+
+On the other hand, going past these difficulties, one finds that
+enough structure remains to do much homological algebra: objects in
+$\mathsf{D}(\mathsf{A})$ have cohomology, and there are
+`distinguished triangles' (cf.\ \S{}3.4) abstracting exact sequences
+and giving long exact cohomology sequences. The derived category is a
+\emph{triangulated category}, like the more manageable homotopic
+category $\mathsf{K}(\mathsf{A})$ that we will soon define. Its uses
+go beyond the confines of algebra or even mathematics: an approach to
+the understanding of `D-branes' in string theory is based on derived
+categories.
+
+To get a sense of how counterintuitive $\mathsf{D}(\mathsf{A})$ must
+be, note that the zero-morphism $0 : M^\bullet \to M^\bullet$ may
+well be a quasi-isomorphism: in fact, this is so precisely when
+$M^\bullet$ is exact. Well, in any category $\mathsf{D}$ as above
+(and in particular in the derived category $\mathsf{D}(\mathsf{A})$)
+this zero-morphism remains the zero-morphism, \emph{but} it comes
+equipped with an inverse when it is a quasi-isomorphism. Thus, in the
+derived category the zero-morphism on a complex involving nonzero
+objects may well be invertible! This says that complexes that are
+nonzero in $\mathsf{C}(\mathsf{A})$ may become zero-objects in the
+derived category.
+
+\begin{lem}{}{homol:4.7}
+  Let $\mathsf{D}$ be an additive category, and let
+  $\mathscr{F} : \mathsf{C}(\mathsf{A}) \to \mathsf{D}$ be an additive
+  functor such that $\mathscr{F}(\rho^\bullet)$ is an isomorphism for
+  every quasi-isomorphism $\rho^\bullet$.
+  \begin{itemize}
+  \item Let $M^\bullet$ be an exact complex in $\mathsf{C}(\mathsf{A})$.
+    Then the complex $\mathscr{F}(M^\bullet)$, obtained by applying
+    $\mathscr{F}$ to the objects and morphisms of $M^\bullet$, is a
+    zero-object in $\mathsf{D}$.
+  \item Let $\alpha^\bullet : L^\bullet \to N^\bullet$ be a morphism
+    in $\mathsf{C}(\mathsf{A})$ that factors through an exact
+    complex,
+    \[\begin{tikzcd}
+      L^\bullet \arrow[rr, "\alpha^\bullet"] \arrow[dr] & & N^\bullet \\
+      & M^\bullet \arrow[ur]
+    \end{tikzcd}\]
+    with $M^\bullet$ exact. Then $\mathscr{F}(\alpha^\bullet)$ is the
+    zero-morphism.
+  \end{itemize}
+\end{lem}
+
+\begin{proof}
+  The second claim follows from the first, since by applying
+  $\mathscr{F}$ to the given diagram we obtain
+  \[\begin{tikzcd}
+    \mathscr{F}(L^\bullet) \arrow[rr, "\mathscr{F}(\alpha^\bullet)"]
+      \arrow[dr] & & \mathscr{F}(N^\bullet) \\
+    & \mathscr{F}(M^\bullet) \arrow[ur]
+  \end{tikzcd}\]
+  and we see that $\mathscr{F}(\alpha^\bullet)$ factors through a
+  zero-object of $\mathsf{D}$.
+
+  To verify the first claim, note that since $M^\bullet$ is exact,
+  the zero-morphism $M^\bullet \to M^\bullet$ is a
+  quasi-isomorphism; hence it is mapped to an invertible morphism by
+  $\mathscr{F}$:
+  \[
+    \underbrace{\mathscr{F}(M^\bullet) \xrightarrow{\mathscr{F}(0)}
+    \mathscr{F}(M^\bullet) \xrightarrow{\mathscr{F}(0)^{-1}}
+    \mathscr{F}(M^\bullet)}_{\operatorname{id}_{\mathscr{F}(M^\bullet)}}
+  \]
+  Since $\mathscr{F}$ is additive, $\mathscr{F}(0) = 0$. It follows
+  that $\operatorname{id}_{\mathscr{F}(M^\bullet)} = 0$ and hence
+  that $\mathscr{F}(M^\bullet)$ is a zero-object of $\mathsf{D}$, by
+  Exercise~1.6.
+\end{proof}
+
+In the next several sections I will chase the notion of derived
+category, aiming to understand it rather concretely in particularly
+favorable circumstances. \emph{We will take it for granted that
+these categories exist.} A detailed definition of these objects, or a
+treatment of triangulated categories, is beyond the scope of this
+book.
 
 \subsection{Homotopy}
 \label{subsec:homol:homotopy}
