@@ -1816,93 +1816,78 @@ may mean and how it may be accomplished.
 
 \subsection{Universal property}
 \label{subsec:groups:universal-property}
-% Hoping that the reader has now acquired an individual
+Hoping that the reader has now acquired an individual viewpoint on the
+issue, here is the standard answer: the heuristic motivation is formalized
+by means of a suitable universal property. Given a set $A$, our group
+$F(A)$ will have to `contain' $A$; therefore it is natural to consider the
+category $\mathscr{F}^A$ whose objects are pairs $(j, G)$, where $G$ is a
+group and
+\[
+  j : A \to G
+\]
+is a set-function\footnote{We could assume that $j$ is \emph{injective},
+identifying $A$ with a subset of $G$; the construction would be completely
+analogous, and the resulting group would be the same. However, considering
+arbitrary functions leads to a stronger, more useful, universal property.}
+from $A$ to $G$ and morphisms
+\[
+  (j_1, G_1) \to (j_2, G_2)
+\]
+are \emph{commutative} diagrams of set-functions
+\[
+\begin{tikzcd}
+  G_1 \arrow[r, "\varphi"] & G_2 \\
+  A \arrow[u, "j_1"] \arrow[ur, "j_2"'] &
+\end{tikzcd}
+\]
+in which $\varphi$ is required to be a \emph{group homomorphism}.
 
-% viewpoint on the issue, here is the standard answer: the heuristic motivation is
-% formalized by means of a suitable universal property. Given a set A, our group F
-% (A)
-% will have to `contain' A; therefore it is natural to consider the category F A
-% whose
-% objects are pairs (j, G), where G is a group and
-% j : A \to  G
-% is a set-function21 from A to G and morphisms
-% (j1 , G1 ) \to  (j2 , G2 )
-% are commutative diagrams of set-functions
-% G1
-%  \phi 
-%  / G2
-% j1
-%  O { { { { { j
-%  {
-%  {
-%  { =
-% A
-% in which \phi  is required to be a group homomorphism.
-% The reader will be reminded of the categories we considered in Example I.3.7:
-% the only difference here is that we are mixing objects and morphisms of one
-% cate-
-% gory (that is, Grp) with objects and morphisms of another (related) category
-% (that
-% is, Set). The fact that we are considering all possible functions A \to  G is a
-% way to
-% implement the fact that we have no a priori group-theoretic information about A:
-% we do not want to put any restriction on what may happen to the elements of A
-% once they are mapped to a group G; hence we consider all possibilities at once.
-% A free group F (A) on A will be (the group component of) an initial object
-% in F A . This choice implements the fact that A should map to F (A) in the `most
-% efficient way': any other way to map A to a group can be reconstructed from
-% this one, by composing with a group homomorphism. In the language of universal
-% properties, we can state this as follows: F (A) is a free group on the set A if
-% there is a
-% set-function j : A \to  F (A) such that, for all groups G and set-functions f :
-% A \to  G,
-% there exists a unique group homomorphism \phi  : F (A) \to  G such that the
-% diagram
-% F (A)
-%  \phi 
-%  / G
-% j
-%  O
-%  z z
-%  z
-%  z z z f
-%  z
-%  z
-%  z =
-% A
-% commutes. By general nonsense (Proposition I.5.4), this universal property de-
-% fines F (A) up to isomorphism, if this group exists. But does F (A) exist?
-% Before giving a `concrete' construction of F (A), let's check that if A = {a} is
-% a singleton, then F (A) \sim 
-%  = Z, as proposed in \S{}5.1. The function j : A \to  Z will send
-% a to 1 \in  Z. For any group G, giving a set-function f : A \to  G amounts to
-% choosing
-% 21 We could assume that j is injective, identifying A with a subset of G; the
-% construction
-% would be completely analogous, and the resulting group would be the same.
-% However, considering
-% arbitrary functions leads to a stronger, more useful, universal property.
-% one element g = f (a) \in  G. Now there is a unique homomorphism \phi  : Z \to
-% G
-% making the diagram
-% j
-%  Z O
-%  }
-%  }
-%  } \phi 
-%  } } f
-%  }
-%  }
-%  } / >
-%  G
-% {a}
-% commute: because this forces \phi (1) = \phi  \circ  j(a) = f (a) = g, and then
-% the homo-
-% morphism condition forces \phi (n) = g n . That is, \phi  is necessarily the
-% exponential
-% map ?g considered in \S{}4.1. Therefore, infinite cyclic groups do satisfy the
-% universal
-% property for free groups over a singleton.
+The reader will be reminded of the categories we considered in
+Example~I.3.7: the only difference here is that we are mixing objects and
+morphisms of one category (that is, $\mathsf{Grp}$) with objects and
+morphisms of \emph{another} (related) category (that is, $\mathsf{Set}$).
+The fact that we are considering all possible functions $A \to G$ is a way
+to implement the fact that we have no \emph{a priori} group-theoretic
+information about $A$: we do not want to put any restriction on what may
+happen to the elements of $A$ once they are mapped to a group $G$; hence we
+consider all possibilities at once.
+
+A \emph{free group} $F(A)$ on $A$ will be (the group component of) an
+\emph{initial} object in $\mathscr{F}^A$. This choice implements the fact
+that $A$ should map to $F(A)$ in the `most efficient way': any other way to
+map $A$ to a group can be reconstructed from this one, by composing with a
+group homomorphism. In the language of universal properties, we can state
+this as follows: $F(A)$ is a free group on the set $A$ if there is a
+set-function $j : A \to F(A)$ such that, for all groups $G$ and
+set-functions $f : A \to G$, \emph{there exists a unique} group
+homomorphism $\varphi : F(A) \to G$ such that the diagram
+\[
+\begin{tikzcd}
+  F(A) \arrow[r, "\varphi"] & G \\
+  A \arrow[u, "j"] \arrow[ur, "f"'] &
+\end{tikzcd}
+\]
+commutes. By general nonsense (Proposition~I.5.4), this universal property
+defines $F(A)$ up to isomorphism, \emph{if this group exists}. But does
+$F(A)$ exist?
+
+Before giving a `concrete' construction of $F(A)$, let's check that if
+$A = \{a\}$ is a singleton, then $F(A) \cong \mathbb{Z}$, as proposed in
+\S{}5.1. The function $j : A \to \mathbb{Z}$ will send $a$ to
+$1 \in \mathbb{Z}$. For any group $G$, giving a set-function $f : A \to G$
+amounts to choosing one element $g = f(a) \in G$. Now \emph{there is a
+unique} homomorphism $\varphi : \mathbb{Z} \to G$ making the diagram
+\[
+\begin{tikzcd}
+  \mathbb{Z} \arrow[r, "\varphi"] & G \\
+  \{a\} \arrow[u, "j"] \arrow[ur, "f"'] &
+\end{tikzcd}
+\]
+commute: because this forces $\varphi(1) = \varphi \circ j(a) = f(a) = g$,
+and then the homomorphism condition forces $\varphi(n) = g^n$. That is,
+$\varphi$ is necessarily the exponential map $\varphi_g$ considered in
+\S{}4.1. Therefore, infinite cyclic groups do satisfy the universal
+property for free groups over a singleton.
 
 \subsection{Concrete construction}
 \label{subsec:groups:concrete-construction}
