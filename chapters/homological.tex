@@ -1828,79 +1828,85 @@ Finally, let's check that the functor is exact:
   Lemma~\ref{homol:2.7}, these conditions are equivalent.
 \end{proof}
 
-\subsection{What is missing? Pretty as it is, the construction presented in the previous}
-\label{subsec:homol:what-is-missing-pretty-as-it-is-the-construction-presented-in-the-previous}
+\subsection{What is missing?}
+\label{subsec:homol:what-is-missing}
 
-% section has several shortcomings:
-% \bullet  The structure of `pointed set' is less rigid than, say, that of an abelian group;
-% since Ab is itself an abelian category, it would be more natural to land in Ab
-% than Set\ast  , if possible10 .
-% \bullet  While we can check that a diagram commutes in A by performing some com-
-% \ast putation in Set (cf. the comments following Lemma 2.5), I have stopped short
-% of claiming that the functor A \to  \^{A} is faithful, that is, that it induces
-% injective
-% functions HomA (A, B) \to  HomSet \ast  ( \^{A}, \hat{B}) for all A, B. In fact,
-% the functor is
-% not faithful (Exercise 2.10).
-% 10 One way to do this would be to take the colimit in Ab rather than Set\ast ,
-% but I will not
-% pursue this possibility here.
-% \bullet  The functor A \to  Set\ast  is not full; that is, it is not surjective on Hom-sets. In
-% other words, there will be many functions of pointed sets that are not induced
-% by morphisms in A. Thus, we cannot use `elements' to construct morphisms
-% in A: the arrow-theoretic work performed in \S{}2.2 in order to construct the
-% con-
-% necting morphism remains necessary (even if the properties of this morphism
-% can then be verified by using `elements').
-% Here another miracle occurs: it is in fact possible to construct fully faithful,
-% exact functors from any given (small) abelian category to a category of modules.
-% Here is the precise statement, which will be left without proof in this book:
-% Theorem 2.9 (Freyd-Mitchell theorem). Let A be a small abelian category. Then
-% there is a fully faithful, exact functor A \to  R-Mod for a suitable ring R.
-% Caveat: In this statement R is not necessarily commutative; R-Mod denotes
-% the category of left-R-modules.
-% For a reminder on the full & faithful terminology, see Definition VIII.1.6.
-% Briefly, a functor F : A \to  C is fully faithful if it induces a bijection HomA
-% (A, B) \to
-% HomC(F (A), F (B)) for all objects A, B in A. In practice, such a functor
-% identifies
-% A with a subcategory of C. The exactness (cf. Example VIII.1.18) of the functor
-% A \to  R-Mod ensures that kernels and cokernels match in the two environments,
-% and
-% so on (note that the functor is automatically faithfully exact; see Exercise
-% 2.16):
-% everything we laboriously checked in \S{}2.3 for our poor man's functor A \to
-% Set\ast
-% holds for the much fancier functor provided by the Freyd-Mitchell theorem.
-% This functor is fully faithful: this means that one can in fact construct mor-
-% phisms in an arbitrary (small) abelian category by working with elements.
-% Indeed,
-% this amounts to constructing the appropriate morphisms in the ambient category
-% R-Mod, and fullness guarantees that these morphisms `already' exist in A.
-% So, at the end of the day we are really allowed to forget all our
-% arrow-theoretic
-% work. Element-theoretic considerations suffice, even for the purpose of
-% constructing
-% morphisms such as the `connecting morphism' discussed in \S{}2.2. Monomorphisms
-% really can be assimilated with `subobjects', and `quotients' in an abelian
-% category
-% really are quotients in the ordinary sense.
-% This is impressive: it says that doing homological algebra in the category of
-% left-modules over a ring is essentially as general as doing it in an arbitrary
-% (small)
-% abelian category, at least for what concerns constructions that do not require
-% the
-% category to have special objects (such considerations will play a role in \S{}5
-% and
-% following). In the rest of the chapter I will adopt the common compromise of
-% dis-
-% cussing the basic notions of homological algebra in the context of abelian
-% categories
-% while reverting back to element-theoretic considerations whenever this makes
-% life
-% substantially easier. The Freyd-Mitchell theorem allows us to do this
-% unapologeti-
-% cally, and often so would the simpler considerations of \S{}2.3.
+Pretty as it is, the construction presented in the previous section
+has several shortcomings:
+\begin{itemize}
+  \item The structure of `pointed set' is less rigid than, say, that
+    of an abelian group; since $\categ{Ab}$ is itself an abelian
+    category, it would be more natural to land in $\categ{Ab}$ than
+    $\categ{Set}^*$, if possible.\footnote{One way to do this would be
+    to take the colimit in $\categ{Ab}$ rather than $\categ{Set}^*$,
+    but I will not pursue this possibility here.}
+  \item While we can check that a diagram commutes in $\mathsf{A}$ by
+    performing some computation in $\categ{Set}^*$ (cf.\ the comments
+    following Lemma~\ref{homol:2.5}), I have stopped short of claiming
+    that the functor $\mathsf{A} \to \hat{A}$ is \emph{faithful}, that
+    is, that it induces injective functions
+    $\operatorname{Hom}_{\mathsf{A}}(A,B) \to
+    \operatorname{Hom}_{\categ{Set}^*}(\hat{A},\hat{B})$ for all $A$,
+    $B$. In fact, the functor is \emph{not} faithful (Exercise~2.10).
+  \item The functor $\mathsf{A} \to \categ{Set}^*$ is not \emph{full};
+    that is, it is not surjective on Hom-sets. In other words, there
+    will be many functions of pointed sets that are not induced by
+    morphisms in $\mathsf{A}$. Thus, we cannot use `elements' to
+    construct morphisms in $\mathsf{A}$: the arrow-theoretic work
+    performed in \S{}2.2 in order to construct the connecting morphism
+    remains necessary (even if the properties of this morphism can
+    then be verified by using `elements').
+\end{itemize}
+Here another miracle occurs: it is in fact possible to construct
+fully faithful, exact functors from any given (small) abelian
+category to a category of modules. Here is the precise statement,
+which will be left without proof in this book:
+\begin{thm}{Freyd--Mitchell theorem}{homol:2.9}
+  Let $\mathsf{A}$ be a small abelian category. Then there is a fully
+  faithful, exact functor $\mathsf{A} \to R\text{-}\mathsf{Mod}$ for a
+  suitable ring $R$.
+\end{thm}
+\emph{Caveat:} In this statement $R$ is not necessarily commutative;
+$R\text{-}\mathsf{Mod}$ denotes the category of left-$R$-modules.
+For a reminder on the full \& faithful terminology, see
+Definition~VIII.1.6. Briefly, a functor
+$F : \mathsf{A} \to \mathsf{C}$ is fully faithful if it induces a
+bijection
+$\operatorname{Hom}_{\mathsf{A}}(A,B) \to
+\operatorname{Hom}_{\mathsf{C}}(F(A),F(B))$ for all objects $A$, $B$
+in $\mathsf{A}$. In practice, such a functor identifies $\mathsf{A}$
+with a subcategory of $\mathsf{C}$. The exactness (cf.\
+Example~VIII.1.18) of the functor
+$\mathsf{A} \to R\text{-}\mathsf{Mod}$ ensures that kernels and
+cokernels match in the two environments, and so on (note that the
+functor is automatically faithfully exact; see Exercise~2.16):
+everything we laboriously checked in \S{}2.3 for our poor man's
+functor $\mathsf{A} \to \categ{Set}^*$ holds for the much fancier
+functor provided by the Freyd--Mitchell theorem.
+This functor is fully faithful: this means that one can in fact
+construct morphisms in an arbitrary (small) abelian category by
+working with elements. Indeed, this amounts to constructing the
+appropriate morphisms in the ambient category $R\text{-}\mathsf{Mod}$,
+and fullness guarantees that these morphisms `already' exist in
+$\mathsf{A}$.
+So, at the end of the day we are really allowed to forget all our
+arrow-theoretic work. Element-theoretic considerations suffice, even
+for the purpose of constructing morphisms such as the `connecting
+morphism' discussed in \S{}2.2. Monomorphisms really can be
+assimilated with `subobjects', and `quotients' in an abelian category
+really are quotients in the ordinary sense.
+This is impressive: it says that doing homological algebra in the
+category of left-modules over a ring is essentially as general as
+doing it in an arbitrary (small) abelian category, at least for what
+concerns constructions that do not require the category to have
+special objects (such considerations will play a role in \S{}5 and
+following). In the rest of the chapter I will adopt the common
+compromise of discussing the basic notions of homological algebra in
+the context of abelian categories while reverting back to
+element-theoretic considerations whenever this makes life
+substantially easier. The Freyd--Mitchell theorem allows us to do
+this unapologetically, and often so would the simpler considerations
+of \S{}2.3.
 
 \subsection*{Exercises}
 
