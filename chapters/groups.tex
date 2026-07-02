@@ -4423,403 +4423,477 @@ Exercise~7.10.)
 
 \subsection{Actions}
 \label{subsec:groups:actions}
-% As mentioned in \S{}4.1, an action of a group G on an object A of a
+As mentioned in $\S$4.1, an \emph{action} of a group $G$ on an object
+$A$ of a category $\mathsf{C}$ is simply a homomorphism
+\[
+  \sigma : G \to \operatorname{Aut}_{\mathsf{C}}(A).
+\]
+The way to interpret this is that every element $g \in G$ determines a
+`transformation of $A$ into itself', i.e., an isomorphism of $A$ in
+$\mathsf{C}$, and this happens compatibly with the operation of $G$
+and composition in $\mathsf{C}$.
 
-% category C is simply a homomorphism
-% \sigma  : G \to  AutC (A).
-% The way to interpret this is that every element g \in  G determines a
-% `transformation
-% of A into itself', i.e., an isomorphism of A in C, and this happens compatibly
-% with
-% the operation of G and composition in C.
-% In a rather strong sense, we really only care about groups because they act on
-% things: knowing that G acts on A tells us something about A; group actions are
-% one key tool in the study of geometric and algebraic entities.
-% In fact, group actions are one key tool in the study of groups themselves: one
-% of the best ways to `understand' a group is to let it act on an object A, hoping
-% that the corresponding homomorphism \sigma  is an isomorphism, or at least an
-% injective
-% monomorphism. For example, we were lucky with D6 in \S{}2.2: we let D6 act on a
-% set with three elements (the vertices of an equilateral triangle) and observed
-% that
-% the resulting \sigma  is an isomorphism. Thus D6 = \sim 
-%  S3 . We would be almost as lucky
-% by letting D8 act on the vertices of a square: then \sigma  would at least
-% realize D8 as
-% an explicit subgroup of S4 , which simplifies its analysis.
-% Definition 9.1. An action of a group G on an object A of a category C is
-% faithful
-% (or effective) if the corresponding \sigma  : G \to  AutC(A) is injective.
-%  ?
-% The case C = Set is already very rich, and we focus on it in this chapter.
+In a rather strong sense, we really only care about groups because
+they act on things: knowing that $G$ acts on $A$ tells us something
+about $A$; group actions are one key tool in the study of geometric
+and algebraic entities.
+
+In fact, group actions are one key tool in the study of groups
+themselves: one of the best ways to `understand' a group is to let it
+act on an object $A$, hoping that the corresponding homomorphism
+$\sigma$ is an isomorphism, or at least an injective monomorphism. For
+example, we were lucky with $D_6$ in $\S$2.2: we let $D_6$ act on a
+set with three elements (the vertices of an equilateral triangle) and
+observed that the resulting $\sigma$ is an isomorphism. Thus
+$D_6 \cong S_3$. We would be almost as lucky by letting $D_8$ act on
+the vertices of a square: then $\sigma$ would at least realize $D_8$
+as an explicit subgroup of $S_4$, which simplifies its analysis.
+
+\begin{defn}{Faithful action}{defn:groups:faithful-action}
+An action of a group $G$ on an object $A$ of a category $\mathsf{C}$
+is \emph{faithful} (or \emph{effective}) if the corresponding
+$\sigma : G \to \operatorname{Aut}_{\mathsf{C}}(A)$ is injective.
+\end{defn}
+
+The case $\mathsf{C} = \mathsf{Set}$ is already very rich, and we focus
+on it in this chapter.
 
 \subsection{Actions on sets}
 \label{subsec:groups:actions-on-sets}
-% Spelling out our definition of action in case A is a set, so
+Spelling out our definition of action in case $A$ is a set, so that
+$\operatorname{Aut}_{\mathsf{C}}(A)$ is the symmetric group $S_A$, we
+get the following:
 
-% that AutC(A) is the symmetric group SA , we get the following:
-% Definition 9.2. An action of a group G on a set A is a set-function
-% \rho  : G \times  A \to  A
-% such that \rho (eG , a) = a for all a \in  A and
-% (\forall g, h \in  G), (\forall a \in  A) :
-%  \rho (gh, a) = \rho (g, \rho (h, a)).
-%  ?
-% Indeed, given a function \rho  satisfying these conditions, we can define \sigma
-% : G \to
-% HomSet (A, A) by \sigma (g)(a) = \rho (g, a). (This defines \sigma (g) as a
-% set-function A \to  A, as
-% needed.) This function preserves the operation, because
-% \sigma (gh)(a) = \rho (gh, a) = \rho (g, \rho (h, a)) = \sigma (g)(\rho (h, a)) = \sigma (g)(\sigma (h)(a))
-% = \sigma (g) \circ  \sigma (h)(a).
-% In particular, this verifies that \sigma (g -1 ) acts as the inverse of \sigma
-% (g): because (\forall a \in  A)
-% \sigma (g -1 ) \circ  \sigma (g)(a) = \sigma (g-1 g)(a) = \sigma (eG )(a) = \rho (eG , a) = a.
-% Thus the image of \sigma  consists of invertible set-functions; \sigma  is
-% acting as a function
-% \sigma  : G \to  SA ,
-% and we have verified that this is a homomorphism, as needed.
-% Conversely, given a homomorphism \sigma  : G \to  SA , define \rho  : G \times
-% A \to  A by
-% \rho (g, a) = \sigma (g)(a); the same argument (read backwards) shows that \rho  satisfies the
-% needed properties.
-% It is unpleasant to carry \rho  along. In practice, one just writes ga for \rho
-% (g, a); the
-% requirements in Definition 9.2 amount then to e Ga = a for all a \in  A and
-% (\forall g, h \in  G), (\forall a \in  A) :
-%  (gh)a = g(ha),
-% `as if' \rho  defined an associative operation.
-% If G acts on A, then eG a = a for all a \in  A; the action of a group G on a set
-% A
-% is faithful if and only if the identity eG is the only element g of G such that
-% ga = a
-% for all a \in  A, that is, `fixing' every element of A. An action is free if the
-% identity eG
-% is the only element fixing any element of A.
-% Example 9.3. Every group G acts in a natural way on the underlying set G. The
-% function \rho  : G \times  G \to  G is simply the operation in the group:
-% (\forall g, a \in  G) :
-%  \rho (g, a) = ga.
-% In this case the defining property really is associativity. This is referred to
-% as the
-% action by left-multiplication 41 of G on itself. There is (at least) another
-% very natural
-% way to act with G on itself, by conjugation: define \rho  : G \times  G \to  G
-% by
-% -1\rho (g, h) = ghg .
-% This is indeed an action: \forall g, h, k \in  G,
-% \rho (g, \rho (h, k)) = g\rho (h, k)g-1 = g(hkh-1)g-1 = (gh)k(gh)-1 = \rho (gh, k).
-%  ?
-% Example 9.4. More generally, G acts by left-multiplication on the set G/H of
-% left-cosets (cf. \S{}8.5) of any subgroup H: act by g \in  G on aH \in  G/H by
-% sending it
-% to (ga)H.
-%  ?
-% These examples of actions are extremely useful in studying groups, as we will
-% see
-% in Chapter IV. For instance, an immediate consequence is the following
-% counterpart
-% to \S{}8.2:
-% Theorem 9.5 (Cayley's theorem). Every group acts faithfully on some set. That
-% is, every group may be realized as a subgroup of a permutation group.
-% Proof. Indeed, simply observe that the left-multiplication action of G on itself
-% is
-% manifestly faithful.
-%  ?
-% The notion defined in Definition 9.2 is, for the sake of precision, called a
-% left-
-% action. A right-action would associate to each pair (g, a) with g \in  G and a
-% \in  A an
-% element ag \in  A; our make-believe associativity would now say
-% a(gh) = (ag)h
-% for all a \in  A and g, h \in  G. This is a different requirement than the one
-% given in
-% Definition 9.2; multiplication on the right in a group G gives a prototypical
-% example
-% of a right-action of G (on itself).
-% Every right-action may be turned into a left-action with due care (cf. Exer-
-% cise 9.3). Therefore it is not restrictive to just consider left-actions; from
-% now on,
-% an `action' will be understood to be a left-action, unless stated otherwise.
+\begin{defn}{Action on a set}{defn:groups:action-on-a-set}
+An \emph{action} of a group $G$ on a set $A$ is a set-function
+\[
+  \rho : G \times A \to A
+\]
+such that $\rho(e_G, a) = a$ for all $a \in A$ and
+\[
+  (\forall g, h \in G), (\forall a \in A) : \quad \rho(gh, a) = \rho(g, \rho(h,a)).
+\]
+\end{defn}
+
+Indeed, given a function $\rho$ satisfying these conditions, we can
+define $\sigma : G \to \operatorname{Hom}_{\mathsf{Set}}(A,A)$ by
+$\sigma(g)(a) = \rho(g,a)$. (This defines $\sigma(g)$ as a set-function
+$A \to A$, as needed.) This function preserves the operation, because
+\[
+  \sigma(gh)(a) = \rho(gh,a) = \rho(g,\rho(h,a)) = \sigma(g)(\rho(h,a))
+  = \sigma(g)(\sigma(h)(a)) = \sigma(g) \circ \sigma(h)(a).
+\]
+In particular, this verifies that $\sigma(g^{-1})$ acts as the inverse
+of $\sigma(g)$: because $(\forall a \in A)$
+\[
+  \sigma(g^{-1}) \circ \sigma(g)(a) = \sigma(g^{-1}g)(a) = \sigma(e_G)(a)
+  = \rho(e_G,a) = a.
+\]
+Thus the image of $\sigma$ consists of invertible set-functions;
+$\sigma$ is acting as a function
+\[
+  \sigma : G \to S_A,
+\]
+and we have verified that this is a homomorphism, as needed.
+
+Conversely, given a homomorphism $\sigma : G \to S_A$, define
+$\rho : G \times A \to A$ by $\rho(g,a) = \sigma(g)(a)$; the same
+argument (read backwards) shows that $\rho$ satisfies the needed
+properties.
+
+It is unpleasant to carry $\rho$ along. In practice, one just writes
+$ga$ for $\rho(g,a)$; the requirements in
+Definition~\ref{defn:groups:action-on-a-set} amount then to $e_Ga = a$
+for all $a \in A$ and
+\[
+  (\forall g, h \in G), (\forall a \in A) : \quad (gh)a = g(ha),
+\]
+`as if' $\rho$ defined an associative operation.
+
+If $G$ acts on $A$, then $e_Ga = a$ for all $a \in A$; the action of a
+group $G$ on a set $A$ is faithful if and only if the identity $e_G$
+is the only element $g$ of $G$ such that $ga = a$ for all $a \in A$,
+that is, `fixing' every element of $A$. An action is \emph{free} if the
+identity $e_G$ is the only element fixing \emph{any} element of $A$.
+
+\begin{exam}{}{exam:groups:action-by-left-multiplication-conjugation}
+Every group $G$ acts in a natural way on the underlying set $G$. The
+function $\rho : G \times G \to G$ is simply the operation in the
+group:
+\[
+  (\forall g, a \in G) : \quad \rho(g,a) = ga.
+\]
+In this case the defining property really is associativity. This is
+referred to as the \emph{action by left-multiplication}\footnote{The
+notion defined in this section is, for the sake of precision, called a
+\emph{left-action}. A right-action would associate to each pair
+$(g,a)$ with $g \in G$ and $a \in A$ an element $ag \in A$; our
+make-believe associativity would now say $a(gh) = (ag)h$ for all
+$a \in A$ and $g, h \in G$. This is a different requirement than the
+one given in Definition~\ref{defn:groups:action-on-a-set};
+multiplication on the right in a group $G$ gives a prototypical
+example of a right-action of $G$ (on itself). Every right-action may
+be turned into a left-action with due care (cf.\ Exercise~9.3).
+Therefore it is not restrictive to just consider left-actions; from
+now on, an `action' will be understood to be a left-action, unless
+stated otherwise.} of $G$ on itself. There is (at least) another very
+natural way to act with $G$ on itself, \emph{by conjugation}: define
+$\rho : G \times G \to G$ by
+\[
+  \rho(g,h) = ghg^{-1}.
+\]
+This is indeed an action: $\forall g, h, k \in G$,
+\[
+  \rho(g, \rho(h,k)) = g\rho(h,k)g^{-1} = g(hkh^{-1})g^{-1}
+  = (gh)k(gh)^{-1} = \rho(gh,k).
+\]
+\end{exam}
+
+\begin{exam}{}{exam:groups:action-on-cosets}
+More generally, $G$ acts by left-multiplication on the set $G/H$ of
+left-cosets (cf.\ $\S$8.5) of any subgroup $H$: act by $g \in G$ on
+$aH \in G/H$ by sending it to $(ga)H$.
+\end{exam}
+
+These examples of actions are extremely useful in studying groups, as
+we will see in Chapter~IV. For instance, an immediate consequence is
+the following counterpart to $\S$8.2:
+
+\begin{thm}{(Cayley's theorem) Every group acts faithfully on some
+set. That is, every group may be realized as a subgroup of a
+permutation group.}{thm:groups:cayleys-theorem}
+\end{thm}
+\begin{proof}
+Indeed, simply observe that the left-multiplication action of $G$ on
+itself is manifestly faithful.
+\end{proof}
 
 \subsection{Transitive actions and the category G-Set}
 \label{subsec:groups:transitive-actions-and-the-category-g-set}
 
-% Definition 9.6. An action of a group G on a (nonempty) set A is transitive if
-% \forall a, b \in  A \exists g \in  G such that b = ga.
-%  ?
-% For example, the left-multiplication action of a group on itself is transitive.
-% Transitive actions are the basic ingredients making up every action; this is
-% seen by
-% means of the following important concepts.
-% Definition 9.7. The orbit of a \in  A under an action of a group G is the set
-% OG(a) := {ga | g \in  G}.
-%  ?
-% 41 This is left-multiplication in the sense that the `acting' element g of G is
-% placed to the left
-% of the element a `acted upon'.
-% Definition 9.8. Let G act on a set A, and let a \in  A. The stabilizer subgroup
-% of
-% a consists of the elements of G which fix a:
-% StabG(a) := {g \in  G | ga = a}.
-%  ?
-% Orbits of an action of a group G on a set A form a partition of A; and we
-% have an induced, transitive action of G on each orbit. Therefore we can, in a
-% sense, `understand' all actions if we understand transitive actions. This will
-% be
-% accomplished in a moment, by studying actions related to stabilizers.
-% For any group G, sets endowed with a (left) G-action form in a natural way
-% a category G-Set: objects are pairs (\rho , A), where \rho  : G \times  A \to  A
-% is an action (as
-% in Definition 9.2) and morphisms between two objects are set-functions which are
-% compatible with the actions. That is, a morphism
-% (\rho , A) \to  (\rho \setminus  , A\setminus  )
-% in G-Set amounts to a set-function \phi  : A \to  A\setminus  such that the
-% diagram
-% G \times  A
-%  idG \times \phi 
-%  / G \times  A\setminus 
-% \rho 
-% \amalg 
-% A
-% \phi 
-% /?
-% \rho \amalg 
-% A\setminus 
-% commutes. In the usual shorthand notation omitting the \rho 's, this means that
-% \forall g \in  G, \forall a \in  A,
-% g\phi (a) = \phi (ga);
-% that is, the action `commutes' with \phi . Such functions are called
-% (G-)equivariant.
-% We therefore have a notion of isomorphism of G-sets (defined as in \S{}I.4.1);
-% the
-% reader should expect (and should verify) that these are nothing but the
-% equivariant
-% bijections.
-% Among G-sets we single out the sets G/H of left-cosets of subgroups H of G;
-% as noted in Example 9.4, G acts on G/H by left-multiplication.
-% Proposition 9.9. Every transitive left-action of G on a nonempty set A is
-% isomor-
-% phic to the left-multiplication of G on G/H, for H = the stabilizer of any a \in
-% A.
-% Proof. Let G act transitively on a set A, let a \in  A be any element, and let
-% H = StabG (a). I claim that there is an equivariant bijection
-% \phi  : G/H \to  A
-% defined by
-% \phi (gH) := ga
-% for all g \in  G.
-% Indeed, first of all \phi  is well-defined: if g1H = g2 H, then g1 -1 g2 \in  H,
-% hence
-% -1
-% (g1 g2 )a = a, and it follows that g1a = g2 a as needed. To verify that \phi  is
-% bijective,
-% define a function \psi  : A \to  G/H by sending an element ga of A to gH; \psi
-% is well-
-% defined because if g1 a = g2 a, then g1 -1 (g2a) = a, so g1 -1 g2 \in  H and g1H
-% = g2 H. It
-% is clear that \phi  and \psi  are inverses of each other; hence \phi  is a
-% bijection.
-% Equivariance is immediate: \phi (g \setminus (gH)) = g \setminus  ga = g
-% \setminus  \phi (gH).
-%  ?
-% Corollary 9.10. If O is an orbit of the action of a finite group G on a set A,
-% then
-% O is a finite set and
-% |O|
-%  divides
-%  |G|.
-% Proof. By Proposition 9.9 there is a bijection between O and G/ StabG (a) for
-% any
-% element a \in  O; thus
-% |O| \cdot  | StabG(a)| = |G|
-% by Corollary 8.14.
-%  ?
-% Corollary 9.10 upgrades Lagrange's theorem to orbits of any action; it is ex-
-% tremely useful, as it provides a very strong constraint on group actions.
-% Example 9.11. There are no transitive actions of S3 on a set with 5 elements.
-% Indeed, 5 does not divide 6.
-%  ?
-% Ultimately, almost everything we will prove in Chapter IV on the structure of
-% finite groups will be a consequence of `counting arguments' stemming from
-% applica-
-% tions of Corollary 9.10 to actions of a group by conjugation or
-% left-multiplication.
-% There may seem to be an element of arbitrariness in the statement of Propo-
-% sition 9.9: what if we change the element a of which we are taking the
-% stabilizer?
-% The stabilizer may change, but it does so in a controlled way:
-% Proposition 9.12. Suppose a group G acts on a set A, and let a \in  A, g \in  G,
-% b = ga. Then
-% -1StabG (b) = g StabG (a)g .
-% Proof. Indeed, assume h \in  StabG (a); then
-% -1 -1(ghg )(b) = gh(g g)a = gha = ga = b :
-% thus ghg-1 \in  StabG (b). This proves the \supseteq  inclusion; \subseteq
-% follows by the same argu-
-% ment, noting that a = g-1 b.
-%  ?
-% For example, if StabG (a) happens to be normal, then it is really independent
-% of a (in any given orbit). In any case, there is an isomorphism of G-sets beween
-% -1G/H and G/(gHg ), as follows from these considerations (and as the reader will
-% independently check in Exercise 9.13).
+\begin{defn}{Transitive action}{defn:groups:transitive-action}
+An action of a group $G$ on a (nonempty) set $A$ is \emph{transitive}
+if $\forall a, b \in A\ \exists g \in G$ such that $b = ga$.
+\end{defn}
+
+For example, the left-multiplication action of a group on itself is
+transitive. Transitive actions are the basic ingredients making up
+every action; this is seen by means of the following important
+concepts.
+
+\begin{defn}{Orbit}{defn:groups:orbit}
+The \emph{orbit} of $a \in A$ under an action of a group $G$ is the
+set
+\[
+  O_G(a) := \{ga \mid g \in G\}.
+\]
+\end{defn}
+
+\begin{defn}{Stabilizer}{defn:groups:stabilizer}
+Let $G$ act on a set $A$, and let $a \in A$. The \emph{stabilizer
+subgroup} of $a$ consists of the elements of $G$ which fix $a$:
+\[
+  \operatorname{Stab}_G(a) := \{g \in G \mid ga = a\}.
+\]
+\end{defn}
+
+Orbits of an action of a group $G$ on a set $A$ form a partition of
+$A$; and we have an induced, transitive action of $G$ on each orbit.
+Therefore we can, in a sense, `understand' all actions if we
+understand transitive actions. This will be accomplished in a moment,
+by studying actions related to stabilizers.
+
+For any group $G$, sets endowed with a (left) $G$-action form in a
+natural way a category $G\text{-}\mathsf{Set}$: objects are pairs
+$(\rho, A)$, where $\rho : G \times A \to A$ is an action (as in
+Definition~\ref{defn:groups:action-on-a-set}) and morphisms between
+two objects are set-functions which are compatible with the actions.
+That is, a morphism
+\[
+  (\rho, A) \to (\rho', A')
+\]
+in $G\text{-}\mathsf{Set}$ amounts to a set-function
+$\varphi : A \to A'$ such that the diagram
+\[
+\begin{tikzcd}
+  G \times A \arrow[r, "\mathrm{id}_G \times \varphi"] \arrow[d, "\rho"'] &
+  G \times A' \arrow[d, "\rho'"] \\
+  A \arrow[r, "\varphi"'] & A'
+\end{tikzcd}
+\]
+commutes. In the usual shorthand notation omitting the $\rho$'s, this
+means that $\forall g \in G, \forall a \in A$,
+\[
+  g\varphi(a) = \varphi(ga);
+\]
+that is, the action `commutes' with $\varphi$. Such functions are
+called \emph{($G$-)equivariant}.
+
+We therefore have a notion of isomorphism of $G$-sets (defined as in
+$\S$I.4.1); the reader should expect (and should verify) that these
+are nothing but the equivariant bijections.
+
+Among $G$-sets we single out the sets $G/H$ of left-cosets of
+subgroups $H$ of $G$; as noted in
+Example~\ref{exam:groups:action-on-cosets}, $G$ acts on $G/H$ by
+left-multiplication.
+
+\begin{prop}{Every transitive left-action of $G$ on a nonempty set $A$
+is isomorphic to the left-multiplication of $G$ on $G/H$, for $H =$
+the stabilizer of any $a \in A$.}{prop:groups:transitive-action-is-g-mod-h}
+\end{prop}
+\begin{proof}
+Let $G$ act transitively on a set $A$, let $a \in A$ be any element,
+and let $H = \operatorname{Stab}_G(a)$. I claim that there is an
+equivariant bijection
+\[
+  \varphi : G/H \to A
+\]
+defined by $\varphi(gH) := ga$ for all $g \in G$.
+
+Indeed, first of all $\varphi$ is well-defined: if $g_1H = g_2H$, then
+$g_1^{-1}g_2 \in H$, hence $(g_1^{-1}g_2)a = a$, and it follows that
+$g_1a = g_2a$ as needed. To verify that $\varphi$ is bijective, define
+a function $\psi : A \to G/H$ by sending an element $ga$ of $A$ to
+$gH$; $\psi$ is well-defined because if $g_1a = g_2a$, then
+$g_1^{-1}(g_2a) = a$, so $g_1^{-1}g_2 \in H$ and $g_1H = g_2H$. It is
+clear that $\varphi$ and $\psi$ are inverses of each other; hence
+$\varphi$ is a bijection.
+
+Equivariance is immediate:
+$\varphi(g'(gH)) = g'ga = g'\varphi(gH)$.
+\end{proof}
+
+\begin{coro}{If $O$ is an orbit of the action of a finite group $G$ on
+a set $A$, then $O$ is a finite set and $|O|$ divides
+$|G|$.}{coro:groups:orbit-divides-order}
+\end{coro}
+\begin{proof}
+By Proposition~\ref{prop:groups:transitive-action-is-g-mod-h} there is
+a bijection between $O$ and $G/\operatorname{Stab}_G(a)$ for any
+element $a \in O$; thus
+\[
+  |O| \cdot |\operatorname{Stab}_G(a)| = |G|
+\]
+by Corollary~\ref{coro:groups:lagrange}.
+\end{proof}
+
+Corollary~\ref{coro:groups:orbit-divides-order} upgrades Lagrange's
+theorem to orbits of any action; it is extremely useful, as it
+provides a very strong constraint on group actions.
+
+\begin{exam}{}{exam:groups:s3-no-transitive-action-on-5}
+There are no transitive actions of $S_3$ on a set with $5$ elements.
+Indeed, $5$ does not divide $6$.
+\end{exam}
+
+Ultimately, almost everything we will prove in Chapter~IV on the
+structure of finite groups will be a consequence of `counting
+arguments' stemming from applications of
+Corollary~\ref{coro:groups:orbit-divides-order} to actions of a group
+by conjugation or left-multiplication.
+
+There may seem to be an element of arbitrariness in the statement of
+Proposition~\ref{prop:groups:transitive-action-is-g-mod-h}: what if we
+change the element $a$ of which we are taking the stabilizer? The
+stabilizer may change, but it does so in a controlled way:
+
+\begin{prop}{Suppose a group $G$ acts on a set $A$, and let
+$a \in A$, $g \in G$, $b = ga$. Then
+\[
+  \operatorname{Stab}_G(b) = g\operatorname{Stab}_G(a)g^{-1}.
+\]}{prop:groups:stabilizer-conjugation}
+\end{prop}
+\begin{proof}
+Indeed, assume $h \in \operatorname{Stab}_G(a)$; then
+\[
+  (ghg^{-1})(b) = gh(g^{-1}g)a = gha = ga = b:
+\]
+thus $ghg^{-1} \in \operatorname{Stab}_G(b)$. This proves the
+$\supseteq$ inclusion; $\subseteq$ follows by the same argument,
+noting that $a = g^{-1}b$.
+\end{proof}
+
+For example, if $\operatorname{Stab}_G(a)$ happens to be normal, then
+it is really independent of $a$ (in any given orbit). In any case,
+there is an isomorphism of $G$-sets between $G/H$ and
+$G/(gHg^{-1})$, as follows from these considerations (and as the
+reader will independently check in Exercise~9.13).
 
 \subsection*{Exercises}
 
-% 9.1. (Once more, if you are already familiar with a little linear algebra. . . )
-% The
-% matrix groups listed in Exercise 6.1 all come with evident actions on a vector
-% space: if M is an n \times  n matrix with (say) real entries, multiplication to
-% the right by
-% a column n-vector v returns a column n-vector M v, and this defines a
-% left-action
-% on Rn viewed as the space of column n-vectors.
-% \bullet  Prove that, through this action, matrices M \in  On (R) preserve lengths and
-% angles in Rn.
-% \bullet  Find an interesting action of SU(2) on R3 . (Hint: Exercise 8.9.)
-% 9.2. The effect of the matrices
-% 1 0
-% ,
-% 0 -1
-%  -1
-% on the plane is to respectively flip the plane about the y-axis and to rotate it
-% 90\circ
-% clockwise about the origin. With this in mind, construct an action of D8 on R2 .
-% 9.3. If G = (G, \cdot ) is a group, we can define an `opposite' group G\circ  =
-% (G, \bullet )
-% supported on the same set G, by prescribing
-% (\forall g, h \in  G) :
-%  g \bullet  h := h \cdot  g.
-% \bullet  Verify that G\circ 
-%  is indeed a group.
-% \bullet  Show that the `identity': G\circ  \to  G, g ?\to  g is an isomorphism if and only if G is
-% commutative.
-% \bullet  Show that G\circ  \sim 
-%  = G (even if G is not commutative!).
-% \bullet  Show that giving a right-action of G on a set A is the same as giving a homo-
-% morphism G\circ  \to  SA , that is, a left-action of G\circ  on A.
-% \bullet  Show that the notions of left- and right-actions coincide `on the nose' for com-
-% mutative groups. (That is, if (g, a) ?\to  ag defines a right-action of a
-% commutative
-% group G on a set A, then setting ga = ag defines a left-action).
-% \bullet  For any group G, explain how to turn a right-action of G into a left-action
-% of G. (Note that the simple `flip' ga = ag does not work in general if G is not
-% commutative.)
-% 9.4. As mentioned in the text, right-multiplication defines a right-action of a
-% group
-% on itself. Find another natural right-action of a group on itself.
-% 9.5. Prove that the action by left-multiplication of a group on itself is free.
-% 9.6. Let O be an orbit of an action of a group G on a set. Prove that the
-% induced
-% action of G on O is transitive.
-% 9.7. Prove that stabilizers are indeed subgroups.
-% 9.8. For G a group, verify that G-Set is indeed a category, and verify that the
-% isomorphisms in G-Set are precisely the equivariant bijections.
-% 9.9. Prove that G-Set has products and coproducts and that every object of G-Set
-% is a coproduct of objects of the type G/H = {left-cosets of H}, where H is a
-% subgroup of G and G acts on G/H by left-multiplication.
-% 9.10. Let H be any subgroup of a group G. Prove that there is a bijection
-% between
-% the set G/H of left-cosets of H and the set H\G of right-cosets of H in G.
-% (Hint:
-% G acts on the right on the set of right-cosets; use Exercise 9.3 and Proposition
-% 9.9.)
-% 9.11. \lnot  Let G be a finite group, and let H be a subgroup of index p, where
-% p is
-% the smallest prime dividing |G|. Prove that H is normal in G, as follows:
-% \bullet  Interpret the action of G on G/H by left-multiplication as a homomorphism
-% \sigma  : G \to  Sp .
-% \bullet  Then G/ ker \sigma  is (isomorphic to) a subgroup of Sp . What does this say about
-% the index of ker \sigma  in G?
-% \bullet  Show that ker \sigma  \subseteq  H.
-% \bullet  Conclude that H = ker \sigma , by index considerations.
-% Thus H is a kernel, proving that it is normal. (This exercise generalizes the
-% result
-% of Exercise 8.2.) [9.12]
-% 9.12. \lnot  Generalize the result of Exercise 9.11, as follows. Let G be a
-% group, and
-% let H \subseteq  G be a subgroup of index n. Prove that H contains a subgroup K
-% that is
-% normal in G and such that [G : K] divides the gcd of |G| and n!. (In particular,
-% [G : K] \leq  n!.) [IV.2.23]
-% 9.13. ? Prove `by hand' that for all subgroups H of a group G and \forall g \in
-% G, G/H and
-% -1G/(gHg ) (endowed with the action of G by left-multiplication) are isomorphic
-% in G-Set. [\S{}9.3]
-% 9.14. \lnot  Prove that the modular group PSL2(Z) is isomorphic to the coproduct
-%  C2 \ast 
-% ? ?0 -1C3 . ? (Recall
-%  ?
-%  that
-%  the
-%  modular
-%  group
-%  PSL
-%  (Z)
-%  is
-%  generated
-%  by
-%  x
-%  =
-%  1 0
-%  and
-% y = 1 1 -1 0 , satisfying the relations x2 = y 3 = e in PSL2 (Z) (Exercise 7.5).
-% The
-% task is to prove that x and y satisfy no other relation: this will show that
-% PSL2 (Z)
-% is presented by (x, y | x2 , y 3 ), and we have agreed that this is a
-% presentation for
-% C2 \ast  C3 (Exercise 3.8 or 8.7). Reduce this to verifying that no products
-% (y \pm 1 x)(y \pm 1x) \dots  (y\pm 1 x)
-%  or
-%  (y\pm 1 x)(y\pm 1 x) \dots  (y \pm 1 x)y\pm 1
-% with one or more factors can equal the identity. This latter verification is
-% tradi-
-% tionally carried out by cleverly exploiting an action42 . Let the modular group
-% act
-% on the set of irrational real numbers by
-% a b
-%  ar + b
-% (r) =
-%  .
-% c d
-%  cr + d
-% Check that this does define an action of PSL2 (Z), and note that
-%  r
-% y(r) = 1 - , y -1 (r) =
-%  , yx(r) = 1 + r, y -1 x(r) =
-%  .
-% r
-%  1 - r
-%  1+ r
-% 42 The modular group acts on C \cup  {\infty } by M\"obius transformations. The
-% observation that it
-% suffices to act on R \setminus  Q for the purpose of this verification is due to
-% Roger Alperin.
-% Now complete the verification with a case-by-case analysis. For example, a
-% product
-% (y \pm 1x)(y \pm 1x) \dots  (y\pm 1 x)y cannot equal the identity in PSL2 (Z)
-% because if it did, it
-% would act as the identity on R \setminus  Q, while if r < 0, then y(r) > 0, and
-% both yx and
-% -1y x send positive irrationals to positive irrationals.) [3.8]
-% 9.15. \lnot  Prove that every (finitely generated) group G acts freely on any
-% corre-
-% sponding Cayley graph. (Cf. Exercise 8.6. Actions on a directed graph are
-% defined
-% as actions on the set of vertices preserving incidence: if the vertices v1 , v2
-% are
-% connected by an edge, then so must be gv1 , gv2 for every g \in  G.) In
-% particular,
-% conclude that every free group acts freely on a tree. [9.16]
-% 9.16. ? The converse of the last statement in Exercise 9.15 is also true: only
-% free
-% groups can act freely on a tree. Assuming this, prove that every subgroup of a
-% free
-% group (on a finite set) is free. [\S{}6.4]
-% 9.17. ? Consider G as a G-set, by acting with left-multiplication. Prove that
-% AutG-Set (G) \sim 
-%  = G. [\S{}2.1]
-% 9.18. Show how to construct a groupoid carrying the information of the action of
-% a group G on a set A. (Hint: A will be the set of objects of the groupoid. What
-% will be the morphisms?)
+\begin{exer}{}{exer:groups:on-preserves-lengths-angles}
+(Once more, if you are already familiar with a little linear
+algebra\dots) The matrix groups listed in Exercise~6.1 all come with
+evident actions on a vector space: if $M$ is an $n \times n$ matrix
+with (say) real entries, multiplication to the right by a column
+$n$-vector $\mathbf{v}$ returns a column $n$-vector $M\mathbf{v}$, and
+this defines a left-action on $\mathbb{R}^n$ viewed as the space of
+column $n$-vectors.
+\begin{itemize}
+\item Prove that, through this action, matrices
+  $M \in \mathrm{O}_n(\mathbb{R})$ preserve lengths and angles in
+  $\mathbb{R}^n$.
+\item Find an interesting action of $\mathrm{SU}(2)$ on $\mathbb{R}^3$.
+  (Hint: Exercise~8.9.)
+\end{itemize}
+\end{exer}
+\begin{exer}{}{exer:groups:d8-action-on-plane}
+The effect of the matrices
+\[
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \qquad
+  \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}
+\]
+on the plane is to respectively flip the plane about the $y$-axis and
+to rotate it $90^\circ$ clockwise about the origin. With this in mind,
+construct an action of $D_8$ on $\mathbb{R}^2$.
+\end{exer}
+\begin{exer}{}{exer:groups:opposite-group}
+If $G = (G, \cdot)$ is a group, we can define an `opposite' group
+$G^\circ = (G, \bullet)$ supported on the same set $G$, by prescribing
+\[
+  (\forall g, h \in G) : \quad g \bullet h := h \cdot g.
+\]
+\begin{itemize}
+\item Verify that $G^\circ$ is indeed a group.
+\item Show that the `identity': $G^\circ \to G$, $g \mapsto g$ is an
+  isomorphism if and only if $G$ is commutative.
+\item Show that $G^\circ \cong G$ (even if $G$ is not commutative!).
+\item Show that giving a right-action of $G$ on a set $A$ is the same
+  as giving a homomorphism $G^\circ \to S_A$, that is, a left-action
+  of $G^\circ$ on $A$.
+\item Show that the notions of left- and right-actions coincide `on
+  the nose' for \emph{commutative} groups. (That is, if
+  $(g,a) \mapsto ag$ defines a right-action of a commutative group $G$
+  on a set $A$, then setting $ga = ag$ defines a left-action).
+\item For any group $G$, explain how to turn a right-action of $G$
+  into a left-action of $G$. (Note that the simple `flip' $ga = ag$
+  does \emph{not} work in general if $G$ is not commutative.)
+\end{itemize}
+\end{exer}
+\begin{exer}{}{exer:groups:another-right-action}
+As mentioned in the text, right-multiplication defines a right-action
+of a group on itself. Find another natural right-action of a group on
+itself.
+\end{exer}
+\begin{exer}{}{exer:groups:left-mult-action-free}
+Prove that the action by left-multiplication of a group on itself is
+free.
+\end{exer}
+\begin{exer}{}{exer:groups:orbit-action-transitive}
+Let $O$ be an orbit of an action of a group $G$ on a set. Prove that
+the induced action of $G$ on $O$ is transitive.
+\end{exer}
+\begin{exer}{}{exer:groups:stabilizers-are-subgroups}
+Prove that stabilizers are indeed subgroups.
+\end{exer}
+\begin{exer}{}{exer:groups:gset-is-category}
+For $G$ a group, verify that $G\text{-}\mathsf{Set}$ is indeed a
+category, and verify that the isomorphisms in $G\text{-}\mathsf{Set}$
+are precisely the equivariant bijections.
+\end{exer}
+\begin{exer}{}{exer:groups:gset-products-coproducts}
+Prove that $G\text{-}\mathsf{Set}$ has products and coproducts and
+that every object of $G\text{-}\mathsf{Set}$ is a coproduct of objects
+of the type $G/H = \{\text{left-cosets of } H\}$, where $H$ is a
+subgroup of $G$ and $G$ acts on $G/H$ by left-multiplication.
+\end{exer}
+\begin{exer}{}{exer:groups:left-right-cosets-bijection}
+Let $H$ be any subgroup of a group $G$. Prove that there is a
+bijection between the set $G/H$ of left-cosets of $H$ and the set
+$H \backslash G$ of right-cosets of $H$ in $G$. (Hint: $G$ acts on the
+right on the set of right-cosets; use Exercise~9.3 and
+Proposition~\ref{prop:groups:transitive-action-is-g-mod-h}.)
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:smallest-prime-index-normal}
+Let $G$ be a finite group, and let $H$ be a subgroup of index $p$,
+where $p$ is the smallest prime dividing $|G|$. Prove that $H$ is
+normal in $G$, as follows:
+\begin{itemize}
+\item Interpret the action of $G$ on $G/H$ by left-multiplication as a
+  homomorphism $\sigma : G \to S_p$.
+\item Then $G/\ker\sigma$ is (isomorphic to) a subgroup of $S_p$. What
+  does this say about the index of $\ker\sigma$ in $G$?
+\item Show that $\ker\sigma \subseteq H$.
+\item Conclude that $H = \ker\sigma$, by index considerations.
+\end{itemize}
+Thus $H$ is a kernel, proving that it is normal. (This exercise
+generalizes the result of Exercise~8.2.) [9.12]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:index-n-normal-subgroup-bound}
+Generalize the result of Exercise~9.11, as follows. Let $G$ be a
+group, and let $H \subseteq G$ be a subgroup of index $n$. Prove that
+$H$ contains a subgroup $K$ that is normal in $G$ and such that
+$[G:K]$ divides the $\gcd$ of $|G|$ and $n!$. (In particular,
+$[G:K] \leq n!$.) [IV.2.23]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:g-mod-h-conjugate-isomorphic-gset}
+Prove `by hand' that for all subgroups $H$ of a group $G$ and
+$\forall g \in G$, $G/H$ and $G/(gHg^{-1})$ (endowed with the action
+of $G$ by left-multiplication) are isomorphic in
+$G\text{-}\mathsf{Set}$. [$\S$9.3]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:psl2z-coproduct-c2-c3}
+Prove that the modular group $\mathrm{PSL}_2(\mathbb{Z})$ is
+isomorphic to the coproduct $C_2 * C_3$. (Recall that the modular
+group $\mathrm{PSL}_2(\mathbb{Z})$ is generated by
+$x = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ and
+$y = \begin{pmatrix} 1 & -1 \\ 1 & 0 \end{pmatrix}$, satisfying the
+relations $x^2 = y^3 = e$ in $\mathrm{PSL}_2(\mathbb{Z})$
+(Exercise~7.5). The task is to prove that $x$ and $y$ satisfy no other
+relation: this will show that $\mathrm{PSL}_2(\mathbb{Z})$ is
+presented by $(x,y \mid x^2, y^3)$, and we have agreed that this is a
+presentation for $C_2 * C_3$ (Exercise~3.8 or 8.7). Reduce this to
+verifying that no products
+\[
+  (y^{\pm 1}x)(y^{\pm 1}x) \cdots (y^{\pm 1}x) \quad \text{or} \quad
+  (y^{\pm 1}x)(y^{\pm 1}x) \cdots (y^{\pm 1}x)y^{\pm 1}
+\]
+with one or more factors can equal the identity. This latter
+verification is traditionally carried out by cleverly exploiting an
+action.\footnote{The modular group acts on $\mathbb{C} \cup
+\{\infty\}$ by \emph{M\"obius transformations}. The observation that
+it suffices to act on $\mathbb{R} \setminus \mathbb{Q}$ for the
+purpose of this verification is due to Roger Alperin.} Let the
+modular group act on the set of irrational real numbers by
+\[
+  \begin{pmatrix} a & b \\ c & d \end{pmatrix}(r) = \frac{ar+b}{cr+d}.
+\]
+Check that this does define an action of $\mathrm{PSL}_2(\mathbb{Z})$,
+and note that
+\[
+  y(r) = 1 - \frac{1}{r}, \quad y^{-1}(r) = \frac{r}{1-r}, \quad
+  yx(r) = 1+r, \quad y^{-1}x(r) = \frac{r}{1+r}.
+\]
+Now complete the verification with a case-by-case analysis. For
+example, a product $(y^{\pm 1}x)(y^{\pm 1}x) \cdots (y^{\pm 1}x)y$
+cannot equal the identity in $\mathrm{PSL}_2(\mathbb{Z})$ because if
+it did, it would act as the identity on $\mathbb{R} \setminus
+\mathbb{Q}$, while if $r < 0$, then $y(r) > 0$, and both $yx$ and
+$y^{-1}x$ send positive irrationals to positive irrationals.) [3.8]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:free-group-acts-freely-cayley-graph}
+Prove that every (finitely generated) group $G$ acts freely on any
+corresponding Cayley graph. (Cf.\ Exercise~8.6. Actions on a directed
+graph are defined as actions on the set of vertices preserving
+incidence: if the vertices $v_1$, $v_2$ are connected by an edge, then
+so must be $gv_1$, $gv_2$ for every $g \in G$.) In particular,
+conclude that every free group acts freely on a tree. [9.16]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:subgroups-of-free-groups-are-free}
+The converse of the last statement in Exercise~9.15 is also true: only
+free groups can act freely on a tree. Assuming this, prove that every
+subgroup of a free group (on a finite set) is free. [$\S$6.4]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:autgset-g-is-g}
+Consider $G$ as a $G$-set, by acting with left-multiplication. Prove
+that $\operatorname{Aut}_{G\text{-}\mathsf{Set}}(G) \cong G$. [$\S$2.1]
+\end{exer}
+\begin{exer}{}{exer:groups:groupoid-from-action}
+Show how to construct a groupoid carrying the information of the
+action of a group $G$ on a set $A$. (Hint: $A$ will be the set of
+objects of the groupoid. What will be the morphisms?)
+\end{exer}
 
 \section{Group objects in categories}
 \label{sec:groups:group-objects-in-categories}
