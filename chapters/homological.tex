@@ -2039,61 +2039,71 @@ of \S{}2.3.
   \end{itemize}
   [2.15, 2.17, 3.3]
 \end{exer}
-% 2.15. \lnot  Let A be a small abelian category. Construct a category F of
-% additive
-% contravariant functors A \to  Ab, with natural transformations as morphisms, and
-% show that it is abelian. (Use Exercises 1.11 and 2.14.) [2.17]
-% 2.16. ? Let A, B be abelian categories, and let F : A \to  B be a faithful,
-% exact
-% functor. Prove that it is faithfully exact: a sequence X \to  Y \to  Z is exact
-% in A
-% if and only if the corresponding sequence F (X) \to  F (Y ) \to  F (Z) is exact
-% in B.
-% [\S{}2.4]
-% 11 Here \lambda (ker \nu ) denotes the image of the restriction of \lambda  to
-% the source of ker \nu , etc.; see
-% Remark 1.7 for `quotients'.
+\begin{exer}{$\lnot$}{exer:homol:2.15}
+  Let $\mathsf{A}$ be a small abelian category. Construct a category
+  $\mathsf{F}$ of additive contravariant functors
+  $\mathsf{A} \to \categ{Ab}$, with natural transformations as
+  morphisms, and show that it is abelian. (Use Exercises~1.11 and
+  2.14.) [2.17]
+\end{exer}
+\begin{exer}{}{exer:homol:2.16}
+  \exerused{} Let $\mathsf{A}$, $\mathsf{B}$ be abelian categories, and
+  let $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ be a faithful, exact
+  functor. Prove that it is faithfully exact: a sequence
+  $X \to Y \to Z$ is exact in $\mathsf{A}$ if and only if the
+  corresponding sequence
+  $\mathscr{F}(X) \to \mathscr{F}(Y) \to \mathscr{F}(Z)$ is exact in
+  $\mathsf{B}$. [\S{}2.4]
+\end{exer}
+
+\begin{exer}{}{exer:homol:2.17}
+  Upgrade the Yoneda lemma (Exercise~VIII.1.10) to prove that every
+  small abelian category $\mathsf{A}$ is equivalent to a full
+  subcategory of the category $\mathsf{F}$ of Exercise~2.15, by means
+  of the functor assigning to each object $X$ in $\mathsf{A}$ the
+  functor $h_X = \operatorname{Hom}_{\mathsf{A}}(\_, X)$.
+
+  Prove that this Yoneda embedding is left-exact and `reflects
+  exactness' in the sense that $X \to Y \to Z$ is exact in
+  $\mathsf{A}$ if the corresponding sequence $h_X \to h_Y \to h_Z$ is
+  exact at $h_Y$ (that is, if
+  $h_X(A) \to h_Y(A) \to h_Z(A)$ is exact at $h_Y(A)$ for all $A$ in
+  $\mathsf{A}$).
+  This is the beginning of a proof of the Freyd--Mitchell theorem.
+  Since each $h_X$ is left-exact, the Yoneda embedding lands in the
+  subcategory $\mathsf{L}$ of $\mathsf{F}$ consisting of left-exact
+  additive contravariant functors. It turns out that $\mathsf{L}$ is
+  abelian in its own right (although its embedding in $\mathsf{F}$ is
+  not exact; thus, Exercise~2.14 doesn't help), and the Yoneda
+  embedding of $\mathsf{A}$ in $\mathsf{L}$ is exact. Finally, one
+  proves that $\mathsf{L}$ is equivalent to the category of modules
+  over a ring (the endomorphism ring of a `faithfully projective'
+  object), and the Freyd--Mitchell theorem follows.
+\end{exer}
 
 \section{Complexes and homology, again}
 \label{sec:homol:complexes-and-homology-again}
 
+After all these preliminary considerations, it is time to begin
+thinking in earnest about homological algebra. We will be working in
+a fixed abelian category $\mathsf{A}$; by what we have seen in
+\S{}2, we are allowed to pretend that the objects of $\mathsf{A}$ are
+ordinary modules over a ring, at least if $\mathsf{A}$ is
+small. Thus we will deal with objects and morphisms with the aid of
+usual set-theoretic considerations.\footnote{In so doing, I will
+sweep the `smallness' hypothesis under the carpet. This imprecision
+should be harmless in any matter concerning only countably many
+objects of $\mathsf{A}$, such as constructing a diagram or checking
+that a diagram commutes. We will not deal with anything fancier than
+this.} Until we get to more sophisticated material, the reader will
+lose little or nothing by taking $\mathsf{A}$ to be
+$R\text{-}\mathsf{Mod}$ for some ring\footnote{In fact the reader may
+even assume that $R$ is a \emph{commutative} ring; commutativity
+plays no essential role in the considerations in this chapter.} $R$.
 
-\subsection{Upgrade the Yoneda lemma (Exercise VIII.1.10) to prove that every small}
-\label{subsec:homol:upgrade-the-yoneda-lemma-exercise-viii-1-10-to-prove-that-every-small}
-
-% abelian category A is equivalent to a full subcategory of the category F of
-% Exer-
-% cise 2.15, by means of the functor assigning to each object X in A the functor
-% hX = HomA ( , X).
-% Prove that this Yoneda embedding is left-exact and `reflects exactness' in the
-% sense that X \to  Y \to  Z is exact in A if the corresponding sequence hX \to
-% hY \to  hZ
-% is exact at hY (that is, if hX (A) \to  hY (A) \to  hZ (A) is exact at hY (A)
-% for all A
-% in A).
-% This is the beginning of a proof of the Freyd-Mitchell theorem. Since each hX
-% is left-exact, the Yoneda embedding lands in the subcategory L of F consisting
-% of left-exact additive contravariant functors. It turns out that L is abelian in
-% its
-% own right (although its embedding in F is not exact; thus, Exercise 2.14 doesn't
-% help), and the Yoneda embedding of A in L is exact. Finally, one proves that L
-% is equivalent to the category of modules over a ring (the endomorphism ring of a
-% `faithfully projective' object), and the Freyd-Mitchell theorem follows.
-% After all these preliminary considerations, it is time to begin thinking in
-% earnest
-% about homological algebra. We will be working in a fixed abelian category A; by
-% what we have seen in \S{}2, we are allowed to pretend that the objects of A are
-% ordinary modules over a ring, at least if A is small. Thus we will deal with
-% objects
-% and morphisms with the aid of usual set-theoretic considerations12 . Until we
-% get
-% to more sophisticated material, the reader will lose little or nothing by taking
-% A to
-% be R-Mod for some ring13 R.
-% I will start off with a reminder of what we did in \S{}III.7.1. Once more, as we
-% now know, everything can in fact be done in the more general setting of an
-% abelian
-% category.
+I will start off with a reminder of what we did in \S{}III.7.1. Once
+more, as we now know, everything can in fact be done in the more
+general setting of an abelian category.
 
 \subsection{Reminder of basic definitions; general strategy}
 \label{subsec:homol:reminder-of-basic-definitions-general-strategy}
