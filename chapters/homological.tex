@@ -1131,95 +1131,88 @@ immaterial.
 
 \subsection{Exactness in abelian categories}
 \label{subsec:homol:exactness-in-abelian-categories}
-% Now that we have a good notion of image
-
-% in any abelian category, we can formalize the meaning of `exact sequence'.
-% Consider
-% a sequence of objects and morphisms in an abelian category:
-% \cdot \cdot \cdot 
-%  / A
-%  \phi 
-%  / B
-%  \psi 
-%  / C
-%  / \cdot \cdot \cdot  .
-% The sequence is exact at B if
-% (1) \psi  \circ  \phi  = 0 and
-% (2) coker \phi  \circ  ker \psi  = 0.
-% The first condition makes the sequence a `complex'; it tells us that \phi
-% factors through
-% ker \psi . As ker \psi  is a monomorphism, the universal property of images
-% (Lemma 1.14)
-% yields a unique factorization of im \phi  through ker \psi . Similarly, the
-% second condition
-% tells us that ker \psi  factors through ker(coker \phi ) = im \phi . This
-% implies that im \phi  and
-% ker \psi  coincide. The conditions defining exactness can therefore be
-% summarized as
-% \bullet  im \phi  = ker \psi .
-% Of course this recovers precisely the condition used to define the notion of
-% exactness
-% of a sequence of R-modules, in \S{}III.7.1. All expected elementary connotations
-% of
-% exactness hold in the context of abelian categories as in R-Mod, as envisioned
-% already in \S{}1.2--1.3. With notation as above, if the sequence is exact at B,
-% then
-% \psi  is a monomorphism if and only if \phi  is the zero-morphism, and
-% \phi  is an epimorphism if and only if \psi  is the zero-morphism;
-% the sequence
-%  / A \phi  / B \psi  / C
-%  / 0
-% is exact if and only if \phi  is a kernel of \psi  and \psi  is a cokernel of
-% \phi , and
-%  / A
-%  \phi 
-%  / B
-%  / 0
-% is exact if and only if \phi  is an isomorphism.
-% Example 2.1. There is a natural exact sequence
-%  / A
-%  / A \oplus  B
-%  / B
-%  / 0
-% where A \oplus  B is the direct sum defined in \S{}1.4.
-% Example 2.2. For a slightly more interesting example, consider a diagram
-% D
-%  \phi ?
-%  / B
-% \psi ?
-%  \psi 
-% \sqcup 
-%  \sqcup 
-% A
-%  / C
-% \phi 
-% ?
-% and the associated sequence
-% ? ?D
-%  (\psi  ,\phi  )
-%  / A \oplus  B
-%  (\phi ,-\psi )
-%  / C
-% obtained by letting A \oplus  B play both roles of product and coproduct. Then
-% \bullet  the diagram is commutative if and only if this sequence is a complex;
-% \bullet  the sequence obtained by adding a 0 to the left,
-%  / D
-%  / A \oplus  B
-%  / C,
-% is exact if and only if D may be identified with the fibered product A \times C
-% B
-% (cf. Example 1.11);
-% \bullet  likewise, the sequence
-% D
-%  / A \oplus  B
-%  / C
-%  / 0
-% is exact if and only if C may be identified with the fibered coproduct A \sqcup
-% D B.
-% Indeed, the first assertion is trivial; the second and third amount to the
-% explicit
-% construction of fibered products and coproducts mentioned in Example 1.11.
-%  ?
+Now that we have a good notion of image in any abelian category, we
+can formalize the meaning of `exact sequence'. Consider a sequence of
+objects and morphisms in an abelian category:
+\[\begin{tikzcd}
+  \dots \arrow[r] & A \arrow[r, "\varphi"] & B \arrow[r, "\psi"] &
+  C \arrow[r] & \dots.
+\end{tikzcd}\]
+The sequence is \emph{exact at $B$} if
+\begin{enumerate}[label=(\arabic*)]
+  \item $\psi \circ \varphi = 0$ and
+  \item $\operatorname{coker}\varphi \circ \ker\psi = 0$.
+\end{enumerate}
+The first condition makes the sequence a `complex'; it tells us that
+$\varphi$ factors through $\ker\psi$. As $\ker\psi$ is a monomorphism,
+the universal property of images (Lemma~\ref{homol:1.14}) yields a
+unique factorization of $\operatorname{im}\varphi$ through $\ker\psi$.
+Similarly, the second condition tells us that $\ker\psi$ factors
+through $\ker(\operatorname{coker}\varphi) = \operatorname{im}\varphi$.
+This implies that $\operatorname{im}\varphi$ and $\ker\psi$ coincide.
+The conditions defining exactness can therefore be summarized as
+\begin{itemize}
+  \item $\operatorname{im}\varphi = \ker\psi$.
+\end{itemize}
+Of course this recovers precisely the condition used to define the
+notion of exactness of a sequence of $R$-modules, in \S{}III.7.1. All
+expected elementary connotations of exactness hold in the context of
+abelian categories as in $R\text{-}\mathsf{Mod}$, as envisioned already
+in \S{}1.2--1.3. With notation as above, if the sequence is exact at
+$B$, then
+$\psi$ is a monomorphism if and only if $\varphi$ is the zero-morphism,
+and $\varphi$ is an epimorphism if and only if $\psi$ is the
+zero-morphism; the sequence
+\[\begin{tikzcd}
+  0 \arrow[r] & A \arrow[r, "\varphi"] & B \arrow[r, "\psi"] &
+  C \arrow[r] & 0
+\end{tikzcd}\]
+is exact if and only if $\varphi$ is a kernel of $\psi$ and $\psi$ is a
+cokernel of $\varphi$, and
+\[\begin{tikzcd}
+  0 \arrow[r] & A \arrow[r, "\varphi"] & B \arrow[r] & 0
+\end{tikzcd}\]
+is exact if and only if $\varphi$ is an isomorphism.
+\begin{exam}{}{homol:2.1}
+  There is a natural exact sequence
+  \[\begin{tikzcd}
+    0 \arrow[r] & A \arrow[r] & A \oplus B \arrow[r] & B \arrow[r] & 0
+  \end{tikzcd}\]
+  where $A \oplus B$ is the direct sum defined in \S{}1.4.
+\end{exam}
+\begin{exam}{}{homol:2.2}
+  For a slightly more interesting example, consider a diagram
+  \[\begin{tikzcd}
+    D \arrow[r, "\varphi'"] \arrow[d, "\psi'"'] & B \arrow[d, "\psi"] \\
+    A \arrow[r, "\varphi"'] & C
+  \end{tikzcd}\]
+  and the associated sequence
+  \[\begin{tikzcd}
+    D \arrow[r, "{(\psi', \varphi')}"] & A \oplus B
+      \arrow[r, "{(\varphi, -\psi)}"] & C
+  \end{tikzcd}\]
+  obtained by letting $A \oplus B$ play both roles of product and
+  coproduct. Then
+  \begin{itemize}
+    \item the diagram is commutative if and only if this sequence is
+      a complex;
+    \item the sequence obtained by adding a $0$ to the left,
+      \[\begin{tikzcd}
+        0 \arrow[r] & D \arrow[r] & A \oplus B \arrow[r] & C,
+      \end{tikzcd}\]
+      is exact if and only if $D$ may be identified with the fibered
+      product $A \times_C B$ (cf.\ Example~\ref{homol:exam:1.11});
+    \item likewise, the sequence
+      \[\begin{tikzcd}
+        D \arrow[r] & A \oplus B \arrow[r] & C \arrow[r] & 0
+      \end{tikzcd}\]
+      is exact if and only if $C$ may be identified with the fibered
+      coproduct $A \amalg_D B$.
+  \end{itemize}
+  Indeed, the first assertion is trivial; the second and third amount
+  to the explicit construction of fibered products and coproducts
+  mentioned in Example~\ref{homol:exam:1.11}.
+\end{exam}
 
 \subsection{The snake lemma, again}
 \label{subsec:homol:the-snake-lemma-again}
