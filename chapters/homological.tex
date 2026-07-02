@@ -2107,1987 +2107,1734 @@ general setting of an abelian category.
 
 \subsection{Reminder of basic definitions; general strategy}
 \label{subsec:homol:reminder-of-basic-definitions-general-strategy}
-% A chain complex (M\bullet  , d\bullet  )
 
-% in A is a sequence of objects and morphisms,
-% \cdot \cdot \cdot 
-%  di+2
-%  / Mi+1 di+1 / Mi
-%  di
-%  / Mi-1 di-1 / \dots 
-% such that (\forall i), di \circ  di+1 = 0. We can just as well use ascending
-% indices (which are
-% then traditionally written as superscripts),
-% \cdot \cdot \cdot 
-%  di-2 /
-%  M i-1
-%  di-1
-%  / M i
-%  di
-%  / M i+1 d
-% i+1
-%  / \cdot \cdot \cdot  ,
-% and impose di \circ  di-1 = 0, with no change in the mathematics other than in
-% the
-% nomenclature. This is a cochain complex (M \bullet , d\bullet  ) (or M \bullet
-% for short), leading to
-% 12 In so doing, I will sweep the `smallness' hypothesis under the carpet. This
-% imprecision
-% should be harmless in any matter concerning only countably many objects of A,
-% such as con-
-% structing a diagram or checking that a diagram commutes. We will not deal with
-% anything fancier
-% than this.
-% 13 In fact the reader may even assume that R is a commutative ring;
-% commutativity plays no
-% essential role in the considerations in this chapter.
-% cohomology, etc. The morphisms di are the differentials of the complex. It is
-% not
-% uncommon to call `d' all differentials within sight, decorating them by the name
-% of
-% the complex if necessary to avoid confusion. So, d\bullet  M \bullet  would
-% implicitly denote the
-% \bullet differential of the complex M .
-% Whether to work `homologically' or `cohomologically' is essentially an \ae
-% sthetic
-% question, until it becomes dictated by the specific context of an application.
-% In \S{}III.7
-% I chose homology; in this chapter I will choose cohomology: thus, indices will
-% -ibe increasing upper indices. Setting Mi = M reconciles the two conventions.
-% Thus, a chain complex (M\bullet  , d\bullet  ) may be (and usually is) viewed as
-% the cochain
-% complex (M -\bullet  , d-\bullet  ).
-% The condition di \circ  di-1 = 0 is equivalent to im di-1 \subseteq  ker di. The
-% complex is
-% exact at M i if im di-1 = ker di ; it is `exact' if it is exact everywhere. The
-% i-th
-% cohomology of a complex (M \bullet  , d\bullet ) measures its `deviation from
-% exactness' at M i :
-% i ker di
-% \bullet H (M ) :=
-%  .
-% im di-1
-% -i -\bullet Setting Hi (M\bullet  ) = H (M ) gives homology from cohomology, if
-% desired.
-% Remark 3.1. In an abelian category, the definition of cohomology should be
-% parsed
-% as follows (cf. Remark 1.7). Let I \to  M i be im di-1, and let K \to  M i be
-% ker di ; since
-% M \bullet  is a complex, im di-1 factors through ker di , giving a monomorphism
-% I \to  K;
-% i \bullet then H (M ) is the cokernel of this morphism. I will use the
-% `quotient' notation as
-% a good shorthand for this operation.
-%  ?
-% The following definition will undergo a few refinements later in the chapter:
-% Definition 3.2. (Preliminary) A resolution of an object A is a complex whose
-% cohomology is concentrated in degree 0 and isomorphic to A.
-%  ?
-% To be more precise, the datum of a resolution of A should include a specific
-% isomorphism of the cohomology of the complex with A; a common abuse of language
-% glosses over this point. In fact, this isomorphism in cohomology should be
-% induced
-% by a morphism at the level of complexes, from the given complex to the complex
-% called \iota (A) later in this section. The notion of quasi-isomorphism
-% (Definition 4.3)
-% will give us the correct framework in which to talk about resolutions precisely.
-% \bullet It is common to assume that resolutions M are `bounded' above or below,
-% that is, M i = 0 for i > 0 or i < 0. For example, a complex
-% \cdot \cdot \cdot 
-%  d-3 /
-%  M -2
-%  d-2
-%  / M -1
-%  d-1
-%  / M 0
-%  d0
-%  / 0
-%  / 0
-%  / \cdot \cdot \cdot 
-% is a resolution of A if coker d-1 = \sim 
-%  A, and the complex is exact otherwise. Down the
-% road we will restrict our attention to bounded (-above or -below) resolutions.
-% In
-% a sense, this is not a very serious restriction: any resolution may be truncated
-% (at
-% the price of changing the degree-0 term) in order to produce a bounded
-% resolution
-% (Exercise 3.1). Note that the datum of a bounded-above resolution is equivalent
-% to
-% that of an exact complex
-% \cdot \cdot \cdot 
-%  / M2
-%  / M1
-%  / M0
-%  / A
-%  / 0;
-% this is the viewpoint we took in our previous encounter with resolutions, in
-% \S{}VI.4.2.
-% The complex \iota (A),
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  d1
-%  / A
-%  d0
-%  / 0
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% is a resolution of A, but not a very interesting one. Resolutions become useful
-% if
-% the objects M i are `special' in some sense (usually, A should not be expected
-% to be
-% special): for example, in the context of modules over a ring we could require
-% the
-% objects M i to be free, flat, projective, etc. We will then say that the
-% resolution
-% itself is free, flat, projective, etc.
-% There are many contexts in which the following strategy produces interesting
-% invariants:
-% mathematical object
-% \sqcup 
-% an associated (co)chain complex
-% \sqcup 
-% the (co)homology of this complex
-% Both Ext and Tor are examples of this general plan of attack: start with two R-
-% modules M , N ; find (for example) a free resolution of M , and tensor it by N ,
-% obtaining a chain complex; then the homology of this complex computes the mod-
-% ules TorR
-%  i (M, N ) (cf. \S{}VIII.2.4). Algebraic topology is a source of many other
-% examples and was in fact historically the main motivation driving the
-% development
-% of homological algebra. In the 1950's it became clear that this tool would be
-% ex-
-% tremely useful in other fields; for example, it had a tremendous impact on
-% algebraic
-% geometry, through the work of Alexander Grothendieck14 and others.
-% Now consider this strategy carefully. In every single useful application, there
-% are
-% in fact many ways to associate a complex to a mathematical object: in the
-% example
-% of Tor recalled above, there are infinitely many different free resolutions of a
-% given
-% module; I have in fact claimed (in \S{}VIII.6.4) that resolutions by projective
-% modules,
-% or even flat modules, would all yield the same Tor modules. In general, there is
-% a
-% gigantic degree of freedom in the choice of the appropriate complex associated
-% to
-% the given mathematical object, and one of our main goals here will be to show
-% that
-% (for a large class of interesting examples) the (co)homology of the complex will
-% not
-% depend on this choice.
-% The inquiring reader should not stop there, however. Precisely because of this
-% large ambiguity, the informational gap from the complex associated to a
-% mathemati-
-% cal entity to its cohomology is large. Could one do better than `taking
-% cohomology' ?
-% The natural approach would be to determine precisely where the ambiguity lies
-% and
-% `mod out' the choice of a complex by this ambiguity. Whatever one gets from
-% this,
-% it must be enough to determine the cohomology; but there may be a large amount
-% 14 Grothendieck's 1957 paper ``Sur quelques points d'alg\`{e}bre homologique''
-% was so influential
-% that you can just refer to it by naming the journal in which it appeared. If you
-% say ``This is
-% proven in T\^{o}hoku'', without other qualifiers, most algebraic geometers will
-% understand that you
-% mean this one paper of the thousands published in this journal in the past 50
-% years.
-% of interesting information carried by `complexes modulo ambiguity' which is lost
-% by going `all the way down' to cohomology.
-% This is what we are up to: proving that the cohomology of the associated
-% complex is indeed independent of the choices, while keeping an eye out to detect
-% where the key information is really stored.
+A chain \emph{complex} $(M_\bullet, d_\bullet)$ in $\mathsf{A}$ is a
+sequence of objects and morphisms,
+\[
+  \dots \xrightarrow{d_{i+2}} M_{i+1} \xrightarrow{d_{i+1}} M_i
+  \xrightarrow{d_i} M_{i-1} \xrightarrow{d_{i-1}} \dots
+\]
+such that $(\forall i)$, $d_i \circ d_{i+1} = 0$. We can just as well
+use ascending indices (which are then traditionally written as
+superscripts),
+\[
+  \dots \xrightarrow{d^{i-2}} M^{i-1} \xrightarrow{d^{i-1}} M^i
+  \xrightarrow{d^i} M^{i+1} \xrightarrow{d^{i+1}} \dots,
+\]
+and impose $d^i \circ d^{i-1} = 0$, with no change in the mathematics
+other than in the nomenclature. This is a \emph{co}chain complex
+$(M^\bullet, d^\bullet)$ (or $M^\bullet$ for short), leading to
+\emph{co}homology, etc. The morphisms $d^i$ are the
+\emph{differentials} of the complex. It is not uncommon to call `d'
+all differentials within sight, decorating them by the name of the
+complex if necessary to avoid confusion. So, $d^\bullet_{M^\bullet}$
+would implicitly denote the differential of the complex $M^\bullet$.
+Whether to work `homologically' or `cohomologically' is essentially
+an æsthetic question, until it becomes dictated by the specific
+context of an application. In \S{}III.7 I chose homology; in this
+chapter I will choose cohomology: thus, indices will be increasing
+upper indices. Setting $M_i = M^{-i}$ reconciles the two conventions.
+Thus, a chain complex $(M_\bullet, d_\bullet)$ may be (and usually
+is) viewed as the cochain complex $(M^{-\bullet}, d^{-\bullet})$.
+
+The condition $d^i \circ d^{i-1} = 0$ is equivalent to
+$\operatorname{im}d^{i-1} \subseteq \ker d^i$. The complex is
+\emph{exact} at $M^i$ if $\operatorname{im}d^{i-1} = \ker d^i$; it is
+`exact' if it is exact everywhere. The $i$-th \emph{cohomology} of a
+complex $(M^\bullet, d^\bullet)$ measures its `deviation from
+exactness' at $M^i$:
+\[
+  H^i(M^\bullet) := \frac{\ker d^i}{\operatorname{im}d^{i-1}}.
+\]
+Setting $H_i(M_\bullet) = H^{-i}(M^{-\bullet})$ gives homology from
+cohomology, if desired.
+\begin{rem}{}{homol:3.1}
+  In an abelian category, the definition of cohomology should be
+  parsed as follows (cf. Remark~\ref{homol:1.7}). Let $I \to M^i$ be
+  $\operatorname{im}d^{i-1}$, and let $K \to M^i$ be $\ker d^i$; since
+  $M^\bullet$ is a complex, $\operatorname{im}d^{i-1}$ factors through
+  $\ker d^i$, giving a monomorphism $I \to K$; then $H^i(M^\bullet)$
+  is the cokernel of this morphism. I will use the `quotient' notation
+  as a good shorthand for this operation.
+\end{rem}
+
+The following definition will undergo a few refinements later in the
+chapter:
+
+\begin{defn}{}{homol:3.2}
+  (Preliminary) A \emph{resolution} of an object $A$ is a complex
+  whose cohomology is concentrated in degree 0 and isomorphic to $A$.
+\end{defn}
+To be more precise, the datum of a resolution of $A$ should include a
+specific isomorphism of the cohomology of the complex with $A$; a
+common abuse of language glosses over this point. In fact, this
+isomorphism in cohomology should be induced by a morphism at the
+level of complexes, from the given complex to the complex called
+$\iota(A)$ later in this section. The notion of quasi-isomorphism
+(Definition~\ref{homol:4.3}) will give us the correct framework in
+which to talk about resolutions precisely.
+It is common to assume that resolutions $M^\bullet$ are `bounded'
+above or below, that is, $M^i = 0$ for $i > 0$ or $i < 0$. For
+example, a complex
+\[
+  \dots \xrightarrow{d^{-3}} M^{-2} \xrightarrow{d^{-2}} M^{-1}
+  \xrightarrow{d^{-1}} M^0 \xrightarrow{d^0} 0 \longrightarrow 0
+  \longrightarrow \dots
+\]
+is a resolution of $A$ if $\operatorname{coker}d^{-1} \cong A$, and
+the complex is exact otherwise. Down the road we will restrict our
+attention to bounded (-above or -below) resolutions. In a sense, this
+is not a very serious restriction: any resolution may be truncated
+(at the price of changing the degree-0 term) in order to produce a
+bounded resolution (Exercise~3.1). Note that the datum of a
+bounded-above resolution is equivalent to that of an exact complex
+\[
+  \dots \longrightarrow M_2 \longrightarrow M_1 \longrightarrow M_0
+  \longrightarrow A \longrightarrow 0;
+\]
+this is the viewpoint we took in our previous encounter with
+resolutions, in \S{}VI.4.2.
+The complex $\iota(A)$,
+\[
+  \dots \longrightarrow 0 \longrightarrow 0 \xrightarrow{d^1} A
+  \xrightarrow{d^0} 0 \longrightarrow 0 \longrightarrow \dots,
+\]
+is a resolution of $A$, but not a very interesting one. Resolutions
+become useful if the objects $M^i$ are `special' in some sense
+(usually, $A$ should not be expected to be special): for example, in
+the context of modules over a ring we could require the objects $M^i$
+to be free, flat, projective, etc. We will then say that the
+resolution itself is free, flat, projective, etc.
+There are many contexts in which the following strategy produces
+interesting invariants:
+\[\begin{tikzcd}[row sep=large]
+  \boxed{\text{mathematical object}} \arrow[d] \\
+  \boxed{\text{an associated (co)chain complex}} \arrow[d] \\
+  \boxed{\text{the (co)homology of this complex}}
+\end{tikzcd}\]
+Both Ext and Tor are examples of this general plan of attack: start
+with two $R$-modules $M$, $N$; find (for example) a free resolution
+of $M$, and tensor it by $N$, obtaining a chain complex; then the
+homology of this complex computes the modules
+$\operatorname{Tor}^R_i(M, N)$ (cf. \S{}VIII.2.4). Algebraic topology
+is a source of many other examples and was in fact historically the
+main motivation driving the development of homological algebra. In
+the 1950's it became clear that this tool would be extremely useful
+in other fields; for example, it had a tremendous impact on algebraic
+geometry, through the work of Alexander
+Grothendieck\footnote{Grothendieck's 1957 paper ``Sur quelques points
+d'alg\`ebre homologique'' was so influential that you can just refer
+to it by naming the journal in which it appeared. If you say ``This
+is proven in T\^ohoku'', without other qualifiers, most algebraic
+geometers will understand that you mean this one paper of the
+thousands published in this journal in the past 50 years.} and
+others.
+Now consider this strategy carefully. In every single useful
+application, there are in fact \emph{many ways} to associate a
+complex to a mathematical object: in the example of Tor recalled
+above, there are infinitely many different free resolutions of a
+given module; I have in fact claimed (in \S{}VIII.6.4) that
+resolutions by \emph{projective} modules, or even \emph{flat}
+modules, would all yield the same Tor modules. In general, there is a
+gigantic degree of freedom in the choice of the appropriate complex
+associated to the given mathematical object, and one of our main
+goals here will be to show that (for a large class of interesting
+examples) the (co)homology of the complex will not depend on this
+choice.
+
+The inquiring reader should not stop there, however. Precisely
+because of this large ambiguity, the informational gap from the
+complex associated to a mathematical entity to its cohomology is
+large. Could one do better than `taking cohomology'? The natural
+approach would be to determine precisely where the ambiguity lies and
+`mod out' the choice of a complex by this ambiguity. Whatever one
+gets from this, it must be enough to determine the cohomology; but
+there may be a large amount of interesting information carried by
+`complexes modulo ambiguity' which is lost by going `all the way
+down' to cohomology.
+
+This is what we are up to: proving that the cohomology of the
+associated complex is indeed independent of the choices, while
+keeping an eye out to detect where the key information is really
+stored.
 
 \subsection{The category of complexes}
 \label{subsec:homol:the-category-of-complexes}
-% To begin this exploration, we assemble cochain
 
-% complexes in A into a new category C(A):
-% \bullet  Obj(C(A)) = {cochain complexes in A};
-% \bullet  for M \bullet  = (M \bullet  , d\bullet  M \bullet  ), N \bullet  = (N \bullet  , d\bullet  N \bullet  ) cochain complexes, HomC(A)(M \bullet  , N \bullet  )
-% consists of the commutative15 diagrams
-% di-1
-%  M \bullet 
-%  diM \bullet 
-% (*)
-%  \cdot \cdot \cdot 
-%  / M i-1
-%  / M i
-%  / M i+1
-%  / \cdot \cdot \cdot 
-% \alpha i-1
-%  \alpha i
-%  \alpha i+1
-% \sqcup 
-%  di-1
-%  N \bullet 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / N i-1
-%  / N i
-%  diN\bullet 
-%  / N i+1
-%  / \cdot \cdot \cdot 
-% in A. I will denote by \alpha \bullet  the morphism determined by the collection
-% \alpha i . Everything
-% that should be checked in order to prove that C(A) is indeed a category should
-% be
-% evident. The following is also essentially evident, but a little more
-% interesting:
-% Lemma 3.3. C(A) is an abelian category.
-% I will leave to the reader the careful verification of this fact (Exercise 3.3).
-% In broad terms, morphisms between two given complexes form an abelian group,
-% essentially because if \alpha i and \beta  i : M i \to  N i are both collections
-% of morphisms
-% making the appropriate diagram commute, so is the collection of their sums
-% \alpha i +\beta  i .
-% Finite products and coproducts exist in C(A) as an easy consequence of the fact
-% that
-% they do in A. As for kernels and cokernels, the commutativity of each square in
-% (*)
-% and the universal properties of kernels and cokernels in A guarantee the
-% existence
-% of morphisms making the larger diagrams
-% K i
-%  \exists !
-%  / K i+1
-% ker \alpha i
-% \sqcup 
-% M i
-% \alpha i
-% \sqcup 
-% N i
-% coker \alpha i
-% \sqcup 
-% C i
-% ker \alpha i+1
-% \sqcup 
-% diM \bullet 
-%  / M i+1
-% \alpha i+1
-% \sqcup 
-% diN \bullet 
-%  / N i+1
-% coker \alpha i+1
-% \sqcup 
-% \exists !
-%  / C i+1
-% 15 Note the requirement that such diagrams commute. It will also be important to
-% consider
-% diagrams that do not satisfy this requirement, but `morphisms of cochain
-% complexes' do. Actually,
-% a strong case could be made for requiring morphisms of cochain complexes to
-% correspond to anti-
-% commutative diagrams, but conventions are what they are and I will adhere to
-% them.
-% \bullet  \bullet commute. The resulting sequences K , C are immediately checked to be com-
-% plexes, and the collections ker \alpha i : K i \to  M i , coker \alpha i : N i
-% \to  C i give morphisms
-% of complexes ker \alpha \bullet  , coker \alpha \bullet  satisfying the
-% universal property for kernels and cok-
-% ernels in C(A). The reader will check that every monomorphism in C(A) is a
-% kernel
-% and every epimorphism is a cokernel by using the fact that this is the case in
-% A.
-% Thus, we have a way to concoct a new abelian category from an old one. The
-% new category C(A) is a natural starting place to study resolutions of objects in
-% A,
-% and it comes with the same general package of tools available in every abelian
-% category: we can talk about exact sequences of complexes, we have a canonical
-% decomposition of morphisms of complexes, and so on. A sequence of complexes
-% \cdot \cdot \cdot 
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / \cdot \cdot \cdot 
-% is exact in C(A) if and only if all sequences
-% \cdot \cdot \cdot 
-%  / Li
-%  / M i
-%  / N i
-%  / \cdot \cdot \cdot 
-% are simultaneously exact in A. Complexes of complexes will be important later on
-% (\S{}8.2).
-% Popular variations on the definition of C(A) require the complexes to be bounded
-% above or below:
-% \bullet  C+ (A) denote the full16 subcategory of C(A) determined by complexes L\bullet 
-% which are bounded below, i.e., for which Li = 0 for i % 0.
-% \bullet  C-(A) likewise denotes the full subcategory of bounded-above complexes.
-% These are also abelian categories, and so are further variations such as C\geq 0
-% (A)
-% (complexes L\bullet  for which L i = 0 for i < 0), C\leq 0 (A), and so on. These
-% bounded
-% variants become unavoidable when dealing with resolutions.
-% It will also be necessary to consider categories of complexes in which the ob-
-% jects are restricted to belonging to a subcategory of A. We will devote
-% particular
-% attention to the full subcategories P and I consisting of projective, resp.,
-% injective,
-% objects in A (see \S{}5.3); thus, C\leq 0 (P), C\geq 0 (I) and other variations
-% on the same
-% themes are fair game17 . In the generalities that follow I will only deal with
-% C(A),
-% to keep notation under control. The reader should have no difficulty determining
-% what extends immediately to the different variants of C(A) and what does not.
-% There are several functors and other operations available in this new setting;
-% many of them seem almost too simple-minded to mention. For example, for all
-% integers r we have a fully faithful, exact functor
-% \iota  r : A
-%  / C(A)
-% sending an object A of A to the complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / A
-%  O
-% / 0
-%  / 0
-%  / \cdot \cdot \cdot 
-% degree r
-% 16 That is, morphisms between two objects in the subcategory agree with
-% morphisms of the
-% same two objects in the ambient category. Cf. Exercise I.3.8.
-% 17But note that P and I are not abelian categories!
-% placing A in degree r and 0 in all other degrees. It is common to identify A
-% with
-% its `image' in C(A) via \iota  = \iota 0 . We also have `shift' functors
-% C(A)
-%  / C(A),
-% M \bullet  ?
-%  / M [r]\bullet 
-% defined by setting18 M [r]i = M i+r , diM [r] \bullet  = (-1)r di+r
-%  M \bullet  . Complexes can be `trun-
-% cated' by replacing all terms of degree \geq  r (or \leq  r) with 0.
-% These operations turn out to be more important than they may look at first.
-% The importance of the following example is, on the contrary, apparent. I claim
-% that
-% cohomology is a functor:
-% Lemma 3.4. For every integer i, the assignment
-% H i : M \bullet  ?
-%  / H i (M \bullet  )
-% defines an additive covariant functor C(A) \to  A.
-% Proof. Of course, the statement means that each H i induces in a natural (and
-% functorial) way homomorphisms of abelian groups
-% HomC(A) (M \bullet  , N \bullet  ) \to  HomA (H i (M \bullet  ), H i (N \bullet
-% ))
-% \bullet  \bullet for all complexes M , N . This follows from the commutativity requirement in the
-% definition of morphisms of complexes. Look at the relevant part of the diagram:
-% M i-1
-%  di-1
-%  / M i
-%  di
-%  / M i+1
-% i-1
-%  i
-%  i+1
-% \alpha  \alpha  \alpha \sqcup 
-%  ?i-1
-%  \sqcup 
-%  ?i
-%  \sqcup 
-% N i-1
-%  d
-%  / N i
-%  d
-%  / N i+1
-% The composition d\setminus i \circ  \alpha i = \alpha i+1 \circ  di is 0 on ker
-% di by the commutativity of the square
-% on the right, so the restriction of \alpha i to ker di factors through ker
-% d\setminus i . Composing
-% with the projection gives a morphism
-% ker di \to  H i (N \bullet  ).
-% This morphism is 0 when restricted to im di-1 , by the commutativity of the
-% square
-% on the left. Therefore \alpha i induces a morphism
-% H i (M \bullet  ) \to  H i (N \bullet  )
-% in A, as needed. It is clear that this assignment is covariant.
-%  ?
-% We can also view cohomology as a functor C(A) \to  C(A), by placing each
-% i \bullet cohomology object H (M ) in degree i, connected by zero-morphisms,
-% obtaining a
-% complex H \bullet (M \bullet  ). Note that the cohomology of this complex equals
-% the cohomology
-% \bullet of M , that is,
-% \bullet  \bullet  \bullet  \bullet  \bullet H (H (M )) = H (M ).
-% In this sense, taking cohomology feels like performing a `projection'.
-% 18 The sign in the differentials is inserted in order to avoid other annoying
-% signs elsewhere;
-% signs do not change the isomorphism class of the complex (Exercise 3.5).
+To begin this exploration, we assemble cochain complexes in
+$\mathsf{A}$ into a \emph{new} category $\mathsf{C}(\mathsf{A})$:
+\begin{itemize}
+\item $\operatorname{Obj}(\mathsf{C}(\mathsf{A})) = \{\text{cochain
+  complexes in } \mathsf{A}\}$;
+\item for $M^\bullet = (M^\bullet, d^\bullet_{M^\bullet})$,
+  $N^\bullet = (N^\bullet, d^\bullet_{N^\bullet})$ cochain complexes,
+  $\operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(M^\bullet, N^\bullet)$
+  consists of the \emph{commutative}\footnote{Note the requirement
+  that such diagrams commute. It will also be important to consider
+  diagrams that do not satisfy this requirement, but `morphisms of
+  cochain complexes' do. Actually, a strong case could be made for
+  requiring morphisms of cochain complexes to correspond to
+  \emph{anti}-commutative diagrams, but conventions are what they are
+  and I will adhere to them.} diagrams
+  \[
+    (*) \quad \begin{tikzcd}
+      \dots \arrow[r] & M^{i-1} \arrow[r, "d^{i-1}_{M^\bullet}"]
+        \arrow[d, "\alpha^{i-1}"'] & M^i \arrow[r, "d^i_{M^\bullet}"]
+        \arrow[d, "\alpha^i"'] & M^{i+1} \arrow[r]
+        \arrow[d, "\alpha^{i+1}"'] & \dots \\
+      \dots \arrow[r] & N^{i-1} \arrow[r, "d^{i-1}_{N^\bullet}"'] &
+        N^i \arrow[r, "d^i_{N^\bullet}"'] & N^{i+1} \arrow[r] & \dots
+    \end{tikzcd}
+  \]
+  in $\mathsf{A}$. I will denote by $\alpha^\bullet$ the morphism
+  determined by the collection $\alpha^i$.
+\end{itemize}
+Everything that should be checked in order to prove that
+$\mathsf{C}(\mathsf{A})$ is indeed a category should be evident. The
+following is also essentially evident, but a little more
+interesting:
+
+\begin{lem}{}{homol:3.3}
+  $\mathsf{C}(\mathsf{A})$ is an abelian category.
+\end{lem}
+
+\begin{proof}
+  I will leave to the reader the careful verification of this fact
+  (Exercise~3.3). In broad terms, morphisms between two given
+  complexes form an abelian group, essentially because if $\alpha^i$
+  and $\beta^i : M^i \to N^i$ are both collections of morphisms
+  making the appropriate diagram commute, so is the collection of
+  their sums $\alpha^i + \beta^i$. Finite products and coproducts
+  exist in $\mathsf{C}(\mathsf{A})$ as an easy consequence of the
+  fact that they do in $\mathsf{A}$. As for kernels and cokernels,
+  the commutativity of each square in $(*)$ and the universal
+  properties of kernels and cokernels in $\mathsf{A}$ guarantee the
+  existence of morphisms making the larger diagrams
+  \[\begin{tikzcd}
+    K^i \arrow[rr, dashed, "\exists!"] \arrow[d, "\ker\alpha^i"'] &
+      & K^{i+1} \arrow[d, "\ker\alpha^{i+1}"] \\
+    M^i \arrow[rr, "d^i_{M^\bullet}"] \arrow[d, "\alpha^i"'] &
+      & M^{i+1} \arrow[d, "\alpha^{i+1}"] \\
+    N^i \arrow[rr, "d^i_{N^\bullet}"'] \arrow[d, "\operatorname{coker}\alpha^i"'] &
+      & N^{i+1} \arrow[d, "\operatorname{coker}\alpha^{i+1}"] \\
+    C^i \arrow[rr, dashed, "\exists!"'] & & C^{i+1}
+  \end{tikzcd}\]
+  commute. The resulting sequences $K^\bullet$, $C^\bullet$ are
+  immediately checked to be complexes, and the collections
+  $\ker\alpha^i : K^i \to M^i$, $\operatorname{coker}\alpha^i : N^i
+  \to C^i$ give morphisms of complexes $\ker\alpha^\bullet$,
+  $\operatorname{coker}\alpha^\bullet$ satisfying the universal
+  property for kernels and cokernels in $\mathsf{C}(\mathsf{A})$. The
+  reader will check that every monomorphism in $\mathsf{C}(\mathsf{A})$
+  is a kernel and every epimorphism is a cokernel by using the fact
+  that this is the case in $\mathsf{A}$.
+\end{proof}
+Thus, we have a way to concoct a new abelian category from an old
+one. The new category $\mathsf{C}(\mathsf{A})$ is a natural starting
+place to study resolutions of objects in $\mathsf{A}$, and it comes
+with the same general package of tools available in every abelian
+category: we can talk about exact sequences of complexes, we have a
+canonical decomposition of morphisms of complexes, and so on. A
+sequence of complexes
+\[
+  \dots \longrightarrow L^\bullet \longrightarrow M^\bullet
+  \longrightarrow N^\bullet \longrightarrow \dots
+\]
+is exact in $\mathsf{C}(\mathsf{A})$ if and only if all sequences
+\[
+  \dots \longrightarrow L^i \longrightarrow M^i \longrightarrow N^i
+  \longrightarrow \dots
+\]
+are simultaneously exact in $\mathsf{A}$. \emph{Complexes of
+complexes} will be important later on (\S{}8.2).
+
+Popular variations on the definition of $\mathsf{C}(\mathsf{A})$
+require the complexes to be bounded above or below:
+\begin{itemize}
+\item $\mathsf{C}^+(\mathsf{A})$ denote the full\footnote{That is,
+  morphisms between two objects in the subcategory agree with
+  morphisms of the same two objects in the ambient category. Cf.\
+  Exercise~I.3.8.} subcategory of $\mathsf{C}(\mathsf{A})$ determined
+  by complexes $L^\bullet$ which are bounded \emph{below}, i.e., for
+  which $L^i = 0$ for $i \ll 0$.
+\item $\mathsf{C}^-(\mathsf{A})$ likewise denotes the full
+  subcategory of bounded-\emph{above} complexes.
+\end{itemize}
+These are also abelian categories, and so are further variations such
+as $\mathsf{C}^{\geq 0}(\mathsf{A})$ (complexes $L^\bullet$ for which
+$L^i = 0$ for $i < 0$), $\mathsf{C}^{\leq 0}(\mathsf{A})$, and so on.
+These bounded variants become unavoidable when dealing with
+resolutions.
+
+It will also be necessary to consider categories of complexes in
+which the objects are restricted to belonging to a subcategory of
+$\mathsf{A}$. We will devote particular attention to the full
+subcategories $\mathsf{P}$ and $\mathsf{I}$ consisting of
+\emph{projective}, resp., \emph{injective}, objects in $\mathsf{A}$
+(see \S{}5.3); thus, $\mathsf{C}^{\leq 0}(\mathsf{P})$,
+$\mathsf{C}^{\geq 0}(\mathsf{I})$ and other variations on the same
+themes are fair game\footnote{But note that $\mathsf{P}$ and
+$\mathsf{I}$ are not abelian categories!}. In the generalities that
+follow I will only deal with $\mathsf{C}(\mathsf{A})$, to keep
+notation under control. The reader should have no difficulty
+determining what extends immediately to the different variants of
+$\mathsf{C}(\mathsf{A})$ and what does not.
+
+There are several functors and other operations available in this
+new setting; many of them seem almost too simple-minded to mention.
+For example, for all integers $r$ we have a fully faithful, exact
+functor
+\[
+  \iota_r : \mathsf{A} \longrightarrow \mathsf{C}(\mathsf{A})
+\]
+sending an object $A$ of $\mathsf{A}$ to the complex
+\[\begin{tikzcd}
+  \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & A \arrow[r] & 0
+    \arrow[r] & 0 \arrow[r] & \dots \\
+  &&& \text{degree } r \arrow[u]
+\end{tikzcd}\]
+placing $A$ in degree $r$ and $0$ in all other degrees. It is common
+to identify $\mathsf{A}$ with its `image' in $\mathsf{C}(\mathsf{A})$
+via $\iota = \iota_0$. We also have `shift' functors
+\[
+  \mathsf{C}(\mathsf{A}) \longrightarrow \mathsf{C}(\mathsf{A}),
+  \quad M^\bullet \longmapsto M[r]^\bullet
+\]
+defined by setting\footnote{The sign in the differentials is inserted
+in order to avoid other annoying signs elsewhere; signs do not change
+the isomorphism class of the complex (Exercise~3.5).}
+$M[r]^i = M^{i+r}$, $d^i_{M[r]^\bullet} = (-1)^r d^{i+r}_{M^\bullet}$.
+Complexes can be `truncated' by replacing all terms of degree
+$\geq r$ (or $\leq r$) with $0$.
+
+These operations turn out to be more important than they may look at
+first. The importance of the following example is, on the contrary,
+apparent. I claim that cohomology is a functor:
+
+\begin{lem}{}{homol:3.4}
+  For every integer $i$, the assignment
+  \[
+    H^i : M^\bullet \longmapsto H^i(M^\bullet)
+  \]
+  defines an additive covariant functor $\mathsf{C}(\mathsf{A}) \to
+  \mathsf{A}$.
+\end{lem}
+
+\begin{proof}
+  Of course, the statement means that each $H^i$ induces in a natural
+  (and functorial) way homomorphisms of abelian groups
+  \[
+    \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(M^\bullet, N^\bullet)
+    \to \operatorname{Hom}_{\mathsf{A}}(H^i(M^\bullet), H^i(N^\bullet))
+  \]
+  for all complexes $M^\bullet$, $N^\bullet$. This follows from the
+  commutativity requirement in the definition of morphisms of
+  complexes. Look at the relevant part of the diagram:
+  \[\begin{tikzcd}
+    M^{i-1} \arrow[r, "d^{i-1}"] \arrow[d, "\alpha^{i-1}"'] &
+      M^i \arrow[r, "d^i"] \arrow[d, "\alpha^i"'] &
+      M^{i+1} \arrow[d, "\alpha^{i+1}"] \\
+    N^{i-1} \arrow[r, "d'^{i-1}"'] & N^i \arrow[r, "d'^i"'] & N^{i+1}
+  \end{tikzcd}\]
+  The composition $d'^i \circ \alpha^i = \alpha^{i+1} \circ d^i$ is
+  $0$ on $\ker d^i$ by the commutativity of the square on the right,
+  so the restriction of $\alpha^i$ to $\ker d^i$ factors through
+  $\ker d'^i$. Composing with the projection gives a morphism
+  \[
+    \ker d^i \to H^i(N^\bullet).
+  \]
+  This morphism is $0$ when restricted to $\operatorname{im}d^{i-1}$,
+  by the commutativity of the square on the left. Therefore
+  $\alpha^i$ induces a morphism
+  \[
+    H^i(M^\bullet) \to H^i(N^\bullet)
+  \]
+  in $\mathsf{A}$, as needed. It is clear that this assignment is
+  covariant.
+\end{proof}
+
+We can also view cohomology as a functor $\mathsf{C}(\mathsf{A}) \to
+\mathsf{C}(\mathsf{A})$, by placing each cohomology object
+$H^i(M^\bullet)$ in degree $i$, connected by zero-morphisms,
+obtaining a complex $H^\bullet(M^\bullet)$. Note that the cohomology
+of this complex equals the cohomology of $M^\bullet$, that is,
+\[
+  H^\bullet(H^\bullet(M^\bullet)) = H^\bullet(M^\bullet).
+\]
+In this sense, taking cohomology feels like performing a
+`projection'.
 
 \subsection{The long exact cohomology sequence}
 \label{subsec:homol:the-long-exact-cohomology-sequence}
-% The one fact we did explore at
 
-% any level of thoroughness in \S{}III.7.1 is the famous snake lemma, Lemma
-% III.7.8,
-% which has come back to entertain us in \S{}2.2. Written cohomologically and with
-% the benefit of the language introduced in \S{}3.2, the snake lemma takes the
-% following
-% form. Consider a commutative diagram
-%  / L1
-%  / M 1
-%  / N 1
-%  / 0
-% O
-%  O
-%  O
-% \lambda 0
-%  \mu 0
-%  \nu  0
-%  / L0
-%  / M 0
-%  / N 0
-%  / 0
-% with exact rows, and view the columns as complexes
-% L\bullet  :
-%  \cdot \cdot \cdot 
-%  / 0
-%  / L0
-%  \lambda 0
-%  / L1
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% \bullet  \bullet M , N . The commutative diagram is then nothing but the datum of a short exact
-% sequence of (very special) complexes:
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / 0 .
-% The snake lemma tells us that there is then an exact sequence in A:
-%  / H 0 (L\bullet  )
-%  / H 0 (M \bullet  )
-%  / H 0 (N \bullet  )
-% ED
-%  BC
-% ^^^^^^^^^^^^^^^^ \delta  ^^^^^^^^^^^^^^^^^
-% @A
-%  GF
-% / H 1 (L\bullet  )
-%  / H 1 (M \bullet  )
-%  / H 1 (N \bullet  )
-%  / 0 .
-% Here, H 0 , resp., H 1 , simply stands for the kernel, resp., cokernel, of the
-% correspond-
-% ing map: nothing else is going on in these small complexes. The
-% (element-theoretic)
-% definition of the `connecting' morphism \delta  is discussed thoroughly in
-% \S{}III.7.3 and can
-% be summarized (cohomologically speaking) as follows:
-% \bullet  Start with n \in  H 0(N \bullet  ) = ker \nu  0 \subseteq  N 0 .
-% \bullet  Choose any preimage m of n in M 0 .
-% \bullet  Map m to \mu 0 (m) \in  M 1 .
-% \bullet  It is immediately seen that \mu 0 (m) maps to 0 in N 1 ; therefore it determines a
-% unique element \in  L1 .
-% \bullet  Set \delta (n) = the class of
-%  in H 1 (L\bullet  ) = coker(\lambda 0 ).
-% Pictorially,
-% \delta (n)
-% U
-%  ? \bullet  ?
-%  / \bullet 
-%  O
-%  _ \bullet 
-%  ?
-%  / \bullet 
-%  R
-% \sqcup  n
-% We checked in \S{}III.7.3 that choosing a different preimage for n in M 0 ,
-% while it may
-% change the element , does not change its image in coker(\lambda 0). Thus \delta
-% is well-defined.
-% As we have seen in \S{}2.2, it is relatively straightforward to provide an
-% arrow-theoretic
-% version of this construction; but we have also seen (Theorem 2.9) that we do not
-% need to do that, so I will stay with elements in what follows.
-% Now we will upgrade this construction, in what should come across as a very
-% natural development. In fact, what we are going to do could be absorbed into the
-% snake lemma itself (cf. Exercise 3.10); but I have always found the `spread out'
-% chase compelling, so here it is. Take any short exact sequence in C(A),
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / 0 ,
-% linking three full-blown cochain complexes L\bullet  , M \bullet  , N \bullet  ;
-% that is, consider a large
-% commutative diagram
-% ..
-%  ..
-%  ..
-% . O
-%  . O
-%  . O
-%  / Li+2
-%  / M i+2
-%  / N i+2
-%  / 0
-% O
-%  O
-%  O
-% \lambda i+1
-%  \mu i+1
-%  \nu  i+1
-%  / Li+1
-%  / M i+1
-%  / N i+1
-%  / 0
-% O
-%  O
-%  O
-% \lambda i
-%  \mu i
-%  \nu  i
-%  / Li
-%  / M i
-%  / N i
-%  / 0
-% O
-%  O
-%  O
-% \lambda i-1
-%  \mu i-1
-%  \nu  i-1
-%  / Li-1
-%  / M i-1
-%  / N i-1
-%  / 0
-% O
-%  O
-%  O
-% ..
-%  ..
-%  ..
-% .
-%  .
-%  .
-% in A, where the rows are exact and the columns are complexes. The connecting
-% morphism constructed for the snake lemma still gives an interesting morphism
-% \delta  : ker \nu  i \to  coker \lambda i \sim 
-%  =
-%  L
-% i+1
-%  ,
-% im \lambda i
-% obtained by `climbing the ladder' in precisely the same way as for the snake
-% lemma:
-%  \delta (n)
-% U
-%  ? \bullet  ?
-%  / \bullet 
-%  O
-%  _ \bullet 
-%  ?
-%  / \bullet 
-%  R
-%  ? n
-% Where does the image \delta (n) really lie? It is represented by an element in
-% Li+1 ,
-% determined by an element \mu i(m) \in  im \mu i. The image of \mu i (m) in M i+2
-% must be 0,
-% because the central column is a complex:
-%  / 0
-% O O
-% _ _
-%  ?
-%  / \mu i (m)
-% O
-%  m _
-%  ?
-%  / \bullet 
-%  R
-%  ? n
-% It follows that
-%  \in  ker \lambda 
-% i+1
-%  , and therefore we can place \delta (n) in cohomology,
-% ker \lambda i+1
-%  i+1\delta (n) \in 
-%  = H (L\bullet  ),
-% im \lambda i
-% and view \delta  as a morphism
-% \delta  : ker \nu  i \to  H i+1 (L\bullet  ).
-% Next, the kernel of \nu  i contains the image of \nu  i-1, again because columns
-% are com-
-% plexes. What is the restriction of \delta  to im \nu  i-1? I claim it is 0.
-% Indeed, if n comes
-% from N i-1 , then a preimage in M i of \nu  i-1(n) may be obtained by taking a
-% preimage
-% of n in M i-1 and mapping it to M i ; but since the central column is a complex,
-% this
-% preimage maps to 0 in M i+1 . It follows that \delta (n) = 0 in this case:
-%  0 Q
-%  ? 0 ?
-%  / 0
-% O
-%  _ \bullet  O
-%  ?
-%  / \bullet 
-%  O
-%  _ \bullet 
-%  ?
-%  / n
-%  _
-% Therefore, \delta  factors through im \nu  i-1
-%  . Since ker \nu  i
-% / im \nu 
-%  i-1
-%  is nothing but the coho-
-% mology H i (N \bullet ), we have obtained a morphism
-% \delta  i : H i (N \bullet  ) \to  H i+1 (L\bullet  ).
-% On the other hand, each H i is a functor (Lemma 3.4); thus there are natural
-% morphisms
-% H i (L\bullet  )
-%  / H i (M \bullet  )
-%  / H i (N \bullet  )
-% for each i. Note that completing this diagram with 0 on the left and on the
-% right
-% does not give in general a short exact sequence in A (Exercise 3.8). In other
-% words,
-% the i-th cohomology is not an exact functor even if, as we will see, the
-% cohomology
-% sequence is exact at H i (M \bullet ). Understanding the exactness and failure
-% of exactness
-% of the functors H i is, in a sense, what this discussion is all about.
-% Together with the connecting morphism, we get a `long sequence' of objects
-% and morphisms in A,
-% \cdot \cdot \cdot 
-%  / H i-1 (N \bullet ) \delta 
-% i-1
-% / H i(L\bullet )
-%  / H i (M \bullet  )
-%  / H i (N \bullet  )
-%  \delta i /
-%  H i+1 (L\bullet )
-%  / \cdot \cdot \cdot  ,
-% generalizing the sequence for H 0 and H 1 obtained in the snake lemma. The
-% atten-
-% tive reader must have seen the next result coming all along:
-% Theorem 3.5 (Long exact cohomology sequence). The sequence determined as
-% above by a short exact sequence of complexes is an exact sequence.
-% The snake lemma is recovered as a particular case of this statement (or con-
-% versely, depending on your taste; cf. Exercise 3.10).
-% Proof. The proof is a diagram chase, which everyone should perform once by
-% oneself in his or her lifetime. So it is mostly left as an exercise for the
-% reader
-% (Exercise 3.9). But I will stress the extent to which H i is exact `on the
-% nose': part
-% of the claim in this theorem is that if
-%  / L\bullet 
-%  \alpha \bullet 
-%  / M \bullet 
-%  \beta  \bullet 
-%  / N \bullet 
-%  / 0
-% is exact, then the sequence induced by functoriality of H i
-%  / H i (L\bullet  )
-%  \alpha 
-%  / H i (M \bullet  )
-%  \beta 
-%  / H i (N \bullet  )
-%  / 0
-% is exact at H i (M \bullet  ). This sequence is not exact in general at H i
-% (L\bullet ) and H i (N \bullet  );
-% the moral of the long exact cohomology sequence is that the failure of exactness
-% is precisely measured by other cohomology objects, by means of the connecting
-% morphisms.
-% Let's check exactness at H i (M ). The sequence is a complex, simply because H i
-% is a functor; thus we only have to verify that ker \beta  \subseteq  im \alpha .
-% If m is a class in H i (M \bullet  )
-% such that \beta (m) = 0 in H i (N ), m is represented by an element m \in  ker
-% \mu i such that
-% \beta  i (m) \in  im \nu  i-1 : \beta  i (m) = \nu  i-1 (n) for some n \in  N i-1 . There is an m\setminus  \in  M i-1
-% such that \beta  i-1(m\setminus ) = n, and m - \mu i-1(m\setminus  ) represents
-% the same class m in H i(M )
-% as m. By the commutativity of the diagram,
-% \beta  i (m - \mu i-1 (m\setminus  )) = \beta  i (m) - \nu  i-1 (n) = 0.
-% Therefore there exists \in  Li such that \alpha i ( ) = m - \mu i-1 (m\setminus
-% ); then
-%  represents a
-% class \in  H i (L\bullet  ) such that \alpha ( ) = m, concluding the
-% verification.
-% Verifying the exactness at the other places is similarly uninspiring and is left
-% to the reader19 .
-%  ?
+The one fact we did explore at any level of thoroughness in
+\S{}III.7.1 is the famous snake lemma, Lemma~III.7.8, which has come
+back to entertain us in \S{}2.2. Written cohomologically and with the
+benefit of the language introduced in \S{}3.2, the snake lemma takes
+the following form. Consider a commutative diagram
+\[\begin{tikzcd}[column sep=small]
+  0 \arrow[r] & L^1 \arrow[r] & M^1 \arrow[r] & N^1 \arrow[r] & 0 \\
+  0 \arrow[r] & L^0 \arrow[r] \arrow[u, "\lambda^0"] &
+    M^0 \arrow[r] \arrow[u, "\mu^0"'] &
+    N^0 \arrow[r] \arrow[u, "\nu^0"'] & 0
+\end{tikzcd}\]
+with exact rows, and view the columns as complexes
+\[
+  L^\bullet : \quad \dots \longrightarrow 0 \longrightarrow L^0
+  \xrightarrow{\lambda^0} L^1 \longrightarrow 0 \longrightarrow \dots,
+\]
+$M^\bullet$, $N^\bullet$. The commutative diagram is then nothing but
+the datum of a short exact sequence of (very special) complexes:
+\[
+  0 \longrightarrow L^\bullet \longrightarrow M^\bullet
+  \longrightarrow N^\bullet \longrightarrow 0.
+\]
+The snake lemma tells us that there is then an exact sequence in
+$\mathsf{A}$:
+\[\begin{tikzcd}[column sep=small]
+  0 \arrow[r] & H^0(L^\bullet) \arrow[r] & H^0(M^\bullet) \arrow[r] &
+    H^0(N^\bullet) \\
+  H^1(L^\bullet) \arrow[r] & H^1(M^\bullet) \arrow[r] &
+    H^1(N^\bullet) \arrow[r] & 0
+  \arrow[from=1-4, to=2-1, "\delta"]
+\end{tikzcd}\]
+Here, $H^0$, resp., $H^1$, simply stands for the kernel, resp.,
+cokernel, of the corresponding map: nothing else is going on in these
+small complexes. The (element-theoretic) definition of the
+`connecting' morphism $\delta$ is discussed thoroughly in \S{}III.7.3
+and can be summarized (cohomologically speaking) as follows:
+\begin{itemize}
+\item Start with $n \in H^0(N^\bullet) = \ker\nu^0 \subseteq N^0$.
+\item Choose any preimage $m$ of $n$ in $M^0$.
+\item Map $m$ to $\mu^0(m) \in M^1$.
+\item It is immediately seen that $\mu^0(m)$ maps to $0$ in $N^1$;
+  therefore it determines a unique element $\ell \in L^1$.
+\item Set $\delta(n) = $ the class of $\ell$ in $H^1(L^\bullet) =
+  \operatorname{coker}(\lambda^0)$.
+\end{itemize}
+Pictorially,
+% TODO: diagram of the "climbing the ladder" element chase for
+% delta(n): n in N^0 has preimage m in M^0, mapping to mu^0(m) in
+% M^1, which determines ell in L^1 mapping to delta(n) in H^1(L^bullet)
+% (page 597)
+
+We checked in \S{}III.7.3 that choosing a different preimage for $n$
+in $M^0$, while it may change the element $\ell$, does not change its
+image in $\operatorname{coker}(\lambda^0)$. Thus $\delta$ is
+well-defined. As we have seen in \S{}2.2, it is relatively
+straightforward to provide an arrow-theoretic version of this
+construction; but we have also seen (Theorem~2.9) that we do not need
+to do that, so I will stay with elements in what follows.
+Now we will upgrade this construction, in what should come across as
+a very natural development. In fact, what we are going to do could
+be absorbed into the snake lemma itself (cf.\ Exercise~3.10); but I
+have always found the `spread out' chase compelling, so here it is.
+Take any short exact sequence in $\mathsf{C}(\mathsf{A})$,
+\[
+  0 \longrightarrow L^\bullet \longrightarrow M^\bullet
+  \longrightarrow N^\bullet \longrightarrow 0,
+\]
+linking three full-blown cochain complexes $L^\bullet$, $M^\bullet$,
+$N^\bullet$; that is, consider a large commutative diagram
+\[\begin{tikzcd}[column sep=small]
+  & \vdots & \vdots & \vdots & \\
+  0 \arrow[r] & L^{i+2} \arrow[r] \arrow[u] & M^{i+2} \arrow[r] \arrow[u] &
+    N^{i+2} \arrow[r] \arrow[u] & 0 \\
+  0 \arrow[r] & L^{i+1} \arrow[r] \arrow[u, "\lambda^{i+1}"] &
+    M^{i+1} \arrow[r] \arrow[u, "\mu^{i+1}"'] &
+    N^{i+1} \arrow[r] \arrow[u, "\nu^{i+1}"'] & 0 \\
+  0 \arrow[r] & L^i \arrow[r] \arrow[u, "\lambda^i"] &
+    M^i \arrow[r] \arrow[u, "\mu^i"'] &
+    N^i \arrow[r] \arrow[u, "\nu^i"'] & 0 \\
+  0 \arrow[r] & L^{i-1} \arrow[r] \arrow[u, "\lambda^{i-1}"] &
+    M^{i-1} \arrow[r] \arrow[u, "\mu^{i-1}"'] &
+    N^{i-1} \arrow[r] \arrow[u, "\nu^{i-1}"'] & 0 \\
+  & \vdots \arrow[u] & \vdots \arrow[u] & \vdots \arrow[u] &
+\end{tikzcd}\]
+in $\mathsf{A}$, where the rows are exact and the columns are
+complexes. The connecting morphism constructed for the snake lemma
+still gives an interesting morphism
+\[
+  \delta : \ker\nu^i \to \operatorname{coker}\lambda^i \cong
+  \frac{L^{i+1}}{\operatorname{im}\lambda^i},
+\]
+obtained by `climbing the ladder' in precisely the same way as for
+the snake lemma:
+% TODO: diagram of the "climbing the ladder" element chase for
+% delta(n) in the general-degree case: n in N^i has preimage m in
+% M^i, mapping to mu^i(m) in M^{i+1}, determining an element of
+% L^{i+1} representing delta(n) (page 598)
+Where does the image $\delta(n)$ really lie? It is represented by an
+element $\ell$ in $L^{i+1}$, determined by an element $\mu^i(m) \in
+\operatorname{im}\mu^i$. The image of $\mu^i(m)$ in $M^{i+2}$ must be
+$0$, because the central column is a complex:
+% TODO: diagram showing mu^i(m) mapping to 0 in M^{i+2}, with ell in
+% L^{i+1}, m in M^i, and n in N^i tracked alongside (page 598-599)
+It follows that $\ell \in \ker\lambda^{i+1}$, and therefore we can
+place $\delta(n)$ in cohomology,
+\[
+  \delta(n) \in \frac{\ker\lambda^{i+1}}{\operatorname{im}\lambda^i} =
+  H^{i+1}(L^\bullet),
+\]
+and view $\delta$ as a morphism
+\[
+  \delta : \ker\nu^i \to H^{i+1}(L^\bullet).
+\]
+Next, the kernel of $\nu^i$ contains the image of $\nu^{i-1}$, again
+because columns are complexes. What is the restriction of $\delta$ to
+$\operatorname{im}\nu^{i-1}$? I claim it is $0$. Indeed, if $n$ comes
+from $N^{i-1}$, then a preimage in $M^i$ of $\nu^{i-1}(n)$ may be
+obtained by taking a preimage of $n$ in $M^{i-1}$ and mapping it to
+$M^i$; but since the central column is a complex, this preimage maps
+to $0$ in $M^{i+1}$. It follows that $\delta(n) = 0$ in this case:
+% TODO: diagram showing the degenerate chase producing delta(n) = 0
+% when n comes from im nu^{i-1} (page 599)
+Therefore, $\delta$ factors through $\operatorname{im}\nu^{i-1}$.
+Since $\ker\nu^i / \operatorname{im}\nu^{i-1}$ is nothing but the
+cohomology $H^i(N^\bullet)$, we have obtained a morphism
+\[
+  \delta^i : H^i(N^\bullet) \to H^{i+1}(L^\bullet).
+\]
+On the other hand, each $H^i$ is a functor (Lemma~3.4); thus there
+are natural morphisms
+\[
+  H^i(L^\bullet) \longrightarrow H^i(M^\bullet) \longrightarrow
+  H^i(N^\bullet)
+\]
+for each $i$. Note that completing this diagram with $0$ on the left
+and on the right does not give in general a short exact sequence in
+$\mathsf{A}$ (Exercise~3.8). In other words, the $i$-th cohomology is
+not an exact functor even if, as we will see, the cohomology sequence
+\emph{is} exact at $H^i(M^\bullet)$. Understanding the exactness and
+failure of exactness of the functors $H^i$ is, in a sense, what this
+discussion is all about.
+
+Together with the connecting morphism, we get a `long sequence' of
+objects and morphisms in $\mathsf{A}$,
+\[
+  \dots \longrightarrow H^{i-1}(N^\bullet) \xrightarrow{\delta^{i-1}}
+  H^i(L^\bullet) \longrightarrow H^i(M^\bullet) \longrightarrow
+  H^i(N^\bullet) \xrightarrow{\delta^i} H^{i+1}(L^\bullet)
+  \longrightarrow \dots,
+\]
+generalizing the sequence for $H^0$ and $H^1$ obtained in the snake
+lemma. The attentive reader must have seen the next result coming all
+along:
+
+\begin{thm}{Long exact cohomology sequence}{homol:3.5}
+  The sequence determined as above by a short exact sequence of
+  complexes is an exact sequence.
+\end{thm}
+
+The snake lemma is recovered as a particular case of this statement
+(or conversely, depending on your taste; cf.\ Exercise~3.10).
+
+\begin{proof}
+  The proof is a diagram chase, which everyone should perform once by
+  oneself in his or her lifetime. So it is mostly left as an exercise
+  for the reader (Exercise~3.9). But I will stress the extent to
+  which $H^i$ is exact `on the nose': part of the claim in this
+  theorem is that if
+  \[
+    0 \longrightarrow L^\bullet \xrightarrow{\alpha^\bullet}
+    M^\bullet \xrightarrow{\beta^\bullet} N^\bullet \longrightarrow 0
+  \]
+  is exact, then the sequence induced by functoriality of $H^i$
+  \[
+    0 \longrightarrow H^i(L^\bullet) \xrightarrow{\alpha}
+    H^i(M^\bullet) \xrightarrow{\beta} H^i(N^\bullet) \longrightarrow 0
+  \]
+  is exact at $H^i(M^\bullet)$. This sequence is not exact in general
+  at $H^i(L^\bullet)$ and $H^i(N^\bullet)$; the moral of the long
+  exact cohomology sequence is that the failure of exactness is
+  precisely measured by other cohomology objects, by means of the
+  connecting morphisms.
+
+  Let's check exactness at $H^i(M)$. The sequence is a complex,
+  simply because $H^i$ is a functor; thus we only have to verify that
+  $\ker\beta \subseteq \operatorname{im}\alpha$. If $\bar m$ is a
+  class in $H^i(M^\bullet)$ such that $\beta(\bar m) = 0$ in
+  $H^i(N)$, $\bar m$ is represented by an element $m \in \ker\mu^i$
+  such that $\beta^i(m) \in \operatorname{im}\nu^{i-1}$:
+  $\beta^i(m) = \nu^{i-1}(n)$ for some $n \in N^{i-1}$. There is an
+  $m' \in M^{i-1}$ such that $\beta^{i-1}(m') = n$, and
+  $m - \mu^{i-1}(m')$ represents the same class $\bar m$ in $H^i(M)$
+  as $m$. By the commutativity of the diagram,
+  \[
+    \beta^i(m - \mu^{i-1}(m')) = \beta^i(m) - \nu^{i-1}(n) = 0.
+  \]
+  Therefore there exists $\ell \in L^i$ such that
+  $\alpha^i(\ell) = m - \mu^{i-1}(m')$; then $\ell$ represents a
+  class $\bar\ell \in H^i(L^\bullet)$ such that $\alpha(\bar\ell) =
+  \bar m$, concluding the verification.
+
+  Verifying the exactness at the other places is similarly
+  uninspiring and is left to the reader.\footnote{The reader is
+  welcome to look for arrow-theoretic proofs. However, as discussed
+  at length in \S{}2, element-based proofs suffice to prove the
+  statement in any (small) abelian category.}
+\end{proof}
 
 \subsection{Triangles}
 \label{subsec:homol:triangles}
-% There is an \ae sthetically pleasing way to state what we just proved,
 
-% which turns out to provide a useful viewpoint. Take a short exact sequence of
-% com-
-% plexes,
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / 0;
-% the element of surprise in the long exact sequence obtained in \S{}3.3 is the
-% fact that we
-% can connect N \bullet  to L\bullet  in an interesting way, after taking
-% cohomology and allowing
-% for a shift. Well, if we are willing to settle for something less interesting,
-% we can
-% connect N \bullet  to L\bullet  right away, by simply mapping N \bullet  to 0
-% within L\bullet  :
-% N \bullet 
-%  / L\bullet  .
-% 19 The reader is welcome to look for arrow-theoretic proofs. However, as
-% discussed at length
-% in \S{}2, element-based proofs suffice to prove the statement in any (small)
-% abelian category.
-% The exactness of the original short exact sequence is then equivalent to the
-% exactness
-% at the center of the three even shorter sequences:
-% N \bullet 
-%  / L\bullet 
-%  / M \bullet  ,
-% L\bullet 
-%  / M \bullet 
-%  / N \bullet  ,
-% M \bullet 
-%  / N \bullet 
-%  / L\bullet  .
-% A nice pictorial way to represent this situation is to fold the sequence into a
-% trian-
-% gle20 , i.e.,
-% \bullet 
-% +1 ? ?
-%  ? ?
-%  ?
-%  L
-%  C 7 7
-%  7 7
-%  7 ?
-%  ,
-% N
-%  \bullet  o
-%  M
-%  \bullet 
-% which we understand to be exact at its three vertices: this is an exact triangle
-% in C(A). The arrow marked by +1 is in this case simply the zero-morphism; the +1
-% \bullet records the fact that we are going to view this as a morphism from N to the shift
-% L[1]\bullet  of L\bullet  (after all, 0 is 0 in all degrees). Thus, the triangle
-% is shorthand for the
-% impressive commutative 3D-diagram
-% N i+1 o
-%  |
-%  | |
-%  | L > i+1
-%  O T TT T T T
-%  ) M i+1
-% N O
-%  i \setminus  o
-%  \setminus 
-%  \setminus  \setminus  \setminus 
-%  \setminus 
-%  \setminus 
-%  0 \setminus 
-%  | |
-%  |
-%  | > L O i
-%  T TTT
-%  TT T T
-% ) M O
-%  i
-% N i-1 O \setminus  \setminus 
-%  \setminus  o
-%  \setminus 
-%  \setminus 
-%  \setminus  \setminus  0
-%  \setminus 
-%  |
-%  |
-%  |
-%  | L > i-1
-%  O T TT T T T
-%  ) M
-%  i-1
-%  O
-% ? ? ?
-% or (understanding the morphisms in the complexes) the single long sequence
-% \cdot \cdot \cdot 
-%  / N i-1
-%  / Li
-%  / M i
-%  / N i
-%  / Li+1
-%  / \cdot \cdot \cdot  ,
-% whose exactness is equivalent to the exactness of the original short sequence of
-% complexes. In \S{}3.3 we have obtained from this another long exact sequence,
-% \cdot \cdot \cdot 
-%  / H i-1 (N \bullet ) \delta 
-% i-1
-% / H i(L\bullet )
-%  / H i (M \bullet  )
-%  / H i (N \bullet  )
-%  \delta i /
-%  H i+1 (L\bullet )
-%  / \cdot \cdot \cdot  ,
-% which we fold again into an exact triangle:
-% H \bullet  (L\bullet  )
-% +1 ?
-%  ?
-%  ? ?
-%  ? ?
-%  ? ?
-%  @ @
-%  @ @
-%  @ @
-%  @ ?
-% H \bullet 
-%  (N \bullet )
-%  o
-%  H \bullet  (M \bullet  )
-% 20 A common and easier to typeset notation is L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  +1
-%  / .
-% This time the morphism marked +1 is the interesting connecting morphism (while
-% the morphisms in the cohomology complexes are zero; see the end of \S{}3.2).
-% Thus, the `long exact cohomology sequence' takes us from a certain exact trian-
-% gle to another exact triangle. The first triangle arises from a short exact
-% sequence
-% of complexes (the `connecting morphism' is 0), while the second does not (the
-% con-
-% necting morphism is in general nonzero).
-% Clearly something interesting is going on. Triangles obtained from short exact
-% sequences of complexes in C(A) appear to be `special' and give rise to other
-% exact
-% triangles through cohomology.
-% Actually, the situation may make the reader somewhat uncomfortable. While
-% two sides of the cohomology triangle are obtained by simply applying the coho-
-% mology functor to the corresponding sides of the original triangle, the third
-% one is
-% obtained by a different process, involving the connecting morphism. The reader
-% may feel that there should be a mechanism to go from a triangle defined in terms
-% of an exact sequence to its counterpart in cohomology by simply applying the co-
-% homology functor.
-% This is indeed so. There is an important notion of `distinguished' triangle, in
-% a
-% category K(A) closely associated with C(A) and that we will encounter later 21
-% (\S{}5).
-% As with the `special' triangles given above, distinguished triangles lead to
-% long exact
-% sequences in cohomology, and in a somewhat more direct fashion. Distinguished
-% triangles satisfy a number of axioms, which define K(A) as a triangulated
-% category.
-% Exploring these concepts at any level of depth is well beyond the scope of this
-% book, but towards the end of the chapter I will try to clarify these last
-% cryptic
-% remarks (\S{}9.2).
+There is an æsthetically pleasing way to state what we just proved,
+which turns out to provide a useful viewpoint. Take a short exact
+sequence of complexes,
+\[
+  0 \longrightarrow L^\bullet \longrightarrow M^\bullet
+  \longrightarrow N^\bullet \longrightarrow 0;
+\]
+the element of surprise in the long exact sequence obtained in
+\S{}3.3 is the fact that we can connect $N^\bullet$ to $L^\bullet$ in
+an interesting way, after taking cohomology and allowing for a shift.
+Well, if we are willing to settle for something less interesting, we
+can connect $N^\bullet$ to $L^\bullet$ right away, by simply mapping
+$N^\bullet$ to $0$ within $L^\bullet$:
+\[
+  N^\bullet \xrightarrow{0} L^\bullet.
+\]
+The exactness of the original short exact sequence is then equivalent
+to the exactness at the center of the three even shorter sequences:
+\[
+  N^\bullet \xrightarrow{0} L^\bullet \longrightarrow M^\bullet, \quad
+  L^\bullet \longrightarrow M^\bullet \longrightarrow N^\bullet,
+  \quad
+  M^\bullet \longrightarrow N^\bullet \xrightarrow{0} L^\bullet.
+\]
+A nice pictorial way to represent this situation is to fold the
+sequence into a triangle\footnote{A common and easier to typeset
+notation is $L^\bullet \longrightarrow M^\bullet \longrightarrow
+N^\bullet \xrightarrow{+1}$.}, i.e.,
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$L^\bullet$};
+    \node (N) at (0,0) {$N^\bullet$};
+    \node (M) at (2,0) {$M^\bullet$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+which we understand to be exact at its three vertices: this is an
+\emph{exact triangle} in $\mathsf{C}(\mathsf{A})$. The arrow marked
+by $+1$ is in this case simply the zero-morphism; the $+1$ records
+the fact that we are going to view this as a morphism from $N$ to the
+shift $L[1]^\bullet$ of $L^\bullet$ (after all, $0$ is $0$ in all
+degrees). Thus, the triangle is shorthand for the impressive
+commutative 3D-diagram
+% TODO: diagram of the "impressive commutative 3D-diagram" -- a
+% stacked lattice showing, for each degree i-1, i, i+1, the triangle
+% N^i <-- M^i, with a diagonal 0-arrow N^i -> L^i and vertical arrows
+% L^i -> L^{i+1}, M^i -> M^{i+1}, N^i -> N^{i+1} connecting successive
+% layers (page 601)
+or (understanding the morphisms in the complexes) the single long
+sequence
+\[
+  \dots \longrightarrow N^{i-1} \xrightarrow{0} L^i \longrightarrow
+  M^i \longrightarrow N^i \xrightarrow{0} L^{i+1} \longrightarrow
+  \dots,
+\]
+whose exactness is equivalent to the exactness of the original short
+exact sequence of complexes. In \S{}3.3 we have obtained from this
+\emph{another} long exact sequence,
+\[
+  \dots \longrightarrow H^{i-1}(N^\bullet) \xrightarrow{\delta^{i-1}}
+  H^i(L^\bullet) \longrightarrow H^i(M^\bullet) \longrightarrow
+  H^i(N^\bullet) \xrightarrow{\delta^i} H^{i+1}(L^\bullet)
+  \longrightarrow \dots,
+\]
+which we fold again into an exact triangle:
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$H^\bullet(L^\bullet)$};
+    \node (N) at (0,0) {$H^\bullet(N^\bullet)$};
+    \node (M) at (2,0) {$H^\bullet(M^\bullet)$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+This time the morphism marked $+1$ is the interesting connecting
+morphism (while the morphisms in the cohomology complexes are zero;
+see the end of \S{}3.2).
+
+Thus, the `long exact cohomology sequence' takes us from a certain
+exact triangle to another exact triangle. The first triangle arises
+from a short exact sequence of complexes (the `connecting morphism'
+is $0$), while the second does not (the connecting morphism is in
+general nonzero).
+
+Clearly something interesting is going on. Triangles obtained from
+short exact sequences of complexes in $\mathsf{C}(\mathsf{A})$ appear
+to be `special' and give rise to other exact triangles through
+cohomology.
+
+Actually, the situation may make the reader somewhat uncomfortable.
+While two sides of the cohomology triangle are obtained by simply
+applying the cohomology functor to the corresponding sides of the
+original triangle, the third one is obtained by a different process,
+involving the connecting morphism. The reader may feel that there
+should be a mechanism to go from a triangle defined in terms of an
+exact sequence to its counterpart in cohomology by simply applying
+the cohomology functor.
+
+This is indeed so. There is an important notion of `distinguished'
+triangle, in a category $\mathsf{K}(\mathsf{A})$ closely associated
+with $\mathsf{C}(\mathsf{A})$ and that we will encounter
+later\footnote{Beware that some authors call the distinguished
+triangles `exact'; there is some room for confusion, since the
+special exact triangles in the present discussion are not `exact'
+from this viewpoint.} (\S{}5). As with the `special' triangles given
+above, distinguished triangles lead to long exact sequences in
+cohomology, and in a somewhat more direct fashion. Distinguished
+triangles satisfy a number of axioms, which define
+$\mathsf{K}(\mathsf{A})$ as a \emph{triangulated category}. Exploring
+these concepts at any level of depth is well beyond the scope of this
+book, but towards the end of the chapter I will try to clarify these
+last cryptic remarks (\S{}9.2).
 
 \subsection*{Exercises}
 
-% \bullet  \bullet 3.1. ? Let (M , d ) be a resolution of an object A of an abelian category. Verify
-% that there are exact complexes
-% \cdot \cdot \cdot 
-%  d-3 /
-%  M -2
-%  d-2
-%  / M -1
-%  / ker d0
-%  / A
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% \cdot \cdot \cdot 
-%  / 0
-%  / A
-%  / coker d-1
-%  / M 1
-%  d1
-%  / M 2
-%  d2
-%  / \cdot \cdot \cdot 
-% and that replacing A by 0 in these complexes produces new resolutions of A.
-% [\S{}3.1,
-% \S{}6.1]
-% 3.2. \lnot  Let I be the category whose objects are the integers and where Hom I
-% (m, n)
-% consists of a singleton if m \leq  n and is \emptyset  otherwise (cf. Example
-% I.3.2). Show that the
-% category C(A) of cochain complexes is a full subcategory of the abelian category
-% AI .
-% [3.3]
-% 21 Beware that some authors call the distinguished triangles `exact'; there is
-% some room for
-% confusion, since the special exact triangles in the present discussion are not
-% `exact' from this
-% viewpoint.
-% 3.3. ? Verify that the category C(A) of cochain complexes in an abelian
-% category,
-% defined in \S{}3.2, is itself an abelian category. (You can do this either `by
-% hand' or
-% by applying Exercises 3.2 and 2.14.) [\S{}3.2]
-% 3.4. \lnot  Let A be an abelian category. Define a category Seq(A) whose objects
-% are
-% short exact sequences in A and where morphisms are commutative diagrams
-%  / A1
-%  / B1
-%  / C1
-%  / 0
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / A2
-%  / B2
-%  / C2
-%  / 0
-% Thus, Seq(A) may be viewed as a full subcategory of C(A).
-% \bullet  Prove that Seq(A) is an additive category.
-% \bullet  Prove that Seq(A) has kernels and cokernels. (Watch out: these are not the
-% same as in C(A). Keep the snake lemma in mind.)
-% \bullet  Show that, for every object X of A,
-%  / 0
-%  / X
-%  idX
-%  / X
-%  / 0
-% idX
-% \sqcup 
-%  idX
-%  \sqcup 
-%  \sqcup 
-%  / X
-%  / X
-%  / 0
-%  / 0
-% is both a monomorphism and an epimorphism in Seq(A), although it is neither
-% a monomorphism nor an epimorphism in C(A) if X = 0.
-% \bullet  Prove that Seq(A) is not abelian if A has nonzero objects.
-% [\S{}1.3, 3.11]
-% 3.5. ? Let (L\bullet  , d\bullet  L\bullet  ) be a cochain complex; define new
-% differentials d\setminus  \bullet
-%  L\bullet  by arbi-
-% trarily changing the sign of diL\bullet  : d\setminus  i
-%  L\bullet  = \pm diL\bullet  . Show that (L\bullet , d\setminus  \bullet 
-%  L\bullet  ) is a cochain
-% \bullet  \bullet 
-% complex isomorphic to (L , dL\bullet  ). [\S{}3.2]
-% 3.6. Provide an arrow-theoretic proof of Lemma 3.4 (cf. Remark 3.1).
-% 3.7. Let A, B be abelian categories. An additive functor F : A \to  B is exact
-% if it
-% maps short exact sequences in A to short exact sequences in B. Prove that exact
-% functors commute with cohomology: if F is exact and L\bullet  is a cochain
-% complex
-% in A, then H \bullet  (F (L\bullet  )) = \sim 
-%  F (H \bullet (L\bullet )), where F (L\bullet  ) denotes the cochain complex
-% in B obtained by applying F to all objects and morphisms in L\bullet  .
-% In particular, the image of an exact complex through an exact functor is still
-% an exact complex (cf. Exercise VIII.1.23).
-% 3.8. ? For any i, give an example of a short exact sequence of complexes
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / 0
-% such that the sequence
-%  / H i (L\bullet  )
-%  / H i (M \bullet  )
-%  / H i (N \bullet  )
-%  / 0
-% is not exact at either H i (L\bullet ) or H i (N \bullet  ). [\S{}7.2]
-% 3.9. ? Provide the gory details for the long exact cohomology sequence (Theo-
-% rem 3.5). [\S{}3.3, 3.10]
-% 3.10. ? Here is a way to reduce Exercise 3.9 to the snake lemma itself.
-% Every complex (L\bullet  , \lambda \bullet ) determines a complex ker\bullet  ,
-% with the object22 ker \lambda i+1
-% \bullet in degree i, connected by zero-morphisms, and a complex coker , with the object
-% coker \lambda i-1 in degree i, also connected by zero-morphisms.
-% Prove that \lambda \bullet  induces a morphism \lambda \bullet 
-%  : coker\bullet  \to  ker\bullet  in the abelian category
-% of complexes, such that ker \lambda \bullet 
-%  \sim  =
-%  H \bullet  (L\bullet  ) and coker \lambda \bullet  \sim 
-%  = H(L\bullet  )[1]\bullet  .
-% Now work out the whole long exact cohomology sequence as a consequence
-% of the snake lemma. (You will use the version of the snake lemma given in Re-
-% mark III.7.11.) [\S{}3.3, 3.13]
-% 3.11. \lnot  Prove that the long exact cohomology sequence is functorial, in the
-% sense
-% that it defines a covariant functor from the category Seq(C(A)) of short exact
-% se-
-% quences (cf. Exercise 3.4) of complexes to the category of complexes. [7.13]
-% 3.12. Redo Exercise III.7.17.
-% 3.13. The viewpoint in Exercise 3.10 admits the following straightforward gener-
-% alization.
-% Let A be an abelian category. Define a new category dA, whose objects are pairs
-% (A, d), where A is an object of A and d : A \to  A is a morphism (the
-% `differential')
-% such that d2 = 0. Morphisms (A, dA ) \to  (B, dB ) in dA are morphisms \phi  : A
-% \to  B
-% commuting with the differentials: dB \phi  = \phi dA.
-% \bullet  Prove that dA is an abelian category.
-% \bullet  For any (A, d) in dA, prove that d induces a morphism d : coker d \to  ker d.
-% \bullet  Define H(A, d) to be ker d. Prove that coker d \sim 
-%  = H(A, d).
-% \bullet  Show that H defines an additive functor dA \to  A and that this functor is not
-% exact in general.
-% \bullet  However, prove that every short exact sequence
-%  / (A, dA )
-%  / (B, dB )
-%  / (C, dC )
-%  / 0
-% in dA induces an exact triangle (in the sense of \S{}3.4)
-% H(A, dA )
-% { {
-%  {
-%  {
-%  {
-%  { {
-%  { =
-%  D D
-%  D D
-%  D D
-%  D D
-%  !
-% H(C, dC ) o
-%  H(B, dB )
-% 3.14. ? Prove that if one of the vertices of a `special' triangle arising from a
-% short
-% exact sequence of complexes (as in \S{}3.4) is exact, then the other two
-% vertices have
-% isomorphic cohomologies, possibly up to a shift. [\S{}4.1]
-% 22Of course ker and coker mean the target and source of the arrows ker and
-% coker, respectively.
+\begin{exer}{\exerused{}}{exer:homol:3.1}
+  Let $(M^\bullet, d^\bullet)$ be a resolution of an object $A$ of an
+  abelian category. Verify that there are exact complexes
+  \[
+    \dots \xrightarrow{d^{-3}} M^{-2} \xrightarrow{d^{-2}} M^{-1}
+    \longrightarrow \ker d^0 \longrightarrow A \longrightarrow 0
+    \longrightarrow \dots,
+  \]
+  \[
+    \dots \longrightarrow 0 \longrightarrow A \longrightarrow
+    \operatorname{coker}d^{-1} \longrightarrow M^1 \xrightarrow{d^1}
+    M^2 \xrightarrow{d^2} \dots
+  \]
+  and that replacing $A$ by $0$ in these complexes produces new
+  resolutions of $A$. [\S{}3.1, \S{}6.1]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:3.2}
+  Let $\mathsf{I}$ be the category whose objects are the integers and
+  where $\operatorname{Hom}_{\mathsf{I}}(m, n)$ consists of a
+  singleton if $m \leq n$ and is $\emptyset$ otherwise (cf.\
+  Example~I.3.2). Show that the category $\mathsf{C}(\mathsf{A})$ of
+  cochain complexes is a full subcategory of the abelian category
+  $\mathsf{A}^{\mathsf{I}}$. [3.3]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.3}
+  Verify that the category $\mathsf{C}(\mathsf{A})$ of cochain
+  complexes in an abelian category, defined in \S{}3.2, is itself an
+  abelian category. (You can do this either `by hand' or by applying
+  Exercises~3.2 and~2.14.) [\S{}3.2]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:3.4}
+  Let $\mathsf{A}$ be an abelian category. Define a category
+  $\operatorname{Seq}(\mathsf{A})$ whose objects are short exact
+  sequences in $\mathsf{A}$ and where morphisms are commutative
+  diagrams
+  \[\begin{tikzcd}[column sep=small]
+    0 \arrow[r] & A_1 \arrow[r] \arrow[d] & B_1 \arrow[r] \arrow[d] &
+      C_1 \arrow[r] \arrow[d] & 0 \\
+    0 \arrow[r] & A_2 \arrow[r] & B_2 \arrow[r] & C_2 \arrow[r] & 0
+  \end{tikzcd}\]
+  Thus, $\operatorname{Seq}(\mathsf{A})$ may be viewed as a full
+  subcategory of $\mathsf{C}(\mathsf{A})$.
+  \begin{itemize}
+  \item Prove that $\operatorname{Seq}(\mathsf{A})$ is an additive
+    category.
+  \item Prove that $\operatorname{Seq}(\mathsf{A})$ has kernels and
+    cokernels. (Watch out: these are not the same as in
+    $\mathsf{C}(\mathsf{A})$. Keep the snake lemma in mind.)
+  \item Show that, for every object $X$ of $\mathsf{A}$,
+    \[\begin{tikzcd}[column sep=small]
+      0 \arrow[r] & 0 \arrow[r] &
+        X \arrow[r, "\operatorname{id}_X"] \arrow[d, "\operatorname{id}_X"'] &
+        X \arrow[r] & 0 \\
+      0 \arrow[r] & X \arrow[r, "\operatorname{id}_X"'] & X \arrow[r] &
+        0 \arrow[r] & 0
+      \arrow[from=1-4, to=2-2, "\operatorname{id}_X"']
+    \end{tikzcd}\]
+    is both a monomorphism and an epimorphism in
+    $\operatorname{Seq}(\mathsf{A})$, although it is neither a
+    monomorphism nor an epimorphism in $\mathsf{C}(\mathsf{A})$ if
+    $X \neq 0$.
+  \item Prove that $\operatorname{Seq}(\mathsf{A})$ is not abelian if
+    $\mathsf{A}$ has nonzero objects.
+  \end{itemize}
+  [\S{}1.3, 3.11]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.5}
+  Let $(L^\bullet, d^\bullet_{L^\bullet})$ be a cochain complex;
+  define new differentials $d'^\bullet_{L^\bullet}$ by arbitrarily
+  changing the sign of $d^i_{L^\bullet}$:
+  $d'^i_{L^\bullet} = \pm d^i_{L^\bullet}$. Show that
+  $(L^\bullet, d'^\bullet_{L^\bullet})$ is a cochain complex
+  isomorphic to $(L^\bullet, d^\bullet_{L^\bullet})$. [\S{}3.2]
+\end{exer}
+\begin{exer}{}{exer:homol:3.6}
+  Provide an arrow-theoretic proof of Lemma~3.4 (cf.\ Remark~3.1).
+\end{exer}
+\begin{exer}{}{exer:homol:3.7}
+  Let $\mathsf{A}$, $\mathsf{B}$ be abelian categories. An additive
+  functor $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ is \emph{exact} if
+  it maps short exact sequences in $\mathsf{A}$ to short exact
+  sequences in $\mathsf{B}$. Prove that exact functors commute with
+  cohomology: if $\mathscr{F}$ is exact and $L^\bullet$ is a cochain
+  complex in $\mathsf{A}$, then
+  $H^\bullet(\mathscr{F}(L^\bullet)) \cong \mathscr{F}(H^\bullet(L^\bullet))$,
+  where $\mathscr{F}(L^\bullet)$ denotes the cochain complex in
+  $\mathsf{B}$ obtained by applying $\mathscr{F}$ to all objects and
+  morphisms in $L^\bullet$.
+
+  In particular, the image of an exact complex through an exact
+  functor is still an exact complex (cf.\ Exercise~VIII.1.23).
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.8}
+  For any $i$, give an example of a short exact sequence of complexes
+  \[
+    0 \longrightarrow L^\bullet \longrightarrow M^\bullet
+    \longrightarrow N^\bullet \longrightarrow 0
+  \]
+  such that the sequence
+  \[
+    0 \longrightarrow H^i(L^\bullet) \longrightarrow H^i(M^\bullet)
+    \longrightarrow H^i(N^\bullet) \longrightarrow 0
+  \]
+  is not exact at either $H^i(L^\bullet)$ or $H^i(N^\bullet)$.
+  [\S{}7.2]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.9}
+  Provide the gory details for the long exact cohomology sequence
+  (Theorem~3.5). [\S{}3.3, 3.10]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.10}
+  Here is a way to reduce Exercise~3.9 to the snake lemma itself.
+
+  Every complex $(L^\bullet, \lambda^\bullet)$ determines a complex
+  $\ker^\bullet$, with the object\footnote{Of course $\ker$ and
+  $\operatorname{coker}$ mean the target and source of the arrows
+  $\ker$ and $\operatorname{coker}$, respectively.} $\ker\lambda^{i+1}$
+  in degree $i$, connected by zero-morphisms, and a complex
+  $\operatorname{coker}^\bullet$, with the object
+  $\operatorname{coker}\lambda^{i-1}$ in degree $i$, also connected by
+  zero-morphisms.
+
+  Prove that $\lambda^\bullet$ induces a morphism
+  $\overline{\lambda}^\bullet : \operatorname{coker}^\bullet \to
+  \ker^\bullet$ in the abelian category of complexes, such that
+  $\ker\overline{\lambda}^\bullet \cong H^\bullet(L^\bullet)$ and
+  $\operatorname{coker}\overline{\lambda}^\bullet \cong
+  H(L^\bullet)[1]^\bullet$.
+
+  Now work out the whole long exact cohomology sequence as a
+  consequence of the snake lemma. (You will use the version of the
+  snake lemma given in Remark~III.7.11.) [\S{}3.3, 3.13]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:3.11}
+  Prove that the long exact cohomology sequence is functorial, in the
+  sense that it defines a covariant functor from the category
+  $\operatorname{Seq}(\mathsf{C}(\mathsf{A}))$ of short exact
+  sequences (cf.\ Exercise~3.4) of complexes to the category of
+  complexes. [7.13]
+\end{exer}
+\begin{exer}{}{exer:homol:3.12}
+  Redo Exercise~III.7.17.
+\end{exer}
+\begin{exer}{}{exer:homol:3.13}
+  The viewpoint in Exercise~3.10 admits the following straightforward
+  generalization.
+
+  Let $\mathsf{A}$ be an abelian category. Define a new category
+  $d\mathsf{A}$, whose objects are pairs $(A, d)$, where $A$ is an
+  object of $\mathsf{A}$ and $d : A \to A$ is a morphism (the
+  `differential') such that $d^2 = 0$. Morphisms
+  $(A, d_A) \to (B, d_B)$ in $d\mathsf{A}$ are morphisms
+  $\varphi : A \to B$ commuting with the differentials:
+  $d_B\varphi = \varphi d_A$.
+  \begin{itemize}
+  \item Prove that $d\mathsf{A}$ is an abelian category.
+  \item For any $(A, d)$ in $d\mathsf{A}$, prove that $d$ induces a
+    morphism $\bar d : \operatorname{coker}d \to \ker d$.
+  \item Define $H(A, d)$ to be $\ker \bar d$. Prove that
+    $\operatorname{coker}\bar d \cong H(A, d)$.
+  \item Show that $H$ defines an additive functor
+    $d\mathsf{A} \to \mathsf{A}$ and that this functor is not exact
+    in general.
+  \item However, prove that every short exact sequence
+    \[
+      0 \longrightarrow (A, d_A) \longrightarrow (B, d_B)
+      \longrightarrow (C, d_C) \longrightarrow 0
+    \]
+    in $d\mathsf{A}$ induces an exact triangle (in the sense of
+    \S{}3.4)
+    \[
+      \begin{tikzpicture}[baseline=(current bounding box.center)]
+        \node (A) at (1,1.3) {$H(A,d_A)$};
+        \node (C) at (0,0) {$H(C,d_C)$};
+        \node (B) at (2,0) {$H(B,d_B)$};
+        \draw[->] (A) -- (B);
+        \draw[->] (B) -- (C);
+        \draw[->] (C) -- (A);
+      \end{tikzpicture}
+    \]
+  \end{itemize}
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.14}
+  Prove that if one of the vertices of a `special' triangle arising
+  from a short exact sequence of complexes (as in \S{}3.4) is exact,
+  then the other two vertices have isomorphic cohomologies, possibly
+  up to a shift. [\S{}4.1]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:3.15}
+  Define a `Grothendieck group' and a `universal Euler
+  characteristic' $\chi$ for any abelian category $\mathsf{A}$, in
+  the style of the construction given in \S{}VI.3.4.
+
+  Extend $\chi$ to all bounded cochain complexes $M^\bullet$ in
+  $\mathsf{A}$, by setting
+  $\chi(M^\bullet) := \sum_i (-1)^i \chi(M^i)$. Prove that
+  $\chi(M^\bullet) = \chi(H^\bullet(M^\bullet))$. For every short
+  exact sequence of bounded complexes
+  $0 \to L^\bullet \to M^\bullet \to N^\bullet \to 0$, prove that
+  $\chi(M^\bullet) = \chi(L^\bullet) + \chi(N^\bullet)$. [4.3, 9.1]
+\end{exer}
 
 \section{Cones and homotopies}
 \label{sec:homol:cones-and-homotopies}
 
-
-%Define a `Grothendieck group' and a `universal Euler characteristic' \chi  for}
-
-% any abelian category A, in the style of the construction given in \S{}VI.3.4.
-% \bullet  \bullet ? Extend
-%  i
-%  \chi  i
-%  to all bounded cochain \bullet 
-%  complexes \bullet 
-%  \bullet 
-%  M in A, by setting \chi (M ) :=
-% (-1) \chi (M ). Prove that \chi (M ) = \chi (H (M )). For every short exact
-% sequence
-% iof bounded complexes 0 \to  L\bullet 
-%  \to  M \bullet 
-%  \to  N \bullet 
-%  \to  0 , prove that \chi (M \bullet  ) = \chi (L\bullet  ) +
-% \bullet \chi (N ). [4.3, 9.1]
-% If \alpha \bullet  : L\bullet  \to  M \bullet  is a morphism of cochain
-% complexes, it is natural to try to describe
-% the morphism induced in cohomology:
-% H \bullet  (\alpha \bullet ) : H \bullet  (L\bullet  ) \to  H \bullet (M \bullet
-% ).
-% \bullet However, I have pointed out that H is not an exact functor, and this seems to
-% pose an obstacle to simple-minded strategies aimed at describing (for example)
-% the
-% \bullet  \bullet  \bullet kernel or cokernel of H (\alpha  ) in terms of the kernel or cokernel of \alpha  . The long
-% exact cohomology sequence may be used to compensate for this lack of exactness;
-% we will see how in \S{}4.1. We will also begin exploring a very important
-% condition
-% (`homotopy') guaranteeing that two given morphisms of complexes induce the same
-% morphism in cohomology. Homotopies will be so important that they will lead us
-% later on to change our notion of morphisms between complexes and construct a
-% new `homotopic category' of complexes (see \S{}5).
+If $\alpha^\bullet : L^\bullet \to M^\bullet$ is a morphism of
+cochain complexes, it is natural to try to describe the morphism
+induced in cohomology:
+\[
+  H^\bullet(\alpha^\bullet) : H^\bullet(L^\bullet) \to
+  H^\bullet(M^\bullet).
+\]
+However, I have pointed out that $H^\bullet$ is not an exact functor,
+and this seems to pose an obstacle to simple-minded strategies aimed
+at describing (for example) the kernel or cokernel of
+$H^\bullet(\alpha^\bullet)$ in terms of the kernel or cokernel of
+$\alpha^\bullet$. The long exact cohomology sequence may be used to
+compensate for this lack of exactness; we will see how in \S{}4.1. We
+will also begin exploring a very important condition (`homotopy')
+guaranteeing that two given morphisms of complexes induce the same
+morphism in cohomology. Homotopies will be so important that they
+will lead us later on to change our notion of morphisms between
+complexes and construct a new `homotopic category' of complexes (see
+\S{}5).
 
 \subsection{The mapping cone of a morphism}
 \label{subsec:homol:the-mapping-cone-of-a-morphism}
-% Let \alpha \bullet  : L \bullet  \to  M \bullet  be a mor-
 
-% phism of cochain complexes. The mapping cone M C(\alpha )\bullet  of \alpha
-% \bullet  will allow us to
-% recover H \bullet  (\alpha \bullet ) as the connecting morphism in a long exact
-% cohomology sequence,
-% as constructed in \S{}3.3. In fact, the mapping cone will give us the third
-% vertex of a
-% `special' triangle (cf. the end of \S{}3.4):
-% \bullet 
-% (\dagger )
-%  +1 ?
-%  ?
-%  ?
-%  ? ?
-%  ?
-%  ?
-%  M
-%  C > >
-%  > >
-%  > >
-%  > ?
-% L[1]
-% \bullet  o
-%  M C(\alpha )\bullet 
-% The degree-increasing morphism is the zero-morphism here (as in the `special'
-% tri-
-% angles encountered in \S{}3.4); but taking cohomology
-% \bullet  \bullet H (M )
-% +1 ? ?
-%  ? ?
-%  ? ?
-%  ? C > > >
-%  > >
-%  > >
-%  ?
-% H \bullet 
-%  (L[1]\bullet )
-%  o
-%  H \bullet 
-%  (M C(\alpha )\bullet )
-% we will obtain morphisms
-% H i+1 (L\bullet ) = H i (L[1]\bullet  ) -\to  H i+1 (M \bullet )
-% that, I claim, will be nothing but the morphisms induced in cohomology by the
-% given
-% morphism \alpha \bullet  . Thus, the morphisms induced in cohomology cannot be
-% extended to
-% exact sequences (that would clearly be asking too much), but they can be
-% extended
-% to triangles arising by applying cohomology to an appropriate exact sequence of
-% complexes.
-% Incidentally, the triangle (\dagger ) displayed above (but with the
-% degree-increasing
-% morphism replaced by -\alpha \bullet  ) will be the prototype of the
-% `distinguished triangles'
-% mentioned in \S{}3.4 (cf. \S{}9.2).
-% Construction of the mapping cone. The objects of M C(\alpha )\bullet  are simply
-% direct
-% sums of objects of L\bullet  and M \bullet  :
-% M C(\alpha )i := L[1]i \oplus  M i = Li+1 \oplus  M i ;
-% but the morphisms diM C(\alpha )\bullet  : M C(\alpha )i \to  M C(\alpha )i+1
-% are not the `obvious' ones,
-% but rather
-% diM C(\alpha )\bullet  ( , m) := (-di+1
-%  L\bullet  ( ), \alpha 
-% i+1
-% ( ) + diM \bullet  (m)).
-% The sign in the first component is inherited from the shifting of L\bullet  ;
-% thus, the first
-% component is simply the differential of L[1]\bullet  . The second component
-% mixes \alpha \bullet
-% (or rather its shift \alpha [1]\bullet  ) and the differential of M \bullet  .
-% The reader should verify that
-% i+1
-%  i
-%  \bullet 
-% d M C(\alpha )\bullet  \circ  dM C(\alpha )\bullet  = 0, so that M C(\alpha ) is
-% indeed a cochain complex (Exercise 4.1);
-% this is where the sign comes in. The mapping cone is a special case of the
-% `total
-% complex' determined by a double complex, to be explored later (\S{}8.2).
-% Pictorially, M C(\alpha )\bullet  looks like this:
-% \cdot  \cdot \cdot \cdot 
-%  \cdot  \cdot  Q Q
-%  Q Q Q
-%  Q Q Q Q Q / (
-% /Li+1
-%  M \oplus 
-% i
-%  R R R -di+1
-%  R i
-%  \alpha  R L\bullet 
-%  i+1 R
-%  R R R /) / M
-%  L
-% \oplus 
-%  i+2
-%  i+1
-%  Q Q Q
-%  Q
-%  Q
-%  Q
-%  Q Q Q
-%  Q(
-% // \cdot \cdot \cdot 
-%  \cdot \cdot \cdot 
-% dM \bullet 
-% There are evident morphisms of complexes M \bullet  \to  M C(\alpha )\bullet
-% and M C(\alpha )\bullet  \to  L[1]\bullet  ,
-% induced by the natural morphisms M i -\to  Li+1 \oplus M i -\to  Li+1 . Since
-% the sequences
-%  / M i
-%  / L[1]i \oplus  M i
-%  / L[1]i
-%  / 0
-% are all exact, the sequence of complexes
-%  / M \bullet 
-%  / M C(\alpha )\bullet 
-%  / L[1]\bullet 
-%  / 0
-% is exact.
-% Proposition 4.1. There is an exact triangle
-% \bullet  \bullet H (M )
-% \delta ?
-%  +1 ? ?
-%  ?
-%  ?
-%  ? ?
-%  A
-%  B B
-%  B B
-%  B B
-%  B B
-% H \bullet 
-%  (L[1]\bullet  )
-%  o
-%  H \bullet 
-%  (M C(\alpha )\bullet  )
-% where the connecting morphism \delta  is the morphism induced by \alpha \bullet
-% in cohomology.
-% Proof. The existence of the triangle is a direct consequence of Theorem 3.5; all
-% we
-% have to check is that the connecting morphism indeed agrees with the morphism
-% induced by \alpha \bullet  . Chasing the diagram
-% ..
-% .
-%  O..
-% . O
-% ..
-% . O
-% / M i
-% O
-% / M i-1
-% O
-% / Li+1 \oplus  M i
-% O
-% / Li \oplus  M O
-%  i-1
-% /Li+1
-%  O
-% / Li
-% O
-% //0
-% ..
-%  ..
-%  ..
-% .
-%  .
-%  .
-% with a class in H i-1 (L[1]\bullet  ) = H i (L\bullet  ) represented by \in  L i
-% (such that diL\bullet  ( ) = 0),
-% we find
-% \alpha i ( ) ?
-%  / (0, \alpha i( ))
-% O
-% ,
-% _
-% ( , 0) ?
-%  /
-% which verifies the claim.
-%  ?
-% Corollary 4.2. Let \alpha \bullet  : L\bullet  \to  M \bullet  be a morphism of
-% cochain complexes. Then
-% the induced morphism H \bullet  (L\bullet ) \to  H \bullet  (M \bullet  ) is an
-% isomorphism if and only if the
-% mapping cone M C(\alpha )\bullet  is an exact complex.
-% (Cf. Exercise 3.14.)
-% I should mention that mapping cones arose in topology: the mapping cone of
-% a continuous map f : X \to  Y is obtained by considering X \times  [0, 1],
-% identifying
-% X \times  0 to a point, and stitching X \times  1 to Y by means of f . Analyzing
-% chains of this
-% space leads to the (homological version of the) `algebraic' mapping cone
-% considered
-% above.
+Let $\alpha^\bullet : L^\bullet \to M^\bullet$ be a morphism of
+cochain complexes. The \emph{mapping cone} $MC(\alpha)^\bullet$ of
+$\alpha^\bullet$ will allow us to recover $H^\bullet(\alpha^\bullet)$
+as the connecting morphism in a long exact cohomology sequence, as
+constructed in \S{}3.3. In fact, the mapping cone will give us the
+third vertex of a `special' triangle (cf.\ the end of \S{}3.4):
+\[
+  (\dagger) \quad
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (M) at (1,1.3) {$M^\bullet$};
+    \node (L) at (0,0) {$L[1]^\bullet$};
+    \node (C) at (2,0) {$MC(\alpha)^\bullet$};
+    \draw[->] (M) -- (C);
+    \draw[->] (C) -- (L);
+    \draw[->] (L) -- (M) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+The degree-increasing morphism is the zero-morphism here (as in the
+`special' triangles encountered in \S{}3.4); but taking cohomology
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (M) at (1.7,1.3) {$H^\bullet(M^\bullet)$};
+    \node (L) at (0,0) {$H^\bullet(L[1]^\bullet)$};
+    \node (C) at (3.4,0) {$H^\bullet(MC(\alpha)^\bullet)$};
+    \draw[->] (M) -- (C);
+    \draw[->] (C) -- (L);
+    \draw[->] (L) -- (M) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+we will obtain morphisms
+\[
+  H^{i+1}(L^\bullet) = H^i(L[1]^\bullet) \longrightarrow H^{i+1}(M^\bullet)
+\]
+that, I claim, will be nothing but the morphisms induced in
+cohomology by the given morphism $\alpha^\bullet$. Thus, the
+morphisms induced in cohomology cannot be extended to exact sequences
+(that would clearly be asking too much), but they can be extended to
+triangles arising by applying cohomology to an appropriate exact
+sequence of complexes.
+
+Incidentally, the triangle $(\dagger)$ displayed above (but with the
+degree-increasing morphism replaced by $-\alpha^\bullet$) will be the
+prototype of the `distinguished triangles' mentioned in \S{}3.4 (cf.\
+\S{}9.2).
+
+\emph{Construction of the mapping cone.} The objects of
+$MC(\alpha)^\bullet$ are simply direct sums of objects of $L^\bullet$
+and $M^\bullet$:
+\[
+  MC(\alpha)^i := L[1]^i \oplus M^i = L^{i+1} \oplus M^i;
+\]
+but the morphisms $d^i_{MC(\alpha)^\bullet} : MC(\alpha)^i \to
+MC(\alpha)^{i+1}$ are not the `obvious' ones, but rather
+\[
+  d^i_{MC(\alpha)^\bullet}(\ell, m) := (-d^{i+1}_{L^\bullet}(\ell),
+  \alpha^{i+1}(\ell) + d^i_{M^\bullet}(m)).
+\]
+The sign in the first component is inherited from the shifting of
+$L^\bullet$; thus, the first component is simply the differential of
+$L[1]^\bullet$. The second component mixes $\alpha^\bullet$ (or
+rather its shift $\alpha[1]^\bullet$) and the differential of
+$M^\bullet$. The reader should verify that
+$d^{i+1}_{MC(\alpha)^\bullet} \circ d^i_{MC(\alpha)^\bullet} = 0$, so
+that $MC(\alpha)^\bullet$ is indeed a cochain complex
+(Exercise~4.1); this is where the sign comes in. The mapping cone is
+a special case of the `total complex' determined by a double
+complex, to be explored later (\S{}8.2).
+
+Pictorially, $MC(\alpha)^\bullet$ looks like this:
+\[\begin{tikzcd}[column sep=large, row sep=small]
+  \dots \arrow[r] & L^{i+1} \arrow[r, "-d^{i+1}_{L^\bullet}"] &
+    L^{i+2} \arrow[r] & \dots \\
+  & \oplus & \oplus & \\
+  \dots \arrow[r] & M^i \arrow[r, "d^i_{M^\bullet}"'] &
+    M^{i+1} \arrow[r] & \dots
+  \arrow[from=1-2, to=3-3, "\alpha^{i+1}" description]
+\end{tikzcd}\]
+There are evident morphisms of complexes $M^\bullet \to
+MC(\alpha)^\bullet$ and $MC(\alpha)^\bullet \to L[1]^\bullet$,
+induced by the natural morphisms $M^i \longrightarrow L^{i+1} \oplus
+M^i \longrightarrow L^{i+1}$. Since the sequences
+\[
+  0 \longrightarrow M^i \longrightarrow L[1]^i \oplus M^i
+  \longrightarrow L[1]^i \longrightarrow 0
+\]
+are all exact, the sequence of complexes
+\[
+  0 \longrightarrow M^\bullet \longrightarrow MC(\alpha)^\bullet
+  \longrightarrow L[1]^\bullet \longrightarrow 0
+\]
+is exact.
+\begin{prop}{}{homol:4.1}
+  There is an exact triangle
+  \[
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \node (M) at (1.7,1.3) {$H^\bullet(M^\bullet)$};
+      \node (L) at (0,0) {$H^\bullet(L[1]^\bullet)$};
+      \node (C) at (3.4,0) {$H^\bullet(MC(\alpha)^\bullet)$};
+      \draw[->] (M) -- (C);
+      \draw[->] (C) -- (L);
+      \draw[->] (L) -- (M) node[midway, left] {$\substack{+1 \\ \delta}$};
+    \end{tikzpicture}
+  \]
+  where the connecting morphism $\delta$ is the morphism induced by
+  $\alpha^\bullet$ in cohomology.
+\end{prop}
+
+\begin{proof}
+  The existence of the triangle is a direct consequence of
+  Theorem~3.5; all we have to check is that the connecting morphism
+  indeed agrees with the morphism induced by $\alpha^\bullet$.
+  Chasing the diagram
+  \[\begin{tikzcd}[column sep=small]
+    & \vdots & \vdots & \vdots & \\
+    0 \arrow[r] & M^i \arrow[r] \arrow[u] &
+      L^{i+1} \oplus M^i \arrow[r] \arrow[u] & L^{i+1} \arrow[r] \arrow[u] & 0 \\
+    0 \arrow[r] & M^{i-1} \arrow[r] \arrow[u] &
+      L^i \oplus M^{i-1} \arrow[r] \arrow[u] & L^i \arrow[r] \arrow[u] & 0 \\
+    & \vdots \arrow[u] & \vdots \arrow[u] & \vdots \arrow[u] &
+  \end{tikzcd}\]
+  with a class in $H^{i-1}(L[1]^\bullet) = H^i(L^\bullet)$
+  represented by $\ell \in L^i$ (such that $d^i_{L^\bullet}(\ell) =
+  0$), we find that $\alpha^i(\ell)$, viewed as an element of
+  $MC(\alpha)^i$ via $(0, \alpha^i(\ell))$, is cohomologous to
+  $(\ell, 0)$,
+  % TODO: diagram chase verifying (0, alpha^i(ell)) and (ell, 0)
+  % represent the same class in MC(alpha)^i (page 607)
+  which maps to $\ell$ under $MC(\alpha)^\bullet \to L[1]^\bullet$;
+  this verifies the claim.
+\end{proof}
+
+\begin{coro}{}{homol:4.2}
+  Let $\alpha^\bullet : L^\bullet \to M^\bullet$ be a morphism of
+  cochain complexes. Then the induced morphism
+  $H^\bullet(L^\bullet) \to H^\bullet(M^\bullet)$ is an isomorphism
+  if and only if the mapping cone $MC(\alpha)^\bullet$ is an exact
+  complex.
+
+  (Cf.\ Exercise~3.14.)
+\end{coro}
+
+I should mention that mapping cones arose in topology: the mapping
+cone of a continuous map $f : X \to Y$ is obtained by considering
+$X \times [0,1]$, identifying $X \times 0$ to a point, and stitching
+$X \times 1$ to $Y$ by means of $f$. Analyzing chains of this space
+leads to the (homological version of the) `algebraic' mapping cone
+considered above.
 
 \subsection{Quasi-isomorphisms and derived categories}
 \label{subsec:homol:quasi-isomorphisms-and-derived-categories}
-% A component of our main
 
-% strategy consists of understanding when cochain complexes `have a good reason'
-% to have the same cohomology. Corollary 4.2 provides us with such a reason. The
-% morphisms singled out in that statement have a name:
-% Definition 4.3. A morphism \alpha \bullet  of cochain complexes is a
-% quasi-isomorphism if it
-% induces an isomorphism in cohomology.
-%  ?
-% By Corollary 4.2, this condition is equivalent to the exactness of the mapping
-% cone of \alpha \bullet  .
-% \bullet Example 4.4. The datum of a resolution M of an object A of an abelian cate-
-% gory A, as in Definition 3.2 and with M i = 0 for i > 0, is the same as the
-% datum
-% of a quasi-isomorphism
-% M \bullet 
-%  q-iso.
-%  / \iota (A)
-% where \iota  places A in degree 0 and 0 in all other degrees. Here is a larger
-% version of
-% the same diagram:
-% -2
-%  -1
-%  0\cdot \cdot \cdot 
-%  / M -2
-%  dM \bullet 
-%  / M -1
-%  dM \bullet 
-%  / M 0
-%  dM \bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / A
-%  / 0
-%  / \cdot \cdot \cdot 
-% -1
-% where the only nontrivial vertical map is the cokernel of dM \bullet  .
-% ?
-% Thus, quasi-isomorphisms may be viewed as generalizations of more simple-
-% minded resolutions. Also note that the mapping cone of a resolution as in Exam-
-% ple 4.4 is obtained (as the reader should check) by shifting the complex `one
-% step
-% to the left' and completing it with A, obtaining the exact complex:
-% -d-1
-%  M \bullet 
-%  coker d-1
-%  M \bullet 
-% \cdot \cdot \cdot 
-%  / M -1
-%  / M 0
-%  / A
-%  / 0
-%  / \cdot \cdot \cdot  .
-% This is nothing but our other point of view on resolutions (as in \S{}VI.4.2).
-% Remark 4.5. Quasi-isomorphisms with fixed target (resp., source) form a category
-% in a natural way, which I will leave to the reader to make precise. In
-% particular,
-% \leq 0 \geq 0resolutions in C (A) (resp., C (A)) of a given object of A, as in Example 4.4,
-% form a category.
-%  ?
-% Wouldn't it be nice if quasi-isomorphisms were actual isomorphisms, that is,
-% if they were invertible? In general, they are not. The following example will
-% arise
-% several times to ward off any such hopes.
-% Example 4.6. In C(Ab), the morphism of complexes
-% \cdot \cdot \cdot 
-%  / 0
-%  / Z
-%  \cdot 2
-%  / Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% \pi 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / 2Z
-%  Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% where \pi  is the natural projection, is a quasi-isomorphism, but it does not
-% have an
-% inverse since there are no nontrivial homomorphisms Z/2Z \to  ?
-%  Z.
-%  ?
-% In fact, this example shows that `quasi-isomorphism' is not even an equivalence
-% relation (it is not symmetric). This is too bad---if it were, then the
-% `equivalence
-% class of a complex' would be the most natural candidate for the entity carrying
-% the
-% maximal amount of cohomological information of a complex.
-% I will stop short of defining a `quasi-isomorphism relation': in this book,
-% quasi-
-% isomorphism is simply a particular quality of a morphism of cochain complexes,
-% not
-% a relation. In any case recall that, even in the context of sets, taking the
-% quotient
-% by an equivalence relation is not the `primary' object of interest: the quotient
-% is
-% just the solution to the natural universal problem of studying functions to
-% other
-% sets with identical behavior on `equivalent' elements. This is the primary
-% objective.
-% Similarly, the primary objective in the present context is not so much to
-% identify
-% together all complexes linked by a quasi-isomorphism, as it is to be able to
-% shuttle
-% information back and forth between such complexes. The natural way to accomplish
-% this is to study environments in which quasi-isomorphisms do have inverses. More
-% precisely, it consists of studying additive functors
-% F : C(A) -\to  D
-% such that F (\rho \bullet 
-%  ) is an isomorphism for every quasi-isomorphism \rho \bullet  . (Cohomology
-% is such a functor.)
-% This sounds like yet another universal problem, and the natural line of attack
-% would be to solve it as such, that is, to define (if possible) a category D(A)
-% endowed
-% with an additive functor C(A) \to  D(A) such that quasi-isomorphisms in C(A) are
-% mapped to isomorphisms in D(A) and through which every F as above must factor
-% uniquely:
-% C(A)
-%  F
-%  / D
-% \sqcup  |
-%  |
-%  | | | \exists !
-%  |
-%  |
-%  | =
-% D(A)
-% To be honest, we should take such a statement with a grain of salt: the natural
-% environment in which we should pose this universal problem would be a `category
-% of categories', and we have not defined such a thing in this book. A category
-% D(A)
-% as above does exist, at least if a certain `localization' process can be carried
-% out23 :
-% it is the derived category of A. `Bounded' versions D- (A), D+ (A), and more,
-% are
-% solutions to the corresponding universal problems for appropriately bounded com-
-% plexes.
-% These derived categories answer the main question underlying our strategy, of
-% understanding `what' in a complex really determines its cohomology: the answer
-% amounts to viewing the complex in the appropriate derived category. The con-
-% struction of D(A) consists roughly of taking the same objects as C(A) and
-% formally
-% inverting the quasi-isomorphisms. The details of this construction are somewhat
-% involved and are best left to more advanced texts. But we will be able to
-% capture its
-% essence in this book, at least in lucky cases (when the abelian category has
-% `enough
-% injectives' or `enough projectives'; see Definition 5.7).
-% The derived category has the unfortunate reputation of being an overly abstract
-% notion, and there are fundamental questions about whether it really is the best
-% approach to an abstract study of cohomology. This is partly because the derived
-% category of an abelian category is not an abelian category and simple notions
-% such as
-% kernel, cokernel, exact sequences are not available in D(A). This adds a
-% substantial
-% layer of complication to the theory.
-% On the other hand, going past these difficulties, one finds that enough
-% structure
-% remains to do much homological algebra: objects in D(A) have cohomology, and
-% there are `distinguished triangles' (cf. \S{}3.4) abstracting exact sequences
-% and giving
-% 23 There may be set-theoretic issues with this process. However, these play no
-% role in the
-% cases we will consider, in which A has `enough projectives' or `enough
-% injectives'.
-% long exact cohomology sequences. The derived category is a triangulated
-% category,
-% like the more manageable homotopic category K(A) that we will soon define. Its
-% uses go beyond the confines of algebra or even mathematics: an approach to the
-% understanding of `D-branes' in string theory is based on derived categories.
-% To get a sense of how counterintuitive D(A) must be, note that the zero-
-% morphism 0 : M \bullet  \to  M \bullet  may well be a quasi-isomorphism: in
-% fact, this is so
-% \bullet precisely when M is exact. Well, in any category D as above (and in particular
-% in the derived category D(A)) this zero-morphism remains the zero-morphism, but
-% it comes equipped with an inverse when it is a quasi-isomorphism. Thus, in the
-% derived category the zero-morphism on a complex involving nonzero objects may
-% well be invertible! This says that complexes that are nonzero in C(A) may become
-% zero-objects in the derived category.
-% Lemma 4.7. Let D be an additive category, and let F : C(A) \to  D be an additive
-% functor such that F (\rho \bullet  ) is an isomorphism for every
-% quasi-isomorphism \rho \bullet .
-% \bullet  Let M \bullet  be an exact complex in C(A). Then the complex F (M \bullet  ), obtained by
-% applying F to the objects and morphisms of M \bullet  , is a zero-object in D.
-% \bullet  Let \alpha \bullet  : L\bullet  \to  N \bullet  be a morphism in C(A) that factors through an exact
-% complex,
-% L\bullet <
-%  < <
-%  < <
-%  < ?
-%  \alpha 
-% \bullet 
-%  / N @
-%  \bullet 
-%  ,
-% \bullet 
-% M
-% with M \bullet 
-%  exact. Then F (\alpha \bullet 
-% ) is the zero-morphism.
-% Proof. The second claim follows from the first, since by applying F to the given
-% diagram we obtain
-% F (\alpha \bullet  )
-% F (L\bullet  )
-%  / F (N \bullet )
-% A A
-%  A A
-%  A A
-%  | |
-%  |
-%  | |
-%  | >
-%  ,
-% F (M \bullet 
-%  )
-% and we see that F (\alpha \bullet  ) factors through a zero-object of D.
-% To verify the first claim, note that since M \bullet  is exact, the
-% zero-morphism: M \bullet  \to
-% M \bullet  is a quasi-isomorphism; hence it is mapped to an invertible morphism
-% by F :
-% F (M \bullet )
-%  F (0)
-%  / F (M \bullet  ) F (0)-1
-%  /3
-%  F (M \bullet )
-% idF (M \bullet  )
-% Since F is additive, F (0) = 0. It follows that idF (M \bullet  ) = 0 and hence
-% that F (M \bullet )
-% is a zero-object of D, by Exercise 1.6.
-%  ?
-% In the next several sections I will chase the notion of derived category, aiming
-% to understand it rather concretely in particularly favorable circumstances. We
-% will
-% take it for granted that these categories exist. A detailed definition of these
-% objects,
-% or a treatment of triangulated categories, is beyond the scope of this book.
+A component of our main strategy consists of understanding when
+cochain complexes `have a good reason' to have the same cohomology.
+Corollary~4.2 provides us with such a reason. The morphisms singled
+out in that statement have a name:
+
+\begin{defn}{}{homol:4.3}
+  A morphism $\alpha^\bullet$ of cochain complexes is a
+  \emph{quasi-isomorphism} if it induces an isomorphism in
+  cohomology.
+\end{defn}
+
+By Corollary~4.2, this condition is equivalent to the exactness of
+the mapping cone of $\alpha^\bullet$.
+
+\begin{exam}{}{homol:4.4}
+  The datum of a resolution $M^\bullet$ of an object $A$ of an
+  abelian category $\mathsf{A}$, as in Definition~3.2 and with
+  $M^i = 0$ for $i > 0$, is the same as the datum of a
+  quasi-isomorphism
+  \[
+    M^\bullet \xrightarrow{\text{q-iso.}} \iota(A)
+  \]
+  where $\iota$ places $A$ in degree $0$ and $0$ in all other
+  degrees. Here is a larger version of the same diagram:
+  \[\begin{tikzcd}[column sep=small]
+    \dots \arrow[r] & M^{-2} \arrow[r, "d^{-2}_{M^\bullet}"] \arrow[d] &
+      M^{-1} \arrow[r, "d^{-1}_{M^\bullet}"] \arrow[d] &
+      M^0 \arrow[r, "d^0_{M^\bullet}"] \arrow[d] & 0 \arrow[r] \arrow[d] & \dots \\
+    \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & A \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  where the only nontrivial vertical map is the cokernel of
+  $d^{-1}_{M^\bullet}$.
+\end{exam}
+
+Thus, quasi-isomorphisms may be viewed as generalizations of more
+simple-minded resolutions. Also note that the mapping cone of a
+resolution as in Example~4.4 is obtained (as the reader should check)
+by shifting the complex `one step to the left' and completing it with
+$A$, obtaining the \emph{exact} complex:
+\[
+  \dots \longrightarrow M^{-1} \xrightarrow{-d^{-1}_{M^\bullet}} M^0
+  \xrightarrow{\operatorname{coker}d^{-1}_{M^\bullet}} A
+  \longrightarrow 0 \longrightarrow \dots.
+\]
+This is nothing but our other point of view on resolutions (as in
+\S{}VI.4.2).
+
+\begin{rem}{}{homol:4.5}
+  Quasi-isomorphisms with fixed target (resp., source) form a
+  category in a natural way, which I will leave to the reader to make
+  precise. In particular, resolutions in $\mathsf{C}^{\leq 0}(\mathsf{A})$
+  (resp., $\mathsf{C}^{\geq 0}(\mathsf{A})$) of a given object of
+  $\mathsf{A}$, as in Example~4.4, form a category.
+\end{rem}
+
+Wouldn't it be nice if quasi-isomorphisms were actual isomorphisms,
+that is, if they were invertible? In general, they are not. The
+following example will arise several times to ward off any such
+hopes.
+
+\begin{exam}{}{homol:4.6}
+  In $\mathsf{C}(\mathsf{Ab})$, the morphism of complexes
+  \[\begin{tikzcd}[column sep=small]
+    \dots \arrow[r] & 0 \arrow[r] \arrow[d] &
+      \mathbb{Z} \arrow[r, "\cdot 2"] \arrow[d] &
+      \mathbb{Z} \arrow[r] \arrow[d, "\pi"] & 0 \arrow[r] \arrow[d] & \dots \\
+    \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] &
+      \dfrac{\mathbb{Z}}{2\mathbb{Z}} \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  where $\pi$ is the natural projection, is a quasi-isomorphism, but
+  it does not have an inverse since there are no nontrivial
+  homomorphisms $\mathbb{Z}/2\mathbb{Z} \to \mathbb{Z}$.
+\end{exam}
+
+In fact, this example shows that `quasi-isomorphism' is not even an
+equivalence relation (it is not symmetric). This is too bad---if it
+were, then the `equivalence class of a complex' would be the most
+natural candidate for the entity carrying the maximal amount of
+cohomological information of a complex.
+
+I will stop short of defining a `quasi-isomorphism relation': in this
+book, quasi-isomorphism is simply a particular quality of a morphism
+of cochain complexes, not a relation. In any case recall that, even
+in the context of sets, taking the quotient by an equivalence
+relation is not the `primary' object of interest: the quotient is
+just the solution to the natural universal problem of studying
+functions to other sets with identical behavior on `equivalent'
+elements. \emph{This} is the primary objective.
+
+Similarly, the primary objective in the present context is not so
+much to identify together all complexes linked by a
+quasi-isomorphism, as it is to be able to shuttle information back
+and forth between such complexes. The natural way to accomplish this
+is to study environments in which quasi-isomorphisms do have
+inverses. More precisely, it consists of studying additive functors
+\[
+  \mathscr{F} : \mathsf{C}(\mathsf{A}) \longrightarrow \mathsf{D}
+\]
+such that $\mathscr{F}(\rho^\bullet)$ is an isomorphism for every
+quasi-isomorphism $\rho^\bullet$. (Cohomology is such a functor.)
+
+This sounds like yet another universal problem, and the natural line
+of attack would be to solve it as such, that is, to define (if
+possible) a category $\mathsf{D}(\mathsf{A})$ endowed with an
+additive functor $\mathsf{C}(\mathsf{A}) \to \mathsf{D}(\mathsf{A})$
+such that quasi-isomorphisms in $\mathsf{C}(\mathsf{A})$ are mapped
+to isomorphisms in $\mathsf{D}(\mathsf{A})$ and through which every
+$\mathscr{F}$ as above must factor uniquely:
+\[\begin{tikzcd}
+  \mathsf{C}(\mathsf{A}) \arrow[r, "\mathscr{F}"] \arrow[d] & \mathsf{D} \\
+  \mathsf{D}(\mathsf{A}) \arrow[ur, dashed, "\exists!"']
+\end{tikzcd}\]
+To be honest, we should take such a statement with a grain of salt:
+the natural environment in which we should pose this universal
+problem would be a `category of categories', and we have not defined
+such a thing in this book. A category $\mathsf{D}(\mathsf{A})$ as
+above \emph{does} exist, at least if a certain `localization' process
+can be carried out\footnote{There may be set-theoretic issues with
+this process. However, these play no role in the cases we will
+consider, in which $\mathsf{A}$ has `enough projectives' or `enough
+injectives'.}: it is the \emph{derived category} of $\mathsf{A}$.
+`Bounded' versions $\mathsf{D}^-(\mathsf{A})$,
+$\mathsf{D}^+(\mathsf{A})$, and more, are solutions to the
+corresponding universal problems for appropriately bounded complexes.
+
+These derived categories answer the main question underlying our
+strategy, of understanding `what' in a complex really determines its
+cohomology: the answer amounts to viewing the complex in the
+appropriate derived category. The construction of
+$\mathsf{D}(\mathsf{A})$ consists roughly of taking the same objects
+as $\mathsf{C}(\mathsf{A})$ and formally inverting the
+quasi-isomorphisms. The details of this construction are somewhat
+involved and are best left to more advanced texts. But we will be
+able to capture its essence in this book, at least in lucky cases
+(when the abelian
+category has `enough injectives' or `enough projectives'; see
+Definition~5.7).
+
+The derived category has the unfortunate reputation of being an
+overly abstract notion, and there are fundamental questions about
+whether it really is the best approach to an abstract study of
+cohomology. This is partly because the derived category of an
+abelian category is \emph{not} an abelian category and simple
+notions such as kernel, cokernel, exact sequences are not available
+in $\mathsf{D}(\mathsf{A})$. This adds a substantial layer of
+complication to the theory.
+
+On the other hand, going past these difficulties, one finds that
+enough structure remains to do much homological algebra: objects in
+$\mathsf{D}(\mathsf{A})$ have cohomology, and there are
+`distinguished triangles' (cf.\ \S{}3.4) abstracting exact sequences
+and giving long exact cohomology sequences. The derived category is a
+\emph{triangulated category}, like the more manageable homotopic
+category $\mathsf{K}(\mathsf{A})$ that we will soon define. Its uses
+go beyond the confines of algebra or even mathematics: an approach to
+the understanding of `D-branes' in string theory is based on derived
+categories.
+
+To get a sense of how counterintuitive $\mathsf{D}(\mathsf{A})$ must
+be, note that the zero-morphism $0 : M^\bullet \to M^\bullet$ may
+well be a quasi-isomorphism: in fact, this is so precisely when
+$M^\bullet$ is exact. Well, in any category $\mathsf{D}$ as above
+(and in particular in the derived category $\mathsf{D}(\mathsf{A})$)
+this zero-morphism remains the zero-morphism, \emph{but} it comes
+equipped with an inverse when it is a quasi-isomorphism. Thus, in the
+derived category the zero-morphism on a complex involving nonzero
+objects may well be invertible! This says that complexes that are
+nonzero in $\mathsf{C}(\mathsf{A})$ may become zero-objects in the
+derived category.
+
+\begin{lem}{}{homol:4.7}
+  Let $\mathsf{D}$ be an additive category, and let
+  $\mathscr{F} : \mathsf{C}(\mathsf{A}) \to \mathsf{D}$ be an additive
+  functor such that $\mathscr{F}(\rho^\bullet)$ is an isomorphism for
+  every quasi-isomorphism $\rho^\bullet$.
+  \begin{itemize}
+  \item Let $M^\bullet$ be an exact complex in $\mathsf{C}(\mathsf{A})$.
+    Then the complex $\mathscr{F}(M^\bullet)$, obtained by applying
+    $\mathscr{F}$ to the objects and morphisms of $M^\bullet$, is a
+    zero-object in $\mathsf{D}$.
+  \item Let $\alpha^\bullet : L^\bullet \to N^\bullet$ be a morphism
+    in $\mathsf{C}(\mathsf{A})$ that factors through an exact
+    complex,
+    \[\begin{tikzcd}
+      L^\bullet \arrow[rr, "\alpha^\bullet"] \arrow[dr] & & N^\bullet \\
+      & M^\bullet \arrow[ur]
+    \end{tikzcd}\]
+    with $M^\bullet$ exact. Then $\mathscr{F}(\alpha^\bullet)$ is the
+    zero-morphism.
+  \end{itemize}
+\end{lem}
+
+\begin{proof}
+  The second claim follows from the first, since by applying
+  $\mathscr{F}$ to the given diagram we obtain
+  \[\begin{tikzcd}
+    \mathscr{F}(L^\bullet) \arrow[rr, "\mathscr{F}(\alpha^\bullet)"]
+      \arrow[dr] & & \mathscr{F}(N^\bullet) \\
+    & \mathscr{F}(M^\bullet) \arrow[ur]
+  \end{tikzcd}\]
+  and we see that $\mathscr{F}(\alpha^\bullet)$ factors through a
+  zero-object of $\mathsf{D}$.
+
+  To verify the first claim, note that since $M^\bullet$ is exact,
+  the zero-morphism $M^\bullet \to M^\bullet$ is a
+  quasi-isomorphism; hence it is mapped to an invertible morphism by
+  $\mathscr{F}$:
+  \[
+    \underbrace{\mathscr{F}(M^\bullet) \xrightarrow{\mathscr{F}(0)}
+    \mathscr{F}(M^\bullet) \xrightarrow{\mathscr{F}(0)^{-1}}
+    \mathscr{F}(M^\bullet)}_{\operatorname{id}_{\mathscr{F}(M^\bullet)}}
+  \]
+  Since $\mathscr{F}$ is additive, $\mathscr{F}(0) = 0$. It follows
+  that $\operatorname{id}_{\mathscr{F}(M^\bullet)} = 0$ and hence
+  that $\mathscr{F}(M^\bullet)$ is a zero-object of $\mathsf{D}$, by
+  Exercise~1.6.
+\end{proof}
+
+In the next several sections I will chase the notion of derived
+category, aiming to understand it rather concretely in particularly
+favorable circumstances. \emph{We will take it for granted that
+these categories exist.} A detailed definition of these objects, or a
+treatment of triangulated categories, is beyond the scope of this
+book.
 
 \subsection{Homotopy}
 \label{subsec:homol:homotopy}
-% The foregoing considerations put our strategy into focus: we are
 
-% after constructions that determine cochain complexes `up to quasi-isomorphism'.
-% However, quasi-isomorphisms appear hard to deal with directly. Thus, we look for
-% more manageable notions that may work as an effective replacement.
-% Like the mapping cone, this line of approach also owes its origins to topology:
-% in topology, `homeomorphism' is often too harsh a requirement, while `homotopy
-% equivalence' is a more malleable but still adequate notion. For example,
-% homotopy
-% equivalent topological spaces have the same homology. Distilling the algebra out
-% of
-% this notion leads to an analog at the level of complexes.
-% To see how this is done, recall that if f , g are homotopic continuous functions
-% between two topological spaces X and Y , then f and g induce the same map on the
-% homology of the spaces. To remind yourself of how this works, look at the
-% picture:
-% \delta +
-% f (a)
-%  h(a)
-%  g(a)
-% \delta -
-% This is supposed to represent the action of a homotopy between f and g on a
-% chain a
-% in X: h(a) is obtained by mapping a \times  [0, 1] to Y so as to get f (a) when
-% restricting
-% to a \times  {0} and to get g(a) when restricting to a \times  {1}. Note that
-% h(a) is a chain
-% of dimension 1 higher than the dimension of a, and that the boundary \partial
-% h(a) of
-% this chain consists of f (a), g(a) and of the restriction of h to the boundary
-% \partial a of a:
-% taking the boundary `counterclockwise',
-% \partial h(a) = g(a) - \delta + - f (a) + \delta - = g(a) - f (a) - h(\partial a)
-% (or so it would seem from the picture! As presented here, this is of course at
-% best a
-% plausibility argument; it can be made rigorous, but that is someone else's
-% business).
-% That is,
-% g(a) - f (a) = \partial h(a) + h(\partial a).
-% Since boundaries vanish in homology, f (a) and g(a) will agree in homology.
-% Here is the translation into algebra of this pleasant geometric situation:
-% Definition 4.8. A homotopy h between two morphisms of cochain complexes
-% \alpha \bullet  , \beta  \bullet  : L\bullet  -\to  M \bullet 
-% is a collection of morphisms
-% hi : Li -\to  M i-1
-% such that \forall i
-% \beta  i - \alpha  i = dM
-%  i-1
-%  \bullet  \circ  hi
-%  + h
-% i+1
-%  \circ  dL\bullet  i
-%  .
-% We say that \alpha  \bullet  is homotopic to \beta  \bullet  and write \alpha
-% \bullet  \sim  \beta  \bullet  if there is a homotopy between
-% \alpha  \bullet  and \beta  \bullet  .
-%  ?
-% We are dealing here with cochain complexes; this accounts for the fact that
-% while in the topological situation (where we were interested in chains rather
-% than
-% cochains) the homotopy would shift dimensions up, in Definition 4.8 it shifts
-% degrees
-% down.
-% Aside from its topological motivation, homotopy is not too easy to visualize.
-% The following diagram is not assumed to be commutative:
-% i-2
-%  i-1
-%  i
-%  i+1
-% \cdot \cdot \cdot 
-%  dL\bullet 
-%  / Li-1
-%  dL\bullet 
-%  / Li
-%  dL\bullet 
-%  / Li+1
-%  dL\bullet 
-%  / \cdot \cdot \cdot 
-% {
-%  {{
-%  {
-%  {
-%  {{
-%  {
-%  {
-%  {{
-%  {
-%  {
-%  {{
-% h
-% i-1
-%  {
-%  {{
-%  {{
-%  {
-%  {{
-%  \alpha 
-%  {{
-%  i-1
-%  \beta 
-% i-1 {{
-%  hi
-%  {{
-%  {
-%  {
-%  {
-%  {{
-%  \alpha 
-% i
-%  \beta 
-% i
-%  h
-% i+1
-%  {
-%  {
-%  {{
-%  {
-%  {
-%  {
-%  {{
-%  \alpha 
-% i+1
-%  \beta 
-%  i+1 h
-% i+2 {{
-%  {{
-%  {
-%  {{
-%  {{
-% {{
-%  {{
-%  {{
-%  {{
-% }{{
-%  {
-%  {{
-%  ? i-1
-%  }{
-%  {
-%  {{
-%  ? i
-%  }{
-%  {
-%  {{
-%  ? i+1
-%  }{
-%  {
-%  {{
-% \cdot \cdot \cdot 
-%  i-2
-%  / M i-1
-%  / M i
-%  / M i+1
-%  / \cdot \cdot \cdot 
-% dM\bullet 
-%  dM \bullet 
-%  dM\bullet 
-%  dM \bullet 
-% The morphisms hi do not usually define a morphism of complexes L\bullet  \to  M
-% [-1]\bullet  :
-% the lozenges in this diagram are not required to commute.
-% Definition 4.9. A morphism \alpha \bullet  : L\bullet  \to  M \bullet  is a
-% homotopy equivalence if there is
-% a morphism \beta  \bullet  : M \bullet  \to  L\bullet  such that \alpha \bullet
-% \circ  \beta  \bullet  \sim  1M \bullet  and \beta  \bullet  \circ  \alpha
-% \bullet  \sim  1L\bullet  . The com-
-% plexes L\bullet  , M \bullet  are said to be homotopy equivalent if there is a
-% homotopy equivalence
-% L\bullet  \to  M \bullet  .
-%  ?
-% The reader should check that \sim  is an equivalence relation and that `homotopy
-% equivalence of complexes' is also (Exercise 4.4). Further, these relations are
-% clearly
-% compatible with simple operations of morphisms (Exercises 4.5 and 4.6).
-% Proposition 4.10. If \alpha \bullet  , \beta \bullet  : L\bullet  \to  M \bullet
-% are homotopic morphisms of complexes,
-% then \alpha \bullet  , \beta  \bullet  induce the same morphisms on cohomology:
-% H \bullet  (L\bullet  ) \to  H \bullet  (M \bullet  ).
-% Proof. Let \in  H i (L\bullet  ). Then is represented by an element \in
-% ker(diL\bullet  ), and its
-% images in H i (M \bullet  ) under the morphisms induced by \alpha \bullet  ,
-% \beta  \bullet  are represented by
-% \alpha i ( ),
-%  \beta  i ( ).
-% Since \alpha  \bullet  , \beta  \bullet  are homotopic, according to Definition
-% 4.8 there are morphisms hi
-% such that
-% \beta  i( ) - \alpha i ( ) = di-1
-%  M \bullet  (hi
-% ( )) + h
-% i+1 (dL\bullet  i
-%  ( )).
-% Since
-%  \in  ker diL\bullet  , the last term vanishes. This shows that
-% \beta  i ( ) - \alpha i ( ) \in  im diM \bullet  ,
-% proving that \beta  i( ) - \alpha i ( ) vanishes in H i (M \bullet  ), as
-% needed.
-%  ?
-% For example, if \alpha \bullet  is homotopic to the identity, then by Corollary
-% 4.2 the cone
-% \bullet 
-% of \alpha  must be exact. It is a good exercise to verify this fact directly
-% (Exercise 4.8).
-% Corollary 4.11. Homotopy equivalent complexes have isomorphic cohomology.
-% Proof. Indeed, morphisms \alpha \bullet  : L\bullet  \to  M \bullet  , \beta
-% \bullet  : M \bullet  \to  L\bullet  such that \beta  \bullet  \circ  \alpha
-% \bullet  and
-% \bullet  \bullet \alpha  \circ  \beta  are both homotopic to the identity induce inverse morphisms in cohomology,
-% by Proposition 4.10.
-%  ?
-% Remark 4.12. In other words, homotopy equivalences of complexes are quasi-
-% isomorphisms. This does not yet solve the `problem' that quasi-isomorphisms are
-% not invertible, since Example 4.6 shows that quasi-isomorphisms may well not be
-% invertible even up to homotopy. In other words, `homotopy equivalence' is a more
-% restrictive notion than `quasi-isomorphism'. One reason to study complexes of
-% in-
-% jective/projective modules, as we will do in \S{}5.3, is precisely that
-% quasi-isomorphism
-% and homotopy equivalence are equivalent notions for (bounded) complexes of in-
-% jective or projective modules. Since homotopy equivalence is a ready-made
-% equiva-
-% lence relation on complexes, this will bypass any technicality needed to make
-% sense
-% of `quasi-isomorphism' as an equivalence relation.
-%  ?
-% Corollary 4.11 is the main technical reason that makes the strategy presented
-% in \S{}3.1 work, in a class of interesting examples. As we will see in due time,
-% in
-% these examples the cohomology of the relevant cochain complexes will end up
-% being
-% independent of the choices, because these choices will produce homotopic
-% complexes.
-% Another key observation will be that homotopy equivalence is preserved by any
-% additive functor. Suppose A, B are abelian categories and
-% F : A -\to  B
-% is an additive functor (Definition 1.1). Then F induces an additive functor pre-
-% serving the grading
-% C(F ) : C(A) -\to  C(B).
-% Lemma 4.13. With F as above, if \alpha \bullet  \sim  \beta  \bullet  in C(A),
-% then C(F )(\alpha \bullet  ) \sim  C(F )(\beta  \bullet )
-% in C(B), and if L\bullet  and M \bullet  are homotopy equivalent complexes in
-% C(A), then
-% C(F )(L\bullet  ) and C(F )(M \bullet  ) are homotopy equivalent complexes in
-% C(B).
-% Proof. The second assertion follows from the first. The first is an immediate
-% consequence of the fact that F is additive. Indeed, if h is a homotopy between
-% \alpha  \bullet  , \beta  \bullet  : L\bullet  \to  M \bullet  , then
-% \beta  i - \alpha  i = dM
-%  i-1
-%  \bullet  \circ  hi
-%  + h
-% i+1
-%  \circ  dL\bullet  i
-%  .
-% Since F preserves the additive structure on Hom-sets, this implies
-% F (\beta  i ) - F (\alpha i ) = F (dM
-%  i-1
-%  \bullet  ) \circ  F (hi
-%  ) + F (h
-% i+1
-% ) \circ  F (diL\bullet  ),
-% showing that the collection of morphisms F (hi) gives a homotopy between F
-% (\alpha \bullet )
-% and F (\beta  \bullet ).
-%  ?
-% Note that the analogous statement does not hold for quasi-isomorphisms (Ex-
-% ercise 4.15): an additive functor does not preserve quasi-isomorphisms (while an
-% exact functor does).
-% Lemma 4.13 implies that the conclusion of Corollary 4.11 holds true after ap-
-% plying an additive functor:
-% Theorem 4.14. Let F : A \to  B be an additive functor between two abelian cate-
-% gories. If L\bullet  , M \bullet  are homotopy equivalent complexes in C(A),
-% then the cohomology
-% complexes
-% H \bullet  (C(F )(L\bullet  )), H \bullet  (C(F )(M \bullet ))
-% are isomorphic.
-% The proof of this statement is essentially immediate after all our preparatory
-% work, so it is left to the reader (Exercise 4.16).
-% I am gracing this statement with theorem status because it is at the root of
-% the strategy I am pursuing. The content of Theorem 4.14 is that any mechanism
-% associating to a mathematical object a cochain complex determined up to homotopy
-% will give rise to a slew of interesting invariants: apply your favorite additive
-% functor
-% to any such complex, take cohomology, and Theorem 4.14 guarantees that the
-% result will be independent of the specific chosen complex. This is (part of) the
-% reason underlying the various claims of independence on choices made in
-% \S{}VIII.2.4
-% and \S{}VIII.6.4, concerning the definition of the Tor and Ext functors, as we
-% will see
-% later in the chapter (\S{}7, especially Examples 7.6 and 7.7).
+The foregoing considerations put our strategy into focus: we are
+after constructions that determine cochain complexes `up to
+quasi-isomorphism'. However, quasi-isomorphisms appear hard to deal
+with directly. Thus, we look for more manageable notions that may
+work as an effective replacement.
+
+Like the mapping cone, this line of approach also owes its origins
+to topology: in topology, `homeomorphism' is often too harsh a
+requirement, while `homotopy equivalence' is a more malleable but
+still adequate notion. For example, homotopy equivalent topological
+spaces have the same homology. Distilling the algebra out of this
+notion leads to an analog at the level of complexes.
+
+To see how this is done, recall that if $f$, $g$ are \emph{homotopic}
+continuous functions between two topological spaces $X$ and $Y$,
+then $f$ and $g$ induce the same map on the homology of the spaces.
+To remind yourself of how this works, look at the picture:
+% TODO: diagram of a homotopy h(a) between f(a) and g(a): a
+% curved/wavy region bounded by f(a) on the left, g(a) on the right,
+% delta_+ on top and delta_- on bottom, with h(a) labeling the
+% interior surface (page 611)
+This is supposed to represent the action of a homotopy between $f$
+and $g$ on a chain $a$ in $X$: $h(a)$ is obtained by mapping
+$a \times [0,1]$ to $Y$ so as to get $f(a)$ when restricting to
+$a \times \{0\}$ and to get $g(a)$ when restricting to
+$a \times \{1\}$. Note that $h(a)$ is a chain of dimension $1$
+higher than the dimension of $a$, and that the boundary $\partial
+h(a)$ of this chain consists of $f(a)$, $g(a)$ and of the
+restriction of $h$ to the boundary $\partial a$ of $a$: taking the
+boundary `counterclockwise',
+\[
+  \partial h(a) = g(a) - \delta_+ - f(a) + \delta_- = g(a) - f(a) -
+  h(\partial a)
+\]
+(or so it would seem from the picture! As presented here, this is of
+course at best a plausibility argument; it can be made rigorous, but
+that is someone else's business). That is,
+\[
+  g(a) - f(a) = \partial h(a) + h(\partial a).
+\]
+Since boundaries vanish in homology, $f(a)$ and $g(a)$ will agree in
+homology.
+
+Here is the translation into algebra of this pleasant geometric
+situation:
+
+\begin{defn}{}{homol:4.8}
+  A \emph{homotopy} $h$ between two morphisms of cochain complexes
+  $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$ is a
+  collection of morphisms
+  \[
+    h^i : L^i \to M^{i-1}
+  \]
+  such that $\forall i$
+  \[
+    \beta^i - \alpha^i = d^{i-1}_{M^\bullet} \circ h^i + h^{i+1}
+    \circ d^i_{L^\bullet}.
+  \]
+  We say that $\alpha^\bullet$ is \emph{homotopic} to $\beta^\bullet$
+  and write $\alpha^\bullet \sim \beta^\bullet$ if there is a
+  homotopy between $\alpha^\bullet$ and $\beta^\bullet$.
+\end{defn}
+
+We are dealing here with cochain complexes; this accounts for the
+fact that while in the topological situation (where we were
+interested in \emph{chains} rather than cochains) the homotopy would
+shift dimensions up, in Definition~4.8 it shifts degrees down.
+
+Aside from its topological motivation, homotopy is not too easy to
+visualize. The following diagram is \emph{not} assumed to be
+commutative:
+% TODO: diagram of the non-commutative "lozenge" picture for a
+% homotopy h between alpha^bullet, beta^bullet: L^bullet -> M^bullet
+% -- two parallel rows of the complexes L^i and M^i connected by
+% d_L, d_M horizontally, alpha^i/beta^i vertically, and h^i diagonally
+% (L^i -> M^{i-1}), with lozenge shapes drawn between each pair of
+% alpha^i/beta^i arrows to emphasize non-commutativity (page 612)
+The morphisms $h^i$ do not usually define a morphism of complexes
+$L^\bullet \to M[-1]^\bullet$: the lozenges in this diagram are not
+required to commute.
+
+\begin{defn}{}{homol:4.9}
+  A morphism $\alpha^\bullet : L^\bullet \to M^\bullet$ is a
+  \emph{homotopy equivalence} if there is a morphism
+  $\beta^\bullet : M^\bullet \to L^\bullet$ such that
+  $\alpha^\bullet \circ \beta^\bullet \sim 1_{M^\bullet}$ and
+  $\beta^\bullet \circ \alpha^\bullet \sim 1_{L^\bullet}$. The
+  complexes $L^\bullet$, $M^\bullet$ are said to be \emph{homotopy
+  equivalent} if there is a homotopy equivalence
+  $L^\bullet \to M^\bullet$.
+\end{defn}
+
+The reader should check that $\sim$ is an equivalence relation and
+that `homotopy equivalence of complexes' is also (Exercise~4.4).
+Further, these relations are clearly compatible with simple
+operations of morphisms (Exercises~4.5 and~4.6).
+
+\begin{prop}{}{homol:4.10}
+  If $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$ are
+  homotopic morphisms of complexes, then $\alpha^\bullet$,
+  $\beta^\bullet$ induce the same morphisms on cohomology:
+  $H^\bullet(L^\bullet) \to H^\bullet(M^\bullet)$.
+\end{prop}
+
+\begin{proof}
+  Let $\bar\ell \in H^i(L^\bullet)$. Then $\bar\ell$ is represented
+  by an element $\ell \in \ker(d^i_{L^\bullet})$, and its images in
+  $H^i(M^\bullet)$ under the morphisms induced by $\alpha^\bullet$,
+  $\beta^\bullet$ are represented by $\alpha^i(\ell)$,
+  $\beta^i(\ell)$. Since $\alpha^\bullet$, $\beta^\bullet$ are
+  homotopic, according to Definition~4.8 there are morphisms $h^i$
+  such that
+  \[
+    \beta^i(\ell) - \alpha^i(\ell) = d^{i-1}_{M^\bullet}(h^i(\ell)) +
+    h^{i+1}(d^i_{L^\bullet}(\ell)).
+  \]
+  Since $\ell \in \ker d^i_{L^\bullet}$, the last term vanishes. This
+  shows that
+  \[
+    \beta^i(\ell) - \alpha^i(\ell) \in \operatorname{im}d^i_{M^\bullet},
+  \]
+  proving that $\beta^i(\ell) - \alpha^i(\ell)$ vanishes in
+  $H^i(M^\bullet)$, as needed.
+\end{proof}
+
+For example, if $\alpha^\bullet$ is homotopic to the identity, then
+by Corollary~4.2 the cone of $\alpha^\bullet$ must be exact. It is a
+good exercise to verify this fact directly (Exercise~4.8).
+
+\begin{coro}{}{homol:4.11}
+  Homotopy equivalent complexes have isomorphic cohomology.
+\end{coro}
+
+\begin{proof}
+  Indeed, morphisms $\alpha^\bullet : L^\bullet \to M^\bullet$,
+  $\beta^\bullet : M^\bullet \to L^\bullet$ such that
+  $\beta^\bullet \circ \alpha^\bullet$ and
+  $\alpha^\bullet \circ \beta^\bullet$ are both homotopic to the
+  identity induce inverse morphisms in cohomology, by
+  Proposition~4.10.
+\end{proof}
+
+\begin{rem}{}{homol:4.12}
+  In other words, homotopy equivalences of complexes are
+  quasi-isomorphisms. This does not yet solve the `problem' that
+  quasi-isomorphisms are not invertible, since Example~4.6 shows that
+  quasi-isomorphisms may well not be invertible even up to homotopy.
+  In other words, `homotopy equivalence' is a more restrictive notion
+  than `quasi-isomorphism'. One reason to study complexes of
+  injective/projective modules, as we will do in \S{}5.3, is
+  precisely that quasi-isomorphism and homotopy equivalence are
+  equivalent notions for (bounded) complexes of injective or
+  projective modules. Since homotopy equivalence is a ready-made
+  equivalence relation on complexes, this will bypass any
+  technicality needed to make sense of `quasi-isomorphism' as an
+  equivalence relation.
+\end{rem}
+
+Corollary~4.11 is the main technical reason that makes the strategy
+presented in \S{}3.1 work, in a class of interesting examples. As we
+will see in due time, in these examples the cohomology of the
+relevant cochain complexes will end up being independent of the
+choices, because these choices will produce homotopic complexes.
+
+Another key observation will be that homotopy equivalence is
+preserved by any additive functor. Suppose $\mathsf{A}$,
+$\mathsf{B}$ are abelian categories and
+\[
+  \mathscr{F} : \mathsf{A} \longrightarrow \mathsf{B}
+\]
+is an additive functor (Definition~1.1). Then $\mathscr{F}$ induces
+an additive functor preserving the grading
+\[
+  \mathsf{C}(\mathscr{F}) : \mathsf{C}(\mathsf{A}) \longrightarrow
+  \mathsf{C}(\mathsf{B}).
+\]
+
+\begin{lem}{}{homol:4.13}
+  With $\mathscr{F}$ as above, if $\alpha^\bullet \sim \beta^\bullet$
+  in $\mathsf{C}(\mathsf{A})$, then
+  $\mathsf{C}(\mathscr{F})(\alpha^\bullet) \sim
+  \mathsf{C}(\mathscr{F})(\beta^\bullet)$ in $\mathsf{C}(\mathsf{B})$,
+  and if $L^\bullet$ and $M^\bullet$ are homotopy equivalent
+  complexes in $\mathsf{C}(\mathsf{A})$, then
+  $\mathsf{C}(\mathscr{F})(L^\bullet)$ and
+  $\mathsf{C}(\mathscr{F})(M^\bullet)$ are homotopy equivalent
+  complexes in $\mathsf{C}(\mathsf{B})$.
+\end{lem}
+
+\begin{proof}
+  The second assertion follows from the first. The first is an
+  immediate consequence of the fact that $\mathscr{F}$ is additive.
+  Indeed, if $h$ is a homotopy between
+  $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$, then
+  \[
+    \beta^i - \alpha^i = d^{i-1}_{M^\bullet} \circ h^i + h^{i+1}
+    \circ d^i_{L^\bullet}.
+  \]
+  Since $\mathscr{F}$ preserves the additive structure on Hom-sets,
+  this implies
+  \[
+    \mathscr{F}(\beta^i) - \mathscr{F}(\alpha^i) =
+    \mathscr{F}(d^{i-1}_{M^\bullet}) \circ \mathscr{F}(h^i) +
+    \mathscr{F}(h^{i+1}) \circ \mathscr{F}(d^i_{L^\bullet}),
+  \]
+  showing that the collection of morphisms $\mathscr{F}(h^i)$ gives a
+  homotopy between $\mathscr{F}(\alpha^\bullet)$ and
+  $\mathscr{F}(\beta^\bullet)$.
+\end{proof}
+
+Note that the analogous statement does \emph{not} hold for
+quasi-isomorphisms (Exercise~4.15): an additive functor does not
+preserve quasi-isomorphisms (while an exact functor does).
+
+Lemma~4.13 implies that the conclusion of Corollary~4.11 holds true
+after applying an additive functor:
+
+\begin{thm}{}{homol:4.14}
+  Let $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ be an additive functor
+  between two abelian categories. If $L^\bullet$, $M^\bullet$ are
+  homotopy equivalent complexes in $\mathsf{C}(\mathsf{A})$, then the
+  cohomology complexes
+  \[
+    H^\bullet(\mathsf{C}(\mathscr{F})(L^\bullet)), \quad
+    H^\bullet(\mathsf{C}(\mathscr{F})(M^\bullet))
+  \]
+  are isomorphic.
+\end{thm}
+
+The proof of this statement is essentially immediate after all our
+preparatory work, so it is left to the reader (Exercise~4.16).
+
+I am gracing this statement with theorem status because it is at the
+root of the strategy I am pursuing. The content of Theorem~4.14 is
+that any mechanism associating to a mathematical object a cochain
+complex determined up to homotopy will give rise to a slew of
+interesting invariants: apply your favorite additive functor to any
+such complex, take cohomology, and Theorem~4.14 guarantees that the
+result will be independent of the specific chosen complex. This is
+(part of) the reason underlying the various claims of independence on
+choices made in \S{}VIII.2.4 and \S{}VIII.6.4, concerning the
+definition of the Tor and Ext functors, as we will see later in the
+chapter (\S{}7, especially Examples~7.6 and~7.7).
 
 \subsection*{Exercises}
 
-% 4.1. ? Verify that the cone of a morphism of complexes is a complex. [\S{}4.1]
-% 4.2. Let L\bullet  = \dots  \to  0 \to  L \to  0 \to  \dots  and M \bullet  =
-% \dots  \to  0 \to  M \to  0 \to  \dots  be two
-% complexes concentrated in degree 0. Giving a morphism \alpha \bullet  : L\bullet
-% \to  M \bullet  is then the
-% same as giving a morphism \alpha  : L \to  M . Describe the mapping cone in this
-% case
-% and its cohomology.
-% 4.3. Let \alpha \bullet  : L\bullet  \to  M \bullet  be a morphism of bounded
-% complexes. Note that the map-
-% ping cone M C(\alpha )\bullet  of \alpha  is also bounded; thus, the three
-% complexes L\bullet  , M \bullet  , M C(\alpha )\bullet
-% have a well-defined universal Euler characteristic (see Exercise 3.15). Prove
-% that
-% \chi (M C(\alpha )\bullet ) = \chi (M \bullet  ) - \chi (L\bullet ).
-% 4.4. ? Prove that the homotopy relation between morphisms of complexes and
-% the relation of homotopy equivalence between complexes are equivalence
-% relations.
-% [\S{}4.3, \S{}6]
-% 4.5. ? Let \alpha k \bullet  , \beta k \bullet  : L\bullet  k \to  Mk \bullet  ,
-% k = 0, 1, be morphisms of cochain complexes.
-% Assume that \alpha 0 \sim  \beta 0 , \alpha 1 \sim  \beta 1 . Prove that \alpha
-% 0 \oplus  \alpha 1 \sim  \beta 0 \oplus  \beta 1 as morphisms
-% L\bullet  0 \oplus  L\bullet  1 \to  M0 \bullet  \oplus  M1 \bullet  . [\S{}4.3]
-% 4.6. ? Let \alpha  \bullet  , \alpha 0 \bullet  , \alpha 1 \bullet  : L\bullet
-% \to  M \bullet  and \beta  \bullet  , \beta 0 \bullet , \beta 1 \bullet  : M
-% \bullet  \to  N \bullet  be morphisms of
-% cochain complexes.
-% (i) Assume that \alpha \bullet  \sim  0 or \beta  \bullet  \sim  0. Prove that
-% \beta \bullet  \circ  \alpha \bullet  \sim  0.
-% (ii) Assume that \alpha 0 \bullet  \sim  \alpha 1 \bullet  and \beta 0 \bullet
-% \sim  \beta 1 \bullet . Prove that \beta 0 \bullet  \circ  \alpha 0 \bullet
-% \sim  \beta 1 \bullet  \circ  \alpha 1 \bullet  .
-% (Hint: Use (i), while thinking about ideals.)
-% [\S{}4.3, \S{}5.2, \S{}5.4, \S{}5.5]
-% 4.7. Prove that the equivalence class of morphisms of complexes L\bullet  \to  M
-% \bullet  homo-
-% topic to a given morphism is parametrized by the set of collections of morphisms
-% hi : Li \to  M i-1 , modulo the morphisms of complexes L[1]\bullet  \to  M
-% \bullet .
-% 4.8. ? Let \alpha \bullet  be a morphism of complexes, homotopic to the
-% identity. Prove
-% directly (without appealing to Corollary 4.2) that the mapping cone of \alpha
-% \bullet  is exact.
-% [\S{}4.3]
-% 4.9. \lnot  Let \alpha \bullet  : L\bullet  \to  M \bullet  be a morphism of
-% cochain complexes. The mapping
-% cylinder M Cyl(\alpha )\bullet  is the cochain complex with objects Li \oplus
-% Li+1 \oplus  M i in degree i
-% and differential d\bullet  defined by
-% M Cyl(\alpha )\bullet diM Cyl(\alpha )\bullet  ( , \setminus  , m) = (diL\bullet
-% ( ) + \setminus  , -di+1
-%  L\bullet  ( \setminus 
-%  ), \alpha 
-% i+1( \setminus 
-%  ) + diM \bullet  (m)).
-% i+1
-%  i
-%  \bullet 
-% Verify that d M Cyl(\alpha )\bullet  \circ  dM Cyl(\alpha )\bullet  = 0 and
-% hence that M Cyl(\alpha ) is indeed a cochain
-% complex. [4.10, 4.11, 4.12, 4.13]
-% 4.10. Topologically speaking, the mapping cylinder of a continuous map f : X \to
-% Y
-% is obtained by considering X \times  [0, 1] and gluing X \times  1 to Y by means
-% of f ; studying
-% (co)chains of this object leads to the algebraic mapping cylinder of Exercise
-% 4.9.
-% As we learn in topology, two continuous maps X \to  Y are homotopic if they
-% may be realized as the restrictions to X \times  0, X \times  1 of a continuous
-% map from the
-% cylinder X \times  [0, 1] to Y . Note that this cylinder is the mapping cylinder
-% of idX .
-% Prove that two cochain maps \alpha \bullet  , \beta  \bullet  : L\bullet  \to  M
-% \bullet  are homotopic in the sense
-% of Definition 4.8 if and only if they extend to a cochain morphism (-\alpha
-% \bullet , h\bullet , \beta  \bullet  ) :
-% M Cyl(idL\bullet  ) \to  M \bullet  .
-% 4.11. \lnot  In topology, the mapping cone may be obtained by contracting X
-% \times  0 to a
-% point in the mapping cylinder (cf. Exercise 4.9 and the description of the
-% mapping
-% cone given in \S{}4.1).
-% In the algebraic version, this contraction amounts to mod-ing out the first
-% component of M Cyl(\alpha )\bullet  . For a cochain morphism \alpha \bullet  :
-% L\bullet  \to  M \bullet  , prove that there
-% is an exact sequence of cochain complexes
-%  / L\bullet 
-%  / M Cyl(\alpha )\bullet 
-%  / M C(\alpha )\bullet 
-%  / 0 .
-% [4.14]
-% 4.12. \lnot  With notation as in Exercise 4.9 (in particular, for a cochain
-% morphism
-% \alpha  \bullet  : L\bullet  \to  M \bullet ), prove that there is an exact sequence of cochain complexes
-%  / M \bullet 
-%  / M Cyl(\alpha )\bullet 
-%  / M C(idL\bullet  )\bullet 
-%  / 0 .
-% Deduce that there is a quasi-isomorphism M \bullet  \to  M Cyl(\alpha )\bullet
-% . [4.13, 4.14]
-% 4.13. \lnot  Still with notation as in Exercise 4.9, define maps \rho \bullet  :
-% M \bullet  \to  M Cyl(\alpha )\bullet
-% and \sigma \bullet  : M Cyl(\alpha )\bullet  \to  M \bullet  by
-% \rho i(m) = (0, 0, m),
-% \sigma i ( , \setminus  , m) = m - \alpha i ( ).
-% Prove that \rho \bullet  , \sigma  \bullet  are both cochain morphisms. Note
-% that \sigma  \bullet \rho \bullet  = idM \bullet  , and prove
-% that \rho \bullet  \sigma  \bullet  is homotopic to idM Cyl(\alpha )\bullet  .
-% (Hint: ( , \setminus  , m) ?\to  (0, , 0).)
-% Conclude that M \bullet  and M Cyl(\alpha )\bullet  are homotopy equivalent.
-% This strengthens
-% the conclusion of Exercise 4.12. [4.14]
-% 4.14. Combine Exercises 4.11, 4.12, and 4.13 to conclude that, up to homotopy
-% equivalence, a cochain morphism \alpha \bullet  : L\bullet  \to  M \bullet  may
-% be replaced with a monomor-
-% phism L\bullet  \to  M Cyl(\alpha )\bullet  that induces the same morphism H
-% \bullet  (\alpha  \bullet  ) in cohomology
-% (up to the identification H \bullet  (M \bullet  ) = \sim 
-%  H \bullet  (M Cyl(\alpha )\bullet  )) and whose cokernel is the
-% \bullet 
-% mapping cone M C(\alpha ) .
-% 4.15. ? Prove that, in general, additive functors do not preserve quasi-isomor-
-% phisms. (Hint: Example 4.6.) Prove that exact functors do. (Hint: Use the
-% mapping cone.) [\S{}4.3, \S{}6]
-% 4.16. ? Prove Theorem 4.14. [\S{}4.3]
+\begin{exer}{\exerused{}}{exer:homol:4.1}
+  Verify that the cone of a morphism of complexes is a complex.
+  [\S{}4.1]
+\end{exer}
+\begin{exer}{}{exer:homol:4.2}
+  Let $L^\bullet = \dots \to 0 \to L \to 0 \to \dots$ and
+  $M^\bullet = \dots \to 0 \to M \to 0 \to \dots$ be two complexes
+  concentrated in degree $0$. Giving a morphism
+  $\alpha^\bullet : L^\bullet \to M^\bullet$ is then the same as
+  giving a morphism $\alpha : L \to M$. Describe the mapping cone in
+  this case and its cohomology.
+\end{exer}
+\begin{exer}{}{exer:homol:4.3}
+  Let $\alpha^\bullet : L^\bullet \to M^\bullet$ be a morphism of
+  bounded complexes. Note that the mapping cone $MC(\alpha)^\bullet$
+  of $\alpha$ is also bounded; thus, the three complexes $L^\bullet$,
+  $M^\bullet$, $MC(\alpha)^\bullet$ have a well-defined universal
+  Euler characteristic (see Exercise~3.15). Prove that
+  \[
+    \chi(MC(\alpha)^\bullet) = \chi(M^\bullet) - \chi(L^\bullet).
+  \]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:4.4}
+  Prove that the homotopy relation between morphisms of complexes and
+  the relation of homotopy equivalence between complexes are
+  equivalence relations. [\S{}4.3, \S{}6]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:4.5}
+  Let $\alpha_k^\bullet, \beta_k^\bullet : L^\bullet_k \to
+  M_k^\bullet$, $k = 0, 1$, be morphisms of cochain complexes. Assume
+  that $\alpha_0 \sim \beta_0$, $\alpha_1 \sim \beta_1$. Prove that
+  $\alpha_0 \oplus \alpha_1 \sim \beta_0 \oplus \beta_1$ as morphisms
+  $L^\bullet_0 \oplus L^\bullet_1 \to M_0^\bullet \oplus M_1^\bullet$.
+  [\S{}4.3]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:4.6}
+  Let $\alpha^\bullet, \alpha_0^\bullet, \alpha_1^\bullet : L^\bullet
+  \to M^\bullet$ and $\beta^\bullet, \beta_0^\bullet, \beta_1^\bullet
+  : M^\bullet \to N^\bullet$ be morphisms of cochain complexes.
+  \begin{enumerate}[label=(\roman*)]
+  \item Assume that $\alpha^\bullet \sim 0$ or $\beta^\bullet \sim 0$.
+    Prove that $\beta^\bullet \circ \alpha^\bullet \sim 0$.
+  \item Assume that $\alpha_0^\bullet \sim \alpha_1^\bullet$ and
+    $\beta_0^\bullet \sim \beta_1^\bullet$. Prove that
+    $\beta_0^\bullet \circ \alpha_0^\bullet \sim \beta_1^\bullet
+    \circ \alpha_1^\bullet$.
 
-\section{The homotopic category. Complexes of projectives and}
+    (Hint: Use (i), while thinking about ideals.)
+  \end{enumerate}
+  [\S{}4.3, \S{}5.2, \S{}5.4, \S{}5.5]
+\end{exer}
+\begin{exer}{}{exer:homol:4.7}
+  Prove that the equivalence class of morphisms of complexes
+  $L^\bullet \to M^\bullet$ homotopic to a given morphism is
+  parametrized by the set of collections of morphisms
+  $h^i : L^i \to M^{i-1}$, modulo the morphisms of complexes
+  $L[1]^\bullet \to M^\bullet$.
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:4.8}
+  Let $\alpha^\bullet$ be a morphism of complexes, homotopic to the
+  identity. Prove directly (without appealing to Corollary~4.2) that
+  the mapping cone of $\alpha^\bullet$ is exact. [\S{}4.3]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:4.9}
+  Let $\alpha^\bullet : L^\bullet \to M^\bullet$ be a morphism of
+  cochain complexes. The \emph{mapping cylinder} $MCyl(\alpha)^\bullet$
+  is the cochain complex with objects $L^i \oplus L^{i+1} \oplus M^i$
+  in degree $i$ and differential $d^\bullet_{MCyl(\alpha)^\bullet}$
+  defined by
+  \[
+    d^i_{MCyl(\alpha)^\bullet}(\ell, \ell', m) = (d^i_{L^\bullet}(\ell)
+    + \ell', -d^{i+1}_{L^\bullet}(\ell'), \alpha^{i+1}(\ell') +
+    d^i_{M^\bullet}(m)).
+  \]
+  Verify that $d^{i+1}_{MCyl(\alpha)^\bullet} \circ
+  d^i_{MCyl(\alpha)^\bullet} = 0$ and hence that $MCyl(\alpha)^\bullet$
+  is indeed a cochain complex. [4.10, 4.11, 4.12, 4.13]
+\end{exer}
+\begin{exer}{}{exer:homol:4.10}
+  Topologically speaking, the mapping cylinder of a continuous map
+  $f : X \to Y$ is obtained by considering $X \times [0,1]$ and
+  gluing $X \times 1$ to $Y$ by means of $f$; studying (co)chains of
+  this object leads to the algebraic mapping cylinder of
+  Exercise~4.9.
+
+  As we learn in topology, two continuous maps $X \to Y$ are
+  homotopic if they may be realized as the restrictions to
+  $X \times 0$, $X \times 1$ of a continuous map from the cylinder
+  $X \times [0,1]$ to $Y$. Note that this cylinder is the mapping
+  cylinder of $\operatorname{id}_X$.
+
+  Prove that two cochain maps $\alpha^\bullet, \beta^\bullet :
+  L^\bullet \to M^\bullet$ are homotopic in the sense of
+  Definition~4.8 if and only if they extend to a cochain morphism
+  $(-\alpha^\bullet, h^\bullet, \beta^\bullet) : MCyl(\operatorname{id}_{L^\bullet})
+  \to M^\bullet$.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:4.11}
+  In topology, the mapping cone may be obtained by contracting
+  $X \times 0$ to a point in the mapping cylinder (cf.\ Exercise~4.9
+  and the description of the mapping cone given in \S{}4.1).
+
+  In the algebraic version, this contraction amounts to mod-ing out
+  the first component of $MCyl(\alpha)^\bullet$. For a cochain
+  morphism $\alpha^\bullet : L^\bullet \to M^\bullet$, prove that
+  there is an exact sequence of cochain complexes
+  \[
+    0 \longrightarrow L^\bullet \longrightarrow MCyl(\alpha)^\bullet
+    \longrightarrow MC(\alpha)^\bullet \longrightarrow 0.
+  \]
+  [4.14]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:4.12}
+  With notation as in Exercise~4.9 (in particular, for a cochain
+  morphism $\alpha^\bullet : L^\bullet \to M^\bullet$), prove that
+  there is an exact sequence of cochain complexes
+  \[
+    0 \longrightarrow M^\bullet \longrightarrow MCyl(\alpha)^\bullet
+    \longrightarrow MC(\operatorname{id}_{L^\bullet})^\bullet
+    \longrightarrow 0.
+  \]
+  Deduce that there is a quasi-isomorphism
+  $M^\bullet \to MCyl(\alpha)^\bullet$. [4.13, 4.14]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:4.13}
+  Still with notation as in Exercise~4.9, define maps
+  $\rho^\bullet : M^\bullet \to MCyl(\alpha)^\bullet$ and
+  $\sigma^\bullet : MCyl(\alpha)^\bullet \to M^\bullet$ by
+  \[
+    \rho^i(m) = (0, 0, m), \qquad
+    \sigma^i(\ell, \ell', m) = m - \alpha^i(\ell).
+  \]
+  Prove that $\rho^\bullet$, $\sigma^\bullet$ are both cochain
+  morphisms. Note that $\sigma^\bullet \rho^\bullet =
+  \operatorname{id}_{M^\bullet}$, and prove that
+  $\rho^\bullet \sigma^\bullet$ is homotopic to
+  $\operatorname{id}_{MCyl(\alpha)^\bullet}$. (Hint:
+  $(\ell, \ell', m) \mapsto (0, \ell, 0)$.)
+
+  Conclude that $M^\bullet$ and $MCyl(\alpha)^\bullet$ are homotopy
+  equivalent. This strengthens the conclusion of Exercise~4.12.
+  [4.14]
+\end{exer}
+\begin{exer}{}{exer:homol:4.14}
+  Combine Exercises~4.11, 4.12, and 4.13 to conclude that, up to
+  homotopy equivalence, a cochain morphism
+  $\alpha^\bullet : L^\bullet \to M^\bullet$ may be replaced with a
+  monomorphism $L^\bullet \to MCyl(\alpha)^\bullet$ that induces the
+  same morphism $H^\bullet(\alpha^\bullet)$ in cohomology (up to the
+  identification $H^\bullet(M^\bullet) \cong
+  H^\bullet(MCyl(\alpha)^\bullet)$) and whose cokernel is the mapping
+  cone $MC(\alpha)^\bullet$.
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:4.15}
+  Prove that, in general, additive functors do not preserve
+  quasi-isomorphisms. (Hint: Example~4.6.) Prove that exact functors
+  do. (Hint: Use the mapping cone.) [\S{}4.3, \S{}6]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:4.16}
+  Prove Theorem~4.14. [\S{}4.3]
+\end{exer}
+
+\section{The homotopic category. Complexes of projectives and
+  injectives}
 \label{sec:homol:the-homotopic-category-complexes-of-projectives-and}
 
-% injectives
-% One message I have tried to convey in \S{}4 is that while quasi-isomorphisms are
-% (by definition!) the morphisms of cochain complexes preserving cohomology and
-% therefore may be deemed to `capture the cohomology of a complex', the stronger
-% notion of homotopy equivalence is in fact more natural from the point of view of
-% applications. This is the moral of Theorem 4.14: homotopy equivalent complexes
-% have the same cohomology for a much better reason than complexes linked by a
-% quasi-isomorphism. If our general aim is to understand what it means to make
-% all quasi-isomorphisms invertible (that is, understand the derived category
-% D(A)),
-% we may begin by making homotopy equivalences invertible. This produces a new
-% category, the `homotopic category' of complexes, that we approach in this
-% section.
-% We also examine the privileged position of bounded complexes of projective and
-% injective objects regarding homotopy: for these complexes, quasi-isomorphisms
-% are
-% necessarily homotopy equivalences. Verifying this requires rather technical
-% consid-
-% erations, but it will be necessary in order to gain some understanding of the
-% derived
-% category, in \S{}6.
+One message I have tried to convey in \S{}4 is that while
+quasi-isomorphisms are (by definition!) the morphisms of cochain
+complexes preserving cohomology and therefore may be deemed to
+`capture the cohomology of a complex', the stronger notion of
+homotopy equivalence is in fact more natural from the point of view
+of applications. This is the moral of Theorem~4.14: homotopy
+equivalent complexes have the same cohomology for a much better
+reason than complexes linked by a quasi-isomorphism. If our general
+aim is to understand what it means to make all quasi-isomorphisms
+invertible (that is, understand the derived category
+$\mathsf{D}(\mathsf{A})$), we may begin by making homotopy
+equivalences invertible. This produces a new category, the
+`homotopic category' of complexes, that we approach in this section.
+
+We also examine the privileged position of bounded complexes of
+projective and injective objects regarding homotopy: for these
+complexes, quasi-isomorphisms are necessarily homotopy equivalences.
+Verifying this requires rather technical considerations, but it will
+be necessary in order to gain some understanding of the derived
+category, in \S{}6.
 
 \subsection{Homotopic maps are identified in the derived category}
 \label{subsec:homol:homotopic-maps-are-identified-in-the-derived-category}
