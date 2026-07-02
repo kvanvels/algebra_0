@@ -18,15 +18,15 @@ entertain us greatly in Chapter~IX.
 \label{subsec:rings:definition}
 Rings (and modules) are defined by `decorating' abelian groups with additional data.
 As motivation for the introduction of such structures, note that all number-based
-examples of groups that we have encountered, such as $\mathbb{Z}$ or $\mathbb{R}$,
+examples of groups that we have encountered, such as $\Z$ or $\mathbb{R}$,
 are endowed with an operation of \emph{multiplication} as well as the `addition' making
 them into (abelian) groups. The `ring axioms' will reflect closely the properties and
 compatibilities of these two operations in such examples.
 These examples are, however, very special. A more sophisticated motivation
 for the introduction of rings arises by analyzing further the structure of
 homomorphisms of abelian groups. Recall (\S{}II.4.4) that if $G$, $H$ are abelian groups,
-then $\operatorname{Hom}_{\categ{Ab}}(G, H)$ is also an abelian group. In particular, if $G$ is an abelian group,
-then so is the set of \emph{endomorphisms} $\operatorname{End}_{\categ{Ab}}(G) = \operatorname{Hom}_{\categ{Ab}}(G, G)$. More is true: morphisms from an object of a category to itself may be composed with each other (by
+then $\Hom_{\categ{Ab}}(G, H)$ is also an abelian group. In particular, if $G$ is an abelian group,
+then so is the set of \emph{endomorphisms} $\operatorname{End}_{\categ{Ab}}(G) = \Hom_{\categ{Ab}}(G, G)$. More is true: morphisms from an object of a category to itself may be composed with each other (by
 definition of category!). Thus, two operations coexist in $\operatorname{End}_{\categ{Ab}}(G)$: addition
 (inherited from $G$, making $\operatorname{End}_{\categ{Ab}}(G)$ an abelian group), and composition. These two
 operations are compatible with each other in a sense captured by the \emph{ring axioms}:
@@ -55,7 +55,7 @@ the same time Mac Lane introduced $\categ{Rng}$ as the name for the category of 
 identity. Hoping to steer clear of this clash of terminology I have opted to call this category `$\categ{Ring}$'.}
 The reader should check conventions carefully when approaching the literature.
 Examples of structures without a multiplicative identity abound: for example, the
-set $2\mathbb{Z}$ of even integers, with the usual addition and multiplication, satisfies
+set $2\Z$ of even integers, with the usual addition and multiplication, satisfies
 all the ring axioms given above with the exception of the existence of $1$ (and is
 therefore a rng). But in these notes all rings will have $1$.
 Of course the multiplicative identity is necessarily unique: the argument given
@@ -91,7 +91,7 @@ $* \cdot * = *$ (as well as $* + * = *$); this is often called the \emph{zero-ri
 in this ring (cf.\ Exercise~1.1).
 \end{exam}
 \begin{exam}{Number rings}{}
-More interesting examples are the number-based groups such as $\mathbb{Z}$
+More interesting examples are the number-based groups such as $\Z$
 or $\mathbb{R}$, with the usual operations. These are very well known to our reader, who will
 realize immediately that they satisfy the requirements given in \cref{defn:rings:ring};
 but they are very special. Why?
@@ -117,28 +117,28 @@ the two operations satisfy the requirements in \cref{defn:rings:ring}.
 
 Square matrices of any size, and with entries in any ring, form a ring (Exercise~1.4).
 \end{exam}
-\begin{exam}{$\mathbb{Z}/n\mathbb{Z}$}{}
+\begin{exam}{$\Z/n\Z$}{}
 The reader is already familiar with a large class of (commutative)
-rings: the groups $\mathbb{Z}/n\mathbb{Z}$, endowed with the multiplication defined in \S{}II.2.3
+rings: the groups $\Z/n\Z$, endowed with the multiplication defined in \S{}II.2.3
 (that is: $[a]_n \cdot [b]_n := [ab]_n$; this is well-defined (cf.\ Exercise~II.2.14)) satisfy
 the ring axioms listed above.
 \end{exam}
-The rings $\mathbb{Z}/n\mathbb{Z}$ prompt me to highlight an important point. Another reason
-why rings such as $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$, \dots\ are special is that multiplicative cancellation by
+The rings $\Z/n\Z$ prompt me to highlight an important point. Another reason
+why rings such as $\Z$, $\Q$, $\mathbb{R}$, \dots\ are special is that multiplicative cancellation by
 nonzero elements holds in these rings. Of course additive cancellation is automatic,
 since rings are in particular (abelian) groups; and multiplicative cancellation clearly
 fails in general since one cannot `cancel $0$' (by \cref{lem:rings:zero-mult}). But even the fact that
 \[
   (\forall a \in R,\, a \neq 0) : a \cdot b = a \cdot c \implies b = c,
 \]
-which holds, for example, in $\mathbb{Z}$, does not follow from the ring axioms.
+which holds, for example, in $\Z$, does not follow from the ring axioms.
 Indeed, this cancellation property does not hold in all rings; it may well fail in
-the rings $\mathbb{Z}/n\mathbb{Z}$. For example,
+the rings $\Z/n\Z$. For example,
 \[
   [2]_6 \cdot [4]_6 = [8]_6 = [2]_6 = [2]_6 \cdot [1]_6
 \]
 even though $[4]_6 \neq [1]_6$.
-The problem here is that in $\mathbb{Z}/6\mathbb{Z}$ there are elements $a \neq 0$ such that $a \cdot b = 0$
+The problem here is that in $\Z/6\Z$ there are elements $a \neq 0$ such that $a \cdot b = 0$
 for some $b \neq 0$ (take $a = [2]_6$, $b = [3]_6$).
 \begin{defn}{Left-zero-divisor}{defn:rings:zero-divisor}
 An element $a$ in a ring $R$ is a \emph{left-zero-divisor} if there exist elements $b \neq 0$ in $R$ for which $ab = 0$.
@@ -177,9 +177,9 @@ An element which is not a zero-divisor is called a \emph{non-zero-divisor}. Thus
 domains are those nonzero commutative rings in which every nonzero element is a
 non-zero-divisor. By \Cref{prop:rings:zero-divisor-injection}, multiplicative cancellation by nonzero
 elements holds in integral domains. The rings $\Z$, $\Q$, $\R$, $\C$ are all integral domains.
-As we have seen, some $\mathbb{Z}/n\mathbb{Z}$ are \emph{not} integral domains.
+As we have seen, some $\Z/n\Z$ are \emph{not} integral domains.
 Here is one of those places where the reader can do him/herself a great favor by
-pausing a moment and figuring something out: answer the question, which $\mathbb{Z}/n\mathbb{Z}$
+pausing a moment and figuring something out: answer the question, which $\Z/n\Z$
 are integral domains? This is entirely within reach, given what the reader knows
 already. Don't read ahead before figuring this out---this question will be answered
 within a few short paragraphs, spoiling all the fun.
@@ -272,28 +272,28 @@ shows that finite division rings are necessarily commutative. The reader will pr
 this fact in a distant future (Exercise~VII.5.14).
 \end{rem}
 \begin{exam}{}{}
-The \emph{group of units} in the ring $\mathbb{Z}/n\mathbb{Z}$ is precisely the group
-$(\mathbb{Z}/n\mathbb{Z})^*$
+The \emph{group of units} in the ring $\Z/n\Z$ is precisely the group
+$(\Z/n\Z)^*$
 introduced in \S{}II.2.3: indeed, a class $[m]_n$ is a unit if and only if (right-)
 multiplication by $[m]_n$ is surjective (by \cref{prop:rings:units}), if and only if the map $a \mapsto a[m]_n$
-is surjective, if and only if $[m]_n$ generates $\mathbb{Z}/n\mathbb{Z}$, if and only if $\gcd(m, n) = 1$
-(\cref{coro:groups:generator-coprime}), if and only if $[m]_n \in (\mathbb{Z}/n\mathbb{Z})^*$.
+is surjective, if and only if $[m]_n$ generates $\Z/n\Z$, if and only if $\gcd(m, n) = 1$
+(\cref{coro:groups:generator-coprime}), if and only if $[m]_n \in (\Z/n\Z)^*$.
 
-In particular, those $n$ for which all nonzero elements of $\mathbb{Z}/n\mathbb{Z}$ are units (that is,
-for which $\mathbb{Z}/n\mathbb{Z}$ is a field) are precisely those $n \in \Z$ for which $\gcd(m, n) = 1$ for all
+In particular, those $n$ for which all nonzero elements of $\Z/n\Z$ are units (that is,
+for which $\Z/n\Z$ is a field) are precisely those $n \in \Z$ for which $\gcd(m, n) = 1$ for all
 $m$ that are not multiples of $n$; this is the case if and only if $n$ is prime. Putting this
 together with \Cref{prop:rings:finite-field-domain}, we get the pretty classification (for integers $p \neq 0$)
 \[
-  \mathbb{Z}/p\mathbb{Z} \text{ integral domain} \iff \mathbb{Z}/p\mathbb{Z} \text{ field} \iff p \text{ prime,}
+  \Z/p\Z \text{ integral domain} \iff \Z/p\Z \text{ field} \iff p \text{ prime,}
 \]
 which the reader is well advised to remember firmly.
 \end{exam}
 \begin{exam}{}{}
-The rings $\mathbb{Z}/p\mathbb{Z}$, with $p$ prime, are \emph{not} the only finite fields. In
+The rings $\Z/p\Z$, with $p$ prime, are \emph{not} the only finite fields. In
 fact, for every prime $p$ and every integer $r > 0$ there is a (unique, in a suitable
 sense) multiplication on the product group
 \[
-  \underbrace{\mathbb{Z}/p\mathbb{Z} \times \cdots \times \mathbb{Z}/p\mathbb{Z}}_{r \text{ times}}
+  \underbrace{\Z/p\Z \times \cdots \times \Z/p\Z}_{r \text{ times}}
 \]
 making it into a field. A discussion of these fields will have to wait until we have
 accumulated much more material (cf.\ \S{}VII.5.1), but the reader could already try
@@ -351,7 +351,7 @@ polynomial (that is, $1_{R[x]} = 1_R + 0x + 0x^2 + \cdots$).
 The \emph{degree} of a nonzero polynomial $f(x) = \sum_{i \geq 0} a_i x^i$, denoted $\deg f(x)$, is the
 largest integer $d$ for which $a_d \neq 0$. This notion is very useful, but really behaves
 well (Exercise~1.14) only if $R$ is an integral domain: for example, note that over
-$R = \mathbb{Z}/6\mathbb{Z}$
+$R = \Z/6\Z$
 \begin{align*}
   &\deg([1] + [2]x) = 1, \quad \deg([1] + [3]x) = 1, \quad \text{but} \\
   &\deg(([1] + [2]x) \cdot ([1] + [3]x)) = \deg([1] + [5]x) = 1 \neq 1 + 1.
@@ -415,7 +415,7 @@ The reader will hopefully see the similarity with the construction of the polyno
 interpreted as $R[\mathbb{N}]$.
 
 \emph{Group rings} are the result of this construction when $M$ is in fact a group. The
-group ring $R[\mathbb{Z}]$ is a ring of `Laurent polynomials' $R[x, x^{-1}]$, allowing for negative
+group ring $R[\Z]$ is a ring of `Laurent polynomials' $R[x, x^{-1}]$, allowing for negative
 as well as positive exponents.
 
 \subsection*{Exercises}
@@ -464,7 +464,7 @@ An element $a$ of a ring $R$ is \emph{nilpotent} if $a^n = 0$ for some $n$.
 [3.12]
 \end{exer}
 \begin{exer}{}{exer:rings:nilpotent-znz}
-Prove that $[m]$ is nilpotent in $\mathbb{Z}/n\mathbb{Z}$ if and only if $m$ is divisible by all prime
+Prove that $[m]$ is nilpotent in $\Z/n\Z$ if and only if $m$ is divisible by all prime
 factors of $n$.
 \end{exer}
 \begin{exer}{}{exer:rings:x-squared-one}
@@ -480,7 +480,7 @@ left-inverses, then $a$ is not a left-zero-divisor and is a right-zero-divisor.
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:four-element-field}
 Construct a field with $4$ elements: as mentioned in the text, the underlying
-abelian group will have to be $\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}$; $(0, 0)$ will be the zero element,
+abelian group will have to be $\Z/2\Z \times \Z/2\Z$; $(0, 0)$ will be the zero element,
 and $(1, 1)$ will be the multiplicative identity. The question is what $(0, 1) \cdot (0, 1)$,
 $(0, 1) \cdot (1, 0)$, $(1, 0) \cdot (1, 0)$ must be, in order to get a field. [\S{}1.2, \S{}V.5.1]
 \end{exer}
@@ -601,7 +601,7 @@ unit. Indeed, if $v$ is a (right-, say) inverse of $u$, then
 \]
 so that $\varphi(v)$ is a (right-) inverse of $\varphi(u)$.
 On the other hand, the image of a non-zero-divisor by a ring homomorphism
-may well be a zero-divisor: for example, the canonical projection $\pi : \Z \to \mathbb{Z}/6\mathbb{Z}$
+may well be a zero-divisor: for example, the canonical projection $\pi : \Z \to \Z/6\Z$
 is a ring homomorphism, and $2$ is a non-zero-divisor in $\Z$, yet $\pi(2) = [2]_6$ is a
 zero-divisor.
 
@@ -761,7 +761,7 @@ Incidentally---with the case of abelian groups in mind (\S{}II.3.5), the reader 
 \subsection{\texorpdfstring{$\operatorname{End}_{\categ{Ab}}(G)$}{End\_Ab(G)}}
 \label{subsec:rings:endab-g}
 This is as good a place as any to expand a little on one of the main examples of rings, and one that is not quite as special as the examples reviewed in \S{}1.2.
-For every abelian group $G$, the group $\operatorname{End}_{\categ{Ab}}(G) := \operatorname{Hom}_{\categ{Ab}}(G, G)$ of endomorphisms of $G$ is a ring, under the operations of addition and composition (as discussed in the paragraph preceding Definition~1.1). Indeed, associativity follows from the category axioms, and distributivity is immediately checked.
+For every abelian group $G$, the group $\operatorname{End}_{\categ{Ab}}(G) := \Hom_{\categ{Ab}}(G, G)$ of endomorphisms of $G$ is a ring, under the operations of addition and composition (as discussed in the paragraph preceding Definition~1.1). Indeed, associativity follows from the category axioms, and distributivity is immediately checked.
 
 It is instructive to examine carefully the endomorphism ring of the abelian group $(\Z, +)$:
 \begin{prop}{}{prop:rings:endab-Z}
@@ -1576,7 +1576,7 @@ The situation in $\categ{Ring}$ is not nearly as neat. One of the three characte
 \subsection{Definition of (left-)R-module}
 \label{subsec:rings:definition-of-left-r-module}
 In short, $R$-modules are abelian groups endowed with an action of $R$. To flesh out this idea, recall that `actions' in general denote homomorphisms into some kind of endomorphism structure: for example, we defined group actions in \S{}II.9.1 as group homomorphisms from a fixed group to the groups of automorphisms of objects of a category.
-We can give an analogous definition of the action of a ring on an abelian group. Indeed, recall that if $M$ is an abelian group, then $\operatorname{End}_{\categ{Ab}}(M) := \operatorname{Hom}_{\categ{Ab}}(M, M)$ is a ring in a natural way (cf.\ \S{}2.5). A \emph{left-action} of a ring $R$ on $M$ is then simply a homomorphism of rings $\sigma : R \to \operatorname{End}_{\categ{Ab}}(M)$; we will say that $\sigma$ makes $M$ into a \emph{left-$R$-module}.
+We can give an analogous definition of the action of a ring on an abelian group. Indeed, recall that if $M$ is an abelian group, then $\operatorname{End}_{\categ{Ab}}(M) := \Hom_{\categ{Ab}}(M, M)$ is a ring in a natural way (cf.\ \S{}2.5). A \emph{left-action} of a ring $R$ on $M$ is then simply a homomorphism of rings $\sigma : R \to \operatorname{End}_{\categ{Ab}}(M)$; we will say that $\sigma$ makes $M$ into a \emph{left-$R$-module}.
 Similarly to the situation with group actions, it is convenient to spell out this definition.
 
 \begin{prop}{}{prop:rings:module-axioms}
@@ -1649,8 +1649,8 @@ There is an evident notion of `$R$-algebra homomorphism' (preserving both the ri
 Also, note that $\Z$-$\categ{Alg}$ is just another name for $\categ{Ring}$ (why?).
 The polynomial rings $R[x_1, \ldots, x_n]$, as well as all their quotients, are commutative $R$-algebras. This is a particularly important class of examples; for $R = k$ an algebraically closed field, these are the rings used in `classical' affine algebraic geometry (cf.\ \S{}VII.2.3).
 The trivial group $0$ has a unique module structure over any ring $R$ and is a zero-object in $R$-$\categ{Mod}$, that is, it is both initial and final. As in the other main categories we have encountered, a bijective homomorphism of $R$-modules is automatically an isomorphism in $R$-$\categ{Mod}$ (Exercise~5.12). In these and many other respects, the category $R$-$\categ{Mod}$ (for any commutative ring $R$) and $\categ{Ab}$ are similar.
-If $R$ is commutative, the similarity goes further: just as in the category $\categ{Ab}$, each set $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$ may itself be seen as an object of the category (cf.\ \S{}II.4.4)\footnote{Notational convention: One often writes $\operatorname{Hom}_R(M, N)$ for $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$. I will not adopt this convention here but I will use it freely in later chapters.}.
-Indeed, let $M$ and $N$ be $R$-modules. Since homomorphisms of $R$-modules are in particular homomorphisms of abelian groups, $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N) \subseteq \operatorname{Hom}_{\categ{Ab}}(M, N)$ as sets (up to natural identifications). The operation making $\operatorname{Hom}_{\categ{Ab}}(M, N)$ into an abelian group, as in \S{}II.4.4, clearly preserves $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$; it follows that the latter is an abelian group. For $r \in R$ and $\phi \in \operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$, the prescription $(\forall m \in M) : (r\phi)(m) := r\phi(m)$ defines a function\footnote{Parse the notation carefully: $r\phi$ is the name of a function on the left, while $r\phi(m)$ on the right is the action of the element $r \in R$ on the element $\phi(m) \in N$, defined by the $R$-module structure on $N$.} $r\phi : M \to N$. This function is an $R$-module homomorphism if $R$ is commutative, because $(\forall a \in R)$, $(\forall m \in M)$: $(r\phi)(am) = r\phi(am) = (ra)\phi(m) = (ar)\phi(m) = a(r\phi(m))$. Thus, we have a natural action of $R$ on the abelian group $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$, and it is immediate to verify that this makes $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$ into an $R$-module. Watch out: if $R$ is not commutative, then in general $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$ is `just' an abelian group. More structure is available if $M$, $N$ are bimodules; cf.\ \S{}VIII.3.2.
+If $R$ is commutative, the similarity goes further: just as in the category $\categ{Ab}$, each set $\Hom_{R\text{-}\categ{Mod}}(M, N)$ may itself be seen as an object of the category (cf.\ \S{}II.4.4)\footnote{Notational convention: One often writes $\Hom_R(M, N)$ for $\Hom_{R\text{-}\categ{Mod}}(M, N)$. I will not adopt this convention here but I will use it freely in later chapters.}.
+Indeed, let $M$ and $N$ be $R$-modules. Since homomorphisms of $R$-modules are in particular homomorphisms of abelian groups, $\Hom_{R\text{-}\categ{Mod}}(M, N) \subseteq \Hom_{\categ{Ab}}(M, N)$ as sets (up to natural identifications). The operation making $\Hom_{\categ{Ab}}(M, N)$ into an abelian group, as in \S{}II.4.4, clearly preserves $\Hom_{R\text{-}\categ{Mod}}(M, N)$; it follows that the latter is an abelian group. For $r \in R$ and $\phi \in \Hom_{R\text{-}\categ{Mod}}(M, N)$, the prescription $(\forall m \in M) : (r\phi)(m) := r\phi(m)$ defines a function\footnote{Parse the notation carefully: $r\phi$ is the name of a function on the left, while $r\phi(m)$ on the right is the action of the element $r \in R$ on the element $\phi(m) \in N$, defined by the $R$-module structure on $N$.} $r\phi : M \to N$. This function is an $R$-module homomorphism if $R$ is commutative, because $(\forall a \in R)$, $(\forall m \in M)$: $(r\phi)(am) = r\phi(am) = (ra)\phi(m) = (ar)\phi(m) = a(r\phi(m))$. Thus, we have a natural action of $R$ on the abelian group $\Hom_{R\text{-}\categ{Mod}}(M, N)$, and it is immediate to verify that this makes $\Hom_{R\text{-}\categ{Mod}}(M, N)$ into an $R$-module. Watch out: if $R$ is not commutative, then in general $\Hom_{R\text{-}\categ{Mod}}(M, N)$ is `just' an abelian group. More structure is available if $M$, $N$ are bimodules; cf.\ \S{}VIII.3.2.
 
 \subsection{Submodules and quotients}
 \label{subsec:rings:submodules-and-quotients}
@@ -1751,7 +1751,7 @@ More generally, it is hopefully clear that the sum $\sum_\alpha N_\alpha$ and th
   Let $R$ be a ring. A nonzero $R$-module $M$ is \emph{simple} (or \emph{irreducible}) if its only submodules are $\{0\}$ and $M$. Let $M$, $N$ be simple modules, and let $\phi : M \to N$ be a homomorphism of $R$-modules. Prove that either $\phi = 0$ or $\phi$ is an isomorphism. (This rather innocent statement is known as \emph{Schur's lemma}.) [5.10, 6.16, VI.1.16]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-R-M}
-  Let $R$ be a commutative ring, viewed as an $R$-module over itself, and let $M$ be an $R$-module. Prove that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(R, M) \cong M$ as $R$-modules.
+  Let $R$ be a commutative ring, viewed as an $R$-module over itself, and let $M$ be an $R$-module. Prove that $\Hom_{R\text{-}\categ{Mod}}(R, M) \cong M$ as $R$-modules.
 \end{exer}
 \begin{exer}{}{exer:rings:Q-vector-unique}
   Let $G$ be an abelian group. Prove that if $G$ has a structure of $\Q$-vector space, then it has only one such structure. (Hint: First prove that every element of $G$ has necessarily infinite order. Alternative hint: The unique ring homomorphism $\Z \to \Q$ is an epimorphism.)
@@ -1994,7 +1994,7 @@ The distinction, while macroscopic in general, may evaporate in special, importa
   (Notation as in \S{}6.3.) For any ring $R$ and any two sets $A_1$, $A_2$, prove that $(R^{\oplus A_1})^{\oplus A_2} \cong R^{\oplus(A_1 \times A_2)}$. [\S{}VIII.2.2]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:hom-free-dual}
-  Let $R$ be a ring, and let $F = R^{\oplus n}$ be a finitely generated free $R$-module. Prove that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(F, R) \cong F$. On the other hand, find an example of a ring $R$ and a nonzero $R$-module $M$ such that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, R) = 0$. [6.8]
+  Let $R$ be a ring, and let $F = R^{\oplus n}$ be a finitely generated free $R$-module. Prove that $\Hom_{R\text{-}\categ{Mod}}(F, R) \cong F$. On the other hand, find an example of a ring $R$ and a nonzero $R$-module $M$ such that $\Hom_{R\text{-}\categ{Mod}}(M, R) = 0$. [6.8]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:product-coproduct-infinite}
   Let $A$ be any set.
@@ -2005,7 +2005,7 @@ The distinction, while macroscopic in general, may evaporate in special, importa
   [\S{}6.1, 6.8]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-free-product}
-  Let $R$ be a ring. If $A$ is any set, prove that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(R^{\oplus A}, R)$ satisfies the universal property for the product of the family $\{R_a\}_{a \in A}$, where $R_a \cong R$ for all $a$; thus, $\operatorname{Hom}_{R\text{-}\categ{Mod}}(R^{\oplus A}, R) \cong R^A$. Conclude that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(R^{\oplus A}, R)$ is not isomorphic to $R^{\oplus A}$ in general (cf.\ Exercises~6.6 and~6.7).
+  Let $R$ be a ring. If $A$ is any set, prove that $\Hom_{R\text{-}\categ{Mod}}(R^{\oplus A}, R)$ satisfies the universal property for the product of the family $\{R_a\}_{a \in A}$, where $R_a \cong R$ for all $a$; thus, $\Hom_{R\text{-}\categ{Mod}}(R^{\oplus A}, R) \cong R^A$. Conclude that $\Hom_{R\text{-}\categ{Mod}}(R^{\oplus A}, R)$ is not isomorphic to $R^{\oplus A}$ in general (cf.\ Exercises~6.6 and~6.7).
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:free-projective}
   Let $R$ be a ring, $F$ a nonzero free $R$-module, and let $\phi : M \to N$ be a homomorphism of $R$-modules. Prove that $\phi$ is onto if and only if for all $R$-module homomorphisms $\alpha : F \to N$ there exists an $R$-module homomorphism $\beta : F \to M$ such that $\alpha = \phi \circ \beta$. (Free modules are projective, as we will see in Chapter~VIII.) [7.8, VI.5.5]
@@ -2044,8 +2044,8 @@ The distinction, while macroscopic in general, may evaporate in special, importa
 \begin{exer}{\lnot}{exer:rings:hom-cyclic}
   Let $M$ be a cyclic $R$-module, so that $M \cong R/I$ for a (left-)ideal $I$ (Exercise~6.16), and let $N$ be another $R$-module.
   \begin{itemize}
-    \item Prove that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N) \cong \{n \in N \mid (\forall a \in I), an = 0\}$.
-    \item For $a, b \in \Z$, prove that $\operatorname{Hom}_{\categ{Ab}}(\Z/a\Z, \Z/b\Z) \cong \Z/\gcd(a,b)\Z$.
+    \item Prove that $\Hom_{R\text{-}\categ{Mod}}(M, N) \cong \{n \in N \mid (\forall a \in I), an = 0\}$.
+    \item For $a, b \in \Z$, prove that $\Hom_{\categ{Ab}}(\Z/a\Z, \Z/b\Z) \cong \Z/\gcd(a,b)\Z$.
   \end{itemize}
   [7.7]
 \end{exer}
@@ -2233,8 +2233,8 @@ Prove the ``split epimorphism'' part of \cref{prop:rings:split-sequence}. [\S{}7
 \begin{exer}{\exerused}{exer:rings:7.7}
 Let $0 \to M \to N \to P \to 0$ be a short exact sequence of $R$-modules, and let $L$ be an $R$-module.
 \begin{enumerate}[label=(\roman*)]
-\item Prove that there is an exact sequence\footnote{In general, this will be a sequence of abelian groups; if $R$ is commutative, so that each $\operatorname{Hom}_{R\text{-Mod}}$ is an $R$-module (\S{}5.2), then it will be an exact sequence of $R$-modules.}
-\[\operatorname{Hom}_{R\text{-Mod}}(P,L) \to \operatorname{Hom}_{R\text{-Mod}}(N,L) \to \operatorname{Hom}_{R\text{-Mod}}(M,L).\]
+\item Prove that there is an exact sequence\footnote{In general, this will be a sequence of abelian groups; if $R$ is commutative, so that each $\Hom_{R\text{-Mod}}$ is an $R$-module (\S{}5.2), then it will be an exact sequence of $R$-modules.}
+\[\Hom_{R\text{-Mod}}(P,L) \to \Hom_{R\text{-Mod}}(N,L) \to \Hom_{R\text{-Mod}}(M,L).\]
 \item Redo Exercise~6.17. (Use the exact sequence $0 \to I \to R \to R/I \to 0$.)
 \item Construct an example showing that the rightmost homomorphism in (i) need not be onto.
 \item Show that if the original sequence splits, then the rightmost homomorphism in (i) is onto.
@@ -2246,7 +2246,7 @@ Prove that every exact sequence $0 \to M \to N \to F \to 0$ of $R$-modules, with
 \end{exer}
 \begin{exer}{}{exer:rings:7.9}
 Let $0 \to M \to N \to F \to 0$ be a short exact sequence of $R$-modules, with $F$ free, and let $L$ be an $R$-module. Prove that there is an exact sequence
-\[\operatorname{Hom}_{R\text{-Mod}}(F,L) \to \operatorname{Hom}_{R\text{-Mod}}(N,L) \to \operatorname{Hom}_{R\text{-Mod}}(M,L) \to 0.\]
+\[\Hom_{R\text{-Mod}}(F,L) \to \Hom_{R\text{-Mod}}(N,L) \to \Hom_{R\text{-Mod}}(M,L) \to 0.\]
 (Cf.\ Exercise~7.7.)
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:7.10}

@@ -102,17 +102,17 @@ integers $a$ such that there exists an integer $n$ for which $a =
 2n$''. In this case we could replace $\exists$ by $\exists !$ without
 changing the set---but that has to do with properties of $\field{Z}$, not with
 mathematical syntax. Also, it is common to adopt the shorthand
-\[E = \{2n | n \in Z,\}\] in which the existential quantifier is
+\[E = \{2n | n \in \Z\},\] in which the existential quantifier is
 understood.  Being able to parse such strings of symbols effortlessly,
 and being able to write them out fluently, is extremely important. The
 reader of this book is assumed to have already acquired this skill.
 
 Note that the \emph{order} in which things are written may make a big
 difference. For example, the statement
-\[(\forall a \in  Z) (\exists b \in  Z)\quad b = 2a\]
+\[(\forall a \in  \Z) (\exists b \in  \Z)\quad b = 2a\]
 is true: it says that the result of doubling an arbitrary integer yields an
 integer; but
-\[(\exists b \in Z) (\forall a \in Z)\quad b = 2a\] is false: it says that
+\[(\exists b \in \Z) (\forall a \in \Z)\quad b = 2a\] is false: it says that
 there exists a fixed integer $b$ which is `simultaneously' twice as
 much as every integer---there is no such thing.
 
@@ -782,7 +782,7 @@ for all sets $Z$ and all functions $\alpha', \alpha'' Z \to  A$
   A function is injective if and only if it is a monomorphism.
 \end{prop}
 \begin{proof}
- ( \Rightarrow  ) By Proposition 2.1 \Cref{XX}, if a function $f : A \to  B$ is
+ ( $\Rightarrow$  ) By Proposition 2.1 \Cref{XX}, if a function $f : A \to  B$ is
 injective, then it
 has a left-inverse $g : B \to  A$. Now assume that $\alpha'  ,\alpha''$  are arbitrary functions from
 another set $Z$ to $A$ and that
@@ -795,7 +795,7 @@ and therefore
 \[\alpha'  = \alpha'',\]
 as needed to conclude that $f$ is a monomorphism.
 
-( \Leftarrow = ) Now assume that $f$ is a monomorphism. This says something about
+( $\Leftarrow$ ) Now assume that $f$ is a monomorphism. This says something about
 arbitrary sets $Z$ and arbitrary functions $Z \to  A$; we are going to use a
 microscopic
 portion of this information, choosing $Z$ to be any singleton ${p}$. Then assigning
@@ -807,7 +807,7 @@ of $Z$, the property defining monomorphisms, $f \circ  \alpha'  = f \circ
 \alpha''  \Rightarrow  \alpha '  = \alpha'$
   , becomes
 \[f \circ  \alpha'(p) = f \circ  \alpha'' (p)
-\Rightarrow  \alpha'  = \alpha''\],
+\Rightarrow  \alpha'  = \alpha'',\]
 that is,
 $f (a') = f (a'') \Rightarrow  \alpha'  =
 \alpha''$.
@@ -915,7 +915,7 @@ consider are well-defined, in contexts very similar to the one epitomized here.
 \begin{proof}
   Spelling out the first item discussed above, we have to verify that, for all
   $a', a''$ in $A$,
-  \[ [a']_\sim = [a'']_\sim \implies f(a') = f(a''). \]
+  \[ [a']_\sim = [a'']_\sim \Rightarrow f(a') = f(a''). \]
   Now $[a']_\sim = [a'']_\sim$ means that $a' \sim a''$, and the definition of
   $\sim$ has been engineered precisely so that this would mean $f(a') = f(a'')$
   as required here. So $\tilde{f}$ is indeed well-defined.
@@ -926,7 +926,7 @@ consider are well-defined, in contexts very similar to the one epitomized here.
   \emph{Injective:} If $\tilde{f}([a']_\sim) = \tilde{f}([a'']_\sim)$, then
   $f(a') = f(a'')$ by definition of $\tilde{f}$; hence $a' \sim a''$ by
   definition of $\sim$, and then $[a']_\sim = [a'']_\sim$. Therefore
-  \[ \tilde{f}([a']_\sim) = \tilde{f}([a'']_\sim) \implies [a']_\sim = [a'']_\sim, \]
+  \[ \tilde{f}([a']_\sim) = \tilde{f}([a'']_\sim) \Rightarrow [a']_\sim = [a'']_\sim, \]
   proving injectivity.
 
   \emph{Surjective:} Given any $b \in \image f$, there is an element $a \in A$
@@ -1092,10 +1092,10 @@ these examples.
 \begin{defn}{}{defn:category}
   A \emph{category} $\categ{C}$ consists of
   \begin{itemize}
-  \item a class $\operatorname{Obj}(\categ{C})$ of \emph{objects} of
+  \item a class $\Obj(\categ{C})$ of \emph{objects} of
     the category; and
   \item for every two objects $A$, $B$ of $\categ{C}$, a set
-    $\operatorname{Hom}_{\categ{C}}(A, B)$ of \emph{morphisms},
+    $\Hom_{\categ{C}}(A, B)$ of \emph{morphisms},
   \end{itemize}
   with the properties listed below.
 \end{defn}
@@ -1105,32 +1105,32 @@ morphisms as `functions'. This one example should make the defining
 properties of morphisms look natural and easy to remember:
 \begin{itemize}
 \item For every object $A$ of $\categ{C}$, there exists (at least)
-  one morphism $1_A \in \operatorname{Hom}_{\categ{C}}(A, A)$, the
+  one morphism $1_A \in \Hom_{\categ{C}}(A, A)$, the
   `identity' on $A$.
 \item One can compose morphisms: two morphisms
-  $f \in \operatorname{Hom}_{\categ{C}}(A, B)$ and
-  $g \in \operatorname{Hom}_{\categ{C}}(B, C)$ determine a morphism
-  $gf \in \operatorname{Hom}_{\categ{C}}(A, C)$. That is, for every
+  $f \in \Hom_{\categ{C}}(A, B)$ and
+  $g \in \Hom_{\categ{C}}(B, C)$ determine a morphism
+  $gf \in \Hom_{\categ{C}}(A, C)$. That is, for every
   triple of objects $A$, $B$, $C$ of $\categ{C}$ there is a function
   (of sets)
-  \[ \operatorname{Hom}_{\categ{C}}(A, B) \times
-    \operatorname{Hom}_{\categ{C}}(B, C) \to
-    \operatorname{Hom}_{\categ{C}}(A, C), \] and the image of the
+  \[ \Hom_{\categ{C}}(A, B) \times
+    \Hom_{\categ{C}}(B, C) \to
+    \Hom_{\categ{C}}(A, C), \] and the image of the
   pair $(f, g)$ is denoted $gf$.
 \item This `composition law' is associative: if
-  $f \in \operatorname{Hom}_{\categ{C}}(A, B)$,
-  $g \in \operatorname{Hom}_{\categ{C}}(B, C)$, and
-  $h \in \operatorname{Hom}_{\categ{C}}(C, D)$, then $(hg)f = h(gf)$.
+  $f \in \Hom_{\categ{C}}(A, B)$,
+  $g \in \Hom_{\categ{C}}(B, C)$, and
+  $h \in \Hom_{\categ{C}}(C, D)$, then $(hg)f = h(gf)$.
 \item The identity morphisms are identities with respect to
   composition: that is, for all
-  $f \in \operatorname{Hom}_{\categ{C}}(A, B)$ we have
+  $f \in \Hom_{\categ{C}}(A, B)$ we have
   \[ f 1_A = f, \qquad 1_B f = f. \]
 \end{itemize}
 
 This is really a mouthful, but again, to remember all this, just think
 of functions of sets. One further requirement is that the sets
-$\operatorname{Hom}_{\categ{C}}(A, B)$ and
-$\operatorname{Hom}_{\categ{C}}(C, D)$ be disjoint unless $A = C$,
+$\Hom_{\categ{C}}(A, B)$ and
+$\Hom_{\categ{C}}(C, D)$ be disjoint unless $A = C$,
 $B = D$; this is something you do not usually think about, but again
 it holds for ordinary set-functions.\footnote{I will often use the
   term `set-function' to emphasize that we are dealing with a function
@@ -1139,15 +1139,15 @@ same, then necessarily they have the same source and the same target:
 source and target are part of the datum of a set-function.
 
 A morphism of an object $A$ of a category $\categ{C}$ to itself is
-called an \emph{endomorphism}; $\operatorname{Hom}_{\categ{C}}(A, A)$
-is denoted $\operatorname{End}_{\categ{C}}(A)$. One of the axioms of
+called an \emph{endomorphism}; $\Hom_{\categ{C}}(A, A)$
+is denoted $\End_{\categ{C}}(A)$. One of the axioms of
 a category tells us that this is a `pointed' set, as
-$1_A \in \operatorname{End}_{\categ{C}}(A)$.  The reader should note
+$1_A \in \End_{\categ{C}}(A)$.  The reader should note
 that composition defines an `operation' on
-$\operatorname{End}_{\categ{C}}(A)$: if $f$, $g$ are elements of
-$\operatorname{End}_{\categ{C}}(A)$, so is their composition $gf$.
+$\End_{\categ{C}}(A)$: if $f$, $g$ are elements of
+$\End_{\categ{C}}(A)$, so is their composition $gf$.
 
-Writing `$f \in \operatorname{Hom}_{\categ{C}}(A, B)$' gets tiresome
+Writing `$f \in \Hom_{\categ{C}}(A, B)$' gets tiresome
 in the long run. If the category is understood, one may safely drop
 the index $\categ{C}$, or even use arrows as we do with
 set-functions: $f : A \to B$.  This also allows us to draw
@@ -1195,9 +1195,9 @@ and looking for the `right' notion may be an interesting project.
   many amusing variations on these themes. We will use `sans-serif' fonts to
   denote categories; thus, $\categ{Set}$ will denote the category of sets. Thus
   \begin{itemize}
-  \item $\operatorname{Obj}(\categ{Set}) = $ the class of all sets;
-  \item for $A$, $B$ in $\operatorname{Obj}(\categ{Set})$ (that is, for $A$,
-    $B$ sets) $\operatorname{Hom}_{\categ{Set}}(A, B) = B^A$.
+  \item $\Obj(\categ{Set}) = $ the class of all sets;
+  \item for $A$, $B$ in $\Obj(\categ{Set})$ (that is, for $A$,
+    $B$ sets) $\Hom_{\categ{Set}}(A, B) = B^A$.
   \end{itemize}
   Note that the presence of the operations recalled in \S{}\S{}1.3--1.5 is not
   part of the definition of category: these operations highlight interesting
@@ -1212,8 +1212,8 @@ and looking for the `right' notion may be an interesting project.
   \begin{itemize}
   \item \emph{objects}: the elements of $S$;
   \item \emph{morphisms}: if $a$, $b$ are objects (that is, if $a, b \in S$),
-    then let $\operatorname{Hom}(a, b)$ be the set consisting of the element
-    $(a, b) \in S \times S$ if $a \sim b$, and let $\operatorname{Hom}(a, b) =
+    then let $\Hom(a, b)$ be the set consisting of the element
+    $(a, b) \in S \times S$ if $a \sim b$, and let $\Hom(a, b) =
     \emptyset$ otherwise.
   \end{itemize}
   Note that (unlike in $\categ{Set}$) there are very few morphisms: at most one
@@ -1222,26 +1222,26 @@ and looking for the `right' notion may be an interesting project.
   We have to define `composition of morphisms' and verify that the conditions
   specified in \S{}3.1 are satisfied. First of all, do we have `identities'? If
   $a$ is an object (that is, if $a \in S$), we need to find an element
-  $1_a \in \operatorname{Hom}(a, a)$. This is precisely why we are assuming that
+  $1_a \in \Hom(a, a)$. This is precisely why we are assuming that
   $\sim$ is reflexive: this tells us that $\forall a$, $a \sim a$; that is,
-  $\operatorname{Hom}(a, a)$ consists of the single element $(a, a)$. So we have
+  $\Hom(a, a)$ consists of the single element $(a, a)$. So we have
   no choice: we must let
-  \[ 1_a = (a, a) \in \operatorname{Hom}(a, a). \]
+  \[ 1_a = (a, a) \in \Hom(a, a). \]
   As for composition, let $a$, $b$, $c$ be objects (that is, elements of $S$)
-  and $f \in \operatorname{Hom}(a, b)$, $g \in \operatorname{Hom}(b, c)$; we
-  have to define a corresponding morphism $gf \in \operatorname{Hom}(a, c)$.
-  Now, $f \in \operatorname{Hom}(a, b)$ tells us that $\operatorname{Hom}(a, b)$
+  and $f \in \Hom(a, b)$, $g \in \Hom(b, c)$; we
+  have to define a corresponding morphism $gf \in \Hom(a, c)$.
+  Now, $f \in \Hom(a, b)$ tells us that $\Hom(a, b)$
   is nonempty, and according to the definition of morphisms in this category that
   means $a \sim b$, and $f$ is in fact the element $(a, b)$ of $S \times S$.
-  Similarly, $g \in \operatorname{Hom}(b, c)$ tells us $b \sim c$ and $g =
+  Similarly, $g \in \Hom(b, c)$ tells us $b \sim c$ and $g =
   (b, c)$. Now
-  \[ a \sim b \text{ and } b \sim c \implies a \sim c \]
+  \[ a \sim b \text{ and } b \sim c \Rightarrow a \sim c \]
   since we are assuming that $\sim$ is transitive. This tells us that
-  $\operatorname{Hom}(a, c)$ consists of the single element $(a, c)$. Thus we
+  $\Hom(a, c)$ consists of the single element $(a, c)$. Thus we
   again have no choice: we must let
-  \[ gf := (a, c) \in \operatorname{Hom}(a, c). \]
-  Is this operation associative? If $f \in \operatorname{Hom}(a, b)$, $g \in
-  \operatorname{Hom}(b, c)$, and $h \in \operatorname{Hom}(c, d)$, then
+  \[ gf := (a, c) \in \Hom(a, c). \]
+  Is this operation associative? If $f \in \Hom(a, b)$, $g \in
+  \Hom(b, c)$, and $h \in \Hom(c, d)$, then
   necessarily $f = (a,b)$, $g = (b,c)$, $h = (c,d)$, and
   $gf = (a,c)$, $hg = (b,d)$, and hence $h(gf) = (a,d) = (hg)f$,
   proving associativity. The reader will have no difficulties checking that $1_a$
@@ -1274,12 +1274,12 @@ and looking for the `right' notion may be an interesting project.
   small category. Let $S$ again be a set. Define a category $\hat{\categ{S}}$
   by setting
   \begin{itemize}
-  \item $\operatorname{Obj}(\hat{\categ{S}}) = \mathscr{P}(S)$, the power set
+  \item $\Obj(\hat{\categ{S}}) = \mathscr{P}(S)$, the power set
     of $S$ (cf.\ \S{}1.2 and Exercise~2.11);
   \item for $A$, $B$ objects of $\hat{\categ{S}}$ (that is, $A \subseteq S$
-    and $B \subseteq S$) let $\operatorname{Hom}_{\hat{\categ{S}}}(A, B)$ be
+    and $B \subseteq S$) let $\Hom_{\hat{\categ{S}}}(A, B)$ be
     the pair $(A, B)$ if $A \subseteq B$, and let
-    $\operatorname{Hom}_{\hat{\categ{S}}}(A, B) = \emptyset$ otherwise.
+    $\Hom_{\hat{\categ{S}}}(A, B) = \emptyset$ otherwise.
   \end{itemize}
   The identity $1_A$ consists of the pair $(A, A)$ (which is one, and in fact
   the only one, morphism from $A$ to $A$, since $A \subseteq A$). Composition is
@@ -1302,9 +1302,9 @@ and looking for the `right' notion may be an interesting project.
   morphisms in $\categ{C}$ and whose morphisms are certain diagrams of
   $\categ{C}$ (surprise!).
   \begin{itemize}
-  \item $\operatorname{Obj}(\categ{C}_A) = $ all morphisms from any object of
+  \item $\Obj(\categ{C}_A) = $ all morphisms from any object of
     $\categ{C}$ to $A$; thus, an object of $\categ{C}_A$ is a morphism $f \in
-    \operatorname{Hom}_{\categ{C}}(Z, A)$ for some object $Z$ of $\categ{C}$.
+    \Hom_{\categ{C}}(Z, A)$ for some object $Z$ of $\categ{C}$.
     Pictorially, an object of $\categ{C}_A$ is an arrow $Z \xrightarrow{f} A$
     in $\categ{C}$; these are often drawn `top-down', as in
     \[
@@ -1429,7 +1429,7 @@ and looking for the `right' notion may be an interesting project.
   $A$, $B$ of $\categ{C}$. We can define a new category $\categ{C}_{A,B}$ by
   essentially the same procedure that we used in order to define $\categ{C}_A$:
   \begin{itemize}
-  \item $\operatorname{Obj}(\categ{C}_{A,B})$ = diagrams
+  \item $\Obj(\categ{C}_{A,B})$ = diagrams
     % TODO: commutative diagram with Z mapping to both A and B (two-legged span)
     $Z \xrightarrow{f} A$ and $Z \xrightarrow{g} B$ in $\categ{C}$; and
   \item morphisms from $(f_1 : Z_1 \to A,\, g_1 : Z_1 \to B)$ to
@@ -1460,7 +1460,7 @@ and looking for the `right' notion may be an interesting project.
   $\beta : B \to C$ in $\categ{C}$, with the same target $C$. We can then
   consider a category $\categ{C}_{\alpha, \beta}$ as follows:
   \begin{itemize}
-  \item $\operatorname{Obj}(\categ{C}_{\alpha,\beta})$ = commutative diagrams
+  \item $\Obj(\categ{C}_{\alpha,\beta})$ = commutative diagrams
     % TODO: diagram with Z mapping to A and B, composed with α and β to a common C
     in $\categ{C}$: pairs $(f : Z \to A,\, g : Z \to B)$ such that $\alpha f =
     \beta g$; and
@@ -1481,18 +1481,18 @@ and looking for the `right' notion may be an interesting project.
 \begin{exer}{}{}
   \exerused Let $\categ{C}$ be a category. Consider a structure $\categ{C}^{\mathrm{op}}$ with
   \begin{itemize}
-  \item $\operatorname{Obj}(\categ{C}^{op}) := \operatorname{Obj}(\categ{C})$;
-  \item for $A$, $B$ objects of $\categ{C}^{op}$ (hence objects of $\categ{C}$),
-    $\operatorname{Hom}_{\categ{C}^{op}}(A, B) := \operatorname{Hom}_{\categ{C}}(B, A)$.
+  \item $\Obj(\categ{C}^{\mathrm{op}}) := \Obj(\categ{C})$;
+  \item for $A$, $B$ objects of $\categ{C}^{\mathrm{op}}$ (hence objects of $\categ{C}$),
+    $\Hom_{\categ{C}^{\mathrm{op}}}(A, B) := \Hom_{\categ{C}}(B, A)$.
   \end{itemize}
   Show how to make this into a category (that is, define composition of morphisms
-  in $\categ{C}^{op}$ and verify the properties listed in \S{}3.1). Intuitively,
-  the `opposite' category $\categ{C}^{op}$ is simply obtained by `reversing all
+  in $\categ{C}^{\mathrm{op}}$ and verify the properties listed in \S{}3.1). Intuitively,
+  the `opposite' category $\categ{C}^{\mathrm{op}}$ is simply obtained by `reversing all
   the arrows' in $\categ{C}$. [5.1, \S{}VIII.1.1, \S{}IX.1.2, IX.1.10]
 \end{exer}
 
 \begin{exer}{}{}
-  If $A$ is a finite set, how large is $\operatorname{End}_{\categ{Set}}(A)$?
+  If $A$ is a finite set, how large is $\End_{\categ{Set}}(A)$?
 \end{exer}
 
 \begin{exer}{}{}
@@ -1512,8 +1512,8 @@ and looking for the `right' notion may be an interesting project.
 
 \begin{exer}{}{}
   \exerused (Assuming some familiarity with linear algebra.) Define a category
-  $\categ{V}$ by taking $\operatorname{Obj}(\categ{V}) = \N$ and letting
-  $\operatorname{Hom}_{\categ{V}}(n, m) = $ the set of $m \times n$ matrices
+  $\categ{V}$ by taking $\Obj(\categ{V}) = \N$ and letting
+  $\Hom_{\categ{V}}(n, m) = $ the set of $m \times n$ matrices
   with real entries, for all $n, m \in \N$. (I will leave the reader the task of
   making sense of a matrix with 0 rows or columns.) Use product of matrices to
   define composition. Does this category `feel' familiar? [\S{}VI.2.1,
@@ -1528,12 +1528,12 @@ and looking for the `right' notion may be an interesting project.
 \begin{exer}{}{}
   \exerused A \emph{subcategory} $\categ{C}'$ of a category $\categ{C}$
   consists of a collection of objects of $\categ{C}$ with sets of morphisms
-  $\operatorname{Hom}_{\categ{C}'}(A, B) \subseteq \operatorname{Hom}_{\categ{C}}(A, B)$
-  for all objects $A$, $B$ in $\operatorname{Obj}(\categ{C}')$, such that
+  $\Hom_{\categ{C}'}(A, B) \subseteq \Hom_{\categ{C}}(A, B)$
+  for all objects $A$, $B$ in $\Obj(\categ{C}')$, such that
   identities and compositions in $\categ{C}$ make $\categ{C}'$ into a
   category. A subcategory $\categ{C}'$ is \emph{full} if
-  $\operatorname{Hom}_{\categ{C}'}(A, B) = \operatorname{Hom}_{\categ{C}}(A, B)$
-  for all $A$, $B$ in $\operatorname{Obj}(\categ{C}')$. Construct a category of
+  $\Hom_{\categ{C}'}(A, B) = \Hom_{\categ{C}}(A, B)$
+  for all $A$, $B$ in $\Obj(\categ{C}')$. Construct a category of
   infinite sets and explain how it may be viewed as a full subcategory of
   $\categ{Set}$. [4.4, \S{}VI.1.1, \S{}VIII.1.3]
 \end{exer}
@@ -1588,9 +1588,9 @@ notions do transfer nicely into the categorical setting.
 Let $\categ{C}$ be a category.
 
 \begin{defn}{Isomorphism}{defn:prelims:isomorphism}
-A morphism $f \in \operatorname{Hom}_{\categ{C}}(A,B)$ is an
+A morphism $f \in \Hom_{\categ{C}}(A,B)$ is an
 \textbf{isomorphism} if it has a (two-sided) inverse under composition: that
-is, if $\exists\, g \in \operatorname{Hom}_{\categ{C}}(B,A)$ such that
+is, if $\exists\, g \in \Hom_{\categ{C}}(B,A)$ such that
 \[
   g \circ f = 1_A, \qquad f \circ g = 1_B.
 \]
@@ -1633,8 +1633,8 @@ With notation as above:
   \item Each identity $1_A$ is an isomorphism and is its own inverse.
   \item If $f$ is an isomorphism, then $f^{-1}$ is an isomorphism and
         $(f^{-1})^{-1} = f$.
-  \item If $f \in \operatorname{Hom}_{\categ{C}}(A,B)$ and
-        $g \in \operatorname{Hom}_{\categ{C}}(B,C)$ are isomorphisms, then
+  \item If $f \in \Hom_{\categ{C}}(A,B)$ and
+        $g \in \Hom_{\categ{C}}(B,C)$ are isomorphisms, then
         $g \circ f$ is an isomorphism and $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
 \end{itemize}
 \end{prop}
@@ -1669,9 +1669,9 @@ bijections; this was observed at the beginning of \S{}2.5.
 \begin{exam}{}{}
 As noted in \Cref{prop:prelims:iso-props}, identities are isomorphisms. They
 may be the only isomorphisms in a category: for example, this is the case in
-the category $\categ{C}$ obtained from the relation $\leq$ on $\mathbb{Z}$,
+the category $\categ{C}$ obtained from the relation $\leq$ on $\Z$,
 as in \Cref{exam:prelims:category-leq}. Indeed, for $a$, $b$ objects of
-$\categ{C}$ (that is, $a, b \in \mathbb{Z}$), there is a morphism
+$\categ{C}$ (that is, $a, b \in \Z$), there is a morphism
 $f \colon a \to b$ and a morphism $g \colon b \to a$ only if $a \leq b$ and
 $b \leq a$, that is, if $a = b$. So an isomorphism in $\categ{C}$ necessarily
 acts from an object $a$ to itself; but in $\categ{C}$ there is only one such
@@ -1686,21 +1686,21 @@ isomorphism; such categories are called \textbf{groupoids}. The reader
 
 An \textbf{automorphism} of an object $A$ of a category $\categ{C}$ is an
 isomorphism from $A$ to itself. The set of automorphisms of $A$ is denoted
-$\operatorname{Aut}_{\categ{C}}(A)$; it is a subset of
-$\operatorname{End}_{\categ{C}}(A)$. By \Cref{prop:prelims:iso-props},
-composition confers on $\operatorname{Aut}_{\categ{C}}(A)$ a remarkable
+$\Aut_{\categ{C}}(A)$; it is a subset of
+$\End_{\categ{C}}(A)$. By \Cref{prop:prelims:iso-props},
+composition confers on $\Aut_{\categ{C}}(A)$ a remarkable
 structure:
 \begin{itemize}
-  \item the composition of two elements $f, g \in \operatorname{Aut}_{\categ{C}}(A)$
-        is an element $g \circ f \in \operatorname{Aut}_{\categ{C}}(A)$;
+  \item the composition of two elements $f, g \in \Aut_{\categ{C}}(A)$
+        is an element $g \circ f \in \Aut_{\categ{C}}(A)$;
   \item composition is associative;
-  \item $\operatorname{Aut}_{\categ{C}}(A)$ contains the element $1_A$, which
+  \item $\Aut_{\categ{C}}(A)$ contains the element $1_A$, which
         is an identity for composition (that is,
         $f \circ 1_A = 1_A \circ f = f$);
-  \item every element $f \in \operatorname{Aut}_{\categ{C}}(A)$ has an inverse
-        $f^{-1} \in \operatorname{Aut}_{\categ{C}}(A)$.
+  \item every element $f \in \Aut_{\categ{C}}(A)$ has an inverse
+        $f^{-1} \in \Aut_{\categ{C}}(A)$.
 \end{itemize}
-In other words, $\operatorname{Aut}_{\categ{C}}(A)$ is a group, for all
+In other words, $\Aut_{\categ{C}}(A)$ is a group, for all
 objects $A$ of all categories $\categ{C}$. We will soon devote all our
 attention to groups!
 
@@ -1714,24 +1714,24 @@ prevents us from defining monomorphisms as we did in \S{}2.6, in an arbitrary
 category:
 
 \begin{defn}{Monomorphism}{defn:prelims:monomorphism}
-Let $\categ{C}$ be a category. A morphism $f \in \operatorname{Hom}_{\categ{C}}(A,B)$
+Let $\categ{C}$ be a category. A morphism $f \in \Hom_{\categ{C}}(A,B)$
 is a \textbf{monomorphism} if the following holds: for all objects $Z$ of
 $\categ{C}$ and all morphisms $\alpha', \alpha'' \in
-\operatorname{Hom}_{\categ{C}}(Z,A)$,
+\Hom_{\categ{C}}(Z,A)$,
 \[
-  f \circ \alpha' = f \circ \alpha'' \implies \alpha' = \alpha''.
+  f \circ \alpha' = f \circ \alpha'' \Rightarrow \alpha' = \alpha''.
 \]
 \end{defn}
 
 Similarly, epimorphisms are defined as follows:
 
 \begin{defn}{Epimorphism}{defn:prelims:epimorphism}
-Let $\categ{C}$ be a category. A morphism $f \in \operatorname{Hom}_{\categ{C}}(A,B)$
+Let $\categ{C}$ be a category. A morphism $f \in \Hom_{\categ{C}}(A,B)$
 is an \textbf{epimorphism} if the following holds: for all objects $Z$ of
 $\categ{C}$ and all morphisms $\beta', \beta'' \in
-\operatorname{Hom}_{\categ{C}}(B,Z)$,
+\Hom_{\categ{C}}(B,Z)$,
 \[
-  \beta' \circ f = \beta'' \circ f \implies \beta' = \beta''.
+  \beta' \circ f = \beta'' \circ f \Rightarrow \beta' = \beta''.
 \]
 \end{defn}
 
@@ -1755,7 +1755,7 @@ Contemplating the previous example reveals a few unexpected twists in these
 definitions, which defy our intuition as set-theorists. For instance, in
 $\categ{Set}$, a function is an isomorphism if and only if it is both injective
 and surjective, hence if and only if it is both a monomorphism and an
-epimorphism. But in the category defined by $\leq$ on $\mathbb{Z}$, every
+epimorphism. But in the category defined by $\leq$ on $\Z$, every
 morphism is both a monomorphism and an epimorphism, while the only isomorphisms
 are the identities (\Cref{exam:prelims:category-leq}). Thus this property is a
 special feature of $\categ{Set}$, and we should not expect it to hold
@@ -1799,7 +1799,7 @@ transitive. For what types of relations is the corresponding category a groupoid
 
 \begin{exer}{}{exer:4.3}
 Let $A$, $B$ be objects of a category $\categ{C}$, and let
-$f \in \operatorname{Hom}_{\categ{C}}(A,B)$ be a morphism.
+$f \in \Hom_{\categ{C}}(A,B)$ be a morphism.
 \begin{itemize}
   \item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
   \item Show that the converse does not hold, by giving an explicit example of a
@@ -1811,8 +1811,8 @@ $f \in \operatorname{Hom}_{\categ{C}}(A,B)$ be a morphism.
 Prove that the composition of two monomorphisms is a monomorphism. Deduce that
 one can define a subcategory $\categ{C}_{\mathrm{mono}}$ of a category
 $\categ{C}$ by taking the same objects as in $\categ{C}$ and defining
-$\operatorname{Hom}_{\categ{C}_{\mathrm{mono}}}(A,B)$ to be the subset of
-$\operatorname{Hom}_{\categ{C}}(A,B)$ consisting of monomorphisms, for all
+$\Hom_{\categ{C}_{\mathrm{mono}}}(A,B)$ to be the subset of
+$\Hom_{\categ{C}}(A,B)$ consisting of monomorphisms, for all
 objects $A$, $B$. (Cf.\ \Cref{exer:3.8}; of course, in general
 $\categ{C}_{\mathrm{mono}}$ is not full in $\categ{C}$.) Do the same for
 epimorphisms. Can you define a subcategory $\categ{C}_{\mathrm{nonmono}}$ of
@@ -1864,15 +1864,15 @@ Let $\categ{C}$ be a category. We say that an object $I$ of $\categ{C}$ is
 \textbf{initial} in $\categ{C}$ if for every object $A$ of $\categ{C}$ there
 exists exactly one morphism $I \to A$ in $\categ{C}$:
 \[
-  \forall A \in \operatorname{Obj}(\categ{C}) \colon \quad
-  \operatorname{Hom}_{\categ{C}}(I,A) \text{ is a singleton.}
+  \forall A \in \Obj(\categ{C}) \colon \quad
+  \Hom_{\categ{C}}(I,A) \text{ is a singleton.}
 \]
 We say that an object $F$ of $\categ{C}$ is \textbf{final} in $\categ{C}$ if
 for every object $A$ of $\categ{C}$ there exists exactly one morphism
 $A \to F$ in $\categ{C}$:
 \[
-  \forall A \in \operatorname{Obj}(\categ{C}) \colon \quad
-  \operatorname{Hom}_{\categ{C}}(A,F) \text{ is a singleton.}
+  \forall A \in \Obj(\categ{C}) \colon \quad
+  \Hom_{\categ{C}}(A,F) \text{ is a singleton.}
 \]
 \end{defn}
 
@@ -1883,7 +1883,7 @@ considering.
 A category need not have initial or final objects, as the following example
 shows.
 \begin{exam}{}{}
-The category obtained by endowing $\mathbb{Z}$ with the relation $\leq$ (see
+The category obtained by endowing $\Z$ with the relation $\leq$ (see
 Example~3.3) has no initial or final object. Indeed, an initial object in this
 category would be an integer $i$ such that $i \leq a$ for all integers $a$;
 there is no such integer. Similarly, a final object would be an integer $f$
@@ -1920,7 +1920,7 @@ Further, these isomorphisms are uniquely determined.
 \end{prop}
 \begin{proof}
 Recall that (by definition of category!) for every object $A$ of $\categ{C}$
-there is at least one element in $\operatorname{Hom}_{\categ{C}}(A,A)$, namely
+there is at least one element in $\Hom_{\categ{C}}(A,A)$, namely
 the identity $1_A$. If $I$ is initial, then there is a unique morphism
 $I \to I$, which therefore must be the identity $1_I$.
 
@@ -1989,7 +1989,7 @@ The assertion is talking about functions
 \]
 with $Z$ any set, satisfying the property
 \[
-  a' \sim a'' \implies \varphi(a') = \varphi(a'').
+  a' \sim a'' \Rightarrow \varphi(a') = \varphi(a'').
 \]
 These morphisms are objects of a category (very similar to the category defined
 in Example~3.7); for convenience, let's denote such an object by $(\varphi, Z)$.
@@ -2037,7 +2037,7 @@ Hence, all we have to check is that $\overline{\varphi}$ is well-defined, that
 is, that if $[a_1]_\sim = [a_2]_\sim$, then $\varphi(a_1) = \varphi(a_2)$;
 and indeed
 \[
-  [a_1]_\sim = [a_2]_\sim \implies a_1 \sim a_2 \implies \varphi(a_1) = \varphi(a_2).
+  [a_1]_\sim = [a_2]_\sim \Rightarrow a_1 \sim a_2 \Rightarrow \varphi(a_1) = \varphi(a_2).
 \]
 This is precisely the condition that morphisms in our category satisfy.
 \end{proof}
@@ -2130,10 +2130,10 @@ object consists of the data of an object of $\categ{C}$, usually denoted
 $A \times B$, and of two morphisms $A \times B \to A$, $A \times B \to B$.
 Note that a `product' from this perspective does not need to `look like a
 product'. Consider our recurring example of the category obtained from $\leq$
-on $\mathbb{Z}$, as in Example~3.3. Does this category have products? Objects
-of this category are simply integers $a, b \in \mathbb{Z}$; call $a \times b$
+on $\Z$, as in Example~3.3. Does this category have products? Objects
+of this category are simply integers $a, b \in \Z$; call $a \times b$
 for a moment the `categorical' product of $a$ and $b$. The universal property
-written out above becomes, in this case: for all $z \in \mathbb{Z}$ such that
+written out above becomes, in this case: for all $z \in \Z$ such that
 $z \leq a$ and $z \leq b$, we have $z \leq a \times b$.
 
 This universal problem does have a solution $\forall a, b$: it is conventionally
@@ -2182,7 +2182,8 @@ completely apparent. We say that a category $\categ{C}$ \emph{has coproducts}
 if this universal problem has a solution for all pairs of objects $A$ and $B$.
 Is the reader familiar with any coproduct? Yes!
 
-\begin{prop}{The disjoint union is a coproduct in $\categ{Set}$.}{prop:prelims:disjoint-union-coproduct}
+\begin{prop}{}{prop:prelims:disjoint-union-coproduct}
+  The disjoint union is a coproduct in $\categ{Set}$.
 \end{prop}
 \begin{proof}
 Recall (\S{}1.4) that the disjoint union $A \amalg B$ is defined as the union
@@ -2221,7 +2222,7 @@ suddenly apparent from the point of view of universal properties.
 
 The reader is invited to contemplate the notion of coproduct in the other
 categories we have encountered. For example (and probably not surprisingly at
-this point) the category obtained from $\leq$ on $\mathbb{Z}$ does have
+this point) the category obtained from $\leq$ on $\Z$ does have
 coproducts: the coproduct of two objects (i.e., integers) $a$, $b$ is simply
 the maximum of $a$ and $b$.
 
@@ -2251,7 +2252,7 @@ What are the final objects in the category considered in \S{}5.3? [\S{}5.3]
 
 \begin{exer}{\exerused}{exer:5.6}
 Consider the category corresponding to endowing (as in Example~3.3) the set
-$\mathbb{Z}^+$ of positive integers with the divisibility relation. Thus there
+$\Z^+$ of positive integers with the divisibility relation. Thus there
 is exactly one morphism $d \to m$ in this category if and only if $d$ divides
 $m$ without remainder; there is no morphism between $d$ and $m$ otherwise. Show
 that this category has products and coproducts. What are their `conventional'

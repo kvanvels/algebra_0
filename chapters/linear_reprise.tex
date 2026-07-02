@@ -49,7 +49,7 @@ of morphisms, functors will have to deal with this information as well.
   functor} $F : \mathsf{C} \to \mathsf{D}$ is an assignment of an object
   $F(A) \in \mathrm{Obj}(\mathsf{D})$ for every $A \in \mathrm{Obj}(\mathsf{C})$
   and of a function
-  $\mathrm{Hom}_{\mathsf{C}}(A, B) \to \mathrm{Hom}_{\mathsf{D}}(F(A), F(B))$
+  $\Hom_{\mathsf{C}}(A, B) \to \Hom_{\mathsf{D}}(F(A), F(B))$
   for every pair of objects $A$, $B$ in $\mathsf{C}$; this function is
   also denoted\footnote{This minor abuse of notation is convenient and
   standard.} $F$ and must preserve identities and compositions. That is,
@@ -60,8 +60,8 @@ of morphisms, functors will have to deal with this information as well.
   \[
     F(\beta \circ \alpha) = F(\beta) \circ F(\alpha) \quad
     \forall A, B, C \in \mathrm{Obj}(\mathsf{C}),\;
-    \forall \alpha \in \mathrm{Hom}_{\mathsf{C}}(A, B),\;
-    \forall \beta \in \mathrm{Hom}_{\mathsf{C}}(B, C).
+    \forall \alpha \in \Hom_{\mathsf{C}}(A, B),\;
+    \forall \beta \in \Hom_{\mathsf{C}}(B, C).
   \]
   A \emph{contravariant functor} $\mathsf{C} \to \mathsf{D}$ is a
   covariant functor $\mathsf{C}^{\mathrm{op}} \to \mathsf{D}$ from the
@@ -72,8 +72,8 @@ $\mathsf{C}$ by `reversing the arrows'; cf.\ Exercise~I.3.1. The fact
 that contravariant functors $G : \mathsf{C} \to \mathsf{D}$ (that is,
 covariant functors $\mathsf{C}^{\mathrm{op}} \to \mathsf{D}$) preserve
 compositions means that $\forall A, B, C \in \mathrm{Obj}(\mathsf{C})$,
-$\forall \alpha \in \mathrm{Hom}_{\mathsf{C}}(A, B)$,
-$\forall \beta \in \mathrm{Hom}_{\mathsf{C}}(B, C)$:
+$\forall \alpha \in \Hom_{\mathsf{C}}(A, B)$,
+$\forall \beta \in \Hom_{\mathsf{C}}(B, C)$:
 \[
   G(\beta \circ \alpha) = G(\alpha) \circ G(\beta).
 \]
@@ -89,17 +89,17 @@ commutative diagrams are sent to commutative diagrams.
 In many contexts, contravariant functors are called \emph{presheaves}.
 Thus, a presheaf of sets on a category $\mathsf{C}$ is simply a
 contravariant functor $\mathsf{C} \to \mathsf{Set}$.
-If $\mathrm{Hom}_{\mathsf{C}}(A, B)$ carries more structure, we may
+If $\Hom_{\mathsf{C}}(A, B)$ carries more structure, we may
 require functors to preserve this structure. For example, we have seen
 that for $\mathsf{C} = R\text{-}\mathsf{Mod}$, the category of
-left-modules over a ring $R$, $\mathrm{Hom}_{R\text{-}\mathrm{Mod}}(A,
+left-modules over a ring $R$, $\Hom_{R\text{-}\mathrm{Mod}}(A,
 B)$ is itself an abelian group (end of \S{}III.5.2); a functor
 $F : R\text{-}\mathsf{Mod} \to S\text{-}\mathsf{Mod}$ is
 \emph{additive} if it preserves this structure, that is, if the
 corresponding function
 \[
-  \mathrm{Hom}_{R\text{-}\mathrm{Mod}}(A, B) \to
-  \mathrm{Hom}_{S\text{-}\mathrm{Mod}}(F(A), F(B))
+  \Hom_{R\text{-}\mathrm{Mod}}(A, B) \to
+  \Hom_{S\text{-}\mathrm{Mod}}(F(A), F(B))
 \]
 is a homomorphism of abelian groups (for all $R$-modules $A$, $B$).
 
@@ -177,22 +177,22 @@ be obtained as follows, and this will be a source of examples in the
 next few sections. Let $\mathsf{C}$ be a category, and let $X$ be an
 object of $\mathsf{C}$. Then the assignments
 \[
-  A \mapsto \mathrm{Hom}_{\mathsf{C}}(X, A), \qquad
-  A \mapsto \mathrm{Hom}_{\mathsf{C}}(A, X)
+  A \mapsto \Hom_{\mathsf{C}}(X, A), \qquad
+  A \mapsto \Hom_{\mathsf{C}}(A, X)
 \]
 define, respectively, covariant and contravariant functors
 $\mathsf{C} \to \mathsf{Set}$. These are denoted
-$\mathrm{Hom}_{\mathsf{C}}(X, -)$ and
-$\mathrm{Hom}_{\mathsf{C}}(-, X)$, respectively. For example, if
+$\Hom_{\mathsf{C}}(X, -)$ and
+$\Hom_{\mathsf{C}}(-, X)$, respectively. For example, if
 $A \xrightarrow{\alpha} B \xrightarrow{\beta} C$ is a diagram in
 $\mathsf{C}$, every $\alpha : A \to B$ determines a function
-$\mathrm{Hom}_{\mathsf{C}}(B, X) \to \mathrm{Hom}_{\mathsf{C}}(A, X)$
+$\Hom_{\mathsf{C}}(B, X) \to \Hom_{\mathsf{C}}(A, X)$
 defined by mapping $\xi_B$ to $\xi_A \coloneq \xi_B \circ \alpha$,
 that is, by requiring the obvious triangle to be commutative. The
 associativity of composition,
 $\xi_C \circ (\beta \circ \alpha) = (\xi_C \circ \beta) \circ \alpha$,
 expresses precisely the contravariant functoriality of this assignment.
-The functor $\mathrm{Hom}_{\mathsf{C}}(-, X)$ is often denoted $h^X$
+The functor $\Hom_{\mathsf{C}}(-, X)$ is often denoted $h^X$
 for short, if $\mathsf{C}$ is understood.
 The brave reader may contemplate the fact that this technique
 associates to each object $X$ of a category $\mathsf{C}$ a presheaf of
@@ -237,8 +237,8 @@ of a functor is first of all measured on how it acts on morphisms.
   $F : \mathsf{C} \to \mathsf{D}$ is \emph{faithful} if for all objects
   $A$, $B$ of $\mathsf{C}$, the induced function
   \[
-    \mathrm{Hom}_{\mathsf{C}}(A, B) \to
-    \mathrm{Hom}_{\mathsf{D}}(F(A), F(B))
+    \Hom_{\mathsf{C}}(A, B) \to
+    \Hom_{\mathsf{D}}(F(A), F(B))
   \]
   is injective; it is \emph{full} if this function is surjective, for
   all objects $A$, $B$.
@@ -271,7 +271,7 @@ identity. Since we will not use these notions too extensively, I will
 let the interested reader research the issue and find proofs.
 \begin{exam}{}{linrep:exam:1.8}
   (Cf.\ Exercise~I.3.6.) Construct a category by taking the objects to
-  be nonneg\-ative integers and $\mathrm{Hom}(m, n)$ to be the set of
+  be nonneg\-ative integers and $\Hom(m, n)$ to be the set of
   $n \times m$ matrices with entries in a field $k$, with composition
   defined by product of matrices (and suitable care concerning matrices
   with no rows or columns). The resulting category is equivalent to the
@@ -294,8 +294,8 @@ let the interested reader research the issue and find proofs.
   may be interpreted as the $K$-algebra of `polynomial functions' on
   $S$; any function $\phi : S \to T$ determines a pull-back of
   functions, $K[T] \to K[S]$.}
-  $\mathrm{Hom}_{K\text{-}\mathrm{Aff}}(S, T) =
-  \mathrm{Hom}_{K\text{-}\mathrm{Alg}}(K[T], K[S])$.
+  $\Hom_{K\text{-}\mathrm{Aff}}(S, T) =
+  \Hom_{K\text{-}\mathrm{Alg}}(K[T], K[S])$.
 
   Thus, $K\text{-}\mathsf{Aff}$ is defined in such a way that the
   functor $K\text{-}\mathsf{Aff}^{\mathrm{op}} \to K\text{-}\mathsf{Alg}$
@@ -517,14 +517,14 @@ are \emph{adjoint} (and we say that $G$ is \emph{right-adjoint} to $F$
 and $F$ is \emph{left-adjoint} to $G$) if there are natural
 isomorphisms
 \[
-  \mathrm{Hom}_{\mathsf{C}}(X, G(Y)) \xrightarrow{\;\sim\;}
-  \mathrm{Hom}_{\mathsf{D}}(F(X), Y)
+  \Hom_{\mathsf{C}}(X, G(Y)) \xrightarrow{\;\sim\;}
+  \Hom_{\mathsf{D}}(F(X), Y)
 \]
 for all objects $X$ of $\mathsf{C}$ and $Y$ of $\mathsf{D}$. (More
 precisely, there should be a natural isomorphism of `bifunctors'
 $\mathsf{C}^{\mathrm{op}} \times \mathsf{D} \to \mathsf{Set}$:
-$\mathrm{Hom}_{\mathsf{C}}(\mathord{-}, G(\mathord{-})) \leadsto
-\mathrm{Hom}_{\mathsf{D}}(F(\mathord{-}), \mathord{-})$.) Once again,
+$\Hom_{\mathsf{C}}(\mathord{-}, G(\mathord{-})) \leadsto
+\Hom_{\mathsf{D}}(F(\mathord{-}), \mathord{-})$.) Once again,
 several constructions we have encountered along the way may be recast in
 these terms, and we will run into more instances of this situation in
 this chapter.
@@ -535,8 +535,8 @@ this chapter.
   (\S{}II.5.2). What this really means is that for all sets $A$ and all
   groups $G$ there are natural identifications
   \[
-    \mathrm{Hom}_{\mathsf{Set}}(A, S(G)) \cong
-    \mathrm{Hom}_{\mathsf{Grp}}(F(A), G),
+    \Hom_{\mathsf{Set}}(A, S(G)) \cong
+    \Hom_{\mathsf{Grp}}(F(A), G),
   \]
   where $S(G)$ `forgets' the group structure of $G$. That is, the
   functor $F : \mathsf{Set} \to \mathsf{Grp}$ constructing free groups
@@ -590,8 +590,8 @@ $G(\varprojlim \mathscr{A}) \to \varprojlim(G \circ \mathscr{A})$.
 Now, the morphisms in $\mathsf{C}$,
 $\varprojlim(G \circ \mathscr{A}) \to G \circ \mathscr{A}(I)$,
 determine via the adjunction identification
-$\mathrm{Hom}_{\mathsf{C}}(X, G(Y)) \xrightarrow{\sim}
-\mathrm{Hom}_{\mathsf{D}}(F(X), Y)$
+$\Hom_{\mathsf{C}}(X, G(Y)) \xrightarrow{\sim}
+\Hom_{\mathsf{D}}(F(X), Y)$
 morphisms in $\mathsf{D}$:
 $F(\varprojlim(G \circ \mathscr{A})) \to \mathscr{A}(I)$.
 By the universal property defining $\varprojlim \mathscr{A}$ we get a
@@ -762,15 +762,15 @@ also exact.
   $K\text{-}\mathsf{Aff}$ defined in Example~1.9.
   \begin{itemize}
     \item Denote by $h_S$ the functor
-      $\mathrm{Hom}_{K\text{-}\mathrm{Aff}}(\mathord{-}, S)$ (as in
+      $\Hom_{K\text{-}\mathrm{Aff}}(\mathord{-}, S)$ (as in
       \S{}1.2), and let $p = \mathbb{A}^0_K$ be a point. Show that
       there is a natural bijection between $S$ and $h_S(p)$. (Use
       Exercise~VII.2.14.)
-    \item Show how every $\phi \in \mathrm{Hom}_{K\text{-}\mathrm{Aff}}
+    \item Show how every $\phi \in \Hom_{K\text{-}\mathrm{Aff}}
       (S, T)$ determines a function of sets $S \to T$.
     \item If $S \subseteq \mathbb{A}^m_K$, $T \subseteq \mathbb{A}^n_K$,
       show that the function $S \to T$ determined by a morphism
-      $\phi \in \mathrm{Hom}_{K\text{-}\mathrm{Aff}}(S, T)$ is the
+      $\phi \in \Hom_{K\text{-}\mathrm{Aff}}(S, T)$ is the
       restriction of a `polynomial function'
       $\mathbb{A}^m_K \to \mathbb{A}^n_K$. (Part of this exercise is
       to make sense of what this means!)
@@ -784,7 +784,7 @@ also exact.
   whose morphisms are natural transformations\footnote{The reason why
   $\mathsf{C}$ is assumed to be small is that this ensures that the
   natural transformations between two functors do form a set.}. Prove
-  that the assignment $X \mapsto h_X := \mathrm{Hom}_{\mathsf{C}}
+  that the assignment $X \mapsto h_X := \Hom_{\mathsf{C}}
   (\mathord{-}, X)$ (cf.\ \S{}1.2) defines a covariant functor
   $\mathsf{C} \to \mathsf{Set}^{\mathsf{C}^{\mathrm{op}}}$. (Define the
   action on morphisms in the natural way.) [1.11, IX.1.11]
@@ -792,17 +792,17 @@ also exact.
 
 \begin{exer}{$\lnot$}{linrep:exer:1.10}
   Let $\mathsf{C}$ be a category, $X$ an object of $\mathsf{C}$, and
-  consider the contravariant functor $h^X := \mathrm{Hom}_{\mathsf{C}}
+  consider the contravariant functor $h^X := \Hom_{\mathsf{C}}
   (\mathord{-}, X)$ (cf.\ \S{}1.2). For every contravariant functor
   $F : \mathsf{C} \to \mathsf{Set}$, prove that there is a bijection
   between the set of natural transformations $h^X \leadsto F$ and
   $F(X)$, defined as follows. The datum of a natural transformation
   $h^X \leadsto F$ consists of a morphism from
-  $h^X(A) = \mathrm{Hom}_{\mathsf{C}}(A, X)$ to $F(A)$ for every
+  $h^X(A) = \Hom_{\mathsf{C}}(A, X)$ to $F(A)$ for every
   object $A$ of $\mathsf{C}$. Map $h^X$ to the image of
   $\mathrm{id}_X \in h^X(X)$ in $F(X)$. (Hint: Produce an inverse of
   the specified map. For every $f \in F(X)$ and every
-  $\phi \in \mathrm{Hom}_{\mathsf{C}}(A, X)$, how do you construct an
+  $\phi \in \Hom_{\mathsf{C}}(A, X)$, how do you construct an
   element of $F(A)$?) This result is called the \emph{Yoneda lemma}.
   [1.11, IX.2.17]
 \end{exer}
@@ -885,10 +885,10 @@ also exact.
 
 \begin{exer}{$\lnot$}{linrep:exer:1.19}
   An important example of the construction presented in Exercise~1.17 is
-  the ring $\mathbb{Z}_p$ of \emph{$p$-adic integers}: this is the limit
-  $\varprojlim_r \mathbb{Z}/p^r\mathbb{Z}$, for a positive prime integer
-  $p$. The field of fractions of $\mathbb{Z}_p$ is denoted $\mathbb{Q}_p$;
-  elements of $\mathbb{Q}_p$ are called \emph{$p$-adic numbers}.
+  the ring $\Z_p$ of \emph{$p$-adic integers}: this is the limit
+  $\varprojlim_r \Z/p^r\Z$, for a positive prime integer
+  $p$. The field of fractions of $\Z_p$ is denoted $\Q_p$;
+  elements of $\Q_p$ are called \emph{$p$-adic numbers}.
   \begin{itemize}
     \item Show that giving a $p$-adic integer $A$ is equivalent to
       giving a sequence of integers $A_r$, $r \geq 1$, such that
@@ -901,46 +901,46 @@ also exact.
       precisely the same way as ordinary arithmetic is carried out with
       ordinary decimal expansions.
     \item With notation as in the previous point, prove that
-      $A \in \mathbb{Z}_p$ is invertible if and only if $a_0 \neq 0$.
-    \item Prove that $\mathbb{Z}_p$ is a local domain, with maximal ideal
-      generated by (the image in $\mathbb{Z}_p$ of) $p$.
-    \item Prove that $\mathbb{Z}_p$ is a DVR (cf.\ Exercise~V.2.19).
-      (There is an evident valuation on $\mathbb{Q}_p$.)
+      $A \in \Z_p$ is invertible if and only if $a_0 \neq 0$.
+    \item Prove that $\Z_p$ is a local domain, with maximal ideal
+      generated by (the image in $\Z_p$ of) $p$.
+    \item Prove that $\Z_p$ is a DVR (cf.\ Exercise~V.2.19).
+      (There is an evident valuation on $\Q_p$.)
   \end{itemize}
   [\S{}II.2.3]
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:1.20}
   If $m$, $n$ are positive integers and $m \mid n$, then $(n) \subseteq
-  (m)$, and there is an onto ring homomorphism $\mathbb{Z}/n\mathbb{Z}
-  \to \mathbb{Z}/m\mathbb{Z}$. The limit ring
-  $\hat{\mathbb{Z}} := \varprojlim_{(n)} \mathbb{Z}/n\mathbb{Z}$ exists
-  and is denoted by $\hat{\mathbb{Z}}$. Prove that
-  $\hat{\mathbb{Z}} \cong \mathrm{End}_{\mathsf{Ab}}(\mathbb{Q}/\mathbb{Z})$.
-  (Every $f \in \mathrm{End}_{\mathsf{Ab}}(\mathbb{Q}/\mathbb{Z})$ is
+  (m)$, and there is an onto ring homomorphism $\Z/n\Z
+  \to \Z/m\Z$. The limit ring
+  $\hat{\Z} := \varprojlim_{(n)} \Z/n\Z$ exists
+  and is denoted by $\hat{\Z}$. Prove that
+  $\hat{\Z} \cong \mathrm{End}_{\mathsf{Ab}}(\Q/\Z)$.
+  (Every $f \in \mathrm{End}_{\mathsf{Ab}}(\Q/\Z)$ is
   determined by $f(\tfrac{1}{n})$; note that since $n \cdot \tfrac{1}{n}
-  = 1 \equiv 0 \pmod{\mathbb{Z}}$, $f(\tfrac{1}{n}) = \tfrac{g(n)}{n}$
+  = 1 \equiv 0 \pmod{\Z}$, $f(\tfrac{1}{n}) = \tfrac{g(n)}{n}$
   for some integer $g(n)$, which may be chosen so that $0 \leq g(n) < n$.
   Show that $g(m) \equiv g(n) \pmod{m}$ if $m \mid n$, and think about
-  how elements of $\hat{\mathbb{Z}}$ may be described.) [1.21]
+  how elements of $\hat{\Z}$ may be described.) [1.21]
 \end{exer}
 
 \begin{exer}{}{linrep:exer:1.21}
-  Let $\hat{\mathbb{Z}}$ be as in Exercise~1.20.
+  Let $\hat{\Z}$ be as in Exercise~1.20.
   \begin{itemize}
     \item If $R$ is a commutative ring endowed with homomorphisms
-      $R \to \mathbb{Z}/p^r\mathbb{Z}$ for all primes $p$ and all $r$,
-      compatible with all projections $\mathbb{Z}/p^r\mathbb{Z} \to
-      \mathbb{Z}/p^s\mathbb{Z}$ for $s \leq r$, prove that there are
-      ring homomorphisms $R \to \mathbb{Z}/n\mathbb{Z}$ for all $n$,
-      compatible with all projections $\mathbb{Z}/n\mathbb{Z} \to
-      \mathbb{Z}/m\mathbb{Z}$ for $m \mid n$.
-    \item Deduce that $\hat{\mathbb{Z}}$ satisfies the universal property
-      for the product of $\mathbb{Z}_p$, as $p$ ranges over all positive
+      $R \to \Z/p^r\Z$ for all primes $p$ and all $r$,
+      compatible with all projections $\Z/p^r\Z \to
+      \Z/p^s\Z$ for $s \leq r$, prove that there are
+      ring homomorphisms $R \to \Z/n\Z$ for all $n$,
+      compatible with all projections $\Z/n\Z \to
+      \Z/m\Z$ for $m \mid n$.
+    \item Deduce that $\hat{\Z}$ satisfies the universal property
+      for the product of $\Z_p$, as $p$ ranges over all positive
       prime integers.
   \end{itemize}
-  It follows that $\prod_p \mathbb{Z}_p \cong \hat{\mathbb{Z}} \cong
-  \mathrm{End}_{\mathsf{Ab}}(\mathbb{Q}/\mathbb{Z})$.
+  It follows that $\prod_p \Z_p \cong \hat{\Z} \cong
+  \mathrm{End}_{\mathsf{Ab}}(\Q/\Z)$.
 \end{exer}
 
 \begin{exer}{}{linrep:exer:1.22}
@@ -1039,7 +1039,7 @@ of modules over a commutative ring $R$. Essentially everything we will
 see can be upgraded to the noncommutative case without difficulty, but a
 bit of structure is lost in that case. For example, if $R$ is not
 commutative, then in the category $R\text{-}\mathsf{Mod}$ of
-left-$R$-modules the Hom-sets $\mathrm{Hom}_{R\text{-}\mathrm{Mod}}
+left-$R$-modules the Hom-sets $\Hom_{R\text{-}\mathrm{Mod}}
 (M, N)$ are `only' abelian groups (cf.\ the end of \S{}III.5.2). A
 tensor product $M \otimes_R N$ can only be defined if $M$ is a
 right-$R$-module and $N$ is a left-$R$-module (in a sense, the two
@@ -1230,41 +1230,41 @@ $(\alpha \circ \beta) \otimes N$ both map pure tensors $m \otimes n$ to
 $\alpha(\beta(m)) \otimes n$, so they must agree on all tensors.
 
 The adjunction statement compares this functor with the covariant functor
-$P \mapsto \mathrm{Hom}_R(N, P)$; cf.\ \S{}1.2. We have defined
+$P \mapsto \Hom_R(N, P)$; cf.\ \S{}1.2. We have defined
 $M \otimes_R N$ so that giving an $R$-linear map $M \otimes_R N \to P$
 to an $R$-module $P$ is `the same as' giving an $R$-bilinear map
 $M \times N \to P$. Now recall the definition of $R$-bilinear map:
 $\phi : M \times N \to P$ is $R$-bilinear if both
 $\phi(m, \mathord{-})$ and $\phi(\mathord{-}, n)$ are $R$-linear maps,
 for all $m \in M$ and $n \in N$. The first part of this prescription
-says that $\phi$ determines a function $M \to \mathrm{Hom}_R(N, P)$;
+says that $\phi$ determines a function $M \to \Hom_R(N, P)$;
 the second part says that this is an $R$-module homomorphism. Therefore,
 an $R$-bilinear map is `the same as' an element of
-$\mathrm{Hom}_R(M, \mathrm{Hom}_R(N, P))$. These simple considerations
+$\Hom_R(M, \Hom_R(N, P))$. These simple considerations
 should be enough to make the following seemingly complicated statement
 rather natural:
 \begin{lem}{}{linrep:2.4}
   For all $R$-modules $M$, $N$, $P$, there is an isomorphism of
   $R$-modules
   \[
-    \mathrm{Hom}_R(M, \mathrm{Hom}_R(N, P))
-    \cong \mathrm{Hom}_R(M \otimes_R N, P).
+    \Hom_R(M, \Hom_R(N, P))
+    \cong \Hom_R(M \otimes_R N, P).
   \]
 \end{lem}
 \begin{proof}
   As noted before the statement, every
-  $\alpha \in \mathrm{Hom}_R(M, \mathrm{Hom}_R(N, P))$ determines an
+  $\alpha \in \Hom_R(M, \Hom_R(N, P))$ determines an
   $R$-bilinear map $\phi : M \times N \to P$ by
   $(m, n) \mapsto \alpha(m)(n)$. By the universal property, $\phi$
   factors uniquely through an $R$-linear map
   $\tilde\phi : M \otimes_R N \to P$. Therefore $\alpha$ determines a
-  well-defined element $\tilde\phi \in \mathrm{Hom}_R(M \otimes_R N, P)$.
+  well-defined element $\tilde\phi \in \Hom_R(M \otimes_R N, P)$.
   The reader will check (Exercise~2.11) that the map
   $\alpha \mapsto \tilde\phi$ is $R$-linear and construct an inverse.
 \end{proof}
 \begin{coro}{}{linrep:2.5}
   For every $R$-module $N$, the functor $\otimes_R N$ is left-adjoint
-  to the functor $\mathrm{Hom}_R(N, \mathord{-})$.
+  to the functor $\Hom_R(N, \mathord{-})$.
 \end{coro}
 \begin{proof}
   The claim is that the isomorphism found in Lemma~2.4 is natural in
@@ -1347,10 +1347,10 @@ This follows immediately from Corollary~2.8 and the `third isomorphism
 theorem', Proposition~III.5.17. Indeed, $I(R/J) = (I+J)/J$.
 
 \begin{exam}{}{linrep:exam:2.10}
-  $\mathbb{Z}/m\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{Z}/n\mathbb{Z}
-  \cong \mathbb{Z}/\gcd(m,n)\mathbb{Z}$.
-  Indeed, $(m)+(n) = (\gcd(m,n))$ in $\mathbb{Z}$. For instance,
-  $\mathbb{Z}/2\mathbb{Z} \otimes_{\mathbb{Z}} \mathbb{Z}/3\mathbb{Z}
+  $\Z/m\Z \otimes_{\Z} \Z/n\Z
+  \cong \Z/\gcd(m,n)\Z$.
+  Indeed, $(m)+(n) = (\gcd(m,n))$ in $\Z$. For instance,
+  $\Z/2\Z \otimes_{\Z} \Z/3\Z
   \cong 0$, a favorite on qualifying exams (cf.\ Exercise~2.2).
 \end{exam}
 
@@ -1371,12 +1371,12 @@ $I \otimes_R N \to N$ induced by the inclusion $I \subseteq R$ after
 tensoring by $N$ may not be injective.
 
 \begin{exam}{}{linrep:exam:2.11}
-  Multiplication by $2$ gives an inclusion $\mathbb{Z}
-  \xrightarrow{\cdot 2} \mathbb{Z}$ identifying the first copy of
-  $\mathbb{Z}$ with the ideal $(2)$ in the second copy. Tensoring by
-  $\mathbb{Z}/2\mathbb{Z}$ over $\mathbb{Z}$ (and keeping in mind that
+  Multiplication by $2$ gives an inclusion $\Z
+  \xrightarrow{\cdot 2} \Z$ identifying the first copy of
+  $\Z$ with the ideal $(2)$ in the second copy. Tensoring by
+  $\Z/2\Z$ over $\Z$ (and keeping in mind that
   $R \otimes_R N \cong N$), we get the homomorphism
-  $\mathbb{Z}/2\mathbb{Z} \xrightarrow{\cdot 2} \mathbb{Z}/2\mathbb{Z}$,
+  $\Z/2\Z \xrightarrow{\cdot 2} \Z/2\Z$,
   which sends both $[0]$ and $[1]$ to zero. This is the zero-morphism,
   and in particular it is not injective.
 \end{exam}
@@ -1411,7 +1411,7 @@ on an $R$-module $N$, guaranteeing that the functor $\mathord{-}
 
 In the exercises the reader will explore easy properties of this notion
 and useful equivalent formulations in particular cases. We have already
-checked that $\mathbb{Z}/2\mathbb{Z}$ is not a flat $\mathbb{Z}$-module,
+checked that $\Z/2\Z$ is not a flat $\Z$-module,
 while free modules are flat. Flat modules are hugely important: in
 algebraic geometry, `flatness' is the condition expressing the fact
 that the objects in a family vary `continuously', preserving certain
@@ -1598,8 +1598,8 @@ $R$ denotes a fixed commutative ring.
 \end{exer}
 \begin{exer}{$?$}{linrep:exer:2.2}
   Prove `by hand' (that is, without appealing to the right-exactness of
-  tensor) that $\mathbb{Z}/n\mathbb{Z} \otimes_{\mathbb{Z}}
-  \mathbb{Z}/m\mathbb{Z} \cong 0$ if $m$, $n$ are relatively prime
+  tensor) that $\Z/n\Z \otimes_{\Z}
+  \Z/m\Z \cong 0$ if $m$, $n$ are relatively prime
   integers. [\S{}2.2]
 \end{exer}
 \begin{exer}{}{linrep:exer:2.3}
@@ -1625,7 +1625,7 @@ $R$ denotes a fixed commutative ring.
       $f_S \otimes f_T$ making the obvious diagram commute.
   \end{itemize}
   In particular, if $S$ and $T$ are simply commutative rings, then
-  $S \otimes_{\mathbb{Z}} T$ is a coproduct of $S$ and $T$ in the
+  $S \otimes_{\Z} T$ is a coproduct of $S$ and $T$ in the
   category of commutative rings. This settles an issue left open at the
   end of \S{}III.2.4. [2.10]
 \end{exer}
@@ -1653,8 +1653,8 @@ $R$ denotes a fixed commutative ring.
 \begin{exer}{}{linrep:exer:2.7}
   Changing the base ring in a tensor may or may not make a difference:
   \begin{itemize}
-    \item Prove that $\mathbb{Q} \otimes_{\mathbb{Z}} \mathbb{Q} \cong
-      \mathbb{Q} \otimes_{\mathbb{Q}} \mathbb{Q}$.
+    \item Prove that $\Q \otimes_{\Z} \Q \cong
+      \Q \otimes_{\Q} \Q$.
     \item Prove that $\mathbb{C} \otimes_{\mathbb{R}} \mathbb{C} \cong
       \mathbb{C} \otimes_{\mathbb{C}} \mathbb{C}$.
   \end{itemize}
@@ -1668,10 +1668,10 @@ $R$ denotes a fixed commutative ring.
 \end{exer}
 \begin{exer}{}{linrep:exer:2.9}
   Let $G$ be a finitely generated abelian group of rank $r$. Prove
-  that $G \otimes_{\mathbb{Z}} \mathbb{Q} \cong \mathbb{Q}^r$. Prove
+  that $G \otimes_{\Z} \Q \cong \Q^r$. Prove
   that for infinitely many primes $p$,
-  $G \otimes_{\mathbb{Z}} (\mathbb{Z}/p\mathbb{Z})
-  \cong (\mathbb{Z}/p\mathbb{Z})^r$.
+  $G \otimes_{\Z} (\Z/p\Z)
+  \cong (\Z/p\Z)^r$.
 \end{exer}
 \begin{exer}{}{linrep:exer:2.10}
   Let $k \subseteq k(\alpha) = F$ be a finite simple field extension.
@@ -1843,10 +1843,10 @@ Before we can survey the basic definitions, we must upgrade our
 understanding of tensor products. It turns out that $M \otimes_R N$
 satisfies a more encompassing universal property than the one examined
 in \S{}2.1. Let $M$, $N$ be modules over a commutative ring $R$, as in
-\S{}2.1, and let $G$ be an abelian group, i.e., a $\mathbb{Z}$-module.
+\S{}2.1, and let $G$ be an abelian group, i.e., a $\Z$-module.
 
 \begin{defn}{}{linrep:3.1}
-  A $\mathbb{Z}$-bilinear map $\phi : M \times N \to G$ is
+  A $\Z$-bilinear map $\phi : M \times N \to G$ is
   \emph{$R$-balanced} if for all $m \in M$, $n \in N$, $r \in R$,
   \[
     \phi(rm, n) = \phi(m, rn).
@@ -1873,10 +1873,10 @@ $M \times N \to R^{\oplus(M \times N)} \to R^{\oplus(M \times N)}/K$
 is $R$-bilinear. We have observed that every element of $M \otimes_R N$
 may be written as a linear combination of pure tensors
 $\sum_i m_i \otimes n_i$; it follows that the group homomorphism
-$\mathbb{Z}^{\oplus(M \times N)} \twoheadrightarrow M \otimes_R N$
+$\Z^{\oplus(M \times N)} \twoheadrightarrow M \otimes_R N$
 defined on generators by $(m, n) \mapsto m \otimes n$ is surjective;
 its kernel $K_B$ consists of the combinations
-$\sum_i (m_i, n_i) \in \mathbb{Z}^{\oplus(M \times N)}$ such that
+$\sum_i (m_i, n_i) \in \Z^{\oplus(M \times N)}$ such that
 $\sum_i (m_i, n_i) \in K$, where the sum on the right is viewed in
 $R^{\oplus(M \times N)}$. The reader will verify (Exercise~3.1) that
 $K_B$ is generated by elements of the form
@@ -1889,17 +1889,17 @@ $K_B$ is generated by elements of the form
 we have an induced isomorphism of abelian groups
 \[
   \tag{$*$}
-  \frac{\mathbb{Z}^{\oplus(M \times N)}}{K_B}
+  \frac{\Z^{\oplus(M \times N)}}{K_B}
   \cong \frac{R^{\oplus(M \times N)}}{K},
 \]
 which amounts to an alternative description of $M \otimes_R N$. The
 point of this observation is that the group on the left-hand side of
 $(*)$ is manifestly a solution to the universal problem of factoring
-$\mathbb{Z}$-bilinear, $R$-balanced maps. Therefore, we have proved:
+$\Z$-bilinear, $R$-balanced maps. Therefore, we have proved:
 
 \begin{lem}{}{linrep:3.2}
   Let $R$ be a commutative ring; let $M$, $N$ be $R$-modules, and let
-  $G$ be an abelian group. Then every $\mathbb{Z}$-bilinear,
+  $G$ be an abelian group. Then every $\Z$-bilinear,
   $R$-balanced map $\phi : M \times N \to G$ factors through
   $M \otimes_R N$; that is, there exists a unique group homomorphism
   $\tilde\phi : M \otimes_R N \to G$ such that
@@ -1955,10 +1955,10 @@ linearity. In fact, this gives $M \otimes_R N$ an $(R,S)$-bimodule
 structure.
 
 Similarly, if $N$ is an $(R,S)$-bimodule and $P$ is an $S$-module,
-then the abelian group $\mathrm{Hom}_S(N, P)$ is an $(R,S)$-bimodule:
+then the abelian group $\Hom_S(N, P)$ is an $(R,S)$-bimodule:
 the $R$-module structure is defined by setting $(r\alpha)(n) =
 \alpha(rn)$ for all $r \in R$, $n \in N$, and $\alpha \in
-\mathrm{Hom}_S(N, P)$.
+\Hom_S(N, P)$.
 
 This is needed to even make sense of the promised upgrade of adjunction.
 As with most such results, the proof is not difficult once one
@@ -1969,15 +1969,15 @@ understands what the statement says.
   is an $S$-module. Then there is a canonical isomorphism of abelian
   groups
   \[
-    \mathrm{Hom}_R(M, \mathrm{Hom}_S(N, P))
-    \cong \mathrm{Hom}_S(M \otimes_R N, P).
+    \Hom_R(M, \Hom_S(N, P))
+    \cong \Hom_S(M \otimes_R N, P).
   \]
 \end{lem}
 \begin{proof}
-  Every element $\alpha \in \mathrm{Hom}_R(M, \mathrm{Hom}_S(N, P))$
+  Every element $\alpha \in \Hom_R(M, \Hom_S(N, P))$
   determines a map $\phi : M \times N \to P$ via
   $\phi(m, \mathord{-}) := \alpha(m)$; $\phi$ is clearly
-  $\mathbb{Z}$-bilinear. Further, for all $r \in R$, $m \in M$,
+  $\Z$-bilinear. Further, for all $r \in R$, $m \in M$,
   $n \in N$:
   \[
     \phi(rm, n) = \alpha(rm)(n) = r\alpha(m)(n) = \alpha(m)(rn)
@@ -1985,7 +1985,7 @@ understands what the statement says.
   \]
   where the second equality holds by the $R$-linearity of $\alpha$ and
   the third by the definition of the $R$-module structure on
-  $\mathrm{Hom}_S(N, P)$. Thus $\phi$ is $R$-balanced. By Lemma~3.2,
+  $\Hom_S(N, P)$. Thus $\phi$ is $R$-balanced. By Lemma~3.2,
   such a map determines (and is determined by) a homomorphism of
   abelian groups $\tilde\phi : M \otimes_R N \to P$, with
   $\phi(m, n) = \tilde\phi(m \otimes n)$. I claim that $\tilde\phi$ is
@@ -1997,9 +1997,9 @@ understands what the statement says.
     &= s\alpha(m)(n) = s\phi(m, n) = s\tilde\phi(m \otimes n),
   \end{align*}
   where I have used the $S$-linearity of $\alpha(m)$. Thus
-  $\tilde\phi \in \mathrm{Hom}_S(M \otimes_R N, P)$. Tracing the
-  argument backwards, every element of $\mathrm{Hom}_S(M \otimes_R N,
-  P)$ determines an element of $\mathrm{Hom}_R(M, \mathrm{Hom}_S(N,
+  $\tilde\phi \in \Hom_S(M \otimes_R N, P)$. Tracing the
+  argument backwards, every element of $\Hom_S(M \otimes_R N,
+  P)$ determines an element of $\Hom_R(M, \Hom_S(N,
   P))$, and these two correspondences are clearly inverses of each
   other.
 \end{proof}
@@ -2064,7 +2064,7 @@ The third functor, denoted $f^!$, also acts from $R\text{-}\mathsf{Mod}$
 to $S\text{-}\mathsf{Mod}$ and is yet another natural way to combine the
 ingredients we have at our disposal: if $M$ is an $R$-module, I have
 pointed out in \S{}3.2 that
-$f^!(M) := \mathrm{Hom}_R(S, M)$ may be given a natural $S$-module
+$f^!(M) := \Hom_R(S, M)$ may be given a natural $S$-module
 structure (by setting $s\alpha(s') := \alpha(ss')$). This is again
 evidently a covariantly functorial prescription.
 \begin{prop}{}{linrep:3.6}
@@ -2075,14 +2075,14 @@ evidently a covariantly functorial prescription.
 \end{prop}
 \begin{proof}
   Let $M$, resp., $N$, be an $R$-module, resp., an $S$-module. Note
-  that, trivially, $\mathrm{Hom}_S(S, N)$ is canonically isomorphic to
+  that, trivially, $\Hom_S(S, N)$ is canonically isomorphic to
   $N$ (as an $S$-module) and to $f_*(N)$ (as an $R$-module). Thus\footnote{These
   are isomorphisms of abelian groups, and in fact isomorphisms of
-  $R$-modules if one applies $f_*$ to the $\mathrm{Hom}_S$ terms.}
+  $R$-modules if one applies $f_*$ to the $\Hom_S$ terms.}
   \begin{align*}
-    \mathrm{Hom}_R(M, f_*(N))
-    &\cong \mathrm{Hom}_R(M, \mathrm{Hom}_S(S, N)) \\
-    &\cong \mathrm{Hom}_S(M \otimes_R S, N) = \mathrm{Hom}_S(f^*(M), N),
+    \Hom_R(M, f_*(N))
+    &\cong \Hom_R(M, \Hom_S(S, N)) \\
+    &\cong \Hom_S(M \otimes_R S, N) = \Hom_S(f^*(M), N),
   \end{align*}
   where I have used Lemma~3.5. These bijections are canonical, proving
   that $f^*$ is left-adjoint to $f_*$.
@@ -2091,10 +2091,10 @@ evidently a covariantly functorial prescription.
   (Example~2.2); thus $N \otimes_S S \cong f_*(N)$ as $R$-modules, and
   for every $R$-module $M$,
   \begin{align*}
-    \mathrm{Hom}_R(f_*(N), M)
-    &\cong \mathrm{Hom}_R(N \otimes_S S, M) \\
-    &\cong \mathrm{Hom}_S(N, \mathrm{Hom}_R(S, M))
-      = \mathrm{Hom}_S(N, f^!(M))
+    \Hom_R(f_*(N), M)
+    &\cong \Hom_R(N \otimes_S S, M) \\
+    &\cong \Hom_S(N, \Hom_R(S, M))
+      = \Hom_S(N, f^!(M))
   \end{align*}
   again by Lemma~3.5. This shows that $f^!$ is right-adjoint to $f_*$,
   concluding the proof.
@@ -2115,7 +2115,7 @@ In the following exercises, $R$, $S$ denote commutative rings.
 \begin{exer}{$?$}{linrep:exer:3.1}
   Verify that a combination of pure tensors $\sum_i (m_i \otimes n_i)$
   is zero in the tensor product $M \otimes_R N$ if and only if
-  $\sum_i (m_i, n_i) \in \mathbb{Z}^{\oplus(M \times N)}$ is a
+  $\sum_i (m_i, n_i) \in \Z^{\oplus(M \times N)}$ is a
   combination of elements of the form
   \begin{align*}
     &(m, n_1 + n_2) - (m, n_1) - (m, n_2), \\
@@ -2218,12 +2218,12 @@ In the following exercises, $R$, $S$ denote commutative rings.
   where $\cong$ stands for `naturally isomorphic'.
 \end{exer}
 \begin{exer}{}{linrep:exer:3.13}
-  Let $p > 0$ be a prime integer, and let $\pi : \mathbb{Z} \to
-  \mathbb{Z}/p\mathbb{Z}$ be the natural projection. Compute $\pi^*(A)$
+  Let $p > 0$ be a prime integer, and let $\pi : \Z \to
+  \Z/p\Z$ be the natural projection. Compute $\pi^*(A)$
   and $\pi^!(A)$ for all finitely generated abelian groups $A$, as a
-  vector space over $\mathbb{Z}/p\mathbb{Z}$. Compute $\iota^*(A)$ and
+  vector space over $\Z/p\Z$. Compute $\iota^*(A)$ and
   $\iota^!(A)$ for all finitely generated abelian groups $A$, where
-  $\iota : \mathbb{Z} \hookrightarrow \mathbb{Q}$ is the natural
+  $\iota : \Z \hookrightarrow \Q$ is the natural
   inclusion.
 \end{exer}
 \begin{exer}{}{linrep:exer:3.14}
@@ -3194,34 +3194,34 @@ The careful reader will agree that almost everything we know about the
 tensor product follows from the fact that it is a left-adjoint functor.
 This fact is spelled out in Lemma~\ref{linrep:2.4}, whose flip side
 gives us just as much information concerning the covariant flavor of
-the Hom functor: $L \mapsto \mathrm{Hom}_{R\text{-Mod}}(N, L)$.
+the Hom functor: $L \mapsto \Hom_{R\text{-Mod}}(N, L)$.
 Explicitly, the following is an exact restatement of
 Corollary~\ref{linrep:2.5}:
 
 \begin{coro}{}{linrep:5.1}
-  For every $R$-module $N$, the functor $\mathrm{Hom}_R(N, -)$ is
+  For every $R$-module $N$, the functor $\Hom_R(N, -)$ is
   right-adjoint to the functor $- \otimes_R N$.
 \end{coro}
 
 What about the `contravariant' flavor of Hom:
-$M \mapsto h_N(M) := \mathrm{Hom}_{R\text{-Mod}}(M, N)$ (this functor
+$M \mapsto h_N(M) := \Hom_{R\text{-Mod}}(M, N)$ (this functor
 was discussed in general terms in \S{}1.2)?
 
 \begin{prop}{}{linrep:5.2}
-  For every $R$-module $N$, the functor $\mathrm{Hom}_R(-, N)$ is
+  For every $R$-module $N$, the functor $\Hom_R(-, N)$ is
   right-adjoint to itself.
 \end{prop}
 
-This statement should be parsed carefully, because $\mathrm{Hom}_R(-,
+This statement should be parsed carefully, because $\Hom_R(-,
 N)$ is a contravariant functor. The statement of
 Proposition~\ref{linrep:5.2} may lead us astray into thinking
-that $\mathrm{Hom}_R(-, N)$ must also be its own left-adjoint, and
+that $\Hom_R(-, N)$ must also be its own left-adjoint, and
 this is not the case (indeed this would make it a right-exact functor,
-and we will soon see that $\mathrm{Hom}_R(-, N)$ is not right-exact in
+and we will soon see that $\Hom_R(-, N)$ is not right-exact in
 general).
 
 The point is that, by definition of contravariant functor,
-$h_N = \mathrm{Hom}_R(-, N)$ should be viewed as a covariant functor
+$h_N = \Hom_R(-, N)$ should be viewed as a covariant functor
 from the opposite category:
 \[
   h_N : R\text{-Mod}^{\mathrm{op}} \to R\text{-Mod};
@@ -3238,24 +3238,24 @@ is right-adjoint to $h_N^{\mathrm{op}}$.
   Let $L$, $M$, $N$ denote $R$-modules. Recall (cf.\ the
   considerations preceding Lemma~\ref{linrep:2.4}) that
   $R$-bilinear maps $\phi : L \times M \to N$ may be identified with
-  $R$-linear maps $L \to \mathrm{Hom}_R(M, N)$. By the same token,
-  they may be identified with $R$-linear maps $M \to \mathrm{Hom}_R(L,
+  $R$-linear maps $L \to \Hom_R(M, N)$. By the same token,
+  they may be identified with $R$-linear maps $M \to \Hom_R(L,
   N)$: for fixed $m \in M$, the function $\phi(-, m)$ is an $R$-linear
   map $L \to N$. Tracing these two identifications gives a canonical
   bijection
   \begin{equation}
     \tag{$*$}
-    \mathrm{Hom}_R(L, \mathrm{Hom}_R(M, N)) \cong
-    \mathrm{Hom}_R(M, \mathrm{Hom}_R(L, N)).
+    \Hom_R(L, \Hom_R(M, N)) \cong
+    \Hom_R(M, \Hom_R(L, N)).
   \end{equation}
-  We may view $\mathrm{Hom}_R$ just as well as
-  $\mathrm{Hom}_{R\text{-Mod}^{\mathrm{op}}}$, provided that we
+  We may view $\Hom_R$ just as well as
+  $\Hom_{R\text{-Mod}^{\mathrm{op}}}$, provided that we
   reverse arrows; thus, the canonical bijection in $(*)$ may be
   rewritten as
   \[
-    \mathrm{Hom}_{R\text{-Mod}}(L, h_N(M))
+    \Hom_{R\text{-Mod}}(L, h_N(M))
     \cong
-    \mathrm{Hom}_{R\text{-Mod}^{\mathrm{op}}}(h_N^{\mathrm{op}}(L),
+    \Hom_{R\text{-Mod}^{\mathrm{op}}}(h_N^{\mathrm{op}}(L),
     M).
   \]
   This says that $h_N$ is right-adjoint to $h_N^{\mathrm{op}}$ (the
@@ -3263,11 +3263,11 @@ is right-adjoint to $h_N^{\mathrm{op}}$.
   the reader).
 \end{proof}
 
-As both $\mathrm{Hom}_R(N, -)$ (by Corollary~\ref{linrep:5.1})
-and $\mathrm{Hom}_R(-, N)$ (by Proposition~\ref{linrep:5.2}) are
+As both $\Hom_R(N, -)$ (by Corollary~\ref{linrep:5.1})
+and $\Hom_R(-, N)$ (by Proposition~\ref{linrep:5.2}) are
 right-adjoint functors, Lemma~\ref{linrep:1.17} tells us they
 commute with limits. This fact must also be parsed carefully, because
-of the contravariant nature of $\mathrm{Hom}_R(-, N)$: for example,
+of the contravariant nature of $\Hom_R(-, N)$: for example,
 products are limits in $R$-Mod, but direct sums are colimits in
 $R$-Mod, hence limits in $R\text{-Mod}^{\mathrm{op}}$. Thus:
 
@@ -3275,30 +3275,30 @@ $R$-Mod, hence limits in $R\text{-Mod}^{\mathrm{op}}$. Thus:
   For every $R$-module $N$ and every family $\{M_i\}_{i \in I}$ of
   $R$-modules,
   \[
-    \mathrm{Hom}_R\!\Bigl(N, \prod_{i \in I} M_i\Bigr)
-    \cong \prod_{i \in I} \mathrm{Hom}_R(N, M_i),
+    \Hom_R\!\Bigl(N, \prod_{i \in I} M_i\Bigr)
+    \cong \prod_{i \in I} \Hom_R(N, M_i),
   \]
   \[
-    \mathrm{Hom}_R\!\Bigl(\bigoplus_{i \in I} M_i, N\Bigr)
-    \cong \prod_{i \in I} \mathrm{Hom}_R(M_i, N).
+    \Hom_R\!\Bigl(\bigoplus_{i \in I} M_i, N\Bigr)
+    \cong \prod_{i \in I} \Hom_R(M_i, N).
   \]
 \end{coro}
 
 Also, as pointed out in Claim~\ref{linrep:1.19}, the fact that
 both the covariant and contravariant flavors of Hom are right-adjoints
 has immediate implications for their exactness, adding yet another
-Pavlovian statement to the list: $\mathrm{Hom}_R(M, -)$ and
-$\mathrm{Hom}_R(-, N)$ are left-exact functors.
+Pavlovian statement to the list: $\Hom_R(M, -)$ and
+$\Hom_R(-, N)$ are left-exact functors.
 
-By the contravariant nature of $\mathrm{Hom}_R(-, N)$, the
+By the contravariant nature of $\Hom_R(-, N)$, the
 left-exactness of the latter means that if
 \[
   A \to B \to C \to 0
 \]
 is an exact sequence of $R$-modules, then the induced sequence
 \[
-  0 \to \mathrm{Hom}_R(C, N) \to \mathrm{Hom}_R(B, N) \to
-  \mathrm{Hom}_R(A, N)
+  0 \to \Hom_R(C, N) \to \Hom_R(B, N) \to
+  \Hom_R(A, N)
 \]
 is also exact. The diligent reader has verified this already `by hand'
 in the distant past (Exercise III.7.7), without appealing to
@@ -3313,7 +3313,7 @@ particular case of the contravariant aspect of the Hom functor.
 
 \begin{defn}{}{linrep:5.4}
   Let $M$ be an $R$-module. The \emph{dual} $M^\vee$ of $M$ is the
-  $R$-module $\mathrm{Hom}_R(M, R)$.
+  $R$-module $\Hom_R(M, R)$.
 \end{defn}
 
 One use of the dual module is to translate Hom computations into
@@ -3321,14 +3321,14 @@ $\otimes$ computations, at least in special cases.
 
 \begin{prop}{}{linrep:5.5}
   Let $M$ be any $R$-module, and let $F$ be a free $R$-module of
-  finite rank. Then $\mathrm{Hom}_R(M, F) \cong M^\vee \otimes_R F$.
+  finite rank. Then $\Hom_R(M, F) \cong M^\vee \otimes_R F$.
 \end{prop}
 \begin{proof}
   By hypothesis $F \cong R^{\oplus n} = R^n$; hence
   \[
-    \mathrm{Hom}_R(M, F) \cong \mathrm{Hom}_R(M, R^n)
-    \cong \mathrm{Hom}_R(M, R)^n
-    \cong \mathrm{Hom}_R(M, R) \otimes_R R^n
+    \Hom_R(M, F) \cong \Hom_R(M, R^n)
+    \cong \Hom_R(M, R)^n
+    \cong \Hom_R(M, R) \otimes_R R^n
     \cong M^\vee \otimes_R F,
   \]
   by Corollary~\ref{linrep:5.3}.
@@ -3337,10 +3337,10 @@ $\otimes$ computations, at least in special cases.
 In fact, note that for all $R$-modules $M$, $N$ there is a natural
 `evaluation' map
 \[
-  \epsilon : M^\vee \otimes_R N \to \mathrm{Hom}_R(M, N)
+  \epsilon : M^\vee \otimes_R N \to \Hom_R(M, N)
 \]
 defined on pure tensors by mapping $f \otimes n$ (for $f \in
-\mathrm{Hom}_R(M, R)$ and $n \in N$) to the $R$-module homomorphism
+\Hom_R(M, R)$ and $n \in N$) to the $R$-module homomorphism
 $M \to N$ given by $m \mapsto f(m)n$. The reader will check (Exercise
 5.5) that $\epsilon$ is an isomorphism if $N$ is free of finite rank;
 this gives a more precise version of
@@ -3369,7 +3369,7 @@ dual of a free module:
 \end{coro}
 \begin{proof}
   This follows from Lemma~\ref{linrep:5.6} and the fact that
-  $R^\vee = \mathrm{Hom}_R(R, R)$ is isomorphic to $R$.
+  $R^\vee = \Hom_R(R, R)$ is isomorphic to $R$.
 \end{proof}
 
 Carefully note the magically disappearing $\oplus$ from the left-hand
@@ -3408,7 +3408,7 @@ This remark can be clarified by means of the following notion.
   Consider the standard basis $(e_1, \dots, e_n)$ of $R^n$. The
   \emph{dual basis} of $(R^n)^\vee \cong R^n$ consists of
   $(\check{e}_1, \dots, \check{e}_n)$, where $\check{e}_i \in
-  (R^n)^\vee = \mathrm{Hom}_R(R^n, R)$ is determined by
+  (R^n)^\vee = \Hom_R(R^n, R)$ is determined by
   \[
     \check{e}_i(e_j) = \begin{cases} 1 & \text{if } j = i, \\
     0 & \text{otherwise.} \end{cases}
@@ -3462,30 +3462,30 @@ of the fact that duality is a particular case of the contravariant Hom:
 \end{proof}
 
 The duality functor is not exact in general: for example, taking duals
-in the exact sequence of abelian groups (a.k.a.\ $\mathbb{Z}$-modules)
+in the exact sequence of abelian groups (a.k.a.\ $\Z$-modules)
 \[
-  0 \to \mathbb{Z} \xrightarrow{\cdot 2} \mathbb{Z} \to \mathbb{Z}/2\mathbb{Z}
+  0 \to \Z \xrightarrow{\cdot 2} \Z \to \Z/2\Z
   \to 0
 \]
 gives the sequence
 \begin{equation}
   \tag{$*$}
-  0 \to \mathbb{Z}^\vee \xrightarrow{\gamma} \mathbb{Z}^\vee \to 0
+  0 \to \Z^\vee \xrightarrow{\gamma} \Z^\vee \to 0
 \end{equation}
-since the dual of $\mathbb{Z}/2\mathbb{Z}$ is zero (Exercise 5.6). The
+since the dual of $\Z/2\Z$ is zero (Exercise 5.6). The
 map $\gamma$ in this sequence is the dual of the multiplication by $2$.
-If $f : \mathbb{Z} \to \mathbb{Z}$ is an element of $\mathbb{Z}^\vee$,
+If $f : \Z \to \Z$ is an element of $\Z^\vee$,
 then $\gamma(f)$ is obtained by composition:
 \[
   \begin{tikzcd}
-    \mathbb{Z} \ar[r, "\gamma(f)"] \ar[dr, "\cdot 2"'] &
-    \mathbb{Z} \\
-    & \mathbb{Z} \ar[u, "f"']
+    \Z \ar[r, "\gamma(f)"] \ar[dr, "\cdot 2"'] &
+    \Z \\
+    & \Z \ar[u, "f"']
   \end{tikzcd}
 \]
 By linearity, $\gamma(f)(n) = f(2n) = 2f(n)$ is even for all
-$n \in \mathbb{Z}$. In particular, the identity $\mathbb{Z} \to
-\mathbb{Z}$ (as an element of $\mathbb{Z}^\vee$) is not in the image
+$n \in \Z$. In particular, the identity $\Z \to
+\Z$ (as an element of $\Z^\vee$) is not in the image
 of $\gamma$. Thus $\gamma$ is not surjective, and the sequence $(*)$ is
 not exact.
 
@@ -3566,7 +3566,7 @@ Here I am applying isomorphisms $(R^m)^\vee \cong R^m$,
 $(R^n)^\vee \cong R^n$ from Corollary~\ref{linrep:5.7}.
 
 The map $\alpha^\vee$ is obtained by applying the functor
-$\mathrm{Hom}_R(-,R)$ to the map $\alpha$. Once bases are chosen,
+$\Hom_R(-,R)$ to the map $\alpha$. Once bases are chosen,
 $\alpha$ is determined by an $m \times n$ matrix; likewise,
 $\alpha^\vee$ corresponds to an $n \times m$ matrix. What is the
 relation between these two matrices? Of course there is only one
@@ -3656,7 +3656,7 @@ case, we have the following:
   \item If $V, W$ are vector spaces, then
     $(V \oplus W)^\vee \cong V^\vee \oplus W^\vee$.
   \item If $V, W$ are vector spaces and $\dim V < \infty$ or
-    $\dim W < \infty$, then $\mathrm{Hom}_k(V,W)$ is isomorphic to
+    $\dim W < \infty$, then $\Hom_k(V,W)$ is isomorphic to
     $V^\vee \otimes_k W$.
   \item If $\dim_k V < \infty$, a choice of a basis on $V$ determines
     an isomorphism $V \cong V^\vee$.
@@ -3670,7 +3670,7 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
 \subsection*{Exercises}
 \begin{exer}{$*$}{linrep:exer:5.1}
   Prove that if $F$ is a free $R$-module of finite rank and $N$ is any
-  $R$-module, then $\mathrm{Hom}_R(F, N) \cong F^\vee \otimes_R N$.
+  $R$-module, then $\Hom_R(F, N) \cong F^\vee \otimes_R N$.
   [\S{}5.6]
 \end{exer}
 
@@ -3679,9 +3679,9 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   $\alpha$ is an epimorphism if the induced
   map\footnote{Note that the `set-theoretic' quality of $\alpha^*$ is
     all that is needed here; in this problem, the $R$-module structure
-    of $\mathrm{Hom}_R$ is irrelevant. Thus, the result also holds for
+    of $\Hom_R$ is irrelevant. Thus, the result also holds for
     noncommutative $R$.}
-  $\alpha^* : \mathrm{Hom}_R(B, N) \to \mathrm{Hom}_R(A, N)$ is
+  $\alpha^* : \Hom_R(B, N) \to \Hom_R(A, N)$ is
   injective for all $R$-modules $N$, and $\alpha$ is a monomorphism if
   $\alpha^*$ is surjective for all $N$. Prove that the converse to the
   first statement holds and the converse to the second statement does
@@ -3697,37 +3697,37 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   of $R$-modules is exact if the induced sequence
   \[
     \tag{$*$}
-    0 \to \mathrm{Hom}_R(C,N) \xrightarrow{\beta^*}
-    \mathrm{Hom}_R(B,N) \xrightarrow{\alpha^*}
-    \mathrm{Hom}_R(A,N) \to 0
+    0 \to \Hom_R(C,N) \xrightarrow{\beta^*}
+    \Hom_R(B,N) \xrightarrow{\alpha^*}
+    \Hom_R(A,N) \to 0
   \]
   is exact for all $R$-modules $N$. (You have done most of this
   already, in Exercise~5.2. To show $\ker\beta \subseteq \operatorname{im}\alpha$,
   choose $N = B/\operatorname{im}(\alpha)$.) Remember that the converse
-  does not hold, since in general $\mathrm{Hom}_R(-,N)$ is not exact.
+  does not hold, since in general $\Hom_R(-,N)$ is not exact.
   What extra hypothesis on $\alpha$ would guarantee the exactness of
   $(*)$ for all $N$?
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:5.4}
   Let $I$ be an ideal of $R$. As $I^2 \subseteq I$, there is a
-  natural restriction map $\mathrm{Hom}_R(I, R/I) \to
-  \mathrm{Hom}_R(I^2, R/I)$. Prove that the image of this map is $0$.
-  Prove that $\mathrm{Hom}_R(I/I^2, R/I) \cong \mathrm{Hom}_R(I,
+  natural restriction map $\Hom_R(I, R/I) \to
+  \Hom_R(I^2, R/I)$. Prove that the image of this map is $0$.
+  Prove that $\Hom_R(I/I^2, R/I) \cong \Hom_R(I,
   R/I)$. (This module is important in algebraic geometry, as it
   carries the information of a `normal bundle' in good situations.)
   [6.20]
 \end{exer}
 
 \begin{exer}{$*$}{linrep:exer:5.5}
-  Prove that the evaluation map $M^\vee \otimes_R F \to \mathrm{Hom}_R(M,F)$
+  Prove that the evaluation map $M^\vee \otimes_R F \to \Hom_R(M,F)$
   is an isomorphism if $F$ is free of finite rank, providing an
   alternative proof of Proposition~\ref{linrep:5.5}. [\S{}5.2]
 \end{exer}
 
 \begin{exer}{$*$}{linrep:exer:5.6}
-  Show that $(\mathbb{Z}/2\mathbb{Z})^\vee =
-  \mathrm{Hom}_{\mathbb{Z}}(\mathbb{Z}/2\mathbb{Z}, \mathbb{Z}) = 0$.
+  Show that $(\Z/2\Z)^\vee =
+  \Hom_{\Z}(\Z/2\Z, \Z) = 0$.
   [\S{}5.4]
 \end{exer}
 
@@ -3771,7 +3771,7 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
 
 \begin{exer}{$*$}{linrep:exer:5.12}
   Let $M$, $N$ be $R$-modules. Show that there is a canonical
-  bijection $\mathrm{Hom}_R(N, M^\vee) \cong \mathrm{Hom}_R(M,
+  bijection $\Hom_R(N, M^\vee) \cong \Hom_R(M,
   N^\vee)$. Choosing $N = M^\vee$, the left-hand side has a
   distinguished element, namely the identity $M^\vee \to M^\vee$.
   Prove that the corresponding element on the right is the map
@@ -3901,9 +3901,9 @@ necessarily commutative, they are `just' abelian groups.
   Let $R$ be a (commutative) ring.
   \begin{itemize}
     \item An $R$-module $P$ is \emph{projective} if the functor
-      $\mathrm{Hom}_R(P, -)$ is exact.
+      $\Hom_R(P, -)$ is exact.
     \item An $R$-module $Q$ is \emph{injective} if the functor
-      $\mathrm{Hom}_R(-, Q)$ is exact.
+      $\Hom_R(-, Q)$ is exact.
   \end{itemize}
 \end{defn}
 
@@ -3933,19 +3933,19 @@ following straightforward translations:
 \end{lem}
 
 \begin{proof}
-  This is straightforward. Since $\mathrm{Hom}_R(-,Q)$ is left-exact
+  This is straightforward. Since $\Hom_R(-,Q)$ is left-exact
   for all $Q$, $Q$ is injective if and only if whenever a sequence
   $0 \to L \to M$ is exact, then so is the induced sequence
-  $\mathrm{Hom}_R(M,Q) \to \mathrm{Hom}_R(L,Q) \to 0$. This
+  $\Hom_R(M,Q) \to \Hom_R(L,Q) \to 0$. This
   translates precisely into the given condition. The argument for
   projective modules is entirely analogous.
 \end{proof}
 
 \begin{exam}{}{linrep:6.3}
   Taken as a module over itself, $R$ is projective (because
-  $\mathrm{Hom}_R(R, M)$ is canonically isomorphic to $M$, for all
+  $\Hom_R(R, M)$ is canonically isomorphic to $M$, for all
   modules $M$) but not injective in general (since the duality functor
-  $\mathrm{Hom}_R(-, R)$ is not exact in general; cf.\ \S{}5.1).
+  $\Hom_R(-, R)$ is not exact in general; cf.\ \S{}5.1).
 \end{exam}
 
 A variation on the theme of Lemma~\ref{linrep:6.2} rephrases the
@@ -3965,11 +3965,11 @@ $L \oplus P$.
 
 Similarly, if $0 \to Q \to M \to N \to 0$ is exact and $Q$ is
 injective, then the sequence necessarily splits. For example,
-$\mathbb{Z}$ is not an injective $\mathbb{Z}$-module, since the exact
+$\Z$ is not an injective $\Z$-module, since the exact
 sequence
 \[
-  0 \to \mathbb{Z} \xrightarrow{\cdot 2} \mathbb{Z} \to
-  \mathbb{Z}/(2) \to 0
+  0 \to \Z \xrightarrow{\cdot 2} \Z \to
+  \Z/(2) \to 0
 \]
 manifestly does not split.
 
@@ -4038,8 +4038,8 @@ simple properties of projective modules:
 
 The categorically minded reader should look for alternate proofs of
 these facts. For example, if $P_1$ and $P_2$ are both projective, the
-functor $\mathrm{Hom}_R(P_1, \mathrm{Hom}_R(P_2, -))$ is exact; by
-adjunction, this is the functor $\mathrm{Hom}_R(P_1 \otimes_R P_2,
+functor $\Hom_R(P_1, \Hom_R(P_2, -))$ is exact; by
+adjunction, this is the functor $\Hom_R(P_1 \otimes_R P_2,
 -)$; since this is exact, $P_1 \otimes_R P_2$ is projective. A proof
 via adjunction of the fact that projective modules are flat is
 straightforward (Exercise~6.7), using the (nontrivial) fact that
@@ -4179,19 +4179,19 @@ non-zero-divisor of $R$.
 \end{proof}
 
 \begin{exam}{}{linrep:6.8}
-  Viewed as abelian groups (i.e., $\mathbb{Z}$-modules), $\mathbb{Q}$
-  and $\mathbb{Q}/\mathbb{Z}$ are injective. More generally, if $D$
+  Viewed as abelian groups (i.e., $\Z$-modules), $\Q$
+  and $\Q/\Z$ are injective. More generally, if $D$
   is any divisible abelian group and $K \subseteq D$, then $D/K$ is
   injective. (Indeed, it is trivially divisible!)
 \end{exam}
-Going from friendly PIDs like $\mathbb{Z}$ to arbitrary rings may
+Going from friendly PIDs like $\Z$ to arbitrary rings may
 still seem challenging, but here is where some of our previous work
 pays off. Recall that for every ring homomorphism $f : S \to R$ we
 have defined in \S{}3.3 a
 functor\footnote{Watch out --- in \S{}3.3 the homomorphism goes from
   $R$ to $S$, so the definition of $f^!$ may look backwards here.}
 $f^! : S\text{-Mod} \to R\text{-Mod}$, by setting
-$f^!(M) = \mathrm{Hom}_S(R, M)$. This functor preserves injectives:
+$f^!(M) = \Hom_S(R, M)$. This functor preserves injectives:
 
 \begin{lem}{}{linrep:6.9}
   Let $f : S \to R$ be a homomorphism of commutative rings, and let
@@ -4205,20 +4205,20 @@ $f^!(M) = \mathrm{Hom}_S(R, M)$. This functor preserves injectives:
 
 \begin{proof}
   By adjunction (Lemma~\ref{linrep:3.5}),
-  $\mathrm{Hom}_R(-, f^!(Q)) \cong \mathrm{Hom}_S(f^*(-), Q)$ as
+  $\Hom_R(-, f^!(Q)) \cong \Hom_S(f^*(-), Q)$ as
   functors $R\text{-Mod} \to \mathrm{Ab}$. Since $f^*$ is exact
-  (Proposition~\ref{linrep:3.6}) and $\mathrm{Hom}_S(-, Q)$ is
-  exact by hypothesis, $\mathrm{Hom}_R(-, f^!(Q))$ must be exact.
+  (Proposition~\ref{linrep:3.6}) and $\Hom_S(-, Q)$ is
+  exact by hypothesis, $\Hom_R(-, f^!(Q))$ must be exact.
   This is precisely the statement.
 \end{proof}
 
-Since every ring $R$ admits a (unique) map $\iota : \mathbb{Z} \to R$,
+Since every ring $R$ admits a (unique) map $\iota : \Z \to R$,
 we have a good source of injective objects in $R\text{-Mod}$ for
 every $R$:
 
 \begin{coro}{}{linrep:6.11}
   Let $R$ be a commutative ring. If $D$ is any divisible abelian
-  group, then $\iota^!(D) = \mathrm{Hom}_{\mathbb{Z}}(R, D)$ is
+  group, then $\iota^!(D) = \Hom_{\Z}(R, D)$ is
   injective in $R\text{-Mod}$.
 \end{coro}
 
@@ -4232,27 +4232,27 @@ why `$R\text{-Mod}$ has enough injectives':
 \end{coro}
 
 \begin{proof}
-  I claim that it suffices to show that $\mathbb{Z}\text{-Mod}$ has
+  I claim that it suffices to show that $\Z\text{-Mod}$ has
   enough injectives. Indeed, this will show that there exists a
   divisible abelian group $D$ such that $M \subseteq D$ ($M$ is in
   particular an abelian group); since $R$-linear maps are in
-  particular $\mathbb{Z}$-linear,
+  particular $\Z$-linear,
   \[
-    M \cong \mathrm{Hom}_R(R, M) \hookrightarrow
-    \mathrm{Hom}_{\mathbb{Z}}(R, M) \subseteq
-    \mathrm{Hom}_{\mathbb{Z}}(R, D),
+    M \cong \Hom_R(R, M) \hookrightarrow
+    \Hom_{\Z}(R, M) \subseteq
+    \Hom_{\Z}(R, D),
   \]
   and the rightmost module is injective by
   Corollary~\ref{linrep:6.11}.
 
-  Thus, we are reduced to the case $R = \mathbb{Z}$ and $M = A$ an
+  Thus, we are reduced to the case $R = \Z$ and $M = A$ an
   abelian group. There is a surjective homomorphism from
-  $\mathbb{Z}^{\oplus A}$ to $A$ and hence an identification
-  $A \cong \mathbb{Z}^{\oplus A}/K$ for some $K \subseteq
-  \mathbb{Z}^{\oplus A}$. Embedding $\mathbb{Z}^{\oplus A}$ in
-  $\mathbb{Q}^{\oplus A}$, we obtain an injective homomorphism
-  $A \hookrightarrow \mathbb{Q}^{\oplus A}/K$, and we are done since
-  $\mathbb{Q}^{\oplus A}/K$ is divisible
+  $\Z^{\oplus A}$ to $A$ and hence an identification
+  $A \cong \Z^{\oplus A}/K$ for some $K \subseteq
+  \Z^{\oplus A}$. Embedding $\Z^{\oplus A}$ in
+  $\Q^{\oplus A}$, we obtain an injective homomorphism
+  $A \hookrightarrow \Q^{\oplus A}/K$, and we are done since
+  $\Q^{\oplus A}/K$ is divisible
   (Example~\ref{linrep:6.8}).
 \end{proof}
 
@@ -4274,27 +4274,27 @@ algebraic geometry.
 \begin{rem}{}{linrep:6.13}
   Corollary~\ref{linrep:6.12} may be refined, proving that every
   module can in fact be realized as a submodule of a product
-  $\mathrm{Hom}_{\mathbb{Z}}(R, \mathbb{Q}/\mathbb{Z})^S$ (this is
+  $\Hom_{\Z}(R, \Q/\Z)^S$ (this is
   injective, by Corollary~\ref{linrep:6.11} and Exercise~6.15).
-  That is, products of $\iota^!(\mathbb{Q}/\mathbb{Z}) =
-  \mathrm{Hom}_{\mathbb{Z}}(R, \mathbb{Q}/\mathbb{Z})$ play for
+  That is, products of $\iota^!(\Q/\Z) =
+  \Hom_{\Z}(R, \Q/\Z)$ play for
   injectives the role played by free modules (= coproducts of
-  $R = \iota^*(\mathbb{Z})$) for projectives. (Not surprisingly, they
+  $R = \iota^*(\Z)$) for projectives. (Not surprisingly, they
   are said to be \emph{cofree}.) It follows that every injective
   $R$-module is a direct summand of
-  $\mathrm{Hom}_{\mathbb{Z}}(R, \mathbb{Q}/\mathbb{Z})^S$ for some $S$.
+  $\Hom_{\Z}(R, \Q/\Z)^S$ for some $S$.
 \end{rem}
 
 \subsection{The Ext functors}
 \label{subsec:linrep:the-ext-functors}
 The next step to take now is the construction of tools to `quantify'
-the lack of exactness of $\mathrm{Hom}_R$, in the same sense that the
+the lack of exactness of $\Hom_R$, in the same sense that the
 functors $\mathrm{Tor}^R_i$ quantify the lack of exactness of
 $\otimes_R$. The corresponding functors are called
 $\mathrm{Ext}^i_R$.
 
 Since there are two functors associated with Hom (the covariant
-$\mathrm{Hom}_R(M, -)$ and the contravariant $\mathrm{Hom}_R(-, N)$),
+$\Hom_R(M, -)$ and the contravariant $\Hom_R(-, N)$),
 it would be natural to expect two corresponding sequences of functors.
 Amazingly, the same `bifunctors' $\mathrm{Ext}^i_R(-, -)$ work for
 both! For all $R$-modules $M$ and $N$, we have the following:
@@ -4303,19 +4303,19 @@ both! For all $R$-modules $M$ and $N$, we have the following:
     $\mathrm{Ext}^i_R(-, N)$ are covariant, resp., contravariant,
     functors $R\text{-Mod} \to R\text{-Mod}$.
   \item For $i = 0$, $\mathrm{Ext}^0_R(M, N) =
-    \mathrm{Hom}_R(M, N)$.
+    \Hom_R(M, N)$.
   \item For every exact sequence $0 \to A \to B \to C \to 0$ of
     $R$-modules, there are long exact sequences
     \begin{gather*}
-      0 \to \mathrm{Hom}_R(M,A) \to \mathrm{Hom}_R(M,B) \to
-      \mathrm{Hom}_R(M,C) \xrightarrow{\delta_0}
+      0 \to \Hom_R(M,A) \to \Hom_R(M,B) \to
+      \Hom_R(M,C) \xrightarrow{\delta_0}
       \mathrm{Ext}^1_R(M,A) \to \mathrm{Ext}^1_R(M,B) \to
       \mathrm{Ext}^1_R(M,C) \xrightarrow{\delta_1} \cdots
     \end{gather*}
     and
     \begin{gather*}
-      0 \to \mathrm{Hom}_R(C,N) \to \mathrm{Hom}_R(B,N) \to
-      \mathrm{Hom}_R(A,N) \xrightarrow{\delta^0}
+      0 \to \Hom_R(C,N) \to \Hom_R(B,N) \to
+      \Hom_R(A,N) \xrightarrow{\delta^0}
       \mathrm{Ext}^1_R(C,N) \to \mathrm{Ext}^1_R(B,N) \to
       \mathrm{Ext}^1_R(A,N) \xrightarrow{\delta^1} \cdots
     \end{gather*}
@@ -4329,8 +4329,8 @@ with them a little. For example,
   \item if $\mathrm{Ext}^1_R(P, -) = 0$, then $P$ is projective;
   \item if $\mathrm{Ext}^1_R(-, Q) = 0$, then $Q$ is injective.
 \end{itemize}
-Indeed, the exactness of the corresponding $\mathrm{Hom}_R(P, -)$,
-resp., $\mathrm{Hom}_R(-, Q)$, follows immediately from the exact
+Indeed, the exactness of the corresponding $\Hom_R(P, -)$,
+resp., $\Hom_R(-, Q)$, follows immediately from the exact
 sequences displayed above.
 In fact, pushing the envelope a little will tell us much more. Recall
 the procedure that defines $\mathrm{Tor}^R_i(-, N)$ from the functor
@@ -4360,23 +4360,23 @@ would seem to be two natural and possibly different ways to go:
 \begin{itemize}
   \item One could start from a projective resolution of $M$:
     $\dots \to P_2 \to P_1 \to P_0 \to M \to 0$; apply the
-    contravariant $\mathrm{Hom}_R(-, N)$ to the projective part,
-    obtaining a new complex $\mathrm{Hom}_R(M_\bullet, N)$, i.e.,
-    $\mathrm{Hom}_R(P_0,N) \to \mathrm{Hom}_R(P_1,N) \to
-    \mathrm{Hom}_R(P_2,N) \to \dots$, and take
+    contravariant $\Hom_R(-, N)$ to the projective part,
+    obtaining a new complex $\Hom_R(M_\bullet, N)$, i.e.,
+    $\Hom_R(P_0,N) \to \Hom_R(P_1,N) \to
+    \Hom_R(P_2,N) \to \dots$, and take
     cohomology,\footnote{Recall from \S{}III.7.1 that the homology of
       complexes with increasing (rather than decreasing) indices is
       called cohomology; this is usually denoted $H^*$, with `upper'
       indices.} proposing the definition
-    $\mathrm{Ext}^i_R(M,N) := H^i(\mathrm{Hom}_R(M_\bullet, N))$.
+    $\mathrm{Ext}^i_R(M,N) := H^i(\Hom_R(M_\bullet, N))$.
   \item Or one could start from an injective resolution of $N$:
     $0 \to N \to Q^0 \to Q^1 \to Q^2 \to \dots$; apply the covariant
-    $\mathrm{Hom}_R(M, -)$ to the injective part, obtaining a new
-    complex $\mathrm{Hom}_R(M, N^\bullet)$, i.e.,
-    $\mathrm{Hom}_R(M,Q^0) \to \mathrm{Hom}_R(M,Q^1) \to
-    \mathrm{Hom}_R(M,Q^2) \to \dots$, and again take cohomology,
+    $\Hom_R(M, -)$ to the injective part, obtaining a new
+    complex $\Hom_R(M, N^\bullet)$, i.e.,
+    $\Hom_R(M,Q^0) \to \Hom_R(M,Q^1) \to
+    \Hom_R(M,Q^2) \to \dots$, and again take cohomology,
     leading to
-    $\mathrm{Ext}^i_R(M,N) := H^i(\mathrm{Hom}_R(M, N^\bullet))$.
+    $\mathrm{Ext}^i_R(M,N) := H^i(\Hom_R(M, N^\bullet))$.
 \end{itemize}
 These definitions are independent of all choices and agree with each
 other! Again, the reader will have to wait for Chapter IX to see a
@@ -4408,18 +4408,18 @@ better. For example,
   if $Q$ is injective, then $0 \to Q \to Q \to 0 \to 0 \to \dots$ is
   an injective resolution of $Q$; thus, for an $R$-module $M$,
   $\mathrm{Ext}^i_R(M, Q)$ is the cohomology of the complex
-  $\mathrm{Hom}_R(M,Q) \to 0 \to 0 \to \dots$, giving
-  $\mathrm{Ext}^0_R(M,Q) = \mathrm{Hom}_R(M,Q)$ and
+  $\Hom_R(M,Q) \to 0 \to 0 \to \dots$, giving
+  $\mathrm{Ext}^0_R(M,Q) = \Hom_R(M,Q)$ and
   $\mathrm{Ext}^i_R(M,Q) = 0$ for $i > 0$ and all $M$. The first
   assertion is proven similarly, using the first definition given
   above for Ext.
 \end{proof}
 
-\subsection{$\mathrm{Ext}^*_{\mathbb{Z}}(G, \mathbb{Z})$}
+\subsection{$\mathrm{Ext}^*_{\Z}(G, \Z)$}
 \label{subsec:linrep:ext-Z-G-Z}
 I will attempt to convince the reader that computing Ext modules is
 not too unreasonable, by discussing the computation of
-$\mathrm{Ext}^*_{\mathbb{Z}}(G, \mathbb{Z})$ for an arbitrary finitely
+$\mathrm{Ext}^*_{\Z}(G, \Z)$ for an arbitrary finitely
 generated abelian group $G$.
 \begin{itemize}
   \item Since Hom commutes with finite direct sums
@@ -4427,59 +4427,59 @@ generated abelian group $G$.
     consequence of the definitions given above.
   \item By the classification theorem for finitely generated abelian
     groups, we are reduced to computing
-    $\mathrm{Ext}^i_{\mathbb{Z}}(\mathbb{Z}, \mathbb{Z})$ and
-    $\mathrm{Ext}^i_{\mathbb{Z}}(\mathbb{Z}/m\mathbb{Z}, \mathbb{Z})$,
+    $\mathrm{Ext}^i_{\Z}(\Z, \Z)$ and
+    $\mathrm{Ext}^i_{\Z}(\Z/m\Z, \Z)$,
     for all $m > 0$ and $i \geq 0$.
   \item The first module is
-    $\mathrm{Hom}_{\mathbb{Z}}(\mathbb{Z},\mathbb{Z}) \cong \mathbb{Z}$
+    $\Hom_{\Z}(\Z,\Z) \cong \Z$
     for $i = 0$, and it is $0$ for $i > 0$: indeed, this follows from
-    Proposition~\ref{linrep:6.14}, since $\mathbb{Z}$ is
+    Proposition~\ref{linrep:6.14}, since $\Z$ is
     projective.
   \item The second module: use the projective resolution
-    $0 \to \mathbb{Z} \xrightarrow{\cdot m} \mathbb{Z} \to
-    \mathbb{Z}/m\mathbb{Z} \to 0$; this yields that
-    $\mathrm{Ext}^i_{\mathbb{Z}}(\mathbb{Z}/m\mathbb{Z}, \mathbb{Z})$
+    $0 \to \Z \xrightarrow{\cdot m} \Z \to
+    \Z/m\Z \to 0$; this yields that
+    $\mathrm{Ext}^i_{\Z}(\Z/m\Z, \Z)$
     is the cohomology of the complex
     \[
-      0 \to \mathrm{Hom}_{\mathbb{Z}}(\mathbb{Z},\mathbb{Z})
+      0 \to \Hom_{\Z}(\Z,\Z)
       \xrightarrow{\cdot m}
-      \mathrm{Hom}_{\mathbb{Z}}(\mathbb{Z},\mathbb{Z}) \to 0 \to \dots,
+      \Hom_{\Z}(\Z,\Z) \to 0 \to \dots,
     \]
-    that is, $0 \to \mathbb{Z} \xrightarrow{\cdot m} \mathbb{Z} \to
+    that is, $0 \to \Z \xrightarrow{\cdot m} \Z \to
     0 \to \dots$, confirming that
-    $\mathrm{Ext}^0_{\mathbb{Z}}(\mathbb{Z}/m\mathbb{Z}, \mathbb{Z}) =
-    \mathrm{Hom}_{\mathbb{Z}}(\mathbb{Z}/m\mathbb{Z}, \mathbb{Z}) = 0$
-    ($\mathbb{Z}$ has no torsion) and computing
-    $\mathrm{Ext}^1_{\mathbb{Z}}(\mathbb{Z}/m\mathbb{Z}, \mathbb{Z})
-    \cong \mathbb{Z}/m\mathbb{Z}$, with vanishing $\mathrm{Ext}^2$ and
+    $\mathrm{Ext}^0_{\Z}(\Z/m\Z, \Z) =
+    \Hom_{\Z}(\Z/m\Z, \Z) = 0$
+    ($\Z$ has no torsion) and computing
+    $\mathrm{Ext}^1_{\Z}(\Z/m\Z, \Z)
+    \cong \Z/m\Z$, with vanishing $\mathrm{Ext}^2$ and
     higher.
   \item The conclusion is that
-    $\mathrm{Ext}^0_{\mathbb{Z}}(G, \mathbb{Z})$ picks up the free part
-    of $G$, while $\mathrm{Ext}^1_{\mathbb{Z}}(G, \mathbb{Z})$ is
+    $\mathrm{Ext}^0_{\Z}(G, \Z)$ picks up the free part
+    of $G$, while $\mathrm{Ext}^1_{\Z}(G, \Z)$ is
     isomorphic to the torsion part, and
-    $\mathrm{Ext}^i_{\mathbb{Z}}(G, \mathbb{Z}) = 0$ for $i \geq 2$
+    $\mathrm{Ext}^i_{\Z}(G, \Z) = 0$ for $i \geq 2$
     (as should have been expected; cf.\ Exercise~6.18).
 \end{itemize}
 In particular, if $G$ is a finite abelian group, then $G \cong
-\mathrm{Ext}^1_{\mathbb{Z}}(G, \mathbb{Z})$; as it happens, this
+\mathrm{Ext}^1_{\Z}(G, \Z)$; as it happens, this
 isomorphism is not canonical.
 
 Another Ext computation gives a different interpretation of this
-group. The exact sequence $0 \to \mathbb{Z} \to \mathbb{Q} \to
-\mathbb{Q}/\mathbb{Z} \to 0$ is an injective resolution of
-$\mathbb{Z}$; thus, $\mathrm{Ext}^*_{\mathbb{Z}}(G, \mathbb{Z})$ is
+group. The exact sequence $0 \to \Z \to \Q \to
+\Q/\Z \to 0$ is an injective resolution of
+$\Z$; thus, $\mathrm{Ext}^*_{\Z}(G, \Z)$ is
 the cohomology of
 \[
-  0 \to \mathrm{Hom}_{\mathbb{Z}}(G, \mathbb{Q}) \to
-  \mathrm{Hom}_{\mathbb{Z}}(G, \mathbb{Q}/\mathbb{Z}) \to 0 \to \dots.
+  0 \to \Hom_{\Z}(G, \Q) \to
+  \Hom_{\Z}(G, \Q/\Z) \to 0 \to \dots.
 \]
 If $G$ is torsion (for example, if $G$ is finite), it follows that
-$\mathrm{Ext}^1_{\mathbb{Z}}(G, \mathbb{Z})$ is isomorphic to
-$\mathrm{Hom}_{\mathbb{Z}}(G, \mathbb{Q}/\mathbb{Z})$. This group is
+$\mathrm{Ext}^1_{\Z}(G, \Z)$ is isomorphic to
+$\Hom_{\Z}(G, \Q/\Z)$. This group is
 the \emph{Pontryagin dual} of $G$, denoted $\hat{G}$. Thus, we have
 verified that if $G$ is a finite abelian group, then $G$ is isomorphic
 (not canonically) to its Pontryagin dual
-$\hat{G} = \mathrm{Hom}_{\mathbb{Z}}(G, \mathbb{Q}/\mathbb{Z})$. Of
+$\hat{G} = \Hom_{\Z}(G, \Q/\Z)$. Of
 course this fact is not difficult to check directly, but it is
 immediate from the point of view of Ext.
 
@@ -4508,7 +4508,7 @@ As usual, $R$ denotes a fixed commutative ring.
 
 \begin{exer}{$\lnot$}{linrep:exer:6.3}
   Prove that an $R$-linear map $A \to B$ is injective if and only if
-  the induced map $\mathrm{Hom}_R(B, Q) \to \mathrm{Hom}_R(A, Q)$ is
+  the induced map $\Hom_R(B, Q) \to \Hom_R(A, Q)$ is
   surjective for all injective modules $Q$. (Hint: $R\text{-Mod}$ has
   enough injectives.) This strengthens the result of Exercise~5.2.
   [6.7]
@@ -4575,8 +4575,8 @@ As usual, $R$ denotes a fixed commutative ring.
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:6.13}
-  Prove that $\mathbb{Q}$ is flat, but not projective, as a
-  $\mathbb{Z}$-module. [6.12]
+  Prove that $\Q$ is flat, but not projective, as a
+  $\Z$-module. [6.12]
 \end{exer}
 
 \begin{exer}{$*$}{linrep:exer:6.14}
@@ -4593,12 +4593,12 @@ As usual, $R$ denotes a fixed commutative ring.
 \end{exer}
 
 \begin{exer}{}{linrep:exer:6.16}
-  Prove that $\mathbb{Z} \oplus \mathbb{Q}$ is flat as a
-  $\mathbb{Z}$-module but neither projective nor injective.
+  Prove that $\Z \oplus \Q$ is flat as a
+  $\Z$-module but neither projective nor injective.
 \end{exer}
 
 \begin{exer}{}{linrep:exer:6.17}
-  Prove that $\mathrm{Hom}_R(M, N) \cong \mathrm{Ext}^0_R(M, N)$,
+  Prove that $\Hom_R(M, N) \cong \mathrm{Ext}^0_R(M, N)$,
   using any of the definitions provided for $\mathrm{Ext}^i_R(M, N)$.
 \end{exer}
 
@@ -4614,7 +4614,7 @@ As usual, $R$ denotes a fixed commutative ring.
 
 \begin{exer}{}{linrep:exer:6.20}
   Let $I$ be an ideal of $R$. Prove that
-  $\mathrm{Ext}^1_R(R/I, R/I) \cong \mathrm{Hom}_R(I/I^2, R/I)$.
+  $\mathrm{Ext}^1_R(R/I, R/I) \cong \Hom_R(I/I^2, R/I)$.
   (Cf.\ Exercise~5.4. This says that this Ext module essentially
   computes the normal bundle of an embedding.)
 \end{exer}
@@ -4643,12 +4643,12 @@ As usual, $R$ denotes a fixed commutative ring.
   $\xi = \xi(E) \in \mathrm{Ext}^1_R(M, N)$ as follows. The sequence
   $(*)$ induces a long exact sequence of Ext, i.e.,
   \[
-    \dots \to \mathrm{Hom}_R(E, N) \to \mathrm{Hom}_R(N, N) \to
+    \dots \to \Hom_R(E, N) \to \Hom_R(N, N) \to
     \mathrm{Ext}^1_R(M, N) \to \dots,
   \]
   and we let $\xi(E)$ be the image in $\mathrm{Ext}^1_R(M, N)$ of
   the distinguished element $\mathrm{id}_N \in
-  \mathrm{Hom}_R(N, N)$.
+  \Hom_R(N, N)$.
 
   Prove that if $E$ and $E'$ are isomorphic extensions, then
   $\xi(E) = \xi(E')$. Prove that if $E$ is a trivial extension, then
@@ -4668,7 +4668,7 @@ As usual, $R$ denotes a fixed commutative ring.
       F \twoheadrightarrow M$. Since $F$ is free (hence projective),
       a piece of the long exact sequence of Ext, i.e.,
       \[
-        \dots \to \mathrm{Hom}_R(K, N) \to \mathrm{Ext}^1_R(M, N)
+        \dots \to \Hom_R(K, N) \to \mathrm{Ext}^1_R(M, N)
         \to \mathrm{Ext}^1_R(F, N) = 0 \to \dots,
       \]
       tells us that there exists a homomorphism $k : K \to N$ mapping

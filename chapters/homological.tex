@@ -90,7 +90,7 @@ features of some of the categories we have encountered.
   \item Even when there are kernels and cokernels, monomorphisms need
     not be kernels (nonnormal subgroups are not kernels: remember
     \S{}II.7.6), and epimorphisms need not be cokernels (the injection
-    $\Z \to \mathbb{Q}$ is an epimorphism in $\mathsf{Ring}$; see
+    $\Z \to \Q$ is an epimorphism in $\mathsf{Ring}$; see
     \S{}III.2.3).
   \item A morphism may be a monomorphism and an epimorphism without
     being an isomorphism ($\mathsf{Ring}$ again, same example).
@@ -942,15 +942,15 @@ immaterial.
 \begin{exer}{}{exer:homol:1.5}
   Let $A$, $B$ be objects of an additive category $\mathsf{A}$, with
   zero-object $0$. Since $0$ is both final and initial,
-  $\operatorname{Hom}_{\mathsf{A}}(A,0)$ and
-  $\operatorname{Hom}_{\mathsf{A}}(0,B)$ are both singletons, so the
+  $\Hom_{\mathsf{A}}(A,0)$ and
+  $\Hom_{\mathsf{A}}(0,B)$ are both singletons, so the
   image of the composition
   \[
     A \to 0 \to B
   \]
-  is a single element $e$ of $\operatorname{Hom}_{\mathsf{A}}(A,B)$.
+  is a single element $e$ of $\Hom_{\mathsf{A}}(A,B)$.
   Prove that this is the identity element of the abelian group
-  $\operatorname{Hom}_{\mathsf{A}}(A,B)$. (Hint: Prove $e+e=e$.) In
+  $\Hom_{\mathsf{A}}(A,B)$. (Hint: Prove $e+e=e$.) In
   the text, this element is denoted $0$, the `zero-morphism'.
 
   Prove that for every morphism $\varphi$ in $\mathsf{A}$,
@@ -973,9 +973,9 @@ immaterial.
   $\mathsf{A}$. Prove that $\iota : K \to A$ is a kernel for $\varphi$
   if and only if for all objects $Z$ the induced sequence
   \[\begin{tikzcd}
-    0 \arrow[r] & \operatorname{Hom}_{\mathsf{A}}(Z,K) \arrow[r] &
-    \operatorname{Hom}_{\mathsf{A}}(Z,A) \arrow[r] &
-    \operatorname{Hom}_{\mathsf{A}}(Z,B)
+    0 \arrow[r] & \Hom_{\mathsf{A}}(Z,K) \arrow[r] &
+    \Hom_{\mathsf{A}}(Z,A) \arrow[r] &
+    \Hom_{\mathsf{A}}(Z,B)
   \end{tikzcd}\]
   is exact. Formulate an analogous result for cokernels.
 \end{exer}
@@ -1448,7 +1448,7 @@ referring to the relatively fancy notion I will introduce. The
 `elements' will be ordinary elements of an ordinary (pointed) set
 determined by the object of the category.} The reader should look
 back at the brief discussion at the end of \S{}VIII.1.2: the `functor
-of points' $h_A = \operatorname{Hom}_{\mathsf{A}}(\_, A)$ associates
+of points' $h_A = \Hom_{\mathsf{A}}(\_, A)$ associates
 to every object $Z$ the set of morphisms $Z \to A$; in several
 categories, applying this functor to a final object in $\mathsf{A}$
 `recovers' $A$ as a set. Working with final objects with this purpose
@@ -1485,10 +1485,10 @@ $z : Z \to B$ can be lifted to a morphism $z' : Z \to A$,
   Z \arrow[ur, dashed, "\exists z'?"] \arrow[r, "z"'] & B
 \end{tikzcd}\]
 and this is simply not true in general (for example, in $\categ{Ab}$
-one cannot lift the identity $\mathbb{Z}/2\mathbb{Z} \to
-\mathbb{Z}/2\mathbb{Z}$ along the projection
-$\mathbb{Z} \to \mathbb{Z}/2\mathbb{Z}$). The problem is really that
-$\operatorname{Hom}$ is not right-exact, so it does not preserve
+one cannot lift the identity $\Z/2\Z \to
+\Z/2\Z$ along the projection
+$\Z \to \Z/2\Z$). The problem is really that
+$\Hom$ is not right-exact, so it does not preserve
 epimorphisms.
 
 Maybe surprisingly, there is a way to fix this problem.
@@ -1562,7 +1562,7 @@ clear of any possible set-theoretic subtlety. It is convenient to
 consider a companion category $\mathsf{A}_{\leftarrow}$, with the same
 objects as $\mathsf{A}$ but in which
 \[
-  \operatorname{Hom}_{\mathsf{A}_{\leftarrow}}(Z,W) =
+  \Hom_{\mathsf{A}_{\leftarrow}}(Z,W) =
   \{\text{epimorphisms } W \twoheadrightarrow Z \text{ in } \mathsf{A}\}.
 \]
 This is legal, because the composition of two epimorphisms in
@@ -1581,10 +1581,10 @@ by `restricting' the functor of points $h_A$ to
 $\mathsf{A}_{\leftarrow}$ and preserving the information of
 the zero-morphism. That is, I set
 \[
-  \mathscr{H}_A(Z) = \operatorname{Hom}_{\mathsf{A}}(Z,A)
+  \mathscr{H}_A(Z) = \Hom_{\mathsf{A}}(Z,A)
 \]
 for all objects $Z$ of $\mathsf{A}_{\leftarrow}$ (that is, of
-$\mathsf{A}$), viewing $\operatorname{Hom}_{\mathsf{A}}(Z,A)$ as a
+$\mathsf{A}$), viewing $\Hom_{\mathsf{A}}(Z,A)$ as a
 pointed set by distinguishing the zero-morphism, and define
 $\mathscr{H}_A$ on morphisms by composition: for a morphism
 $Z \to W$ in $\mathsf{A}_{\leftarrow}$ (that is, an epimorphism
@@ -1682,7 +1682,7 @@ $\categ{Set}^*$:
 This tells us in particular that we can verify the commutativity of a
 diagram in $\mathsf{A}$ by working in $\categ{Set}^*$: because we can
 check whether two morphisms
-$\varphi, \psi \in \operatorname{Hom}_{\mathsf{A}}(A,B)$ are equal by
+$\varphi, \psi \in \Hom_{\mathsf{A}}(A,B)$ are equal by
 verifying that their difference $\varphi - \psi$ equals $0$, which we
 can do\footnote{Note that I am not saying that $\varphi = \psi$ if and
 only if $\hat{\varphi}(z) = \hat{\psi}(z)$ for all `elements' $z$; this
@@ -1845,8 +1845,8 @@ has several shortcomings:
     following Lemma~\ref{homol:2.5}), I have stopped short of claiming
     that the functor $\mathsf{A} \to \hat{A}$ is \emph{faithful}, that
     is, that it induces injective functions
-    $\operatorname{Hom}_{\mathsf{A}}(A,B) \to
-    \operatorname{Hom}_{\categ{Set}^*}(\hat{A},\hat{B})$ for all $A$,
+    $\Hom_{\mathsf{A}}(A,B) \to
+    \Hom_{\categ{Set}^*}(\hat{A},\hat{B})$ for all $A$,
     $B$. In fact, the functor is \emph{not} faithful (Exercise~2.10).
   \item The functor $\mathsf{A} \to \categ{Set}^*$ is not \emph{full};
     that is, it is not surjective on Hom-sets. In other words, there
@@ -1872,8 +1872,8 @@ For a reminder on the full \& faithful terminology, see
 Definition~VIII.1.6. Briefly, a functor
 $F : \mathsf{A} \to \mathsf{C}$ is fully faithful if it induces a
 bijection
-$\operatorname{Hom}_{\mathsf{A}}(A,B) \to
-\operatorname{Hom}_{\mathsf{C}}(F(A),F(B))$ for all objects $A$, $B$
+$\Hom_{\mathsf{A}}(A,B) \to
+\Hom_{\mathsf{C}}(F(A),F(B))$ for all objects $A$, $B$
 in $\mathsf{A}$. In practice, such a functor identifies $\mathsf{A}$
 with a subcategory of $\mathsf{C}$. The exactness (cf.\
 Example~VIII.1.18) of the functor
@@ -2061,7 +2061,7 @@ of \S{}2.3.
   small abelian category $\mathsf{A}$ is equivalent to a full
   subcategory of the category $\mathsf{F}$ of Exercise~2.15, by means
   of the functor assigning to each object $X$ in $\mathsf{A}$ the
-  functor $h_X = \operatorname{Hom}_{\mathsf{A}}(\_, X)$.
+  functor $h_X = \Hom_{\mathsf{A}}(\_, X)$.
 
   Prove that this Yoneda embedding is left-exact and `reflects
   exactness' in the sense that $X \to Y \to Z$ is exact in
@@ -2268,7 +2268,7 @@ $\mathsf{A}$ into a \emph{new} category $\mathsf{C}(\mathsf{A})$:
   complexes in } \mathsf{A}\}$;
 \item for $M^\bullet = (M^\bullet, d^\bullet_{M^\bullet})$,
   $N^\bullet = (N^\bullet, d^\bullet_{N^\bullet})$ cochain complexes,
-  $\operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(M^\bullet, N^\bullet)$
+  $\Hom_{\mathsf{C}(\mathsf{A})}(M^\bullet, N^\bullet)$
   consists of the \emph{commutative}\footnote{Note the requirement
   that such diagrams commute. It will also be important to consider
   diagrams that do not satisfy this requirement, but `morphisms of
@@ -2424,8 +2424,8 @@ apparent. I claim that cohomology is a functor:
   Of course, the statement means that each $H^i$ induces in a natural
   (and functorial) way homomorphisms of abelian groups
   \[
-    \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(M^\bullet, N^\bullet)
-    \to \operatorname{Hom}_{\mathsf{A}}(H^i(M^\bullet), H^i(N^\bullet))
+    \Hom_{\mathsf{C}(\mathsf{A})}(M^\bullet, N^\bullet)
+    \to \Hom_{\mathsf{A}}(H^i(M^\bullet), H^i(N^\bullet))
   \]
   for all complexes $M^\bullet$, $N^\bullet$. This follows from the
   commutativity requirement in the definition of morphisms of
@@ -2814,7 +2814,7 @@ last cryptic remarks (\S{}9.2).
 \end{exer}
 \begin{exer}{$\lnot$}{exer:homol:3.2}
   Let $\mathsf{I}$ be the category whose objects are the integers and
-  where $\operatorname{Hom}_{\mathsf{I}}(m, n)$ consists of a
+  where $\Hom_{\mathsf{I}}(m, n)$ consists of a
   singleton if $m \leq n$ and is $\emptyset$ otherwise (cf.\
   Example~I.3.2). Show that the category $\mathsf{C}(\mathsf{A})$ of
   cochain complexes is a full subcategory of the abelian category
@@ -3239,14 +3239,14 @@ hopes.
   In $\mathsf{C}(\mathsf{Ab})$, the morphism of complexes
   \[\begin{tikzcd}[column sep=small]
     \dots \arrow[r] & 0 \arrow[r] \arrow[d] &
-      \mathbb{Z} \arrow[r, "\cdot 2"] \arrow[d] &
-      \mathbb{Z} \arrow[r] \arrow[d, "\pi"] & 0 \arrow[r] \arrow[d] & \dots \\
+      \Z \arrow[r, "\cdot 2"] \arrow[d] &
+      \Z \arrow[r] \arrow[d, "\pi"] & 0 \arrow[r] \arrow[d] & \dots \\
     \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] &
-      \dfrac{\mathbb{Z}}{2\mathbb{Z}} \arrow[r] & 0 \arrow[r] & \dots
+      \dfrac{\Z}{2\Z} \arrow[r] & 0 \arrow[r] & \dots
   \end{tikzcd}\]
   where $\pi$ is the natural projection, is a quasi-isomorphism, but
   it does not have an inverse since there are no nontrivial
-  homomorphisms $\mathbb{Z}/2\mathbb{Z} \to \mathbb{Z}$.
+  homomorphisms $\Z/2\Z \to \Z$.
 \end{exam}
 
 In fact, this example shows that `quasi-isomorphism' is not even an
