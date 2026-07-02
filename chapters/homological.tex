@@ -3402,296 +3402,250 @@ book.
 
 \subsection{Homotopy}
 \label{subsec:homol:homotopy}
-% The foregoing considerations put our strategy into focus: we are
 
-% after constructions that determine cochain complexes `up to quasi-isomorphism'.
-% However, quasi-isomorphisms appear hard to deal with directly. Thus, we look for
-% more manageable notions that may work as an effective replacement.
-% Like the mapping cone, this line of approach also owes its origins to topology:
-% in topology, `homeomorphism' is often too harsh a requirement, while `homotopy
-% equivalence' is a more malleable but still adequate notion. For example,
-% homotopy
-% equivalent topological spaces have the same homology. Distilling the algebra out
-% of
-% this notion leads to an analog at the level of complexes.
-% To see how this is done, recall that if f , g are homotopic continuous functions
-% between two topological spaces X and Y , then f and g induce the same map on the
-% homology of the spaces. To remind yourself of how this works, look at the
-% picture:
-% \delta +
-% f (a)
-%  h(a)
-%  g(a)
-% \delta -
-% This is supposed to represent the action of a homotopy between f and g on a
-% chain a
-% in X: h(a) is obtained by mapping a \times  [0, 1] to Y so as to get f (a) when
-% restricting
-% to a \times  {0} and to get g(a) when restricting to a \times  {1}. Note that
-% h(a) is a chain
-% of dimension 1 higher than the dimension of a, and that the boundary \partial
-% h(a) of
-% this chain consists of f (a), g(a) and of the restriction of h to the boundary
-% \partial a of a:
-% taking the boundary `counterclockwise',
-% \partial h(a) = g(a) - \delta + - f (a) + \delta - = g(a) - f (a) - h(\partial a)
-% (or so it would seem from the picture! As presented here, this is of course at
-% best a
-% plausibility argument; it can be made rigorous, but that is someone else's
-% business).
-% That is,
-% g(a) - f (a) = \partial h(a) + h(\partial a).
-% Since boundaries vanish in homology, f (a) and g(a) will agree in homology.
-% Here is the translation into algebra of this pleasant geometric situation:
-% Definition 4.8. A homotopy h between two morphisms of cochain complexes
-% \alpha \bullet  , \beta  \bullet  : L\bullet  -\to  M \bullet 
-% is a collection of morphisms
-% hi : Li -\to  M i-1
-% such that \forall i
-% \beta  i - \alpha  i = dM
-%  i-1
-%  \bullet  \circ  hi
-%  + h
-% i+1
-%  \circ  dL\bullet  i
-%  .
-% We say that \alpha  \bullet  is homotopic to \beta  \bullet  and write \alpha
-% \bullet  \sim  \beta  \bullet  if there is a homotopy between
-% \alpha  \bullet  and \beta  \bullet  .
-%  ?
-% We are dealing here with cochain complexes; this accounts for the fact that
-% while in the topological situation (where we were interested in chains rather
-% than
-% cochains) the homotopy would shift dimensions up, in Definition 4.8 it shifts
-% degrees
-% down.
-% Aside from its topological motivation, homotopy is not too easy to visualize.
-% The following diagram is not assumed to be commutative:
-% i-2
-%  i-1
-%  i
-%  i+1
-% \cdot \cdot \cdot 
-%  dL\bullet 
-%  / Li-1
-%  dL\bullet 
-%  / Li
-%  dL\bullet 
-%  / Li+1
-%  dL\bullet 
-%  / \cdot \cdot \cdot 
-% {
-%  {{
-%  {
-%  {
-%  {{
-%  {
-%  {
-%  {{
-%  {
-%  {
-%  {{
-% h
-% i-1
-%  {
-%  {{
-%  {{
-%  {
-%  {{
-%  \alpha 
-%  {{
-%  i-1
-%  \beta 
-% i-1 {{
-%  hi
-%  {{
-%  {
-%  {
-%  {
-%  {{
-%  \alpha 
-% i
-%  \beta 
-% i
-%  h
-% i+1
-%  {
-%  {
-%  {{
-%  {
-%  {
-%  {
-%  {{
-%  \alpha 
-% i+1
-%  \beta 
-%  i+1 h
-% i+2 {{
-%  {{
-%  {
-%  {{
-%  {{
-% {{
-%  {{
-%  {{
-%  {{
-% }{{
-%  {
-%  {{
-%  ? i-1
-%  }{
-%  {
-%  {{
-%  ? i
-%  }{
-%  {
-%  {{
-%  ? i+1
-%  }{
-%  {
-%  {{
-% \cdot \cdot \cdot 
-%  i-2
-%  / M i-1
-%  / M i
-%  / M i+1
-%  / \cdot \cdot \cdot 
-% dM\bullet 
-%  dM \bullet 
-%  dM\bullet 
-%  dM \bullet 
-% The morphisms hi do not usually define a morphism of complexes L\bullet  \to  M
-% [-1]\bullet  :
-% the lozenges in this diagram are not required to commute.
-% Definition 4.9. A morphism \alpha \bullet  : L\bullet  \to  M \bullet  is a
-% homotopy equivalence if there is
-% a morphism \beta  \bullet  : M \bullet  \to  L\bullet  such that \alpha \bullet
-% \circ  \beta  \bullet  \sim  1M \bullet  and \beta  \bullet  \circ  \alpha
-% \bullet  \sim  1L\bullet  . The com-
-% plexes L\bullet  , M \bullet  are said to be homotopy equivalent if there is a
-% homotopy equivalence
-% L\bullet  \to  M \bullet  .
-%  ?
-% The reader should check that \sim  is an equivalence relation and that `homotopy
-% equivalence of complexes' is also (Exercise 4.4). Further, these relations are
-% clearly
-% compatible with simple operations of morphisms (Exercises 4.5 and 4.6).
-% Proposition 4.10. If \alpha \bullet  , \beta \bullet  : L\bullet  \to  M \bullet
-% are homotopic morphisms of complexes,
-% then \alpha \bullet  , \beta  \bullet  induce the same morphisms on cohomology:
-% H \bullet  (L\bullet  ) \to  H \bullet  (M \bullet  ).
-% Proof. Let \in  H i (L\bullet  ). Then is represented by an element \in
-% ker(diL\bullet  ), and its
-% images in H i (M \bullet  ) under the morphisms induced by \alpha \bullet  ,
-% \beta  \bullet  are represented by
-% \alpha i ( ),
-%  \beta  i ( ).
-% Since \alpha  \bullet  , \beta  \bullet  are homotopic, according to Definition
-% 4.8 there are morphisms hi
-% such that
-% \beta  i( ) - \alpha i ( ) = di-1
-%  M \bullet  (hi
-% ( )) + h
-% i+1 (dL\bullet  i
-%  ( )).
-% Since
-%  \in  ker diL\bullet  , the last term vanishes. This shows that
-% \beta  i ( ) - \alpha i ( ) \in  im diM \bullet  ,
-% proving that \beta  i( ) - \alpha i ( ) vanishes in H i (M \bullet  ), as
-% needed.
-%  ?
-% For example, if \alpha \bullet  is homotopic to the identity, then by Corollary
-% 4.2 the cone
-% \bullet 
-% of \alpha  must be exact. It is a good exercise to verify this fact directly
-% (Exercise 4.8).
-% Corollary 4.11. Homotopy equivalent complexes have isomorphic cohomology.
-% Proof. Indeed, morphisms \alpha \bullet  : L\bullet  \to  M \bullet  , \beta
-% \bullet  : M \bullet  \to  L\bullet  such that \beta  \bullet  \circ  \alpha
-% \bullet  and
-% \bullet  \bullet \alpha  \circ  \beta  are both homotopic to the identity induce inverse morphisms in cohomology,
-% by Proposition 4.10.
-%  ?
-% Remark 4.12. In other words, homotopy equivalences of complexes are quasi-
-% isomorphisms. This does not yet solve the `problem' that quasi-isomorphisms are
-% not invertible, since Example 4.6 shows that quasi-isomorphisms may well not be
-% invertible even up to homotopy. In other words, `homotopy equivalence' is a more
-% restrictive notion than `quasi-isomorphism'. One reason to study complexes of
-% in-
-% jective/projective modules, as we will do in \S{}5.3, is precisely that
-% quasi-isomorphism
-% and homotopy equivalence are equivalent notions for (bounded) complexes of in-
-% jective or projective modules. Since homotopy equivalence is a ready-made
-% equiva-
-% lence relation on complexes, this will bypass any technicality needed to make
-% sense
-% of `quasi-isomorphism' as an equivalence relation.
-%  ?
-% Corollary 4.11 is the main technical reason that makes the strategy presented
-% in \S{}3.1 work, in a class of interesting examples. As we will see in due time,
-% in
-% these examples the cohomology of the relevant cochain complexes will end up
-% being
-% independent of the choices, because these choices will produce homotopic
-% complexes.
-% Another key observation will be that homotopy equivalence is preserved by any
-% additive functor. Suppose A, B are abelian categories and
-% F : A -\to  B
-% is an additive functor (Definition 1.1). Then F induces an additive functor pre-
-% serving the grading
-% C(F ) : C(A) -\to  C(B).
-% Lemma 4.13. With F as above, if \alpha \bullet  \sim  \beta  \bullet  in C(A),
-% then C(F )(\alpha \bullet  ) \sim  C(F )(\beta  \bullet )
-% in C(B), and if L\bullet  and M \bullet  are homotopy equivalent complexes in
-% C(A), then
-% C(F )(L\bullet  ) and C(F )(M \bullet  ) are homotopy equivalent complexes in
-% C(B).
-% Proof. The second assertion follows from the first. The first is an immediate
-% consequence of the fact that F is additive. Indeed, if h is a homotopy between
-% \alpha  \bullet  , \beta  \bullet  : L\bullet  \to  M \bullet  , then
-% \beta  i - \alpha  i = dM
-%  i-1
-%  \bullet  \circ  hi
-%  + h
-% i+1
-%  \circ  dL\bullet  i
-%  .
-% Since F preserves the additive structure on Hom-sets, this implies
-% F (\beta  i ) - F (\alpha i ) = F (dM
-%  i-1
-%  \bullet  ) \circ  F (hi
-%  ) + F (h
-% i+1
-% ) \circ  F (diL\bullet  ),
-% showing that the collection of morphisms F (hi) gives a homotopy between F
-% (\alpha \bullet )
-% and F (\beta  \bullet ).
-%  ?
-% Note that the analogous statement does not hold for quasi-isomorphisms (Ex-
-% ercise 4.15): an additive functor does not preserve quasi-isomorphisms (while an
-% exact functor does).
-% Lemma 4.13 implies that the conclusion of Corollary 4.11 holds true after ap-
-% plying an additive functor:
-% Theorem 4.14. Let F : A \to  B be an additive functor between two abelian cate-
-% gories. If L\bullet  , M \bullet  are homotopy equivalent complexes in C(A),
-% then the cohomology
-% complexes
-% H \bullet  (C(F )(L\bullet  )), H \bullet  (C(F )(M \bullet ))
-% are isomorphic.
-% The proof of this statement is essentially immediate after all our preparatory
-% work, so it is left to the reader (Exercise 4.16).
-% I am gracing this statement with theorem status because it is at the root of
-% the strategy I am pursuing. The content of Theorem 4.14 is that any mechanism
-% associating to a mathematical object a cochain complex determined up to homotopy
-% will give rise to a slew of interesting invariants: apply your favorite additive
-% functor
-% to any such complex, take cohomology, and Theorem 4.14 guarantees that the
-% result will be independent of the specific chosen complex. This is (part of) the
-% reason underlying the various claims of independence on choices made in
-% \S{}VIII.2.4
-% and \S{}VIII.6.4, concerning the definition of the Tor and Ext functors, as we
-% will see
-% later in the chapter (\S{}7, especially Examples 7.6 and 7.7).
+The foregoing considerations put our strategy into focus: we are
+after constructions that determine cochain complexes `up to
+quasi-isomorphism'. However, quasi-isomorphisms appear hard to deal
+with directly. Thus, we look for more manageable notions that may
+work as an effective replacement.
+
+Like the mapping cone, this line of approach also owes its origins
+to topology: in topology, `homeomorphism' is often too harsh a
+requirement, while `homotopy equivalence' is a more malleable but
+still adequate notion. For example, homotopy equivalent topological
+spaces have the same homology. Distilling the algebra out of this
+notion leads to an analog at the level of complexes.
+
+To see how this is done, recall that if $f$, $g$ are \emph{homotopic}
+continuous functions between two topological spaces $X$ and $Y$,
+then $f$ and $g$ induce the same map on the homology of the spaces.
+To remind yourself of how this works, look at the picture:
+% TODO: diagram of a homotopy h(a) between f(a) and g(a): a
+% curved/wavy region bounded by f(a) on the left, g(a) on the right,
+% delta_+ on top and delta_- on bottom, with h(a) labeling the
+% interior surface (page 611)
+This is supposed to represent the action of a homotopy between $f$
+and $g$ on a chain $a$ in $X$: $h(a)$ is obtained by mapping
+$a \times [0,1]$ to $Y$ so as to get $f(a)$ when restricting to
+$a \times \{0\}$ and to get $g(a)$ when restricting to
+$a \times \{1\}$. Note that $h(a)$ is a chain of dimension $1$
+higher than the dimension of $a$, and that the boundary $\partial
+h(a)$ of this chain consists of $f(a)$, $g(a)$ and of the
+restriction of $h$ to the boundary $\partial a$ of $a$: taking the
+boundary `counterclockwise',
+\[
+  \partial h(a) = g(a) - \delta_+ - f(a) + \delta_- = g(a) - f(a) -
+  h(\partial a)
+\]
+(or so it would seem from the picture! As presented here, this is of
+course at best a plausibility argument; it can be made rigorous, but
+that is someone else's business). That is,
+\[
+  g(a) - f(a) = \partial h(a) + h(\partial a).
+\]
+Since boundaries vanish in homology, $f(a)$ and $g(a)$ will agree in
+homology.
+
+Here is the translation into algebra of this pleasant geometric
+situation:
+
+\begin{defn}{}{homol:4.8}
+  A \emph{homotopy} $h$ between two morphisms of cochain complexes
+  $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$ is a
+  collection of morphisms
+  \[
+    h^i : L^i \to M^{i-1}
+  \]
+  such that $\forall i$
+  \[
+    \beta^i - \alpha^i = d^{i-1}_{M^\bullet} \circ h^i + h^{i+1}
+    \circ d^i_{L^\bullet}.
+  \]
+  We say that $\alpha^\bullet$ is \emph{homotopic} to $\beta^\bullet$
+  and write $\alpha^\bullet \sim \beta^\bullet$ if there is a
+  homotopy between $\alpha^\bullet$ and $\beta^\bullet$.
+\end{defn}
+
+We are dealing here with cochain complexes; this accounts for the
+fact that while in the topological situation (where we were
+interested in \emph{chains} rather than cochains) the homotopy would
+shift dimensions up, in Definition~4.8 it shifts degrees down.
+
+Aside from its topological motivation, homotopy is not too easy to
+visualize. The following diagram is \emph{not} assumed to be
+commutative:
+% TODO: diagram of the non-commutative "lozenge" picture for a
+% homotopy h between alpha^bullet, beta^bullet: L^bullet -> M^bullet
+% -- two parallel rows of the complexes L^i and M^i connected by
+% d_L, d_M horizontally, alpha^i/beta^i vertically, and h^i diagonally
+% (L^i -> M^{i-1}), with lozenge shapes drawn between each pair of
+% alpha^i/beta^i arrows to emphasize non-commutativity (page 612)
+The morphisms $h^i$ do not usually define a morphism of complexes
+$L^\bullet \to M[-1]^\bullet$: the lozenges in this diagram are not
+required to commute.
+
+\begin{defn}{}{homol:4.9}
+  A morphism $\alpha^\bullet : L^\bullet \to M^\bullet$ is a
+  \emph{homotopy equivalence} if there is a morphism
+  $\beta^\bullet : M^\bullet \to L^\bullet$ such that
+  $\alpha^\bullet \circ \beta^\bullet \sim 1_{M^\bullet}$ and
+  $\beta^\bullet \circ \alpha^\bullet \sim 1_{L^\bullet}$. The
+  complexes $L^\bullet$, $M^\bullet$ are said to be \emph{homotopy
+  equivalent} if there is a homotopy equivalence
+  $L^\bullet \to M^\bullet$.
+\end{defn}
+
+The reader should check that $\sim$ is an equivalence relation and
+that `homotopy equivalence of complexes' is also (Exercise~4.4).
+Further, these relations are clearly compatible with simple
+operations of morphisms (Exercises~4.5 and~4.6).
+
+\begin{prop}{}{homol:4.10}
+  If $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$ are
+  homotopic morphisms of complexes, then $\alpha^\bullet$,
+  $\beta^\bullet$ induce the same morphisms on cohomology:
+  $H^\bullet(L^\bullet) \to H^\bullet(M^\bullet)$.
+\end{prop}
+
+\begin{proof}
+  Let $\bar\ell \in H^i(L^\bullet)$. Then $\bar\ell$ is represented
+  by an element $\ell \in \ker(d^i_{L^\bullet})$, and its images in
+  $H^i(M^\bullet)$ under the morphisms induced by $\alpha^\bullet$,
+  $\beta^\bullet$ are represented by $\alpha^i(\ell)$,
+  $\beta^i(\ell)$. Since $\alpha^\bullet$, $\beta^\bullet$ are
+  homotopic, according to Definition~4.8 there are morphisms $h^i$
+  such that
+  \[
+    \beta^i(\ell) - \alpha^i(\ell) = d^{i-1}_{M^\bullet}(h^i(\ell)) +
+    h^{i+1}(d^i_{L^\bullet}(\ell)).
+  \]
+  Since $\ell \in \ker d^i_{L^\bullet}$, the last term vanishes. This
+  shows that
+  \[
+    \beta^i(\ell) - \alpha^i(\ell) \in \operatorname{im}d^i_{M^\bullet},
+  \]
+  proving that $\beta^i(\ell) - \alpha^i(\ell)$ vanishes in
+  $H^i(M^\bullet)$, as needed.
+\end{proof}
+
+For example, if $\alpha^\bullet$ is homotopic to the identity, then
+by Corollary~4.2 the cone of $\alpha^\bullet$ must be exact. It is a
+good exercise to verify this fact directly (Exercise~4.8).
+
+\begin{coro}{}{homol:4.11}
+  Homotopy equivalent complexes have isomorphic cohomology.
+\end{coro}
+
+\begin{proof}
+  Indeed, morphisms $\alpha^\bullet : L^\bullet \to M^\bullet$,
+  $\beta^\bullet : M^\bullet \to L^\bullet$ such that
+  $\beta^\bullet \circ \alpha^\bullet$ and
+  $\alpha^\bullet \circ \beta^\bullet$ are both homotopic to the
+  identity induce inverse morphisms in cohomology, by
+  Proposition~4.10.
+\end{proof}
+
+\begin{rem}{}{homol:4.12}
+  In other words, homotopy equivalences of complexes are
+  quasi-isomorphisms. This does not yet solve the `problem' that
+  quasi-isomorphisms are not invertible, since Example~4.6 shows that
+  quasi-isomorphisms may well not be invertible even up to homotopy.
+  In other words, `homotopy equivalence' is a more restrictive notion
+  than `quasi-isomorphism'. One reason to study complexes of
+  injective/projective modules, as we will do in \S{}5.3, is
+  precisely that quasi-isomorphism and homotopy equivalence are
+  equivalent notions for (bounded) complexes of injective or
+  projective modules. Since homotopy equivalence is a ready-made
+  equivalence relation on complexes, this will bypass any
+  technicality needed to make sense of `quasi-isomorphism' as an
+  equivalence relation.
+\end{rem}
+
+Corollary~4.11 is the main technical reason that makes the strategy
+presented in \S{}3.1 work, in a class of interesting examples. As we
+will see in due time, in these examples the cohomology of the
+relevant cochain complexes will end up being independent of the
+choices, because these choices will produce homotopic complexes.
+
+Another key observation will be that homotopy equivalence is
+preserved by any additive functor. Suppose $\mathsf{A}$,
+$\mathsf{B}$ are abelian categories and
+\[
+  \mathscr{F} : \mathsf{A} \longrightarrow \mathsf{B}
+\]
+is an additive functor (Definition~1.1). Then $\mathscr{F}$ induces
+an additive functor preserving the grading
+\[
+  \mathsf{C}(\mathscr{F}) : \mathsf{C}(\mathsf{A}) \longrightarrow
+  \mathsf{C}(\mathsf{B}).
+\]
+
+\begin{lem}{}{homol:4.13}
+  With $\mathscr{F}$ as above, if $\alpha^\bullet \sim \beta^\bullet$
+  in $\mathsf{C}(\mathsf{A})$, then
+  $\mathsf{C}(\mathscr{F})(\alpha^\bullet) \sim
+  \mathsf{C}(\mathscr{F})(\beta^\bullet)$ in $\mathsf{C}(\mathsf{B})$,
+  and if $L^\bullet$ and $M^\bullet$ are homotopy equivalent
+  complexes in $\mathsf{C}(\mathsf{A})$, then
+  $\mathsf{C}(\mathscr{F})(L^\bullet)$ and
+  $\mathsf{C}(\mathscr{F})(M^\bullet)$ are homotopy equivalent
+  complexes in $\mathsf{C}(\mathsf{B})$.
+\end{lem}
+
+\begin{proof}
+  The second assertion follows from the first. The first is an
+  immediate consequence of the fact that $\mathscr{F}$ is additive.
+  Indeed, if $h$ is a homotopy between
+  $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$, then
+  \[
+    \beta^i - \alpha^i = d^{i-1}_{M^\bullet} \circ h^i + h^{i+1}
+    \circ d^i_{L^\bullet}.
+  \]
+  Since $\mathscr{F}$ preserves the additive structure on Hom-sets,
+  this implies
+  \[
+    \mathscr{F}(\beta^i) - \mathscr{F}(\alpha^i) =
+    \mathscr{F}(d^{i-1}_{M^\bullet}) \circ \mathscr{F}(h^i) +
+    \mathscr{F}(h^{i+1}) \circ \mathscr{F}(d^i_{L^\bullet}),
+  \]
+  showing that the collection of morphisms $\mathscr{F}(h^i)$ gives a
+  homotopy between $\mathscr{F}(\alpha^\bullet)$ and
+  $\mathscr{F}(\beta^\bullet)$.
+\end{proof}
+
+Note that the analogous statement does \emph{not} hold for
+quasi-isomorphisms (Exercise~4.15): an additive functor does not
+preserve quasi-isomorphisms (while an exact functor does).
+
+Lemma~4.13 implies that the conclusion of Corollary~4.11 holds true
+after applying an additive functor:
+
+\begin{thm}{}{homol:4.14}
+  Let $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ be an additive functor
+  between two abelian categories. If $L^\bullet$, $M^\bullet$ are
+  homotopy equivalent complexes in $\mathsf{C}(\mathsf{A})$, then the
+  cohomology complexes
+  \[
+    H^\bullet(\mathsf{C}(\mathscr{F})(L^\bullet)), \quad
+    H^\bullet(\mathsf{C}(\mathscr{F})(M^\bullet))
+  \]
+  are isomorphic.
+\end{thm}
+
+The proof of this statement is essentially immediate after all our
+preparatory work, so it is left to the reader (Exercise~4.16).
+
+I am gracing this statement with theorem status because it is at the
+root of the strategy I am pursuing. The content of Theorem~4.14 is
+that any mechanism associating to a mathematical object a cochain
+complex determined up to homotopy will give rise to a slew of
+interesting invariants: apply your favorite additive functor to any
+such complex, take cohomology, and Theorem~4.14 guarantees that the
+result will be independent of the specific chosen complex. This is
+(part of) the reason underlying the various claims of independence on
+choices made in \S{}VIII.2.4 and \S{}VIII.6.4, concerning the
+definition of the Tor and Ext functors, as we will see later in the
+chapter (\S{}7, especially Examples~7.6 and~7.7).
 
 \subsection*{Exercises}
 
