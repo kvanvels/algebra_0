@@ -3876,481 +3876,546 @@ subgroup of $G$ (by Lemma~\ref{lem:groups:preimage-of-subgroup}) and
 contains $H$ (because $H = \pi^{-1}(e)$ and $e \in K'$). The reader
 will check that $u$ and $v$ are inverses of each other.
 \end{proof}
-% In fact, the correspondence is even nicer, in the sense that it preserves
-% normal-
-% ity. The following statement is often called the third isomorphism theorem:
-% Proposition 8.10. Let H be a normal subgroup of a group G, and let N be a
-% subgroup of G containing H. Then N/H is normal in G/H if and only if N is
-% normal in G, and in this case
-% G/H \sim  = G
-%  .
-% N/H
-%  N
-% Proof. If N is normal, then consider the projection
-% G
-% G \to 
-%  :
-% N
-% the subgroup H is contained in N , which is the kernel of this homomorphism, so
-% we get (by the universal property of quotients, Theorem 7.12) an induced homo-
-% morphism
-% G
-%  G
-% \to  .
-% H
-%  N
-% The subgroup N/H of G/H is the kernel of this homomorphism; therefore it is
-% normal.
-% Conversely, if N/H is normal in G/H, consider the composition
-% G
-%  G/H
-% G \setminus 
-%  \setminus 
-%  .
-% H
-%  N/H
-% The kernel of this homomorphism is N ; therefore N is normal. Further, this ho-
-% momorphism is surjective; hence the stated isomorphism (G/H)/(N/H) \sim 
-%  = G/N
-% follows immediately from Corollary 8.2.
-%  ?
+
+In fact, the correspondence is even nicer, in the sense that it
+preserves \emph{normality}. The following statement is often called
+the \emph{third isomorphism theorem}:
+
+\begin{prop}{Let $H$ be a normal subgroup of a group $G$, and let $N$
+be a subgroup of $G$ containing $H$. Then $N/H$ is normal in $G/H$ if
+and only if $N$ is normal in $G$, and in this case
+\[
+  \frac{G/H}{N/H} \cong \frac{G}{N}.
+\]}{prop:groups:third-isomorphism-theorem}
+\end{prop}
+\begin{proof}
+If $N$ is normal, then consider the projection
+\[
+  G \to \frac{G}{N}:
+\]
+the subgroup $H$ is contained in $N$, which is the kernel of this
+homomorphism, so we get (by the universal property of quotients,
+Theorem~\ref{thm:groups:quotient-universal-property}) an induced
+homomorphism
+\[
+  \frac{G}{H} \to \frac{G}{N}.
+\]
+The subgroup $N/H$ of $G/H$ is the kernel of this homomorphism;
+therefore it is normal.
+
+Conversely, if $N/H$ is normal in $G/H$, consider the composition
+\[
+  G \to \frac{G}{H} \to \frac{G/H}{N/H}.
+\]
+The kernel of this homomorphism is $N$; therefore $N$ is normal.
+Further, this homomorphism is surjective; hence the stated isomorphism
+$(G/H)/(N/H) \cong G/N$ follows immediately from
+Corollary~\ref{coro:groups:first-isomorphism-theorem}.
+\end{proof}
 
 \subsection{\texorpdfstring{HK/H vs.\ K/(H $\cap$ K)}{HK/H vs. K/(H cap K)}}
 \label{subsec:groups:hk-h-vs-k-h-cap-k}
-% Section 8.3 deals with two `nested' subgroups H \subseteq  K
+Section~$\S$8.3 deals with two `nested' subgroups $H \subseteq K$ of a
+group $G$. What if $H$, $K$ are not nested?
 
-% of a group G. What if H, K are not nested?
-% The notation introduced in \S{}7.1 extends to subsets of G: if A \subseteq  G, B
-% \subseteq  G,
-% then AB denotes the subset
-% AB := {ab | a \in  A, b \in  B}.
-% It would be nice if HK were guaranteed to be a subgroup of G as soon as H and K
-% are subgroups, but this is simply not the case in general, if G is not
-% commutative.
-% It is, however, the case if one of the subgroups is normal. The following is
-% often
-% called the second isomorphism theorem.
-% Proposition 8.11. Let H, K be subgroups of a group G, and assume that H is
-% normal in G. Then
-% \bullet  HK is a subgroup of G, and H is normal in HK;
-% \bullet  H \cap  K is normal in K, and
-% HK \sim  =
-%  K
-%  .
-% H
-%  H \cap  K
-% Proof. To verify that HK is a subgroup of G when H is normal, note that HK is
-% the union of all cosets Hk, with k \in  K; that is,
-% -1HK = \pi  (\pi (K)),
-% where \pi  : G \to  G/H is the canonical projection. Since \pi (K) is a subgroup
-% of G/H,
-% HK is a subgroup by Lemma 6.4. It is clear that H is normal in HK.
-% For the second part, consider the homomorphism
-% \phi  : K \to  HK/H
-% sending k \in  K to the coset Hk (that is, the inclusion K \setminus \to  HK
-% followed by the
-% canonical projection to the quotient). This is surjective: indeed, every element
-% of
-% HK/H may be written as a coset
-% Hhk,
-%  h \in  H, k \in  K;
-% but Hhk = Hk, so Hhk = \phi (k) is in the image of \phi . By the omnipresent
-% Corol-
-% lary 8.2,
-% HK \sim  =
-%  K
-%  .
-% H
-%  ker \phi 
-% What is ker \phi ?
-% ker \phi  = {k \in  K | \phi (k) = e} = {k \in  K | Hk = H} = {k \in  K | k \in
-% H} = H \cap  K,
-% with the stated result.
-%  ?
+The notation introduced in $\S$7.1 extends to subsets of $G$: if
+$A \subseteq G$, $B \subseteq G$, then $AB$ denotes the subset
+\[
+  AB := \{ab \mid a \in A, b \in B\}.
+\]
+It would be nice if $HK$ were guaranteed to be a subgroup of $G$ as
+soon as $H$ and $K$ are subgroups, but this is simply not the case in
+general, if $G$ is not commutative. It \emph{is}, however, the case if
+one of the subgroups is normal. The following is often called the
+\emph{second isomorphism theorem}.
+
+\begin{prop}{Let $H$, $K$ be subgroups of a group $G$, and assume that
+$H$ is normal in $G$. Then
+\begin{itemize}
+\item $HK$ is a subgroup of $G$, and $H$ is normal in $HK$;
+\item $H \cap K$ is normal in $K$, and
+\[
+  \frac{HK}{H} \cong \frac{K}{H \cap K}.
+\]
+\end{itemize}}{prop:groups:second-isomorphism-theorem}
+\end{prop}
+\begin{proof}
+To verify that $HK$ is a subgroup of $G$ when $H$ is normal, note that
+$HK$ is the union of all cosets $Hk$, with $k \in K$; that is,
+\[
+  HK = \pi^{-1}(\pi(K)),
+\]
+where $\pi : G \to G/H$ is the canonical projection. Since $\pi(K)$ is
+a subgroup of $G/H$, $HK$ is a subgroup by
+Lemma~\ref{lem:groups:preimage-of-subgroup}. It is clear that $H$ is
+normal in $HK$.
+
+For the second part, consider the homomorphism
+\[
+  \varphi : K \to HK/H
+\]
+sending $k \in K$ to the coset $Hk$ (that is, the inclusion
+$K \hookrightarrow HK$ followed by the canonical projection to the
+quotient). This is \emph{surjective}: indeed, every element of $HK/H$
+may be written as a coset
+\[
+  Hhk, \quad h \in H, k \in K;
+\]
+but $Hhk = Hk$, so $Hhk = \varphi(k)$ is in the image of $\varphi$. By
+the omnipresent Corollary~\ref{coro:groups:first-isomorphism-theorem},
+\[
+  \frac{HK}{H} \cong \frac{K}{\ker\varphi}.
+\]
+What is $\ker\varphi$?
+\[
+  \ker\varphi = \{k \in K \mid \varphi(k) = e\} = \{k \in K \mid Hk = H\}
+  = \{k \in K \mid k \in H\} = H \cap K,
+\]
+with the stated result.
+\end{proof}
 
 \subsection{The index and Lagrange's theorem}
 \label{subsec:groups:the-index-and-lagrange-s-theorem}
 
-% the set of left-cosets 37 of H, even when H is not normal in G. Thus G/H is a
-% set
-% in general, and it is a group when H is in fact normal in G.
-% Definition 8.12. The index of H in G, denoted [G : H], is the number of elements
-% |G/H| of G/H, when this is finite, and \infty  otherwise.
-%  ?
-% Thus, [G : H] (if finite) denotes the number of left-cosets of H in G,
-% regardless
-% of whether H is normal in G.
-% Lemma 8.13. Let H be a subgroup of a group G. Then \forall g \in  G the
-% functions
-% H \to  gH,
-%  h ?\to  gh,
-% H \to  Hg,
-%  h ?\to  hg
-% are bijections.
-% 37 This may seem an arbitrary choice (why not right-cosets?). It is. Writing
-% from left to right
-% gives us a bias towards left-actions, and G acts nicely on the left on the set
-% of left-cosets; this will
-% make better sense when we get to Example 9.4. In any case, there is a bijection
-% between the set
-% of left-cosets and the set of right-coset: Exercise 9.10.
-% Proof. Both functions are surjective by definition of coset. Cancellation
-% implies
-% that they are injective.
-%  ?
-% Corollary 8.14 (Lagrange's theorem). If G is a finite group and H \subseteq  G
-% is a
-% subgroup, then |G| = [G : H] \cdot  |H|. In particular, |H| is a divisor of |G|.
-% Proof. Indeed, G is the disjoint union of |G/H| distinct cosets gH, and |gH| =
-% |H|
-% by Lemma 8.13.
-%  ?
-% Lagrange's theorem is more useful than it may appear at first.
-% Example 8.15. The order |g| of any element g of a finite group G is a divisor
-% of |G|: indeed, |g| equals the order of the subgroup ?g? generated by g.
-% Note: Therefore, g |G| = eG for all finite groups G, all g \in  G.
-%  ?
-% Example 8.16. If |G| is a prime integer p, then necessarily G \sim 
-%  = Z/pZ.
-% Indeed, let g \in  G be any element other than the identity; then ?g? is a
-% subgroup
-% of G, of order > 1. By Lagrange's theorem, |?g?| = p = |G|; that is, G \sim 
-%  = ?g? is
-% cyclic of order p, as claimed.
-%  ?
-% Example 8.17 (Fermat's little theorem). Let p be a prime integer, and let a be
-% any integer. Then ap \equiv  a mod p.
-% Indeed, this is immediate if a is a multiple of p; if a is not a multiple of p,
-% then
-% the class [a]p modulo p is nonzero, so it is an element of the group (Z/pZ)\ast
-% , which
-% has order p - 1. Thus
-% [a]p-1
-%  p
-%  = [1]p
-% (Example 8.15); hence [a]p p
-%  = [a]p as claimed.
-%  ?
-% Warning: However, do not ask too much of Lagrange's theorem. For example,
-% it does not say that if d is a divisor of |G|, then there exists a subgroup of G
-% of
-% order d (the smallest counterexample is A4, a group of order 12, which does not
-% contain subgroups of order 6; the reader will verify this in Exercise IV.4.17);
-% it
-% does not even say that if p is a prime divisor of |G|, then there is an element
-% of
-% order p in G. This latter statement happens to be true, but for `deeper'
-% reasons.
-% The abelian case is easy (cf. Exercise 8.17). The general case is called
-% Cauchy's
-% theorem, and we will deal with it later on (cf. Theorem IV.2.1).
-% The index is a well-behaved invariant. It is clearly multiplicative, in the
-% sense
-% that if H \subseteq  K are subgroups of G, then
-% [G : H] = [G : K] \cdot  [K : H],
-% provided that these numbers are finite. Also, if H and K are subgroups of G and
-% H
-% is normal (so that HK is a subgroup as well; cf. Proposition 8.11), then
-% |H| \cdot  |K|
-% |HK| =
-% |H \cap  K|
-% (again, provided this has a chance of making sense, that is, if the orders are
-% finite):
-% this follows immediately from the isomorphism in Proposition 8.11 and index con-
-% siderations. In fact, the formula holds even without assuming that one of the
-% subgroups is normal in G. Do you see why? (Exercise 8.21.)
-% Further, if H and G are finite, then Lemma 8.13 implies immediately that the
-% index of H in G, defined as the number of left-cosets of H in G, also equals the
-% number of right-cosets of H. It is in fact easy to show that there always is a
-% bijection
-% between the set G/H of left-cosets and the set of right-cosets (cf. Exercise
-% 9.10),
-% regardless of finiteness hypotheses. The set of right-cosets of H in G is often
-% (reasonably) denoted H\G.
+The notation $G/H$ is used to denote the \emph{set of
+left-cosets}\footnote{This may seem an arbitrary choice (why not
+right-cosets?). It is. Writing from left to right gives us a bias
+towards left-actions, and $G$ acts nicely on the left on the set of
+left-cosets; this will make better sense when we get to Example~9.4. In
+any case, there is a bijection between the set of left-cosets and the
+set of right-cosets: Exercise~9.10.} of $H$, even when $H$ is not
+normal in $G$. Thus $G/H$ is a set in general, and it is a group when
+$H$ is in fact normal in $G$.
+
+\begin{defn}{Index}{defn:groups:index}
+The \emph{index} of $H$ in $G$, denoted $[G:H]$, is the number of
+elements $|G/H|$ of $G/H$, when this is finite, and $\infty$ otherwise.
+\end{defn}
+
+Thus, $[G:H]$ (if finite) denotes the number of left-cosets of $H$ in
+$G$, regardless of whether $H$ is normal in $G$.
+
+\begin{lem}{Let $H$ be a subgroup of a group $G$. Then $\forall g \in G$
+the functions
+\[
+  H \to gH, \quad h \mapsto gh, \qquad\qquad H \to Hg, \quad h \mapsto hg
+\]
+are bijections.}{lem:groups:coset-bijections}
+\end{lem}
+\begin{proof}
+Both functions are surjective by definition of coset. Cancellation
+implies that they are injective.
+\end{proof}
+
+\begin{coro}{(Lagrange's theorem) If $G$ is a finite group and
+$H \subseteq G$ is a subgroup, then $|G| = [G:H] \cdot |H|$. In
+particular, $|H|$ is a divisor of $|G|$.}{coro:groups:lagrange}
+\end{coro}
+\begin{proof}
+Indeed, $G$ is the disjoint union of $|G/H|$ distinct cosets $gH$, and
+$|gH| = |H|$ by Lemma~\ref{lem:groups:coset-bijections}.
+\end{proof}
+
+Lagrange's theorem is more useful than it may appear at first.
+
+\begin{exam}{}{exam:groups:order-divides-order-of-group}
+The order $|g|$ of any element $g$ of a finite group $G$ is a divisor
+of $|G|$: indeed, $|g|$ equals the order of the subgroup
+$\langle g \rangle$ generated by $g$.
+
+Note: Therefore, $g^{|G|} = e_G$ for all finite groups $G$, all
+$g \in G$.
+\end{exam}
+
+\begin{exam}{}{exam:groups:prime-order-is-cyclic}
+If $|G|$ is a prime integer $p$, then necessarily
+$G \cong \mathbb{Z}/p\mathbb{Z}$.
+
+Indeed, let $g \in G$ be any element other than the identity; then
+$\langle g \rangle$ is a subgroup of $G$, of order $> 1$. By
+Lagrange's theorem, $|\langle g \rangle| = p = |G|$; that is,
+$G \cong \langle g \rangle$ is cyclic of order $p$, as claimed.
+\end{exam}
+
+\begin{exam}{(Fermat's little theorem)}{exam:groups:fermats-little-theorem}
+Let $p$ be a prime integer, and let $a$ be any integer. Then
+$a^p \equiv a \mod p$.
+
+Indeed, this is immediate if $a$ is a multiple of $p$; if $a$ is not a
+multiple of $p$, then the class $[a]_p$ modulo $p$ is nonzero, so it is
+an element of the group $(\mathbb{Z}/p\mathbb{Z})^*$, which has order
+$p-1$. Thus
+\[
+  [a]_p^{p-1} = [1]_p
+\]
+(Example~\ref{exam:groups:order-divides-order-of-group}); hence
+$[a]_p^p = [a]_p$ as claimed.
+\end{exam}
+
+\textbf{Warning:} However, do not ask too much of Lagrange's theorem.
+For example, it does \emph{not} say that if $d$ is a divisor of $|G|$,
+then there exists a subgroup of $G$ of order $d$ (the smallest
+counterexample is $A_4$, a group of order $12$, which does not contain
+subgroups of order $6$; the reader will verify this in
+Exercise~IV.4.17); it does not even say that if $p$ is a prime divisor
+of $|G|$, then there is an element of order $p$ in $G$. This latter
+statement happens to be true, but for `deeper' reasons. The abelian
+case is easy (cf.\ Exercise~8.17). The general case is called
+\emph{Cauchy's theorem}, and we will deal with it later on (cf.\
+Theorem~IV.2.1).
+
+The index is a well-behaved invariant. It is clearly multiplicative,
+in the sense that if $H \subseteq K$ are subgroups of $G$, then
+\[
+  [G:H] = [G:K] \cdot [K:H],
+\]
+provided that these numbers are finite. Also, if $H$ and $K$ are
+subgroups of $G$ and $H$ is normal (so that $HK$ is a subgroup as well;
+cf.\ Proposition~\ref{prop:groups:second-isomorphism-theorem}), then
+\[
+  |HK| = \frac{|H| \cdot |K|}{|H \cap K|}
+\]
+(again, provided this has a chance of making sense, that is, if the
+orders are finite): this follows immediately from the isomorphism in
+Proposition~\ref{prop:groups:second-isomorphism-theorem} and index
+considerations. In fact, the formula holds even without assuming that
+one of the subgroups is normal in $G$. Do you see why?
+(Exercise~8.21.)
+
+Further, if $H$ and $G$ are finite, then
+Lemma~\ref{lem:groups:coset-bijections} implies immediately that the
+index of $H$ in $G$, defined as the number of left-cosets of $H$ in
+$G$, also equals the number of right-cosets of $H$. It is in fact easy
+to show that there always is a bijection between the set $G/H$ of
+left-cosets and the set of right-cosets (cf.\ Exercise~9.10),
+regardless of finiteness hypotheses. The set of right-cosets of $H$ in
+$G$ is often (reasonably) denoted $H \backslash G$.
 
 \subsection{Epimorphisms and cokernels}
 \label{subsec:groups:epimorphisms-and-cokernels}
-% The reader may expect that a mirror state-
+The reader may expect that a mirror statement to
+Proposition~\ref{prop:groups:monomorphism-characterization} should
+hold for group \emph{epimorphisms}. This is almost true: a
+homomorphism $\varphi : G \to H$ is an epimorphism (in the category
+$\mathsf{Grp}$) if and only if it is surjective. However, while one
+implication is easy, the proofs I know for
+epimorphism $\implies$ surjective in $\mathsf{Grp}$ are somewhat
+cumbersome.
 
-% ment to Proposition 6.12 should hold for group epimorphisms. This is almost
-% true:
-% a homomorphism \phi  : G \to  H is an epimorphism (in the category Grp) if and
-% only
-% if it is surjective. However, while one implication is easy, the proofs I know
-% for
-% epimorphism \implies  surjective in Grp are somewhat cumbersome.
-% The situation is leaner (as usual) in Ab: there is in Ab a good notion of
-% cokernel;
-% this is part of what makes Ab an `abelian category'.
-% As is often the case, the reader may now want to pause a moment and try
-% to guess the right definition. Keeping in mind the universal property for
-% kernels
-% (Proposition 6.6), can the reader come up with the universal property defining
-% `cokernels' ? Can the reader prove that these exist in Ab and detect
-% epimorphisms?
-% Don't look ahead!
-% Here is how the story goes. The universal property is (of course) obtained by
-% reversing the arrows in the property for kernels: given a homomorphism \phi  : G
-% \to  G\setminus
-% of abelian groups, we want an abelian group coker \phi  equipped with a
-% homomorphism
-% \pi  : G\setminus  \to  coker \phi 
-% which is initial with respect to all morphisms \alpha  such that \alpha  \circ
-% \phi  = 0. That is, every
-% homomorphism \alpha  : G\setminus  \to  L such that \alpha  \circ \phi  is the
-% trivial map must factor (uniquely)
-% through coker \phi :
-% G
-%  / G\setminus 
-%  (/
-%  L
-% \phi 
-%  \amalg  \pi 
-%  x x x x \alpha 
-%  x
-%  \exists !\alpha 
-%  x
-%  x
-%  x
-%  x
-%  <coker \phi 
-% Cokernels exist in Ab: because the image of \phi  is a subgroup of G\setminus ,
-% hence a normal
-% subgroup of G\setminus  since G\setminus  is abelian; the condition that \alpha
-% \circ  \phi  is trivial says that
-% im \phi  \subseteq  ker \alpha , and hence
-% G\setminus \sim 
-%  = coker \phi 
-% im \phi 
-% satisfies the universal property, by Theorem 7.12.
-% The `problem' in Grp is that im \phi  is not guaranteed to be normal in
-% G\setminus ; thus
-% the situation is more complex.
-% Also note that, in the abelian case, G\setminus  / im \phi  automatically
-% satisfies a stronger
-% universal property: as stated, but with respect to any set-function G\setminus
-% \to  L which
-% is constant on cosets of im \phi .
-% We can now state a true mirror of Proposition 6.12, in Ab:
-% Proposition 8.18. Let \phi  : G \to  G\setminus  be a homomorphism of abelian
-% groups. The
-% following are equivalent:
-% (a) \phi  is an epimorphism;
-% (b) coker \phi  is trivial;
-% (c) \phi  : G \to  G\setminus  is surjective (as a set-function).
-% Proof. (a) \implies  (b): Assume (a) holds, and consider the two parallel
-% compositions
-% G
-%  \phi 
-%  / G\setminus 
-%  \pi 
-%  // coker \phi ,
-% e
-% where \pi  is the canonical projection and e is the trivial map. Both \pi  \circ
-% \phi  and e\circ \phi  are
-% the trivial map; since \phi  is an epimorphism, this implies \pi  = e. But \pi
-% = e implies
-% that coker \phi  is trivial, that is, (b) holds.
-% (b) \implies  (c): If coker \phi  = G\setminus / im \phi  is trivial, then im
-% \phi  = G\setminus  ; hence \phi  is
-% surjective.
-% (c) \implies  (a): If \phi  is surjective, then it satisfies the universal
-% property for epi-
-% morphisms in Set: for any set Z and any two set-functions \alpha \setminus  and
-% \alpha \setminus \setminus  : G\setminus  \to  Z,
-% \alpha \setminus  \circ  \phi  = \alpha \setminus \setminus  \circ  \phi  \iff  \alpha \setminus  = \alpha \setminus \setminus  .
-% This must hold in particular if Z is endowed with a group structure and \alpha
-% \setminus , \alpha  \setminus \setminus  are
-% group homomorphisms, so \phi  is an epimorphism in Grp.
-%  ?
-% A cokernel may be defined in Grp: the universal property for the cokernel
-% of \phi  : G \to  G\setminus  is satisfied by G\setminus  /N , where N is the
-% smallest 38 normal subgroup
-% of G\setminus  containing im \phi  (Exercise 8.22). But Proposition 8.18 fails,
-% because the
-% implication (b) \implies  (c) does not hold: in Grp it is no longer true that
-% only surjective
-% homomorphisms have trivial cokernel (cf. Exercise 8.23).
+The situation is leaner (as usual) in $\mathsf{Ab}$: there is in
+$\mathsf{Ab}$ a good notion of \emph{cokernel}; this is part of what
+makes $\mathsf{Ab}$ an `abelian category'.
+
+As is often the case, the reader may now want to pause a moment and
+try to guess the right definition. Keeping in mind the universal
+property for kernels
+(Proposition~\ref{prop:groups:kernel-universal-property}), can the
+reader come up with the universal property defining `cokernels'? Can
+the reader prove that these exist in $\mathsf{Ab}$ and detect
+epimorphisms? Don't look ahead!
+
+Here is how the story goes. The universal property is (of course)
+obtained by reversing the arrows in the property for kernels: given a
+homomorphism $\varphi : G \to G'$ of abelian groups, we want an abelian
+group $\operatorname{coker}\varphi$ equipped with a homomorphism
+\[
+  \pi : G' \to \operatorname{coker}\varphi
+\]
+which is initial with respect to all morphisms $\alpha$ such that
+$\alpha \circ \varphi = 0$. That is, every homomorphism
+$\alpha : G' \to L$ such that $\alpha \circ \varphi$ is the trivial map
+must factor (uniquely) through $\operatorname{coker}\varphi$:
+\[
+\begin{tikzcd}
+  G \arrow[rr, "0", bend left=15] \arrow[r, "\varphi"'] & G'
+  \arrow[r, "\alpha"] \arrow[d, "\pi"'] & L \\
+  & \operatorname{coker}\varphi \arrow[ur, dashed, "\exists ! \bar\alpha"'] &
+\end{tikzcd}
+\]
+Cokernels exist in $\mathsf{Ab}$: because the image of $\varphi$ is a
+subgroup of $G'$, hence a normal subgroup of $G'$ since $G'$ is
+abelian; the condition that $\alpha \circ \varphi$ is trivial says that
+$\operatorname{im}\varphi \subseteq \ker\alpha$, and hence
+\[
+  \frac{G'}{\operatorname{im}\varphi} \cong \operatorname{coker}\varphi
+\]
+satisfies the universal property, by
+Theorem~\ref{thm:groups:quotient-universal-property}.
+
+The `problem' in $\mathsf{Grp}$ is that $\operatorname{im}\varphi$ is
+not guaranteed to be normal in $G'$; thus the situation is more
+complex.
+
+Also note that, in the abelian case, $G'/\operatorname{im}\varphi$
+automatically satisfies a stronger universal property: as stated, but
+with respect to any set-function $G' \to L$ which is constant on
+cosets of $\operatorname{im}\varphi$.
+
+We can now state a true mirror of
+Proposition~\ref{prop:groups:monomorphism-characterization}, in
+$\mathsf{Ab}$:
+
+\begin{prop}{Let $\varphi : G \to G'$ be a homomorphism of abelian
+groups. The following are equivalent:
+\begin{enumerate}[label=(\alph*)]
+  \item $\varphi$ is an epimorphism;
+  \item $\operatorname{coker}\varphi$ is trivial;
+  \item $\varphi : G \to G'$ is surjective (as a
+    set-function).
+\end{enumerate}}{prop:groups:epimorphism-characterization}
+\end{prop}
+\begin{proof}
+(a) $\implies$ (b): Assume (a) holds, and consider the two parallel
+compositions
+\[
+\begin{tikzcd}
+  G \arrow[r, "\varphi"] & G' \arrow[r, shift left, "\pi"]
+  \arrow[r, shift right, "e"'] & \operatorname{coker}\varphi,
+\end{tikzcd}
+\]
+where $\pi$ is the canonical projection and $e$ is the trivial map.
+Both $\pi \circ \varphi$ and $e \circ \varphi$ are the trivial map;
+since $\varphi$ is an epimorphism, this implies $\pi = e$. But
+$\pi = e$ implies that $\operatorname{coker}\varphi$ is trivial, that
+is, (b) holds.
+
+(b) $\implies$ (c): If $\operatorname{coker}\varphi = G'/\operatorname{im}\varphi$
+is trivial, then $\operatorname{im}\varphi = G'$; hence $\varphi$ is
+surjective.
+
+(c) $\implies$ (a): If $\varphi$ is surjective, then it satisfies the
+universal property for epimorphisms in $\mathsf{Set}$: for any set $Z$
+and any two set-functions $\alpha', \alpha'' : G' \to Z$,
+\[
+  \alpha' \circ \varphi = \alpha'' \circ \varphi \iff \alpha' = \alpha''.
+\]
+This must hold in particular if $Z$ is endowed with a group structure
+and $\alpha'$, $\alpha''$ are group homomorphisms, so $\varphi$ is an
+epimorphism in $\mathsf{Grp}$.
+\end{proof}
+
+A cokernel may be defined in $\mathsf{Grp}$: the universal property for
+the cokernel of $\varphi : G \to G'$ is satisfied by $G'/N$, where $N$
+is the smallest\footnote{The intersection of any family of normal
+subgroups is normal, as the reader may readily check, so this subgroup
+exists.} normal subgroup of $G'$ containing $\operatorname{im}\varphi$
+(Exercise~8.22). \emph{But} Proposition~\ref{prop:groups:epimorphism-characterization}
+fails, because the implication (b) $\implies$ (c) does not hold: in
+$\mathsf{Grp}$ it is no longer true that only surjective homomorphisms
+have trivial cokernel (cf.\ Exercise~8.23).
 
 \subsection*{Exercises}
 
-% 8.1. If a group H may be realized as a subgroup of two groups G1 and G2 and if
-% G1 \sim  =
-%  G2
-%  ,
-% H
-%  H
-% does it follows that G1 \sim 
-%  = G2 ? Give a proof or a counterexample.
-% 8.2. \lnot  Extend Example 8.6 as follows. Suppose G is a group and H \subseteq
-% G is a
-% subgroup of index 2, that is, such that there are precisely two (say, left-)
-% cosets
-% of H in G. Prove that H is normal in G. [9.11, IV.1.16]
-% 8.3. Prove that every finite group is finitely presented.
-% 38 The intersection of any family of normal subgroups is normal, as the reader
-% may readily
-% check, so this subgroup exists.
-% 8.4. Prove that (a, b|a2 , b2, (ab)n ) is a presentation of the dihedral group
-% D2n .
-% (Hint: With respect to the generators defined in Exercise 2.5, set a = x and
-% b = xy; prove you can get the relations given here from the ones you obtained
-% in Exercise 2.5, and conversely.)
-% 8.5. Let a, b be distinct elements of order 2 in a group G, and assume that ab
-% has
-% finite order n \geq  3. Prove that the subgroup generated by a and b in G is
-% isomorphic
-% to the dihedral group D2n . (Use the previous exercise.)
-% 8.6. \lnot  Let G be a group, and let A be a set of generators for G; assume A
-% is
-% finite. The corresponding Cayley graph 39 is a directed graph whose set of
-% vertices
-% is in one-to-one correspondence with G, and two vertices g1 , g2 are connected
-% by
-% an edge if g2 = g1 a for an a \in  A; this edge may be labeled a and oriented
-% from g1
-% to g2. For example, the graph drawn in Example 5.3 for the free group F ({x, y})
-% on two generators x, y is the corresponding Cayley graph (with the convention
-% that
-% horizontal edges are labeled x and point to the right and vertical edges are
-% labeled y
-% and point up).
-% Prove that if a Cayley graph of a group is a tree, then the group is free.
-% Conversely, prove that free groups admit Cayley graphs that are trees. [\S{}5.3,
-% 9.15]
-% 8.7. ? Let (A|R), resp., (A\setminus  |R \setminus  ), be a presentation for a
-% group G, resp., G\setminus  (cf. \S{}8.2);
-% we may assume that A, A\setminus  are disjoint. Prove that the group G \ast
-% G\setminus  presented by
-% (A \cup  A\setminus  | R \cup  R \setminus )
-% satisfies the universal property for the coproduct of G and G\setminus  in Grp.
-% (Use the
-% universal properties of both free groups and quotients to construct natural
-% homo-
-% morphisms G \to  G \ast  G\setminus  , G\setminus  \to  G \ast  G\setminus  .)
-% [\S{}3.4, \S{}8.2, 9.14]
-% 8.8. \lnot  (If you know about matrices (cf. Exercise 6.1).) Prove that SL n(R)
-% is
-% a normal subgroup of GLn (R), and `compute' GLn (R)/ SL n(R) as a well-known
-% group. [VI.3.3]
-% 8.9. \lnot  (Ditto.) Prove that SO3 (R) = \sim 
-%  SU(2)/{\pm I2 }, where I2 is the identity matrix.
-% (Hint: It so happens that every matrix in SO3 (R) can be written in the form
-% ( )
-% a2
-%  + b2 - c2 - d2
-%  2(bc - ad)
-%  2(ac + bd)
-% ( 2(ad + bc)
-%  a2 - b2 + c2 - d2
-%  2(cd - ab) )
-% 2(bd - ac)
-%  2(ab + cd)
-%  a2
-%  - b2 - c2 + d2
-% where a, b, c, d \in  R and a2 +b2 +c2 +d2 = 1. Proving this fact is not hard,
-% but at this
-% stage you will probably find it computationally demanding. Feel free to assume
-% this,
-% and use Exercise 6.3 to construct a surjective homomorphism SU(2) \to  SO3 (R);
-% compute the kernel of this homomorphism.)
-% If you know a little topology, you can now conclude that the fundamental
-% group40 of SO3(R) is C2 . [9.1, VI.1.3]
-% 39 Warning: This is one of several alternative conventions.
-% 40 If you really want to believe this fact, remember that SO3
-% (R) parametrizes rotations in R3 .
-% Hold a tray with a glass of water on top of your extended right hand. You should
-% be able to rotate
-% the tray clockwise by a full 360\circ  without spilling the water, and your
-% muscles will tell you that
-% the corresponding loop in SO3 (R) is not trivial. But then you will be able to
-% rotate the tray again
-% 8.10. View Z \times  Z as a subgroup of R \times  R:
-% Describe the quotient
-% R \times  R
-% Z \times  Z
-% in terms analogous to those used in Example 8.7. (Can you `draw a picture' of
-% this
-% group? Cf. Exercise I.1.6.)
-% 8.11. (Notation as in Proposition 8.10.) Prove `by hand' (that is, without
-% invoking
-% universal properties) that N is normal in G if and only if N/H is normal in G/H.
-% 8.12. (Notation as in Proposition 8.11.) Prove `by hand' (that is, by using
-% Propo-
-% sition 6.2) that HK is a subgroup of G if H is normal.
-% 8.13. \lnot  Let G be a finite group, and assume |G| is odd. Prove that every
-% element
-% of G is a square. [8.14]
-% 8.14. Generalize the result of Exercise 8.13: if G is a group of order n and k
-% is an
-% integer relatively prime to n, then the function G \to  G, g ?\to  gk is
-% surjective.
-% 8.15. Let a, n be positive integers, with a > 1. Prove that n divides \varphi
-% (an - 1),
-% where \varphi  is Euler's \varphi -function; see Exercise 6.14. (Hint: Example
-% 8.15.)
-% 8.16. Generalize Fermat's little theorem to congruences modulo arbitrary (that
-% is,
-% possibly nonprime) integers. Note that it is not true that an \equiv  a mod n
-% for all
-% a and n: for example, 24 is not congruent to 2 modulo 4. What is true? (This
-% generalization is known as Euler's theorem.)
-% 8.17. ? Assume G is a finite abelian group, and let p be a prime divisor of |G|.
-% Prove that there exists an element in G of order p. (Hint: Let g be any element
-% of G, and consider the subgroup ?g?; use the fact that this subgroup is cyclic
-% to
-% show that there is an element h \in  ?g? in G of prime order q. If q = p, you
-% are done;
-% otherwise, use the quotient G/?h? and induction.) [\S{}8.5, 8.18, 8.20,
-% \S{}IV.2.1]
-% 8.18. Let G be an abelian group of order 2n, where n is odd. Prove that G has
-% exactly one element of order 2. (It has at least one, for example by Exercise
-% 8.17.
-% Use Lagrange's theorem to establish that it cannot have more than one.) Does the
-% same conclusion hold if G is not necessarily commutative?
-% a full 360\circ  clockwise without spilling any water, taking it back to the
-% original position. Thus, the
-% square of the loop is (homotopically) trivial, as it should be if the
-% fundamental group is cyclic of
-% order 2.
-% 8.19. Let G be a finite group, and let d be a proper divisor of |G|. Is it
-% necessarily
-% true that there exists an element of G of order d? Give a proof or a
-% counterexample.
-% 8.20. ? Assume G is a finite abelian group, and let d be a divisor of |G|. Prove
-% that there exists a subgroup H \subseteq  G of order d. (Hint: induction; use
-% Exercise 8.17.)
-% [\S{}IV.2.2]
-% 8.21. ? Let H, K be subgroups of a group G. Construct a bijection between the
-% set of cosets hK with h \in  H and the set of left-cosets of H \cap  K in H. If
-% H and K
-% are finite, prove that
-% |H| \cdot  |K|
-% |HK| =
-%  .
-% |H \cap  K|
-% [\S{}8.5, \S{}IV.4.4]
-% 8.22. ? Let \phi  : G \to  G\setminus  be a group homomorphism, and let N be the
-% smallest
-% normal subgroup containing im \phi . Prove that G\setminus  /N satisfies the
-% universal property
-% of coker \phi  in Grp. [\S{}8.6]
-% 8.23. ? Consider the subgroup
-% ?
-%  ?
-% 1 2 3
-%  1 2 3
-% H =
-%  ,
-% 1 2 3
-%  2 1 3
-% of S3 . Show that the cokernel of the inclusion H \setminus \to  S3 is trivial,
-% although H \setminus \to  S3
-% is not surjective. [\S{}8.6]
-% 8.24. ? Show that epimorphisms in Grp do not necessarily have right-inverses.
-% [\S{}I.4.2]
-% 8.25. Let H be a commutative normal subgroup of G. Construct an interesting
-% homomorphism from G/H to Aut(H). (Cf. Exercise 7.10.)
+\begin{exer}{}{exer:groups:same-subgroup-two-groups-isomorphic}
+If a group $H$ may be realized as a subgroup of two groups $G_1$ and
+$G_2$ and if
+\[
+  \frac{G_1}{H} \cong \frac{G_2}{H},
+\]
+does it follow that $G_1 \cong G_2$? Give a proof or a
+counterexample.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:index-2-subgroup-normal}
+Extend Example~\ref{exam:groups:d6-mod-c3} as follows. Suppose $G$ is a
+group and $H \subseteq G$ is a subgroup \emph{of index $2$}, that is,
+such that there are precisely two (say, left-) cosets of $H$ in $G$.
+Prove that $H$ is normal in $G$. [9.11, IV.1.16]
+\end{exer}
+\begin{exer}{}{exer:groups:finite-groups-finitely-presented}
+Prove that every finite group is finitely presented.
+\end{exer}
+\begin{exer}{}{exer:groups:dihedral-presentation}
+Prove that $(a,b \mid a^2, b^2, (ab)^n)$ is a presentation of the
+dihedral group $D_{2n}$. (Hint: With respect to the generators defined
+in Exercise~2.5, set $a = x$ and $b = xy$; prove you can get the
+relations given here from the ones you obtained in Exercise~2.5, and
+conversely.)
+\end{exer}
+\begin{exer}{}{exer:groups:order-2-generators-dihedral}
+Let $a$, $b$ be distinct elements of order $2$ in a group $G$, and
+assume that $ab$ has finite order $n \geq 3$. Prove that the subgroup
+generated by $a$ and $b$ in $G$ is isomorphic to the dihedral group
+$D_{2n}$. (Use the previous exercise.)
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:cayley-graph-tree-iff-free}
+Let $G$ be a group, and let $A$ be a set of generators for $G$; assume
+$A$ is finite. The corresponding \emph{Cayley graph}\footnote{Warning:
+This is one of several alternative conventions.} is a directed graph
+whose set of vertices is in one-to-one correspondence with $G$, and
+two vertices $g_1$, $g_2$ are connected by an edge if $g_2 = g_1a$ for
+an $a \in A$; this edge may be labeled $a$ and oriented from $g_1$ to
+$g_2$. For example, the graph drawn in Example~5.3 for the free group
+$F(\{x,y\})$ on two generators $x$, $y$ is the corresponding Cayley
+graph (with the convention that horizontal edges are labeled $x$ and
+point to the right and vertical edges are labeled $y$ and point up).
+
+Prove that if a Cayley graph of a group is a tree, then the group is
+free. Conversely, prove that free groups admit Cayley graphs that are
+trees. [$\S$5.3, 9.15]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:coproduct-via-presentations}
+Let $(A \mid \mathscr{R})$, resp., $(A' \mid \mathscr{R}')$, be a
+presentation for a group $G$, resp., $G'$ (cf.\ $\S$8.2); we may assume
+that $A$, $A'$ are disjoint. Prove that the group $G * G'$ presented by
+\[
+  (A \cup A' \mid \mathscr{R} \cup \mathscr{R}')
+\]
+satisfies the universal property for the \emph{coproduct} of $G$ and
+$G'$ in $\mathsf{Grp}$. (Use the universal properties of both free
+groups and quotients to construct natural homomorphisms
+$G \to G * G'$, $G' \to G * G'$.) [$\S$3.4, $\S$8.2, 9.14]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:sln-normal-in-gln}
+(If you know about matrices (cf.\ Exercise~6.1).) Prove that
+$\mathrm{SL}_n(\mathbb{R})$ is a \emph{normal} subgroup of
+$\mathrm{GL}_n(\mathbb{R})$, and `compute'
+$\mathrm{GL}_n(\mathbb{R})/\mathrm{SL}_n(\mathbb{R})$ as a well-known
+group. [VI.3.3]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:so3-su2-mod-plusminus-i}
+(Ditto.) Prove that $\mathrm{SO}_3(\mathbb{R}) \cong \mathrm{SU}(2)/\{\pm I_2\}$,
+where $I_2$ is the identity matrix. (Hint: It so happens that every
+matrix in $\mathrm{SO}_3(\mathbb{R})$ can be written in the form
+\[
+  \begin{pmatrix}
+    a^2+b^2-c^2-d^2 & 2(bc-ad) & 2(ac+bd) \\
+    2(ad+bc) & a^2-b^2+c^2-d^2 & 2(cd-ab) \\
+    2(bd-ac) & 2(ab+cd) & a^2-b^2-c^2+d^2
+  \end{pmatrix}
+\]
+where $a,b,c,d \in \mathbb{R}$ and $a^2+b^2+c^2+d^2=1$. Proving this
+fact is not hard, but at this stage you will probably find it
+computationally demanding. Feel free to assume this, and use
+Exercise~6.3 to construct a surjective homomorphism
+$\mathrm{SU}(2) \to \mathrm{SO}_3(\mathbb{R})$; compute the kernel of
+this homomorphism.)
+
+If you know a little topology, you can now conclude that the
+fundamental group\footnote{If you really want to believe this fact,
+remember that $\mathrm{SO}_3(\mathbb{R})$ parametrizes rotations in
+$\mathbb{R}^3$. Hold a tray with a glass of water on top of your
+extended right hand. You should be able to rotate the tray clockwise
+by a full $360^\circ$ without spilling the water, and your muscles
+will tell you that the corresponding loop in $\mathrm{SO}_3(\mathbb{R})$
+is \emph{not} trivial. But then you will be able to rotate the tray
+again a full $360^\circ$ clockwise without spilling any water, taking
+it back to the original position. Thus, the square of the loop is
+(homotopically) trivial, as it should be if the fundamental group is
+cyclic of order $2$.} of $\mathrm{SO}_3(\mathbb{R})$ is $C_2$. [9.1,
+VI.1.3]
+\end{exer}
+\begin{exer}{}{exer:groups:r2-mod-z2-torus}
+View $\mathbb{Z} \times \mathbb{Z}$ as a subgroup of
+$\mathbb{R} \times \mathbb{R}$:
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+  \draw[->] (-3.5,0) -- (3.5,0);
+  \draw[->] (0,-3.5) -- (0,3.5);
+  \foreach \x in {-3,...,3} {
+    \foreach \y in {-3,...,3} {
+      \fill (\x,\y) circle (2pt);
+    }
+  }
+\end{tikzpicture}
+\end{center}
+Describe the quotient
+\[
+  \frac{\mathbb{R} \times \mathbb{R}}{\mathbb{Z} \times \mathbb{Z}}
+\]
+in terms analogous to those used in Example~\ref{exam:groups:r-mod-z-is-circle}.
+(Can you `draw a picture' of this group? Cf.\ Exercise~I.1.6.)
+\end{exer}
+\begin{exer}{}{exer:groups:third-isomorphism-by-hand}
+(Notation as in Proposition~\ref{prop:groups:third-isomorphism-theorem}.)
+Prove `by hand' (that is, without invoking universal properties) that
+$N$ is normal in $G$ if and only if $N/H$ is normal in $G/H$.
+\end{exer}
+\begin{exer}{}{exer:groups:second-isomorphism-by-hand}
+(Notation as in Proposition~\ref{prop:groups:second-isomorphism-theorem}.)
+Prove `by hand' (that is, by using Proposition~\ref{prop:groups:subgroup-criterion})
+that $HK$ is a subgroup of $G$ if $H$ is normal.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:groups:odd-order-every-element-square}
+Let $G$ be a finite group, and assume $|G|$ is odd. Prove that every
+element of $G$ is a square. [8.14]
+\end{exer}
+\begin{exer}{}{exer:groups:gk-surjective-coprime}
+Generalize the result of Exercise~8.13: if $G$ is a group of order $n$
+and $k$ is an integer relatively prime to $n$, then the function
+$G \to G$, $g \mapsto g^k$ is surjective.
+\end{exer}
+\begin{exer}{}{exer:groups:n-divides-phi-an-minus-1}
+Let $a$, $n$ be positive integers, with $a > 1$. Prove that $n$
+divides $\varphi(a^n-1)$, where $\varphi$ is Euler's $\varphi$-function;
+see Exercise~6.14. (Hint: Example~\ref{exam:groups:order-divides-order-of-group}.)
+\end{exer}
+\begin{exer}{}{exer:groups:eulers-theorem}
+Generalize Fermat's little theorem to congruences modulo arbitrary
+(that is, possibly nonprime) integers. Note that it is \emph{not} true
+that $a^n \equiv a \mod n$ for all $a$ and $n$: for example, $2^4$ is
+not congruent to $2$ modulo $4$. What is true? (This generalization is
+known as \emph{Euler's theorem}.)
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:cauchy-abelian}
+Assume $G$ is a finite abelian group, and let $p$ be a prime divisor of
+$|G|$. Prove that there exists an element in $G$ of order $p$. (Hint:
+Let $g$ be any element of $G$, and consider the subgroup
+$\langle g \rangle$; use the fact that this subgroup is cyclic to show
+that there is an element $h \in \langle g \rangle$ in $G$ of prime
+order $q$. If $q = p$, you are done; otherwise, use the quotient
+$G/\langle h \rangle$ and induction.) [$\S$8.5, 8.18, 8.20, $\S$IV.2.1]
+\end{exer}
+\begin{exer}{}{exer:groups:abelian-order-2n-one-element-order-2}
+Let $G$ be an abelian group of order $2n$, where $n$ is odd. Prove
+that $G$ has exactly one element of order $2$. (It has at least one,
+for example by Exercise~8.17. Use Lagrange's theorem to establish that
+it cannot have more than one.) Does the same conclusion hold if $G$ is
+not necessarily commutative?
+\end{exer}
+\begin{exer}{}{exer:groups:proper-divisor-element-order}
+Let $G$ be a finite group, and let $d$ be a proper divisor of $|G|$. Is
+it necessarily true that there exists an element of $G$ of order $d$?
+Give a proof or a counterexample.
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:abelian-subgroup-of-order-d}
+Assume $G$ is a finite abelian group, and let $d$ be a divisor of
+$|G|$. Prove that there exists a subgroup $H \subseteq G$ of order $d$.
+(Hint: induction; use Exercise~8.17.) [$\S$IV.2.2]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:hk-cardinality-formula}
+Let $H$, $K$ be subgroups of a group $G$. Construct a bijection
+between the set of cosets $hK$ with $h \in H$ and the set of
+left-cosets of $H \cap K$ in $H$. If $H$ and $K$ are finite, prove that
+\[
+  |HK| = \frac{|H| \cdot |K|}{|H \cap K|}.
+\]
+[$\S$8.5, $\S$IV.4.4]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:cokernel-in-grp-universal-property}
+Let $\varphi : G \to G'$ be a group homomorphism, and let $N$ be the
+smallest normal subgroup containing $\operatorname{im}\varphi$. Prove
+that $G'/N$ satisfies the universal property of
+$\operatorname{coker}\varphi$ in $\mathsf{Grp}$. [$\S$8.6]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:cokernel-trivial-not-surjective}
+Consider the subgroup
+\[
+  H = \left\{ \begin{pmatrix}1&2&3\\1&2&3\end{pmatrix},
+  \begin{pmatrix}1&2&3\\2&1&3\end{pmatrix} \right\}
+\]
+of $S_3$. Show that the cokernel of the inclusion $H \hookrightarrow S_3$
+is trivial, although $H \hookrightarrow S_3$ is not surjective.
+[$\S$8.6]
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:epimorphisms-no-right-inverse}
+Show that epimorphisms in $\mathsf{Grp}$ do not necessarily have
+right-inverses. [$\S$I.4.2]
+\end{exer}
+\begin{exer}{}{exer:groups:g-mod-h-to-aut-h}
+Let $H$ be a commutative normal subgroup of $G$. Construct an
+interesting homomorphism from $G/H$ to $\operatorname{Aut}(H)$. (Cf.\
+Exercise~7.10.)
+\end{exer}
 
 \section{Group actions}
 \label{sec:groups:group-actions}
