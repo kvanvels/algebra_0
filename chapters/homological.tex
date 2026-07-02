@@ -2796,214 +2796,230 @@ last cryptic remarks (\S{}9.2).
 
 \subsection*{Exercises}
 
-% \bullet  \bullet 3.1. ? Let (M , d ) be a resolution of an object A of an abelian category. Verify
-% that there are exact complexes
-% \cdot \cdot \cdot 
-%  d-3 /
-%  M -2
-%  d-2
-%  / M -1
-%  / ker d0
-%  / A
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% \cdot \cdot \cdot 
-%  / 0
-%  / A
-%  / coker d-1
-%  / M 1
-%  d1
-%  / M 2
-%  d2
-%  / \cdot \cdot \cdot 
-% and that replacing A by 0 in these complexes produces new resolutions of A.
-% [\S{}3.1,
-% \S{}6.1]
-% 3.2. \lnot  Let I be the category whose objects are the integers and where Hom I
-% (m, n)
-% consists of a singleton if m \leq  n and is \emptyset  otherwise (cf. Example
-% I.3.2). Show that the
-% category C(A) of cochain complexes is a full subcategory of the abelian category
-% AI .
-% [3.3]
-% 21 Beware that some authors call the distinguished triangles `exact'; there is
-% some room for
-% confusion, since the special exact triangles in the present discussion are not
-% `exact' from this
-% viewpoint.
-% 3.3. ? Verify that the category C(A) of cochain complexes in an abelian
-% category,
-% defined in \S{}3.2, is itself an abelian category. (You can do this either `by
-% hand' or
-% by applying Exercises 3.2 and 2.14.) [\S{}3.2]
-% 3.4. \lnot  Let A be an abelian category. Define a category Seq(A) whose objects
-% are
-% short exact sequences in A and where morphisms are commutative diagrams
-%  / A1
-%  / B1
-%  / C1
-%  / 0
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  / A2
-%  / B2
-%  / C2
-%  / 0
-% Thus, Seq(A) may be viewed as a full subcategory of C(A).
-% \bullet  Prove that Seq(A) is an additive category.
-% \bullet  Prove that Seq(A) has kernels and cokernels. (Watch out: these are not the
-% same as in C(A). Keep the snake lemma in mind.)
-% \bullet  Show that, for every object X of A,
-%  / 0
-%  / X
-%  idX
-%  / X
-%  / 0
-% idX
-% \sqcup 
-%  idX
-%  \sqcup 
-%  \sqcup 
-%  / X
-%  / X
-%  / 0
-%  / 0
-% is both a monomorphism and an epimorphism in Seq(A), although it is neither
-% a monomorphism nor an epimorphism in C(A) if X = 0.
-% \bullet  Prove that Seq(A) is not abelian if A has nonzero objects.
-% [\S{}1.3, 3.11]
-% 3.5. ? Let (L\bullet  , d\bullet  L\bullet  ) be a cochain complex; define new
-% differentials d\setminus  \bullet
-%  L\bullet  by arbi-
-% trarily changing the sign of diL\bullet  : d\setminus  i
-%  L\bullet  = \pm diL\bullet  . Show that (L\bullet , d\setminus  \bullet 
-%  L\bullet  ) is a cochain
-% \bullet  \bullet 
-% complex isomorphic to (L , dL\bullet  ). [\S{}3.2]
-% 3.6. Provide an arrow-theoretic proof of Lemma 3.4 (cf. Remark 3.1).
-% 3.7. Let A, B be abelian categories. An additive functor F : A \to  B is exact
-% if it
-% maps short exact sequences in A to short exact sequences in B. Prove that exact
-% functors commute with cohomology: if F is exact and L\bullet  is a cochain
-% complex
-% in A, then H \bullet  (F (L\bullet  )) = \sim 
-%  F (H \bullet (L\bullet )), where F (L\bullet  ) denotes the cochain complex
-% in B obtained by applying F to all objects and morphisms in L\bullet  .
-% In particular, the image of an exact complex through an exact functor is still
-% an exact complex (cf. Exercise VIII.1.23).
-% 3.8. ? For any i, give an example of a short exact sequence of complexes
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / 0
-% such that the sequence
-%  / H i (L\bullet  )
-%  / H i (M \bullet  )
-%  / H i (N \bullet  )
-%  / 0
-% is not exact at either H i (L\bullet ) or H i (N \bullet  ). [\S{}7.2]
-% 3.9. ? Provide the gory details for the long exact cohomology sequence (Theo-
-% rem 3.5). [\S{}3.3, 3.10]
-% 3.10. ? Here is a way to reduce Exercise 3.9 to the snake lemma itself.
-% Every complex (L\bullet  , \lambda \bullet ) determines a complex ker\bullet  ,
-% with the object22 ker \lambda i+1
-% \bullet in degree i, connected by zero-morphisms, and a complex coker , with the object
-% coker \lambda i-1 in degree i, also connected by zero-morphisms.
-% Prove that \lambda \bullet  induces a morphism \lambda \bullet 
-%  : coker\bullet  \to  ker\bullet  in the abelian category
-% of complexes, such that ker \lambda \bullet 
-%  \sim  =
-%  H \bullet  (L\bullet  ) and coker \lambda \bullet  \sim 
-%  = H(L\bullet  )[1]\bullet  .
-% Now work out the whole long exact cohomology sequence as a consequence
-% of the snake lemma. (You will use the version of the snake lemma given in Re-
-% mark III.7.11.) [\S{}3.3, 3.13]
-% 3.11. \lnot  Prove that the long exact cohomology sequence is functorial, in the
-% sense
-% that it defines a covariant functor from the category Seq(C(A)) of short exact
-% se-
-% quences (cf. Exercise 3.4) of complexes to the category of complexes. [7.13]
-% 3.12. Redo Exercise III.7.17.
-% 3.13. The viewpoint in Exercise 3.10 admits the following straightforward gener-
-% alization.
-% Let A be an abelian category. Define a new category dA, whose objects are pairs
-% (A, d), where A is an object of A and d : A \to  A is a morphism (the
-% `differential')
-% such that d2 = 0. Morphisms (A, dA ) \to  (B, dB ) in dA are morphisms \phi  : A
-% \to  B
-% commuting with the differentials: dB \phi  = \phi dA.
-% \bullet  Prove that dA is an abelian category.
-% \bullet  For any (A, d) in dA, prove that d induces a morphism d : coker d \to  ker d.
-% \bullet  Define H(A, d) to be ker d. Prove that coker d \sim 
-%  = H(A, d).
-% \bullet  Show that H defines an additive functor dA \to  A and that this functor is not
-% exact in general.
-% \bullet  However, prove that every short exact sequence
-%  / (A, dA )
-%  / (B, dB )
-%  / (C, dC )
-%  / 0
-% in dA induces an exact triangle (in the sense of \S{}3.4)
-% H(A, dA )
-% { {
-%  {
-%  {
-%  {
-%  { {
-%  { =
-%  D D
-%  D D
-%  D D
-%  D D
-%  !
-% H(C, dC ) o
-%  H(B, dB )
-% 3.14. ? Prove that if one of the vertices of a `special' triangle arising from a
-% short
-% exact sequence of complexes (as in \S{}3.4) is exact, then the other two
-% vertices have
-% isomorphic cohomologies, possibly up to a shift. [\S{}4.1]
-% 22Of course ker and coker mean the target and source of the arrows ker and
-% coker, respectively.
+\begin{exer}{\exerused{}}{exer:homol:3.1}
+  Let $(M^\bullet, d^\bullet)$ be a resolution of an object $A$ of an
+  abelian category. Verify that there are exact complexes
+  \[
+    \dots \xrightarrow{d^{-3}} M^{-2} \xrightarrow{d^{-2}} M^{-1}
+    \longrightarrow \ker d^0 \longrightarrow A \longrightarrow 0
+    \longrightarrow \dots,
+  \]
+  \[
+    \dots \longrightarrow 0 \longrightarrow A \longrightarrow
+    \operatorname{coker}d^{-1} \longrightarrow M^1 \xrightarrow{d^1}
+    M^2 \xrightarrow{d^2} \dots
+  \]
+  and that replacing $A$ by $0$ in these complexes produces new
+  resolutions of $A$. [\S{}3.1, \S{}6.1]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:3.2}
+  Let $\mathsf{I}$ be the category whose objects are the integers and
+  where $\operatorname{Hom}_{\mathsf{I}}(m, n)$ consists of a
+  singleton if $m \leq n$ and is $\emptyset$ otherwise (cf.\
+  Example~I.3.2). Show that the category $\mathsf{C}(\mathsf{A})$ of
+  cochain complexes is a full subcategory of the abelian category
+  $\mathsf{A}^{\mathsf{I}}$. [3.3]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.3}
+  Verify that the category $\mathsf{C}(\mathsf{A})$ of cochain
+  complexes in an abelian category, defined in \S{}3.2, is itself an
+  abelian category. (You can do this either `by hand' or by applying
+  Exercises~3.2 and~2.14.) [\S{}3.2]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:3.4}
+  Let $\mathsf{A}$ be an abelian category. Define a category
+  $\operatorname{Seq}(\mathsf{A})$ whose objects are short exact
+  sequences in $\mathsf{A}$ and where morphisms are commutative
+  diagrams
+  \[\begin{tikzcd}[column sep=small]
+    0 \arrow[r] & A_1 \arrow[r] \arrow[d] & B_1 \arrow[r] \arrow[d] &
+      C_1 \arrow[r] \arrow[d] & 0 \\
+    0 \arrow[r] & A_2 \arrow[r] & B_2 \arrow[r] & C_2 \arrow[r] & 0
+  \end{tikzcd}\]
+  Thus, $\operatorname{Seq}(\mathsf{A})$ may be viewed as a full
+  subcategory of $\mathsf{C}(\mathsf{A})$.
+  \begin{itemize}
+  \item Prove that $\operatorname{Seq}(\mathsf{A})$ is an additive
+    category.
+  \item Prove that $\operatorname{Seq}(\mathsf{A})$ has kernels and
+    cokernels. (Watch out: these are not the same as in
+    $\mathsf{C}(\mathsf{A})$. Keep the snake lemma in mind.)
+  \item Show that, for every object $X$ of $\mathsf{A}$,
+    \[\begin{tikzcd}[column sep=small]
+      0 \arrow[r] & 0 \arrow[r] &
+        X \arrow[r, "\operatorname{id}_X"] \arrow[d, "\operatorname{id}_X"'] &
+        X \arrow[r] & 0 \\
+      0 \arrow[r] & X \arrow[r, "\operatorname{id}_X"'] & X \arrow[r] &
+        0 \arrow[r] & 0
+      \arrow[from=1-4, to=2-2, "\operatorname{id}_X"']
+    \end{tikzcd}\]
+    is both a monomorphism and an epimorphism in
+    $\operatorname{Seq}(\mathsf{A})$, although it is neither a
+    monomorphism nor an epimorphism in $\mathsf{C}(\mathsf{A})$ if
+    $X \neq 0$.
+  \item Prove that $\operatorname{Seq}(\mathsf{A})$ is not abelian if
+    $\mathsf{A}$ has nonzero objects.
+  \end{itemize}
+  [\S{}1.3, 3.11]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.5}
+  Let $(L^\bullet, d^\bullet_{L^\bullet})$ be a cochain complex;
+  define new differentials $d'^\bullet_{L^\bullet}$ by arbitrarily
+  changing the sign of $d^i_{L^\bullet}$:
+  $d'^i_{L^\bullet} = \pm d^i_{L^\bullet}$. Show that
+  $(L^\bullet, d'^\bullet_{L^\bullet})$ is a cochain complex
+  isomorphic to $(L^\bullet, d^\bullet_{L^\bullet})$. [\S{}3.2]
+\end{exer}
+\begin{exer}{}{exer:homol:3.6}
+  Provide an arrow-theoretic proof of Lemma~3.4 (cf.\ Remark~3.1).
+\end{exer}
+\begin{exer}{}{exer:homol:3.7}
+  Let $\mathsf{A}$, $\mathsf{B}$ be abelian categories. An additive
+  functor $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ is \emph{exact} if
+  it maps short exact sequences in $\mathsf{A}$ to short exact
+  sequences in $\mathsf{B}$. Prove that exact functors commute with
+  cohomology: if $\mathscr{F}$ is exact and $L^\bullet$ is a cochain
+  complex in $\mathsf{A}$, then
+  $H^\bullet(\mathscr{F}(L^\bullet)) \cong \mathscr{F}(H^\bullet(L^\bullet))$,
+  where $\mathscr{F}(L^\bullet)$ denotes the cochain complex in
+  $\mathsf{B}$ obtained by applying $\mathscr{F}$ to all objects and
+  morphisms in $L^\bullet$.
+
+  In particular, the image of an exact complex through an exact
+  functor is still an exact complex (cf.\ Exercise~VIII.1.23).
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.8}
+  For any $i$, give an example of a short exact sequence of complexes
+  \[
+    0 \longrightarrow L^\bullet \longrightarrow M^\bullet
+    \longrightarrow N^\bullet \longrightarrow 0
+  \]
+  such that the sequence
+  \[
+    0 \longrightarrow H^i(L^\bullet) \longrightarrow H^i(M^\bullet)
+    \longrightarrow H^i(N^\bullet) \longrightarrow 0
+  \]
+  is not exact at either $H^i(L^\bullet)$ or $H^i(N^\bullet)$.
+  [\S{}7.2]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.9}
+  Provide the gory details for the long exact cohomology sequence
+  (Theorem~3.5). [\S{}3.3, 3.10]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.10}
+  Here is a way to reduce Exercise~3.9 to the snake lemma itself.
+
+  Every complex $(L^\bullet, \lambda^\bullet)$ determines a complex
+  $\ker^\bullet$, with the object\footnote{Of course $\ker$ and
+  $\operatorname{coker}$ mean the target and source of the arrows
+  $\ker$ and $\operatorname{coker}$, respectively.} $\ker\lambda^{i+1}$
+  in degree $i$, connected by zero-morphisms, and a complex
+  $\operatorname{coker}^\bullet$, with the object
+  $\operatorname{coker}\lambda^{i-1}$ in degree $i$, also connected by
+  zero-morphisms.
+
+  Prove that $\lambda^\bullet$ induces a morphism
+  $\overline{\lambda}^\bullet : \operatorname{coker}^\bullet \to
+  \ker^\bullet$ in the abelian category of complexes, such that
+  $\ker\overline{\lambda}^\bullet \cong H^\bullet(L^\bullet)$ and
+  $\operatorname{coker}\overline{\lambda}^\bullet \cong
+  H(L^\bullet)[1]^\bullet$.
+
+  Now work out the whole long exact cohomology sequence as a
+  consequence of the snake lemma. (You will use the version of the
+  snake lemma given in Remark~III.7.11.) [\S{}3.3, 3.13]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:3.11}
+  Prove that the long exact cohomology sequence is functorial, in the
+  sense that it defines a covariant functor from the category
+  $\operatorname{Seq}(\mathsf{C}(\mathsf{A}))$ of short exact
+  sequences (cf.\ Exercise~3.4) of complexes to the category of
+  complexes. [7.13]
+\end{exer}
+\begin{exer}{}{exer:homol:3.12}
+  Redo Exercise~III.7.17.
+\end{exer}
+\begin{exer}{}{exer:homol:3.13}
+  The viewpoint in Exercise~3.10 admits the following straightforward
+  generalization.
+
+  Let $\mathsf{A}$ be an abelian category. Define a new category
+  $d\mathsf{A}$, whose objects are pairs $(A, d)$, where $A$ is an
+  object of $\mathsf{A}$ and $d : A \to A$ is a morphism (the
+  `differential') such that $d^2 = 0$. Morphisms
+  $(A, d_A) \to (B, d_B)$ in $d\mathsf{A}$ are morphisms
+  $\varphi : A \to B$ commuting with the differentials:
+  $d_B\varphi = \varphi d_A$.
+  \begin{itemize}
+  \item Prove that $d\mathsf{A}$ is an abelian category.
+  \item For any $(A, d)$ in $d\mathsf{A}$, prove that $d$ induces a
+    morphism $\bar d : \operatorname{coker}d \to \ker d$.
+  \item Define $H(A, d)$ to be $\ker \bar d$. Prove that
+    $\operatorname{coker}\bar d \cong H(A, d)$.
+  \item Show that $H$ defines an additive functor
+    $d\mathsf{A} \to \mathsf{A}$ and that this functor is not exact
+    in general.
+  \item However, prove that every short exact sequence
+    \[
+      0 \longrightarrow (A, d_A) \longrightarrow (B, d_B)
+      \longrightarrow (C, d_C) \longrightarrow 0
+    \]
+    in $d\mathsf{A}$ induces an exact triangle (in the sense of
+    \S{}3.4)
+    \[
+      \begin{tikzpicture}[baseline=(current bounding box.center)]
+        \node (A) at (1,1.3) {$H(A,d_A)$};
+        \node (C) at (0,0) {$H(C,d_C)$};
+        \node (B) at (2,0) {$H(B,d_B)$};
+        \draw[->] (A) -- (B);
+        \draw[->] (B) -- (C);
+        \draw[->] (C) -- (A);
+      \end{tikzpicture}
+    \]
+  \end{itemize}
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:3.14}
+  Prove that if one of the vertices of a `special' triangle arising
+  from a short exact sequence of complexes (as in \S{}3.4) is exact,
+  then the other two vertices have isomorphic cohomologies, possibly
+  up to a shift. [\S{}4.1]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:3.15}
+  Define a `Grothendieck group' and a `universal Euler
+  characteristic' $\chi$ for any abelian category $\mathsf{A}$, in
+  the style of the construction given in \S{}VI.3.4.
+
+  Extend $\chi$ to all bounded cochain complexes $M^\bullet$ in
+  $\mathsf{A}$, by setting
+  $\chi(M^\bullet) := \sum_i (-1)^i \chi(M^i)$. Prove that
+  $\chi(M^\bullet) = \chi(H^\bullet(M^\bullet))$. For every short
+  exact sequence of bounded complexes
+  $0 \to L^\bullet \to M^\bullet \to N^\bullet \to 0$, prove that
+  $\chi(M^\bullet) = \chi(L^\bullet) + \chi(N^\bullet)$. [4.3, 9.1]
+\end{exer}
 
 \section{Cones and homotopies}
 \label{sec:homol:cones-and-homotopies}
 
-
-%Define a `Grothendieck group' and a `universal Euler characteristic' \chi  for}
-
-% any abelian category A, in the style of the construction given in \S{}VI.3.4.
-% \bullet  \bullet ? Extend
-%  i
-%  \chi  i
-%  to all bounded cochain \bullet 
-%  complexes \bullet 
-%  \bullet 
-%  M in A, by setting \chi (M ) :=
-% (-1) \chi (M ). Prove that \chi (M ) = \chi (H (M )). For every short exact
-% sequence
-% iof bounded complexes 0 \to  L\bullet 
-%  \to  M \bullet 
-%  \to  N \bullet 
-%  \to  0 , prove that \chi (M \bullet  ) = \chi (L\bullet  ) +
-% \bullet \chi (N ). [4.3, 9.1]
-% If \alpha \bullet  : L\bullet  \to  M \bullet  is a morphism of cochain
-% complexes, it is natural to try to describe
-% the morphism induced in cohomology:
-% H \bullet  (\alpha \bullet ) : H \bullet  (L\bullet  ) \to  H \bullet (M \bullet
-% ).
-% \bullet However, I have pointed out that H is not an exact functor, and this seems to
-% pose an obstacle to simple-minded strategies aimed at describing (for example)
-% the
-% \bullet  \bullet  \bullet kernel or cokernel of H (\alpha  ) in terms of the kernel or cokernel of \alpha  . The long
-% exact cohomology sequence may be used to compensate for this lack of exactness;
-% we will see how in \S{}4.1. We will also begin exploring a very important
-% condition
-% (`homotopy') guaranteeing that two given morphisms of complexes induce the same
-% morphism in cohomology. Homotopies will be so important that they will lead us
-% later on to change our notion of morphisms between complexes and construct a
-% new `homotopic category' of complexes (see \S{}5).
+If $\alpha^\bullet : L^\bullet \to M^\bullet$ is a morphism of
+cochain complexes, it is natural to try to describe the morphism
+induced in cohomology:
+\[
+  H^\bullet(\alpha^\bullet) : H^\bullet(L^\bullet) \to
+  H^\bullet(M^\bullet).
+\]
+However, I have pointed out that $H^\bullet$ is not an exact functor,
+and this seems to pose an obstacle to simple-minded strategies aimed
+at describing (for example) the kernel or cokernel of
+$H^\bullet(\alpha^\bullet)$ in terms of the kernel or cokernel of
+$\alpha^\bullet$. The long exact cohomology sequence may be used to
+compensate for this lack of exactness; we will see how in \S{}4.1. We
+will also begin exploring a very important condition (`homotopy')
+guaranteeing that two given morphisms of complexes induce the same
+morphism in cohomology. Homotopies will be so important that they
+will lead us later on to change our notion of morphisms between
+complexes and construct a new `homotopic category' of complexes (see
+\S{}5).
 
 \subsection{The mapping cone of a morphism}
 \label{subsec:homol:the-mapping-cone-of-a-morphism}
