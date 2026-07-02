@@ -253,150 +253,172 @@ reiterate, over fields (but not over general rings) a subset $B$ of a
 vector space is a basis $\iff$ it is a maximal linearly independent subset
 $\iff$ it is a minimal generating set.
 
-\subsection{Recovering B from F R (B)}
+\subsection{\texorpdfstring{Recovering $B$ from $F^R(B)$}{Recovering B from F\^{}R(B)}}
 \label{subsec:linalg:recovering-b-from-f-r-b}
-% We are ready for the `reconstruction' of a set B
+We are ready for the `reconstruction' of a set $B$ (up to a bijection!)
+from the corresponding free module $F^R(B)$. This is the result
+justifying the notion of \emph{dimension} of a vector space, or, more
+generally, the \emph{rank} of a free module. Again, we prove a
+somewhat stronger statement.
 
-% (up to a bijection!) from the corresponding free module F R (B). This is the
-% result
-% justifying the notion of dimension of a vector space, or, more generally, the
-% rank
-% of a free module. Again, we prove a somewhat stronger statement.
-% Proposition 1.9. Let R be an integral domain, and let M be a free R-module.
-% Let B be a maximal linearly independent subset of M , and let S be a linearly
-% independent subset. Then4 |S| \leq  |B|.
-% In particular, any two maximal linearly independent subsets of a free module
-% over an integral domain have the same cardinality.
-% Proof. By taking fields of fractions, the general case over an integral domain
-% is
-% easily reduced to the case of vector spaces over a field; see Exercise 1.7. We
-% may
-% then assume that R = k is a field and M = V is a k-vector space.
-% We have to prove that there is an injective map j : S \setminus \to  B, and this
-% can be
-% done by an inductive process, replacing elements of B by elements of S `one-by-
-% one'. For this, let \leq  be a well-ordering on S, let v \in  S, and assume we
-% have defined
-% j for all w \in  S with w < v. Let B \setminus  be the set obtained from B by
-% replacing all
-% 4 Here, |A| denotes the cardinality of the set A, a notion with which the reader
-% is hopefully
-% familiar. The reader will not lose much by only considering the case in which B,
-% S are finite sets;
-% but the fact is true for `infinite-dimensional spaces' as well, as the argument
-% shows.
-% \setminus j(w) by w, for w < v, and assume (inductively) that B is still a maximal linearly
-% independent subset of V . Then I claim that j(v) \in  B may be defined so that
-% \bullet  j(v) = j(w) for all w < v;
-% \bullet  the set B \setminus \setminus  obtained from B\setminus  by replacing j(v) by v is still a maximal linearly
-% independent subset.
-% (Transfinite) induction (Claim V.3.2) then shows that j is defined and injective
-% on S, as needed.
-% To verify my claim, since B \setminus  is a maximal linearly independent set, B
-% \setminus  \cup  {v}
-% is linearly dependent (as an indexed set5), so that there exists a linear
-% dependence
-% relation
-% (*)
-%  c0 v + c1 b1 + \dots  + ct bt = 0
-% with not all ci equal to zero and the bi distinct in B\setminus  . Necessarily
-% c0 = 0 (because
-% \setminus B is linearly independent); also, necessarily not all the bi with ci = 0 are elements
-% of S (because S is linearly independent). Without loss of generality we may then
-% assume that c1 = 0 and b1 \in  B \setminus  \setminus  S. This guarantees that
-% b1 = j(w) for all w < v;
-% I set j(v) = b1.
-% \setminus \setminus All that is left now is the verification that the set B obtained by replacing b1
-% \setminus by v in B is a maximal linearly independent subset. But by using (*) to write
-% v = -c-1
-%  0 c1 b1 - \dots  - c0 -1
-% c t bt ,
-% \setminus this is an easy consequence of the fact that B is a maximal linearly independent
-% subset. Further details are left to the reader.
-%  ?
-% Example 1.10. An uncountable subset of C[x] is necessarily linearly dependent.
-% Indeed, C[x] has a countable basis over C: for example, {1, x, x2 , x3 , . . .
-% }.
-%  ?
-% Corollary 1.11. Let R be an integral domain, and let A, B be sets. Then
-% F R (A) \sim 
-%  = F R (B) \iff  there is a bijection A \sim 
-%  = B.
-% Proof. Exercise 1.8.
-%  ?
-% Remark 1.12. We have learned in Lemma 1.2 that we can `complete' every lin-
-% early independent subset S to a maximal one. The argument used in the proof of
-% Proposition 1.9 shows that we can in fact do this by borrowing elements of a
-% given
-% maximal linearly independent subset.
-%  ?
-% Remark 1.13. As a particular case of Corollary 1.11, we see that if R is an
-% integral
-% domain, then Rm = \sim 
-%  Rn if and only if m = n. This says that integral domains satisfy
-% the `IBN (Invariant Basis Number) property'.
-% Strange as it may seem, this obvious-looking fact does not hold over arbitrary
-% rings: for example, the ring of endomorphisms of an infinite-dimensional vector
-% space does not satisfy the IBN property. On the other hand, integral domains are
-% a
-% bit of an overshoot: all commutative rings satisfy the IBN property (Exercise
-% 1.11).
-% 5 This allows for the possibility that v \in  B? `already'. In this case, the
-% reader can check that
-% the process I am about to describe gives j(v) = v.
-% One way to think about this is that the category of finitely generated free
-% modules over (say) an integral domain is `classified' by Z\geq 0 : up to
-% isomorphisms,
-% there is exactly one finitely generated free module for any nonnegative integer.
-% The
-% task of describing this category then amounts to describing the homomorphisms
-% between objects corresponding to two given nonnegative integers; this will be
-% done
-% in \S{}2.1.
-%  ?
-% As a byproduct of the result of Proposition 1.9, we can now give the following
-% important definition.
-% Definition 1.14. Let R be an integral domain. The rank of a free R-module M ,
-% denoted rkR M , is the cardinality of a maximal linearly independent subset of M
-% .
-% The rank of a vector space is called the dimension, denoted dimk V .
-%  ?
-% This definition will in fact be adopted for more general finitely generated mod-
-% ules when the time comes, in \S{}5.3.
-% Finite-dimensional vector spaces over a fixed field form a category. Since
-% vector
-% spaces are free modules (Proposition 1.7), Corollary 1.11 implies that two
-% finite-
-% dimensional vector spaces are isomorphic if and only if they have the same
-% dimen-
-% sion.
-% The subscripts R, k are often omitted, if the context permits. But note that,
-% for
-% example, viewing the complex numbers as a real vector space, we have dimR C = 2,
-% while dimC C = 1. So some care is warranted.
-% Proposition 1.9 tells us that every linearly independent subset S of a free R-
-% module M must have cardinality lower than or equal to rkR M . Similarly, every
-% generating set must have cardinality higher than or equal to the rank. Indeed,
-% Proposition 1.15. Let R be an integral domain, and let M be a free R-module;
-% assume that M is generated by S: M = ?S?. Then S contains a maximal linearly
-% independent subset of M .
-% Proof. By Exercise 1.7 we may assume that R is a field and M = V is a vector
-% space. Use Zorn's lemma to obtain a linearly independent subset B \subseteq  S
-% which is
-% maximal among subsets of S. Arguing as in the proof of Lemma 1.6 shows that
-% S is in the span of B, and it follows that B generates V . Thus B is a basis,
-% and
-% hence a maximal linearly independent subset of V , as needed.
-%  ?
-% Remark 1.16. I have used again the trick of switching from an integral domain
-% to its field of fractions. The second part of the argument would not work over
-% an arbitrary integral domain, since maximal linearly independent subsets over an
-% integral domain are not generating sets in general.
-% Another standard method to reduce questions about modules over arbitrary
-% commutative rings to vector spaces is to mod out by a maximal ideal; cf.
-% Exercise 1.9
-% and following.
-%  ?
+\begin{prop}{}{linalg:1.9}
+Let $R$ be an integral domain, and let $M$ be a free $R$-module. Let
+$B$ be a maximal linearly independent subset of $M$, and let $S$ be a
+linearly independent subset. Then\footnote{Here, $|A|$ denotes the
+\emph{cardinality} of the set $A$, a notion with which the reader is
+hopefully familiar. The reader will not lose much by only considering
+the case in which $B$, $S$ are finite sets; but the fact is true for
+`infinite-dimensional spaces' as well, as the argument shows.}
+$|S| \leq |B|$.
+
+In particular, any two maximal linearly independent subsets of a free
+module over an integral domain have the same cardinality.
+\end{prop}
+\begin{proof}
+By taking fields of fractions, the general case over an integral
+domain is easily reduced to the case of vector spaces over a field;
+see Exercise~1.7. We may then assume that $R = k$ is a field and
+$M = V$ is a $k$-vector space.
+
+We have to prove that there is an injective map $j : S \hookrightarrow
+B$, and this can be done by an inductive process, replacing elements
+of $B$ by elements of $S$ `one-by-one'. For this, let $\leq$ be a
+well-ordering on $S$, let $v \in S$, and assume we have defined $j$
+for all $w \in S$ with $w < v$. Let $B'$ be the set obtained from $B$
+by replacing all $j(w)$ by $w$, for $w < v$, and assume (inductively)
+that $B'$ is still a maximal linearly independent subset of $V$. Then
+I claim that $j(v) \in B'$ may be defined so that
+\begin{itemize}
+\item $j(v) \neq j(w)$ for all $w < v$;
+\item the set $B''$ obtained from $B'$ by replacing $j(v)$ by $v$ is
+  still a maximal linearly independent subset.
+\end{itemize}
+(Transfinite) induction (Claim~V.3.2) then shows that $j$ is defined
+and injective on $S$, as needed.
+
+To verify my claim, since $B'$ is a maximal linearly independent set,
+$B' \cup \{v\}$ is linearly dependent (as an indexed
+set\footnote{This allows for the possibility that $v \in B'$
+`already'. In this case, the reader can check that the process I am
+about to describe gives $j(v) = v$.}), so that there exists a linear
+dependence relation
+\[
+  \tag{$*$} c_0v + c_1b_1 + \dots + c_tb_t = 0
+\]
+with not all $c_i$ equal to zero and the $b_i$ distinct in $B'$.
+Necessarily $c_0 \neq 0$ (because $B'$ is linearly independent); also,
+necessarily not all the $b_i$ with $c_i \neq 0$ are elements of $S$
+(because $S$ is linearly independent). Without loss of generality we
+may then assume that $c_1 \neq 0$ and $b_1 \in B' \setminus S$. This
+guarantees that $b_1 \neq j(w)$ for all $w < v$; I set $j(v) = b_1$.
+
+All that is left now is the verification that the set $B''$ obtained
+by replacing $b_1$ by $v$ in $B'$ is a maximal linearly independent
+subset. But by using $(*)$ to write
+\[
+  v = -c_0^{-1}c_1b_1 - \dots - c_0^{-1}c_tb_t,
+\]
+this is an easy consequence of the fact that $B'$ is a maximal
+linearly independent subset. Further details are left to the reader.
+\end{proof}
+
+\begin{exam}{}{linalg:1.10}
+An \emph{uncountable} subset of $\mathbb{C}[x]$ is necessarily
+linearly dependent. Indeed, $\mathbb{C}[x]$ has a countable basis over
+$\mathbb{C}$: for example, $\{1, x, x^2, x^3, \dots\}$.
+\end{exam}
+
+\begin{coro}{}{linalg:1.11}
+Let $R$ be an integral domain, and let $A$, $B$ be sets. Then
+\[
+  F^R(A) \cong F^R(B) \iff \text{there is a bijection } A \cong B.
+\]
+\end{coro}
+\begin{proof}
+Exercise~1.8.
+\end{proof}
+
+\begin{rem}{}{linalg:1.12}
+We have learned in \cref{linalg:1.2} that we can `complete' every
+linearly independent subset $S$ to a maximal one. The argument used
+in the proof of \cref{linalg:1.9} shows that we can in fact do this by
+borrowing elements of a given maximal linearly independent subset.
+\end{rem}
+
+\begin{rem}{}{linalg:1.13}
+As a particular case of \cref{linalg:1.11}, we see that if $R$ is an
+integral domain, then $R^m \cong R^n$ if and only if $m = n$. This
+says that integral domains satisfy the `IBN (Invariant Basis Number)
+property'.
+
+Strange as it may seem, this obvious-looking fact does \emph{not} hold
+over arbitrary rings: for example, the ring of endomorphisms of an
+infinite-dimensional vector space does not satisfy the IBN property.
+On the other hand, integral domains are a bit of an overshoot: all
+commutative rings satisfy the IBN property (Exercise~1.11).
+\end{rem}
+
+One way to think about this is that the category of finitely generated
+free modules over (say) an integral domain is `classified' by
+$\mathbb{Z}^{\geq 0}$: up to isomorphisms, there is exactly one
+finitely generated free module for any nonnegative integer. The task
+of describing this category then amounts to describing the
+homomorphisms between objects corresponding to two given nonnegative
+integers; this will be done in $\S$2.1.
+
+As a byproduct of the result of \cref{linalg:1.9}, we can now give the
+following important definition.
+
+\begin{defn}{}{linalg:1.14}
+Let $R$ be an integral domain. The \emph{rank} of a free $R$-module
+$M$, denoted $\operatorname{rk}_R M$, is the cardinality of a maximal
+linearly independent subset of $M$. The rank of a vector space is
+called the \emph{dimension}, denoted $\dim_k V$.
+\end{defn}
+
+This definition will in fact be adopted for more general finitely
+generated modules when the time comes, in $\S$5.3.
+
+Finite-dimensional vector spaces over a fixed field form a category.
+Since vector spaces are free modules (\cref{linalg:1.7}),
+\cref{linalg:1.11} implies that two finite-dimensional vector spaces
+are isomorphic if and only if they have the same dimension.
+
+The subscripts $R$, $k$ are often omitted, if the context permits. But
+note that, for example, viewing the complex numbers as a real vector
+space, we have $\dim_{\mathbb{R}} \mathbb{C} = 2$, while
+$\dim_{\mathbb{C}} \mathbb{C} = 1$. So some care is warranted.
+
+\cref{linalg:1.9} tells us that every linearly independent subset $S$
+of a free $R$-module $M$ must have cardinality lower than or equal to
+$\operatorname{rk}_R M$. Similarly, every generating set must have
+cardinality higher than or equal to the rank. Indeed,
+
+\begin{prop}{}{linalg:1.15}
+Let $R$ be an integral domain, and let $M$ be a free $R$-module;
+assume that $M$ is generated by $S$: $M = \langle S \rangle$. Then $S$
+contains a maximal linearly independent subset of $M$.
+\end{prop}
+\begin{proof}
+By Exercise~1.7 we may assume that $R$ is a field and $M = V$ is a
+vector space. Use Zorn's lemma to obtain a linearly independent
+subset $B \subseteq S$ which is maximal among subsets of $S$. Arguing
+as in the proof of \cref{linalg:1.6} shows that $S$ is in the span of
+$B$, and it follows that $B$ generates $V$. Thus $B$ is a basis, and
+hence a maximal linearly independent subset of $V$, as needed.
+\end{proof}
+
+\begin{rem}{}{linalg:1.16}
+I have used again the trick of switching from an integral domain to
+its field of fractions. The second part of the argument would not
+work over an arbitrary integral domain, since maximal linearly
+independent subsets over an integral domain are not generating sets
+in general.
+
+Another standard method to reduce questions about modules over
+arbitrary commutative rings to vector spaces is to mod out by a
+maximal ideal; cf.\ Exercise~1.9 and following.
+\end{rem}
 
 \subsection*{Exercises}
 
