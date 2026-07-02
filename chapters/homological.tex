@@ -1402,477 +1402,431 @@ abelian category?
 
 \subsection{Working with `elements' in a small abelian category}
 \label{subsec:homol:working-with-elements-in-a-small-abelian-category}
-% My personal
+My personal feeling is that arrow-theoretic arguments are invariably
+more insightful than their element-theoretic counterparts, even if
+they are `harder' as a rule. At the very least, they are more elegant:
+for example, in the construction of the connecting morphism $\delta$
+just given above, there was no need to verify that the result was
+`well-defined', while this requires an argument in the set-theoretic
+construction in \S{}III.7.3. Such issues are usually resolved once and
+for all at the start, when the key universal properties are
+established, and it is not necessary to belabor them later.
+Still, it is true that element-theoretic arguments are usually easier
+to concoct. Lemma~\ref{homol:2.3} appears to be a good example: in
+terms of elements the statement of this lemma is completely obvious,
+less so from the diagrammatic point of view. Exercise~2.12 gives
+another example: providing a purely arrow-theoretic proof of the
+innocent result stated there is not so easy, while this result is
+essentially immediate from a more mundane viewpoint. The reader could
+wonder whether it may not `be enough' to prove such facts---for
+example, check the commutativity of a diagram or the exactness of a
+sequence---by simpler element-theoretic considerations.
+This is indeed the case. I will present a construction which would
+suffice for, e.g., the purpose of completing the proof of the snake
+lemma by chasing elements rather than arrows. I find this construction
+instructive and pretty, so I will take the time to go through it in
+some detail. However, be warned that the Freyd--Mitchell embedding
+theorem (discussed in \S{}2.4) will obliterate the actual usefulness of
+the construction, since it provides us with a much stronger result.
+Thus, I will ask the reader to wade through some material, with the
+understanding that the result that I will quote thereafter
+(Theorem~2.9) will make that material immediately obsolete.
 
-% feeling is that arrow-theoretic arguments are invariably more insightful than
-% their
-% element-theoretic counterparts, even if they are `harder' as a rule. At the very
-% least, they are more elegant: for example, in the construction of the connecting
-% morphism \delta  just given above, there was no need to verify that the result
-% was
-% `well-defined', while this requires an argument in the set-theoretic
-% construction in
-% \S{}III.7.3. Such issues are usually resolved once and for all at the start, when the key
-% universal properties are established, and it is not necessary to belabor them
-% later.
-% Still, it is true that element-theoretic arguments are usually easier to
-% concoct.
-% Lemma 2.3 appears to be a good example: in terms of elements the statement
-% of this lemma is completely obvious, less so from the diagrammatic point of
-% view.
-% Exercise 2.12 gives another example: providing a purely arrow-theoretic proof of
-% the
-% innocent result stated there is not so easy, while this result is essentially
-% immediate
-% from a more mundane viewpoint. The reader could wonder whether it may not `be
-% enough' to prove such facts---for example, check the commutativity of a diagram
-% or the exactness of a sequence---by simpler element-theoretic considerations.
-% This is indeed the case. I will present a construction which would suffice for,
-% e.g., the purpose of completing the proof of the snake lemma by chasing elements
-% rather than arrows. I find this construction instructive and pretty, so I will
-% take the
-% time to go through it in some detail. However, be warned that the Freyd-Mitchell
-% embedding theorem (discussed in \S{}2.4) will obliterate the actual usefulness
-% of the
-% construction, since it provides us with a much stronger result. Thus, I will ask
-% the
-% reader to wade through some material, with the understanding that the result
-% that
-% I will quote thereafter (Theorem 2.9) will make that material immediately
-% obsolete.
-% My excuse is that while proving Theorem 2.9 is beyond the scope of this book,
-% the
-% construction which I am about to describe is entirely within our reach, and good
-% propaganda for the philosophy underlying the functor of points; this is
-% important
-% in, e.g., algebraic geometry and takes some practice to get used to. In the end,
-% the
-% reader is likely to gain a better understanding of the situation by appreciating
-% a
-% weaker result that we can prove entirely than by leaning on a stronger result to
-% be
-% taken on faith. However, the hurried reader should feel free to skip this
-% material
-% and jump directly to \S{}2.4.
-% The idea is to define an appropriate notion of an `element' of an object of an
-% abelian category6. The reader should look back at the brief discussion at the
-% end
-% of \S{}VIII.1.2: the `functor of points' hA = HomA ( , A) associates to every
-% object Z
-% the set of morphisms Z \to  A; in several categories, applying this functor to a
-% final object in A `recovers' A as a set. Working with final objects with this
-% purpose
-% cannot work too well in categories with zero-objects (why?), but the idea
-% underlying
-% the functor of points suggests that we look at morphisms
-% z : Z \to  A
-% for a fixed object A in an abelian category A as (Z-flavored?!) `elements' z of
-% A.
-% If \phi  : A \to  B is a morphism in A, it makes sense to talk about the
-% `element' \phi (z)
-% 6I will systematically put quotes around this term, i.e., write `element', to
-% indicate that I am
-% referring to the relatively fancy notion I will introduce. The `elements' will
-% be ordinary elements
-% of an ordinary (pointed) set determined by the object of the category.
-% of B: simply compose morphisms, i.e.,
-% z
-%  Z \sqcup 
-%  @
-%  @ @ @ @
-%  \phi (z)=\phi  @ @
-%  ?
-%  \circ  z
-% A / B
-% \phi It would now be nice if one could simply check the commutativity of a diagram in A
-% or the exactness of a sequence by using these newly defined `elements' as if
-% they
-% were elements of objects in A. This does not quite work: for example, the
-% simple-
-% minded statement of surjectivity at the level of these `elements' is not
-% equivalent
-% to the notion of epimorphism in A. Indeed, if \phi  : A \to  B is an
-% epimorphism, it is
-% \setminus not necessarily the case that `for all elements z of B there exists an element z of A
-% such that z = \phi (z \setminus  )': this would amount to saying that every
-% morphism z : Z \to  B
-% can be lifted to a morphism z \setminus  : Z \to  A,
-% A A
-% \exists z?
-%  ?
-% \phi 
-%  ,
-% \sqcup 
-% Z
-%  / B
-% z
-% and this is simply not true in general (for example, in Ab one cannot lift the
-% identity
-% Z/2Z \to  Z/2Z along the projection Z \to  Z/2Z). The problem is really that Hom
-% is not right-exact, so it does not preserve epimorphisms.
-% Maybe surprisingly, there is a way to fix this problem.
-% As a preliminary note, recall that in the distant past (Example I.3.8) we con-
-% \ast sidered the category Set of `pointed sets', whose objects consist of sets endowed
-% with the choice of a distinguished point (here I will denote by 0 the
-% distinguished
-% point). All the algebraic structures we have encountered are pointed sets, often
-% in more than one way: for example, stripping an abelian group of all its
-% structure
-% except its supporting set and the choice of the identity element leaves us with
-% a
-% pointed set (in other words, this defines an evident forgetful functor Ab \to
-% Set\ast  ).
-% The category Set\ast  has a zero-object 0 (the singleton {0}); hence we can talk
-% of
-% \ast  \ast `zero-morphisms' in Set . Further, the category Set has enough structure to make
-% sense of the notion of an `exact sequence of pointed sets': we can stipulate
-% that
-% \cdot \cdot \cdot 
-%  / S
-%  f
-%  / T
-%  g
-%  / U
-%  / \cdot \cdot \cdot 
-% is `exact' at T if the (set-theoretic!) image of f equals the `kernel' of g
-% (that is, the
-% preimage g -1(0)). This notion should be taken with a grain of salt: while it is
-% the
-% case that S \to  T \to  0 is exact at T if and only if S \to  T is surjective,
-% it is not true
-% that 0 \to  T \to  U is exact at T in Set\ast  if and only if T \to  U is
-% injective (the only
-% requirement posed by the exactness of 0 \to  T \to  U is that the only element
-% of T
-% mapping to the distinguished element in U is the distinguished element of T ;
-% this
-% \ast is weaker than injectivity). The category Set is, after all, not additive.
-% Now we are going to associate to every object A of a (small) abelian category A
-% a pointed set \^{A}. This will in fact give a functor A \to  Set\ast  with
-% amazing properties:
-% a morphism will be a monomorphism, resp., an epimorphism, in A if and only if
-% the corresponding function of pointed sets is injective, resp., surjective; the
-% (arrow-
-% theoretic) notions of kernel and image in A will correspond precisely to the
-% (set-
-% \ast theoretic) kernel and image in Set ; a sequence of objects in A will be exact if and
-% only if the corresponding sequence of pointed sets is exact; and it will be
-% possible
-% \ast to verify whether a diagram commutes in A by working in Set .
-% The upshot will be that in a sense we can chase a diagram in any small abelian
-% category by `chasing elements'. For example, working with `elements' suffices to
-% complete the proof of the snake lemma, in the sense that the exactness (in A) of
-% the
-% sequence obtained with the aid of the connecting morphism defined in \S{}2.2 may
-% be
-% verified by chasing `elements', since this verifies exactness in Set\ast  . A
-% proof in R-Mod
-% would transfer word-for-word to give a proof in any small7 abelian category.
-% This
-% hints that the arrow-theoretic viewpoint that I have tried to defend in the past
-% several subsections, while elegant, is not really strictly necessary; I will
-% come back
-% to this point in \S{}2.4.
-% The construction can be given as an application of the abstract language devel-
-% oped in \S{}VIII.1; but I promise that the resulting notion will be easy to
-% contemplate,
-% independently of this language. The idea is simply to take the functor of points
-% up
-% to a relation identifying the `element' Z \to  A with all `elements' W \setminus
-% Z \to  A.
-% The following abstract nonsense will have a simple-minded explanation. I will
-% (often silently) assume that A is small, to steer clear of any possible
-% set-theoretic
-% subtlety. It is convenient to consider a companion category A? , with the same
-% objects as A but in which
-% HomA? (Z, W ) = {epimorphisms W
-%  / / Z in A}.
-% This is legal, because the composition of two epimorphisms in A is an
-% epimorphism;
-% but note that A? is no longer additive (the sum of two epimorphisms need not be
-% an
-% epimorphism, so we lose the algebraic structure on Hom). Also note the reversing
-% of arrows; this is in order that the functor that I am about to define be
-% covariant.
-% I will use A? as `index' category for a limit. For a fixed object A of A, I
-% define
-% a covariant functor
-% HA : A? \to  Set\ast 
-% by `restricting' the functor of points hA to A ? and preserving the information
-% of
-% the zero-morphism. That is, I set
-% HA (Z) = HomA (Z, A)
-% for all objects Z of A? (that is, of A), viewing HomA (Z, A) as a pointed set by
-% distinguishing the zero-morphism, and define HA on morphisms by composition:
-% for a morphism Z \to  W in A? (that is, an epimorphism \alpha  : W \setminus
-% Z),
-% W \alpha 
-%  / / Z
-% w 3
-%  3 3
-%  z
-%  ,
-% ? ?A
-% 7 If the relevant diagrams only involve finitely many objects, the smallness
-% hypothesis is not
-% restrictive. The interested reader should research this issue; I will
-% shamelessly gloss over it.
-% define
-% HA (Z) \to  HA (W )
-% by sending z to w = z \circ  \alpha . Of course the zero-morphism is mapped to
-% the zero-
-% \ast morphism, so this is indeed a morphism in Set .
-% Definition 2.4. Let A be an object of a small abelian category A. The pointed
-% set \^{A} of `elements of A' is the colimit of HA :
-% \^{A} := lim HA .
-%  ?
-% -\to 
-% Here is the simple-minded explanation. In the context of pointed sets, colimits
-% may be constructed by joining pointed sets at the distinguished point and then
-% taking a suitable quotient. For the case at hand, this translates into the
-% following:
-% an `element' of A consists of the choice of a morphism z : Z \to  A in A,
-% stipulating
-% that two morphisms z1 : Z1 \to  A, z2 : Z2 \to  A determine the same `element'
-% if
-% there are epi morphisms w1 : W \setminus  Z1 and w2 : W \setminus  Z2 in A such
-% that the diagram
-% q w1 q q
-%  q
-%  q q 8 8
-%  Z1 L
-%  L L z L 1
-%  L L %
-% W M w2 M
-%  M M M
-%  M & &
-%  r r
-%  r
-%  z2
-%  r r r
-%  9 A
-% Z2
-% commutes. This is an equivalence relation, as the reader should check carefully
-% (Exercise 2.5).
-% Now I want to make the assignment A ?\to  \^{A} into a covariant functor A \to
-% Set\ast  ,
-% and there is only one reasonable way to do so: for \phi  : A \to  B and z : Z
-% \to  A,
-% define \hat{\phi }(z) by composing morphisms, i.e.,
-% \phi 
-% AY4
-% z44
-% Z
-% / B
-% E
-% \hat{\phi }(z):=\phi  \circ  z
-% This prescription is (manifestly) compatible with the equivalence relation, so
-% it
-% defines a set-function \hat{\phi } : \^{A} \to  \hat{B}. The image of the
-% zero-morphism is zero, so \hat{\phi }
-% \ast is a morphism in Set , as needed. The covariance property of this assignment is
-% evident. We have obtained the promised functor A \to  Set\ast  .
-% Now we will proceed to verify all the miracles I have advertised. In the
-% following,
-% the symbol \sim  will stand for the equivalence relation defined above8; thus,
-% two
-% morphisms z1 : Z1 \to  A, z2 : Z2 \to  A determine the same `element' of \^{A}
-% if and only
-% if z1 \sim  z2.
-% One useful preliminary observation is that the only morphism representing the
-% distinguished `element' is the zero-morphism and that we can detect whether a
-% \ast morphism is 0 by working in Set :
-% 8 Warning: Later on in this chapter I will define a notion of homotopy, and I
-% will recycle
-% the symbol \sim  for that notion. The context and the meaning of the symbol will
-% be completely
-% different.
-% Lemma 2.5. z \sim  0 \iff  z = 0. Further, a morphism \phi  : A \to  B in A is 0
-% if and
-% only if \hat{\phi }(z) = 0 for all z \in  \^{A}.
-% Proof. According to the definition given above, z : Z \to  A is equivalent to 0
-% if and
-% only if there is an epimorphism W \setminus  Z making the following diagram
-% commute:
-% u u u
-%  u : : Z
-%  H H H z
-%  H \#
-% W I
-%  I I I
-%  I $ $ v v v
-%  v v
-%  ; A
-% Since W \setminus  Z is an epimorphism, this diagram commutes if and only if z =
-% 0
-% (Lemma 1.3), as claimed.
-% For the second statement, consider the situation
-% A \phi 
-%  / B
-% z
-%  O
-%  ~ ~ ~ ~
-%  \hat{\phi }(z)
-%  ~
-%  ~ ?
-% Z
-% If \phi  = 0, then so is \hat{\phi }(z) = \phi  \circ  z. Conversely, if
-% \hat{\phi }(z) = 0 for all z, then taking
-% z : Z = A \to  A to be the identity, we get \phi  \sim  0, and hence \phi  = 0
-% by the first
-% part.
-%  ?
-% This tells us in particular that we can verify the commutativity of a diagram
-% in A by working in Set\ast  : because we can check whether two morphisms \phi ,
-% \psi  \in
-% HomA (A, B) are equal by verifying that their difference \phi  - \psi  equals 0,
-% which we
-% can do9 at the level of pointed sets (hence, by chasing elements!) by Lemma 2.5.
-% Concerning monomorphisms and epimorphisms,
-% Lemma 2.6. Let \phi  : A \to  B be a morphism in A. Then
-% \bullet  \phi  is a monomorphism if and only if \hat{\phi } is injective;
-% \bullet  \phi  is an epimorphism if and only if \hat{\phi } is surjective.
-% Proof. As usual, I will propose a division of labor: the reader will prove the
-% first
-% statement (Exercise 2.6), and I will prove the second.
-% Assume \phi  is an epimorphism, and let z : Z \to  B represent an arbitrary
-% `element'
-% of \hat{B}. Consider the fiber product:
-% A \phi 
-%  / / B
-% O
-%  O
-% z ?
-%  z
-% \phi ?
-% A \times B Z
-%  / Z
-% By Lemma 2.3, \phi \setminus  is an epimorphism. It follows that \phi  \circ
-% z\setminus  \sim  z, that is, \hat{\phi }(z\setminus  ) = z.
-% This shows that \hat{\phi } is surjective.
-% 9 Note that I am not saying that \phi  = \psi  if and only if \hat{\phi }(z) =
-% \hat{\psi }(z) for all `elements' z; this is
-% unfortunately not the case (cf. Exercise 2.10).
-% Conversely, assume \hat{\phi } : \^{A} \to  \hat{B} is surjective. In
-% particular, there is an `element'
-% of \^{A} mapping to idB . This `element' is represented by a morphism z : Z \to
-% A,
-% and the condition \hat{\phi }(z) = idB means that there are epimorphisms w1 ,
-% w2, as in the
-% commutative diagram:
-% A
-%  \phi 
-%  / B
-% Oz
-%  idB
-% Z o o
-%  w1
-%  W
-%  w2
-%  / / B
-% Since \phi  \circ  z \circ  w1 = w2 is an epimorphism, it follows that \phi  is
-% an epimorphism, as
-% needed.
-%  ?
-% Next, let's verify that the notions of `kernel' and `image' in an abelian cate-
-% \ast gory A match precisely their simple-minded counterparts in Set .
-% Lemma 2.7. With notation as above, let \phi  : A \to  B be a morphism in a small
-% abelian category A, and let \hat{\phi } : \^{A} \to  \hat{B} be the
-% corresponding function of pointed
-% sets. Let ker \phi  : K \to  A, resp., im \phi  : I \to  B, be the kernel and
-% the image of \phi ,
-% respectively. Then
-% \bullet  ker \phi  identifies \hat{K} with the subset \hat{\phi }-1 (0) of \^{A};
-% \bullet  im
-%  - \phi  identifies I \hat{w}ith the image of \hat{\phi } in \hat{B}.
-% Proof. These statements are very close to the universal properties satisfied by
-% kernel and image.
-% The reader will verify the statement about the kernel (Exercise 2.7). For the
-% image, recall that we have a decomposition of \phi ,
-% \phi  : A
-%  / / I / im \phi  / B ,
-% and that im \phi  : I \to  B is a kernel of coker \phi  (this is the definition
-% of `image'
-% (cf. \S{}1.5); the fact that A \to  I is an epimorphism is part of the content
-% of Theo-
-% rem 1.13).
-% To simplify the notation, let j = im \phi . Then (by Lemma 2.6) \hat{\jmath} is
-% an injective
-% function I \hat{\to } \hat{B}, mapping a representative z : Z \to  I to j \circ
-% z : Z \to  B; we have to
-% verify that \hat{\jmath}(I)
-%  \hat{=} im \hat{\phi }. To verify that \hat{\jmath}(z) is in the image of \hat{\phi }, consider the fiber
-% product
-% \phi 
-% A / / I /
-%  (/
-%  B
-% z ?
-%  O
-%  O
-%  z~ ~ ~
-%  ~ j
-%  ~
-%  \hat{\jmath}(z)
-%  ~
-%  ~ ~
-%  ?A \times I Z
-%  / / Z
-% The bottom map is an epimorphism by virtue of Lemma 2.3, since the top map
-% in the fiber square is an epimorphism. This shows that \phi  \circ  z\setminus
-% \sim  \hat{\jmath}(z); that is,
-% \setminus \hat{\jmath}(z) = \hat{\phi }(z ) is in the image of \hat{\phi }, as claimed. This verifies that the image of \hat{\jmath} is
-% contained in the image of \hat{\phi }:
-% I \hat{\to } image of \hat{\phi } \subseteq  \hat{B}.
-% To show that every `element' in the image of \hat{\phi } is obtained in this
-% fashion, let
-% z : Z \to  B be in the image of \hat{\phi }. That is, there is a z \setminus  :
-% Z \setminus  \to  A and epimorphisms
-% w1 , w 2 making the following diagram commute:
-% A \phi 
-%  / B coker \phi  / Cok
-% O
-%  O
-% z?
-%  z
-% Z \setminus  o o
-%  w1
-%  W
-%  w2
-%  / / Z
-% \setminus Note that coker \phi  \circ  z \circ  w2 = (coker \phi  \circ  \phi ) \circ  z \circ  w1 = 0; since w2 is an epimorphism,
-% it follows that coker \phi  \circ  z = 0. By the universal property of kernels,
-% this says that
-% z factors uniquely through ker coker \phi  = im \phi  = j:
-% A
-%  / / I / j / B
-% `@@
-%  O
-% @@
-% @@ z
-% \exists ! @@
-% Z
-% This gives an `element' of I \hat{m}apping to z, as needed.
-%  ?
-% Finally, let's check that the functor is exact:
-% Proposition 2.8. Let A be a small abelian category. Then a sequence
-% A
-%  \phi 
-%  / B
-%  \psi 
-%  / C
-% in A is exact if and only if the corresponding sequence
-% \^{A}
-%  \hat{\phi }
-%  / \hat{B}
-%  \hat{\psi }
-%  / \^{C}
-% \ast is exact in Set .
-% Proof. This now follows immediately from Lemma 2.7: exactness in A means that
-% im \phi  = ker \psi , and exactness in Set\ast  means that the image of
-% \hat{\phi } equals \hat{\psi } -1(0). By
-% Lemma 2.7, these conditions are equivalent.
-%  ?
+My excuse is that while proving Theorem~2.9 is beyond the scope of
+this book, the construction which I am about to describe is entirely
+within our reach, and good propaganda for the philosophy underlying
+the functor of points; this is important in, e.g., algebraic geometry
+and takes some practice to get used to. In the end, the reader is
+likely to gain a better understanding of the situation by appreciating
+a weaker result that we can prove entirely than by leaning on a
+stronger result to be taken on faith. However, the hurried reader
+should feel free to skip this material and jump directly to \S{}2.4.
+The idea is to define an appropriate notion of an `element' of an
+object of an abelian category.\footnote{I will systematically put
+quotes around this term, i.e., write `element', to indicate that I am
+referring to the relatively fancy notion I will introduce. The
+`elements' will be ordinary elements of an ordinary (pointed) set
+determined by the object of the category.} The reader should look
+back at the brief discussion at the end of \S{}VIII.1.2: the `functor
+of points' $h_A = \operatorname{Hom}_{\mathsf{A}}(\_, A)$ associates
+to every object $Z$ the set of morphisms $Z \to A$; in several
+categories, applying this functor to a final object in $\mathsf{A}$
+`recovers' $A$ as a set. Working with final objects with this purpose
+cannot work too well in categories with zero-objects (why?), but the
+idea underlying the functor of points suggests that we look at
+morphisms
+\[
+  z : Z \to A
+\]
+for a fixed object $A$ in an abelian category $\mathsf{A}$ as
+($Z$-flavored?!) `elements' $z$ of $A$.
+
+If $\varphi : A \to B$ is a morphism in $\mathsf{A}$, it makes sense to
+talk about the `element' $\varphi(z)$ of $B$: simply compose
+morphisms, i.e.,
+\[\begin{tikzcd}
+  & Z \arrow[d, "z"'] \arrow[dr, "\varphi(z) = \varphi \circ z"] & \\
+  & A \arrow[r, "\varphi"'] & B
+\end{tikzcd}\]
+
+It would now be nice if one could simply check the commutativity of a
+diagram in $\mathsf{A}$ or the exactness of a sequence by using these
+newly defined `elements' as if they were elements of objects in
+$\mathsf{A}$. This does not quite
+work: for example, the simple-minded statement of surjectivity at the
+level of these `elements' is not equivalent to the notion of
+epimorphism in $\mathsf{A}$. Indeed, if $\varphi : A \to B$ is an
+epimorphism, it is not necessarily the case that `for all elements $z$
+of $B$ there exists an element $z'$ of $A$ such that
+$z = \varphi(z')$': this would amount to saying that every morphism
+$z : Z \to B$ can be lifted to a morphism $z' : Z \to A$,
+\[\begin{tikzcd}
+  & A \arrow[d, "\varphi"] \\
+  Z \arrow[ur, dashed, "\exists z'?"] \arrow[r, "z"'] & B
+\end{tikzcd}\]
+and this is simply not true in general (for example, in $\categ{Ab}$
+one cannot lift the identity $\mathbb{Z}/2\mathbb{Z} \to
+\mathbb{Z}/2\mathbb{Z}$ along the projection
+$\mathbb{Z} \to \mathbb{Z}/2\mathbb{Z}$). The problem is really that
+$\operatorname{Hom}$ is not right-exact, so it does not preserve
+epimorphisms.
+
+Maybe surprisingly, there is a way to fix this problem.
+As a preliminary note, recall that in the distant past
+(Example~I.3.8) we considered the category $\categ{Set}^*$ of
+`pointed sets', whose objects consist of sets endowed with the choice
+of a distinguished point (here I will denote by $0$ the distinguished
+point). All the algebraic structures we have encountered are pointed
+sets, often in more than one way: for example, stripping an abelian
+group of all its structure except its supporting set and the choice
+of the identity element leaves us with a pointed set (in other words,
+this defines an evident forgetful functor
+$\categ{Ab} \to \categ{Set}^*$).
+
+The category $\categ{Set}^*$ has a zero-object $0$ (the singleton
+$\{0\}$); hence we can talk of `zero-morphisms' in $\categ{Set}^*$.
+Further, the category $\categ{Set}^*$ has enough structure to make
+sense of the notion of an `exact sequence of pointed sets': we can
+stipulate that
+\[\begin{tikzcd}
+  \dots \arrow[r] & S \arrow[r, "f"] & T \arrow[r, "g"] & U \arrow[r] &
+  \dots
+\end{tikzcd}\]
+is `exact' at $T$ if the (set-theoretic!) image of $f$ equals the
+`kernel' of $g$ (that is, the preimage $g^{-1}(0)$). This notion
+should be taken with a grain of salt: while it is the case that
+$S \to T \to 0$ is exact at $T$ if and only if $S \to T$ is
+surjective, it is not true that $0 \to T \to U$ is exact at $T$ in
+$\categ{Set}^*$ if and only if $T \to U$ is injective (the only
+requirement posed by the exactness of $0 \to T \to U$ is that the only
+element of $T$ mapping to the distinguished element in $U$ is the
+distinguished element of $T$; this is weaker than injectivity). The
+category $\categ{Set}^*$ is, after all, not additive.
+Now we are going to associate to every object $A$ of a (small) abelian
+category $\mathsf{A}$ a pointed set $\hat{A}$. This will in fact give
+a functor $\mathsf{A} \to \categ{Set}^*$ with amazing properties: a
+morphism will be a monomorphism, resp., an epimorphism, in $\mathsf{A}$
+if and only if the corresponding function of pointed sets is
+injective, resp., surjective; the (arrow-theoretic) notions of kernel
+and image in $\mathsf{A}$ will correspond precisely to the
+(set-theoretic) kernel and image in $\categ{Set}^*$; a sequence of
+objects in $\mathsf{A}$ will be exact if and only if the corresponding
+sequence of pointed sets is exact; and it will be possible to verify
+whether a diagram commutes in $\mathsf{A}$ by working in
+$\categ{Set}^*$.
+
+The upshot will be that in a sense we can chase a diagram in any small
+abelian category by `chasing elements'. For example, working with
+`elements' suffices to complete the proof of the snake lemma, in the
+sense that the exactness (in $\mathsf{A}$) of the sequence obtained
+with the aid of the connecting morphism defined in \S{}2.2 may be
+verified by chasing `elements', since this verifies exactness in
+$\categ{Set}^*$. A proof in $R\text{-}\mathsf{Mod}$ would transfer
+word-for-word to give a proof in any small\footnote{If the relevant
+diagrams only involve finitely many objects, the smallness hypothesis
+is not restrictive. The interested reader should research this issue;
+I will shamelessly gloss over it.} abelian category. This hints that
+the arrow-theoretic viewpoint that I have tried to defend in the past
+several subsections, while elegant, is not really strictly necessary;
+I will come back to this point in \S{}2.4.
+The construction can be given as an application of the abstract
+language developed in \S{}VIII.1; but I promise that the resulting
+notion will be easy to contemplate, independently of this language.
+The idea is simply to take the functor of points up to a relation
+identifying the `element' $Z \to A$ with all `elements'
+$W \twoheadrightarrow Z \to A$.
+
+The following abstract nonsense will have a simple-minded explanation.
+I will (often silently) assume that $\mathsf{A}$ is small, to steer
+clear of any possible set-theoretic subtlety. It is convenient to
+consider a companion category $\mathsf{A}_{\leftarrow}$, with the same
+objects as $\mathsf{A}$ but in which
+\[
+  \operatorname{Hom}_{\mathsf{A}_{\leftarrow}}(Z,W) =
+  \{\text{epimorphisms } W \twoheadrightarrow Z \text{ in } \mathsf{A}\}.
+\]
+This is legal, because the composition of two epimorphisms in
+$\mathsf{A}$ is an epimorphism; but note that $\mathsf{A}_{\leftarrow}$
+is no longer additive (the sum of two epimorphisms need not be an
+epimorphism, so we lose the algebraic structure on Hom). Also note the
+reversing of arrows; this is in order that the functor that I am about
+to define be covariant.
+
+I will use $\mathsf{A}_{\leftarrow}$ as `index' category for a limit.
+For a fixed object $A$ of $\mathsf{A}$, I define a covariant functor
+\[
+  \mathscr{H}_A : \mathsf{A}_{\leftarrow} \to \categ{Set}^*
+\]
+by `restricting' the functor of points $h_A$ to
+$\mathsf{A}_{\leftarrow}$ and preserving the information of
+the zero-morphism. That is, I set
+\[
+  \mathscr{H}_A(Z) = \operatorname{Hom}_{\mathsf{A}}(Z,A)
+\]
+for all objects $Z$ of $\mathsf{A}_{\leftarrow}$ (that is, of
+$\mathsf{A}$), viewing $\operatorname{Hom}_{\mathsf{A}}(Z,A)$ as a
+pointed set by distinguishing the zero-morphism, and define
+$\mathscr{H}_A$ on morphisms by composition: for a morphism
+$Z \to W$ in $\mathsf{A}_{\leftarrow}$ (that is, an epimorphism
+$\alpha : W \twoheadrightarrow Z$),
+\[\begin{tikzcd}
+  W \arrow[rr, "\alpha"] \arrow[dr, "w"'] & & Z \arrow[dl, "z"] \\
+  & A &
+\end{tikzcd}\]
+define
+\[
+  \mathscr{H}_A(Z) \to \mathscr{H}_A(W)
+\]
+by sending $z$ to $w = z \circ \alpha$. Of course the zero-morphism is
+mapped to the zero-morphism, so this is indeed a morphism in
+$\categ{Set}^*$.
+\begin{defn}{}{homol:2.4}
+  Let $A$ be an object of a small abelian category $\mathsf{A}$. The
+  pointed set $\hat{A}$ of `elements of $A$' is the colimit of
+  $\mathscr{H}_A$:
+  \[
+    \hat{A} := \varinjlim \mathscr{H}_A.
+  \]
+\end{defn}
+
+Here is the simple-minded explanation. In the context of pointed sets,
+colimits may be constructed by joining pointed sets at the
+distinguished point and then taking a suitable quotient. For the case
+at hand, this translates into the following: an `element' of $A$
+consists of the choice of a morphism $z : Z \to A$ in $\mathsf{A}$,
+stipulating that two morphisms $z_1 : Z_1 \to A$, $z_2 : Z_2 \to A$
+determine the same `element' if there are epimorphisms
+$w_1 : W \twoheadrightarrow Z_1$ and $w_2 : W \twoheadrightarrow Z_2$
+in $\mathsf{A}$ such that the diagram
+\[\begin{tikzcd}
+  & Z_1 \arrow[dr, "z_1"] & \\
+  W \arrow[ur, "w_1", two heads] \arrow[dr, "w_2"', two heads] & & A \\
+  & Z_2 \arrow[ur, "z_2"'] &
+\end{tikzcd}\]
+commutes. This is an equivalence relation, as the reader should check
+carefully (Exercise~2.5).
+Now I want to make the assignment $A \mapsto \hat{A}$ into a covariant
+functor $\mathsf{A} \to \categ{Set}^*$, and there is only one
+reasonable way to do so: for $\varphi : A \to B$ and $z : Z \to A$,
+define $\hat{\varphi}(z)$ by composing morphisms, i.e.,
+\[\begin{tikzcd}
+  & A \arrow[d, "\varphi"] \\
+  Z \arrow[ur, "z"] \arrow[r, "\hat{\varphi}(z) := \varphi \circ z"'] & B
+\end{tikzcd}\]
+This prescription is (manifestly) compatible with the equivalence
+relation, so it defines a set-function
+$\hat{\varphi} : \hat{A} \to \hat{B}$. The image of the zero-morphism
+is zero, so $\hat{\varphi}$ is a morphism in $\categ{Set}^*$, as
+needed. The covariance property of this assignment is evident. We
+have obtained the promised functor $\mathsf{A} \to \categ{Set}^*$.
+
+Now we will proceed to verify all the miracles I have advertised. In
+the following, the symbol $\sim$ will stand for the equivalence
+relation defined above\footnote{Warning: Later on in this chapter I
+will define a notion of homotopy, and I will recycle the symbol $\sim$
+for that notion. The context and the meaning of the symbol will be
+completely different.}; thus, two morphisms $z_1 : Z_1 \to A$,
+$z_2 : Z_2 \to A$ determine the same `element' of $\hat{A}$ if and
+only if $z_1 \sim z_2$.
+
+One useful preliminary observation is that the only morphism
+representing the distinguished `element' is the zero-morphism and
+that we can detect whether a morphism is $0$ by working in
+$\categ{Set}^*$:
+\begin{lem}{}{homol:2.5}
+  $z \sim 0 \iff z = 0$. Further, a morphism $\varphi : A \to B$ in
+  $\mathsf{A}$ is $0$ if and only if $\hat{\varphi}(z) = 0$ for all
+  $z \in \hat{A}$.
+\end{lem}
+
+\begin{proof}
+  According to the definition given above, $z : Z \to A$ is
+  equivalent to $0$ if and only if there is an epimorphism
+  $W \twoheadrightarrow Z$ making the following diagram commute:
+  \[\begin{tikzcd}
+    W \arrow[r, two heads] & Z \arrow[r, "z"] & A
+  \end{tikzcd}\]
+  Since $W \twoheadrightarrow Z$ is an epimorphism, this diagram
+  commutes if and only if $z = 0$ (Lemma~\ref{homol:1.3}), as claimed.
+
+  For the second statement, consider the situation
+  \[\begin{tikzcd}
+    A \arrow[r, "\varphi"] & B \\
+    Z \arrow[u, "z"] \arrow[ur, dashed, "\hat{\varphi}(z)"'] &
+  \end{tikzcd}\]
+  If $\varphi = 0$, then so is $\hat{\varphi}(z) = \varphi \circ z$.
+  Conversely, if $\hat{\varphi}(z) = 0$ for all $z$, then taking
+  $z : Z = A \to A$ to be the identity, we get $\varphi \sim 0$, and
+  hence $\varphi = 0$ by the first part.
+\end{proof}
+This tells us in particular that we can verify the commutativity of a
+diagram in $\mathsf{A}$ by working in $\categ{Set}^*$: because we can
+check whether two morphisms
+$\varphi, \psi \in \operatorname{Hom}_{\mathsf{A}}(A,B)$ are equal by
+verifying that their difference $\varphi - \psi$ equals $0$, which we
+can do\footnote{Note that I am not saying that $\varphi = \psi$ if and
+only if $\hat{\varphi}(z) = \hat{\psi}(z)$ for all `elements' $z$; this
+is unfortunately not the case (cf.\ Exercise~2.10).} at the level of
+pointed sets (hence, by chasing elements!) by Lemma~\ref{homol:2.5}.
+
+Concerning monomorphisms and epimorphisms,
+
+\begin{lem}{}{homol:2.6}
+  Let $\varphi : A \to B$ be a morphism in $\mathsf{A}$. Then
+  \begin{itemize}
+    \item $\varphi$ is a monomorphism if and only if $\hat{\varphi}$
+      is injective;
+    \item $\varphi$ is an epimorphism if and only if $\hat{\varphi}$
+      is surjective.
+  \end{itemize}
+\end{lem}
+
+\begin{proof}
+  As usual, I will propose a division of labor: the reader will prove
+  the first statement (Exercise~2.6), and I will prove the second.
+
+  Assume $\varphi$ is an epimorphism, and let $z : Z \to B$ represent
+  an arbitrary `element' of $\hat{B}$. Consider the fiber product:
+  \[\begin{tikzcd}
+    A \arrow[r, two heads, "\varphi"] & B \\
+    A \times_B Z \arrow[u, "z'"] \arrow[r, "\varphi'"'] &
+      Z \arrow[u, "z"']
+  \end{tikzcd}\]
+  By Lemma~\ref{homol:2.3}, $\varphi'$ is an epimorphism. It follows
+  that $\varphi \circ z' \sim z$, that is, $\hat{\varphi}(z') = z$.
+  This shows that $\hat{\varphi}$ is surjective.
+  Conversely, assume $\hat{\varphi} : \hat{A} \to \hat{B}$ is
+  surjective. In particular, there is an `element' of $\hat{A}$
+  mapping to $\operatorname{id}_B$. This `element' is represented by a
+  morphism $z : Z \to A$, and the condition
+  $\hat{\varphi}(z) = \operatorname{id}_B$ means that there are
+  epimorphisms $w_1$, $w_2$, as in the commutative diagram:
+  \[\begin{tikzcd}
+    Z \arrow[r, "z"] & A \arrow[r, "\varphi"] & B \\
+    W \arrow[u, two heads, "w_1"] \arrow[urr, two heads, "w_2"'] & &
+  \end{tikzcd}\]
+  Since $\varphi \circ z \circ w_1 = w_2$ is an epimorphism, it follows
+  that $\varphi$ is an epimorphism, as needed.
+\end{proof}
+Next, let's verify that the notions of `kernel' and `image' in an
+abelian category $\mathsf{A}$ match precisely their simple-minded
+counterparts in $\categ{Set}^*$.
+
+\begin{lem}{}{homol:2.7}
+  With notation as above, let $\varphi : A \to B$ be a morphism in a
+  small abelian category $\mathsf{A}$, and let
+  $\hat{\varphi} : \hat{A} \to \hat{B}$ be the corresponding function
+  of pointed sets. Let $\ker\varphi : K \to A$, resp.,
+  $\operatorname{im}\varphi : I \to B$, be the kernel and the image
+  of $\varphi$, respectively. Then
+  \begin{itemize}
+    \item $\widehat{\ker\varphi}$ identifies $\hat{K}$ with the subset
+      $\hat{\varphi}^{-1}(0)$ of $\hat{A}$;
+    \item $\widehat{\operatorname{im}\varphi}$ identifies $\hat{I}$
+      with the image of $\hat{\varphi}$ in $\hat{B}$.
+  \end{itemize}
+\end{lem}
+
+\begin{proof}
+  These statements are very close to the universal properties
+  satisfied by kernel and image.
+
+  The reader will verify the statement about the kernel
+  (Exercise~2.7). For the image, recall that we have a decomposition
+  of $\varphi$,
+  \[\begin{tikzcd}
+    \varphi : A \arrow[r, two heads] & I \arrow[r, "\operatorname{im}\varphi", hook] & B,
+  \end{tikzcd}\]
+  and that $\operatorname{im}\varphi : I \to B$ is a kernel of
+  $\operatorname{coker}\varphi$ (this is the definition of `image'
+  (cf.\ \S{}1.5); the fact that $A \to I$ is an epimorphism is part
+  of the content of Theorem~\ref{homol:1.13}).
+
+  To simplify the notation, let $j = \operatorname{im}\varphi$. Then
+  (by Lemma~\ref{homol:2.6}) $\hat{\jmath}$ is an injective function
+  $\hat{I} \to \hat{B}$, mapping a representative $z : Z \to I$ to
+  $j \circ z : Z \to B$; we have to verify that
+  $\hat{\jmath}(I) = \operatorname{im}\hat{\varphi}$. To verify that
+  $\hat{\jmath}(z)$ is in the image of $\hat{\varphi}$, consider the
+  fiber product
+  \[\begin{tikzcd}
+    A \times_I Z \arrow[r, two heads] \arrow[d, "z'"'] & Z \arrow[d, "z"] \\
+    A \arrow[r, two heads] & I
+  \end{tikzcd}\]
+  The bottom map is an epimorphism by virtue of Lemma~\ref{homol:2.3},
+  since the top map in the fiber square is an epimorphism. This shows
+  that $\varphi \circ z' \sim \hat{\jmath}(z)$; that is,
+  $\hat{\jmath}(z) = \hat{\varphi}(z')$ is in the image of
+  $\hat{\varphi}$, as claimed. This verifies that the image of
+  $\hat{\jmath}$ is contained in the image of $\hat{\varphi}$:
+  \[
+    \hat{I} \to \text{image of } \hat{\varphi} \subseteq \hat{B}.
+  \]
+  To show that every `element' in the image of $\hat{\varphi}$ is
+  obtained in this fashion, let $z : Z \to B$ be in the image of
+  $\hat{\varphi}$. That is, there is a $z' : Z' \to A$ and
+  epimorphisms $w_1$, $w_2$ making the following diagram commute:
+  \[\begin{tikzcd}
+    & W \arrow[dl, two heads, "w_1"'] \arrow[dr, two heads, "w_2"] & \\
+    Z' \arrow[d, "z'"'] & & Z \arrow[d, "z"] \\
+    A \arrow[rr, "\varphi"] & & B \arrow[r, "\operatorname{coker}\varphi"] &
+      \operatorname{Cok}
+  \end{tikzcd}\]
+  Note that
+  $\operatorname{coker}\varphi \circ z \circ w_2 =
+  (\operatorname{coker}\varphi \circ \varphi) \circ z' \circ w_1 = 0$;
+  since $w_2$ is an epimorphism, it follows that
+  $\operatorname{coker}\varphi \circ z = 0$. By the universal property
+  of kernels, this says that $z$ factors uniquely through
+  $\ker\operatorname{coker}\varphi = \operatorname{im}\varphi = j$:
+  \[\begin{tikzcd}
+    A \arrow[r, two heads] & I \arrow[r, "j", hook] & B \\
+    & Z \arrow[u, dashed, "\exists!"'] \arrow[ur, "z"'] &
+  \end{tikzcd}\]
+  This gives an `element' of $\hat{I}$ mapping to $z$, as needed.
+\end{proof}
+
+Finally, let's check that the functor is exact:
+
+\begin{prop}{}{homol:2.8}
+  Let $\mathsf{A}$ be a small abelian category. Then a sequence
+  \[\begin{tikzcd}
+    A \arrow[r, "\varphi"] & B \arrow[r, "\psi"] & C
+  \end{tikzcd}\]
+  in $\mathsf{A}$ is exact if and only if the corresponding sequence
+  \[\begin{tikzcd}
+    \hat{A} \arrow[r, "\hat{\varphi}"] & \hat{B} \arrow[r, "\hat{\psi}"] & \hat{C}
+  \end{tikzcd}\]
+  is exact in $\categ{Set}^*$.
+\end{prop}
+
+\begin{proof}
+  This now follows immediately from Lemma~\ref{homol:2.7}: exactness
+  in $\mathsf{A}$ means that $\operatorname{im}\varphi = \ker\psi$,
+  and exactness in $\categ{Set}^*$ means that the image of
+  $\hat{\varphi}$ equals $\hat{\psi}^{-1}(0)$. By
+  Lemma~\ref{homol:2.7}, these conditions are equivalent.
+\end{proof}
 
 \subsection{What is missing? Pretty as it is, the construction presented in the previous}
 \label{subsec:homol:what-is-missing-pretty-as-it-is-the-construction-presented-in-the-previous}
