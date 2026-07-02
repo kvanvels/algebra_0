@@ -2285,390 +2285,483 @@ Let $F = F^{ab}(A)$.
 
 \subsection{Definition}
 \label{subsec:groups:definition}
-% Let (G, \cdot ) be a group, and let (H, \bullet ) be another group, whose
+Let $(G, \cdot)$ be a group, and let $(H, \bullet)$ be another group,
+whose underlying set $H$ is a subset of $G$.
 
-% underlying set H is a subset of G.
-% Definition 6.1. (H, \bullet ) is a subgroup of G if the inclusion function i : H
-% \setminus \to  G is a
-% group homomorphism.
-%  ?
-% For example, the trivial group consisting of the single element eG is a subgroup
-% of G.
-% If (H, \bullet ) is a subgroup of (G, \cdot ), then \forall h1 , h2 \in  H:
-% (*)
-%  i(h1 \bullet  h2 ) = i(h1 ) \cdot  i(h2).
-% We say that the operation \bullet  on H is `induced' from the operation \cdot
-% on G; in practice
-% one omits explicit mention of i and of the operations, and (*) guarantees that
-% no
-% ambiguity will arise from this.
-% The subgroup condition may be streamlined. A subset H of a group G deter-
-% mines a subgroup if the operation \cdot  in G induces (by (*)) a binary
-% operation in H
-% (we say that H is closed with respect to the operation in G), satisfying the
-% group
-% axioms. Since the identity and inverses are preserved through homomorphisms
-% (Proposition 3.2), the identity eH of H will have to coincide with the identity
-% eG
-% of G and the inverse of an element h \in  H has to be the same as the inverse of
-% that
-% element in G. The most economical way to say all this is
-% Proposition 6.2. A nonempty subset H of a group G is a subgroup if and only if
-% (\forall a, b \in  H) :
-%  ab-1 \in  H.
-% Proof. It is clear that if H is a subgroup, then the stated condition holds:
-% indeed,
-% if b \in  H, then the inverse of b must also be in H and H is closed under the
-% operation
-% of G.
-% Conversely, assume the stated condition holds; we have to check that H is
-% closed under the operation of G, the induced operation on H is associative, and
-% it admits an identity element and inverses (that is, it contains eG and is
-% closed
-% under taking inverses in G). Since H is nonempty, we can find an element h \in
-% H.
-% Choosing a = b = h, we see that
-% eG = hh-1 = ab-1 \in  H;
-% thus H contains the identity. Given any h \in  H, choosing a = eG and b = h
-% shows
-% that
-% h-1 = eG h-1 = ab-1 \in  H;
-% thus H contains the inverse of any of its elements. Given any h1 , h2 \in  H,
-% choose
-% -1
-% a = h1 , b = h2 ; the stated condition says that
-% h1 h2 = h1 ((h2 )-1 )-1 = ab-1 \in  H,
-% proving that H is closed under the operation.
-% Finally, the fact that the operation is associative in G implies immediately
-% that
-% the induced operation is associative in H, concluding the proof that H, with the
-% induced operation, is a group.
-%  ?
-% This criterion makes it particularly straightforward to check simple facts con-
-% cerning subgroups. For example,
-% Lemma 6.3. If {H\alpha  }\alpha \in A is any family of subgroups of a group G,
-% then
-% ?
-% H =
-%  H\alpha 
-% \alpha \in A
-% is a subgroup of G.
-% Proof. This follows right away from Proposition 6.2: H is nonempty, because
-% e \in  H\alpha  for all \alpha , so e \in  H; and
-% a, b \in  H \implies  (\forall \alpha  \in  A) : a, b \in  H\alpha  \implies
-% (\forall \alpha  \in  A) : ab-1 \in  H\alpha  \implies  ab-1 \in  H,
-% proving that H is a subgroup of G.
-%  ?
-% Similarly,
-% Lemma 6.4. Let \phi  : G \to  G\setminus  be a group homomorphism, and let H
-% \setminus  be a subgroup
-% of G\setminus . Then \phi -1(H \setminus  ) is a subgroup of G.
-% Proof. Recall (end of \S{}I.2.5) that \phi -1(H \setminus  ) consists of all g
-% \in  G such that \phi (g) \in
-% H \setminus . Since \phi (eG ) = eG? \in  H \setminus  , this set is nonempty.
-% If a, b \in  \phi -1(H \setminus  ), then \phi (a)
-% \setminus and \phi (b) are in H , and hence
-% \phi (ab-1 ) = \phi (a)\phi (b)-1 \in  H \setminus  :
-% thus, ab-1 \in  \phi -1 (H \setminus  ). This implies that \phi -1 (H \setminus
-% ) is a subgroup of G, by Proposi-
-% tion 6.2.
-%  ?
+\begin{defn}{Subgroup}{defn:groups:subgroup}
+$(H, \bullet)$ is a \emph{subgroup} of $G$ if the inclusion function
+$i : H \hookrightarrow G$ is a group homomorphism.
+\end{defn}
+
+For example, the trivial group consisting of the single element $e_G$
+is a subgroup of $G$.
+
+If $(H, \bullet)$ is a subgroup of $(G, \cdot)$, then
+$\forall h_1, h_2 \in H$:
+\[
+  i(h_1 \bullet h_2) = i(h_1) \cdot i(h_2). \tag{$*$}
+\]
+We say that the operation $\bullet$ on $H$ is `induced' from the
+operation $\cdot$ on $G$; in practice one omits explicit mention of $i$
+and of the operations, and $(*)$ guarantees that no ambiguity will arise
+from this.
+
+The subgroup condition may be streamlined. A subset $H$ of a group $G$
+determines a subgroup if the operation $\cdot$ in $G$ induces (by $(*)$)
+a binary operation in $H$ (we say that $H$ is \emph{closed} with respect
+to the operation in $G$), satisfying the group axioms. Since the
+identity and inverses are preserved through homomorphisms
+(Proposition~3.2), the identity $e_H$ of $H$ will have to coincide with
+the identity $e_G$ of $G$ and the inverse of an element $h \in H$ has to
+be the same as the inverse of that element in $G$. The most economical
+way to say all this is
+
+\begin{prop}{A nonempty subset $H$ of a group $G$ is a subgroup if and
+only if $(\forall a, b \in H) : ab^{-1} \in H$.}{prop:groups:subgroup-criterion}
+\end{prop}
+\begin{proof}
+It is clear that if $H$ is a subgroup, then the stated condition holds:
+indeed, if $b \in H$, then the inverse of $b$ must also be in $H$ and $H$
+is closed under the operation of $G$.
+
+Conversely, assume the stated condition holds; we have to check that $H$
+is closed under the operation of $G$, the induced operation on $H$ is
+associative, and it admits an identity element and inverses (that is, it
+contains $e_G$ and is closed under taking inverses in $G$). Since $H$ is
+nonempty, we can find an element $h \in H$. Choosing $a = b = h$, we see
+that
+\[
+  e_G = hh^{-1} = ab^{-1} \in H;
+\]
+thus $H$ contains the identity. Given any $h \in H$, choosing $a = e_G$
+and $b = h$ shows that
+\[
+  h^{-1} = e_G h^{-1} = ab^{-1} \in H;
+\]
+thus $H$ contains the inverse of any of its elements. Given any
+$h_1, h_2 \in H$, choose $a = h_1$, $b = h_2^{-1}$; the stated condition
+says that
+\[
+  h_1 h_2 = h_1((h_2^{-1})^{-1})^{-1} = ab^{-1} \in H,
+\]
+proving that $H$ is closed under the operation.
+
+Finally, the fact that the operation is associative in $G$ implies
+immediately that the induced operation is associative in $H$, concluding
+the proof that $H$, with the induced operation, is a group.
+\end{proof}
+
+This criterion makes it particularly straightforward to check simple
+facts concerning subgroups. For example,
+
+\begin{lem}{If $\{H_\alpha\}_{\alpha \in A}$ is any family of subgroups
+of a group $G$, then
+\[
+  H = \bigcap_{\alpha \in A} H_\alpha
+\]
+is a subgroup of $G$.}{lem:groups:intersection-of-subgroups}
+\end{lem}
+\begin{proof}
+This follows right away from Proposition~\ref{prop:groups:subgroup-criterion}:
+$H$ is nonempty, because $e \in H_\alpha$ for all $\alpha$, so $e \in H$;
+and
+\[
+  a, b \in H \implies (\forall \alpha \in A) : a, b \in H_\alpha
+  \implies (\forall \alpha \in A) : ab^{-1} \in H_\alpha
+  \implies ab^{-1} \in H,
+\]
+proving that $H$ is a subgroup of $G$.
+\end{proof}
+
+Similarly,
+
+\begin{lem}{Let $\varphi : G \to G'$ be a group homomorphism, and let
+$H'$ be a subgroup of $G'$. Then $\varphi^{-1}(H')$ is a subgroup of
+$G$.}{lem:groups:preimage-of-subgroup}
+\end{lem}
+\begin{proof}
+Recall (end of $\S$I.2.5) that $\varphi^{-1}(H')$ consists of all
+$g \in G$ such that $\varphi(g) \in H'$. Since
+$\varphi(e_G) = e_{G'} \in H'$, this set is nonempty. If
+$a, b \in \varphi^{-1}(H')$, then $\varphi(a)$ and $\varphi(b)$ are in
+$H'$, and hence
+\[
+  \varphi(ab^{-1}) = \varphi(a)\varphi(b)^{-1} \in H':
+\]
+thus, $ab^{-1} \in \varphi^{-1}(H')$. This implies that
+$\varphi^{-1}(H')$ is a subgroup of $G$, by
+Proposition~\ref{prop:groups:subgroup-criterion}.
+\end{proof}
 
 \subsection{Examples: Kernel and image}
 \label{subsec:groups:examples-kernel-and-image}
-% Every group homomorphism \phi  : G \to  G\setminus 
+Every group homomorphism $\varphi : G \to G'$ determines two interesting
+subgroups:
+\begin{itemize}
+\item the \emph{kernel} of $\varphi$, $\ker\varphi \subseteq G$; and
+\item the \emph{image} of $\varphi$, $\operatorname{im}\varphi \subseteq G'$.
+\end{itemize}
 
-% determines two interesting subgroups:
-% \bullet  the kernel of \phi , ker \phi  \subseteq  G; and
-% \bullet  the image of \phi , im \phi  \subseteq  G\setminus  .
-% Definition 6.5. The kernel of \phi  : G \to  G\setminus  is the subset of G
-% consisting of elements
-% mapping to the identity in G\setminus  :
-% ker \phi  := {g \in  G | \phi (g) = eG? } = \phi -1 (eG? ).
-%  ?
-% Since {eG? } is a subgroup of G\setminus  , Lemma 6.4 shows that ker \phi  is
-% indeed a sub-
-% group of G. For an (even) more explicit argument, note that ker \phi  is
-% nonempty,
-% since eG \in  ker \phi ; and if a, b are in ker \phi , then
-% \phi (ab-1 ) = \phi (a)\phi (b)-1 = e G? e-1
-%  G? = eG? ,
-% proving that ab-1 \in  ker \phi . This shows that ker \phi  is a subgroup of G,
-% by Proposi-
-% tion 6.2.
-% The verification that im \phi  is a subgroup is left to the reader. In fact, the
-% reader
-% should check that the image of any subgroup of G is a subgroup of G\setminus  .
-% We will soon (\S{}7.1) see that kernels are `special' subgroups. As with most
-% constructions of importance in algebra, they satisfy a universal property, which
-% may be expressed as follows.
-% Proposition 6.6. Let \phi  : G \to  G\setminus  be a homomorphism. Then the
-% inclusion i :
-% ker \phi  \setminus \to  G is final in the category26 of group homomorphisms
-% \alpha  : K \to  G such that
-% \phi  \circ  \alpha  is the trivial map.
-% In other words, every group homomorphism \alpha  : K \to  G such that \phi
-% \circ  \alpha  is the
-% trivial homomorphism (denoted `0' in the diagram) factors uniquely through ker
-% \phi :
-% K / G
-%  (/
-%  G\setminus 
-% D \exists !\alpha  D D
-%  D \alpha  D
-%  D
-%  D D
-%  " ? ?
-%  O \phi 
-% ker \phi 
-% Proof. If \alpha  : K \to  G is such that \phi  \circ  \alpha  is the trivial
-% map, then \forall k \in  K
-% \phi  \circ  \alpha (k) = \phi (\alpha (k)) = eG? ,
-% that is, \alpha (k) \in  ker \phi . We can (and must) then let \alpha  : K \to
-% ker \phi  simply be \alpha  itself,
-% with restricted target.
-%  ?
-% Proposition 6.6 indicates how one might define a notion analogous to `kernel' in
-% very general settings. This viewpoint will be championed much later in this
-% book,
-% especially in Chapter IX.
-% Remark 6.7. The argument shows that in fact kernels of group homomorphisms
-% satisfy a somewhat stronger universal property: any set-function \alpha  : K \to
-% G
-% such that the image of \phi  \circ  \alpha  is the identity in G\setminus  must
-% factor (as a set-function)
-% through ker \phi .
-%  ?
+\begin{defn}{Kernel}{defn:groups:kernel}
+The \emph{kernel} of $\varphi : G \to G'$ is the subset of $G$ consisting
+of elements mapping to the identity in $G'$:
+\[
+  \ker\varphi := \{g \in G \mid \varphi(g) = e_{G'}\} = \varphi^{-1}(e_{G'}).
+\]
+\end{defn}
+
+Since $\{e_{G'}\}$ is a subgroup of $G'$,
+Lemma~\ref{lem:groups:preimage-of-subgroup} shows that $\ker\varphi$ is
+indeed a subgroup of $G$. For an (even) more explicit argument, note that
+$\ker\varphi$ is nonempty, since $e_G \in \ker\varphi$; and if $a, b$ are
+in $\ker\varphi$, then
+\[
+  \varphi(ab^{-1}) = \varphi(a)\varphi(b)^{-1} = e_{G'}e_{G'}^{-1} = e_{G'},
+\]
+proving that $ab^{-1} \in \ker\varphi$. This shows that $\ker\varphi$ is
+a subgroup of $G$, by Proposition~\ref{prop:groups:subgroup-criterion}.
+
+The verification that $\operatorname{im}\varphi$ is a subgroup is left
+to the reader. In fact, the reader should check that the image of
+\emph{any} subgroup of $G$ is a subgroup of $G'$.
+
+We will soon ($\S$7.1) see that kernels are `special' subgroups. As with
+most constructions of importance in algebra, they satisfy a universal
+property, which may be expressed as follows.
+
+\begin{prop}{Let $\varphi : G \to G'$ be a homomorphism. Then the
+inclusion $i : \ker\varphi \hookrightarrow G$ is final in the
+category\footnote{The reader should specify what the morphisms are in
+this category.} of group homomorphisms $\alpha : K \to G$ such that
+$\varphi \circ \alpha$ is the trivial
+map.}{prop:groups:kernel-universal-property}
+In other words, every group homomorphism $\alpha : K \to G$ such that
+$\varphi \circ \alpha$ is the trivial homomorphism (denoted `$0$' in the
+diagram) factors uniquely through $\ker\varphi$:
+\[
+\begin{tikzcd}
+  K \arrow[rr, "0"] \arrow[dr, "\alpha"'] & & G' \\
+  & G \arrow[ur, "\varphi"'] & \\
+  & \ker\varphi \arrow[u, dashed, "\exists!\,\bar\alpha"'] &
+\end{tikzcd}
+\]
+\end{prop}
+\begin{proof}
+If $\alpha : K \to G$ is such that $\varphi \circ \alpha$ is the trivial
+map, then $\forall k \in K$
+\[
+  \varphi \circ \alpha(k) = \varphi(\alpha(k)) = e_{G'},
+\]
+that is, $\alpha(k) \in \ker\varphi$. We can (and must) then let
+$\bar\alpha : K \to \ker\varphi$ simply be $\alpha$ itself, with
+restricted target.
+\end{proof}
+
+Proposition~\ref{prop:groups:kernel-universal-property} indicates how
+one might define a notion analogous to `kernel' in very general
+settings. This viewpoint will be championed much later in this book,
+especially in Chapter~IX.
+
+\begin{rem}{}{rem:groups:kernel-set-function-universal-property}
+The argument shows that in fact kernels of group homomorphisms satisfy a
+somewhat stronger universal property: any set-function $\alpha : K \to
+G$ such that the image of $\varphi \circ \alpha$ is the identity in $G'$
+must factor (as a set-function) through $\ker\varphi$.
+\end{rem}
 
 \subsection{Example: Subgroup generated by a subset}
 \label{subsec:groups:example-subgroup-generated-by-a-subset}
-% If A \subseteq  G is any subset, we
+If $A \subseteq G$ is any subset, we have a unique group homomorphism
+\[
+  \varphi_A : F(A) \to G
+\]
+extending this inclusion, by the universal property of free groups. The
+image of this homomorphism is a subgroup of $G$, the \emph{subgroup
+generated by $A$} in $G$, often denoted\footnote{If
+$A = \{g_1, \dots, g_r\}$ is a finite set, one writes
+$\langle g_1, \dots, g_r \rangle$.} $\langle A \rangle$.
 
-% have a unique group homomorphism
-% \phi A : F (A) \to  G
-% extending this inclusion, by the universal property of free groups. The image of
-% this homomorphism is a subgroup of G, the subgroup generated by A in G, often
-% denoted27 ?A?.
-% Of course, if G is abelian, then \phi A factors through F ab (A), so we may
-% replace
-% F (A) by F ab (A) in this case.
-% The `concrete' description of free groups (\S{}5.3) leads to the following
-% description
-% of ?A?: it consists of all products in G of the form
-% a1 a2 a3 \dots  an
-% where each ai is either an element of A, the inverse of an element of A, or the
-% identity. This is clearly the most `economical' way to manufacture a subgroup
-% of G, given the elements of A.
-% 26 The reader should specify what the morphisms are in this category.
-% 27 If A = {g1
-%  , . . . , gr
-%  } is a finite set, one writes
-%  g1 , . . . , gr .
-% The reader who has not (yet) developed a taste for free groups may prefer
-% the following alternative description: ?A? is the intersection of all subgroups
-% of G
-% containing A,
-%  ?
-% ?A? =
-%  H.
-% H subgroup of G, H \supseteq  A
-% Indeed, the intersection on the right-hand side is a subgroup of G by Lemma 6.3,
-% it contains A, and it is clearly the smallest subgroup satisfying this
-% condition.
-% If A = {g} consists of a single element, then F (A) = Z and \phi A : Z \to  G is
-% nothing but the `exponential map' ?g (cf. \S{}4.1); ?A? = ?g? is then the image
-% of this
-% map:
-% ?g? = im(?g ) = {. . . , g-2 , g -1 , e, g, g 2 , . . . }.
-% The subgroup ?g? is the `cyclic subgroup generated by g': indeed, ?g? is cyclic
-% in the
-% sense of Definition 4.7; the reader can easily check this fact already (Exercise
-% 6.4); it
-% will also be recovered as an immediate consequence of the construction of
-% quotients
-% (cf. \S{}7.5).
-% Definition 6.8. A group G is finitely generated if there exists a finite subset
-% A \subseteq  G
-% such that G = ?A?.
-%  ?
-% For examples, cyclic groups are finitely generated (in fact, they are generated
-% by a singleton). By definition, a group is finitely generated if and only if
-% there is a
-% surjective homomorphism
-% F ({1, . . . , n}) \setminus  G
-% for some n. One of the most memorable results proven in this book will give
-% a classification of finitely generated abelian groups: we will be able to prove
-% that
-% every such group is a direct sum of cyclic groups (Theorem IV.6.6, Exercise
-% VI.2.19,
-% and the generalization given in Theorem VI.5.6). The situation for general
-% groups
-% is considerably more complex. The classification of finite (simple) groups is
-% one of
-% the major achievements of twentieth-century mathematics, and it is spread over
-% at
-% least 10,000 pages of research articles. To appreciate the difference in
-% complexity,
-% note that there are 42 abelian groups of order 1024 up to isomorphism (as the
-% reader will be able to establish in due time: Exercise IV.6.6); allegedly, there
-% are
-% 49,487,365,402 if we count noncommutative ones as well28 .
+Of course, if $G$ is abelian, then $\varphi_A$ factors through
+$F^{ab}(A)$, so we may replace $F(A)$ by $F^{ab}(A)$ in this case.
+
+The `concrete' description of free groups ($\S$5.3) leads to the
+following description of $\langle A \rangle$: it consists of all
+products in $G$ of the form
+\[
+  a_1 a_2 a_3 \cdots a_n
+\]
+where each $a_i$ is either an element of $A$, the inverse of an element
+of $A$, or the identity. This is clearly the most `economical' way to
+manufacture a subgroup of $G$, given the elements of $A$.
+
+The reader who has not (yet) developed a taste for free groups may
+prefer the following alternative description: $\langle A \rangle$ is the
+intersection of all subgroups of $G$ containing $A$,
+\[
+  \langle A \rangle = \bigcap_{H \text{ subgroup of } G,\ H \supseteq A} H.
+\]
+Indeed, the intersection on the right-hand side is a subgroup of $G$ by
+Lemma~\ref{lem:groups:intersection-of-subgroups}, it contains $A$, and it
+is clearly the smallest subgroup satisfying this condition.
+
+If $A = \{g\}$ consists of a single element, then $F(A) = \mathbb{Z}$ and
+$\varphi_A : \mathbb{Z} \to G$ is nothing but the `exponential map'
+$\epsilon_g$ (cf.\ $\S$4.1); $\langle A \rangle = \langle g \rangle$ is
+then the image of this map:
+\[
+  \langle g \rangle = \operatorname{im}(\epsilon_g)
+  = \{\dots, g^{-2}, g^{-1}, e, g, g^2, \dots\}.
+\]
+The subgroup $\langle g \rangle$ is the `cyclic subgroup generated by
+$g$': indeed, $\langle g \rangle$ is cyclic in the sense of
+Definition~4.7; the reader can easily check this fact already
+(Exercise~6.4); it will also be recovered as an immediate consequence of
+the construction of quotients (cf.\ $\S$7.5).
+
+\begin{defn}{Finitely generated}{defn:groups:finitely-generated}
+A group $G$ is \emph{finitely generated} if there exists a finite subset
+$A \subseteq G$ such that $G = \langle A \rangle$.
+\end{defn}
+
+For examples, cyclic groups are finitely generated (in fact, they are
+generated by a singleton). By definition, a group is finitely generated
+if and only if there is a surjective homomorphism
+\[
+  F(\{1, \dots, n\}) \twoheadrightarrow G
+\]
+for some $n$. One of the most memorable results proven in this book will
+give a classification of finitely generated abelian groups: we will be
+able to prove that every such group is a direct sum of cyclic groups
+(Theorem~IV.6.6, Exercise~VI.2.19, and the generalization given in
+Theorem~VI.5.6). The situation for general groups is considerably more
+complex. The classification of finite (simple) groups is one of the
+major achievements of twentieth-century mathematics, and it is spread
+over at least $10{,}000$ pages of research articles. To appreciate the
+difference in complexity, note that there are $42$ abelian groups of
+order $1024$ up to isomorphism (as the reader will be able to establish
+in due time: Exercise~IV.6.6); allegedly, there are $49{,}487{,}365{,}402$
+if we count noncommutative ones as well.\footnote{This comparison is a
+little unfair, however, since it so happens that more than 99\% of all
+groups of order ${}<2000$ have order $1024$.}
 
 \subsection{Example: Subgroups of cyclic groups}
 \label{subsec:groups:example-subgroups-of-cyclic-groups}
-% We are ready to determine all
+We are ready to determine \emph{all} subgroups of all cyclic groups,
+that is, all subgroups of $\mathbb{Z}$ and of $\mathbb{Z}/n\mathbb{Z}$,
+for all $n > 0$ (because every cyclic group is isomorphic to one of
+these; cf.\ Definition~4.7). The result is easy to remember:
+\emph{subgroups of cyclic groups are themselves cyclic groups}.
 
-% subgroups of all cyclic groups, that is, all subgroups of Z and of Z/nZ, for all
-% n > 0
-% (because every cyclic group is isomorphic to one of these; cf. Definition 4.7).
-% The
-% result is easy to remember: subgroups of cyclic groups are themselves cyclic
-% groups.
-% It is convenient to start from Z. For d \in  Z we let
-% dZ := ?d? = {m \in  Z | \exists q \in  Z, m = dq};
-% that is, dZ denotes the set of integer multiples of d. Of course this is nothing
-% but
-% the `cyclic subgroup of Z generated by d'.
-% Proposition 6.9. Let G \subseteq  Z be a subgroup. Then G = dZ for some d \geq
-% 0.
-% 28 This comparison is a little unfair, however, since it so happens that more
-% than 99% of all
-% groups of order < 2000 have order 1024.
-% The proof will actually show that if G \subseteq  Z is nontrivial, then d is the
-% smallest
-% positive element of G, and the reader is invited to remember this useful fact.
-% Remark 6.10. By Proposition 6.9, every nontrivial subgroup of Z is in fact iso-
-% morphic to Z. Putting this a little strangely, it says that every subgroup of
-% the
-% free group on one generator is free. It is in fact true that every subgroup of a
-% (finitely generated) free group is free; we will not prove this fact, although
-% the dili-
-% gent reader will get a taste of the argument in Exercise 9.16. In any case,
-% beware
-% that free groups on two generators already contain subgroups isomorphic to free
-% groups on arbitrarily many generators. Indeed, the commutator subgroup (cf. Ex-
-% ercise 7.12) [F, F ] for F = F ({x, y}) is isomorphic to a free group on
-% infinitely many
-% generators (unfortunately, we will not prove this beautiful statement either).
-%  ?
-% Proof of Proposition 6.9. If G = {0}, then G = 0Z. If not, note that G must
-% contain positive integers: indeed, if a \in  G and a < 0, then -a \in  G and -a
-% > 0.
-% We can then let d be the smallest positive integer 29 in G, and I claim G = dZ.
-% The inclusion dZ \subseteq  G is clear. To verify the inclusion G \subseteq  dZ,
-% let m \in  G, and
-% apply `division with remainder' to write
-% m = dq + r,
-% with 0 \leq  r < d. Since m \in  G and dZ \subseteq  G and since G is a
-% subgroup, we see that
-% r = m - dq \in  G.
-% But d is the smallest positive integer in G, and r \in  G is smaller than d; so
-% r cannot
-% be positive. This shows r = 0, that is, m = qd \in  dZ; G \subseteq  dZ follows,
-% and we are
-% done.
-%  ?
-% The `quotient' homomorphism \pi n : Z \to  Z/nZ (cf. \S{}4.1) allows us to
-% establish
-% the analogous result for finite cyclic groups:
-% Proposition 6.11. Let n > 0 be an integer and let G \subseteq  Z/nZ be a
-% subgroup. Then
-% G is the cyclic subgroup of Z/nZ generated by [d]n , for some divisor d of n.
-% Proof. Let \pi  n : Z \to  Z/nZ be the quotient map, and consider G\setminus  :=
-% \pi n -1(G). By
-% Lemma 6.4, G\setminus  is a subgroup of Z; by Proposition 6.9, G\setminus  is a
-% cyclic subgroup of Z,
-% generated by a nonnegative integer d. It follows that
-% G = \pi n (G\setminus ) = \pi n (?d?) = ?[d]n ?;
-% thus G is indeed a cyclic subgroup of Z/nZ, generated by a class [d]n. Further,
-% since
-% n \in  G\setminus  (because \pi n(n) = [n]n = [0]n \in  G) and G\setminus  = dZ,
-% we see that d divides n, as
-% claimed.
-%  ?
-% As a consequence of Proposition 6.11, there is a bijection between the set of
-% subgroups of Z/nZ and the set of positive divisors of n. For example, Z/12Z has
-% 29 I am secretly appealing to the `well-ordering principle'. That every set of
-% positive integers
-% should have a smallest element is one of those fact about Z---like the
-% availability of division-with-
-% remainder---that I am assuming the reader is already familiar with.
-% exactly 6 subgroups, because 12 has 6 positive divisors: 1, 2, 3, 4, 6, and 12.
-% Here
-% is the corresponding list of subgroups:
-% ?[1]12 ? = {[0]12, [1]12 , [2]12 , [3]12, [4]12, [5]12 , [6]12 , [7]12, [8]12 ,
-% [9]12 , [10]12 , [11]12 },
-% ?[2]12 ? = {[0]12, [2]12 , [4]12 , [6]12, [8]12, [10]12},
-% ?[3]12 ? = {[0]12, [3]12 , [6]12 , [9]12},
-% ?[4]12 ? = {[0]12, [4]12 , [8]12 },
-% ?[6]12 ? = {[0]12, [6]12 },
-% ?[12]12 ? = {[0]12}.
-% Also note that if d1 , d2 are both divisors of n, and d1 | d2 , then ?[d1 ]n ?
-% \supseteq  ?[d2]n ?.
-% That is, the correspondence between subgroups of Z/nZ and divisors of n
-% preserves
-% the natural lattice structure carried by these sets. We can draw these lattices
-% for Z/6Z as follows:
-%  {[0], [1], [2], [3], [4], [5]}
-% {[0], [2], [4]}
-% {[0], [3]}
-%  {[0]}
-% where lines connect multiples in one picture and subsets in the other. The
-% reader
-% will draw the lattice of subgroups of S3 , noting that it looks completely
-% different
-% from the one for Z/6Z.
-% Contemplating subgroups of cyclic groups has pretty (and useful) `number-
-% theoretic' consequences; cf. Exercise 6.14.
+It is convenient to start from $\mathbb{Z}$. For $d \in \mathbb{Z}$ we
+let
+\[
+  d\mathbb{Z} := \langle d \rangle
+  = \{m \in \mathbb{Z} \mid \exists q \in \mathbb{Z}, m = dq\};
+\]
+that is, $d\mathbb{Z}$ denotes the set of integer multiples of $d$. Of
+course this is nothing but the `cyclic subgroup of $\mathbb{Z}$
+generated by $d$'.
+
+\begin{prop}{Let $G \subseteq \mathbb{Z}$ be a subgroup. Then
+$G = d\mathbb{Z}$ for some $d \geq 0$.}{prop:groups:subgroups-of-z}
+\end{prop}
+The proof will actually show that if $G \subseteq \mathbb{Z}$ is
+nontrivial, then $d$ is the smallest positive element of $G$, and the
+reader is invited to remember this useful fact.
+
+\begin{rem}{}{rem:groups:subgroups-of-free-groups-are-free}
+By Proposition~\ref{prop:groups:subgroups-of-z}, every nontrivial
+subgroup of $\mathbb{Z}$ is in fact isomorphic to $\mathbb{Z}$. Putting
+this a little strangely, it says that every subgroup of the free group
+on one generator is free. It is in fact true that every subgroup of a
+(finitely generated) free group is free; we will not prove this fact,
+although the diligent reader will get a taste of the argument in
+Exercise~9.16. In any case, beware that free groups on \emph{two}
+generators already contain subgroups isomorphic to free groups on
+arbitrarily many generators. Indeed, the commutator subgroup (cf.\
+Exercise~7.12) $[F,F]$ for $F = F(\{x,y\})$ is isomorphic to a free group
+on infinitely many generators (unfortunately, we will not prove this
+beautiful statement either).
+\end{rem}
+
+\begin{proof}[Proof of \cref{prop:groups:subgroups-of-z}]
+If $G = \{0\}$, then $G = 0\mathbb{Z}$. If not, note that $G$ must
+contain positive integers: indeed, if $a \in G$ and $a < 0$, then
+$-a \in G$ and $-a > 0$. We can then let $d$ be the smallest positive
+integer\footnote{I am secretly appealing to the `well-ordering
+principle'. That every set of positive integers should have a smallest
+element is one of those facts about $\mathbb{Z}$---like the availability
+of division-with-remainder---that I am assuming the reader is already
+familiar with.} in $G$, and I claim $G = d\mathbb{Z}$.
+
+The inclusion $d\mathbb{Z} \subseteq G$ is clear. To verify the inclusion
+$G \subseteq d\mathbb{Z}$, let $m \in G$, and apply `division with
+remainder' to write
+\[
+  m = dq + r,
+\]
+with $0 \leq r < d$. Since $m \in G$ and $d\mathbb{Z} \subseteq G$ and
+since $G$ is a subgroup, we see that
+\[
+  r = m - dq \in G.
+\]
+But $d$ is the smallest positive integer in $G$, and $r \in G$ is
+smaller than $d$; so $r$ cannot be positive. This shows $r = 0$, that
+is, $m = qd \in d\mathbb{Z}$; $G \subseteq d\mathbb{Z}$ follows, and we
+are done.
+\end{proof}
+
+The `quotient' homomorphism
+$\pi_n : \mathbb{Z} \to \mathbb{Z}/n\mathbb{Z}$ (cf.\ $\S$4.1) allows us
+to establish the analogous result for finite cyclic groups:
+
+\begin{prop}{Let $n > 0$ be an integer and let
+$G \subseteq \mathbb{Z}/n\mathbb{Z}$ be a subgroup. Then $G$ is the
+cyclic subgroup of $\mathbb{Z}/n\mathbb{Z}$ generated by $[d]_n$, for
+some divisor $d$ of $n$.}{prop:groups:subgroups-of-znz}
+\end{prop}
+\begin{proof}
+Let $\pi_n : \mathbb{Z} \to \mathbb{Z}/n\mathbb{Z}$ be the quotient map,
+and consider $G' := \pi_n^{-1}(G)$. By
+Lemma~\ref{lem:groups:preimage-of-subgroup}, $G'$ is a subgroup of
+$\mathbb{Z}$; by Proposition~\ref{prop:groups:subgroups-of-z}, $G'$ is a
+cyclic subgroup of $\mathbb{Z}$, generated by a nonnegative integer $d$.
+It follows that
+\[
+  G = \pi_n(G') = \pi_n(\langle d \rangle) = \langle [d]_n \rangle;
+\]
+thus $G$ is indeed a cyclic subgroup of $\mathbb{Z}/n\mathbb{Z}$,
+generated by a class $[d]_n$. Further, since $n \in G'$ (because
+$\pi_n(n) = [n]_n = [0]_n \in G$) and $G' = d\mathbb{Z}$, we see that $d$
+divides $n$, as claimed.
+\end{proof}
+
+As a consequence of Proposition~\ref{prop:groups:subgroups-of-znz},
+there is a bijection between the set of subgroups of
+$\mathbb{Z}/n\mathbb{Z}$ and the set of positive divisors of $n$. For
+example, $\mathbb{Z}/12\mathbb{Z}$ has exactly $6$ subgroups, because
+$12$ has $6$ positive divisors: $1$, $2$, $3$, $4$, $6$, and $12$. Here
+is the corresponding list of subgroups:
+\begin{align*}
+  \langle [1]_{12} \rangle &= \{[0]_{12}, [1]_{12}, [2]_{12}, [3]_{12},
+  [4]_{12}, [5]_{12}, [6]_{12}, [7]_{12}, [8]_{12}, [9]_{12}, [10]_{12},
+  [11]_{12}\}, \\
+  \langle [2]_{12} \rangle &= \{[0]_{12}, [2]_{12}, [4]_{12}, [6]_{12},
+  [8]_{12}, [10]_{12}\}, \\
+  \langle [3]_{12} \rangle &= \{[0]_{12}, [3]_{12}, [6]_{12}, [9]_{12}\}, \\
+  \langle [4]_{12} \rangle &= \{[0]_{12}, [4]_{12}, [8]_{12}\}, \\
+  \langle [6]_{12} \rangle &= \{[0]_{12}, [6]_{12}\}, \\
+  \langle [12]_{12} \rangle &= \{[0]_{12}\}.
+\end{align*}
+
+Also note that if $d_1$, $d_2$ are both divisors of $n$, and
+$d_1 \mid d_2$, then
+$\langle [d_1]_n \rangle \supseteq \langle [d_2]_n \rangle$. That is, the
+correspondence between subgroups of $\mathbb{Z}/n\mathbb{Z}$ and
+divisors of $n$ preserves the natural \emph{lattice} structure carried
+by these sets. We can draw these lattices for $\mathbb{Z}/6\mathbb{Z}$
+as follows:
+\begin{center}
+\begin{tikzpicture}
+  \coordinate (top) at (0,1.6);
+  \coordinate (left) at (-1.3,0);
+  \coordinate (right) at (1.3,0);
+  \coordinate (bot) at (0,-1.6);
+  \draw (top) -- (bot);
+  \draw (top) -- (left) -- (bot);
+  \draw (top) -- (right) -- (bot);
+  \foreach \p in {top,left,right,bot} {
+    \fill[white] (\p) circle (2pt);
+    \draw (\p) circle (2pt);
+  }
+  \node[above] at (top) {$1$};
+  \node[left] at (left) {$2$};
+  \node[right] at (right) {$3$};
+  \node[below] at (bot) {$6$};
+\end{tikzpicture}
+\qquad\qquad
+\begin{tikzpicture}
+  \coordinate (top) at (0,1.6);
+  \coordinate (left) at (-1.8,0);
+  \coordinate (right) at (1.8,0);
+  \coordinate (bot) at (0,-1.6);
+  \draw (top) -- (bot);
+  \draw (top) -- (left) -- (bot);
+  \draw (top) -- (right) -- (bot);
+  \foreach \p in {top,left,right,bot} {
+    \fill[white] (\p) circle (2pt);
+    \draw (\p) circle (2pt);
+  }
+  \node[above] at (top) {$\{[0],[1],[2],[3],[4],[5]\}$};
+  \node[left] at (left) {$\{[0],[2],[4]\}$};
+  \node[right] at (right) {$\{[0],[3]\}$};
+  \node[below] at (bot) {$\{[0]\}$};
+\end{tikzpicture}
+\end{center}
+where lines connect multiples in one picture and subsets in the other.
+The reader will draw the lattice of subgroups of $S_3$, noting that it
+looks completely different from the one for $\mathbb{Z}/6\mathbb{Z}$.
+
+Contemplating subgroups of cyclic groups has pretty (and useful)
+`number-theoretic' consequences; cf.\ Exercise~6.14.
 
 \subsection{Monomorphisms}
 \label{subsec:groups:monomorphisms}
-% I end this section with some categorical considerations.
+I end this section with some categorical considerations.
 
-% If H is a subgroup of G, the inclusion H \setminus \to  G is an example of a
-% monomorphism
-% in Grp in the `categorical' sense of \S{}I.4.2. In fact, it is easy to
-% characterize all
-% monomorphisms \phi  \in  HomGrp (G, G\setminus  ) (where G, G\setminus  are any
-% groups):
-% Proposition 6.12. The following are equivalent:
-% (a) \phi  is a monomorphism;
-% (b) ker \phi  = {e G};
-% (c) \phi  : G \to  G\setminus  is injective (as a set-function).
-% Proof. (a) \implies  (b): Assume (a) holds, and consider the two parallel
-% compositions
-% ker \phi 
-%  i
-%  // G
-%  \phi 
-%  / G\setminus  ,
-% e
-% where i is the inclusion and e is the trivial map. Both \phi  \circ  i and \phi
-% \circ  e are the trivial
-% map; since \phi  is a monomorphism, this implies i = e. But i = e implies that
-% ker \phi
-% is trivial, that is, (b) holds.
-% (b) \implies  (c): Assume ker \phi  = {eG }. Then
-% -1 -1\phi (g1) = \phi (g2) \implies  \phi (g1 )\phi (g2) = eG? \implies  \phi
-% (g1 g2 ) = eG?
-% \implies  g1 g2 -1 \in  ker \phi  \implies  g1 g2 -1 = eG \implies  g1 = g2 .
-% This shows that \phi  is injective, as needed.
-% (c) \implies  (a): If \phi  is injective, then it satisfies the defining
-% property for monomor-
-% phisms in Set: that is, for any set Z and any two set-functions \alpha \setminus
-% , \alpha  \setminus \setminus  : Z \to  G,
-% \phi  \circ  \alpha  \setminus  = \phi  \circ  \alpha \setminus \setminus  \iff  \alpha \setminus  = \alpha \setminus \setminus  .
-% This must hold in particular if Z has a group structure and \alpha \setminus  ,
-% \alpha \setminus \setminus  are group
-% homomorphisms, so \phi  is a monomorphism in Grp.
-%  ?
-% The equivalence (a) \iff  (c) may lead the reader to think that from the point
-% of view of monomorphisms, Grp and Set are pretty much alike. This is not quite
-% so:
-% while it is true that homomorphisms with a left-inverse are necessarily monomor-
-% phisms, as in Set (cf. Exercise 6.15), the converse is not true in Grp (cf.
-% Exer-
-% cise 6.16).
+If $H$ is a subgroup of $G$, the inclusion $H \hookrightarrow G$ is an
+example of a \emph{monomorphism} in $\mathsf{Grp}$ in the `categorical'
+sense of $\S$I.4.2. In fact, it is easy to characterize all
+monomorphisms $\varphi \in \operatorname{Hom}_{\mathsf{Grp}}(G,G')$
+(where $G$, $G'$ are any groups):
+
+\begin{prop}{The following are equivalent:
+\begin{enumerate}[label=(\alph*)]
+  \item $\varphi$ is a monomorphism;
+  \item $\ker\varphi = \{e_G\}$;
+  \item $\varphi : G \to G'$ is injective (as a set-function).
+\end{enumerate}}{prop:groups:monomorphism-characterization}
+\end{prop}
+\begin{proof}
+(a) $\implies$ (b): Assume (a) holds, and consider the two parallel
+compositions
+\[
+\begin{tikzcd}
+  \ker\varphi \arrow[r, shift left, "i"] \arrow[r, shift right, "e"'] & G
+  \arrow[r, "\varphi"] & G',
+\end{tikzcd}
+\]
+where $i$ is the inclusion and $e$ is the trivial map. Both
+$\varphi \circ i$ and $\varphi \circ e$ are the trivial map; since
+$\varphi$ is a monomorphism, this implies $i = e$. But $i = e$ implies
+that $\ker\varphi$ is trivial, that is, (b) holds.
+
+(b) $\implies$ (c): Assume $\ker\varphi = \{e_G\}$. Then
+\[
+  \varphi(g_1) = \varphi(g_2) \implies \varphi(g_1)\varphi(g_2)^{-1} = e_{G'}
+  \implies \varphi(g_1 g_2^{-1}) = e_{G'}
+  \implies g_1 g_2^{-1} \in \ker\varphi \implies g_1 g_2^{-1} = e_G
+  \implies g_1 = g_2.
+\]
+This shows that $\varphi$ is injective, as needed.
+
+(c) $\implies$ (a): If $\varphi$ is injective, then it satisfies the
+defining property for monomorphisms in $\mathsf{Set}$: that is, for any
+set $Z$ and any two set-functions $\alpha', \alpha'' : Z \to G$,
+\[
+  \varphi \circ \alpha' = \varphi \circ \alpha'' \iff \alpha' = \alpha''.
+\]
+This must hold in particular if $Z$ has a group structure and
+$\alpha'$, $\alpha''$ are group homomorphisms, so $\varphi$ is a
+monomorphism in $\mathsf{Grp}$.
+\end{proof}
+
+The equivalence (a) $\iff$ (c) may lead the reader to think that from
+the point of view of monomorphisms, $\mathsf{Grp}$ and $\mathsf{Set}$
+are pretty much alike. This is not quite so: while it is true that
+homomorphisms with a left-inverse are necessarily monomorphisms, as in
+$\mathsf{Set}$ (cf.\ Exercise~6.15), the converse is not true in
+$\mathsf{Grp}$ (cf.\ Exercise~6.16).
 
 \subsection*{Exercises}
 
