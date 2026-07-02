@@ -1216,239 +1216,189 @@ is exact if and only if $\varphi$ is an isomorphism.
 
 \subsection{The snake lemma, again}
 \label{subsec:homol:the-snake-lemma-again}
-% The reader is now in the position of making
+The reader is now in the position of making sense in any abelian
+category of all the statements given in \S{}III.7 for sequences of
+$R$-modules; this includes the definition of the \emph{homology} of a
+complex as a measure of the failure of exactness. These facts will be
+reviewed in \S{}3. However, note that while we can now \emph{state}
+the snake lemma (Lemma~III.7.8) in any abelian category, the (sketch
+of the) \emph{proof} given in \S{}III.7 cannot be directly lifted from
+that context and applied to this one, or so it would seem, since the
+definition of the `snaking' homomorphism $\delta$ given in \S{}III.7
+makes use of `elements'. Barring more sophisticated alternatives, we
+should provide an arrow-theoretic alternative for the definition of
+$\delta$.
 
-% sense in any abelian category of all the statements given in \S{}III.7 for
-% sequences of
-% R-modules; this includes the definition of the homology of a complex as a
-% measure
-% of the failure of exactness. These facts will be reviewed in \S{}3. However,
-% note that
-% while we can now state the snake lemma (Lemma III.7.8) in any abelian category,
-% the (sketch of the) proof given in \S{}III.7 cannot be directly lifted from that
-% context
-% and applied to this one, or so it would seem, since the definition of the
-% `snaking'
-% homomorphism \delta  given in \S{}III.7 makes use of `elements'. Barring more
-% sophisticated
-% alternatives, we should provide an arrow-theoretic alternative for the
-% definition of \delta .
-% This is perhaps not completely immediate.
-% As practice, note the following:
-% Lemma 2.3. Let
-% \phi ?
-% A \times C B
-%  / B
-% ?
-% \psi  \psi 
-% \sqcup 
-%  \sqcup 
-% A
-%  / C
-% \phi 
-% be a fibered diagram in an abelian category, and assume \phi  is an epimorphism.
-% Then
-% \phi \setminus  is also an epimorphism.
-% It takes seconds to realize that this is true in R-Mod, by chasing elements. An
-% arrow-theoretic proof is considerably subtler.
-% Proof. First, observe that if \phi  : A \to  C is an epimorphism, so is the map
-% A \oplus  B \to
-% C considered in Example 2.2. Since epimorphisms are cokernels in an abelian
-% category and cokernels are cokernels of their kernels (Lemma 1.8), we see that
-% A \oplus  B \to  C is the cokernel of the natural morphism
-% A \times C B \to  A \oplus  B.
-% To prove that \phi \setminus  is an epimorphism, it suffices (Lemma 1.3) to show
-% that if
-% \zeta  : B \to  Z is a morphism for which \zeta  \circ  \phi \setminus  = 0, then \zeta  = 0.
-% For this, consider the morphism
-% A \oplus  B
-%  (0,\zeta )
-%  / Z
-% obtained by using the fact that A \oplus  B is a coproduct of A and B. The
-% composition
-% A \times C B \to  A \oplus  B \to  Z
-% \setminus 
-% agrees with \zeta  \circ  \phi  , so it is the zero-morphism. By the universal
-% property of cokernels,
-% we have the factorization
-% A \oplus  \sqcup  B
-%  x x x x (0,\zeta )
-%  x \zeta 
-%  x ?
-%  x
-%  x
-%  x ;
-% / Z
-% C
-% \setminus for a unique morphism \zeta  . By the commutativity of
-% A F
-%  F F
-%  \phi  F F
-%  F
-%  F / F
-%  A F \# \oplus  \sqcup  B x x x x
-%  (0,\zeta ) x
-%  \zeta  x x
-%  ?
-%  x x
-%  ;
-% / Z
-% C
-% we see that the composition \zeta  \setminus  \circ  \phi  : A \to  C \to  Z is
-% the zero-morphism. Since \phi  is
-% an epimorphism, it follows that \zeta  \setminus  = 0. This implies that (0,
-% \zeta ) : A \oplus  B \to  Z is the
-% zero-morphism, and we are done: \zeta  = 0 as promised.
-%  ?
-% Here is a quicker proof (for those who have done their homework): if \phi  is an
-% epimorphism, then A \oplus  B \to  C is an epimorphism, so the diagram is a
-% push-out
-% \setminus as well as a pull-back (Example 2.2). By Exercise 1.16, coker \phi  = coker \phi  = 0;
-% therefore \phi \setminus  is an epimorphism. The reader should have no
-% difficulty now proving
-% the statement dual to Lemma 2.3, for fibered coproducts (Exercise 2.2).
-% Going back to the snake lemma, start from a commutative diagram linking two
-% exact sequences in an abelian category:
-%  / L1
-%  \alpha 1
-%  / M1
-%  \beta 1
-%  / N1
-%  / 0
-% \lambda 
-%  \mu 
-%  \nu 
-% \sqcup 
-%  \alpha 0
-%  \sqcup 
-%  \beta 0
-%  \sqcup 
-%  / L0
-%  / M0
-%  / N0
-%  / 0
-% The main task is to construct a connecting morphism5 \delta  : ker \nu  \to
-% coker \lambda ; once this
-% is done, we should prove the exactness of the sequence displayed in Lemma
-% III.7.8.
-% I will leave this latter step to the more enterprising reader (who may want to
-% wait
-% until we go through \S{}2.3).
-% The enterprising reader should in fact try to construct \delta , as an exercise
-% in
-% coming up with arrow-theoretic proofs replacing well-understood
-% element-theoretic
-% arguments. Feel free to stop reading here and resume when you have tried on your
-% own.
-% The `problem' is that the universal properties of kernel and cokernel would
-% seem to guarantee the existence of morphisms to ker \nu  and from coker \lambda
-% . There's
-% the rub: how on earth are we going to get a morphism from ker \nu  to coker
-% \lambda ? (Last
-% chance to try on your own!)
-% The answer is to view ker \nu  as a cokernel and coker \lambda  as a kernel.
-% This can be
-% achieved by constructing suitable pull-back, resp., push-out, diagrams:
-% ?
-% M1 \times N1 (ker \nu )
-%  \beta 1 / ker \nu 
-%  L0
-%  \alpha 0
-%  / M0
-% ,
-%  .
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% M1
-%  / N 1
-%  coker \lambda 
-%  / (coker \lambda ) \sqcup L0
-%  M0
-% \beta 1
-%  \alpha ? 0
-% 5To avoid unbearably heavy notation, I will write ker \nu , etc., for the source
-% of the morphism
-% ker \nu , etc.
-% \setminus  \setminus 
-% By Lemma 2.3, \beta 1 is an epimorphism since \beta 1 is an epimorphism, and ker
-% \beta 1, ker \beta 1have matching sources by Exercise 1.16. Analogous (dual)
-% statements hold for the
-% second diagram (Exercises 2.2 and 1.16). Putting everything into one commutative
-% diagram,
-% ?
-%  / L1
-%  \sigma 
-%  / M1 \times N1 (ker \nu )
-%  \beta 1 / ker \nu 
-%  / 0
-% / L1
-% \lambda 
-% \sqcup 
-% / L0
-% //\sqcup 
-% M1
-% \sqcup 
-% M0
-% //\sqcup 
-% N1
-% \nu 
-% \sqcup 
-% N0
-% //0
-% \sqcup 
-%  ? \sqcup 
-%  / coker \lambda 
-%  / (coker \lambda ) \sqcup L0
-%  M0
-%  \tau 
-%  / N0
-%  / 0
-% has exact rows (not columns!). We get a morphism
-% ? : M1 \times N1 (ker \nu )
-%  / (coker \lambda ) \sqcup L0
-%  M0 .
-% Note that
-% ? \circ  \sigma  = 0,
-%  \tau  \circ  ? = 0
-% by the commutativity of the diagram: indeed, the compositions
-% L1 \to  coker \lambda ,
-%  ker \nu  \to  N0
-% are both zero. Since ker \nu  plays the role of cokernel in the top row, ? \circ
-% \sigma  = 0 implies
-% that ? must factor through ker \nu , giving a morphism
-% ?\setminus  : ker \nu 
-%  / (coker \lambda ) \sqcup L0
-%  M0 .
-% Since coker \lambda  plays the role of kernel in the bottom row and \tau  \circ
-% ?\setminus  : ker \nu  \to  N0
-% is the zero-morphism (because \tau  \circ  ?\setminus  \circ  \beta 1 \setminus
-% = \tau  \circ  ? = 0 and \beta 1 \setminus  is an epimorphism),
-% ?\setminus  must factor through coker \lambda , finally yielding
-% \delta  : ker \nu  \to  coker \lambda .
-% Writing elements out, the reader can verify that this morphism \delta  agrees
-% with the
-% connecting morphism \delta  defined in \S{}III.7.3. Together with maps induced
-% by simpler
-% considerations, we obtain the sequence of morphisms
-%  / ker \lambda 
-%  / ker \mu 
-%  / ker \nu 
-%  \delta 
-%  / coker \lambda 
-%  / coker \mu 
-%  / coker \nu 
-%  / 0
-% in our abelian category. I should now recommend that the reader prove the ex-
-% actness of this sequence, by appropriate arrow-theoretic arguments. This would
-% be
-% excellent practice for many such facts that we will encounter when we finally do
-% begin to develop homological algebra.
-% However, assuming that we have already done this work in \S{}III.7.3, by chasing
-% elements, is it really necessary to go back and redo it with arrows, in order to
-% check
-% the exactness of the sequence in an abelian category?
+This is perhaps not completely immediate.
+
+As practice, note the following:
+\begin{lem}{}{homol:2.3}
+  Let
+  \[\begin{tikzcd}
+    A \times_C B \arrow[r, "\varphi'"] \arrow[d, "\psi'"'] &
+    B \arrow[d, "\psi"] \\
+    A \arrow[r, "\varphi"'] & C
+  \end{tikzcd}\]
+  be a fibered diagram in an abelian category, and assume $\varphi$ is
+  an epimorphism. Then $\varphi'$ is also an epimorphism.
+\end{lem}
+
+It takes seconds to realize that this is true in $R\text{-}\mathsf{Mod}$,
+by chasing elements. An arrow-theoretic proof is considerably subtler.
+
+\begin{proof}
+  First, observe that if $\varphi : A \to C$ is an epimorphism, so is
+  the map $A \oplus B \to C$ considered in Example~\ref{homol:2.2}.
+  Since epimorphisms are cokernels in an abelian category and
+  cokernels are cokernels of their kernels (Lemma~\ref{homol:1.8}), we
+  see that $A \oplus B \to C$ is the cokernel of the natural morphism
+  \[
+    A \times_C B \to A \oplus B.
+  \]
+  To prove that $\varphi'$ is an epimorphism, it suffices
+  (Lemma~\ref{homol:1.3}) to show that if $\zeta : B \to Z$ is a
+  morphism for which $\zeta \circ \varphi' = 0$, then $\zeta = 0$.
+
+  For this, consider the morphism
+  \[\begin{tikzcd}
+    A \oplus B \arrow[r, "{(0,\zeta)}"] & Z
+  \end{tikzcd}\]
+  obtained by using the fact that $A \oplus B$ is a coproduct of $A$
+  and $B$. The composition
+  \[
+    A \times_C B \to A \oplus B \to Z
+  \]
+  agrees with $\zeta \circ \varphi'$, so it is the zero-morphism. By
+  the universal property of cokernels, we have the factorization
+  \[\begin{tikzcd}
+    A \oplus B \arrow[r, "{(0,\zeta)}"] \arrow[d] & Z \\
+    C \arrow[ur, dashed, "\zeta'"']
+  \end{tikzcd}\]
+  for a unique morphism $\zeta'$. By the commutativity of
+  \[\begin{tikzcd}
+    A \arrow[r] \arrow[dr, "\varphi"'] &
+    A \oplus B \arrow[r, "{(0,\zeta)}"] & Z \\
+    & C \arrow[ur, "\zeta'"'] &
+  \end{tikzcd}\]
+  we see that the composition $\zeta' \circ \varphi : A \to C \to Z$
+  is the zero-morphism. Since $\varphi$ is an epimorphism, it follows
+  that $\zeta' = 0$. This implies that $(0,\zeta) : A \oplus B \to Z$
+  is the zero-morphism, and we are done: $\zeta = 0$ as promised.
+\end{proof}
+
+Here is a quicker proof (for those who have done their homework): if
+$\varphi$ is an epimorphism, then $A \oplus B \to C$ is an
+epimorphism, so the diagram is a push-out as well as a pull-back
+(Example~\ref{homol:2.2}). By Exercise~1.16,
+$\operatorname{coker}\varphi' = \operatorname{coker}\varphi = 0$;
+therefore $\varphi'$ is an epimorphism. The reader should have no
+difficulty now proving the statement dual to Lemma~\ref{homol:2.3},
+for fibered coproducts (Exercise~2.2).
+Going back to the snake lemma, start from a commutative diagram
+linking two exact sequences in an abelian category:
+\[\begin{tikzcd}
+  0 \arrow[r] & L_1 \arrow[r, "\alpha_1"] \arrow[d, "\lambda"'] &
+    M_1 \arrow[r, "\beta_1"] \arrow[d, "\mu"'] &
+    N_1 \arrow[r] \arrow[d, "\nu"'] & 0 \\
+  0 \arrow[r] & L_0 \arrow[r, "\alpha_0"'] & M_0 \arrow[r, "\beta_0"'] &
+    N_0 \arrow[r] & 0
+\end{tikzcd}\]
+The main task is to construct a connecting morphism\footnote{To avoid
+unbearably heavy notation, I will write $\ker\nu$, etc., for the
+\emph{source} of the morphism $\ker\nu$, etc.}
+$\delta : \ker\nu \to \operatorname{coker}\lambda$; once this is done,
+we should prove the exactness of the sequence displayed in
+Lemma~III.7.8. I will leave this latter step to the more enterprising
+reader (who may want to wait until we go through \S{}2.3).
+The enterprising reader should in fact try to construct $\delta$, as
+an exercise in coming up with arrow-theoretic proofs replacing
+well-understood element-theoretic arguments. Feel free to stop
+reading here and resume when you have tried on your own.
+
+The `problem' is that the universal properties of kernel and cokernel
+would seem to guarantee the existence of morphisms \emph{to} $\ker\nu$
+and \emph{from} $\operatorname{coker}\lambda$. There's the rub: how on
+earth are we going to get a morphism \emph{from} $\ker\nu$ \emph{to}
+$\operatorname{coker}\lambda$? (Last chance to try on your own!)
+
+The answer is to view $\ker\nu$ as a cokernel and
+$\operatorname{coker}\lambda$ as a kernel. This can be achieved by
+constructing suitable pull-back, resp., push-out, diagrams:
+\[\begin{tikzcd}
+  M_1 \times_{N_1} (\ker\nu) \arrow[r, "\beta_1'"] \arrow[d] &
+    \ker\nu \arrow[d] \\
+  M_1 \arrow[r, "\beta_1"'] & N_1
+\end{tikzcd}\!, \qquad
+\begin{tikzcd}
+  L_0 \arrow[r, "\alpha_0"] \arrow[d] & M_0 \arrow[d] \\
+  \operatorname{coker}\lambda \arrow[r, "\alpha_0'"'] &
+    (\operatorname{coker}\lambda) \amalg_{L_0} M_0.
+\end{tikzcd}\]
+By Lemma~\ref{homol:2.3}, $\beta_1'$ is an epimorphism since $\beta_1$
+is an epimorphism, and $\ker\beta_1$, $\ker\beta_1'$ have matching
+sources by Exercise~1.16. Analogous (dual) statements hold for the
+second diagram (Exercises~2.2 and 1.16). Putting everything into one
+commutative diagram,
+\[\begin{tikzcd}[column sep=small]
+  0 \arrow[r] & L_1 \arrow[r, "\sigma"] \arrow[d, equal] &
+    M_1 \times_{N_1} (\ker\nu) \arrow[r, "\beta_1'"]
+      \arrow[ddd, "\epsilon", bend left=25] &
+    \ker\nu \arrow[r] \arrow[d] & 0 \\
+  0 \arrow[r] & L_1 \arrow[r, "\alpha_1"'] \arrow[d, "\lambda"'] &
+    M_1 \arrow[r, "\beta_1"'] \arrow[d, "\mu"'] &
+    N_1 \arrow[r] \arrow[d, "\nu"'] & 0 \\
+  0 \arrow[r] & L_0 \arrow[r, "\alpha_0"'] \arrow[d] &
+    M_0 \arrow[r, "\beta_0"'] \arrow[d] &
+    N_0 \arrow[r] \arrow[d, equal] & 0 \\
+  0 \arrow[r] & \operatorname{coker}\lambda \arrow[r, "\alpha_0'"'] &
+    (\operatorname{coker}\lambda) \amalg_{L_0} M_0 \arrow[r, "\tau"'] &
+    N_0 \arrow[r] & 0
+\end{tikzcd}\]
+has exact rows (not columns!). We get a morphism
+\[
+  \epsilon : M_1 \times_{N_1} (\ker\nu) \to
+  (\operatorname{coker}\lambda) \amalg_{L_0} M_0.
+\]
+Note that
+\[
+  \epsilon \circ \sigma = 0, \qquad \tau \circ \epsilon = 0
+\]
+by the commutativity of the diagram: indeed, the compositions
+$L_1 \to \operatorname{coker}\lambda$, $\ker\nu \to N_0$ are both zero.
+Since $\ker\nu$ plays the role of cokernel in the top row,
+$\epsilon \circ \sigma = 0$ implies that $\epsilon$ must factor through
+$\ker\nu$, giving a morphism
+\[
+  \epsilon' : \ker\nu \to (\operatorname{coker}\lambda) \amalg_{L_0} M_0.
+\]
+Since $\operatorname{coker}\lambda$ plays the role of kernel in the
+bottom row and $\tau \circ \epsilon' : \ker\nu \to N_0$ is the
+zero-morphism (because $\tau \circ \epsilon' \circ \beta_1' =
+\tau \circ \epsilon = 0$ and $\beta_1'$ is an epimorphism), $\epsilon'$
+must factor through $\operatorname{coker}\lambda$, finally yielding
+\[
+  \delta : \ker\nu \to \operatorname{coker}\lambda.
+\]
+Writing elements out, the reader can verify that this morphism
+$\delta$ agrees with the connecting morphism $\delta$ defined in
+\S{}III.7.3. Together with maps induced by simpler considerations, we
+obtain the sequence of morphisms
+\[\begin{tikzcd}[column sep=small]
+  0 \arrow[r] & \ker\lambda \arrow[r] & \ker\mu \arrow[r] &
+    \ker\nu \arrow[r, "\delta"] & \operatorname{coker}\lambda
+    \arrow[r] & \operatorname{coker}\mu \arrow[r] &
+    \operatorname{coker}\nu \arrow[r] & 0
+\end{tikzcd}\]
+in our abelian category. I should now recommend that the reader prove
+the exactness of this sequence, by appropriate arrow-theoretic
+arguments. This would be excellent practice for many such facts that
+we will encounter when we finally do begin to develop homological
+algebra.
+
+However, assuming that we have already done this work in \S{}III.7.3,
+by chasing elements, is it really necessary to go back and redo it
+with arrows, in order to check the exactness of the sequence in an
+abelian category?
 
 \subsection{Working with `elements' in a small abelian category}
 \label{subsec:homol:working-with-elements-in-a-small-abelian-category}
