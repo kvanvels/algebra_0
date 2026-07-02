@@ -2107,417 +2107,362 @@ general setting of an abelian category.
 
 \subsection{Reminder of basic definitions; general strategy}
 \label{subsec:homol:reminder-of-basic-definitions-general-strategy}
-% A chain complex (M\bullet  , d\bullet  )
 
-% in A is a sequence of objects and morphisms,
-% \cdot \cdot \cdot 
-%  di+2
-%  / Mi+1 di+1 / Mi
-%  di
-%  / Mi-1 di-1 / \dots 
-% such that (\forall i), di \circ  di+1 = 0. We can just as well use ascending
-% indices (which are
-% then traditionally written as superscripts),
-% \cdot \cdot \cdot 
-%  di-2 /
-%  M i-1
-%  di-1
-%  / M i
-%  di
-%  / M i+1 d
-% i+1
-%  / \cdot \cdot \cdot  ,
-% and impose di \circ  di-1 = 0, with no change in the mathematics other than in
-% the
-% nomenclature. This is a cochain complex (M \bullet , d\bullet  ) (or M \bullet
-% for short), leading to
-% 12 In so doing, I will sweep the `smallness' hypothesis under the carpet. This
-% imprecision
-% should be harmless in any matter concerning only countably many objects of A,
-% such as con-
-% structing a diagram or checking that a diagram commutes. We will not deal with
-% anything fancier
-% than this.
-% 13 In fact the reader may even assume that R is a commutative ring;
-% commutativity plays no
-% essential role in the considerations in this chapter.
-% cohomology, etc. The morphisms di are the differentials of the complex. It is
-% not
-% uncommon to call `d' all differentials within sight, decorating them by the name
-% of
-% the complex if necessary to avoid confusion. So, d\bullet  M \bullet  would
-% implicitly denote the
-% \bullet differential of the complex M .
-% Whether to work `homologically' or `cohomologically' is essentially an \ae
-% sthetic
-% question, until it becomes dictated by the specific context of an application.
-% In \S{}III.7
-% I chose homology; in this chapter I will choose cohomology: thus, indices will
-% -ibe increasing upper indices. Setting Mi = M reconciles the two conventions.
-% Thus, a chain complex (M\bullet  , d\bullet  ) may be (and usually is) viewed as
-% the cochain
-% complex (M -\bullet  , d-\bullet  ).
-% The condition di \circ  di-1 = 0 is equivalent to im di-1 \subseteq  ker di. The
-% complex is
-% exact at M i if im di-1 = ker di ; it is `exact' if it is exact everywhere. The
-% i-th
-% cohomology of a complex (M \bullet  , d\bullet ) measures its `deviation from
-% exactness' at M i :
-% i ker di
-% \bullet H (M ) :=
-%  .
-% im di-1
-% -i -\bullet Setting Hi (M\bullet  ) = H (M ) gives homology from cohomology, if
-% desired.
-% Remark 3.1. In an abelian category, the definition of cohomology should be
-% parsed
-% as follows (cf. Remark 1.7). Let I \to  M i be im di-1, and let K \to  M i be
-% ker di ; since
-% M \bullet  is a complex, im di-1 factors through ker di , giving a monomorphism
-% I \to  K;
-% i \bullet then H (M ) is the cokernel of this morphism. I will use the
-% `quotient' notation as
-% a good shorthand for this operation.
-%  ?
-% The following definition will undergo a few refinements later in the chapter:
-% Definition 3.2. (Preliminary) A resolution of an object A is a complex whose
-% cohomology is concentrated in degree 0 and isomorphic to A.
-%  ?
-% To be more precise, the datum of a resolution of A should include a specific
-% isomorphism of the cohomology of the complex with A; a common abuse of language
-% glosses over this point. In fact, this isomorphism in cohomology should be
-% induced
-% by a morphism at the level of complexes, from the given complex to the complex
-% called \iota (A) later in this section. The notion of quasi-isomorphism
-% (Definition 4.3)
-% will give us the correct framework in which to talk about resolutions precisely.
-% \bullet It is common to assume that resolutions M are `bounded' above or below,
-% that is, M i = 0 for i > 0 or i < 0. For example, a complex
-% \cdot \cdot \cdot 
-%  d-3 /
-%  M -2
-%  d-2
-%  / M -1
-%  d-1
-%  / M 0
-%  d0
-%  / 0
-%  / 0
-%  / \cdot \cdot \cdot 
-% is a resolution of A if coker d-1 = \sim 
-%  A, and the complex is exact otherwise. Down the
-% road we will restrict our attention to bounded (-above or -below) resolutions.
-% In
-% a sense, this is not a very serious restriction: any resolution may be truncated
-% (at
-% the price of changing the degree-0 term) in order to produce a bounded
-% resolution
-% (Exercise 3.1). Note that the datum of a bounded-above resolution is equivalent
-% to
-% that of an exact complex
-% \cdot \cdot \cdot 
-%  / M2
-%  / M1
-%  / M0
-%  / A
-%  / 0;
-% this is the viewpoint we took in our previous encounter with resolutions, in
-% \S{}VI.4.2.
-% The complex \iota (A),
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  d1
-%  / A
-%  d0
-%  / 0
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% is a resolution of A, but not a very interesting one. Resolutions become useful
-% if
-% the objects M i are `special' in some sense (usually, A should not be expected
-% to be
-% special): for example, in the context of modules over a ring we could require
-% the
-% objects M i to be free, flat, projective, etc. We will then say that the
-% resolution
-% itself is free, flat, projective, etc.
-% There are many contexts in which the following strategy produces interesting
-% invariants:
-% mathematical object
-% \sqcup 
-% an associated (co)chain complex
-% \sqcup 
-% the (co)homology of this complex
-% Both Ext and Tor are examples of this general plan of attack: start with two R-
-% modules M , N ; find (for example) a free resolution of M , and tensor it by N ,
-% obtaining a chain complex; then the homology of this complex computes the mod-
-% ules TorR
-%  i (M, N ) (cf. \S{}VIII.2.4). Algebraic topology is a source of many other
-% examples and was in fact historically the main motivation driving the
-% development
-% of homological algebra. In the 1950's it became clear that this tool would be
-% ex-
-% tremely useful in other fields; for example, it had a tremendous impact on
-% algebraic
-% geometry, through the work of Alexander Grothendieck14 and others.
-% Now consider this strategy carefully. In every single useful application, there
-% are
-% in fact many ways to associate a complex to a mathematical object: in the
-% example
-% of Tor recalled above, there are infinitely many different free resolutions of a
-% given
-% module; I have in fact claimed (in \S{}VIII.6.4) that resolutions by projective
-% modules,
-% or even flat modules, would all yield the same Tor modules. In general, there is
-% a
-% gigantic degree of freedom in the choice of the appropriate complex associated
-% to
-% the given mathematical object, and one of our main goals here will be to show
-% that
-% (for a large class of interesting examples) the (co)homology of the complex will
-% not
-% depend on this choice.
-% The inquiring reader should not stop there, however. Precisely because of this
-% large ambiguity, the informational gap from the complex associated to a
-% mathemati-
-% cal entity to its cohomology is large. Could one do better than `taking
-% cohomology' ?
-% The natural approach would be to determine precisely where the ambiguity lies
-% and
-% `mod out' the choice of a complex by this ambiguity. Whatever one gets from
-% this,
-% it must be enough to determine the cohomology; but there may be a large amount
-% 14 Grothendieck's 1957 paper ``Sur quelques points d'alg\`{e}bre homologique''
-% was so influential
-% that you can just refer to it by naming the journal in which it appeared. If you
-% say ``This is
-% proven in T\^{o}hoku'', without other qualifiers, most algebraic geometers will
-% understand that you
-% mean this one paper of the thousands published in this journal in the past 50
-% years.
-% of interesting information carried by `complexes modulo ambiguity' which is lost
-% by going `all the way down' to cohomology.
-% This is what we are up to: proving that the cohomology of the associated
-% complex is indeed independent of the choices, while keeping an eye out to detect
-% where the key information is really stored.
+A chain \emph{complex} $(M_\bullet, d_\bullet)$ in $\mathsf{A}$ is a
+sequence of objects and morphisms,
+\[
+  \dots \xrightarrow{d_{i+2}} M_{i+1} \xrightarrow{d_{i+1}} M_i
+  \xrightarrow{d_i} M_{i-1} \xrightarrow{d_{i-1}} \dots
+\]
+such that $(\forall i)$, $d_i \circ d_{i+1} = 0$. We can just as well
+use ascending indices (which are then traditionally written as
+superscripts),
+\[
+  \dots \xrightarrow{d^{i-2}} M^{i-1} \xrightarrow{d^{i-1}} M^i
+  \xrightarrow{d^i} M^{i+1} \xrightarrow{d^{i+1}} \dots,
+\]
+and impose $d^i \circ d^{i-1} = 0$, with no change in the mathematics
+other than in the nomenclature. This is a \emph{co}chain complex
+$(M^\bullet, d^\bullet)$ (or $M^\bullet$ for short), leading to
+\emph{co}homology, etc. The morphisms $d^i$ are the
+\emph{differentials} of the complex. It is not uncommon to call `d'
+all differentials within sight, decorating them by the name of the
+complex if necessary to avoid confusion. So, $d^\bullet_{M^\bullet}$
+would implicitly denote the differential of the complex $M^\bullet$.
+Whether to work `homologically' or `cohomologically' is essentially
+an æsthetic question, until it becomes dictated by the specific
+context of an application. In \S{}III.7 I chose homology; in this
+chapter I will choose cohomology: thus, indices will be increasing
+upper indices. Setting $M_i = M^{-i}$ reconciles the two conventions.
+Thus, a chain complex $(M_\bullet, d_\bullet)$ may be (and usually
+is) viewed as the cochain complex $(M^{-\bullet}, d^{-\bullet})$.
+
+The condition $d^i \circ d^{i-1} = 0$ is equivalent to
+$\operatorname{im}d^{i-1} \subseteq \ker d^i$. The complex is
+\emph{exact} at $M^i$ if $\operatorname{im}d^{i-1} = \ker d^i$; it is
+`exact' if it is exact everywhere. The $i$-th \emph{cohomology} of a
+complex $(M^\bullet, d^\bullet)$ measures its `deviation from
+exactness' at $M^i$:
+\[
+  H^i(M^\bullet) := \frac{\ker d^i}{\operatorname{im}d^{i-1}}.
+\]
+Setting $H_i(M_\bullet) = H^{-i}(M^{-\bullet})$ gives homology from
+cohomology, if desired.
+\begin{rem}{}{homol:3.1}
+  In an abelian category, the definition of cohomology should be
+  parsed as follows (cf. Remark~\ref{homol:1.7}). Let $I \to M^i$ be
+  $\operatorname{im}d^{i-1}$, and let $K \to M^i$ be $\ker d^i$; since
+  $M^\bullet$ is a complex, $\operatorname{im}d^{i-1}$ factors through
+  $\ker d^i$, giving a monomorphism $I \to K$; then $H^i(M^\bullet)$
+  is the cokernel of this morphism. I will use the `quotient' notation
+  as a good shorthand for this operation.
+\end{rem}
+
+The following definition will undergo a few refinements later in the
+chapter:
+
+\begin{defn}{}{homol:3.2}
+  (Preliminary) A \emph{resolution} of an object $A$ is a complex
+  whose cohomology is concentrated in degree 0 and isomorphic to $A$.
+\end{defn}
+To be more precise, the datum of a resolution of $A$ should include a
+specific isomorphism of the cohomology of the complex with $A$; a
+common abuse of language glosses over this point. In fact, this
+isomorphism in cohomology should be induced by a morphism at the
+level of complexes, from the given complex to the complex called
+$\iota(A)$ later in this section. The notion of quasi-isomorphism
+(Definition~\ref{homol:4.3}) will give us the correct framework in
+which to talk about resolutions precisely.
+It is common to assume that resolutions $M^\bullet$ are `bounded'
+above or below, that is, $M^i = 0$ for $i > 0$ or $i < 0$. For
+example, a complex
+\[
+  \dots \xrightarrow{d^{-3}} M^{-2} \xrightarrow{d^{-2}} M^{-1}
+  \xrightarrow{d^{-1}} M^0 \xrightarrow{d^0} 0 \longrightarrow 0
+  \longrightarrow \dots
+\]
+is a resolution of $A$ if $\operatorname{coker}d^{-1} \cong A$, and
+the complex is exact otherwise. Down the road we will restrict our
+attention to bounded (-above or -below) resolutions. In a sense, this
+is not a very serious restriction: any resolution may be truncated
+(at the price of changing the degree-0 term) in order to produce a
+bounded resolution (Exercise~3.1). Note that the datum of a
+bounded-above resolution is equivalent to that of an exact complex
+\[
+  \dots \longrightarrow M_2 \longrightarrow M_1 \longrightarrow M_0
+  \longrightarrow A \longrightarrow 0;
+\]
+this is the viewpoint we took in our previous encounter with
+resolutions, in \S{}VI.4.2.
+The complex $\iota(A)$,
+\[
+  \dots \longrightarrow 0 \longrightarrow 0 \xrightarrow{d^1} A
+  \xrightarrow{d^0} 0 \longrightarrow 0 \longrightarrow \dots,
+\]
+is a resolution of $A$, but not a very interesting one. Resolutions
+become useful if the objects $M^i$ are `special' in some sense
+(usually, $A$ should not be expected to be special): for example, in
+the context of modules over a ring we could require the objects $M^i$
+to be free, flat, projective, etc. We will then say that the
+resolution itself is free, flat, projective, etc.
+There are many contexts in which the following strategy produces
+interesting invariants:
+\[\begin{tikzcd}[row sep=large]
+  \boxed{\text{mathematical object}} \arrow[d] \\
+  \boxed{\text{an associated (co)chain complex}} \arrow[d] \\
+  \boxed{\text{the (co)homology of this complex}}
+\end{tikzcd}\]
+Both Ext and Tor are examples of this general plan of attack: start
+with two $R$-modules $M$, $N$; find (for example) a free resolution
+of $M$, and tensor it by $N$, obtaining a chain complex; then the
+homology of this complex computes the modules
+$\operatorname{Tor}^R_i(M, N)$ (cf. \S{}VIII.2.4). Algebraic topology
+is a source of many other examples and was in fact historically the
+main motivation driving the development of homological algebra. In
+the 1950's it became clear that this tool would be extremely useful
+in other fields; for example, it had a tremendous impact on algebraic
+geometry, through the work of Alexander
+Grothendieck\footnote{Grothendieck's 1957 paper ``Sur quelques points
+d'alg\`ebre homologique'' was so influential that you can just refer
+to it by naming the journal in which it appeared. If you say ``This
+is proven in T\^ohoku'', without other qualifiers, most algebraic
+geometers will understand that you mean this one paper of the
+thousands published in this journal in the past 50 years.} and
+others.
+Now consider this strategy carefully. In every single useful
+application, there are in fact \emph{many ways} to associate a
+complex to a mathematical object: in the example of Tor recalled
+above, there are infinitely many different free resolutions of a
+given module; I have in fact claimed (in \S{}VIII.6.4) that
+resolutions by \emph{projective} modules, or even \emph{flat}
+modules, would all yield the same Tor modules. In general, there is a
+gigantic degree of freedom in the choice of the appropriate complex
+associated to the given mathematical object, and one of our main
+goals here will be to show that (for a large class of interesting
+examples) the (co)homology of the complex will not depend on this
+choice.
+
+The inquiring reader should not stop there, however. Precisely
+because of this large ambiguity, the informational gap from the
+complex associated to a mathematical entity to its cohomology is
+large. Could one do better than `taking cohomology'? The natural
+approach would be to determine precisely where the ambiguity lies and
+`mod out' the choice of a complex by this ambiguity. Whatever one
+gets from this, it must be enough to determine the cohomology; but
+there may be a large amount of interesting information carried by
+`complexes modulo ambiguity' which is lost by going `all the way
+down' to cohomology.
+
+This is what we are up to: proving that the cohomology of the
+associated complex is indeed independent of the choices, while
+keeping an eye out to detect where the key information is really
+stored.
 
 \subsection{The category of complexes}
 \label{subsec:homol:the-category-of-complexes}
-% To begin this exploration, we assemble cochain
 
-% complexes in A into a new category C(A):
-% \bullet  Obj(C(A)) = {cochain complexes in A};
-% \bullet  for M \bullet  = (M \bullet  , d\bullet  M \bullet  ), N \bullet  = (N \bullet  , d\bullet  N \bullet  ) cochain complexes, HomC(A)(M \bullet  , N \bullet  )
-% consists of the commutative15 diagrams
-% di-1
-%  M \bullet 
-%  diM \bullet 
-% (*)
-%  \cdot \cdot \cdot 
-%  / M i-1
-%  / M i
-%  / M i+1
-%  / \cdot \cdot \cdot 
-% \alpha i-1
-%  \alpha i
-%  \alpha i+1
-% \sqcup 
-%  di-1
-%  N \bullet 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / N i-1
-%  / N i
-%  diN\bullet 
-%  / N i+1
-%  / \cdot \cdot \cdot 
-% in A. I will denote by \alpha \bullet  the morphism determined by the collection
-% \alpha i . Everything
-% that should be checked in order to prove that C(A) is indeed a category should
-% be
-% evident. The following is also essentially evident, but a little more
-% interesting:
-% Lemma 3.3. C(A) is an abelian category.
-% I will leave to the reader the careful verification of this fact (Exercise 3.3).
-% In broad terms, morphisms between two given complexes form an abelian group,
-% essentially because if \alpha i and \beta  i : M i \to  N i are both collections
-% of morphisms
-% making the appropriate diagram commute, so is the collection of their sums
-% \alpha i +\beta  i .
-% Finite products and coproducts exist in C(A) as an easy consequence of the fact
-% that
-% they do in A. As for kernels and cokernels, the commutativity of each square in
-% (*)
-% and the universal properties of kernels and cokernels in A guarantee the
-% existence
-% of morphisms making the larger diagrams
-% K i
-%  \exists !
-%  / K i+1
-% ker \alpha i
-% \sqcup 
-% M i
-% \alpha i
-% \sqcup 
-% N i
-% coker \alpha i
-% \sqcup 
-% C i
-% ker \alpha i+1
-% \sqcup 
-% diM \bullet 
-%  / M i+1
-% \alpha i+1
-% \sqcup 
-% diN \bullet 
-%  / N i+1
-% coker \alpha i+1
-% \sqcup 
-% \exists !
-%  / C i+1
-% 15 Note the requirement that such diagrams commute. It will also be important to
-% consider
-% diagrams that do not satisfy this requirement, but `morphisms of cochain
-% complexes' do. Actually,
-% a strong case could be made for requiring morphisms of cochain complexes to
-% correspond to anti-
-% commutative diagrams, but conventions are what they are and I will adhere to
-% them.
-% \bullet  \bullet commute. The resulting sequences K , C are immediately checked to be com-
-% plexes, and the collections ker \alpha i : K i \to  M i , coker \alpha i : N i
-% \to  C i give morphisms
-% of complexes ker \alpha \bullet  , coker \alpha \bullet  satisfying the
-% universal property for kernels and cok-
-% ernels in C(A). The reader will check that every monomorphism in C(A) is a
-% kernel
-% and every epimorphism is a cokernel by using the fact that this is the case in
-% A.
-% Thus, we have a way to concoct a new abelian category from an old one. The
-% new category C(A) is a natural starting place to study resolutions of objects in
-% A,
-% and it comes with the same general package of tools available in every abelian
-% category: we can talk about exact sequences of complexes, we have a canonical
-% decomposition of morphisms of complexes, and so on. A sequence of complexes
-% \cdot \cdot \cdot 
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / \cdot \cdot \cdot 
-% is exact in C(A) if and only if all sequences
-% \cdot \cdot \cdot 
-%  / Li
-%  / M i
-%  / N i
-%  / \cdot \cdot \cdot 
-% are simultaneously exact in A. Complexes of complexes will be important later on
-% (\S{}8.2).
-% Popular variations on the definition of C(A) require the complexes to be bounded
-% above or below:
-% \bullet  C+ (A) denote the full16 subcategory of C(A) determined by complexes L\bullet 
-% which are bounded below, i.e., for which Li = 0 for i % 0.
-% \bullet  C-(A) likewise denotes the full subcategory of bounded-above complexes.
-% These are also abelian categories, and so are further variations such as C\geq 0
-% (A)
-% (complexes L\bullet  for which L i = 0 for i < 0), C\leq 0 (A), and so on. These
-% bounded
-% variants become unavoidable when dealing with resolutions.
-% It will also be necessary to consider categories of complexes in which the ob-
-% jects are restricted to belonging to a subcategory of A. We will devote
-% particular
-% attention to the full subcategories P and I consisting of projective, resp.,
-% injective,
-% objects in A (see \S{}5.3); thus, C\leq 0 (P), C\geq 0 (I) and other variations
-% on the same
-% themes are fair game17 . In the generalities that follow I will only deal with
-% C(A),
-% to keep notation under control. The reader should have no difficulty determining
-% what extends immediately to the different variants of C(A) and what does not.
-% There are several functors and other operations available in this new setting;
-% many of them seem almost too simple-minded to mention. For example, for all
-% integers r we have a fully faithful, exact functor
-% \iota  r : A
-%  / C(A)
-% sending an object A of A to the complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / A
-%  O
-% / 0
-%  / 0
-%  / \cdot \cdot \cdot 
-% degree r
-% 16 That is, morphisms between two objects in the subcategory agree with
-% morphisms of the
-% same two objects in the ambient category. Cf. Exercise I.3.8.
-% 17But note that P and I are not abelian categories!
-% placing A in degree r and 0 in all other degrees. It is common to identify A
-% with
-% its `image' in C(A) via \iota  = \iota 0 . We also have `shift' functors
-% C(A)
-%  / C(A),
-% M \bullet  ?
-%  / M [r]\bullet 
-% defined by setting18 M [r]i = M i+r , diM [r] \bullet  = (-1)r di+r
-%  M \bullet  . Complexes can be `trun-
-% cated' by replacing all terms of degree \geq  r (or \leq  r) with 0.
-% These operations turn out to be more important than they may look at first.
-% The importance of the following example is, on the contrary, apparent. I claim
-% that
-% cohomology is a functor:
-% Lemma 3.4. For every integer i, the assignment
-% H i : M \bullet  ?
-%  / H i (M \bullet  )
-% defines an additive covariant functor C(A) \to  A.
-% Proof. Of course, the statement means that each H i induces in a natural (and
-% functorial) way homomorphisms of abelian groups
-% HomC(A) (M \bullet  , N \bullet  ) \to  HomA (H i (M \bullet  ), H i (N \bullet
-% ))
-% \bullet  \bullet for all complexes M , N . This follows from the commutativity requirement in the
-% definition of morphisms of complexes. Look at the relevant part of the diagram:
-% M i-1
-%  di-1
-%  / M i
-%  di
-%  / M i+1
-% i-1
-%  i
-%  i+1
-% \alpha  \alpha  \alpha \sqcup 
-%  ?i-1
-%  \sqcup 
-%  ?i
-%  \sqcup 
-% N i-1
-%  d
-%  / N i
-%  d
-%  / N i+1
-% The composition d\setminus i \circ  \alpha i = \alpha i+1 \circ  di is 0 on ker
-% di by the commutativity of the square
-% on the right, so the restriction of \alpha i to ker di factors through ker
-% d\setminus i . Composing
-% with the projection gives a morphism
-% ker di \to  H i (N \bullet  ).
-% This morphism is 0 when restricted to im di-1 , by the commutativity of the
-% square
-% on the left. Therefore \alpha i induces a morphism
-% H i (M \bullet  ) \to  H i (N \bullet  )
-% in A, as needed. It is clear that this assignment is covariant.
-%  ?
-% We can also view cohomology as a functor C(A) \to  C(A), by placing each
-% i \bullet cohomology object H (M ) in degree i, connected by zero-morphisms,
-% obtaining a
-% complex H \bullet (M \bullet  ). Note that the cohomology of this complex equals
-% the cohomology
-% \bullet of M , that is,
-% \bullet  \bullet  \bullet  \bullet  \bullet H (H (M )) = H (M ).
-% In this sense, taking cohomology feels like performing a `projection'.
-% 18 The sign in the differentials is inserted in order to avoid other annoying
-% signs elsewhere;
-% signs do not change the isomorphism class of the complex (Exercise 3.5).
+To begin this exploration, we assemble cochain complexes in
+$\mathsf{A}$ into a \emph{new} category $\mathsf{C}(\mathsf{A})$:
+\begin{itemize}
+\item $\operatorname{Obj}(\mathsf{C}(\mathsf{A})) = \{\text{cochain
+  complexes in } \mathsf{A}\}$;
+\item for $M^\bullet = (M^\bullet, d^\bullet_{M^\bullet})$,
+  $N^\bullet = (N^\bullet, d^\bullet_{N^\bullet})$ cochain complexes,
+  $\operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(M^\bullet, N^\bullet)$
+  consists of the \emph{commutative}\footnote{Note the requirement
+  that such diagrams commute. It will also be important to consider
+  diagrams that do not satisfy this requirement, but `morphisms of
+  cochain complexes' do. Actually, a strong case could be made for
+  requiring morphisms of cochain complexes to correspond to
+  \emph{anti}-commutative diagrams, but conventions are what they are
+  and I will adhere to them.} diagrams
+  \[
+    (*) \quad \begin{tikzcd}
+      \dots \arrow[r] & M^{i-1} \arrow[r, "d^{i-1}_{M^\bullet}"]
+        \arrow[d, "\alpha^{i-1}"'] & M^i \arrow[r, "d^i_{M^\bullet}"]
+        \arrow[d, "\alpha^i"'] & M^{i+1} \arrow[r]
+        \arrow[d, "\alpha^{i+1}"'] & \dots \\
+      \dots \arrow[r] & N^{i-1} \arrow[r, "d^{i-1}_{N^\bullet}"'] &
+        N^i \arrow[r, "d^i_{N^\bullet}"'] & N^{i+1} \arrow[r] & \dots
+    \end{tikzcd}
+  \]
+  in $\mathsf{A}$. I will denote by $\alpha^\bullet$ the morphism
+  determined by the collection $\alpha^i$.
+\end{itemize}
+Everything that should be checked in order to prove that
+$\mathsf{C}(\mathsf{A})$ is indeed a category should be evident. The
+following is also essentially evident, but a little more
+interesting:
+
+\begin{lem}{}{homol:3.3}
+  $\mathsf{C}(\mathsf{A})$ is an abelian category.
+\end{lem}
+
+\begin{proof}
+  I will leave to the reader the careful verification of this fact
+  (Exercise~3.3). In broad terms, morphisms between two given
+  complexes form an abelian group, essentially because if $\alpha^i$
+  and $\beta^i : M^i \to N^i$ are both collections of morphisms
+  making the appropriate diagram commute, so is the collection of
+  their sums $\alpha^i + \beta^i$. Finite products and coproducts
+  exist in $\mathsf{C}(\mathsf{A})$ as an easy consequence of the
+  fact that they do in $\mathsf{A}$. As for kernels and cokernels,
+  the commutativity of each square in $(*)$ and the universal
+  properties of kernels and cokernels in $\mathsf{A}$ guarantee the
+  existence of morphisms making the larger diagrams
+  \[\begin{tikzcd}
+    K^i \arrow[rr, dashed, "\exists!"] \arrow[d, "\ker\alpha^i"'] &
+      & K^{i+1} \arrow[d, "\ker\alpha^{i+1}"] \\
+    M^i \arrow[rr, "d^i_{M^\bullet}"] \arrow[d, "\alpha^i"'] &
+      & M^{i+1} \arrow[d, "\alpha^{i+1}"] \\
+    N^i \arrow[rr, "d^i_{N^\bullet}"'] \arrow[d, "\operatorname{coker}\alpha^i"'] &
+      & N^{i+1} \arrow[d, "\operatorname{coker}\alpha^{i+1}"] \\
+    C^i \arrow[rr, dashed, "\exists!"'] & & C^{i+1}
+  \end{tikzcd}\]
+  commute. The resulting sequences $K^\bullet$, $C^\bullet$ are
+  immediately checked to be complexes, and the collections
+  $\ker\alpha^i : K^i \to M^i$, $\operatorname{coker}\alpha^i : N^i
+  \to C^i$ give morphisms of complexes $\ker\alpha^\bullet$,
+  $\operatorname{coker}\alpha^\bullet$ satisfying the universal
+  property for kernels and cokernels in $\mathsf{C}(\mathsf{A})$. The
+  reader will check that every monomorphism in $\mathsf{C}(\mathsf{A})$
+  is a kernel and every epimorphism is a cokernel by using the fact
+  that this is the case in $\mathsf{A}$.
+\end{proof}
+Thus, we have a way to concoct a new abelian category from an old
+one. The new category $\mathsf{C}(\mathsf{A})$ is a natural starting
+place to study resolutions of objects in $\mathsf{A}$, and it comes
+with the same general package of tools available in every abelian
+category: we can talk about exact sequences of complexes, we have a
+canonical decomposition of morphisms of complexes, and so on. A
+sequence of complexes
+\[
+  \dots \longrightarrow L^\bullet \longrightarrow M^\bullet
+  \longrightarrow N^\bullet \longrightarrow \dots
+\]
+is exact in $\mathsf{C}(\mathsf{A})$ if and only if all sequences
+\[
+  \dots \longrightarrow L^i \longrightarrow M^i \longrightarrow N^i
+  \longrightarrow \dots
+\]
+are simultaneously exact in $\mathsf{A}$. \emph{Complexes of
+complexes} will be important later on (\S{}8.2).
+
+Popular variations on the definition of $\mathsf{C}(\mathsf{A})$
+require the complexes to be bounded above or below:
+\begin{itemize}
+\item $\mathsf{C}^+(\mathsf{A})$ denote the full\footnote{That is,
+  morphisms between two objects in the subcategory agree with
+  morphisms of the same two objects in the ambient category. Cf.\
+  Exercise~I.3.8.} subcategory of $\mathsf{C}(\mathsf{A})$ determined
+  by complexes $L^\bullet$ which are bounded \emph{below}, i.e., for
+  which $L^i = 0$ for $i \ll 0$.
+\item $\mathsf{C}^-(\mathsf{A})$ likewise denotes the full
+  subcategory of bounded-\emph{above} complexes.
+\end{itemize}
+These are also abelian categories, and so are further variations such
+as $\mathsf{C}^{\geq 0}(\mathsf{A})$ (complexes $L^\bullet$ for which
+$L^i = 0$ for $i < 0$), $\mathsf{C}^{\leq 0}(\mathsf{A})$, and so on.
+These bounded variants become unavoidable when dealing with
+resolutions.
+
+It will also be necessary to consider categories of complexes in
+which the objects are restricted to belonging to a subcategory of
+$\mathsf{A}$. We will devote particular attention to the full
+subcategories $\mathsf{P}$ and $\mathsf{I}$ consisting of
+\emph{projective}, resp., \emph{injective}, objects in $\mathsf{A}$
+(see \S{}5.3); thus, $\mathsf{C}^{\leq 0}(\mathsf{P})$,
+$\mathsf{C}^{\geq 0}(\mathsf{I})$ and other variations on the same
+themes are fair game\footnote{But note that $\mathsf{P}$ and
+$\mathsf{I}$ are not abelian categories!}. In the generalities that
+follow I will only deal with $\mathsf{C}(\mathsf{A})$, to keep
+notation under control. The reader should have no difficulty
+determining what extends immediately to the different variants of
+$\mathsf{C}(\mathsf{A})$ and what does not.
+
+There are several functors and other operations available in this
+new setting; many of them seem almost too simple-minded to mention.
+For example, for all integers $r$ we have a fully faithful, exact
+functor
+\[
+  \iota_r : \mathsf{A} \longrightarrow \mathsf{C}(\mathsf{A})
+\]
+sending an object $A$ of $\mathsf{A}$ to the complex
+\[\begin{tikzcd}
+  \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & A \arrow[r] & 0
+    \arrow[r] & 0 \arrow[r] & \dots \\
+  &&& \text{degree } r \arrow[u]
+\end{tikzcd}\]
+placing $A$ in degree $r$ and $0$ in all other degrees. It is common
+to identify $\mathsf{A}$ with its `image' in $\mathsf{C}(\mathsf{A})$
+via $\iota = \iota_0$. We also have `shift' functors
+\[
+  \mathsf{C}(\mathsf{A}) \longrightarrow \mathsf{C}(\mathsf{A}),
+  \quad M^\bullet \longmapsto M[r]^\bullet
+\]
+defined by setting\footnote{The sign in the differentials is inserted
+in order to avoid other annoying signs elsewhere; signs do not change
+the isomorphism class of the complex (Exercise~3.5).}
+$M[r]^i = M^{i+r}$, $d^i_{M[r]^\bullet} = (-1)^r d^{i+r}_{M^\bullet}$.
+Complexes can be `truncated' by replacing all terms of degree
+$\geq r$ (or $\leq r$) with $0$.
+
+These operations turn out to be more important than they may look at
+first. The importance of the following example is, on the contrary,
+apparent. I claim that cohomology is a functor:
+
+\begin{lem}{}{homol:3.4}
+  For every integer $i$, the assignment
+  \[
+    H^i : M^\bullet \longmapsto H^i(M^\bullet)
+  \]
+  defines an additive covariant functor $\mathsf{C}(\mathsf{A}) \to
+  \mathsf{A}$.
+\end{lem}
+
+\begin{proof}
+  Of course, the statement means that each $H^i$ induces in a natural
+  (and functorial) way homomorphisms of abelian groups
+  \[
+    \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(M^\bullet, N^\bullet)
+    \to \operatorname{Hom}_{\mathsf{A}}(H^i(M^\bullet), H^i(N^\bullet))
+  \]
+  for all complexes $M^\bullet$, $N^\bullet$. This follows from the
+  commutativity requirement in the definition of morphisms of
+  complexes. Look at the relevant part of the diagram:
+  \[\begin{tikzcd}
+    M^{i-1} \arrow[r, "d^{i-1}"] \arrow[d, "\alpha^{i-1}"'] &
+      M^i \arrow[r, "d^i"] \arrow[d, "\alpha^i"'] &
+      M^{i+1} \arrow[d, "\alpha^{i+1}"] \\
+    N^{i-1} \arrow[r, "d'^{i-1}"'] & N^i \arrow[r, "d'^i"'] & N^{i+1}
+  \end{tikzcd}\]
+  The composition $d'^i \circ \alpha^i = \alpha^{i+1} \circ d^i$ is
+  $0$ on $\ker d^i$ by the commutativity of the square on the right,
+  so the restriction of $\alpha^i$ to $\ker d^i$ factors through
+  $\ker d'^i$. Composing with the projection gives a morphism
+  \[
+    \ker d^i \to H^i(N^\bullet).
+  \]
+  This morphism is $0$ when restricted to $\operatorname{im}d^{i-1}$,
+  by the commutativity of the square on the left. Therefore
+  $\alpha^i$ induces a morphism
+  \[
+    H^i(M^\bullet) \to H^i(N^\bullet)
+  \]
+  in $\mathsf{A}$, as needed. It is clear that this assignment is
+  covariant.
+\end{proof}
+
+We can also view cohomology as a functor $\mathsf{C}(\mathsf{A}) \to
+\mathsf{C}(\mathsf{A})$, by placing each cohomology object
+$H^i(M^\bullet)$ in degree $i$, connected by zero-morphisms,
+obtaining a complex $H^\bullet(M^\bullet)$. Note that the cohomology
+of this complex equals the cohomology of $M^\bullet$, that is,
+\[
+  H^\bullet(H^\bullet(M^\bullet)) = H^\bullet(M^\bullet).
+\]
+In this sense, taking cohomology feels like performing a
+`projection'.
 
 \subsection{The long exact cohomology sequence}
 \label{subsec:homol:the-long-exact-cohomology-sequence}
