@@ -3585,285 +3585,297 @@ subgroup of $\operatorname{Aut}(G)$.
 \section{Canonical decomposition and Lagrange's theorem}
 \label{sec:groups:canonical-decomposition-and-lagrange-s-theorem}
 
-% I will collect in this section a number of observations on the structure of
-% quotient
-% groups. All these results are straightforward, given the background work done so
-% far. Some of them are often given fancy names such as first isomorphism theorem
-% in the literature; I am not too fond of such terminology: the universal property
-% proven in Theorem 7.12 is really the only thing I need to take along, and it
-% serves
-% me wonderfully well. The `isomorphism theorems' are all immediate applications
-% of this universal property.
+I will collect in this section a number of observations on the
+structure of quotient groups. All these results are straightforward,
+given the background work done so far. Some of them are often given
+fancy names such as \emph{first isomorphism theorem} in the literature;
+I am not too fond of such terminology: the universal property proven
+in Theorem~\ref{thm:groups:quotient-universal-property} is really the
+only thing I need to take along, and it serves me wonderfully well. The
+`isomorphism theorems' are all immediate applications of this universal
+property.
 
 \subsection{Canonical decomposition}
 \label{subsec:groups:canonical-decomposition}
-% The first observation comes from the canoni-
+The first observation comes from the canonical decomposition for
+set-functions, obtained in $\S$I.2.8: every set-function may be viewed
+as the composition of a surjective map, followed by a bijective map,
+followed by an injective map. We now know enough to state the
+corresponding (very useful) result in $\mathsf{Grp}$:
 
-% cal decomposition for set-functions, obtained in \S{}I.2.8: every set-functions
-% may be
-% viewed as the composition of a surjective map, followed by a bijective map,
-% followed
-% by an injective map. We now know enough to state the corresponding (very useful)
-% results in Grp:
-% Theorem 8.1. Every group homomorphism \phi  : G \to  G\setminus  may be
-% decomposed as
-% follows:
-% \phi 
-% G
-% / / G/ ker \phi 
-% \sim 
-% \tilde{\phi }
-% / im \phi  ? ?
-% (/
-%  G\setminus 
-% where the isomorphism \tilde{\phi } in the middle is the homomorphism induced by
-% \phi  (as in
-% Theorem 7.12).
-% It is important that the reader agree that we have already proved anything
-% that deserves to be proven here. We know that the projection on the left and the
-% inclusion on the right are homomorphisms and \tilde{\phi } comes from Theorem
-% 7.12. The
-% decomposition is the same one obtained at the level of set-functions in
-% \S{}I.2.8; in
-% particular, the function in the middle is a bijection. Since bijective
-% homomorphisms
-% are isomorphisms (Proposition 4.3), it is an isomorphism.
-% Theorem 8.1 should induce the following Pavlovian reaction: exposed to any
-% group homomorphism \phi  : G \to  G\setminus  , the reader should
-% instantaneously view G/ ker \phi
-% as (canonically identified with) a subgroup of G\setminus  . What is usually
-% called the `first
-% isomorphism theorem' is the particular case corresponding to surjective homomor-
-% phisms:
-% Corollary 8.2. Suppose \phi  : G \to  G\setminus  is a surjective group
-% homomorphism. Then
-% G\setminus  \sim 
-%  =
-%  G
-%  .
-% ker \phi 
-% Proof. im\phi  = G\setminus  in Theorem 8.1.
-%  ?
-% This result is very useful---it comes in extremely handy when proving that two
-% groups are isomorphic, both in theoretical contexts (as we will see in the rest
-% of
-% this section) and in concrete instances.
-% Example 8.3. If H1 \subseteq  G1 and H2 \subseteq  G2 , then the product H1
-% \times  H2 may be
-% viewed as a subset of G1 \times  G2. It is clear that if G1 , G2 are groups and
-% H1 , H2
-% are subgroups, then H1 \times  H2 is a subgroup of G1 \times  G2 . The following
-% claim is a
-% prototype application of Corollary 8.2:
-% Claim 8.4. If H1 \subseteq  G1 and H2 \subseteq  G2 are normal subgroups, then
-% H1 \times  H2 is a
-% normal subgroup of the group G1 \times  G2 and
-% G1 \times  G2 \sim  =
-%  G1
-%  \times 
-%  G2
-%  .
-% H1 \times  H2
-%  H1
-%  H2
-% Indeed, composing the projections
-% \pi 1 : G1 \times  G2 \to  G1 ,
-% \pi 2 : G1 \times  G 2 \to  G2
-% with the morphisms to the quotients gives surjective homomorphisms
-% G 1
-%  G2
-% \pi 1 : G1 \times  G2 \to 
-%  ,
-%  \pi 2 : G1 \times  G 2 \to 
-% H1
-%  H2
-% and hence a homomorphism
-% G1
-%  G2
-% \pi  : G1 \times  G2 \to 
-%  \times 
-% H1
-%  H2
-% by the universal property of products. Explicitly,
-% \pi (g1 , g2 ) = (g1 H1, g2 H2 ) :
-% in particular, \pi  is surjective and
-% ker \pi  = {(g1 , g2 ) \in  G1 \times  G2 | (g1 H1 , g2 H2 ) = (H1 , H2 )}
-% = {(g1 , g2 ) \in  G1 \times  G2 | g1 \in  H1 , g2 \in  H2 }
-% = H1 \times  H2 .
-% The claim then follows immediately from Corollary 8.2.
-% The result (of course) extends to more factors in the product. Any such check
-% should become second nature and is usually left to the reader.
-%  ?
-% Example 8.5. As a particular case of Claim 8.4, take H1 = {eG1 } \subseteq  G1
-% and
-% H2 = G2 \subseteq  G2:
-% G1 \times  G2 G1
-%  G2\sim  =
-%  \times 
-%  \sim 
-%  = G1 ,
-% G2
-%  {eG1 } G2
-% where on the left we identify G2 with the subgroup {eG1 } \times  G2. For
-% instance34
-% (cf. \S{}4.1)
-% C6 C2 \times  C3\sim  =
-%  \sim 
-%  = C2 .
-%  ?
-% C3
-%  C3
-% Example 8.6. The cyclic group C3 may be viewed as a subgroup of the dihedral
-% group D6 : the rotations of a triangle give a copy of C3 inside D6 . Then C3 is
-% normal in D6 , and
-% D6 \sim 
-%  = C2 .
-% C3
-% This can of course be checked `by hand'. But note that there is an evident
-% surjective
-% homomorphism D6 \to  C2 , whose kernel is C3: map an element \sigma  of D6 to
-% the
-% identity in C2 if it does not flip the triangle (that is, precisely when \sigma
-% \in  C 3 ),
-% and map it to the other element if it does. Corollary 8.2 implies the stated
-% facts
-% immediately.
-%  ?
-% Example 8.7. One can give a circle (denoted S 1 ) a group structure by
-% identifying
-% its points with rotations of a plane about a point and adding them accordingly.
-% The function
-% \rho  : R1 \to  S 1
-% 34 Abuses of language such as the formula which follows---in which one is not
-% explicitly spec-
-% ifying how to realize C3 as a subgroup of C6 , because there is really only one
-% way to do it---are
-% unfortunately commonplace.
-% mapping a number r to the result of a rotation by 2\pi r radians is then a
-% surjective
-% group homomorphism; this is the identity precisely when we rotate by an integer
-% multiple of 2\pi . Hence
-% ker \rho  = Z \subseteq  R.
-% By Corollary 8.2, therefore,
-% R 1
-% \sim  = S .
-% Z
-% (Cf. Exercise I.1.6.) Geometrically, this amounts to `wrapping' R infinitely
-% many
-% times around the circle, realizing R as the `universal cover' of S 1 ; here, Z
-% plays the
-% role of `fundamental group' of S 1 .
-%  ?
+\begin{thm}{Every group homomorphism $\varphi : G \to G'$ may be
+decomposed as follows, where the isomorphism $\bar\varphi$ in the
+middle is the homomorphism induced by $\varphi$ (as in
+Theorem~\ref{thm:groups:quotient-universal-property}):}{thm:groups:canonical-decomposition}
+\[
+\begin{tikzcd}
+  G \arrow[rr, "\varphi", bend left=15]
+  \arrow[r, two heads] & G/\ker\varphi \arrow[r, "\bar\varphi"', "\sim"]
+  & \operatorname{im}\varphi \arrow[r, hook] & G'
+\end{tikzcd}
+\]
+\end{thm}
+\begin{proof}
+It is important that the reader agree that we have already proved
+anything that deserves to be proven here. We know that the projection
+on the left and the inclusion on the right are homomorphisms and
+$\bar\varphi$ comes from Theorem~\ref{thm:groups:quotient-universal-property}.
+The decomposition is the same one obtained at the level of
+set-functions in $\S$I.2.8; in particular, the function in the middle
+is a bijection. Since bijective homomorphisms are isomorphisms
+(Proposition~4.3), it is an isomorphism.
+\end{proof}
+
+Theorem~\ref{thm:groups:canonical-decomposition} should induce the
+following Pavlovian reaction: exposed to any group homomorphism
+$\varphi : G \to G'$, the reader should instantaneously view
+$G/\ker\varphi$ as (canonically identified with) a subgroup of $G'$.
+What is usually called the `first isomorphism theorem' is the
+particular case corresponding to surjective homomorphisms:
+
+\begin{coro}{Suppose $\varphi : G \to G'$ is a surjective group
+homomorphism. Then
+\[
+  G' \cong \frac{G}{\ker\varphi}.
+\]}{coro:groups:first-isomorphism-theorem}
+\end{coro}
+\begin{proof}
+$\operatorname{im}\varphi = G'$ in
+Theorem~\ref{thm:groups:canonical-decomposition}.
+\end{proof}
+
+This result is very useful---it comes in extremely handy when proving
+that two groups are isomorphic, both in theoretical contexts (as we
+will see in the rest of this section) and in concrete instances.
+
+\begin{exam}{}{exam:groups:product-of-subgroups}
+If $H_1 \subseteq G_1$ and $H_2 \subseteq G_2$, then the product
+$H_1 \times H_2$ may be viewed as a subset of $G_1 \times G_2$. It is
+clear that if $G_1$, $G_2$ are groups and $H_1$, $H_2$ are subgroups,
+then $H_1 \times H_2$ is a subgroup of $G_1 \times G_2$. The following
+claim is a prototype application of Corollary~\ref{coro:groups:first-isomorphism-theorem}:
+\end{exam}
+
+\begin{prop}{If $H_1 \subseteq G_1$ and $H_2 \subseteq G_2$ are normal
+subgroups, then $H_1 \times H_2$ is a normal subgroup of the group
+$G_1 \times G_2$ and
+\[
+  \frac{G_1 \times G_2}{H_1 \times H_2} \cong \frac{G_1}{H_1} \times
+  \frac{G_2}{H_2}.
+\]}{prop:groups:quotient-of-product}
+\end{prop}
+\begin{proof}
+Indeed, composing the projections
+\[
+  \pi_1 : G_1 \times G_2 \to G_1, \qquad \pi_2 : G_1 \times G_2 \to G_2
+\]
+with the morphisms to the quotients gives surjective homomorphisms
+\[
+  \pi_1 : G_1 \times G_2 \to \frac{G_1}{H_1}, \qquad
+  \pi_2 : G_1 \times G_2 \to \frac{G_2}{H_2}
+\]
+and hence a homomorphism
+\[
+  \pi : G_1 \times G_2 \to \frac{G_1}{H_1} \times \frac{G_2}{H_2}
+\]
+by the universal property of products. Explicitly,
+\[
+  \pi(g_1, g_2) = (g_1H_1, g_2H_2):
+\]
+in particular, $\pi$ is surjective and
+\begin{align*}
+  \ker\pi &= \{(g_1,g_2) \in G_1 \times G_2 \mid (g_1H_1, g_2H_2) = (H_1,H_2)\} \\
+  &= \{(g_1,g_2) \in G_1 \times G_2 \mid g_1 \in H_1, g_2 \in H_2\} \\
+  &= H_1 \times H_2.
+\end{align*}
+The claim then follows immediately from
+Corollary~\ref{coro:groups:first-isomorphism-theorem}.
+
+The result (of course) extends to more factors in the product. Any
+such check should become second nature and is usually left to the
+reader.
+\end{proof}
+
+\begin{exam}{}{exam:groups:quotient-of-product-trivial-factor}
+As a particular case of Proposition~\ref{prop:groups:quotient-of-product},
+take $H_1 = \{e_{G_1}\} \subseteq G_1$ and $H_2 = G_2 \subseteq G_2$:
+\[
+  \frac{G_1 \times G_2}{G_2} \cong \frac{G_1}{\{e_{G_1}\}} \times
+  \frac{G_2}{G_2} \cong G_1,
+\]
+where on the left we identify $G_2$ with the subgroup
+$\{e_{G_1}\} \times G_2$. For instance\footnote{Abuses of language such
+as the formula which follows---in which one is not explicitly
+specifying how to realize $C_3$ as a subgroup of $C_6$, because there
+is really only one way to do it---are unfortunately commonplace.} (cf.\
+$\S$4.1)
+\[
+  \frac{C_6}{C_3} \cong \frac{C_2 \times C_3}{C_3} \cong C_2.
+\]
+\end{exam}
+
+\begin{exam}{}{exam:groups:d6-mod-c3}
+The cyclic group $C_3$ may be viewed as a subgroup of the dihedral
+group $D_6$: the rotations of a triangle give a copy of $C_3$ inside
+$D_6$. Then $C_3$ is normal in $D_6$, and
+\[
+  \frac{D_6}{C_3} \cong C_2.
+\]
+This can of course be checked `by hand'. But note that there is an
+evident surjective homomorphism $D_6 \to C_2$, whose kernel is $C_3$:
+map an element $\sigma$ of $D_6$ to the identity in $C_2$ if it does
+\emph{not} flip the triangle (that is, precisely when
+$\sigma \in C_3$), and map it to the other element if it does.
+Corollary~\ref{coro:groups:first-isomorphism-theorem} implies the
+stated facts immediately.
+\end{exam}
+
+\begin{exam}{}{exam:groups:r-mod-z-is-circle}
+One can give a \emph{circle} (denoted $S^1$) a group structure by
+identifying its points with rotations of a plane about a point and
+adding them accordingly. The function
+\[
+  \rho : \mathbb{R}^1 \to S^1
+\]
+mapping a number $r$ to the result of a rotation by $2\pi r$ radians is
+then a surjective group homomorphism; this is the identity precisely
+when we rotate by an integer multiple of $2\pi$. Hence
+\[
+  \ker\rho = \mathbb{Z} \subseteq \mathbb{R}.
+\]
+By Corollary~\ref{coro:groups:first-isomorphism-theorem}, therefore,
+\[
+  \frac{\mathbb{R}}{\mathbb{Z}} \cong S^1.
+\]
+(Cf.\ Exercise~I.1.6.) Geometrically, this amounts to `wrapping'
+$\mathbb{R}$ infinitely many times around the circle, realizing
+$\mathbb{R}$ as the `universal cover' of $S^1$; here, $\mathbb{Z}$
+plays the role of `fundamental group' of $S^1$.
+\end{exam}
 
 \subsection{Presentations}
 \label{subsec:groups:presentations}
-% Every group is a quotient of a free group, and every abelian
+Every group is a quotient of a free group, and every abelian group is a
+quotient of a free abelian group. Indeed, every group $G$ can be
+surjected upon by a free group, and in many ways (at the very least,
+$F(G)$ will do!). Abelian groups may be likewise surjected upon by free
+abelian groups. Then Corollary~\ref{coro:groups:first-isomorphism-theorem}
+produces the needed isomorphism of $G$ with a quotient of a free group.
 
-% group is a quotient of a free abelian group. Indeed, every group G can be
-% surjected
-% upon by a free group, and in many ways (at the very least, F (G) will do!).
-% Abelian
-% groups may be likewise surjected upon by free abelian groups. Then Corollary 8.2
-% produces the needed isomorphism of G with a quotient of a free group.
-% A presentation of a group G is an explicit isomorphism
-% G \sim 
-%  =
-%  F (A)
-% R
-% where A is a set and R is a subgroup of `relations'. In other words, a
-% presentation
-% is an explicit surjection
-% \rho  : F (A) \setminus  G
-% of which R is the kernel. This is especially useful if A is small, and R may be
-% described very explicitly; usually this is done by listing `enough' relations,
-% that is,
-% a set R of words r\alpha  \in  R = ker \rho  generating it in the sense that R
-% is the smallest
-% normal subgroup35 of F (A) containing R.
-% Thus, a presentation of a group G is usually encoded as a pair (A|R), where A
-% is a set and R \subseteq  F (A) is a set of words, such that G \sim 
-%  = F (A)/R with R as above.
-% A group is finitely presented if it admits a presentation (A|R) in which both
-% A and R are finite. Finitely presented groups are not (necessarily) `small': for
-% example, the free group on finitely many generators is (trivially) finitely
-% presented.
-% We have already run into several examples of presentations. For instance,
-% the free group F (A) is presented by (A|\emptyset ). More interestingly, the
-% description
-% of S3 given in \S{}2.1 `presents' S3 as a quotient of the free group F ({x, y})
-% (cf. Ex-
-% ample 5.3) by the smallest normal subgroup containing x2, y 3 , and yx = xy 2 :
-% (x, y|x2 , y3 , xyxy) in shorthand. From this point of view, it is clear that
-% groups
-% admitting the same presentation (example: S3 and D6 ) are isomorphic.
-% The situation is less idyllic than it may seem at first, though: even if a
-% presen-
-% tation of a group G is known, it may be very hard to establish whether two
-% explicit
-% 35 Note that this is a different requirement than the one adopted in \S{}6.3, in
-% which normality
-% plays no role.
-% combinations of the generators coincide in G. This is known as the word problem,
-% and it has been shown to be undecidable in general36 .
-% In any case, now that we know about presentations of groups, finding coprod-
-% ucts in Grp should be straightforward: see Exercise 8.7.
-% There is a `mirror' statement analogous to the fact that all groups are
-% quotients
-% of free groups: every group may be realized as a subgroup of a symmetric group.
-% This elementary observation goes under the name of Cayley's theorem; its natural
-% place is within the discussion of group actions (cf. Theorem 9.5).
+A \emph{presentation} of a group $G$ is an explicit isomorphism
+\[
+  G \cong \frac{F(A)}{R}
+\]
+where $A$ is a set and $R$ is a subgroup of `relations'. In other
+words, a presentation is an explicit surjection
+\[
+  \rho : F(A) \twoheadrightarrow G
+\]
+of which $R$ is the kernel. This is especially useful if $A$ is small,
+and $R$ may be described very explicitly; usually this is done by
+listing `enough' relations, that is, a set $\mathscr{R}$ of words
+$r_\alpha \in R = \ker\rho$ generating it in the sense that $R$ is the
+smallest normal subgroup\footnote{Note that this is a different
+requirement than the one adopted in $\S$6.3, in which normality plays
+no role.} of $F(A)$ containing $\mathscr{R}$.
+
+Thus, a presentation of a group $G$ is usually encoded as a pair
+$(A \mid \mathscr{R})$, where $A$ is a set and
+$\mathscr{R} \subseteq F(A)$ is a set of words, such that
+$G \cong F(A)/R$ with $R$ as above.
+
+A group is \emph{finitely presented} if it admits a presentation
+$(A \mid \mathscr{R})$ in which both $A$ and $\mathscr{R}$ are finite.
+Finitely presented groups are not (necessarily) `small': for example,
+the free group on finitely many generators is (trivially) finitely
+presented.
+
+We have already run into several examples of presentations. For
+instance, the free group $F(A)$ is presented by $(A \mid \emptyset)$.
+More interestingly, the description of $S_3$ given in $\S$2.1
+`presents' $S_3$ as a quotient of the free group $F(\{x,y\})$ (cf.\
+Example~5.3) by the smallest normal subgroup containing $x^2$, $y^3$,
+and $yx = xy^2$: $(x,y \mid x^2, y^3, xyxy)$ in shorthand. From this
+point of view, it is clear that groups admitting the same presentation
+(example: $S_3$ and $D_6$) are isomorphic.
+
+The situation is less idyllic than it may seem at first, though: even
+if a presentation of a group $G$ is known, it may be very hard to
+establish whether two explicit combinations of the generators coincide
+in $G$. This is known as the \emph{word problem}, and it has been shown
+to be undecidable in general.\footnote{That is, there is no general
+algorithm that, given a presentation of a group $G$ and two words in
+the generators, will establish (in a finite time) whether those two
+words represent the same element of $G$.}
+
+In any case, now that we know about presentations of groups, finding
+coproducts in $\mathsf{Grp}$ should be straightforward: see
+Exercise~8.7.
+
+There is a `mirror' statement analogous to the fact that all groups
+are quotients of free groups: every group may be realized as a
+subgroup of a symmetric group. This elementary observation goes under
+the name of \emph{Cayley's theorem}; its natural place is within the
+discussion of group actions (cf.\ Theorem~9.5).
 
 \subsection{Subgroups of quotients}
 \label{subsec:groups:subgroups-of-quotients}
-% The lattice of subgroups (cf. \S{}6.4) of a quo-
+The lattice of subgroups (cf.\ $\S$6.4) of a quotient $G/H$ can be
+described very explicitly in terms of the lattice of subgroups of the
+group $G$: simply keep the part of the lattice of subgroups of $G$
+corresponding to subgroups which contain $H$.
 
-% tient G/H can be described very explicitly in terms of the lattice of subgroups
-% of the group G: simply keep the part of the lattice of subgroups of G
-% corresponding
-% to subgroups which contain H.
-% Example 8.8. Here is the effect of this operation on the lattice of subgroups of
-% C12 \sim 
-%  = Z/12Z (labeled by generators; cf. \S{}6.4), after quotienting by H = ?[6]? =
-%  \sim
-%  C2 :
-% [1]
-% [3]
-%  [2]
-% [6]
-%  [4]
-% [0]
-% The result matches the lattice of subgroups of C6 \sim 
-%  = C12/C2 .
-%  ?
-% Here is why this works. First note that if H \subseteq  K are subgroups of a
-% group G
-% and H is normal in G, then H is normal in K.
-% Proposition 8.9. Let H be a normal subgroup of a group G. Then for every
-% subgroup K of G containing H, K/H may be identified with a subgroup of G/H.
-% The function
-% u : {subgroups K of G containing H} \to  {subgroups of G/H}
-% defined by u(K) = K/H is a bijection preserving inclusions.
-% Proof. The group K/H consists of the cosets aH \in  G/H with a \in  K, and in
-% this sense it is a subset (and clearly a subgroup) of G/H. It is also clear that
-% if
-% H \subseteq  K \subseteq  L, then u(K) = K/H \subseteq  L/H = u(L); that is, u
-% preserves inclusions.
-% 36 That is, there is no general algorithm that, given a presentation of a group
-% G and two
-% words in the generators, will establish (in a finite time) whether those two
-% words represent the
-% same element of G.
-% Thus we simply have to verify that u is a bijection, and for this it suffices to
-% produce an inverse function
-% v : {subgroups of G/H} \to  {subgroups K of G containing H}.
-% \setminus  \setminus Then let K be a subgroup of G/H; define v(K ) to be the subset of G:
-% K := \pi -1 (K \setminus  ) = {a \in  G | aH \in  K \setminus  },
-% where \pi  : G \to  G/H is the canonical projection. Then K is a subgroup of G
-% (by
-% Lemma 6.4) and contains H (because H = \pi  -1(e) and e \in  K \setminus ). The
-% reader will
-% check that u and v are inverses of each other.
-%  ?
+\begin{exam}{}{exam:groups:c12-mod-c2-lattice}
+Here is the effect of this operation on the lattice of subgroups of
+$C_{12} \cong \mathbb{Z}/12\mathbb{Z}$ (labeled by generators; cf.\
+$\S$6.4), after quotienting by $H = \langle [6] \rangle \cong C_2$:
+
+% TODO: diagram of the divisor lattice of C_12 = {[1],[2],[3],[4],[6],[0]}
+% (labeled by generators, Hasse diagram of divisors of 12) with an arrow
+% to the reduced lattice of C_6, highlighting the sublattice of subgroups
+% containing H = <[6]> (page 100)
+
+The result matches the lattice of subgroups of $C_6 \cong C_{12}/C_2$.
+\end{exam}
+
+Here is why this works. First note that if $H \subseteq K$ are
+subgroups of a group $G$ and $H$ is normal in $G$, then $H$ is normal
+in $K$.
+
+\begin{prop}{Let $H$ be a normal subgroup of a group $G$. Then for
+every subgroup $K$ of $G$ containing $H$, $K/H$ may be identified with
+a subgroup of $G/H$. The function
+\[
+  \begin{gathered}
+    u : \{K \subseteq G \text{ subgroup} \mid K \supseteq H\} \\
+    \to \{\text{subgroups of } G/H\}
+  \end{gathered}
+\]
+defined by $u(K) = K/H$ is a bijection preserving
+inclusions.}{prop:groups:subgroups-of-quotients-bijection}
+\end{prop}
+\begin{proof}
+The group $K/H$ consists of the cosets $aH \in G/H$ with $a \in K$,
+and in this sense it is a subset (and clearly a subgroup) of $G/H$. It
+is also clear that if $H \subseteq K \subseteq L$, then
+$u(K) = K/H \subseteq L/H = u(L)$; that is, $u$ preserves inclusions.
+
+Thus we simply have to verify that $u$ is a bijection, and for this it
+suffices to produce an inverse function
+\[
+  v : \{\text{subgroups of } G/H\} \to
+  \{\text{subgroups } K \text{ of } G \text{ containing } H\}.
+\]
+Then let $K'$ be a subgroup of $G/H$; define $v(K')$ to be the subset
+of $G$:
+\[
+  K := \pi^{-1}(K') = \{a \in G \mid aH \in K'\},
+\]
+where $\pi : G \to G/H$ is the canonical projection. Then $K$ is a
+subgroup of $G$ (by Lemma~\ref{lem:groups:preimage-of-subgroup}) and
+contains $H$ (because $H = \pi^{-1}(e)$ and $e \in K'$). The reader
+will check that $u$ and $v$ are inverses of each other.
+\end{proof}
 % In fact, the correspondence is even nicer, in the sense that it preserves
 % normal-
 % ity. The following statement is often called the third isomorphism theorem:
