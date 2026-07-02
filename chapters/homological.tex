@@ -2466,297 +2466,214 @@ In this sense, taking cohomology feels like performing a
 
 \subsection{The long exact cohomology sequence}
 \label{subsec:homol:the-long-exact-cohomology-sequence}
-% The one fact we did explore at
 
-% any level of thoroughness in \S{}III.7.1 is the famous snake lemma, Lemma
-% III.7.8,
-% which has come back to entertain us in \S{}2.2. Written cohomologically and with
-% the benefit of the language introduced in \S{}3.2, the snake lemma takes the
-% following
-% form. Consider a commutative diagram
-%  / L1
-%  / M 1
-%  / N 1
-%  / 0
-% O
-%  O
-%  O
-% \lambda 0
-%  \mu 0
-%  \nu  0
-%  / L0
-%  / M 0
-%  / N 0
-%  / 0
-% with exact rows, and view the columns as complexes
-% L\bullet  :
-%  \cdot \cdot \cdot 
-%  / 0
-%  / L0
-%  \lambda 0
-%  / L1
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% \bullet  \bullet M , N . The commutative diagram is then nothing but the datum of a short exact
-% sequence of (very special) complexes:
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / 0 .
-% The snake lemma tells us that there is then an exact sequence in A:
-%  / H 0 (L\bullet  )
-%  / H 0 (M \bullet  )
-%  / H 0 (N \bullet  )
-% ED
-%  BC
-% ^^^^^^^^^^^^^^^^ \delta  ^^^^^^^^^^^^^^^^^
-% @A
-%  GF
-% / H 1 (L\bullet  )
-%  / H 1 (M \bullet  )
-%  / H 1 (N \bullet  )
-%  / 0 .
-% Here, H 0 , resp., H 1 , simply stands for the kernel, resp., cokernel, of the
-% correspond-
-% ing map: nothing else is going on in these small complexes. The
-% (element-theoretic)
-% definition of the `connecting' morphism \delta  is discussed thoroughly in
-% \S{}III.7.3 and can
-% be summarized (cohomologically speaking) as follows:
-% \bullet  Start with n \in  H 0(N \bullet  ) = ker \nu  0 \subseteq  N 0 .
-% \bullet  Choose any preimage m of n in M 0 .
-% \bullet  Map m to \mu 0 (m) \in  M 1 .
-% \bullet  It is immediately seen that \mu 0 (m) maps to 0 in N 1 ; therefore it determines a
-% unique element \in  L1 .
-% \bullet  Set \delta (n) = the class of
-%  in H 1 (L\bullet  ) = coker(\lambda 0 ).
-% Pictorially,
-% \delta (n)
-% U
-%  ? \bullet  ?
-%  / \bullet 
-%  O
-%  _ \bullet 
-%  ?
-%  / \bullet 
-%  R
-% \sqcup  n
-% We checked in \S{}III.7.3 that choosing a different preimage for n in M 0 ,
-% while it may
-% change the element , does not change its image in coker(\lambda 0). Thus \delta
-% is well-defined.
-% As we have seen in \S{}2.2, it is relatively straightforward to provide an
-% arrow-theoretic
-% version of this construction; but we have also seen (Theorem 2.9) that we do not
-% need to do that, so I will stay with elements in what follows.
-% Now we will upgrade this construction, in what should come across as a very
-% natural development. In fact, what we are going to do could be absorbed into the
-% snake lemma itself (cf. Exercise 3.10); but I have always found the `spread out'
-% chase compelling, so here it is. Take any short exact sequence in C(A),
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / 0 ,
-% linking three full-blown cochain complexes L\bullet  , M \bullet  , N \bullet  ;
-% that is, consider a large
-% commutative diagram
-% ..
-%  ..
-%  ..
-% . O
-%  . O
-%  . O
-%  / Li+2
-%  / M i+2
-%  / N i+2
-%  / 0
-% O
-%  O
-%  O
-% \lambda i+1
-%  \mu i+1
-%  \nu  i+1
-%  / Li+1
-%  / M i+1
-%  / N i+1
-%  / 0
-% O
-%  O
-%  O
-% \lambda i
-%  \mu i
-%  \nu  i
-%  / Li
-%  / M i
-%  / N i
-%  / 0
-% O
-%  O
-%  O
-% \lambda i-1
-%  \mu i-1
-%  \nu  i-1
-%  / Li-1
-%  / M i-1
-%  / N i-1
-%  / 0
-% O
-%  O
-%  O
-% ..
-%  ..
-%  ..
-% .
-%  .
-%  .
-% in A, where the rows are exact and the columns are complexes. The connecting
-% morphism constructed for the snake lemma still gives an interesting morphism
-% \delta  : ker \nu  i \to  coker \lambda i \sim 
-%  =
-%  L
-% i+1
-%  ,
-% im \lambda i
-% obtained by `climbing the ladder' in precisely the same way as for the snake
-% lemma:
-%  \delta (n)
-% U
-%  ? \bullet  ?
-%  / \bullet 
-%  O
-%  _ \bullet 
-%  ?
-%  / \bullet 
-%  R
-%  ? n
-% Where does the image \delta (n) really lie? It is represented by an element in
-% Li+1 ,
-% determined by an element \mu i(m) \in  im \mu i. The image of \mu i (m) in M i+2
-% must be 0,
-% because the central column is a complex:
-%  / 0
-% O O
-% _ _
-%  ?
-%  / \mu i (m)
-% O
-%  m _
-%  ?
-%  / \bullet 
-%  R
-%  ? n
-% It follows that
-%  \in  ker \lambda 
-% i+1
-%  , and therefore we can place \delta (n) in cohomology,
-% ker \lambda i+1
-%  i+1\delta (n) \in 
-%  = H (L\bullet  ),
-% im \lambda i
-% and view \delta  as a morphism
-% \delta  : ker \nu  i \to  H i+1 (L\bullet  ).
-% Next, the kernel of \nu  i contains the image of \nu  i-1, again because columns
-% are com-
-% plexes. What is the restriction of \delta  to im \nu  i-1? I claim it is 0.
-% Indeed, if n comes
-% from N i-1 , then a preimage in M i of \nu  i-1(n) may be obtained by taking a
-% preimage
-% of n in M i-1 and mapping it to M i ; but since the central column is a complex,
-% this
-% preimage maps to 0 in M i+1 . It follows that \delta (n) = 0 in this case:
-%  0 Q
-%  ? 0 ?
-%  / 0
-% O
-%  _ \bullet  O
-%  ?
-%  / \bullet 
-%  O
-%  _ \bullet 
-%  ?
-%  / n
-%  _
-% Therefore, \delta  factors through im \nu  i-1
-%  . Since ker \nu  i
-% / im \nu 
-%  i-1
-%  is nothing but the coho-
-% mology H i (N \bullet ), we have obtained a morphism
-% \delta  i : H i (N \bullet  ) \to  H i+1 (L\bullet  ).
-% On the other hand, each H i is a functor (Lemma 3.4); thus there are natural
-% morphisms
-% H i (L\bullet  )
-%  / H i (M \bullet  )
-%  / H i (N \bullet  )
-% for each i. Note that completing this diagram with 0 on the left and on the
-% right
-% does not give in general a short exact sequence in A (Exercise 3.8). In other
-% words,
-% the i-th cohomology is not an exact functor even if, as we will see, the
-% cohomology
-% sequence is exact at H i (M \bullet ). Understanding the exactness and failure
-% of exactness
-% of the functors H i is, in a sense, what this discussion is all about.
-% Together with the connecting morphism, we get a `long sequence' of objects
-% and morphisms in A,
-% \cdot \cdot \cdot 
-%  / H i-1 (N \bullet ) \delta 
-% i-1
-% / H i(L\bullet )
-%  / H i (M \bullet  )
-%  / H i (N \bullet  )
-%  \delta i /
-%  H i+1 (L\bullet )
-%  / \cdot \cdot \cdot  ,
-% generalizing the sequence for H 0 and H 1 obtained in the snake lemma. The
-% atten-
-% tive reader must have seen the next result coming all along:
-% Theorem 3.5 (Long exact cohomology sequence). The sequence determined as
-% above by a short exact sequence of complexes is an exact sequence.
-% The snake lemma is recovered as a particular case of this statement (or con-
-% versely, depending on your taste; cf. Exercise 3.10).
-% Proof. The proof is a diagram chase, which everyone should perform once by
-% oneself in his or her lifetime. So it is mostly left as an exercise for the
-% reader
-% (Exercise 3.9). But I will stress the extent to which H i is exact `on the
-% nose': part
-% of the claim in this theorem is that if
-%  / L\bullet 
-%  \alpha \bullet 
-%  / M \bullet 
-%  \beta  \bullet 
-%  / N \bullet 
-%  / 0
-% is exact, then the sequence induced by functoriality of H i
-%  / H i (L\bullet  )
-%  \alpha 
-%  / H i (M \bullet  )
-%  \beta 
-%  / H i (N \bullet  )
-%  / 0
-% is exact at H i (M \bullet  ). This sequence is not exact in general at H i
-% (L\bullet ) and H i (N \bullet  );
-% the moral of the long exact cohomology sequence is that the failure of exactness
-% is precisely measured by other cohomology objects, by means of the connecting
-% morphisms.
-% Let's check exactness at H i (M ). The sequence is a complex, simply because H i
-% is a functor; thus we only have to verify that ker \beta  \subseteq  im \alpha .
-% If m is a class in H i (M \bullet  )
-% such that \beta (m) = 0 in H i (N ), m is represented by an element m \in  ker
-% \mu i such that
-% \beta  i (m) \in  im \nu  i-1 : \beta  i (m) = \nu  i-1 (n) for some n \in  N i-1 . There is an m\setminus  \in  M i-1
-% such that \beta  i-1(m\setminus ) = n, and m - \mu i-1(m\setminus  ) represents
-% the same class m in H i(M )
-% as m. By the commutativity of the diagram,
-% \beta  i (m - \mu i-1 (m\setminus  )) = \beta  i (m) - \nu  i-1 (n) = 0.
-% Therefore there exists \in  Li such that \alpha i ( ) = m - \mu i-1 (m\setminus
-% ); then
-%  represents a
-% class \in  H i (L\bullet  ) such that \alpha ( ) = m, concluding the
-% verification.
-% Verifying the exactness at the other places is similarly uninspiring and is left
-% to the reader19 .
-%  ?
+The one fact we did explore at any level of thoroughness in
+\S{}III.7.1 is the famous snake lemma, Lemma~III.7.8, which has come
+back to entertain us in \S{}2.2. Written cohomologically and with the
+benefit of the language introduced in \S{}3.2, the snake lemma takes
+the following form. Consider a commutative diagram
+\[\begin{tikzcd}[column sep=small]
+  0 \arrow[r] & L^1 \arrow[r] & M^1 \arrow[r] & N^1 \arrow[r] & 0 \\
+  0 \arrow[r] & L^0 \arrow[r] \arrow[u, "\lambda^0"] &
+    M^0 \arrow[r] \arrow[u, "\mu^0"'] &
+    N^0 \arrow[r] \arrow[u, "\nu^0"'] & 0
+\end{tikzcd}\]
+with exact rows, and view the columns as complexes
+\[
+  L^\bullet : \quad \dots \longrightarrow 0 \longrightarrow L^0
+  \xrightarrow{\lambda^0} L^1 \longrightarrow 0 \longrightarrow \dots,
+\]
+$M^\bullet$, $N^\bullet$. The commutative diagram is then nothing but
+the datum of a short exact sequence of (very special) complexes:
+\[
+  0 \longrightarrow L^\bullet \longrightarrow M^\bullet
+  \longrightarrow N^\bullet \longrightarrow 0.
+\]
+The snake lemma tells us that there is then an exact sequence in
+$\mathsf{A}$:
+\[\begin{tikzcd}[column sep=small]
+  0 \arrow[r] & H^0(L^\bullet) \arrow[r] & H^0(M^\bullet) \arrow[r] &
+    H^0(N^\bullet) \\
+  H^1(L^\bullet) \arrow[r] & H^1(M^\bullet) \arrow[r] &
+    H^1(N^\bullet) \arrow[r] & 0
+  \arrow[from=1-4, to=2-1, "\delta"]
+\end{tikzcd}\]
+Here, $H^0$, resp., $H^1$, simply stands for the kernel, resp.,
+cokernel, of the corresponding map: nothing else is going on in these
+small complexes. The (element-theoretic) definition of the
+`connecting' morphism $\delta$ is discussed thoroughly in \S{}III.7.3
+and can be summarized (cohomologically speaking) as follows:
+\begin{itemize}
+\item Start with $n \in H^0(N^\bullet) = \ker\nu^0 \subseteq N^0$.
+\item Choose any preimage $m$ of $n$ in $M^0$.
+\item Map $m$ to $\mu^0(m) \in M^1$.
+\item It is immediately seen that $\mu^0(m)$ maps to $0$ in $N^1$;
+  therefore it determines a unique element $\ell \in L^1$.
+\item Set $\delta(n) = $ the class of $\ell$ in $H^1(L^\bullet) =
+  \operatorname{coker}(\lambda^0)$.
+\end{itemize}
+Pictorially,
+% TODO: diagram of the "climbing the ladder" element chase for
+% delta(n): n in N^0 has preimage m in M^0, mapping to mu^0(m) in
+% M^1, which determines ell in L^1 mapping to delta(n) in H^1(L^bullet)
+% (page 597)
+
+We checked in \S{}III.7.3 that choosing a different preimage for $n$
+in $M^0$, while it may change the element $\ell$, does not change its
+image in $\operatorname{coker}(\lambda^0)$. Thus $\delta$ is
+well-defined. As we have seen in \S{}2.2, it is relatively
+straightforward to provide an arrow-theoretic version of this
+construction; but we have also seen (Theorem~2.9) that we do not need
+to do that, so I will stay with elements in what follows.
+Now we will upgrade this construction, in what should come across as
+a very natural development. In fact, what we are going to do could
+be absorbed into the snake lemma itself (cf.\ Exercise~3.10); but I
+have always found the `spread out' chase compelling, so here it is.
+Take any short exact sequence in $\mathsf{C}(\mathsf{A})$,
+\[
+  0 \longrightarrow L^\bullet \longrightarrow M^\bullet
+  \longrightarrow N^\bullet \longrightarrow 0,
+\]
+linking three full-blown cochain complexes $L^\bullet$, $M^\bullet$,
+$N^\bullet$; that is, consider a large commutative diagram
+\[\begin{tikzcd}[column sep=small]
+  & \vdots & \vdots & \vdots & \\
+  0 \arrow[r] & L^{i+2} \arrow[r] \arrow[u] & M^{i+2} \arrow[r] \arrow[u] &
+    N^{i+2} \arrow[r] \arrow[u] & 0 \\
+  0 \arrow[r] & L^{i+1} \arrow[r] \arrow[u, "\lambda^{i+1}"] &
+    M^{i+1} \arrow[r] \arrow[u, "\mu^{i+1}"'] &
+    N^{i+1} \arrow[r] \arrow[u, "\nu^{i+1}"'] & 0 \\
+  0 \arrow[r] & L^i \arrow[r] \arrow[u, "\lambda^i"] &
+    M^i \arrow[r] \arrow[u, "\mu^i"'] &
+    N^i \arrow[r] \arrow[u, "\nu^i"'] & 0 \\
+  0 \arrow[r] & L^{i-1} \arrow[r] \arrow[u, "\lambda^{i-1}"] &
+    M^{i-1} \arrow[r] \arrow[u, "\mu^{i-1}"'] &
+    N^{i-1} \arrow[r] \arrow[u, "\nu^{i-1}"'] & 0 \\
+  & \vdots \arrow[u] & \vdots \arrow[u] & \vdots \arrow[u] &
+\end{tikzcd}\]
+in $\mathsf{A}$, where the rows are exact and the columns are
+complexes. The connecting morphism constructed for the snake lemma
+still gives an interesting morphism
+\[
+  \delta : \ker\nu^i \to \operatorname{coker}\lambda^i \cong
+  \frac{L^{i+1}}{\operatorname{im}\lambda^i},
+\]
+obtained by `climbing the ladder' in precisely the same way as for
+the snake lemma:
+% TODO: diagram of the "climbing the ladder" element chase for
+% delta(n) in the general-degree case: n in N^i has preimage m in
+% M^i, mapping to mu^i(m) in M^{i+1}, determining an element of
+% L^{i+1} representing delta(n) (page 598)
+Where does the image $\delta(n)$ really lie? It is represented by an
+element $\ell$ in $L^{i+1}$, determined by an element $\mu^i(m) \in
+\operatorname{im}\mu^i$. The image of $\mu^i(m)$ in $M^{i+2}$ must be
+$0$, because the central column is a complex:
+% TODO: diagram showing mu^i(m) mapping to 0 in M^{i+2}, with ell in
+% L^{i+1}, m in M^i, and n in N^i tracked alongside (page 598-599)
+It follows that $\ell \in \ker\lambda^{i+1}$, and therefore we can
+place $\delta(n)$ in cohomology,
+\[
+  \delta(n) \in \frac{\ker\lambda^{i+1}}{\operatorname{im}\lambda^i} =
+  H^{i+1}(L^\bullet),
+\]
+and view $\delta$ as a morphism
+\[
+  \delta : \ker\nu^i \to H^{i+1}(L^\bullet).
+\]
+Next, the kernel of $\nu^i$ contains the image of $\nu^{i-1}$, again
+because columns are complexes. What is the restriction of $\delta$ to
+$\operatorname{im}\nu^{i-1}$? I claim it is $0$. Indeed, if $n$ comes
+from $N^{i-1}$, then a preimage in $M^i$ of $\nu^{i-1}(n)$ may be
+obtained by taking a preimage of $n$ in $M^{i-1}$ and mapping it to
+$M^i$; but since the central column is a complex, this preimage maps
+to $0$ in $M^{i+1}$. It follows that $\delta(n) = 0$ in this case:
+% TODO: diagram showing the degenerate chase producing delta(n) = 0
+% when n comes from im nu^{i-1} (page 599)
+Therefore, $\delta$ factors through $\operatorname{im}\nu^{i-1}$.
+Since $\ker\nu^i / \operatorname{im}\nu^{i-1}$ is nothing but the
+cohomology $H^i(N^\bullet)$, we have obtained a morphism
+\[
+  \delta^i : H^i(N^\bullet) \to H^{i+1}(L^\bullet).
+\]
+On the other hand, each $H^i$ is a functor (Lemma~3.4); thus there
+are natural morphisms
+\[
+  H^i(L^\bullet) \longrightarrow H^i(M^\bullet) \longrightarrow
+  H^i(N^\bullet)
+\]
+for each $i$. Note that completing this diagram with $0$ on the left
+and on the right does not give in general a short exact sequence in
+$\mathsf{A}$ (Exercise~3.8). In other words, the $i$-th cohomology is
+not an exact functor even if, as we will see, the cohomology sequence
+\emph{is} exact at $H^i(M^\bullet)$. Understanding the exactness and
+failure of exactness of the functors $H^i$ is, in a sense, what this
+discussion is all about.
+
+Together with the connecting morphism, we get a `long sequence' of
+objects and morphisms in $\mathsf{A}$,
+\[
+  \dots \longrightarrow H^{i-1}(N^\bullet) \xrightarrow{\delta^{i-1}}
+  H^i(L^\bullet) \longrightarrow H^i(M^\bullet) \longrightarrow
+  H^i(N^\bullet) \xrightarrow{\delta^i} H^{i+1}(L^\bullet)
+  \longrightarrow \dots,
+\]
+generalizing the sequence for $H^0$ and $H^1$ obtained in the snake
+lemma. The attentive reader must have seen the next result coming all
+along:
+
+\begin{thm}{Long exact cohomology sequence}{homol:3.5}
+  The sequence determined as above by a short exact sequence of
+  complexes is an exact sequence.
+\end{thm}
+
+The snake lemma is recovered as a particular case of this statement
+(or conversely, depending on your taste; cf.\ Exercise~3.10).
+
+\begin{proof}
+  The proof is a diagram chase, which everyone should perform once by
+  oneself in his or her lifetime. So it is mostly left as an exercise
+  for the reader (Exercise~3.9). But I will stress the extent to
+  which $H^i$ is exact `on the nose': part of the claim in this
+  theorem is that if
+  \[
+    0 \longrightarrow L^\bullet \xrightarrow{\alpha^\bullet}
+    M^\bullet \xrightarrow{\beta^\bullet} N^\bullet \longrightarrow 0
+  \]
+  is exact, then the sequence induced by functoriality of $H^i$
+  \[
+    0 \longrightarrow H^i(L^\bullet) \xrightarrow{\alpha}
+    H^i(M^\bullet) \xrightarrow{\beta} H^i(N^\bullet) \longrightarrow 0
+  \]
+  is exact at $H^i(M^\bullet)$. This sequence is not exact in general
+  at $H^i(L^\bullet)$ and $H^i(N^\bullet)$; the moral of the long
+  exact cohomology sequence is that the failure of exactness is
+  precisely measured by other cohomology objects, by means of the
+  connecting morphisms.
+
+  Let's check exactness at $H^i(M)$. The sequence is a complex,
+  simply because $H^i$ is a functor; thus we only have to verify that
+  $\ker\beta \subseteq \operatorname{im}\alpha$. If $\bar m$ is a
+  class in $H^i(M^\bullet)$ such that $\beta(\bar m) = 0$ in
+  $H^i(N)$, $\bar m$ is represented by an element $m \in \ker\mu^i$
+  such that $\beta^i(m) \in \operatorname{im}\nu^{i-1}$:
+  $\beta^i(m) = \nu^{i-1}(n)$ for some $n \in N^{i-1}$. There is an
+  $m' \in M^{i-1}$ such that $\beta^{i-1}(m') = n$, and
+  $m - \mu^{i-1}(m')$ represents the same class $\bar m$ in $H^i(M)$
+  as $m$. By the commutativity of the diagram,
+  \[
+    \beta^i(m - \mu^{i-1}(m')) = \beta^i(m) - \nu^{i-1}(n) = 0.
+  \]
+  Therefore there exists $\ell \in L^i$ such that
+  $\alpha^i(\ell) = m - \mu^{i-1}(m')$; then $\ell$ represents a
+  class $\bar\ell \in H^i(L^\bullet)$ such that $\alpha(\bar\ell) =
+  \bar m$, concluding the verification.
+
+  Verifying the exactness at the other places is similarly
+  uninspiring and is left to the reader.\footnote{The reader is
+  welcome to look for arrow-theoretic proofs. However, as discussed
+  at length in \S{}2, element-based proofs suffice to prove the
+  statement in any (small) abelian category.}
+\end{proof}
 
 \subsection{Triangles}
 \label{subsec:homol:triangles}
