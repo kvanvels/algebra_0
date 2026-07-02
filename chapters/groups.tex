@@ -2071,194 +2071,144 @@ The reader will surely encounter this group elsewhere: it is the
 
 \subsection{Free abelian groups}
 \label{subsec:groups:free-abelian-groups}
-% We can pose in Ab the same question answered above
+We can pose in $\mathsf{Ab}$ the same question answered above for
+$\mathsf{Grp}$: that is, ask for the abelian group $F^{ab}(A)$ which most
+efficiently contains the set $A$, provided that we do not have any
+additional information on the elements of $A$. Of course we \emph{do}
+know something about the elements of $A$ this time: they will have to
+commute with each other in $F^{ab}(A)$. This plays no role if $A = \{a\}$
+is a singleton, and therefore $F^{ab}(\{a\}) = F(\{a\}) \cong \mathbb{Z}$;
+but the requirement is different for larger sets, so we should expect a
+different answer in general.
 
-% for Grp: that is, ask for the abelian group F ab (A) which most efficiently
-% contains
-% the set A, provided that we do not have any additional information on the
-% elements
-% of A. Of course we do know something about the elements of A this time: they
-% will have to commute with each other in F ab (A). This plays no role if A = {a}
-% is
-% a singleton, and therefore F ab ({a}) = F ({a}) = \sim 
-%  Z; but the requirement is different
-% for larger sets, so we should expect a different answer in general.
-% The formalization of the heuristic requirement is precisely the same universal
-% property that gave us free groups, but (of course) stated in Ab: F ab (A) is a
-% free
-% abelian group on the set A if there is a set-function j : A \to  F ab (A) such
-% that,
-% for all abelian groups G and set-functions f : A \to  G, there exists a unique
-% group
-% homomorphism \phi  : F ab(A) \to  G such that the following diagram commutes:
-% F ab (A)
-%  \phi 
-%  / G
-% j
-%  O
-%  x x
-%  x x x x
-%  f
-%  x
-%  x
-%  x x
-%  <
-% A
-% Again, Proposition I.5.4 guarantees that F ab (A) is unique up to isomorphism,
-% if it exists; but we have to prove it exists! This is in some way simpler than
-% for Grp,
-% in the sense that F ab (A) is easier to understand, at least for finite sets A.
-% To fix ideas, I will first describe the answer for a finite set, say A = {1,
-% \dots  , n}.
-% I will denote by Z\oplus n the direct sum
-% Z \oplus  \dots  \oplus  Z;
-% ?
-% n-times
-% recall (\S{}3.5) that this group `is the same as' the product24 Zn (but we view
-% it as a
-% coproduct). There is a function j : A \to  Z\oplus n , defined by
-% j(i) := (0, \dots  , 0,
-%  , 0, \dots  , 0) \in  Z\oplus n .
-% i-th place
-% Claim 5.4. For A = {1, \dots  , n}, Z\oplus n is a free abelian group on A.
-% Proof.
-%  Note that every element of Z\oplus n can be written uniquely in the form
-% ?n
-% i=1 mi j(i): indeed,
-% (m1 , \dots  , mn ) = (m1 , 0, \dots  , 0) + (0, m2 , 0, \dots  , 0) + \dots  +
-% (0, \dots  , 0, mn )
-% = m1(1, 0, \dots  , 0) + m2 (0, 1, 0, \dots  , 0) + \dots  + mn (0, \dots  , 0,
-% 1)
-% = m1 j(1) + \dots  + mn j(n),
-% and (m1 , \dots  , mn ) = (0, \dots  , 0) if and only if all mi are 0.
-% Now let f : A \to  G be any function from A = {1, \dots  , n} to an abelian
-% group G.
-% I define \phi  : Z\oplus n \to  G by
-% ? ?
-% ?
-%  n
-%  ?
-%  n
-% \phi 
-%  mi j(i) :=
-%  mi f (i) :
-% i=1
-%  i=1
-% indeed, we have no choice---this definition is forced by the needed
-% commutativity
-% of the diagram
-% Z\oplus n
-%  j
-%  O
-%  {
-%  {
-%  { { \phi 
-%  { f
-%  {
-%  {
-%  { / =
-%  G
-% A
-% and by the homomorphism condition. Thus \phi  is certainly uniquely determined,
-% and
-% we just have to check that it is a homomorphism. This is where the commutativity
-% of G enters:
-% ? ?
-%  ? ?
-% ?
-%  n
-%  ?
-%  n
-%  ?
-%  n
-%  ?
-%  n
-%  ?
-%  n
-% ? ?? ? ?? !
-%  ? ??\phi 
-%  mi j(i)
-%  + \phi 
-%  mi j(i)
-%  =
-%  mi f (i) +
-%  mi f (i) =
-%  (mi + mi )f (i)
-% i=1
-%  i=1
-%  i=1
-%  i=1
-%  i=1
-% because G is commutative,
-% ? ?
-%  ? ?
-% ?
-%  n
-%  ?
-%  n
-%  ?
-%  n
-% \setminus 
-%  \setminus \setminus 
-%  \setminus 
-%  \setminus \setminus 
-% = \phi 
-%  (mi + mi ) j(i) = \phi 
-%  mi j(i) +
-%  mi j(i)
-% i=1
-%  i=1
-%  i=1
-% as needed.
-%  ?
-% 24 Indeed, it is common to denote this group by Zn, omitting the \oplus . No
-% confusion is likely,
-% but I will try to distinguish the two to emphasize that they play different
-% categorical roles.
-% Remark 5.5. A less hands-on, more high-brow argument can be given by contem-
-% plating the universal property defining free abelian groups vis-\`{a}-vis the
-% universal
-% property for coproducts; cf. Exercise 5.7.
-%  ?
-% Now for the general case: let A be any set. As we have seen, H A = HomSet (A, H)
-% has a natural abelian group structure if H is an abelian group (\S{}4.4);
-% elements
-% of H A are arbitrary set-functions \alpha  : A \to  H. We can define a subset H
-% \oplus A of H A
-% as follows:
-% H \oplus A := {\alpha  : A \to  H | \alpha (a) = eH for only finitely many
-% elements a \in  A}.
-% A \oplus A \oplus AThe operation in H induces an operation in H , which makes H
-% into a
-% group25 .
-% \oplus A AThe reader should note that H is the whole of H if A is a finite set; and
-% that Z\oplus A \sim 
-%  = Z\oplus n if A = {1, \dots  , n}: indeed, (m1 , \dots  , mn ) \in  Z\oplus n
-%  may be identified
-% with the function {1, \dots  , n} \to  Z sending i to mi .
-% For H = Z there is a natural function j : A \to  Z \oplus A, obtained by sending
-% a \in  A
-% to the function ja : A \to  Z defined by
-% (\forall x \in  A) :
-% j a(x):=
-% ?
-% 10if x = a,
-% if x = a.
-% Note that for A = {1, \dots  , n} and identifying Z\oplus A = \sim 
-%  Z\oplus n , this function j is the
-% same function denoted j earlier.
-% Proposition 5.6. For every set A, F ab(A) \sim 
-%  = Z\oplus A .
-% Proof. The key point is again that every element of Z\oplus A may be written
-% uniquely
-% as a finite sum
-% ?
-% maa\in A
-% j(a),
-% ma = 0 for only finitely many a;
-% once this is understood, the argument is precisely the same as for Claim 5.4.
-%  ?
-% 25 Thus H \oplus A is a subgroup of H A; cf. \S{}6.
+The formalization of the heuristic requirement is precisely the same
+universal property that gave us free groups, but (of course) stated in
+$\mathsf{Ab}$: $F^{ab}(A)$ is a \emph{free abelian group} on the set $A$
+if there is a set-function $j : A \to F^{ab}(A)$ such that, for all
+\emph{abelian} groups $G$ and set-functions $f : A \to G$, \emph{there
+exists a unique} group homomorphism $\varphi : F^{ab}(A) \to G$ such that
+the following diagram commutes:
+\[
+\begin{tikzcd}
+  F^{ab}(A) \arrow[r, "\varphi"] & G \\
+  A \arrow[u, "j"] \arrow[ur, "f"'] &
+\end{tikzcd}
+\]
+
+Again, Proposition~I.5.4 guarantees that $F^{ab}(A)$ is unique up to
+isomorphism, if it exists; but we have to prove it exists! This is in
+some way simpler than for $\mathsf{Grp}$, in the sense that $F^{ab}(A)$
+is easier to understand, at least for finite sets $A$.
+
+To fix ideas, I will first describe the answer for a finite set, say
+$A = \{1, \dots, n\}$. I will denote by $\mathbb{Z}^{\oplus n}$ the
+direct sum
+\[
+  \underbrace{\mathbb{Z} \oplus \cdots \oplus \mathbb{Z}}_{n\text{-times}};
+\]
+recall ($\S$3.5) that this group `is the same as' the
+product\footnote{Indeed, it is common to denote this group by
+$\mathbb{Z}^n$, omitting the $\oplus$. No confusion is likely, but I will
+try to distinguish the two to emphasize that they play different
+categorical roles.} $\mathbb{Z}^n$ (but we view it as a coproduct). There
+is a function $j : A \to \mathbb{Z}^{\oplus n}$, defined by
+\[
+  j(i) := (0, \dots, 0, \underset{i\text{-th place}}{1}, 0, \dots, 0)
+  \in \mathbb{Z}^{\oplus n}.
+\]
+
+\begin{prop}{For $A = \{1, \dots, n\}$, $\mathbb{Z}^{\oplus n}$ is a free
+abelian group on $A$.}{prop:groups:zn-free-abelian}
+\end{prop}
+\begin{proof}
+Note that every element of $\mathbb{Z}^{\oplus n}$ can be written
+uniquely in the form $\sum_{i=1}^n m_i j(i)$: indeed,
+\begin{align*}
+  (m_1, \dots, m_n) &= (m_1, 0, \dots, 0) + (0, m_2, 0, \dots, 0) + \cdots
+  + (0, \dots, 0, m_n) \\
+  &= m_1(1, 0, \dots, 0) + m_2(0,1,0,\dots,0) + \cdots + m_n(0,\dots,0,1) \\
+  &= m_1 j(1) + \cdots + m_n j(n),
+\end{align*}
+and $(m_1, \dots, m_n) = (0, \dots, 0)$ if and only if all $m_i$ are $0$.
+
+Now let $f : A \to G$ be any function from $A = \{1, \dots, n\}$ to an
+abelian group $G$. I define $\varphi : \mathbb{Z}^{\oplus n} \to G$ by
+\[
+  \varphi\left( \sum_{i=1}^n m_i j(i) \right) := \sum_{i=1}^n m_i f(i):
+\]
+indeed, we have no choice---this definition is forced by the needed
+commutativity of the diagram
+\[
+\begin{tikzcd}
+  \mathbb{Z}^{\oplus n} \arrow[r, "\varphi"] & G \\
+  A \arrow[u, "j"] \arrow[ur, "f"'] &
+\end{tikzcd}
+\]
+and by the homomorphism condition. Thus $\varphi$ is certainly uniquely
+determined, and we just have to check that it is a homomorphism. This is
+where the commutativity of $G$ enters:
+\[
+  \varphi\left( \sum_{i=1}^n m_i' j(i) \right)
+  + \varphi\left( \sum_{i=1}^n m_i'' j(i) \right)
+  = \sum_{i=1}^n m_i' f(i) + \sum_{i=1}^n m_i'' f(i)
+  \overset{!}{=} \sum_{i=1}^n (m_i' + m_i'') f(i)
+\]
+because $G$ is commutative,
+\[
+  = \varphi\left( \sum_{i=1}^n (m_i' + m_i'') j(i) \right)
+  = \varphi\left( \sum_{i=1}^n m_i' j(i) + \sum_{i=1}^n m_i'' j(i) \right)
+\]
+as needed.
+\end{proof}
+
+\begin{rem}{}{}
+A less hands-on, more high-brow argument can be given by contemplating
+the universal property defining free abelian groups vis-\`{a}-vis the
+universal property for coproducts; cf.\ Exercise~5.7.
+\end{rem}
+
+Now for the general case: let $A$ be any set. As we have seen,
+$H^A = \operatorname{Hom}_{\mathsf{Set}}(A,H)$ has a natural abelian
+group structure if $H$ is an abelian group ($\S$4.4); elements of $H^A$
+are arbitrary set-functions $\alpha : A \to H$. We can define a subset
+$H^{\oplus A}$ of $H^A$ as follows:
+\[
+  H^{\oplus A} := \{\alpha : A \to H \mid \alpha(a) \neq e_H \text{ for
+  only finitely many elements } a \in A\}.
+\]
+The operation in $H^A$ induces an operation in $H^{\oplus A}$, which
+makes $H^{\oplus A}$ into a group.\footnote{Thus $H^{\oplus A}$ is a
+subgroup of $H^A$; cf.\ $\S$6.}
+
+The reader should note that $H^{\oplus A}$ is the whole of $H^A$ if $A$
+is a finite set; and that $\mathbb{Z}^{\oplus A} \cong \mathbb{Z}^{\oplus
+n}$ if $A = \{1, \dots, n\}$: indeed, $(m_1, \dots, m_n) \in
+\mathbb{Z}^{\oplus n}$ may be identified with the function
+$\{1, \dots, n\} \to \mathbb{Z}$ sending $i$ to $m_i$.
+
+For $H = \mathbb{Z}$ there is a natural function
+$j : A \to \mathbb{Z}^{\oplus A}$, obtained by sending $a \in A$ to the
+function $j_a : A \to \mathbb{Z}$ defined by
+\[
+  (\forall x \in A) : \quad j_a(x) :=
+  \begin{cases} 1 & \text{if } x = a, \\ 0 & \text{if } x \neq a. \end{cases}
+\]
+Note that for $A = \{1, \dots, n\}$ and identifying
+$\mathbb{Z}^{\oplus A} \cong \mathbb{Z}^{\oplus n}$, this function $j$ is
+the same function denoted $j$ earlier.
+
+\begin{prop}{For every set $A$, $F^{ab}(A) \cong
+\mathbb{Z}^{\oplus A}$.}{prop:groups:free-abelian-group-concrete-construction}
+\end{prop}
+\begin{proof}
+The key point is again that every element of $\mathbb{Z}^{\oplus A}$ may
+be written uniquely as a \emph{finite} sum
+\[
+  \sum_{a \in A} m_a j(a), \quad m_a \neq 0 \text{ for only finitely many } a;
+\]
+once this is understood, the argument is precisely the same as for
+Proposition~\ref{prop:groups:zn-free-abelian}.
+\end{proof}
 
 \subsection*{Exercises}
 
