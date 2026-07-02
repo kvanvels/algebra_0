@@ -4901,141 +4901,132 @@ objects of the groupoid. What will be the morphisms?)
 
 \subsection{Categorical viewpoint}
 \label{subsec:groups:categorical-viewpoint}
-% The definition of group (Definition 1.2) is firmly
+The definition of group (Definition~1.2) is firmly grounded on the
+category $\mathsf{Set}$: A group is a set $G$ endowed with a binary
+operation\dots. However, we have noticed along the way (for example,
+in $\S$3) that what is really behind it is a pair of functions:
+\[
+  m : G \times G \to G, \qquad \iota : G \to G
+\]
+satisfying certain properties (which translate into associativity,
+existence of inverses, etc.). Much of what we have seen could be
+expressed exclusively in terms of these functions, systematically
+replacing considerations on `elements' by suitable commutative
+diagrams and enforcing universal properties as a means to define key
+notions such as the quotient of a group by a subgroup. For example,
+homomorphisms may be defined purely in terms of the commutativity of a
+diagram: cf.\ Definition~3.1.
 
-% grounded on the category Set: A group is a set G endowed with a binary opera-
-% tion. . . . However, we have noticed along the way (for example, in \S{}3) that
-% what is
-% really behind it is a pair of functions:
-% m : G \times  G \to  G,
-%  \iota  : G \to  G
-% satisfying certain properties (which translate into associativity, existence of
-% inverses,
-% etc.). Much of what we have seen could be expressed exclusively in terms of
-% these
-% functions, systematically replacing considerations on `elements' by suitable
-% commu-
-% tative diagrams and enforcing universal properties as a means to define key
-% notions
-% such as the quotient of a group by a subgroup. For example, homomorphisms may
-% be defined purely in terms of the commutativity of a diagram: cf. Definition
-% 3.1.
-% This point of view may be transferred easily to categories other than Set, and
-% the corresponding notions are very important in modern mathematics.
-% Definition 10.1. Let C be a category with (finite) products and with a final
-% object 1.
-% A group object in C consists of an object G of C and of morphisms
-% m : G \times  G \to  G,
-%  e : 1 \to  G,
-%  \iota  : G \to  G
-% in C such that the diagrams
-% (G \times  G) \times  G
-% \sim 
-%  =
-% \amalg 
-% G \times  (G \times  G)
-% m\times idG
-% idG \times m
-% / G \times  G
-% / G \times  G
-% m
-% m
-% //G
-% G
-% 1 \times  G L
-%  L L e\times idG
-%  L
-%  = \sim 
-%  L L L
-%  L L / L G L %
-%  \times  \amalg 
-%  m
-%  G
-% G
-% G \times  1 L
-%  L L idG L
-%  = \sim 
-%  L L \times e
-%  L
-%  L L / L G L %
-%  \times  \amalg 
-%  m
-%  G
-% G
-% G
-%  \Delta 
-%  / G \times  G idG \times \iota  / G \times  G
-% m
-% \amalg 
-%  e
-%  \amalg 
-%  / G
-% commute.
-% G
-%  \Delta 
-%  / G \times  G
-%  \iota \times idG
-%  / G \times  G
-% m
-% \amalg 
-%  e
-%  \amalg 
-%  / G
-% ?
-% Comments. The morphism \Delta  = idG \times  idG is the `diagonal' morphism G
-% \to
-% G \times  G induced by the universal property for products and the identity
-% map(s)
-% G \to  G. Likewise, the other unnamed morphisms in these diagrams are all
-% uniquely
-% determined by suitable universal properties. For example, there is a unique mor-
-% phism ? : G \to  1 because 1 is final. The composition with the projection
-% G
-%  \times idG
-%  / 1 \times  G
-%  / G
-% is the identity; so is
-% 1 \times  G
-%  / G
-%  \times idG
-%  / 1 \times  G
-% (why?); therefore the projection 1 \times  G \to  G is indeed an isomorphism, as
-% indicated.
-% The reader will hopefully realize immediately (Exercise 10.2) that our original
-% definition of groups given in \S{}1 is precisely equivalent to the definition of
-% group
-% object in Set: the commutativity of the given diagrams codifies associativity
-% and
-% the existence of two-sided identity and inverses.
-% Most interesting categories the reader will encounter (not necessarily in this
-% book), such as the category of topological spaces, differentiable manifolds,
-% algebraic
-% varieties, schemes, etc., will carry `their own' notion of group object. For
-% example,
-% a topological group is a group object in the category of topological spaces; a
-% Lie
-% group is a group object in the category of differentiable manifolds, etc.
+This point of view may be transferred easily to categories other than
+$\mathsf{Set}$, and the corresponding notions are very important in
+modern mathematics.
+
+\begin{defn}{Group object}{defn:groups:group-object}
+Let $\mathsf{C}$ be a category with (finite) products and with a
+final object $\mathbf{1}$.
+
+A \emph{group object} in $\mathsf{C}$ consists of an object $G$ of
+$\mathsf{C}$ and of morphisms
+\[
+  m : G \times G \to G, \qquad e : \mathbf{1} \to G, \qquad \iota : G \to G
+\]
+in $\mathsf{C}$ such that the diagrams
+\[
+\begin{tikzcd}
+  (G \times G) \times G \arrow[r, "m \times \mathrm{id}_G"]
+  \arrow[d, "\cong"'] & G \times G \arrow[r, "m"] & G \arrow[d, equal] \\
+  G \times (G \times G) \arrow[r, "\mathrm{id}_G \times m"'] &
+  G \times G \arrow[r, "m"'] & G
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}
+  \mathbf{1} \times G \arrow[r, "e \times \mathrm{id}_G"]
+  \arrow[dr, "\cong"'] & G \times G \arrow[d, "m"] &
+  G \times \mathbf{1} \arrow[r, "\mathrm{id}_G \times e"]
+  \arrow[dr, "\cong"'] & G \times G \arrow[d, "m"] \\
+  & G & & G
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}
+  G \arrow[r, "\Delta"] \arrow[d] & G \times G \arrow[r, "\mathrm{id}_G \times \iota"]
+  & G \times G \arrow[d, "m"] &
+  G \arrow[r, "\Delta"] \arrow[d] & G \times G \arrow[r, "\iota \times \mathrm{id}_G"]
+  & G \times G \arrow[d, "m"] \\
+  \mathbf{1} \arrow[rr, "e"'] & & G &
+  \mathbf{1} \arrow[rr, "e"'] & & G
+\end{tikzcd}
+\]
+commute.
+\end{defn}
+
+\textbf{Comments.} The morphism $\Delta = \mathrm{id}_G \times
+\mathrm{id}_G$ is the `diagonal' morphism $G \to G \times G$ induced
+by the universal property for products and the identity map(s)
+$G \to G$. Likewise, the other unnamed morphisms in these diagrams
+are all uniquely determined by suitable universal properties. For
+example, there is a unique morphism $\epsilon : G \to \mathbf{1}$
+because $\mathbf{1}$ is final. The composition with the projection
+\[
+\begin{tikzcd}
+  G \arrow[r, "\epsilon \times \mathrm{id}_G"] & \mathbf{1} \times G \arrow[r] & G
+\end{tikzcd}
+\]
+is the identity; so is
+\[
+\begin{tikzcd}
+  \mathbf{1} \times G \arrow[r] & G \arrow[r, "\epsilon \times \mathrm{id}_G"] & \mathbf{1} \times G
+\end{tikzcd}
+\]
+(why?); therefore the projection $\mathbf{1} \times G \to G$ is indeed
+an isomorphism, as indicated.
+
+The reader will hopefully realize immediately (Exercise~10.2) that our
+original definition of groups given in $\S$1 is precisely equivalent
+to the definition of group object \emph{in} $\mathsf{Set}$: the
+commutativity of the given diagrams codifies associativity and the
+existence of two-sided identity and inverses.
+
+Most interesting categories the reader will encounter (not necessarily
+in this book), such as the category of topological spaces,
+differentiable manifolds, algebraic varieties, schemes, etc., will
+carry `their own' notion of group object. For example, a
+\emph{topological group} is a group object in the category of
+topological spaces; a \emph{Lie group} is a group object in the
+category of differentiable manifolds, etc.
 
 \subsection*{Exercises}
 
-% 10.1. Define all the unnamed maps appearing in the diagrams in the definition of
-% group object, and prove they are indeed isomorphisms when so indicated. (For the
-% projection 1 \times  G \to  G, what is left to prove is that the composition
-% 1 \times  G \to  G \to  1 \times  G
-% is the identity, as mentioned in the text.)
-% 10.2. ? Show that groups, as defined in \S{}1.2, are `group objects in the
-% category of
-% sets'. [\S{}10.1]
-% 10.3. Let (G, \cdot ) be a group, and suppose \circ  : G \times  G \to  G is a
-% group homomorphism
-% (w.r.t. \cdot ) such that (G, \circ ) is also a group. Prove that \circ  and
-% \cdot  coincide. (Hint: First
-% prove that the identity with respect to the two operations must be the same.)
-% 10.4. Prove that every abelian group has exactly one structure of group object
-% in
-% the category Ab.
-% 10.5. By the previous exercise, a group object in Ab is nothing other than an
-% abelian group. What is a group object in Grp?
+\begin{exer}{}{exer:groups:define-unnamed-maps-group-object}
+Define all the unnamed maps appearing in the diagrams in the
+definition of group object, and prove they are indeed isomorphisms
+when so indicated. (For the projection $\mathbf{1} \times G \to G$,
+what is left to prove is that the composition
+\[
+  \mathbf{1} \times G \to G \to \mathbf{1} \times G
+\]
+is the identity, as mentioned in the text.)
+\end{exer}
+\begin{exer}{\exerused}{exer:groups:groups-are-group-objects-in-set}
+Show that \emph{groups}, as defined in $\S$1.2, are `group objects in
+the category of sets'. [$\S$10.1]
+\end{exer}
+\begin{exer}{}{exer:groups:two-operations-coincide}
+Let $(G, \cdot)$ be a group, and suppose $\circ : G \times G \to G$ is
+a group homomorphism (w.r.t.\ $\cdot$) such that $(G, \circ)$ is also
+a group. Prove that $\circ$ and $\cdot$ coincide. (Hint: First prove
+that the identity with respect to the two operations must be the
+same.)
+\end{exer}
+\begin{exer}{}{exer:groups:abelian-group-object-in-ab}
+Prove that every \emph{abelian} group has exactly one structure of
+group object \emph{in} the category $\mathsf{Ab}$.
+\end{exer}
+\begin{exer}{}{exer:groups:group-object-in-grp}
+By the previous exercise, a group object in $\mathsf{Ab}$ is nothing
+other than an abelian group. What is a group object in $\mathsf{Grp}$?
+\end{exer}
 
 %%% Local Variables:
 %%% mode: LaTeX
