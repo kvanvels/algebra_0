@@ -25,10 +25,10 @@ compatibilities of these two operations in such examples.
 These examples are, however, very special. A more sophisticated motivation
 for the introduction of rings arises by analyzing further the structure of
 homomorphisms of abelian groups. Recall (\S{}II.4.4) that if $G$, $H$ are abelian groups,
-then $\operatorname{Hom}_{\mathsf{Ab}}(G, H)$ is also an abelian group. In particular, if $G$ is an abelian group,
-then so is the set of \emph{endomorphisms} $\operatorname{End}_{\mathsf{Ab}}(G) = \operatorname{Hom}_{\mathsf{Ab}}(G, G)$. More is true: morphisms from an object of a category to itself may be composed with each other (by
-definition of category!). Thus, two operations coexist in $\operatorname{End}_{\mathsf{Ab}}(G)$: addition
-(inherited from $G$, making $\operatorname{End}_{\mathsf{Ab}}(G)$ an abelian group), and composition. These two
+then $\operatorname{Hom}_{\categ{Ab}}(G, H)$ is also an abelian group. In particular, if $G$ is an abelian group,
+then so is the set of \emph{endomorphisms} $\operatorname{End}_{\categ{Ab}}(G) = \operatorname{Hom}_{\categ{Ab}}(G, G)$. More is true: morphisms from an object of a category to itself may be composed with each other (by
+definition of category!). Thus, two operations coexist in $\operatorname{End}_{\categ{Ab}}(G)$: addition
+(inherited from $G$, making $\operatorname{End}_{\categ{Ab}}(G)$ an abelian group), and composition. These two
 operations are compatible with each other in a sense captured by the \emph{ring axioms}:
 \begin{defn}{Ring}{defn:rings:ring}
 A \emph{ring} $(R, +, \cdot)$ is an abelian group $(R, +)$ endowed with a second
@@ -51,8 +51,8 @@ or a `ring with 1': it is not uncommon to exclude the axiom of existence of a
 `multiplicative identity' from the list of axioms defining a ring. Rings without
 identity are sometimes called \emph{rngs}, but I am not sure this should be
 encouraged.\footnote{The term `rng' was introduced with this meaning by Jacobson; but essentially at
-the same time Mac Lane introduced $\mathsf{Rng}$ as the name for the category of rings with
-identity. Hoping to steer clear of this clash of terminology I have opted to call this category `$\mathsf{Ring}$'.}
+the same time Mac Lane introduced $\categ{Rng}$ as the name for the category of rings with
+identity. Hoping to steer clear of this clash of terminology I have opted to call this category `$\categ{Ring}$'.}
 The reader should check conventions carefully when approaching the literature.
 Examples of structures without a multiplicative identity abound: for example, the
 set $2\mathbb{Z}$ of even integers, with the usual addition and multiplication, satisfies
@@ -568,13 +568,13 @@ and finally
 \[
   \varphi(1_R) = 1_S.
 \]
-It is evident that rings form a category, with ring homomorphisms as morphisms. I will denote this category by $\mathsf{Ring}$.
-The zero-ring is clearly final in $\mathsf{Ring}$. However, note that it is \emph{not} initial:
+It is evident that rings form a category, with ring homomorphisms as morphisms. I will denote this category by $\categ{Ring}$.
+The zero-ring is clearly final in $\categ{Ring}$. However, note that it is \emph{not} initial:
 because of the requirement that ring homomorphisms send $1$ to $1$, the only rings
 to which zero-rings map homomorphically are the zero-rings (Exercise~2.1).
 
-The category $\mathsf{Ring}$ does have initial objects: the ring of integers $\Z$ (with the
-usual operations $+$, $\cdot$) is initial in $\mathsf{Ring}$. Indeed, for every ring $R$ we can define a
+The category $\categ{Ring}$ does have initial objects: the ring of integers $\Z$ (with the
+usual operations $+$, $\cdot$) is initial in $\categ{Ring}$. Indeed, for every ring $R$ we can define a
 group homomorphism $\varphi : \Z \to R$ by
 \[
   (\forall n \in \Z) : \quad \varphi(n) = n \cdot 1_R,
@@ -587,7 +587,7 @@ in fact a ring homomorphism, since $\varphi(1) = 1_R$, and
 where the equality $\overset{!}{=}$ holds by the distributivity axiom. This ring homomorphism
 is unique, since it is determined by the requirement that $\varphi(1) = 1_R$ and by the fact
 that $\varphi$ preserves addition. Thus for every ring $R$ there exists one and only one ring
-homomorphism $\Z \to R$, showing that $\Z$ is initial in $\mathsf{Ring}$.
+homomorphism $\Z \to R$, showing that $\Z$ is initial in $\categ{Ring}$.
 This should already convince the reader that $\Z$ is a very special ring. There is
 in fact nothing arbitrary about $\Z$: knowledge of the group $\Z$ determines the ring
 structure of $\Z$, as will be underscored below. This is one of the main reasons why
@@ -647,7 +647,7 @@ As usual in these verifications, the key point is that the requirements posed on
   \varphi\Bigl(\sum m_{i_1 \cdots i_n} x_1^{i_1} \cdots x_n^{i_n}\Bigr) &= \sum \varphi(m_{i_1 \cdots i_n}) \varphi(x_1)^{i_1} \cdots \varphi(x_n)^{i_n} \\
   &= \sum \iota(m_{i_1 \cdots i_n}) j(a_1)^{i_1} \cdots j(a_n)^{i_n},
 \end{align*}
-where $\iota : \Z \to R$ is the unique ring homomorphism (as $\Z$ is initial in $\mathsf{Ring}$).
+where $\iota : \Z \to R$ is the unique ring homomorphism (as $\Z$ is initial in $\categ{Ring}$).
 
 Thus, if $\varphi$ exists, then it is unique. On the other hand, the formula we just obtained clearly\footnote{Well, it is really clear that it preserves addition; multiplication requires a bit of work, which the reader would be well advised to perform. This is where the commutativity of $R$ is used.} preserves the operations and sends $1$ to $1$, so it does define a ring
 homomorphism, concluding the proof.
@@ -678,7 +678,7 @@ The \emph{kernel} of a homomorphism $\varphi : R \to S$ of rings is
 \]
 that is, it is nothing but the kernel of $\varphi$ when the latter is viewed as a homomorphism of groups. As such, $\ker \varphi$ is a subgroup of $(R, +)$; it satisfies an even stronger requirement,\footnote{Note that $\ker \varphi$ cannot be a sub\emph{ring} in any reasonable sense, according to our definition of ring, since it does not contain a multiplicative identity in all but very pathological situations. It is a subring if the identity requirement is omitted.} which we will explore at great length in \S{}3.
 
-The reader may hope that an analog to Proposition~II.6.12 holds in $\mathsf{Ring}$, and this is indeed the case:
+The reader may hope that an analog to Proposition~II.6.12 holds in $\categ{Ring}$, and this is indeed the case:
 \begin{prop}{}{prop:rings:mono-equiv}
 For a ring homomorphism $\varphi : R \to S$, the following are equivalent:
 \begin{enumerate}[label=(\alph*)]
@@ -715,16 +715,16 @@ the ring axioms with respect to the operations $+$, $\cdot$ induced from $R$. It
 checked that $S \subseteq R$ is a subring if it is a subgroup of $(R, +)$, it is closed with
 respect to $\cdot$, and it contains $1_R$. As a nonexample, the zero-ring is \emph{not} a subring of
 a nonzero ring $R$ (because it does not contain $1_R$).
-\Cref{prop:rings:mono-equiv} may induce the reader to believe that $\mathsf{Ring}$ and $\mathsf{Grp}$ are rather
+\Cref{prop:rings:mono-equiv} may induce the reader to believe that $\categ{Ring}$ and $\categ{Grp}$ are rather
 similar from this general categorical standpoint. But a new phenomenon occurs
 concerning epimorphisms. A surjective map of rings is certainly an epimorphism
-in $\mathsf{Ring}$, since it is already an epimorphism in $\mathsf{Set}$---we have run into this
+in $\categ{Ring}$, since it is already an epimorphism in $\categ{Set}$---we have run into this
 argument earlier (e.g., `(c) $\implies$ (a)' in Proposition~II.8.18); but unlike as in
-$\mathsf{Set}$, $\mathsf{Grp}$, and $\mathsf{Ab}$, epimorphisms need not be surjective\footnote{Unfortunately, some references \emph{define} ring epimorphisms as `surjective ring homomorphisms'; this should be discouraged.} in $\mathsf{Ring}$. Indeed, consider the inclusion homomorphism of rings
+$\categ{Set}$, $\categ{Grp}$, and $\categ{Ab}$, epimorphisms need not be surjective\footnote{Unfortunately, some references \emph{define} ring epimorphisms as `surjective ring homomorphisms'; this should be discouraged.} in $\categ{Ring}$. Indeed, consider the inclusion homomorphism of rings
 \[
   \iota : \Z \hookrightarrow \Q\,;
 \]
-$\iota$ is not surjective, and hence it is not an epimorphism in $\mathsf{Set}$ or $\mathsf{Ab}$ (can the reader
+$\iota$ is not surjective, and hence it is not an epimorphism in $\categ{Set}$ or $\categ{Ab}$ (can the reader
 `describe' $\operatorname{coker}\iota$? Exercise~2.12); but it \emph{is} an epimorphism of rings.
 Indeed, if $\alpha_1$, $\alpha_2$ are parallel ring homomorphisms
 \[
@@ -738,12 +738,12 @@ for $p, q \in \Z$, $q \neq 0$,
   \alpha_i\!\left(\frac{p}{q}\right) = \alpha_i(p)\alpha_i(q^{-1}) = \alpha(p)\alpha(q)^{-1} \qquad (i = 1, 2)
 \]
 is the same for both.\footnote{Note that $\alpha(q)$ must have a double-sided inverse in $R$ since $q$ has one in $\Q$, namely $1/q$. In particular, $\alpha_1(q^{-1}) = \alpha_2(q^{-1})$ must agree, since they must equal this unique inverse of $\alpha(q)$; cf.\ \cref{prop:rings:units}.} Thus, $\iota$ satisfies the categorical requirement for epimorphisms (cf.\ \S{}I.2.6).
-\emph{Warning:} Thus, in $\mathsf{Ring}$, a homomorphism may well be both a monomorphism
+\emph{Warning:} Thus, in $\categ{Ring}$, a homomorphism may well be both a monomorphism
 and an epimorphism without being an isomorphism!
 
 \subsection{Products}
 \label{subsec:rings:products}
-\textit{Products} exist in $\mathsf{Ring}$: if $R_1$, $R_2$ are rings, then $R_1 \times R_2$ may
+\textit{Products} exist in $\categ{Ring}$: if $R_1$, $R_2$ are rings, then $R_1 \times R_2$ may
 be defined by endowing the direct product of groups $R_1 \times R_2$ (cf.\ \S{}II.3.4) with
 componentwise multiplication. Thus, both operations on $R_1 \times R_2$ are defined componentwise: $\forall (a_1, a_2), (b_1, b_2) \in R_1 \times R_2$,
 \[
@@ -753,26 +753,26 @@ componentwise multiplication. Thus, both operations on $R_1 \times R_2$ are defi
   (a_1, a_2) \cdot (b_1, b_2) := (a_1 \cdot b_1, a_2 \cdot b_2).
 \]
 The identity in $R_1 \times R_2$ is $(1_{R_1}, 1_{R_2})$. The reader will check (Exercise~2.13) that
-$R_1 \times R_2$ is indeed a categorical product in $\mathsf{Ring}$.
+$R_1 \times R_2$ is indeed a categorical product in $\categ{Ring}$.
 The reader should keep in mind that in general this is \emph{not} the only ring structure one can define on the direct product of underlying groups. For example, as mentioned in \S{}1.2, one can define a field whose underlying group is $\Z/p\Z \times \Z/p\Z$, while the product ring $\Z/p\Z \times \Z/p\Z$ is very far from being a field (why?).
 The situation with \emph{coproducts} is more unfortunate---dealing with this in any generality (even for the case of \emph{commutative} rings) requires \emph{tensor products}, and by the time we develop tensor products (\S{}VIII.2), we will have almost forgotten this question. But the universal property reviewed in \S{}2.2 suffices to deal with simple examples, and the reader should work out one template case now, for fun (Exercise~2.14).
-Incidentally---with the case of abelian groups in mind (\S{}II.3.5), the reader may be tempted to consider a `direct sum of rings', agreeing with the product in the finite case and maybe giving something interesting in general. This is less promising than it looks: it does not satisfy the universal property of coproducts in $\mathsf{Ring}$ (why?), and, further, the `infinite version' is not a ring because it is missing the identity.
+Incidentally---with the case of abelian groups in mind (\S{}II.3.5), the reader may be tempted to consider a `direct sum of rings', agreeing with the product in the finite case and maybe giving something interesting in general. This is less promising than it looks: it does not satisfy the universal property of coproducts in $\categ{Ring}$ (why?), and, further, the `infinite version' is not a ring because it is missing the identity.
 
-\subsection{\texorpdfstring{$\operatorname{End}_{\mathsf{Ab}}(G)$}{End\_Ab(G)}}
+\subsection{\texorpdfstring{$\operatorname{End}_{\categ{Ab}}(G)$}{End\_Ab(G)}}
 \label{subsec:rings:endab-g}
 This is as good a place as any to expand a little on one of the main examples of rings, and one that is not quite as special as the examples reviewed in \S{}1.2.
-For every abelian group $G$, the group $\operatorname{End}_{\mathsf{Ab}}(G) := \operatorname{Hom}_{\mathsf{Ab}}(G, G)$ of endomorphisms of $G$ is a ring, under the operations of addition and composition (as discussed in the paragraph preceding Definition~1.1). Indeed, associativity follows from the category axioms, and distributivity is immediately checked.
+For every abelian group $G$, the group $\operatorname{End}_{\categ{Ab}}(G) := \operatorname{Hom}_{\categ{Ab}}(G, G)$ of endomorphisms of $G$ is a ring, under the operations of addition and composition (as discussed in the paragraph preceding Definition~1.1). Indeed, associativity follows from the category axioms, and distributivity is immediately checked.
 
 It is instructive to examine carefully the endomorphism ring of the abelian group $(\Z, +)$:
 \begin{prop}{}{prop:rings:endab-Z}
-  $\operatorname{End}_{\mathsf{Ab}}(\Z) \cong \Z$ as rings.
+  $\operatorname{End}_{\categ{Ab}}(\Z) \cong \Z$ as rings.
 \end{prop}
 \begin{proof}
 Consider the function
 \[
-  \varphi : \operatorname{End}_{\mathsf{Ab}}(\Z) \to \Z
+  \varphi : \operatorname{End}_{\categ{Ab}}(\Z) \to \Z
 \]
-defined by $\varphi(\alpha) = \alpha(1)$ for all group homomorphisms $\alpha : \Z \to \Z$. Then $\varphi$ is a group homomorphism: the addition in $\operatorname{End}_{\mathsf{Ab}}(\Z)$ is defined so that $\forall n \in \Z$
+defined by $\varphi(\alpha) = \alpha(1)$ for all group homomorphisms $\alpha : \Z \to \Z$. Then $\varphi$ is a group homomorphism: the addition in $\operatorname{End}_{\categ{Ab}}(\Z)$ is defined so that $\forall n \in \Z$
 \[
   (\alpha + \beta)(n) = \alpha(n) + \beta(n)
 \]
@@ -780,7 +780,7 @@ defined by $\varphi(\alpha) = \alpha(1)$ for all group homomorphisms $\alpha : \
 \[
   \varphi(\alpha + \beta) = (\alpha + \beta)(1) = \alpha(1) + \beta(1) = \varphi(\alpha) + \varphi(\beta).
 \]
-Further, $\varphi$ is a ring homomorphism. Indeed, for $\alpha$, $\beta$ in $\operatorname{End}_{\mathsf{Ab}}(\Z)$ denote $\alpha(1)$ by $a$; then
+Further, $\varphi$ is a ring homomorphism. Indeed, for $\alpha$, $\beta$ in $\operatorname{End}_{\categ{Ab}}(\Z)$ denote $\alpha(1)$ by $a$; then
 \[
   \alpha(n) = n\alpha(1) = na = an
 \]
@@ -799,8 +799,8 @@ the reader will easily check that $\psi$ is a ring homomorphism and inverse to $
 Therefore $\varphi$ is a ring isomorphism, verifying the statement.
 \end{proof}
 \Cref{prop:rings:endab-Z} gives a sense in which the ring structure on $\Z$ is truly `natural': this structure arises naturally from categorical considerations, there is nothing `arbitrary' about it.
-More generally, the rings $\operatorname{End}_{\mathsf{Ab}}(G)$ and other rings arising as endomorphism rings of other structures (e.g., vector spaces) are arguably the most important class of examples of rings. The entire theory of modules is based on the observation that $\operatorname{End}_{\mathsf{Ab}}(G)$ is a ring for every abelian group $G$.
-Some of the notions reviewed in \S{}1.2 are expressed very concretely in these endomorphism rings; for example, the group of units in $\operatorname{End}_{\mathsf{Ab}}(G)$ is nothing but $\operatorname{Aut}_{\mathsf{Ab}}(G)$.
+More generally, the rings $\operatorname{End}_{\categ{Ab}}(G)$ and other rings arising as endomorphism rings of other structures (e.g., vector spaces) are arguably the most important class of examples of rings. The entire theory of modules is based on the observation that $\operatorname{End}_{\categ{Ab}}(G)$ is a ring for every abelian group $G$.
+Some of the notions reviewed in \S{}1.2 are expressed very concretely in these endomorphism rings; for example, the group of units in $\operatorname{End}_{\categ{Ab}}(G)$ is nothing but $\operatorname{Aut}_{\categ{Ab}}(G)$.
 Every ring $R$ interacts with the ring of endomorphisms of the underlying abelian group $(R, +)$. For $r \in R$, define left- and right-multiplication by $r$ by $\lambda_r$, $\mu_r$, respectively. That is, $\forall a \in R$,
 \[
   \lambda_r(a) = ra, \qquad \mu_r(a) = ar.
@@ -809,7 +809,7 @@ The following observation is nothing more than easy notation juggling, but it is
 \begin{prop}{}{prop:rings:Cayley-ring}
   Let $R$ be a ring. Then the function $r \mapsto \lambda_r$ is an injective ring homomorphism
   \[
-    \lambda : R \to \operatorname{End}_{\mathsf{Ab}}(R).
+    \lambda : R \to \operatorname{End}_{\categ{Ab}}(R).
   \]
 \end{prop}
 \begin{proof}
@@ -817,11 +817,11 @@ For any $r \in R$ and for all $a, b \in R$, distributivity gives
 \[
   \lambda_r(a + b) = r(a + b) = ra + rb = \lambda_r(a) + \lambda_r(b):
 \]
-this shows that $\lambda_r$ is indeed an endomorphism of the group $(R, +)$, that is, $\lambda_r \in \operatorname{End}_{\mathsf{Ab}}(R)$.
+this shows that $\lambda_r$ is indeed an endomorphism of the group $(R, +)$, that is, $\lambda_r \in \operatorname{End}_{\categ{Ab}}(R)$.
 
-The function $\lambda : R \to \operatorname{End}_{\mathsf{Ab}}(R)$ defined by the assignment $r \mapsto \lambda_r$ is clearly injective, since if $r \neq s$, then $\lambda_r(1) = r \neq s = \lambda_s(1)$, so that $\lambda_r \neq \lambda_s$.
+The function $\lambda : R \to \operatorname{End}_{\categ{Ab}}(R)$ defined by the assignment $r \mapsto \lambda_r$ is clearly injective, since if $r \neq s$, then $\lambda_r(1) = r \neq s = \lambda_s(1)$, so that $\lambda_r \neq \lambda_s$.
 
-We have to verify that $\lambda$ is in fact a homomorphism of rings. Recall that the addition in $\operatorname{End}_{\mathsf{Ab}}(R)$ is inherited from $R$ (cf.\ \S{}II.4.4): for all $r, s \in R$, $\lambda_r + \lambda_s$ is defined by
+We have to verify that $\lambda$ is in fact a homomorphism of rings. Recall that the addition in $\operatorname{End}_{\categ{Ab}}(R)$ is inherited from $R$ (cf.\ \S{}II.4.4): for all $r, s \in R$, $\lambda_r + \lambda_s$ is defined by
 \[
   (\forall a \in R) : (\lambda_r + \lambda_s)(a) = \lambda_r(a) + \lambda_s(a).
 \]
@@ -835,7 +835,7 @@ As for multiplication, it is associativity's turn to do its job:
 \]
 Of course $\lambda_1$ is the identity, completing the verification.
 \end{proof}
-The function $\mu : R \to \operatorname{End}_{\mathsf{Ab}}(R)$ defined by $r \mapsto \mu_r$ is `almost' a ring homomorphism: the reader will check (Exercise~2.18) that
+The function $\mu : R \to \operatorname{End}_{\categ{Ab}}(R)$ defined by $r \mapsto \mu_r$ is `almost' a ring homomorphism: the reader will check (Exercise~2.18) that
 \[
   \mu_{r+s} = \mu_r + \mu_s, \qquad \mu_{rs} = \mu_s \circ \mu_r,
 \]
@@ -904,13 +904,13 @@ and $\mu_1 = \operatorname{id}_R$. That is, $\mu$ would in fact be a ring homomo
   This is a particular case of Wedderburn's theorem: every finite division ring is a field. [IV.2.17, VII.5.16]
 \end{exer}
 \begin{exer}{\exerused}{}
-  Consider the inclusion map $\iota : \Z \hookrightarrow \Q$. Describe the cokernel of $\iota$ in $\mathsf{Ab}$ and its cokernel in $\mathsf{Ring}$ (as defined by the appropriate universal property in the style of the one given in \S{}II.8.6). [\S{}2.3, \S{}5]
+  Consider the inclusion map $\iota : \Z \hookrightarrow \Q$. Describe the cokernel of $\iota$ in $\categ{Ab}$ and its cokernel in $\categ{Ring}$ (as defined by the appropriate universal property in the style of the one given in \S{}II.8.6). [\S{}2.3, \S{}5]
 \end{exer}
 \begin{exer}{\exerused}{}
   Verify that the `componentwise' product $R_1 \times R_2$ of two rings satisfies the universal property for products in a category, given in \S{}I.5.4. [\S{}2.4]
 \end{exer}
 \begin{exer}{\exerused}{}
-  Verify that $\Z[x_1, x_2]$ (along with the evident morphisms) satisfies the universal property for the coproduct of two copies of $\Z[x]$ in the category of \emph{commutative} rings. Explain why it does not satisfy it in $\mathsf{Ring}$. [\S{}2.4]
+  Verify that $\Z[x_1, x_2]$ (along with the evident morphisms) satisfies the universal property for the coproduct of two copies of $\Z[x]$ in the category of \emph{commutative} rings. Explain why it does not satisfy it in $\categ{Ring}$. [\S{}2.4]
 \end{exer}
 \begin{exer}{\exerused}{}
   For $m > 1$, the abelian groups $(\Z, +)$ and $(m\Z, +)$ are manifestly isomorphic: the function $\varphi : \Z \to m\Z$, $n \mapsto mn$ is a group isomorphism. Use this isomorphism to transfer the structure of `ring without identity' $(m\Z, +, \cdot)$ back onto $\Z$: give an explicit formula for the `multiplication' $\bullet$ this defines on $\Z$ (that is, such that $\varphi(a \bullet b) = \varphi(a) \cdot \varphi(b)$). Explain why structures induced by different positive integers $m$ are nonisomorphic as `rings without 1'.
@@ -918,16 +918,16 @@ and $\mu_1 = \operatorname{id}_R$. That is, $\mu$ would in fact be a ring homomo
   (This shows that there are many different ways to give a structure of ring without identity to the group $(\Z, +)$. Compare this observation with Exercise~2.16.) [\S{}2.1]
 \end{exer}
 \begin{exer}{\exerused}{}
-  Prove that there is (up to isomorphism) only one structure of ring \emph{with identity} on the abelian group $(\Z, +)$. (Hint: Let $R$ be a ring whose underlying group is $\Z$. By \cref{prop:rings:Cayley-ring}, there is an injective ring homomorphism $\lambda : R \to \operatorname{End}_{\mathsf{Ab}}(R)$, and the latter is isomorphic to $\Z$ by \cref{prop:rings:endab-Z}. Prove that $\lambda$ is surjective.) [\S{}2.1, 2.15]
+  Prove that there is (up to isomorphism) only one structure of ring \emph{with identity} on the abelian group $(\Z, +)$. (Hint: Let $R$ be a ring whose underlying group is $\Z$. By \cref{prop:rings:Cayley-ring}, there is an injective ring homomorphism $\lambda : R \to \operatorname{End}_{\categ{Ab}}(R)$, and the latter is isomorphic to $\Z$ by \cref{prop:rings:endab-Z}. Prove that $\lambda$ is surjective.) [\S{}2.1, 2.15]
 \end{exer}
 \begin{exer}{\lnot}{}
-  Let $R$ be a ring, and let $E = \operatorname{End}_{\mathsf{Ab}}(R)$ be the ring of endomorphisms of the underlying abelian group $(R, +)$. Prove that the center of $E$ is isomorphic to a subring of the center of $R$. (Prove that if $\alpha \in E$ commutes with all right-multiplications by elements of $R$, then $\alpha$ is left-multiplication by an element of $R$; then use \cref{prop:rings:Cayley-ring}.)
+  Let $R$ be a ring, and let $E = \operatorname{End}_{\categ{Ab}}(R)$ be the ring of endomorphisms of the underlying abelian group $(R, +)$. Prove that the center of $E$ is isomorphic to a subring of the center of $R$. (Prove that if $\alpha \in E$ commutes with all right-multiplications by elements of $R$, then $\alpha$ is left-multiplication by an element of $R$; then use \cref{prop:rings:Cayley-ring}.)
 \end{exer}
 \begin{exer}{\exerused}{}
   Verify the statements made about right-multiplication $\mu$, following \cref{prop:rings:Cayley-ring}. [\S{}2.5]
 \end{exer}
 \begin{exer}{}{}
-  Prove that for $n \in \Z$ a positive integer, $\operatorname{End}_{\mathsf{Ab}}(\Z/n\Z)$ is isomorphic to $\Z/n\Z$ as a ring.
+  Prove that for $n \in \Z$ a positive integer, $\operatorname{End}_{\categ{Ab}}(\Z/n\Z)$ is isomorphic to $\Z/n\Z$ as a ring.
 \end{exer}
 
 \section{Ideals and quotient rings}
@@ -936,9 +936,9 @@ and $\mu_1 = \operatorname{id}_R$. That is, $\mu$ would in fact be a ring homomo
 
 \subsection{Ideals}
 \label{subsec:rings:ideals}
-In both $\mathsf{Set}$ and $\mathsf{Grp}$ we have been able to `classify' surjective morphisms: in both cases, a surjective morphism is, up to natural identifications, a quotient by a (suitable) equivalence relation. In $\mathsf{Grp}$, we have seen that such equivalence relations arise in fact from certain substructures: normal subgroups.
+In both $\categ{Set}$ and $\categ{Grp}$ we have been able to `classify' surjective morphisms: in both cases, a surjective morphism is, up to natural identifications, a quotient by a (suitable) equivalence relation. In $\categ{Grp}$, we have seen that such equivalence relations arise in fact from certain substructures: normal subgroups.
 
-The situation in $\mathsf{Ring}$ is analogous. We will establish a canonical decomposition for rings, modeled after Theorems~I.2.7 and~II.8.1; the corresponding version of the `first isomorphism theorem' (Corollary~II.8.2) will identify every surjective ring homomorphism with a quotient by a suitable substructure. The role of normal subgroups will be played by \emph{ideals}.
+The situation in $\categ{Ring}$ is analogous. We will establish a canonical decomposition for rings, modeled after Theorems~I.2.7 and~II.8.1; the corresponding version of the `first isomorphism theorem' (Corollary~II.8.2) will identify every surjective ring homomorphism with a quotient by a suitable substructure. The role of normal subgroups will be played by \emph{ideals}.
 \begin{defn}{}{defn:rings:ideal}
   Let $R$ be a ring. A subgroup $I$ of $(R, +)$ is a \emph{left-ideal} of $R$ if $rI \subseteq I$ for all $r \in R$; that is,
   \[
@@ -978,7 +978,7 @@ Let $I$ be a subgroup of the abelian group $(R, +)$ of a ring $R$. Subgroups of 
   \pi : R \to \frac{R}{I}, \quad r \mapsto r + I.
 \]
 
-As we have explored in great detail for groups, this construction satisfies a suitable universal property with respect to group homomorphisms (Theorem~II.7.12). \emph{Of course} we are now going to ask under what circumstances this construction can be performed in $\mathsf{Ring}$, satisfying the analogous universal property with respect to ring homomorphisms.
+As we have explored in great detail for groups, this construction satisfies a suitable universal property with respect to group homomorphisms (Theorem~II.7.12). \emph{Of course} we are now going to ask under what circumstances this construction can be performed in $\categ{Ring}$, satisfying the analogous universal property with respect to ring homomorphisms.
 That is, what should we ask of $I$, in order to have a ring structure on $R/I$, so that $\pi$ becomes a ring homomorphism? Go figure this out for yourself, before reading ahead!
 As so often is the case, the requirement is precisely what tells us the answer. Since $\pi$ will have to be a ring homomorphism, the multiplication in $R/I$ \emph{must} be as follows: for all $(a + I)$, $(b + I)$ in $R/I$,
 \[
@@ -1019,7 +1019,7 @@ Summarizing, we have verified that $R/I$ is a ring, in such a way that the canon
 \begin{exam}{}{}
   We know that all subgroups of $(\Z, +)$ are of the form $n\Z$ for a nonnegative integer $n$ (Proposition~II.6.9). It is immediately verified that all subgroups of $\Z$ are in fact \emph{ideals} of the ring $(\Z, +, \cdot)$. The quotients $\Z/n\Z$ are of course nothing but the rings so-denoted in \S{}1.2 (and earlier).
 \end{exam}
-The fact that $\Z$ is initial in $\mathsf{Ring}$ now prompts a natural definition. For a ring $R$, let $f : \Z \to R$ be the unique ring homomorphism, defined by $a \mapsto a \cdot 1_R$. Then $\ker f = n\Z$ for a well-defined nonneg­ative integer $n$ determined by $R$.
+The fact that $\Z$ is initial in $\categ{Ring}$ now prompts a natural definition. For a ring $R$, let $f : \Z \to R$ be the unique ring homomorphism, defined by $a \mapsto a \cdot 1_R$. Then $\ker f = n\Z$ for a well-defined nonneg­ative integer $n$ determined by $R$.
 
 \begin{defn}{}{defn:rings:characteristic}
   The \emph{characteristic} of $R$ is this nonneg­ative integer $n$.
@@ -1093,7 +1093,7 @@ What about the `second' isomorphism theorem? This would be a relation between th
 \[
   \frac{I + J}{I}, \qquad \frac{J}{I \cap J}
 \]
-of the rings $R/I$, $R/(I \cap J)$, respectively, assuming $I$ and $J$ are ideals of $R$ (and where it is immediately checked that $I + J$ and $I \cap J$ are indeed ideals\footnote{The notation $I + J$ should not surprise the reader: $I$, $J$ are subgroups of the abelian group $R$, so we know what it means to `add' them; cf.\ \S{}II.7.1.}). The reader may want to go back to \S{}II.8.4 for the version of this story for groups. My feeling is that $\mathsf{Ring}$ is not the best place to play this game, since $(I+J)/I$, $J/(I \cap J)$ are not even rings according to my conventions. \emph{Modules} will be a more natural context for this result.
+of the rings $R/I$, $R/(I \cap J)$, respectively, assuming $I$ and $J$ are ideals of $R$ (and where it is immediately checked that $I + J$ and $I \cap J$ are indeed ideals\footnote{The notation $I + J$ should not surprise the reader: $I$, $J$ are subgroups of the abelian group $R$, so we know what it means to `add' them; cf.\ \S{}II.7.1.}). The reader may want to go back to \S{}II.8.4 for the version of this story for groups. My feeling is that $\categ{Ring}$ is not the best place to play this game, since $(I+J)/I$, $J/(I \cap J)$ are not even rings according to my conventions. \emph{Modules} will be a more natural context for this result.
 
 In any case, the reader will benefit the most from exploring the matter on his/her own; cf.\ Exercise~3.17.
 
@@ -1569,14 +1569,14 @@ We will come back to all of this and get a very small taste of algebraic geometr
 \section{Modules over a ring}
 \label{sec:rings:modules-over-a-ring}
 
-I have emphasized the parallels between the basic theory of groups and the basic theory of rings; there are also important differences. In $\mathsf{Grp}$, one takes the quotient of a group, by a (normal sub)group, and the result is a group: throughout the process one never leaves $\mathsf{Grp}$. The situation is in a sense even better in $\mathsf{Ab}$, where the normality condition is automatic; one simply takes the quotient of an abelian group by an abelian (sub)group, obtaining an abelian group.
-The situation in $\mathsf{Ring}$ is not nearly as neat. One of the three characters in the story is an ideal: which is not a ring according to the axioms listed in \cref{defn:rings:ring}, in all but the most pathological cases. In other words, the kernel of a homomorphism of rings is (usually) not a ring. Also, cokernels do not behave as one would hope (cf.\ Exercise~2.12). Even if one relaxes the ring definition, giving up the identity and making ideals subrings, there is no reasonably large class of examples in which the `ideal' condition is automatically satisfied by substructures. In short, $\mathsf{Ring}$ is not a particularly pleasant category.
-\emph{Modules} will fix all these problems. If $R$ is a ring and $I \subseteq R$ is a two-sided ideal, then all three structures $R$, $I$, and $R/I$ are modules over $R$. The category of $R$-modules is the prime example of a well-behaved category: in this category kernels and cokernels exist and do precisely what they ought to. The category $\mathsf{Ab}$ is a particular case of this construction, since it is the category of modules over $\Z$ in disguise (Example~5.4). The category of modules over a ring $R$ will share many of the excellent properties of $\mathsf{Ab}$; and we will get a brand new, well-behaved category for each ring $R$. These are all examples\footnote{In fact, it can be shown (`Freyd--Mitchell's embedding theorem') that every small abelian category is equivalent to a subcategory of the category of left-modules over a ring. So to some extent we can understand abelian categories by understanding categories of modules well enough. We will come back to this in Chapter~IX.} of the important notion of \emph{abelian category}.
+I have emphasized the parallels between the basic theory of groups and the basic theory of rings; there are also important differences. In $\categ{Grp}$, one takes the quotient of a group, by a (normal sub)group, and the result is a group: throughout the process one never leaves $\categ{Grp}$. The situation is in a sense even better in $\categ{Ab}$, where the normality condition is automatic; one simply takes the quotient of an abelian group by an abelian (sub)group, obtaining an abelian group.
+The situation in $\categ{Ring}$ is not nearly as neat. One of the three characters in the story is an ideal: which is not a ring according to the axioms listed in \cref{defn:rings:ring}, in all but the most pathological cases. In other words, the kernel of a homomorphism of rings is (usually) not a ring. Also, cokernels do not behave as one would hope (cf.\ Exercise~2.12). Even if one relaxes the ring definition, giving up the identity and making ideals subrings, there is no reasonably large class of examples in which the `ideal' condition is automatically satisfied by substructures. In short, $\categ{Ring}$ is not a particularly pleasant category.
+\emph{Modules} will fix all these problems. If $R$ is a ring and $I \subseteq R$ is a two-sided ideal, then all three structures $R$, $I$, and $R/I$ are modules over $R$. The category of $R$-modules is the prime example of a well-behaved category: in this category kernels and cokernels exist and do precisely what they ought to. The category $\categ{Ab}$ is a particular case of this construction, since it is the category of modules over $\Z$ in disguise (Example~5.4). The category of modules over a ring $R$ will share many of the excellent properties of $\categ{Ab}$; and we will get a brand new, well-behaved category for each ring $R$. These are all examples\footnote{In fact, it can be shown (`Freyd--Mitchell's embedding theorem') that every small abelian category is equivalent to a subcategory of the category of left-modules over a ring. So to some extent we can understand abelian categories by understanding categories of modules well enough. We will come back to this in Chapter~IX.} of the important notion of \emph{abelian category}.
 
 \subsection{Definition of (left-)R-module}
 \label{subsec:rings:definition-of-left-r-module}
 In short, $R$-modules are abelian groups endowed with an action of $R$. To flesh out this idea, recall that `actions' in general denote homomorphisms into some kind of endomorphism structure: for example, we defined group actions in \S{}II.9.1 as group homomorphisms from a fixed group to the groups of automorphisms of objects of a category.
-We can give an analogous definition of the action of a ring on an abelian group. Indeed, recall that if $M$ is an abelian group, then $\operatorname{End}_{\mathsf{Ab}}(M) := \operatorname{Hom}_{\mathsf{Ab}}(M, M)$ is a ring in a natural way (cf.\ \S{}2.5). A \emph{left-action} of a ring $R$ on $M$ is then simply a homomorphism of rings $\sigma : R \to \operatorname{End}_{\mathsf{Ab}}(M)$; we will say that $\sigma$ makes $M$ into a \emph{left-$R$-module}.
+We can give an analogous definition of the action of a ring on an abelian group. Indeed, recall that if $M$ is an abelian group, then $\operatorname{End}_{\categ{Ab}}(M) := \operatorname{Hom}_{\categ{Ab}}(M, M)$ is a ring in a natural way (cf.\ \S{}2.5). A \emph{left-action} of a ring $R$ on $M$ is then simply a homomorphism of rings $\sigma : R \to \operatorname{End}_{\categ{Ab}}(M)$; we will say that $\sigma$ makes $M$ into a \emph{left-$R$-module}.
 Similarly to the situation with group actions, it is convenient to spell out this definition.
 
 \begin{prop}{}{prop:rings:module-axioms}
@@ -1618,7 +1618,7 @@ where $M$ is a module over some ring (Exercise 5.3). The following fancier-sound
 \end{prop}
 
 \begin{proof}
-  Let $G$ be an abelian group. A $\Z$-module structure on $G$ is a ring homomorphism $\Z \to \operatorname{End}_{\mathsf{Ab}}(G)$. Since $\Z$ is initial in $\mathsf{Ring}$ (\S{}2.1), there exists exactly one such homomorphism, proving the statement.
+  Let $G$ be an abelian group. A $\Z$-module structure on $G$ is a ring homomorphism $\Z \to \operatorname{End}_{\categ{Ab}}(G)$. Since $\Z$ is initial in $\categ{Ring}$ (\S{}2.1), there exists exactly one such homomorphism, proving the statement.
 \end{proof}
 Thus, `abelian group' and `$\Z$-module' are one and the same notion. Quite concretely, the action of $n \in \Z$ on an element $a$ of an abelian group simply yields the ordinary `multiple' $na$; this operation is trivially compatible with the operations in $\Z$.
 A homomorphism of $R$-modules is a homomorphism of (abelian) groups which is compatible with the module structure. That is, if $M$, $N$ are $R$-modules and $\phi : M \to N$ is a function, then $\phi$ is a homomorphism of $R$-modules if and only if
@@ -1626,12 +1626,12 @@ A homomorphism of $R$-modules is a homomorphism of (abelian) groups which is com
   \item $(\forall m_1 \in M)(\forall m_2 \in M) : \phi(m_1 + m_2) = \phi(m_1) + \phi(m_2)$;
   \item $(\forall r \in R)(\forall m \in M) : \phi(rm) = r\phi(m)$.
 \end{itemize}
-It is hopefully clear that the composition of two $R$-module homomorphisms is an $R$-module homomorphism and that the identity is an $R$-module homomorphism: $R$-modules form a category which I will denote\footnote{If $R$ is not commutative, we should agree on whether $R$-$\mathsf{Mod}$ denotes the category of left-modules or of right-modules. I will mean `left-modules'.} `$R$-$\mathsf{Mod}$'.
+It is hopefully clear that the composition of two $R$-module homomorphisms is an $R$-module homomorphism and that the identity is an $R$-module homomorphism: $R$-modules form a category which I will denote\footnote{If $R$ is not commutative, we should agree on whether $R$-$\categ{Mod}$ denotes the category of left-modules or of right-modules. I will mean `left-modules'.} `$R$-$\categ{Mod}$'.
 \begin{exam}{}{}
-  The category $\Z$-$\mathsf{Mod}$ of $\Z$-modules is `the same as' the category $\mathsf{Ab}$: indeed, every abelian group is a $\Z$-module in exactly one way (\cref{prop:rings:Z-module}), and $\Z$-module homomorphisms are simply homomorphisms of abelian groups.
+  The category $\Z$-$\categ{Mod}$ of $\Z$-modules is `the same as' the category $\categ{Ab}$: indeed, every abelian group is a $\Z$-module in exactly one way (\cref{prop:rings:Z-module}), and $\Z$-module homomorphisms are simply homomorphisms of abelian groups.
 \end{exam}
 \begin{exam}{}{}
-  If $R = k$ is a field, $R$-modules are called $k$-vector spaces. I will call the category of vector spaces over a field $k$ `$k$-$\mathsf{Vect}$'; this is just another name for $k$-$\mathsf{Mod}$. Morphisms in $k$-$\mathsf{Vect}$ are often called\footnote{This term is also used for homomorphisms of $R$-modules for more general rings $R$, but not as frequently.} linear maps. `Linear algebra' is the study of $k$-$\mathsf{Vect}$ (extended to $R$-$\mathsf{Mod}$ when possible); Chapters~VI and~VIII will be devoted to this subject.
+  If $R = k$ is a field, $R$-modules are called $k$-vector spaces. I will call the category of vector spaces over a field $k$ `$k$-$\categ{Vect}$'; this is just another name for $k$-$\categ{Mod}$. Morphisms in $k$-$\categ{Vect}$ are often called\footnote{This term is also used for homomorphisms of $R$-modules for more general rings $R$, but not as frequently.} linear maps. `Linear algebra' is the study of $k$-$\categ{Vect}$ (extended to $R$-$\categ{Mod}$ when possible); Chapters~VI and~VIII will be devoted to this subject.
 \end{exam}
 \begin{exam}{}{}
   Any homomorphism of rings $\alpha : R \to S$ may be used to define an interesting $R$-module: define $\rho : R \times S \to S$ by $\rho(r, s) := \alpha(r)s$ for all $r \in R$ and $s \in S$. The operation on the right is simply multiplication in $S$, and the axioms of \cref{defn:rings:left-R-module} are immediate consequences of the ring axioms and of the fact that $\alpha$ is a homomorphism. For instance, taking $S = R$ and $\alpha = \id_R$ makes $R$ a (left-)module over itself. It is common to write $rs$ rather than $\alpha(r)s$.
@@ -1644,17 +1644,17 @@ Due to their importance, these examples deserve their own official name:
 \end{defn}
 The usual abuse of language leads us to refer to an $R$-algebra by the name of the target $S$ of the homomorphism. Thus, an $R$-algebra `is' an $R$-module $S$ with a compatible ring structure, or, if you prefer, a ring $S$ with a compatible $R$-module structure. An $R$-algebra $S$ is a \emph{division algebra} if $S$ is a division ring.
 
-There is an evident notion of `$R$-algebra homomorphism' (preserving both the ring and module structure), and we thus get a category $R$-$\mathsf{Alg}$. The situation simplifies substantially if $S$ is itself commutative, in which case the condition on the center is unnecessary. `Commutative $R$-algebras' form a category, which the attentive reader will recognize as a coslice category (Example~I.3.7) in the category of commutative rings.
+There is an evident notion of `$R$-algebra homomorphism' (preserving both the ring and module structure), and we thus get a category $R$-$\categ{Alg}$. The situation simplifies substantially if $S$ is itself commutative, in which case the condition on the center is unnecessary. `Commutative $R$-algebras' form a category, which the attentive reader will recognize as a coslice category (Example~I.3.7) in the category of commutative rings.
 
-Also, note that $\Z$-$\mathsf{Alg}$ is just another name for $\mathsf{Ring}$ (why?).
+Also, note that $\Z$-$\categ{Alg}$ is just another name for $\categ{Ring}$ (why?).
 The polynomial rings $R[x_1, \ldots, x_n]$, as well as all their quotients, are commutative $R$-algebras. This is a particularly important class of examples; for $R = k$ an algebraically closed field, these are the rings used in `classical' affine algebraic geometry (cf.\ \S{}VII.2.3).
-The trivial group $0$ has a unique module structure over any ring $R$ and is a zero-object in $R$-$\mathsf{Mod}$, that is, it is both initial and final. As in the other main categories we have encountered, a bijective homomorphism of $R$-modules is automatically an isomorphism in $R$-$\mathsf{Mod}$ (Exercise~5.12). In these and many other respects, the category $R$-$\mathsf{Mod}$ (for any commutative ring $R$) and $\mathsf{Ab}$ are similar.
-If $R$ is commutative, the similarity goes further: just as in the category $\mathsf{Ab}$, each set $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$ may itself be seen as an object of the category (cf.\ \S{}II.4.4)\footnote{Notational convention: One often writes $\operatorname{Hom}_R(M, N)$ for $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$. I will not adopt this convention here but I will use it freely in later chapters.}.
-Indeed, let $M$ and $N$ be $R$-modules. Since homomorphisms of $R$-modules are in particular homomorphisms of abelian groups, $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N) \subseteq \operatorname{Hom}_{\mathsf{Ab}}(M, N)$ as sets (up to natural identifications). The operation making $\operatorname{Hom}_{\mathsf{Ab}}(M, N)$ into an abelian group, as in \S{}II.4.4, clearly preserves $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$; it follows that the latter is an abelian group. For $r \in R$ and $\phi \in \operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$, the prescription $(\forall m \in M) : (r\phi)(m) := r\phi(m)$ defines a function\footnote{Parse the notation carefully: $r\phi$ is the name of a function on the left, while $r\phi(m)$ on the right is the action of the element $r \in R$ on the element $\phi(m) \in N$, defined by the $R$-module structure on $N$.} $r\phi : M \to N$. This function is an $R$-module homomorphism if $R$ is commutative, because $(\forall a \in R)$, $(\forall m \in M)$: $(r\phi)(am) = r\phi(am) = (ra)\phi(m) = (ar)\phi(m) = a(r\phi(m))$. Thus, we have a natural action of $R$ on the abelian group $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$, and it is immediate to verify that this makes $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$ into an $R$-module. Watch out: if $R$ is not commutative, then in general $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N)$ is `just' an abelian group. More structure is available if $M$, $N$ are bimodules; cf.\ \S{}VIII.3.2.
+The trivial group $0$ has a unique module structure over any ring $R$ and is a zero-object in $R$-$\categ{Mod}$, that is, it is both initial and final. As in the other main categories we have encountered, a bijective homomorphism of $R$-modules is automatically an isomorphism in $R$-$\categ{Mod}$ (Exercise~5.12). In these and many other respects, the category $R$-$\categ{Mod}$ (for any commutative ring $R$) and $\categ{Ab}$ are similar.
+If $R$ is commutative, the similarity goes further: just as in the category $\categ{Ab}$, each set $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$ may itself be seen as an object of the category (cf.\ \S{}II.4.4)\footnote{Notational convention: One often writes $\operatorname{Hom}_R(M, N)$ for $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$. I will not adopt this convention here but I will use it freely in later chapters.}.
+Indeed, let $M$ and $N$ be $R$-modules. Since homomorphisms of $R$-modules are in particular homomorphisms of abelian groups, $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N) \subseteq \operatorname{Hom}_{\categ{Ab}}(M, N)$ as sets (up to natural identifications). The operation making $\operatorname{Hom}_{\categ{Ab}}(M, N)$ into an abelian group, as in \S{}II.4.4, clearly preserves $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$; it follows that the latter is an abelian group. For $r \in R$ and $\phi \in \operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$, the prescription $(\forall m \in M) : (r\phi)(m) := r\phi(m)$ defines a function\footnote{Parse the notation carefully: $r\phi$ is the name of a function on the left, while $r\phi(m)$ on the right is the action of the element $r \in R$ on the element $\phi(m) \in N$, defined by the $R$-module structure on $N$.} $r\phi : M \to N$. This function is an $R$-module homomorphism if $R$ is commutative, because $(\forall a \in R)$, $(\forall m \in M)$: $(r\phi)(am) = r\phi(am) = (ra)\phi(m) = (ar)\phi(m) = a(r\phi(m))$. Thus, we have a natural action of $R$ on the abelian group $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$, and it is immediate to verify that this makes $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$ into an $R$-module. Watch out: if $R$ is not commutative, then in general $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N)$ is `just' an abelian group. More structure is available if $M$, $N$ are bimodules; cf.\ \S{}VIII.3.2.
 
 \subsection{Submodules and quotients}
 \label{subsec:rings:submodules-and-quotients}
-Since $R$-modules are an `enriched' version of abelian groups, we can progress through the usual constructions very quickly, by just pointing out that the analogous constructions in $\mathsf{Ab}$ are preserved by the $R$-module structure.
+Since $R$-modules are an `enriched' version of abelian groups, we can progress through the usual constructions very quickly, by just pointing out that the analogous constructions in $\categ{Ab}$ are preserved by the $R$-module structure.
 
 A \emph{submodule} $N$ of an $R$-module $M$ is a subgroup preserved by the action of $R$. That is, for all $r \in R$ and $n \in N$, the element $rn$ (defined by the $R$-module structure of $M$) is in fact in $N$. Put otherwise, and perhaps more transparently, $N$ is itself an $R$-module, and the inclusion $N \subseteq M$ is an $R$-module homomorphism.
 \begin{exam}{}{}
@@ -1696,11 +1696,11 @@ The reader should now expect a universal property for quotients, and here it is:
   As in previous appearances of such statements, this is an immediate consequence of the set-theoretic version (\S{}I.5.3) and of easy notation matching and compatibility checks. For an even faster proof, one can just apply Theorem~II.7.12 and verify that $\tilde{\phi}$ is an $R$-module homomorphism.
 \end{proof}
 
-Since every submodule $N$ is then the kernel of the canonical projection $M \to M/N$, our recurring slogan becomes, in the context of $R$-$\mathsf{Mod}$:
+Since every submodule $N$ is then the kernel of the canonical projection $M \to M/N$, our recurring slogan becomes, in the context of $R$-$\categ{Mod}$:
 \[
   \text{kernel} \iff \text{submodule}:
 \]
-unlike as in $\mathsf{Grp}$ or $\mathsf{Ring}$, being a kernel poses no restriction on the relevant substructures. Put otherwise, `every monomorphism in $R$-$\mathsf{Mod}$ is a kernel'; this is one of the distinguishing features of an abelian category.
+unlike as in $\categ{Grp}$ or $\categ{Ring}$, being a kernel poses no restriction on the relevant substructures. Put otherwise, `every monomorphism in $R$-$\categ{Mod}$ is a kernel'; this is one of the distinguishing features of an abelian category.
 
 \subsection{Canonical decomposition and isomorphism theorems}
 \label{subsec:rings:canonical-decomposition-and-isomorphism-theorems}
@@ -1751,7 +1751,7 @@ More generally, it is hopefully clear that the sum $\sum_\alpha N_\alpha$ and th
   Let $R$ be a ring. A nonzero $R$-module $M$ is \emph{simple} (or \emph{irreducible}) if its only submodules are $\{0\}$ and $M$. Let $M$, $N$ be simple modules, and let $\phi : M \to N$ be a homomorphism of $R$-modules. Prove that either $\phi = 0$ or $\phi$ is an isomorphism. (This rather innocent statement is known as \emph{Schur's lemma}.) [5.10, 6.16, VI.1.16]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-R-M}
-  Let $R$ be a commutative ring, viewed as an $R$-module over itself, and let $M$ be an $R$-module. Prove that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(R, M) \cong M$ as $R$-modules.
+  Let $R$ be a commutative ring, viewed as an $R$-module over itself, and let $M$ be an $R$-module. Prove that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(R, M) \cong M$ as $R$-modules.
 \end{exer}
 \begin{exer}{}{exer:rings:Q-vector-unique}
   Let $G$ be an abelian group. Prove that if $G$ has a structure of $\Q$-vector space, then it has only one such structure. (Hint: First prove that every element of $G$ has necessarily infinite order. Alternative hint: The unique ring homomorphism $\Z \to \Q$ is an epimorphism.)
@@ -1760,16 +1760,16 @@ More generally, it is hopefully clear that the sum $\sum_\alpha N_\alpha$ and th
   Let $K$ be a field, and let $k \subseteq K$ be a subfield of $K$. Show that $K$ is a vector space over $k$ (and in fact a $k$-algebra) in a natural way. In this situation, we say that $K$ is an \emph{extension} of $k$.
 \end{exer}
 \begin{exer}{}{exer:rings:R-alg-initial}
-  What is the initial object of the category $R$-$\mathsf{Alg}$?
+  What is the initial object of the category $R$-$\categ{Alg}$?
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:endomorphism-algebra}
-  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that the operation of composition on the $R$-module $\operatorname{End}_{R\text{-}\mathsf{Mod}}(M)$ makes the latter an $R$-algebra in a natural way. Prove that $M_n(R)$ (cf.\ Exercise~1.4) is an $R$-algebra, in a natural way. [VI.1.12, VI.2.3]
+  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that the operation of composition on the $R$-module $\operatorname{End}_{R\text{-}\categ{Mod}}(M)$ makes the latter an $R$-algebra in a natural way. Prove that $M_n(R)$ (cf.\ Exercise~1.4) is an $R$-algebra, in a natural way. [VI.1.12, VI.2.3]
 \end{exer}
 \begin{exer}{}{exer:rings:simple-endomorphism-division}
-  Let $R$ be a commutative ring, and let $M$ be a simple $R$-module (cf.\ Exercise~5.4). Prove that $\operatorname{End}_{R\text{-}\mathsf{Mod}}(M)$ is a division $R$-algebra.
+  Let $R$ be a commutative ring, and let $M$ be a simple $R$-module (cf.\ Exercise~5.4). Prove that $\operatorname{End}_{R\text{-}\categ{Mod}}(M)$ is a division $R$-algebra.
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:Rx-module-structures}
-  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ and $\operatorname{End}_{R\text{-}\mathsf{Mod}}(M)$. [\S{}VI.7.1]
+  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ and $\operatorname{End}_{R\text{-}\categ{Mod}}(M)$. [\S{}VI.7.1]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:bijective-iso}
   Let $R$ be a ring. Let $M$, $N$ be $R$-modules, and let $\phi : M \to N$ be a homomorphism of $R$-modules. Assume $\phi$ is a bijection, so that it has an inverse $\phi^{-1}$ as a set-function. Prove that $\phi^{-1}$ is a homomorphism of $R$-modules. Conclude that a bijective $R$-module homomorphism is an isomorphism of $R$-modules. [\S{}5.2, \S{}VI.2.1, \S{}IX.1.3]
@@ -1800,7 +1800,7 @@ More generally, it is hopefully clear that the sum $\sum_\alpha N_\alpha$ and th
 \section{Products, coproducts, etc., in R-Mod}
 \label{sec:rings:products-coproducts-etc-in-r-mod}
 
-I have stated several times that categories such as $R$-$\mathsf{Mod}$ are `well-behaved'. We will explore in this section the sense in which this can be formalized at this stage. The bottom line is that these categories enjoy the same nice properties that we have noted along the way for the category $\mathsf{Ab}$.
+I have stated several times that categories such as $R$-$\categ{Mod}$ are `well-behaved'. We will explore in this section the sense in which this can be formalized at this stage. The bottom line is that these categories enjoy the same nice properties that we have noted along the way for the category $\categ{Ab}$.
 
 I will also include here some general considerations on finitely generated modules and algebras.
 
@@ -1808,7 +1808,7 @@ As in the previous section, I will write `module' for `left-module'; the reader 
 
 \subsection{Products and coproducts}
 \label{subsec:rings:products-and-coproducts}
-As in $\mathsf{Ab}$, products and coproducts exist, and finite products and coproducts coincide, in $R$-$\mathsf{Mod}$. Indeed, recall the construction of the direct sum of two abelian groups (\S{}II.3.5): if $M$ and $N$ are abelian groups, then $M \oplus N$ denotes their product, with componentwise operation. If $M$ and $N$ are $R$-modules, we can give an $R$-module structure to $M \oplus N$ by prescribing $\forall r \in R$: $r(m, n) := (rm, rn)$. This defines the \emph{direct sum} of $M$, $N$, as an $R$-module. Note that $M \oplus N$ comes together with several homomorphisms of $R$-modules:
+As in $\categ{Ab}$, products and coproducts exist, and finite products and coproducts coincide, in $R$-$\categ{Mod}$. Indeed, recall the construction of the direct sum of two abelian groups (\S{}II.3.5): if $M$ and $N$ are abelian groups, then $M \oplus N$ denotes their product, with componentwise operation. If $M$ and $N$ are $R$-modules, we can give an $R$-module structure to $M \oplus N$ by prescribing $\forall r \in R$: $r(m, n) := (rm, rn)$. This defines the \emph{direct sum} of $M$, $N$, as an $R$-module. Note that $M \oplus N$ comes together with several homomorphisms of $R$-modules:
 \[
   \pi_M : M \oplus N \to M, \qquad \pi_N : M \oplus N \to N
 \]
@@ -1845,14 +1845,14 @@ It may seem like a good idea to write $M \times N$ rather than $M \oplus N$ when
 
 The reader should also work out the fibered versions of these constructions; cf.\ Exercises~6.10 and~6.11.
 
-The fact that finite products and coproducts agree in $R$-$\mathsf{Mod}$ does not extend to the infinite case (Exercise~6.7).
+The fact that finite products and coproducts agree in $R$-$\categ{Mod}$ does not extend to the infinite case (Exercise~6.7).
 
 \subsection{Kernels and cokernels}
 \label{subsec:rings:kernels-and-cokernels}
-The facts that $R$-$\mathsf{Mod}$ has a zero-object (the $0$-module), its Hom sets are abelian groups (\S{}5.2), and it has (finite) products and coproducts make $R$-$\mathsf{Mod}$ an \emph{additive category}. The fact that $R$-$\mathsf{Mod}$ has well-behaved kernels and cokernels, which we review next, upgrades it to the status of \emph{abelian category}. (We will come back to these general definitions in \S{}IX.1.)
+The facts that $R$-$\categ{Mod}$ has a zero-object (the $0$-module), its Hom sets are abelian groups (\S{}5.2), and it has (finite) products and coproducts make $R$-$\categ{Mod}$ an \emph{additive category}. The fact that $R$-$\categ{Mod}$ has well-behaved kernels and cokernels, which we review next, upgrades it to the status of \emph{abelian category}. (We will come back to these general definitions in \S{}IX.1.)
 
-In general, monomorphisms and epimorphisms do not automatically satisfy good properties, even when objects of a given category are realized by adding structure to sets. For example, we have seen that the precise relationship between `surjective morphism' and `epimorphism' may be rather subtle: epimorphisms are surjective in $\mathsf{Grp}$, but for complicated reasons (\S{}II.8.6); and there are epimorphisms that are not surjective in $\mathsf{Ring}$ (\S{}2.3).
-The situation in $R$-$\mathsf{Mod}$ is as simple as it can be. Recall that we have identified universal properties for kernels and cokernels (cf.\ \S{}II.8.6); in the category $R$-$\mathsf{Mod}$ these would go as follows: if $\phi : M \to N$ is a homomorphism of $R$-modules, then $\ker\phi$ is final with respect to the property of factoring $R$-module homomorphisms $\alpha : P \to M$ such that $\phi \circ \alpha = 0$:
+In general, monomorphisms and epimorphisms do not automatically satisfy good properties, even when objects of a given category are realized by adding structure to sets. For example, we have seen that the precise relationship between `surjective morphism' and `epimorphism' may be rather subtle: epimorphisms are surjective in $\categ{Grp}$, but for complicated reasons (\S{}II.8.6); and there are epimorphisms that are not surjective in $\categ{Ring}$ (\S{}2.3).
+The situation in $R$-$\categ{Mod}$ is as simple as it can be. Recall that we have identified universal properties for kernels and cokernels (cf.\ \S{}II.8.6); in the category $R$-$\categ{Mod}$ these would go as follows: if $\phi : M \to N$ is a homomorphism of $R$-modules, then $\ker\phi$ is final with respect to the property of factoring $R$-module homomorphisms $\alpha : P \to M$ such that $\phi \circ \alpha = 0$:
 \[\begin{tikzcd}
   P \arrow[r, dashed, "\exists!\alpha"] \arrow[rr, bend left, "\alpha"] \arrow[rrr, bend left=40, "0"] & \ker\phi \arrow[r] & M \arrow[r, "\phi"] & N
 \end{tikzcd}\]
@@ -1861,7 +1861,7 @@ while $\operatorname{coker}\phi$ is initial with respect to the property of fact
   M \arrow[r, "\phi"] \arrow[rrr, bend right=40, "0"'] & N \arrow[r, "\pi"] \arrow[rr, bend right, "\beta"'] & \operatorname{coker}\phi \arrow[r, dashed, "\exists!\beta"'] & P
 \end{tikzcd}\]
 \begin{prop}{}{prop:rings:kernels-cokernels}
-  The following hold in $R$-$\mathsf{Mod}$:
+  The following hold in $R$-$\categ{Mod}$:
   \begin{itemize}
     \item kernels and cokernels exist;
     \item $\phi$ is a monomorphism $\iff$ $\ker\phi$ is trivial $\iff$ $\phi$ is injective as a set-function;
@@ -1870,11 +1870,11 @@ while $\operatorname{coker}\phi$ is initial with respect to the property of fact
   Further, every monomorphism identifies its source with the kernel of some morphism, and every epimorphism identifies its target with the cokernel of some morphism.
 \end{prop}
 \begin{proof}
-  This proposition of course simply generalizes to $R$-$\mathsf{Mod}$ facts we know already from our study of $\mathsf{Ab}$, and a quick review should suffice for the careful reader. \emph{Kernels exist:} indeed, the `standard' definition of kernel satisfies the universal properties spelled out above (same argument as in Proposition~II.6.6). \emph{Cokernels exist:} indeed, let $\operatorname{coker}\phi = N / \operatorname{im}\phi$; if $\beta : N \to P$ is such that $\beta \circ \phi = 0$, then $\operatorname{im}\phi \subseteq \ker\beta$; so $\beta$ must factor uniquely through $N/\operatorname{im}\phi$ by the universal property of quotients, \cref{thm:rings:module-quotient-universal}. That is, $N/\operatorname{im}\phi$ does satisfy the universal property for cokernels.
+  This proposition of course simply generalizes to $R$-$\categ{Mod}$ facts we know already from our study of $\categ{Ab}$, and a quick review should suffice for the careful reader. \emph{Kernels exist:} indeed, the `standard' definition of kernel satisfies the universal properties spelled out above (same argument as in Proposition~II.6.6). \emph{Cokernels exist:} indeed, let $\operatorname{coker}\phi = N / \operatorname{im}\phi$; if $\beta : N \to P$ is such that $\beta \circ \phi = 0$, then $\operatorname{im}\phi \subseteq \ker\beta$; so $\beta$ must factor uniquely through $N/\operatorname{im}\phi$ by the universal property of quotients, \cref{thm:rings:module-quotient-universal}. That is, $N/\operatorname{im}\phi$ does satisfy the universal property for cokernels.
 
   The proofs of all the implications in the second and third points follow familiar patterns from (for example) Proposition~II.6.12 and Proposition~II.8.18. The last sentence of \cref{prop:rings:kernels-cokernels} simply reiterates the slogan `submodule $\iff$ kernel' and its mirror statement (which is just as true). Further details are left to the reader.
 \end{proof}
-By the way, whatever happened to the conditions characterizing monomorphisms and epimorphisms in $\mathsf{Set}$ (Proposition~I.2.1)? In $\mathsf{Set}$, a function with non-empty source is a monomorphism if and only if it has a left-inverse, and it is an epimorphism if and only if it has a right-inverse. We have learned not to expect any of this to happen in more general categories. Modules are not an exception: the function $\Z \to \Z$ defined by `multiplication by 2' is a monomorphism without a left-inverse, and the projection $\Z \to \Z/2\Z$ is an epimorphism without a right-inverse. We will come back to this point in \S{}7.2.
+By the way, whatever happened to the conditions characterizing monomorphisms and epimorphisms in $\categ{Set}$ (Proposition~I.2.1)? In $\categ{Set}$, a function with non-empty source is a monomorphism if and only if it has a left-inverse, and it is an epimorphism if and only if it has a right-inverse. We have learned not to expect any of this to happen in more general categories. Modules are not an exception: the function $\Z \to \Z$ defined by `multiplication by 2' is a monomorphism without a left-inverse, and the projection $\Z \to \Z/2\Z$ is an epimorphism without a right-inverse. We will come back to this point in \S{}7.2.
 
 \subsection{Free modules and free algebras}
 \label{subsec:rings:free-modules-and-free-algebras}
@@ -1920,7 +1920,7 @@ This is all entirely analogous to the story for $\Z$-modules. The situation beco
 \end{proof}
 After the fact, the reader may want to revisit \S{}2.2 and recognize that the `universal property of polynomial rings $\Z[x_1, \ldots, x_n]$' given there was really a version of their role as free objects in the category of commutative rings, a.k.a.\ commutative $\Z$-algebras.
 
-It is not difficult to identify free objects in the larger category $R$-$\mathsf{Alg}$: they consist of `noncommutative polynomial rings' $R\langle A \rangle$, with variables from the set $A$ but without any condition relating $ab$ and $ba$ for $a \neq b$ in $A$. More precisely, $R\langle A \rangle$ is isomorphic to the monoid ring (cf.\ \S{}1.4) over the free monoid on $A$, consisting of all finite strings of elements in $A$, with operation defined by concatenation\footnote{This construction is similar to the free group on $A$, but without the complication of the presence of inverses and of possible cancellations.}. We will encounter this ring again, but only in the distant future (Example~VIII.4.17).
+It is not difficult to identify free objects in the larger category $R$-$\categ{Alg}$: they consist of `noncommutative polynomial rings' $R\langle A \rangle$, with variables from the set $A$ but without any condition relating $ab$ and $ba$ for $a \neq b$ in $A$. More precisely, $R\langle A \rangle$ is isomorphic to the monoid ring (cf.\ \S{}1.4) over the free monoid on $A$, consisting of all finite strings of elements in $A$, with operation defined by concatenation\footnote{This construction is similar to the free group on $A$, but without the complication of the presence of inverses and of possible cancellations.}. We will encounter this ring again, but only in the distant future (Example~VIII.4.17).
 
 \subsection{Submodule generated by a subset; Noetherian modules}
 \label{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}
@@ -1994,7 +1994,7 @@ The distinction, while macroscopic in general, may evaporate in special, importa
   (Notation as in \S{}6.3.) For any ring $R$ and any two sets $A_1$, $A_2$, prove that $(R^{\oplus A_1})^{\oplus A_2} \cong R^{\oplus(A_1 \times A_2)}$. [\S{}VIII.2.2]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:hom-free-dual}
-  Let $R$ be a ring, and let $F = R^{\oplus n}$ be a finitely generated free $R$-module. Prove that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(F, R) \cong F$. On the other hand, find an example of a ring $R$ and a nonzero $R$-module $M$ such that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, R) = 0$. [6.8]
+  Let $R$ be a ring, and let $F = R^{\oplus n}$ be a finitely generated free $R$-module. Prove that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(F, R) \cong F$. On the other hand, find an example of a ring $R$ and a nonzero $R$-module $M$ such that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, R) = 0$. [6.8]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:product-coproduct-infinite}
   Let $A$ be any set.
@@ -2005,13 +2005,13 @@ The distinction, while macroscopic in general, may evaporate in special, importa
   [\S{}6.1, 6.8]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-free-product}
-  Let $R$ be a ring. If $A$ is any set, prove that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(R^{\oplus A}, R)$ satisfies the universal property for the product of the family $\{R_a\}_{a \in A}$, where $R_a \cong R$ for all $a$; thus, $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(R^{\oplus A}, R) \cong R^A$. Conclude that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(R^{\oplus A}, R)$ is not isomorphic to $R^{\oplus A}$ in general (cf.\ Exercises~6.6 and~6.7).
+  Let $R$ be a ring. If $A$ is any set, prove that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(R^{\oplus A}, R)$ satisfies the universal property for the product of the family $\{R_a\}_{a \in A}$, where $R_a \cong R$ for all $a$; thus, $\operatorname{Hom}_{R\text{-}\categ{Mod}}(R^{\oplus A}, R) \cong R^A$. Conclude that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(R^{\oplus A}, R)$ is not isomorphic to $R^{\oplus A}$ in general (cf.\ Exercises~6.6 and~6.7).
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:free-projective}
   Let $R$ be a ring, $F$ a nonzero free $R$-module, and let $\phi : M \to N$ be a homomorphism of $R$-modules. Prove that $\phi$ is onto if and only if for all $R$-module homomorphisms $\alpha : F \to N$ there exists an $R$-module homomorphism $\beta : F \to M$ such that $\alpha = \phi \circ \beta$. (Free modules are projective, as we will see in Chapter~VIII.) [7.8, VI.5.5]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:fibered-product}
-  (Cf.\ Exercise~I.5.12.) Let $M$, $N$, and $Z$ be $R$-modules, and let $\mu : M \to Z$, $\nu : N \to Z$ be homomorphisms of $R$-modules. Prove that $R$-$\mathsf{Mod}$ has `fibered products': there exists an $R$-module $M \times_Z N$ with $R$-module homomorphisms $\pi_M : M \times_Z N \to M$, $\pi_N : M \times_Z N \to N$, such that $\mu \circ \pi_M = \nu \circ \pi_N$, and which is universal with respect to this requirement. The module $M \times_Z N$ may be called the \emph{pull-back} of $M$ along $\nu$ (or of $N$ along $\mu$, since the construction is symmetric). `Fiber diagrams'
+  (Cf.\ Exercise~I.5.12.) Let $M$, $N$, and $Z$ be $R$-modules, and let $\mu : M \to Z$, $\nu : N \to Z$ be homomorphisms of $R$-modules. Prove that $R$-$\categ{Mod}$ has `fibered products': there exists an $R$-module $M \times_Z N$ with $R$-module homomorphisms $\pi_M : M \times_Z N \to M$, $\pi_N : M \times_Z N \to N$, such that $\mu \circ \pi_M = \nu \circ \pi_N$, and which is universal with respect to this requirement. The module $M \times_Z N$ may be called the \emph{pull-back} of $M$ along $\nu$ (or of $N$ along $\mu$, since the construction is symmetric). `Fiber diagrams'
   \[\begin{tikzcd}
     M \times_Z N \arrow[r, "\pi_N"] \arrow[d, "\pi_M"'] \arrow[dr, phantom, "\lrcorner", very near start] & N \arrow[d, "\nu"] \\
     M \arrow[r, "\mu"'] & Z
@@ -2024,7 +2024,7 @@ The distinction, while macroscopic in general, may evaporate in special, importa
     A \arrow[r, "\nu"] \arrow[d, "\mu"'] \arrow[dr, phantom, "\ulcorner", very near end] & N \arrow[d] \\
     M \arrow[r] & M \oplus_A N
   \end{tikzcd}\]
-  Prove that fibered coproducts exist in $R$-$\mathsf{Mod}$. The fibered coproduct $M \oplus_A N$ is called the \emph{push-out} of $M$ along $\nu$ (or of $N$ along $\mu$). [\S{}6.1]
+  Prove that fibered coproducts exist in $R$-$\categ{Mod}$. The fibered coproduct $M \oplus_A N$ is called the \emph{push-out} of $M$ along $\nu$ (or of $N$ along $\mu$). [\S{}6.1]
 \end{exer}
 \begin{exer}{}{exer:rings:prove-prop-kernels-cokernels}
   Prove \cref{prop:rings:kernels-cokernels}.
@@ -2044,8 +2044,8 @@ The distinction, while macroscopic in general, may evaporate in special, importa
 \begin{exer}{\lnot}{exer:rings:hom-cyclic}
   Let $M$ be a cyclic $R$-module, so that $M \cong R/I$ for a (left-)ideal $I$ (Exercise~6.16), and let $N$ be another $R$-module.
   \begin{itemize}
-    \item Prove that $\operatorname{Hom}_{R\text{-}\mathsf{Mod}}(M, N) \cong \{n \in N \mid (\forall a \in I), an = 0\}$.
-    \item For $a, b \in \Z$, prove that $\operatorname{Hom}_{\mathsf{Ab}}(\Z/a\Z, \Z/b\Z) \cong \Z/\gcd(a,b)\Z$.
+    \item Prove that $\operatorname{Hom}_{R\text{-}\categ{Mod}}(M, N) \cong \{n \in N \mid (\forall a \in I), an = 0\}$.
+    \item For $a, b \in \Z$, prove that $\operatorname{Hom}_{\categ{Ab}}(\Z/a\Z, \Z/b\Z) \cong \Z/\gcd(a,b)\Z$.
   \end{itemize}
   [7.7]
 \end{exer}
@@ -2130,7 +2130,7 @@ Splitting sequences give us the opportunity to go back to a question we left dan
 \end{proof}
 Because of \cref{prop:rings:split-sequence}, $R$-module homomorphisms with a left-inverse are called \emph{split monomorphisms}, and homomorphisms with a right-inverse are called \emph{split epimorphisms}.
 
-We will come back to split exact sequences (in the more demanding context of $\mathsf{Grp}$) in \S{}IV.5.2 and then later again when we return to modules and, more generally, to abelian categories (Chapters~VIII and~IX).
+We will come back to split exact sequences (in the more demanding context of $\categ{Grp}$) in \S{}IV.5.2 and then later again when we return to modules and, more generally, to abelian categories (Chapters~VIII and~IX).
 
 \subsection{Homology and the snake lemma}
 \label{subsec:rings:homology-and-the-snake-lemma}
