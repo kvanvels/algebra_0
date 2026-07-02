@@ -2677,170 +2677,122 @@ The snake lemma is recovered as a particular case of this statement
 
 \subsection{Triangles}
 \label{subsec:homol:triangles}
-% There is an \ae sthetically pleasing way to state what we just proved,
 
-% which turns out to provide a useful viewpoint. Take a short exact sequence of
-% com-
-% plexes,
-%  / L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  / 0;
-% the element of surprise in the long exact sequence obtained in \S{}3.3 is the
-% fact that we
-% can connect N \bullet  to L\bullet  in an interesting way, after taking
-% cohomology and allowing
-% for a shift. Well, if we are willing to settle for something less interesting,
-% we can
-% connect N \bullet  to L\bullet  right away, by simply mapping N \bullet  to 0
-% within L\bullet  :
-% N \bullet 
-%  / L\bullet  .
-% 19 The reader is welcome to look for arrow-theoretic proofs. However, as
-% discussed at length
-% in \S{}2, element-based proofs suffice to prove the statement in any (small)
-% abelian category.
-% The exactness of the original short exact sequence is then equivalent to the
-% exactness
-% at the center of the three even shorter sequences:
-% N \bullet 
-%  / L\bullet 
-%  / M \bullet  ,
-% L\bullet 
-%  / M \bullet 
-%  / N \bullet  ,
-% M \bullet 
-%  / N \bullet 
-%  / L\bullet  .
-% A nice pictorial way to represent this situation is to fold the sequence into a
-% trian-
-% gle20 , i.e.,
-% \bullet 
-% +1 ? ?
-%  ? ?
-%  ?
-%  L
-%  C 7 7
-%  7 7
-%  7 ?
-%  ,
-% N
-%  \bullet  o
-%  M
-%  \bullet 
-% which we understand to be exact at its three vertices: this is an exact triangle
-% in C(A). The arrow marked by +1 is in this case simply the zero-morphism; the +1
-% \bullet records the fact that we are going to view this as a morphism from N to the shift
-% L[1]\bullet  of L\bullet  (after all, 0 is 0 in all degrees). Thus, the triangle
-% is shorthand for the
-% impressive commutative 3D-diagram
-% N i+1 o
-%  |
-%  | |
-%  | L > i+1
-%  O T TT T T T
-%  ) M i+1
-% N O
-%  i \setminus  o
-%  \setminus 
-%  \setminus  \setminus  \setminus 
-%  \setminus 
-%  \setminus 
-%  0 \setminus 
-%  | |
-%  |
-%  | > L O i
-%  T TTT
-%  TT T T
-% ) M O
-%  i
-% N i-1 O \setminus  \setminus 
-%  \setminus  o
-%  \setminus 
-%  \setminus 
-%  \setminus  \setminus  0
-%  \setminus 
-%  |
-%  |
-%  |
-%  | L > i-1
-%  O T TT T T T
-%  ) M
-%  i-1
-%  O
-% ? ? ?
-% or (understanding the morphisms in the complexes) the single long sequence
-% \cdot \cdot \cdot 
-%  / N i-1
-%  / Li
-%  / M i
-%  / N i
-%  / Li+1
-%  / \cdot \cdot \cdot  ,
-% whose exactness is equivalent to the exactness of the original short sequence of
-% complexes. In \S{}3.3 we have obtained from this another long exact sequence,
-% \cdot \cdot \cdot 
-%  / H i-1 (N \bullet ) \delta 
-% i-1
-% / H i(L\bullet )
-%  / H i (M \bullet  )
-%  / H i (N \bullet  )
-%  \delta i /
-%  H i+1 (L\bullet )
-%  / \cdot \cdot \cdot  ,
-% which we fold again into an exact triangle:
-% H \bullet  (L\bullet  )
-% +1 ?
-%  ?
-%  ? ?
-%  ? ?
-%  ? ?
-%  @ @
-%  @ @
-%  @ @
-%  @ ?
-% H \bullet 
-%  (N \bullet )
-%  o
-%  H \bullet  (M \bullet  )
-% 20 A common and easier to typeset notation is L\bullet 
-%  / M \bullet 
-%  / N \bullet 
-%  +1
-%  / .
-% This time the morphism marked +1 is the interesting connecting morphism (while
-% the morphisms in the cohomology complexes are zero; see the end of \S{}3.2).
-% Thus, the `long exact cohomology sequence' takes us from a certain exact trian-
-% gle to another exact triangle. The first triangle arises from a short exact
-% sequence
-% of complexes (the `connecting morphism' is 0), while the second does not (the
-% con-
-% necting morphism is in general nonzero).
-% Clearly something interesting is going on. Triangles obtained from short exact
-% sequences of complexes in C(A) appear to be `special' and give rise to other
-% exact
-% triangles through cohomology.
-% Actually, the situation may make the reader somewhat uncomfortable. While
-% two sides of the cohomology triangle are obtained by simply applying the coho-
-% mology functor to the corresponding sides of the original triangle, the third
-% one is
-% obtained by a different process, involving the connecting morphism. The reader
-% may feel that there should be a mechanism to go from a triangle defined in terms
-% of an exact sequence to its counterpart in cohomology by simply applying the co-
-% homology functor.
-% This is indeed so. There is an important notion of `distinguished' triangle, in
-% a
-% category K(A) closely associated with C(A) and that we will encounter later 21
-% (\S{}5).
-% As with the `special' triangles given above, distinguished triangles lead to
-% long exact
-% sequences in cohomology, and in a somewhat more direct fashion. Distinguished
-% triangles satisfy a number of axioms, which define K(A) as a triangulated
-% category.
-% Exploring these concepts at any level of depth is well beyond the scope of this
-% book, but towards the end of the chapter I will try to clarify these last
-% cryptic
-% remarks (\S{}9.2).
+There is an æsthetically pleasing way to state what we just proved,
+which turns out to provide a useful viewpoint. Take a short exact
+sequence of complexes,
+\[
+  0 \longrightarrow L^\bullet \longrightarrow M^\bullet
+  \longrightarrow N^\bullet \longrightarrow 0;
+\]
+the element of surprise in the long exact sequence obtained in
+\S{}3.3 is the fact that we can connect $N^\bullet$ to $L^\bullet$ in
+an interesting way, after taking cohomology and allowing for a shift.
+Well, if we are willing to settle for something less interesting, we
+can connect $N^\bullet$ to $L^\bullet$ right away, by simply mapping
+$N^\bullet$ to $0$ within $L^\bullet$:
+\[
+  N^\bullet \xrightarrow{0} L^\bullet.
+\]
+The exactness of the original short exact sequence is then equivalent
+to the exactness at the center of the three even shorter sequences:
+\[
+  N^\bullet \xrightarrow{0} L^\bullet \longrightarrow M^\bullet, \quad
+  L^\bullet \longrightarrow M^\bullet \longrightarrow N^\bullet,
+  \quad
+  M^\bullet \longrightarrow N^\bullet \xrightarrow{0} L^\bullet.
+\]
+A nice pictorial way to represent this situation is to fold the
+sequence into a triangle\footnote{A common and easier to typeset
+notation is $L^\bullet \longrightarrow M^\bullet \longrightarrow
+N^\bullet \xrightarrow{+1}$.}, i.e.,
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$L^\bullet$};
+    \node (N) at (0,0) {$N^\bullet$};
+    \node (M) at (2,0) {$M^\bullet$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+which we understand to be exact at its three vertices: this is an
+\emph{exact triangle} in $\mathsf{C}(\mathsf{A})$. The arrow marked
+by $+1$ is in this case simply the zero-morphism; the $+1$ records
+the fact that we are going to view this as a morphism from $N$ to the
+shift $L[1]^\bullet$ of $L^\bullet$ (after all, $0$ is $0$ in all
+degrees). Thus, the triangle is shorthand for the impressive
+commutative 3D-diagram
+% TODO: diagram of the "impressive commutative 3D-diagram" -- a
+% stacked lattice showing, for each degree i-1, i, i+1, the triangle
+% N^i <-- M^i, with a diagonal 0-arrow N^i -> L^i and vertical arrows
+% L^i -> L^{i+1}, M^i -> M^{i+1}, N^i -> N^{i+1} connecting successive
+% layers (page 601)
+or (understanding the morphisms in the complexes) the single long
+sequence
+\[
+  \dots \longrightarrow N^{i-1} \xrightarrow{0} L^i \longrightarrow
+  M^i \longrightarrow N^i \xrightarrow{0} L^{i+1} \longrightarrow
+  \dots,
+\]
+whose exactness is equivalent to the exactness of the original short
+exact sequence of complexes. In \S{}3.3 we have obtained from this
+\emph{another} long exact sequence,
+\[
+  \dots \longrightarrow H^{i-1}(N^\bullet) \xrightarrow{\delta^{i-1}}
+  H^i(L^\bullet) \longrightarrow H^i(M^\bullet) \longrightarrow
+  H^i(N^\bullet) \xrightarrow{\delta^i} H^{i+1}(L^\bullet)
+  \longrightarrow \dots,
+\]
+which we fold again into an exact triangle:
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$H^\bullet(L^\bullet)$};
+    \node (N) at (0,0) {$H^\bullet(N^\bullet)$};
+    \node (M) at (2,0) {$H^\bullet(M^\bullet)$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+This time the morphism marked $+1$ is the interesting connecting
+morphism (while the morphisms in the cohomology complexes are zero;
+see the end of \S{}3.2).
+
+Thus, the `long exact cohomology sequence' takes us from a certain
+exact triangle to another exact triangle. The first triangle arises
+from a short exact sequence of complexes (the `connecting morphism'
+is $0$), while the second does not (the connecting morphism is in
+general nonzero).
+
+Clearly something interesting is going on. Triangles obtained from
+short exact sequences of complexes in $\mathsf{C}(\mathsf{A})$ appear
+to be `special' and give rise to other exact triangles through
+cohomology.
+
+Actually, the situation may make the reader somewhat uncomfortable.
+While two sides of the cohomology triangle are obtained by simply
+applying the cohomology functor to the corresponding sides of the
+original triangle, the third one is obtained by a different process,
+involving the connecting morphism. The reader may feel that there
+should be a mechanism to go from a triangle defined in terms of an
+exact sequence to its counterpart in cohomology by simply applying
+the cohomology functor.
+
+This is indeed so. There is an important notion of `distinguished'
+triangle, in a category $\mathsf{K}(\mathsf{A})$ closely associated
+with $\mathsf{C}(\mathsf{A})$ and that we will encounter
+later\footnote{Beware that some authors call the distinguished
+triangles `exact'; there is some room for confusion, since the
+special exact triangles in the present discussion are not `exact'
+from this viewpoint.} (\S{}5). As with the `special' triangles given
+above, distinguished triangles lead to long exact sequences in
+cohomology, and in a somewhat more direct fashion. Distinguished
+triangles satisfy a number of axioms, which define
+$\mathsf{K}(\mathsf{A})$ as a \emph{triangulated category}. Exploring
+these concepts at any level of depth is well beyond the scope of this
+book, but towards the end of the chapter I will try to clarify these
+last cryptic remarks (\S{}9.2).
 
 \subsection*{Exercises}
 
