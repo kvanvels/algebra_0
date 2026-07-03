@@ -3078,669 +3078,633 @@ over the polynomial ring $k[x]$ over a field.
 \label{sec:linalg:classification-of-finitely-generated-modules-over-pids}
 
 
-%\lnot  A Koszul complex may be defined for any sequence a1, . . . , an of elements}
-
-% of a commutative ring R. The case n = 2 seen in Exercise 4.13 and the case n = 3
-% reviewed here will hopefully suffice to get a gist of the general construction;
-% the
-% general case will be given in Exercise VIII.4.22.
-% Let a, b, c \in  R. Consider the following complex:
-%  / R
-%  d3
-%  / R \oplus  R \oplus  R
-%  d2
-%  / R \oplus  R \oplus  R
-%  d1
-%  / R
-%  \pi 
-%  /
-%  (a,b,c)
-%  R
-%  / 0
-% where \pi  is the canonical projection and the matrices for d1 , d2, d3 are,
-% respectively,
-% (
-%  )
-%  ( )
-% 0 -c -b
-%  a
-% ?
-%  ?
-% a b c , (-c 0
-%  a ) , (-b) .
-% b
-%  a
-%  c
-% \bullet  Prove that this is indeed a complex, for every a, b, c.
-% \bullet  Prove that if (a, b, c) is a regular sequence, this complex is exact.
-% Koszul complexes are very important in commutative algebra and algebraic geom-
-% etry. [VIII.4.22]
-
-%View Z as a module over the ring R = Z[x, y], where x and y act by 0}
-
-% Find a free resolution of Z over R. [VIII.4.21]
-
-%Let \phi  : Rn \to  Rm and \psi  : Rp \to  Rq be two R-module homomorphisms,}
-
-% and let
-% \phi  \oplus  \psi  : Rn \oplus  Rp \to  Rm \oplus  Rq
-% be the morphism induced on direct sums. Prove that
-% coker(\phi  \oplus  \psi ) = coker \phi  \oplus  coker \psi .
-
-%Determine (as a better known entity) the module represented by the matrix}
-
-% (
-%  )
-% 1 + 3x
-%  2x
-%  3x
-% (1 + 2x 1 + 2x - x 2 2x)
-% x
-%  x2
-%  x
-% over the polynomial ring k[x] over a field.
-% It is finally time to prove the classification theorem for finitely generated
-% modules
-% over arbitrary PIDs. We have already proved this statement in the special case
-% of
-% finite Z-modules (\S{}IV.6), and the diligent reader has worked out a proof in
-% the less
-% special case of finitely generated modules over Euclidean domains, in Exercise
-% 2.19.
-% Now we go for the real thing.
+It is finally time to prove the classification theorem for finitely
+generated modules over arbitrary PIDs. We have already proved this
+statement in the special case of finite $\mathbb{Z}$-modules
+(\S{}IV.6), and the diligent reader has worked out a proof in the less
+special case of finitely generated modules over Euclidean domains, in
+Exercise~2.19. Now we go for the real thing.
 
 \subsection{Submodules of free modules}
 \label{subsec:linalg:submodules-of-free-modules}
-% Recall (Lemma 4.2, Example 4.3) that a
+Recall (Lemma~4.2, Example~4.3) that a submodule of a free module over
+an arbitrary integral domain $R$ is necessarily
+torsion-free but need not be free. For example, the ideal $I = (x,y)$
+of $R = k[x,y]$ (with $k$ a field, for example) is torsion-free as an
+$R$-module, but not free: for this to become really, really evident, it
+is helpful to rename $x = a$, $y = b$ when these are viewed as elements
+of $I$ and observe that $a$ and $b$ are not linearly independent over
+$k[x,y]$, since $ya - xb = 0$.
 
-% submodule of a free module over an arbitrary integral domain R is necessarily
-% torsion-free but need not be free. For example, the ideal I = (x, y) of R = k[x,
-% y]
-% (with k a field, for example) is torsion-free as an R-module, but not free: for
-% this
-% to become really, really evident, it is helpful to rename x = a, y = b when
-% these
-% are viewed as elements of I and observe that a and b are not linearly
-% independent
-% over k[x, y], since ya - xb = 0.
-% On the other hand, submodules of a free module over a field are automatically
-% free: simply because every module over a field is free (Proposition 1.7). It is
-% reasonable to expect that `some property in between' being a field and being a
-% friendly UFD such as k[x, y] will guarantee that a submodule of a free module is
-% free. We will now prove that this property is precisely that of being a
-% principal
-% ideal domain.
-% Proposition 5.1. Let R be a PID, let F be a finitely generated free module over
-% R,
-% and let M \subseteq  F be a submodule. Then M is free.
-% We will actually prove a more precise result, in view of the full statement of
-% the classification theorem: we will show that there is a basis (x1 , . . . , xn)
-% of F and
-% elements a1 , . . . , am of R (with m \leq  n) such that
-% y1 = a1 x1 , . . . ,
-%  ym = am xm
-% form a basis of M . That is, not only do we prove that M is free, but we also
-% show
-% that there are `compatible' bases of F and M .
-% In order to do this, we may of course assume that M = 0: otherwise there is
-% nothing to prove. Most of the work will then go into showing that if M = 0, we
-% can
-% split one direct summand off M ; iterating this process will prove the
-% proposition23 .
-% This is where the PID condition is used, so I will single out the main technical
-% point
-% into the following statement.
-% Lemma 5.2. Let R be a PID, let F be a finitely generated free module over R, and
-% let M \subseteq  F be a nonzero submodule. Then there exist a \in  R, x \in  F ,
-% y \in  M , and
-% submodules F \setminus  \subseteq  F and M \setminus  \subseteq  M , such that y
-% = ax = 0, M \setminus  = F \setminus  \cap  M , and
-% F = ?x? \oplus  F \setminus  ,
-%  M = ?y? \oplus  M \setminus .
-% The reader would find it instructive to pause a moment and try to imagine how
-% the PID hypothesis may enter into the proof of this lemma. The PID hypothesis is
-% a hypothesis on R, so the question is, where is the special copy of R to which
-% we
-% can apply it? Don't read on until you have spent a moment thinking about this.
-% It is tempting to look for this copy of R among the `factors' of F = Rn : for
-% example, we could map F to R by projecting onto the first component:
-% \pi (r1 , . . . , rn ) = r1.
-% But there is nothing special about the first component of R n; in fact there is
-% nothing special about the particular basis chosen for F , that is, the
-% particular
-% 23 In a loose sense, this is the same strategy we employed in the proof of the
-% classification
-% result for finite abelian groups in \S{}IV.6.
-% representation of F as Rn . Therefore, this does not look too promising. The way
-% out of this bind is to democratically map F to R in every possible way: we
-% consider
-% all homomorphisms \phi  : F \to  R. This is a set that does not depend on any
-% extra
-% choice, so it is more likely to carry the information we need.
-% For each \phi , \phi (M ) is a submodule of R, that is, an ideal of R; so we
-% have a
-% chance to use the PID hypothesis with profit. In fact, the much weaker fact that
-% R is Noetherian guarantees already that there must be some homomorphism \alpha
-% for
-% which \alpha (M ) is maximal among all ideals \phi (M ). This copy of R, that
-% is, the target
-% of such a homomorphism \alpha , is special for a good reason, independent of
-% inessential
-% choices. The fact that R is a PID tells us that \alpha (M ) is principal, and
-% then we are
-% clearly in business.
-% Here is the formal argument:
-% Proof. For all \phi  \in  HomR (F, R), \phi (M ) is a submodule of R, that is,
-% an ideal.
-% The family of all these ideals is nonempty, and PIDs are Noetherian; therefore
-% (by
-% Proposition V.1.1) there exists a maximal element in the family, say \alpha (M
-% ), for a
-% homomorphism \alpha  : M \to  R. The fact that M = 0 implies immediately that
-% some
-% \phi (M ) = 0 (for example, take for \phi  the projection to a suitable factor of Rn ); hence
-% \alpha (M ) = 0.
-% Since R is a PID, \alpha (M ) is principal: \alpha (M ) = (a) for some a \in  R,
-% a = 0. Since
-% a \in  \alpha (M ), there exists an element y \in  M , y = 0, such that \alpha
-% (y) = a. These are
-% the elements a, y mentioned in the statement.
-% I claim that a divides \phi (y) for all \phi  \in  HomR (F, R). Indeed, let b be
-% a generator
-% of (a, \phi (y)) (which exists since R is a PID; of course b is simply a gcd of
-% a and \phi (y)),
-% and let r, s \in  R such that b = ra+s\phi (y); consider the homomorphism \psi
-% := r\alpha +s\phi .
-% Since a \in  (b), we have \alpha (M ) \subseteq  (b). On the other hand
-% b = ra + s\phi (y) = (r\alpha  + s\phi )(y) = \psi (y) \in  \psi (M );
-% therefore (b) \subseteq  \psi (M ). It follows that \alpha (M ) \subseteq  \psi
-% (M ), and by maximality \alpha (M ) =
-% \psi (M ); hence (a) = (b), and in particular a divides \phi (y), as claimed.
-% Let y = (s1 , . . . , sn ) as an element of F = Rn . Each s i is the image of y
-% by a
-% homomorphism F \to  R (that is, the i-th projection), so a divides all of them
-% by
-% what we just proved. Therefore \exists r1 , . . . , rn \in  R such that si = ari
-% ; let
-% x = (r1 , . . . , rn ) \in  F.
-% This is the element x mentioned in the statement. By construction, y = ax. Fur-
-% ther, a = \alpha (y) = \alpha (ax) = a\alpha (x); since R is an integral domain
-% and a = 0, this
-% implies \alpha (x) = 1.
-% Finally, we let F \setminus  = ker \alpha  and M \setminus  = F \setminus  \cap
-% M , and we can proceed to verify the
-% stated direct sums.
-% First, every z \in  F may be written as
-% z = \alpha (z)x + (z - \alpha (z)x);
-% by linearity
-% \alpha (z - \alpha (z)x) = \alpha (z) - \alpha (z)\alpha (x) = \alpha (z) - \alpha (z) = 0,
-% that is, z - \alpha (z)x \in  ker \alpha . This implies that F = ?x? + F
-% \setminus . On the other hand,
-% rx \in  F \setminus  \implies  \alpha (rx) = 0 \implies  r\alpha (x) = 0
-% \implies  r = 0: that is, ?x? \cap  F \setminus  = 0.
-% Therefore
-% F = ?x? \oplus  F \setminus ,
-% as claimed (cf. Exercise 5.1).
-% Second, if z \in  M , then a divides \alpha (z): indeed, \alpha (z) \in  \alpha
-% (M ) = (a). Writing
-% \alpha (z) = ca, we have \alpha (z)x = cax = cy; splitting z as above, we note
-% z - \alpha (z)x = z - cy \in  M \cap  F \setminus  = M \setminus  ,
-% and this leads as before to
-% concluding the proof.
-% M = ?y? \oplus  M \setminus  ,
-% ?
-% Once Lemma 5.2 is established, the proof of Proposition 5.1 is mere busywork:
-% Proof of Proposition 5.1. If M = 0, we are done. If not, applying Lemma 5.2
-% to M \subseteq  F produces an element y1 \in  M and a submodule M (1) \subseteq
-% M such that
-% M = ?y1? \oplus  M (1) .
-% If M (1) = 0, we are done; otherwise, apply Lemma 5.2 again (to M (1) \subseteq
-% F ) to
-% obtain y2 \in  M (1) and M (2) \subseteq  M (1) so that
-% M = ?y1 ? \oplus  (?y2 ? \oplus  M (2)).
-% This process may be continued, producing elements y1 , . . . , ym \in  M such
-% that
-% M = ?y1 ? \oplus  \dots  \oplus  ?ym ? \oplus  M (m) ,
-% so long as the module M (m) is nonzero. However, by Proposition 1.9 we know
-% m \leq  n, since y1 , . . . , ym are linearly independent in F . It follows that
-% the process
-% must stop; that is, M (m) = 0 for some m \leq  n. That is,
-% M = ?y1 ? \oplus  \dots  \oplus  ?ym ?
-% is free, as needed.
-%  ?
-% Note that the proof has not used part of the result of Lemma 5.2, that is, the
-% fact that the `factor' ?y? of M is a submodule of a corresponding factor ?x? of
-% F .
-% This is needed in order to upgrade Proposition 5.1 along the lines mentioned
-% after
-% its statement. Here is that stronger statement:
-% Corollary 5.3. Let R be a PID, let F be a finitely generated free module over R,
-% and let M \subseteq  F be a submodule. Then there exist a basis (x1 , . . . , xn
-% ) of F and
-% nonzero elements a1, . . . , am of R (m \leq  n) such that (a1 x1, . . . , am xm
-% ) is a basis
-% of M . Further, we may assume a1 | a 2 | \dots  | am .
-% This statement should be compared with Proposition 2.11: it amounts to a
-% `Smith normal form over PIDs'; cf. Remark 2.12.
-% Proof. Now that we know that submodules of a free module are free, we see that
-% the submodule F \setminus  \subseteq  F produced in Lemma 5.2 is free. The first
-% part of the
-% statement then follows from Lemma 5.2, by an inductive argument analogous to
-% the proof of Proposition 5.1, and is left to the reader.
-% The most delicate part of the statement is the divisibility condition. By induc-
-% tion it suffices to prove a1 | a2 , and for this we refer back to the proof of
-% Lemma 5.2:
-% (a1) is maximal among the ideals \phi (M ) of R, as \phi  ranges over all
-% homomorphisms
-% F \to  R. Consider then any24 homomorphism \phi  such that \phi (x1 ) = \phi (x2
-% ) = 1.
-% Since \phi (y1) = \phi (a1x1 ) = a1 , we have (a1 ) \subseteq  \phi (M ); by
-% maximality (a1 ) = \phi (M ).
-% Therefore a2 = \phi (a2 x2 ) = \phi (y2 ) \in  \phi (M ) = (a1 ), proving a1 |
-% a2 as needed.
-%  ?
-% The logic of the argument given in this section is somewhat tricky: it takes
-% Lemma 5.2 to prove Proposition 5.1; but then it takes Proposition 5.1 (proving
-% \setminus that F is free) to revisit Lemma 5.2 and squeeze from it the stronger Corollary 5.3.
+On the other hand, submodules of a free module over a field are
+automatically free: simply because every module over a field is free
+(Proposition~1.7). It is reasonable to expect that `some property in
+between' being a field and being a friendly UFD such as $k[x,y]$ will
+guarantee that a submodule of a free module is free. We will now prove
+that this property is precisely that of being a \emph{principal ideal
+domain}.
+\begin{prop}{}{linalg:5.1}
+Let $R$ be a PID, let $F$ be a finitely generated free module over $R$,
+and let $M \subseteq F$ be a submodule. Then $M$ is free.
+\end{prop}
+We will actually prove a more precise result, in view of the full
+statement of the classification theorem: we will show that there is a
+basis $(x_1, \dots, x_n)$ of $F$ and elements $a_1, \dots, a_m$ of $R$
+(with $m \leq n$) such that
+\[
+y_1 = a_1 x_1, \dots, \quad y_m = a_m x_m
+\]
+form a basis of $M$. That is, not only do we prove that $M$ is free,
+but we also show that there are `compatible' bases of $F$ and $M$.
+
+In order to do this, we may of course assume that $M \neq 0$: otherwise
+there is nothing to prove. Most of the work will then go into showing
+that if $M \neq 0$, we can split one direct summand off $M$; iterating
+this process will prove the proposition\footnote{In a loose sense, this
+is the same strategy we employed in the proof of the classification
+result for finite abelian groups in \S{}IV.6.}. This is where the PID
+condition is used, so I will single out the main technical point into
+the following statement.
+\begin{lem}{}{linalg:5.2}
+Let $R$ be a PID, let $F$ be a finitely generated free module over $R$,
+and let $M \subseteq F$ be a nonzero submodule. Then there exist
+$a \in R$, $x \in F$, $y \in M$, and submodules $F' \subseteq F$ and
+$M' \subseteq M$, such that $y = ax \neq 0$, $M' = F' \cap M$, and
+\[
+F = \langle x \rangle \oplus F', \quad M = \langle y \rangle \oplus M'.
+\]
+\end{lem}
+The reader would find it instructive to pause a moment and try to
+imagine how the PID hypothesis may enter into the proof of this lemma.
+The PID hypothesis is a hypothesis on $R$, so the question is, where is
+the special copy of $R$ to which we can apply it? Don't read on until
+you have spent a moment thinking about this.
+
+It is tempting to look for this copy of $R$ among the `factors' of
+$F = R^n$: for example, we could map $F$ to $R$ by projecting onto the
+first component:
+\[
+\pi(r_1, \dots, r_n) = r_1.
+\]
+But there is nothing special about the first component of $R^n$; in
+fact there is nothing special about the particular basis chosen for
+$F$, that is, the particular representation of $F$ as $R^n$. Therefore,
+this does not look too promising. The way out of this bind is to
+democratically map $F$ to $R$ in every possible way: we consider
+\emph{all} homomorphisms $\varphi : F \to R$. This is a set that does
+not depend on any extra choice, so it is more likely to carry the
+information we need.
+
+For each $\varphi$, $\varphi(M)$ is a submodule of $R$, that is, an
+ideal of $R$; so we have a chance to use the PID hypothesis with
+profit. In fact, the much weaker fact that $R$ is Noetherian guarantees
+already that there must be some homomorphism $\alpha$ for which
+$\alpha(M)$ is maximal among all ideals $\varphi(M)$. This copy of $R$,
+that is, the target of such a homomorphism $\alpha$, is special for a
+good reason, independent of inessential choices. The fact that $R$ is a
+PID tells us that $\alpha(M)$ is principal, and then we are clearly in
+business.
+
+Here is the formal argument:
+\begin{proof}
+For all $\varphi \in \Hom_R(F,R)$, $\varphi(M)$ is a submodule of $R$,
+that is, an ideal. The family of all these ideals is nonempty, and PIDs
+are Noetherian; therefore (by
+Proposition~V.1.1) there exists a maximal element in the family, say
+$\alpha(M)$, for a homomorphism $\alpha : M \to R$. The fact that
+$M \neq 0$ implies immediately that some $\varphi(M) \neq 0$ (for
+example, take for $\varphi$ the projection to a suitable factor of
+$R^n$); hence $\alpha(M) \neq 0$.
+
+Since $R$ is a PID, $\alpha(M)$ is principal: $\alpha(M) = (a)$ for
+some $a \in R$, $a \neq 0$. Since $a \in \alpha(M)$, there exists an
+element $y \in M$, $y \neq 0$, such that $\alpha(y) = a$. These are the
+elements $a, y$ mentioned in the statement.
+
+I claim that $a$ divides $\varphi(y)$ for all $\varphi \in \Hom_R(F,R)$.
+Indeed, let $b$ be a generator of $(a, \varphi(y))$ (which exists since
+$R$ is a PID; of course $b$ is simply a gcd of $a$ and $\varphi(y)$),
+and let $r, s \in R$ such that $b = ra + s\varphi(y)$; consider the
+homomorphism $\psi := r\alpha + s\varphi$. Since $a \in (b)$, we have
+$\alpha(M) \subseteq (b)$. On the other hand
+\[
+b = ra + s\varphi(y) = (r\alpha + s\varphi)(y) = \psi(y) \in \psi(M);
+\]
+therefore $(b) \subseteq \psi(M)$. It follows that
+$\alpha(M) \subseteq \psi(M)$, and by maximality
+$\alpha(M) = \psi(M)$; hence $(a) = (b)$, and in particular $a$ divides
+$\varphi(y)$, as claimed.
+
+Let $y = (s_1, \dots, s_n)$ as an element of $F = R^n$. Each $s_i$ is
+the image of $y$ by a homomorphism $F \to R$ (that is, the $i$-th
+projection), so $a$ divides all of them by what we just proved.
+Therefore $\exists r_1, \dots, r_n \in R$ such that $s_i = ar_i$; let
+\[
+x = (r_1, \dots, r_n) \in F.
+\]
+This is the element $x$ mentioned in the statement. By construction,
+$y = ax$. Further, $a = \alpha(y) = \alpha(ax) = a\alpha(x)$; since $R$
+is an integral domain and $a \neq 0$, this implies $\alpha(x) = 1$.
+
+Finally, we let $F' = \ker\alpha$ and $M' = F' \cap M$, and we can
+proceed to verify the stated direct sums.
+
+First, every $z \in F$ may be written as
+\[
+z = \alpha(z)x + (z - \alpha(z)x);
+\]
+by linearity
+\[
+\alpha(z - \alpha(z)x) = \alpha(z) - \alpha(z)\alpha(x) = \alpha(z) -
+\alpha(z) = 0,
+\]
+that is, $z - \alpha(z)x \in \ker\alpha$. This implies that
+$F = \langle x \rangle + F'$. On the other hand,
+$rx \in F' \implies \alpha(rx) = 0 \implies r\alpha(x) = 0 \implies
+r = 0$: that is, $\langle x \rangle \cap F' = 0$. Therefore
+\[
+F = \langle x \rangle \oplus F',
+\]
+as claimed (cf.\ Exercise~5.1).
+
+Second, if $z \in M$, then $a$ divides $\alpha(z)$: indeed,
+$\alpha(z) \in \alpha(M) = (a)$. Writing $\alpha(z) = ca$, we have
+$\alpha(z)x = cax = cy$; splitting $z$ as above, we note
+\[
+z - \alpha(z)x = z - cy \in M \cap F' = M',
+\]
+and this leads as before to
+\[
+M = \langle y \rangle \oplus M',
+\]
+concluding the proof.
+\end{proof}
+
+Once Lemma~5.2 is established, the proof of Proposition~5.1 is mere
+busywork:
+\begin{proof}[Proof of Proposition~5.1]
+If $M = 0$, we are done. If not, applying Lemma~5.2 to $M \subseteq F$
+produces an element $y_1 \in M$ and a submodule $M^{(1)} \subseteq M$
+such that
+\[
+M = \langle y_1 \rangle \oplus M^{(1)}.
+\]
+If $M^{(1)} = 0$, we are done; otherwise, apply Lemma~5.2 again (to
+$M^{(1)} \subseteq F$) to obtain $y_2 \in M^{(1)}$ and
+$M^{(2)} \subseteq M^{(1)}$ so that
+\[
+M = \langle y_1 \rangle \oplus (\langle y_2 \rangle \oplus M^{(2)}).
+\]
+This process may be continued, producing elements
+$y_1, \dots, y_m \in M$ such that
+\[
+M = \langle y_1 \rangle \oplus \dots \oplus \langle y_m \rangle \oplus
+M^{(m)},
+\]
+so long as the module $M^{(m)}$ is nonzero. However, by
+Proposition~1.9 we know $m \leq n$, since $y_1, \dots, y_m$ are
+linearly independent in $F$. It follows that the process must stop;
+that is, $M^{(m)} = 0$ for some $m \leq n$. That is,
+\[
+M = \langle y_1 \rangle \oplus \dots \oplus \langle y_m \rangle
+\]
+is free, as needed.
+\end{proof}
+
+Note that the proof has not used part of the result of Lemma~5.2, that
+is, the fact that the `factor' $\langle y \rangle$ of $M$ is a
+submodule of a corresponding factor $\langle x \rangle$ of $F$. This is
+needed in order to upgrade Proposition~5.1 along the lines mentioned
+after its statement. Here is that stronger statement:
+\begin{coro}{}{linalg:5.3}
+Let $R$ be a PID, let $F$ be a finitely generated free module over $R$,
+and let $M \subseteq F$ be a submodule. Then there exist a basis
+$(x_1, \dots, x_n)$ of $F$ and nonzero elements $a_1, \dots, a_m$ of
+$R$ ($m \leq n$) such that $(a_1 x_1, \dots, a_m x_m)$ is a basis of
+$M$. Further, we may assume $a_1 \mid a_2 \mid \dots \mid a_m$.
+\end{coro}
+This statement should be compared with Proposition~2.11: it amounts to
+a `Smith normal form over PIDs'; cf.\ Remark~2.12.
+\begin{proof}
+Now that we know that submodules of a free module are free, we see
+that the submodule $F' \subseteq F$ produced in Lemma~5.2 is free. The
+first part of the statement then follows from Lemma~5.2, by an
+inductive argument analogous to the proof of Proposition~5.1, and is
+left to the reader.
+
+The most delicate part of the statement is the divisibility condition.
+By induction it suffices to prove $a_1 \mid a_2$, and for this we refer
+back to the proof of Lemma~5.2: $(a_1)$ is maximal among the ideals
+$\varphi(M)$ of $R$, as $\varphi$ ranges over all homomorphisms
+$F \to R$. Consider then any\footnote{In order to define a homomorphism
+on a free module $F$, one may define it on a basis of $F$ and then
+extend it by linearity; there is no restriction on the possible choices
+for the images of basis elements. The reader who is not sure about this
+should review the universal property of free modules!} homomorphism
+$\varphi$ such that $\varphi(x_1) = \varphi(x_2) = 1$.
+
+Since $\varphi(y_1) = \varphi(a_1x_1) = a_1$, we have
+$(a_1) \subseteq \varphi(M)$; by maximality $(a_1) = \varphi(M)$.
+Therefore $a_2 = \varphi(a_2x_2) = \varphi(y_2) \in \varphi(M) = (a_1)$,
+proving $a_1 \mid a_2$ as needed.
+\end{proof}
+
+The logic of the argument given in this section is somewhat tricky: it
+takes Lemma~5.2 to prove Proposition~5.1; but then it takes
+Proposition~5.1 (proving that $F'$ is free) to revisit Lemma~5.2 and
+squeeze from it the stronger Corollary~5.3.
 
 \subsection{PIDs and resolutions}
 \label{subsec:linalg:pids-and-resolutions}
-% Proposition 5.1 allows us to complete the circle of
+Proposition~5.1 allows us to complete the circle of ideas begun in
+\S{}4.2.
+\begin{prop}{}{linalg:5.4}
+Let $R$ be an integral domain. Then $R$ is a PID if and only if for
+every finitely generated $R$-module $M$ and every epimorphism
+\[
+R^{m_0} \xrightarrow{\pi_0} M \to 0,
+\]
+there exist a free $R$-module $R^{m_1}$ and a homomorphism
+$\pi_1 : R^{m_1} \to R^{m_0}$ such that the sequence
+\[
+0 \to R^{m_1} \xrightarrow{\pi_1} R^{m_0} \xrightarrow{\pi_0} M \to 0
+\]
+is exact.
+\end{prop}
+\begin{proof}
+The fact that the stated condition implies that $R$ is a PID was
+proved in Proposition~4.11. For the converse, let
+$\pi_0 : R^{m_0} \to M$ be an epimorphism; then $\ker\pi_0$ is free by
+Proposition~5.1; the result follows by choosing any isomorphism
+$\pi_1 : R^{m_1} \to \ker(\pi_0)$.
+\end{proof}
 
-% ideas begun in \S{}4.2.
-% Proposition 5.4. Let R be an integral domain. Then R is a PID if and only if
-% for every finitely generated R-module M and every epimorphism
-% Rm0
-%  \pi 0
-%  / M
-%  / 0,
-% there exist a free R-module R m1 and a homomorphism \pi 1 : Rm1 \to  Rm0 such
-% that
-% the sequence
-%  / Rm1
-%  \pi 1
-%  / Rm0
-%  \pi 0
-%  / M
-%  / 0
-% is exact.
-% Proof. The fact that the stated condition implies that R is a PID was proved
-% in Claim 4.11. For the converse, let \pi 0 : Rm0 \to  M be an epimorphism; then
-% ker \pi 0 is free by Proposition 5.1; the result follows by choosing any
-% isomorphism
-% \pi 1 : R m1 \to  ker(\pi 0).
-%  ?
-% The content of Proposition 5.4 is possibly simpler than its awkward formulation:
-% Proposition 5.4 is simply a characterization for PIDs analogous to the
-% characteri-
-% zation of fields worked out in Proposition 4.10. This is another example of the
-% fact
-% that we can study a ring R by looking at how R-Mod is put together.
-% The reader can well imagine the `length-n' version of the condition appearing
-% in these results: we may ask for the class of integral domains R with the
-% property
-% that for all finitely generated modules M and all partial free resolutions of M
-% ,
-% Rmn-1
-%  \pi n-1
-%  / \cdot \cdot \cdot 
-%  \pi 1
-%  / Rm0
-%  \pi 0
-%  / M
-%  / 0 ,
-% 24 In order to define a homomorphism on a free module F , one may define it on a
-% basis of F
-% and then extend it by linearity; there is no restriction on the possible choices
-% for the images of
-% basis elements. The reader who is not sure about this should review the
-% universal property of free
-% modules!
-% there exists a homomorphism \pi n : Rmn \to  Rmn-1 such that
-%  / Rmn
-%  \pi n
-%  / Rm n-1 \pi n-1 / \dots 
-%  \pi 1
-%  / Rm0
-%  \pi 0
-%  / M
-% / 0
-% is exact. We have proved that this condition characterizes fields for n = 0 and
-% PIDs
-% for n = 1.
-% The alert reader should now have a d\'ej\`{a} vu, as we have already encountered
-% a notion that is 0 precisely for fields and 1 for PIDs: the Krull dimension of a
-% ring; cf. Example III.4.14. Of course this is not a coincidence, but the full
-% relation
-% between the Krull dimension and the bound on the length of free resolutions is
-% be-
-% yond the scope of this book25 . `Most' rings (even rings with finite Krull
-% dimension)
-% do not satisfy any such bound for all modules. The local rings satisfying the
-% finite-
-% ness condition described above for some n correspond in the language of
-% algebraic
-% geometry to `smooth' points on varieties of dimension \leq  n.
+The content of Proposition~5.4 is possibly simpler than its awkward
+formulation: Proposition~5.4 is simply a characterization for PIDs
+analogous to the characterization of fields worked out in
+Proposition~4.10. This is another example of the fact that we can
+study a ring $R$ by looking at how $R$-\textsf{Mod} is put together.
+
+The reader can well imagine the `length-$n$' version of the condition
+appearing in these results: we may ask for the class of integral
+domains $R$ with the property that for all finitely generated modules
+$M$ and all partial free resolutions of $M$,
+\[
+R^{m_{n-1}} \xrightarrow{\pi_{n-1}} \dots \xrightarrow{\pi_1} R^{m_0}
+\xrightarrow{\pi_0} M \to 0,
+\]
+there exists a homomorphism $\pi_n : R^{m_n} \to R^{m_{n-1}}$ such
+that
+\[
+0 \to R^{m_n} \xrightarrow{\pi_n} R^{m_{n-1}} \xrightarrow{\pi_{n-1}}
+\dots \xrightarrow{\pi_1} R^{m_0} \xrightarrow{\pi_0} M \to 0
+\]
+is exact. We have proved that this condition characterizes fields for
+$n = 0$ and PIDs for $n = 1$.
+
+The alert reader should now have a \emph{d\'ej\`{a} vu}, as we have
+already encountered a notion that is $0$ precisely for fields and $1$
+for PIDs: the Krull dimension of a ring; cf.\ Example~III.4.14. Of
+course this is not a coincidence, but the full relation between the
+Krull dimension and the bound on the length of free resolutions is
+beyond the scope of this book\footnote{The most persistent of readers
+will take a more sophisticated look at these bounds in the exercises
+to \S{}IX.8.}. `Most' rings (even rings with finite Krull dimension) do
+not satisfy any such bound for all modules. The local rings satisfying
+the finiteness condition described above for some $n$ correspond in
+the language of algebraic geometry to `smooth' points on varieties of
+dimension $\leq n$.
 
 \subsection{The classification theorem}
 \label{subsec:linalg:the-classification-theorem}
-% The notion of the rank of a free module (Defi-
+The notion of the \emph{rank} of a free module (Definition~1.14)
+extends naturally to every finitely generated module $M$ over an
+integral domain $R$.
+\begin{defn}{}{linalg:5.5}
+Let $R$ be an integral domain. The \emph{rank} $\operatorname{rk} M$ of
+a finitely generated $R$-module $M$ is the maximum number of linearly
+independent elements in $M$.
+\end{defn}
+It should be clear that this number is finite (Exercise~5.6).
 
-% nition 1.14) extends naturally to every finitely generated module M over an
-% integral
-% domain R.
-% Definition 5.5. Let R be an integral domain. The rank rk M of a finitely
-% generated
-% R-module M is the maximum number of linearly independent elements in M . ?
-% It should be clear that this number is finite (Exercise 5.6).
-% Theorem 5.6. Let R be a PID, and let M be a finitely generated R-module. Then
-% the following hold:
-% \bullet  There exist distinct prime ideals (q1 ), . . . , (qn ) \subseteq  R, positive integers rij , and
-% an isomorphism
-%  (
-%  )
-% !
-%  RM \sim 
-%  = Rrk M \oplus  (
-%  rij
-%  )
-%  .
-% i,j
-%  (q
-% i )
-% \bullet  There exist nonzero, nonunit ideals (a1 ), . . . , (am ) of R, such that (a1 ) \supseteq 
-% (a2) \supseteq  \dots  \supseteq  (am), and an isomorphism
-% M \sim 
-%  = Rrk M \oplus 
-%  R
-%  \oplus  \cdot \cdot \cdot  \oplus 
-%  R
-%  .
-% (a1)
-%  (am )
-% These decompositions are unique (in the evident sense).
-% After all our preparatory work, this statement practically proves itself. I will
-% describe the arguments in general terms, leaving the details to the enterprising
-% reader.
-% The two forms taken by the theorem go under the name of invariant factors
-% and elementary divisors, as in the case of abelian groups. As in the case of
-% abelian
-% groups, the equivalence between the two formulations amounts to careful
-% bookkeep-
-% ing, and we will not prove it formally; see \S{}IV.6.2 for a reminder of how to
-% go from
-% 25 The most persistent of readers will take a more sophisticated look at these
-% bounds in the
-% exercises to \S{}IX.8.
-% one to the other. The role played by Lemma IV.6.1 in that discussion is taken
-% over
-% by the Chinese remainder theorem, Theorem V.6.1, in this more general setting.
-% As the two formulations are equivalent, it suffices to prove the existence and
-% uniqueness of the decompositions given in Theorem 5.6 for any one of the two.
-% The existence is a direct consequence of the results in \S{}5.1. Indeed, let M
-% be a
-% finitely generated module; thus there is an epimorphism
-% Rn
-%  \pi 
-%  / M
-%  / 0
-% where n is the number of generators of M . Apply Corollary 5.3 to the submodule
-% ker \pi  \subseteq  Rn : there exist a basis (x1, . . . , xn ) of Rn and nonzero
-% elements a1 , . . . , am
-% of R such that (a1 x1 , . . . , amxm ) is a basis of ker \pi  and further a1 |
-% \dots  | am .
-% That is, M is presented by the n \times  m matrix
-% (
-%  )
-% a1 \dots 
-% | | .. .
-%  . .
-%  .
-%  .. . |
-%  |
-% |
-%  |
-% | |
-%  0 \dots  am |
-%  | .
-% | 0 ...
-%  0 |
-% |
-%  |
-% | ( . ..
-%  .
-%  ..
-%  .. . |
-%  )
-%  ...
-% By Proposition 4.13, we may assume that a1 , . . . , am are not units: if any
-% one of
-% them is, the corresponding row and column may be omitted from the matrix (and
-% n corrected accordingly). It follows that
-% M \sim 
-%  =
-%  R
-%  \oplus  \cdot \cdot \cdot  \oplus 
-%  R
-%  \oplus  R (n-m)
-% (a 1 )
-%  (am )
-% with a1 | \dots  | am nonzero nonunits, as prescribed by Theorem 5.6, and the
-% existence
-% is proved.
-% As for the uniqueness of the representations, if
-% M \sim 
-%  = Rr \oplus  T,
-% with T a torsion module26 , then r = rk M and T \sim 
-%  = TorR (M ) (Exercise 5.10). Thus,
-% the `free part' and the `torsion part' in the decompositions given in Theorem
-% 5.6
-% are determined uniquely.
-% This reduces the uniqueness question to the structure of torsion modules: as-
-% suming that
-% ! R
-%  ! R
-% (*)
-%  rij \sim 
-%  =
-%  sk? ,
-% i,j
-%  (pi )
-%  k,?
-%  (qk )
-% with pi, qk irreducible elements of R, the task is to show that the range of the
-% indices is the same and, up to reordering, (pi) = (qi) and rij = sij for all i,
-% j.
-% Since a finitely generated module is torsion if and only if its annihilator is
-% nonzero (Exercise 4.4), it is reasonable that Ann(M ) will be of some use here.
-% 26 Recall that this means that every element of T is a torsion element; cf.
-% \S{}4.1.
-% Lemma 5.7. Let M be a torsion module, expressed as in Theorem 5.6 (with rk M =
-% 0). Then Ann(M ) = (am). Further, the prime ideals (qi ) are precisely the prime
-% ideals of R containing Ann(M ).
-% Proof. By hypothesis
-% M \sim 
-%  =
-%  R
-%  \oplus  \cdot \cdot \cdot  \oplus 
-%  R
-%  ,
-% (a1 )
-%  (am )
-% with a1 | \dots  | am . If r \in  Ann(M ), then
-% 0 = r(1, . . . , 1) = (r, . . . , r).
-% In particular r \equiv  0 modulo (am ); that is, r \in  (am ). Thus Ann(M )
-% \subseteq  (a m ).
-% For the reverse inclusion, assume r \in  (am ) and y \in  M . Identifying M with
-% its
-% decomposition, write y = (y1 , . . . , ym ), with yi \in  R/(ai ). Since r \in
-% (a m ) \subseteq  (ai ), we
-% have ryi = 0 for all i; therefore ry = 0, and r \in  Ann(M ) as needed.
-% For the second part of the statement, tracing the equivalence between the two
-% decompositions in Theorem 5.6 shows that the qi's are precisely the irreducible
-% factors of am , so the assertion follows from the first part.
-%  ?
-% By Lemma 5.7, the sets {pi }, {qk } of irreducibles appearing in (*) must co-
-% incide (up to inessential units): the ideals they generate are precisely the
-% prime
-% ideals containing Ann(M ). The fact that the sets coincide also follows from the
-% observation that the isomorphism in (*) must match like primes, in the sense
-% that
-% an element of a factor
-% R
-% r
-% ij(pi )
-% in the source must land in a combination of quotients in the target by powers of
-% the
-% same prime pi ; this follows by comparing annihilators (cf. Exercise 5.11).
-% Therefore,
-% uniqueness is reduced to the case of a single irreducible q \in  R: it suffices
-% to show
-% that if
-% R
-%  \oplus  \dots  \oplus  R
-%  = \sim 
-%  R
-%  \oplus  \dots  \oplus  R
-%  ,
-% (q r
-%  )
-%  (qrm )
-%  (q s1 )
-%  (qsn )
-% with r1 \geq  \dots  \geq  rm and s1 \geq  \dots  \geq  sn , then m = n and ri =
-% si for all i. This
-% situation reproduces precisely the key step the reader used in the proof of
-% uniqueness
-% for the particular case of abelian groups, in Exercise IV.6.1. Of course I will
-% not
-% spoil the reader's fun by giving any more details this time (Exercise 5.12).
-% Remark 5.8. To summarize, the information carried by a torsion module over a
-% PID is equivalent to the choice of a selection of nonzero, nonunit ideals (a1 ),
-% . . . , (am )
-% such that
-% (a1) \supseteq  (a2 ) \supseteq  \dots  \supseteq  (am ).
-% We have seen that (am) is in fact the annihilator ideal of the module; it would
-% be
-% nice if we had a similarly explicit description of all invariants (a1 ), . . . ,
-% (am ). As a
-% preview of coming attractions, we could call the ideal
-% (a1 \dots  am)
-% the characteristic ideal of the module27. In situations in which we can compute
-% both the annihilator and the characteristic ideal, comparing them may lead to
-% 27 Warning: This does not seem to be standard terminology.
+\begin{thm}{}{linalg:5.6}
+Let $R$ be a PID, and let $M$ be a finitely generated $R$-module. Then
+the following hold:
+\begin{itemize}
+\item There exist distinct prime ideals
+$(q_1), \dots, (q_n) \subseteq R$, positive integers $r_{ij}$, and an
+isomorphism
+\[
+M \cong R^{\operatorname{rk} M} \oplus \left( \bigoplus_{i,j}
+\frac{R}{(q_i^{r_{ij}})} \right).
+\]
+\item There exist nonzero, nonunit ideals $(a_1), \dots, (a_m)$ of $R$,
+such that $(a_1) \supseteq (a_2) \supseteq \dots \supseteq (a_m)$, and
+an isomorphism
+\[
+M \cong R^{\operatorname{rk} M} \oplus \frac{R}{(a_1)} \oplus \dots
+\oplus \frac{R}{(a_m)}.
+\]
+\end{itemize}
+These decompositions are unique (in the evident sense).
+\end{thm}
+After all our preparatory work, this statement practically proves
+itself. I will describe the arguments in general terms, leaving the
+details to the enterprising reader.
+
+The two forms taken by the theorem go under the name of
+\emph{invariant factors} and \emph{elementary divisors}, as in the case
+of abelian groups. As in the case of abelian groups, the equivalence
+between the two formulations amounts to careful bookkeeping, and we
+will not prove it formally; see \S{}IV.6.2 for a reminder of how to go
+from one to the other. The role played by Lemma~IV.6.1 in that
+discussion is taken over by the Chinese remainder theorem,
+Theorem~V.6.1, in this more general setting.
+
+As the two formulations are equivalent, it suffices to prove the
+existence and uniqueness of the decompositions given in Theorem~5.6 for
+any one of the two.
+
+The existence is a direct consequence of the results in \S{}5.1.
+Indeed, let $M$ be a finitely generated module; thus there is an
+epimorphism
+\[
+R^n \xrightarrow{\pi} M \to 0
+\]
+where $n$ is the number of generators of $M$. Apply Corollary~5.3 to
+the submodule $\ker\pi \subseteq R^n$: there exist a basis
+$(x_1, \dots, x_n)$ of $R^n$ and nonzero elements $a_1, \dots, a_m$ of
+$R$ such that $(a_1 x_1, \dots, a_m x_m)$ is a basis of $\ker\pi$ and
+further $a_1 \mid \dots \mid a_m$. That is, $M$ is presented by the
+$n \times m$ matrix
+\[
+\begin{pmatrix}
+a_1 & \cdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \cdots & a_m \\
+0 & \dots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \dots & 0
+\end{pmatrix}.
+\]
+By Proposition~4.13, we may assume that $a_1, \dots, a_m$ are not
+units: if any one of them is, the corresponding row and column may be
+omitted from the matrix (and $n$ corrected accordingly). It follows
+that
+\[
+M \cong \frac{R}{(a_1)} \oplus \dots \oplus \frac{R}{(a_m)} \oplus
+R^{(n-m)}
+\]
+with $a_1 \mid \dots \mid a_m$ nonzero nonunits, as prescribed by
+Theorem~5.6, and the existence is proved.
+
+As for the uniqueness of the representations, if
+\[
+M \cong R^r \oplus T,
+\]
+with $T$ a torsion module\footnote{Recall that this means that every
+element of $T$ is a torsion element; cf.\ \S{}4.1.}, then
+$r = \operatorname{rk} M$ and $T \cong \operatorname{Tor}_R(M)$
+$\cong \operatorname{Tor}_R(M)$ (Exercise~5.10). Thus, the `free part'
+and the `torsion part' in the decompositions given in Theorem~5.6 are
+determined uniquely.
+
+This reduces the uniqueness question to the structure of torsion
+modules: assuming that
+\[
+\tag{*}
+\bigoplus_{i,j} \frac{R}{(p_i^{r_{ij}})} \cong \bigoplus_{k,\ell}
+\frac{R}{(q_k^{s_{k\ell}})},
+\]
+with $p_i, q_k$ irreducible elements of $R$, the task is to show that
+the range of the indices is the same and, up to reordering,
+$(p_i) = (q_i)$ and $r_{ij} = s_{ij}$ for all $i, j$.
+
+Since a finitely generated module is torsion if and only if its
+annihilator is nonzero (Exercise~4.4), it is reasonable that
+$\operatorname{Ann}(M)$ will be of some use here.
+\begin{lem}{}{linalg:5.7}
+Let $M$ be a torsion module, expressed as in Theorem~5.6 (with
+$\operatorname{rk} M = 0$). Then $\operatorname{Ann}(M) = (a_m)$.
+Further, the prime ideals $(q_i)$ are precisely the prime ideals of $R$
+containing $\operatorname{Ann}(M)$.
+\end{lem}
+\begin{proof}
+By hypothesis
+\[
+M \cong \frac{R}{(a_1)} \oplus \dots \oplus \frac{R}{(a_m)},
+\]
+with $a_1 \mid \dots \mid a_m$. If $r \in \operatorname{Ann}(M)$, then
+\[
+0 = r(1, \dots, 1) = (r, \dots, r).
+\]
+In particular $r \equiv 0$ modulo $(a_m)$; that is, $r \in (a_m)$. Thus
+$\operatorname{Ann}(M) \subseteq (a_m)$.
+
+For the reverse inclusion, assume $r \in (a_m)$ and $y \in M$.
+Identifying $M$ with its decomposition, write $y = (y_1, \dots, y_m)$,
+with $y_i \in R/(a_i)$. Since $r \in (a_m) \subseteq (a_i)$, we have
+$ry_i = 0$ for all $i$; therefore $ry = 0$, and
+$r \in \operatorname{Ann}(M)$ as needed.
+
+For the second part of the statement, tracing the equivalence between
+the two decompositions in Theorem~5.6 shows that the $q_i$'s are
+precisely the irreducible factors of $a_m$, so the assertion follows
+from the first part.
+\end{proof}
+
+By Lemma~5.7, the sets $\{p_i\}$, $\{q_k\}$ of irreducibles appearing
+in $(*)$ must coincide (up to inessential units): the ideals they
+generate are precisely the prime ideals containing
+$\operatorname{Ann}(M)$. The fact that the sets coincide also follows
+from the observation that the isomorphism in $(*)$ must match like
+primes, in the sense that an element of a factor
+$R/(p_i^{r_{ij}})$ in the source must land in a combination of
+quotients in the target by powers of the same prime $p_i$; this follows
+by comparing annihilators (cf.\ Exercise~5.11). Therefore, uniqueness
+is reduced to the case of a single irreducible $q \in R$: it suffices
+to show that if
+\[
+\frac{R}{(q^{r_1})} \oplus \dots \oplus \frac{R}{(q^{r_m})} \cong
+\frac{R}{(q^{s_1})} \oplus \dots \oplus \frac{R}{(q^{s_n})},
+\]
+with $r_1 \geq \dots \geq r_m$ and $s_1 \geq \dots \geq s_n$, then
+$m = n$ and $r_i = s_i$ for all $i$. This situation reproduces
+precisely the key step the reader used in the proof of uniqueness for
+the particular case of abelian groups, in Exercise~IV.6.1. Of course I
+will not spoil the reader's fun by giving any more details this time
+(Exercise~5.12).
+
+\begin{rem}{}{linalg:5.8}
+To summarize, the information carried by a torsion module over a PID
+is equivalent to the choice of a selection of nonzero, nonunit ideals
+$(a_1), \dots, (a_m)$ such that
+\[
+(a_1) \supseteq (a_2) \supseteq \dots \supseteq (a_m).
+\]
+We have seen that $(a_m)$ is in fact the annihilator ideal of the
+module; it would be nice if we had a similarly explicit description of
+all invariants $(a_1), \dots, (a_m)$. As a preview of coming
+attractions, we could call the ideal
+\[
+(a_1 \dots a_m)
+\]
+the \emph{characteristic ideal} of the module\footnote{Warning: This
+does not seem to be standard terminology.}. In situations in which we
+can compute both the annihilator and the characteristic ideal,
+comparing them may lead to strong conclusions about the module. For
+example, a torsion module is cyclic if and only if its annihilator and
+characteristic ideals coincide.
+
+Further, the prime ideals appearing in Theorem~5.6 have been
+characterized as the prime ideals containing the annihilator ideal.
+They may just as well be characterized as those prime ideals containing
+the characteristic ideal, as the reader will check (Exercise~5.15).
+
+Finally, note that from this point of view it is immediate that the
+characteristic ideal is contained in the annihilator ideal. We will run
+into this fact again, in an important application (Theorem~6.11).
+\end{rem}
 
 \subsection*{Exercises}
 
-% strong conclusions about the module. For example, a torsion module is cyclic if
-% and only if its annihilator and characteristic ideals coincide.
-% Further, the prime ideals appearing in Theorem 5.6 have been characterized
-% as the prime ideals containing the annihilator ideal. They may just as well be
-% characterized as those prime ideals containing the characteristic ideal, as the
-% reader
-% will check (Exercise 5.15).
-% Finally, note that from this point of view it is immediate that the
-% characteristic
-% ideal is contained in the annihilator ideal. We will run into this fact again,
-% in an
-% important application (Theorem 6.11).
-%  ?
-% 5.1. ? Let N , P be submodules of a module M , such that N \cap  P = {0} and
-% M = N + P . Prove that M \sim 
-%  = N \oplus  P . (This is a word-for-word repetition of
-% Proposition IV.5.3 for modules.) [\S{}5.1]
-% 5.2. Let R be an integral domain, and let M be a finitely generated R-module.
-% Prove that M is torsion if and only if rk M = 0.
-% 5.3. Complete the proof of Corollary 5.3.
-% 5.4. Let R be an integral domain, and assume that a, b \in  R are such that a =
-% 0,
-% b \in 
-%  / (a), and R/(a), R/(a, b) are both integral domains.
-% \bullet  Prove that the Krull dimension of R is at least 2.
-% \bullet  Prove that if R satisfies the finiteness condition discussed in \S{}5.2 for some n,
-% then n \geq  2.
-% You can prove this second point by appealing to Proposition 5.4. For a more
-% concrete argument, you should look for an R-module admitting a free resolution
-% of
-% length 2 which cannot be shortened.
-% \bullet  Prove that (a, b) is a regular sequence in R (Exercise 4.13).
-% \bullet  Prove that the R-module R/(a, b) has a free resolution of length exactly 2.
-% Can you see how to construct analogous situations with n \geq  3 elements a1, .
-% . . , an ?
-% 5.5. \lnot  Recall (Exercise V.4.11) that a commutative ring is local if it has
-% a single
-% maximal ideal m. Let R be a local ring, and let M be a direct summand of a
-% finitely
-% generated free R-module: that is, there exists an R-module N such that M \oplus
-% N is
-% a free R-module.
-% \bullet  Choose elements m1 , . . . , mr \in  M whose cosets mod mM are a basis of M/mM
-% as a vector space over the field R/m. By Nakayama's lemma, M = ?m1 , . . . , mr
-% ?
-% (Exercise 3.10).
-% \bullet  Obtain a surjective homomorphism \pi  : F = R\oplus r \to  M .
-% \bullet  Show that \pi  splits, giving an isomorphism F = \sim 
-%  M \oplus  ker \pi . (Apply Exer-
-% cise III.6.9 to the surjective homomorphism \pi  and the free module M \oplus  N
-% to
-% obtain a splitting M \to  F ; then use Proposition III.7.5.)
-% \bullet  Show ker \pi /m ker \pi  = 0. Use Nakayama's lemma (Exercise 3.8) to deduce that
-% ker \pi  = 0.
-% \bullet  Conclude that M \sim 
-%  = F is in fact free. [VIII.2.24, VIII.6.8, VIII.6.11]
-% Summarizing, over a local ring, every direct summand of a finitely generated28
-% free R-module is free. Using the terminology we will introduce in Chapter VIII,
-% we
-% would say that `projective modules over local rings are free'. This result has
-% strong
-% implications in algebraic geometry, since it underlies the notion of vector
-% bundle.
-% Contrast this fact with Proposition 5.1, which shows that, over a PID, every
-% submodule of a finitely generated free module is free.
-% 5.6. ? Let R be an integral domain, and let M = ?m1 , . . . , mr ? be a finitely
-% gener-
-% ated module. Prove that rk M \leq  r. (Use Exercise 3.12.) [\S{}5.3]
-% 5.7. Let R be an integral domain, and let M be a finitely generated module over
-% R.
-% Prove that rk M = rk(M/ Tor(M )).
-% 5.8. Let R be an integral domain, and let M be a finitely generated module over
-% R.
-% Prove that rk M = r if and only if M has a free submodule N \sim 
-%  = Rr , such that
-% M/N is torsion.
-% If R is a PID, then N may be chosen so that 0 \to  N \to  M \to  M/N \to  0
-% splits.
-% 5.9. Let R be an integral domain, and let
-%  / M1
-%  / M2
-%  / M3
-%  / 0
-% be an exact sequence of finitely generated R-modules. Prove that rk M2 = rk M1 +
-% rk M3 .
-% Deduce that `rank' defines a homomorphism from the Grothendieck group of
-% the category of finitely generated R-modules to Z (cf. \S{}3.4).
-% 5.10. ? Let R be an integral domain, M an R-module, and assume M = \sim 
-%  Rr \oplus  T ,
-% with T a torsion module. Prove directly (that is, without using Theorem 5.6)
-% that
-% r = rk M and T \sim 
-%  = TorR (M ). [\S{}5.3]
-% 5.11. ? Let R be an integral domain, let M , N be R-modules, and let \phi  : M
-% \to  N
-% be a homomorphism. For m \in  M , show that Ann(?m?) \subseteq  Ann(?\phi (m)?).
-% [\S{}5.3]
-% 5.12. ? Complete the proof of uniqueness in Theorem 5.6. (The hint in Exer-
-% cise IV.6.1 may be helpful.) [\S{}5.3]
-% 5.13. Let M be a finitely generated module over an integral domain R.
-% Prove that if R is a PID, then M is torsion-free if and only if it is free.
-% Prove
-% that this property characterizes PIDs. (Cf. Exercise 4.3.)
-% 5.14. Give an example of a finitely generated module over an integral domain
-% which
-% is not isomorphic to a direct sum of cyclic modules.
-% 28 The finite rank hypothesis is actually unnecessary, but the proof is harder
-% without this
-% condition.
+\begin{exer}{\exerused}{exer:linalg:5.1}
+Let $N$, $P$ be submodules of a module $M$, such that $N \cap P =
+\{0\}$ and $M = N + P$. Prove that $M \cong N \oplus P$. (This is a
+word-for-word repetition of Proposition~IV.5.3 for modules.) [$\S$5.1]
+\end{exer}
+\begin{exer}{}{exer:linalg:5.2}
+Let $R$ be an integral domain, and let $M$ be a finitely generated
+$R$-module. Prove that $M$ is torsion if and only if
+$\operatorname{rk} M = 0$.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.3}
+Complete the proof of Corollary~5.3.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.4}
+Let $R$ be an integral domain, and assume that $a, b \in R$ are such
+that $a \neq 0$, $b \notin (a)$, and $R/(a)$, $R/(a,b)$ are both
+integral domains.
+\begin{itemize}
+\item Prove that the Krull dimension of $R$ is at least $2$.
+\item Prove that if $R$ satisfies the finiteness condition discussed
+in \S{}5.2 for some $n$, then $n \geq 2$.
+\end{itemize}
+You can prove this second point by appealing to Proposition~5.4. For a
+more concrete argument, you should look for an $R$-module admitting a
+free resolution of length $2$ which cannot be shortened.
+\begin{itemize}
+\item Prove that $(a,b)$ is a regular sequence in $R$ (Exercise~4.13).
+\item Prove that the $R$-module $R/(a,b)$ has a free resolution of
+length exactly $2$.
+\end{itemize}
+Can you see how to construct analogous situations with $n \geq 3$
+elements $a_1, \dots, a_n$?
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:5.5}
+Recall (Exercise~V.4.11) that a commutative ring is \emph{local} if it
+has a single maximal ideal $\mathfrak{m}$. Let $R$ be a local ring, and
+let $M$ be a direct summand of a finitely generated free $R$-module:
+that is, there exists an $R$-module $N$ such that $M \oplus N$ is a
+free $R$-module.
+\begin{itemize}
+\item Choose elements $m_1, \dots, m_r \in M$ whose cosets mod
+$\mathfrak{m}M$ are a basis of $M/\mathfrak{m}M$ as a vector space over
+the field $R/\mathfrak{m}$. By Nakayama's lemma,
+$M = \langle m_1, \dots, m_r \rangle$ (Exercise~3.10).
+\item Obtain a surjective homomorphism $\pi : F = R^{\oplus r} \to M$.
+\item Show that $\pi$ splits, giving an isomorphism
+$F \cong M \oplus \ker\pi$. (Apply Exercise~III.6.9 to the surjective
+homomorphism $\pi$ and the free module $M \oplus N$ to obtain a
+splitting $M \to F$; then use Proposition~III.7.5.)
+\item Show $\ker\pi/\mathfrak{m}\ker\pi = 0$. Use Nakayama's lemma
+(Exercise~3.8) to deduce that $\ker\pi = 0$.
+\item Conclude that $M \cong F$ is in fact free. [VIII.2.24, VIII.6.8,
+VIII.6.11]
+\end{itemize}
+Summarizing, over a local ring, every direct summand of a finitely
+generated\footnote{The finite rank hypothesis is actually unnecessary,
+but the proof is harder without this condition.} free $R$-module is
+free. Using the terminology we will introduce in Chapter~VIII, we would
+say that `projective modules over local rings are free'. This result
+has strong implications in algebraic geometry, since it underlies the
+notion of vector bundle.
+
+Contrast this fact with Proposition~5.1, which shows that, over a PID,
+every submodule of a finitely generated free module is free.
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.6}
+Let $R$ be an integral domain, and let $M = \langle m_1, \dots, m_r
+\rangle$ be a finitely generated module. Prove that
+$\operatorname{rk} M \leq r$. (Use Exercise~3.12.) [$\S$5.3]
+\end{exer}
+\begin{exer}{}{exer:linalg:5.7}
+Let $R$ be an integral domain, and let $M$ be a finitely generated
+module over $R$. Prove that
+$\operatorname{rk} M = \operatorname{rk}(M/\operatorname{Tor}(M))$.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.8}
+Let $R$ be an integral domain, and let $M$ be a finitely generated
+module over $R$. Prove that $\operatorname{rk} M = r$ if and only if
+$M$ has a free submodule $N \cong R^r$, such that $M/N$ is torsion.
+
+If $R$ is a PID, then $N$ may be chosen so that
+$0 \to N \to M \to M/N \to 0$ splits.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.9}
+Let $R$ be an integral domain, and let
+\[
+0 \to M_1 \to M_2 \to M_3 \to 0
+\]
+be an exact sequence of finitely generated $R$-modules. Prove that
+$\operatorname{rk} M_2 = \operatorname{rk} M_1 + \operatorname{rk} M_3$.
+
+Deduce that `rank' defines a homomorphism from the Grothendieck group
+of the category of finitely generated $R$-modules to $\mathbb{Z}$
+(cf.\ \S{}3.4).
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.10}
+Let $R$ be an integral domain, $M$ an $R$-module, and assume
+$M \cong R^r \oplus T$, with $T$ a torsion module. Prove directly (that
+is, without using Theorem~5.6) that $r = \operatorname{rk} M$ and
+$T \cong \operatorname{Tor}_R(M)$. [$\S$5.3]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.11}
+Let $R$ be an integral domain, let $M$, $N$ be $R$-modules, and let
+$\varphi : M \to N$ be a homomorphism. For $m \in M$, show that
+$\operatorname{Ann}(\langle m \rangle) \subseteq
+\operatorname{Ann}(\langle \varphi(m) \rangle)$. [$\S$5.3]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.12}
+Complete the proof of uniqueness in Theorem~5.6. (The hint in
+Exercise~IV.6.1 may be helpful.) [$\S$5.3]
+\end{exer}
+\begin{exer}{}{exer:linalg:5.13}
+Let $M$ be a finitely generated module over an integral domain $R$.
+Prove that if $R$ is a PID, then $M$ is torsion-free if and only if it
+is free. Prove that this property characterizes PIDs. (Cf.\
+Exercise~4.3.)
+\end{exer}
+\begin{exer}{}{exer:linalg:5.14}
+Give an example of a finitely generated module over an integral domain
+which is not isomorphic to a direct sum of cyclic modules.
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.15}
+Prove that the prime ideals appearing in the elementary divisor
+version of the classification theorem for a torsion module $M$ over a
+PID are the prime ideals containing the characteristic ideal of $M$,
+as defined in Remark~5.8. [$\S$5.3]
+\end{exer}
+\begin{exer}{}{exer:linalg:5.16}
+Prove that the prime ideals appearing in the elementary divisor
+version of the classification theorem for a module $M$ over a PID are
+the associated primes of $M$, as defined in Exercise~4.5.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.17}
+Let $R$ be a PID. Prove that the Grothendieck group (cf.\ \S{}3.4) of
+the category of finitely generated $R$-modules is isomorphic to
+$\mathbb{Z}$.
+\end{exer}
 
 \section{Linear transformations of a free module}
 \label{sec:linalg:linear-transformations-of-a-free-module}
