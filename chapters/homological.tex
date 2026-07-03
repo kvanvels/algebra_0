@@ -7815,205 +7815,148 @@ the discussion to the bounded case.
 
 \subsection{Exactness of the total complex}
 \label{subsec:homol:exactness-of-the-total-complex}
-% The cohomology of the total complex of
 
-% a double complex can be computed by an extremely clever device called spectral
-% sequence, which we will (briefly) encounter in \S{}9.3. There are standard
-% situations,
-% however, in which one can conclude immediately that the total complex is exact,
-% and this is at the root of the applications I will present. The statement is
-% neat and
-% memorable:
-% Theorem 8.9. Let A be an abelian category, and let
-% (*)
-%  \cdot \cdot \cdot 
-%  / M -3,\bullet 
-%  / M -2,\bullet 
-%  / M -1,\bullet 
-%  / M 0,\bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% \leq 0 \leq 0 \bullet be a complex in C (C (A)). Let T be the corresponding total complex. Then
-% \bullet  if (*) is exact, then T \bullet  is exact;
-% \bullet  if each complex M i,\bullet  is exact, then T \bullet  is exact.
-% The proof will yield a more precise statement on the vanishing of individual
-% degrees of the cohomology of the total complex (Exercise 8.6).
-% \geq 0 \geq 0Mutatis mutandis, Theorem 8.9 holds for complexes in C (C (A)), with mi-
-% croscopic adjustments to the proof; I will take this for granted in the
-% applications.
-% In fact, the boundedness hypothesis can be relaxed: one of the two given
-% exactness
-% statements will still hold if only one of the C is bounded. The point is that
-% the
-% proof relies on an inductive argument, which goes through as soon as it has a
-% place
-% to start. The reader is welcome to explore all these ramifications.
-% In terms of double complexes, Theorem 8.9 says that the total complex of a
-% (suitably bounded) double complex is exact if the rows or the columns of the
-% double
-% complex are exact.
-% Proof. It is enough to prove the second statement: the first one follows by
-% flipping
-% the double complex corresponding to (*) (cf. Exercise 8.4).
-% 34A clever way out of the sign quagmire in this computation is to choose another
-% way to
-% get a double complex out of HomA (L\bullet  , M \bullet ). For example,
-% replacing the vertical differentials di,j
-%  v
-% by (-1)i+j+1di,j
-%  v still makes the array anticommutative as needed and irons out annoying sign
-% mismatches elsewhere.
-% To prove the second statement, we assume that the columns in the staggered
-% (anticommutative) diagram
-% 0 O
-% 0 O
-%  s s dh s
-%  s s s s
-%  s \delta v
-%  M
-%  9 0,0
-%  O
-% -1,0
-%  0,-1
-%  O r r dh r
-%  r
-%  r r r
-%  M r 8 O
-%  \delta v
-%  s s dh s
-%  s
-%  s s s
-%  M s \delta v
-%  9 O
-% -2,0
-%  -1,-1
-%  0,-2
-% 0 O
-%  s s
-%  dh
-%  s
-%  s
-%  s
-%  s
-%  s M s
-%  \delta v
-%  9 O
-%  r r
-%  dh r
-%  r
-%  r r r
-%  M r
-%  8 O
-%  \delta v
-%  s s
-%  dh s
-%  s
-%  s s s
-%  M s
-%  \delta v
-%  9 O
-% -3,0
-%  -2,-1
-%  -1,-2
-%  0,-3
-% q
-%  q
-%  q
-%  q q q
-%  q q
-%  q
-%  q
-%  M
-%  8 O
-%  p
-%  p
-%  p
-%  p p p
-%  p p
-%  p
-%  M p
-%  8 O
-%  o
-%  o
-%  o
-%  oo o
-%  o o
-% o
-%  M o
-%  7 O
-%  p
-%  p
-%  p
-%  p p p
-%  p p
-%  p
-%  p
-%  M
-%  8 O
-% associated with (*) are exact and that we have an element
-% m = (m0 , m -1 , \dots  , m-i ) \in  M -i,0 \oplus  M -i+1,-1 \oplus  \dots
-% \oplus  M 0,-i
-% such that d-i
-%  tot (m) = 0; we are expected to produce an element
-% n = (n0 , n-1 , \dots  , n-i-1 ) \in  M -i-1,0 \oplus  M -i,-1 \oplus  M -i+1,-2
-% \oplus  \dots  \oplus  M 0,-i-1
-% -i-1
-% such that dtot (n) = m.
-% The little induction that accomplishes this is conceptually very simple, but
-% notationally challenging. I believe that viewing it in action in a simple case
-% (I will
-% choose i = 2) suffices to convey all that needs to be conveyed. Thus, assume
-% that
-% m = (m0 , m-1 , m-2 ) is in the kernel of dtot ; that is,
-% ?
-% dh (m0) + \delta v (m-1 ) = 0,
-% -1 -2dh (m ) + \delta v (m ) = 0.
-% I choose n0 = 0. Since M -2,\bullet  is exact, there exists n-1 \in  M -2,-1
-% such that
-% \delta v (n-1 ) = m0 . Since the diagram anticommutes,
-% \delta v \circ  dh (n-1 ) = -dh \circ  \delta v (n-1 ) = -dh (m0 ) = \delta v (m-1 ).
-% Therefore, m-1 - dh (n-1 ) \in  ker \delta  v , and since M -1,\bullet  is
-% exact, there exists n-2 \in
-% M -1,-2 such that \delta v (n-2) = m-1 - d h (n-1 ). That is,
-% -1 -2 -1d h (n ) + \delta v (n ) = m .
-% The next step is entirely analogous:
-% \delta v \circ  dh (n-2 ) = -dh \circ  \delta v (n-2 ) = -dh (m-1 - d h (n-1 )) = -dh(m-1 ) = \delta v (m-2 )
-% (using the fact that dh \circ  dh = 0); therefore m-2 - dh (n-2 ) \in  ker
-% \delta v , and since M 0,\bullet
-% is exact, there exists n-3 \in  M 0,-2 such that \delta v (n-3 ) = m-2 - dh (n-2
-% ). That is,
-% d h (n-2 ) + \delta v (n-3) = m-2 .
-% With these choices, dtot (n) equals
-% dh (n0) + \delta v (n-1) + dh (n-1 ) + \delta v (n-2 ) + dh (n-2 ) + \delta v
-% (n-3 ) = 0 + m0 + m-1 + m-2 = m
-% as needed.
-% The case for arbitrary i simply requires additional repetitions of the basic
-% steps
-% performed for i = 2.
-%  ?
-% \bullet Example 8.10. Here is a taste of how convenient Theorem 8.9 is. Let P be a
-% complex in C\leq 0(A), where each P i is projective, and let L\bullet  be an
-% exact complex
-% in C\geq 0(A). Since P i is projective, HomA (P i , L\bullet  ) is still exact.
-% Therefore, the
-% complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / HomA (P 0, L\bullet  )
-%  / HomA (P -1 , L\bullet  )
-%  / HomA(P -2 , L\bullet  )
-%  / \cdot \cdot \cdot 
-% satisfies the hypothesis of the second statement given in Theorem 8.9 (in the
-% sym-
-% metrically bounded version). According to Theorem 8.9, the corresponding to-
-% tal complex is exact; as seen in Example 8.8 (cf. Exercise 8.5), this says that
-% HomK(A) (P \bullet  , L[i]\bullet  ) = 0 for all i. In other words, every
-% cochain morphism from a
-% bounded-above complex of projectives to a bounded-below exact complex is homo-
-% topic to 0. This recovers Corollary 5.12, up to easy adjustments, taking care of
-% the
-% boundedness hypothesis on L\bullet  .
-%  ?
+The cohomology of the total complex of a double complex can be
+computed by an extremely clever device called \emph{spectral
+sequence}, which we will (briefly) encounter in \S{}9.3. There are
+standard situations, however, in which one can conclude immediately
+that the total complex is exact, and this is at the root of the
+applications I will present. The statement is neat and memorable:
+
+\begin{thm}{}{thm:homol:8.9}
+  Let $\mathsf{A}$ be an abelian category, and let
+  \[
+    (*) \qquad
+    \begin{tikzcd}
+      \dots \arrow[r] & M^{-3,\bullet} \arrow[r] & M^{-2,\bullet}
+      \arrow[r] & M^{-1,\bullet} \arrow[r] & M^{0,\bullet} \arrow[r]
+      & 0 \arrow[r] & \dots
+    \end{tikzcd}
+  \]
+  be a complex in $\mathsf{C}^{\le 0}(\mathsf{C}^{\le 0}(\mathsf{A}))$.
+  Let $T^\bullet$ be the corresponding total complex. Then
+  \begin{itemize}
+  \item if $(*)$ is exact, then $T^\bullet$ is exact;
+  \item if each complex $M^{i,\bullet}$ is exact, then $T^\bullet$ is
+    exact.
+  \end{itemize}
+\end{thm}
+
+The proof will yield a more precise statement on the vanishing of
+individual degrees of the cohomology of the total complex
+(Exercise~8.6).
+
+\emph{Mutatis mutandis}, Theorem~\ref{thm:homol:8.9} holds for
+complexes in $\mathsf{C}^{\ge 0}(\mathsf{C}^{\ge 0}(\mathsf{A}))$,
+with microscopic adjustments to the proof; I will take this for
+granted in the applications. In fact, the boundedness hypothesis can
+be relaxed: one of the two given exactness statements will still
+hold if only one of the two $\mathsf{C}$ is bounded. The point is
+that the proof relies on an inductive argument, which goes through
+as soon as it has a place to start. The reader is welcome to explore
+all these ramifications.
+
+In terms of double complexes, Theorem~\ref{thm:homol:8.9} says that
+the total complex of a (suitably bounded) double complex is exact if
+the rows or the columns of the double complex are exact.
+
+\begin{proof}
+  It is enough to prove the second statement: the first one follows
+  by flipping the double complex corresponding to $(*)$ (cf.\
+  Exercise~8.4).
+
+  To prove the second statement, we assume that the columns in the
+  staggered (anticommutative) diagram
+  % TODO: diagram of the staggered (anticommutative) grid associated
+  % with (*) (source book page 671): the same staircase-offset grid
+  % as in §8.2, here decorated with the specific element being
+  % chased (m^0, m^{-1}, \dots at the bottom row, zeros bounding the
+  % top and right); purely illustrates the induction carried out
+  % algebraically below, no separate mathematical content.
+  associated with $(*)$ are exact and that we have an element
+  \[
+    m = (m^0, m^{-1}, \dots, m^{-i}) \in M^{-i,0} \oplus M^{-i+1,-1}
+    \oplus \dots \oplus M^{0,-i}
+  \]
+  such that $d_{tot}^{-i}(m) = 0$; we are expected to produce an
+  element
+  \[
+    n = (n^0, n^{-1}, \dots, n^{-i-1}) \in M^{-i-1,0} \oplus
+    M^{-i,-1} \oplus M^{-i+1,-2} \oplus \dots \oplus M^{0,-i-1}
+  \]
+  such that $d_{tot}^{-i-1}(n) = m$.
+
+  The little induction that accomplishes this is conceptually very
+  simple, but notationally challenging. I believe that viewing it in
+  action in a simple case (I will choose $i = 2$) suffices to convey
+  all that needs to be conveyed. Thus, assume that $m = (m^0,
+  m^{-1}, m^{-2})$ is in the kernel of $d_{tot}$; that is,
+  \[
+    \begin{cases}
+      d_h(m^0) + \delta_v(m^{-1}) = 0, \\
+      d_h(m^{-1}) + \delta_v(m^{-2}) = 0.
+    \end{cases}
+  \]
+  I choose $n^0 = 0$. Since $M^{-2,\bullet}$ is exact, there exists
+  $n^{-1} \in M^{-2,-1}$ such that $\delta_v(n^{-1}) = m^0$. Since
+  the diagram anticommutes,
+  \[
+    \delta_v \circ d_h(n^{-1}) = -d_h \circ \delta_v(n^{-1}) =
+    -d_h(m^0) = \delta_v(m^{-1}).
+  \]
+  Therefore, $m^{-1} - d_h(n^{-1}) \in \ker \delta_v$, and since
+  $M^{-1,\bullet}$ is exact, there exists $n^{-2} \in M^{-1,-2}$
+  such that $\delta_v(n^{-2}) = m^{-1} - d_h(n^{-1})$. That is,
+  \[
+    d_h(n^{-1}) + \delta_v(n^{-2}) = m^{-1}.
+  \]
+  The next step is entirely analogous:
+  \[
+    \delta_v \circ d_h(n^{-2}) = -d_h \circ \delta_v(n^{-2}) =
+    -d_h(m^{-1} - d_h(n^{-1})) = -d_h(m^{-1}) = \delta_v(m^{-2})
+  \]
+  (using the fact that $d_h \circ d_h = 0$); therefore $m^{-2} -
+  d_h(n^{-2}) \in \ker \delta_v$, and since $M^{0,\bullet}$ is
+  exact, there exists $n^{-3} \in M^{0,-2}$ such that
+  $\delta_v(n^{-3}) = m^{-2} - d_h(n^{-2})$. That is,
+  \[
+    d_h(n^{-2}) + \delta_v(n^{-3}) = m^{-2}.
+  \]
+  With these choices, $d_{tot}(n)$ equals
+  \[
+    d_h(n^0) + \delta_v(n^{-1}) + d_h(n^{-1}) + \delta_v(n^{-2}) +
+    d_h(n^{-2}) + \delta_v(n^{-3}) = 0 + m^0 + m^{-1} + m^{-2} = m
+  \]
+  as needed.
+
+  The case for arbitrary $i$ simply requires additional repetitions
+  of the basic steps performed for $i = 2$.
+\end{proof}
+
+\begin{exam}{}{exam:homol:8.10}
+  Here is a taste of how convenient Theorem~\ref{thm:homol:8.9} is.
+  Let $P^\bullet$ be a complex in $\mathsf{C}^{\le 0}(\mathsf{A})$,
+  where each $P^i$ is projective, and let $L^\bullet$ be an
+  \emph{exact} complex in $\mathsf{C}^{\ge 0}(\mathsf{A})$. Since
+  $P^i$ is projective, $\Hom_{\mathsf{A}}(P^i, L^\bullet)$ is still
+  exact. Therefore, the complex
+  \[\begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & \Hom_{\mathsf{A}}(P^0, L^\bullet)
+    \arrow[r] & \Hom_{\mathsf{A}}(P^{-1}, L^\bullet) \arrow[r] &
+    \Hom_{\mathsf{A}}(P^{-2}, L^\bullet) \arrow[r] & \dots
+  \end{tikzcd}\]
+  satisfies the hypothesis of the second statement given in
+  Theorem~\ref{thm:homol:8.9} (in the symmetrically bounded version).
+  According to Theorem~\ref{thm:homol:8.9}, the corresponding total
+  complex is exact; as seen in Example~\ref{exam:homol:8.8} (cf.\
+  Exercise~8.5), this says that
+  $\Hom_{\mathsf{K}(\mathsf{A})}(P^\bullet, L[i]^\bullet) = 0$ for
+  all $i$. In other words, \emph{every cochain morphism from a
+  bounded-above complex of projectives to a bounded-below exact
+  complex is homotopic to $0$}. This recovers Corollary~5.12, up to
+  easy adjustments, taking care of the boundedness hypothesis on
+  $L^\bullet$.
+\end{exam}
 
 \subsection{Total complexes and resolutions}
 \label{subsec:homol:total-complexes-and-resolutions}
