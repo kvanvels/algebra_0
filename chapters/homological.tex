@@ -5649,295 +5649,360 @@ We will capitalize on these considerations in the next section.
   Complete the proof that the functor $\widetilde{\mathscr{F}}$ in
   Theorem~6.9 is unique up to natural isomorphism. [\S{}6.3]
 \end{exer}
+\begin{exer}{\exerused{}}{exer:homol:6.13}
+  (Cf. Exercise~6.2.) Let $\mathsf{A}$ be an abelian category with
+  enough projectives, and let $\widehat{\mathsf{A}}$ be the
+  subcategory of $\mathsf{K}^-(\mathsf{P})$ whose objects have
+  cohomology concentrated in degree $0$. Choosing (arbitrarily) a
+  projective resolution for every object $A$ of $\mathsf{A}$ and
+  lifting morphisms as in Proposition~6.5, we obtain a functor
+  $\mathsf{A} \to \widehat{\mathsf{A}}$; with notation as in \S{}6.3,
+  this is $\mathscr{P} \circ \iota$. It is clear that $H^0 \circ
+  \mathscr{P} \circ \iota$ is the identity functor on $\mathsf{A}$.
+  Prove that there is a natural transformation from the identity
+  functor on $\widehat{\mathsf{A}}$ to $\mathscr{P} \circ \iota \circ
+  H^0$. [\S{}7.1]
+\end{exer}
 
 \section{Derived functors}
 \label{sec:homol:derived-functors}
 
-
-\subsection{? (Cf}
-\label{subsec:homol:cf}
-% Exercise 6.2.) Let A be an abelian category with enough projectives,
-
-% -and let \^{A} be the subcategory of K (P) whose objects have cohomology
-% concentrated
-% in degree 0. Choosing (arbitrarily) a projective resolution for every object A
-% of A
-% and lifting morphisms as in Proposition 6.5, we obtain a functor A \to  \^{A};
-% with
-% notation as in \S{}6.3, this is P \circ  \iota . It is clear that H 0 \circ  P
-% \circ  \iota  is the identity functor
-% on A. Prove that there is a natural transformation from the identity functor on
-% \^{A}
-% to P \circ  \iota  \circ  H 0 . [\S{}7.1]
-% I will now adopt the blanket assumption that A is an abelian category with
-% enough
-% projectives, so that---as explained in \S{}6.3---the homotopic category K- (P)
-% is a con-
-% crete realization (up to equivalence of categories) of the derived category of
-% the
-% bounded-above complexes in A. Of course everything would go through, with ap-
-% propriate changes, for bounded-below complexes in the presence of enough injec-
-% tives. These assumptions are not necessary in order to develop this material,
-% but
-% they simplify it substantially.
+I will now adopt the blanket assumption that $\mathsf{A}$ is an
+abelian category with enough projectives, so that---as explained in
+\S{}6.3---the homotopic category $\mathsf{K}^-(\mathsf{P})$ is a
+concrete realization (up to equivalence of categories) of the
+derived category of the bounded-above complexes in $\mathsf{A}$. Of
+course everything would go through, with appropriate changes, for
+bounded-below complexes in the presence of enough injectives. These
+assumptions are not necessary in order to develop this material, but
+they simplify it substantially.
 
 \subsection{Viewpoint shift}
 \label{subsec:homol:viewpoint-shift}
-% After deriving categories, it should not seem too far-fetched
 
-% to derive functors.
-% We have seen (Exercises 6.2 and 6.13) that, if A has enough projectives, then
-% the full subcategory \^{A} of K- (P) whose objects are complexes with cohomology
-% concentrated in degree 0 is equivalent to A: H 0 is a fully faithful, surjective
-% functor
-% \^{A} \to  A. With notation as in \S{}6.3, the functor P \circ  \iota  associating with every object
-% of A a projective resolution gives a `weak' inverse to H 0. As pointed out in
-% \S{}6.3,
-% there are many different possible P; each of them will determine a copy P \circ
-% \iota (A)
-% -of A in K (P).
-% It may be argued that any such realization of (a category equivalent to) A is
-% `better' than A itself. Indeed, I have repeatedly stressed that all the
-% cohomological
-% information carried by a complex is ideally captured by viewing that complex in
-% the derived category, and for the complex \iota (M ) determined in the simplest
-% way by
-% an object M of A, this simply means replacing \iota (M ) with any projective
-% resolution
-% -of M , viewed as an object of K (P).
-% This, however, raises a question: if F : A \to  B is a functor and we are
-% serious
-% -about replacing A with its counterpart(s) in D (A), then there should be a way
-% to
-% `reinterpret' F in this new context: induce in some natural way a `derived
-% functor'
-% D- (A) \to  D- (B). One would hope that this functor should carry at least as
-% much
-% information as F and satisfy better properties.
-% Now I claim that there indeed is an evident way to induce a functor between
-% -the realizations of the derived categories in terms of K (P). It is a little
-% less clear
-% what question this functor answers---that is, what kind of universal property it
-% satisfies. The reader is invited to sort all of this out before I do it.
-% Say that F : A \to  B is an additive functor between two abelian categories. It
-% is clear that F extends to a functor
-% C(F )
-%  :
-%  C(A) \to  C(B)
-% (we briefly encountered this functor in \S{}4): the complex L\bullet  is sent to
-% the complex
-% C(F )(L\bullet  ) whose objects are F (Li ) and whose differentials are F
-% (diL\bullet  ). Note that
-% the functoriality and additivity of F imply that
-% F (di+1
-%  L\bullet  ) \circ  F (dL\bullet  i
-%  ) = F (dL\bullet  i+1
-%  \circ  dL\bullet  i
-%  ) = F (0) = 0,
-% so that C(F )(L\bullet  ) is indeed a complex. It is equally clear that if
-% \alpha \bullet  is a morphism of
-% cochain complexes in C(A), then the collection F (\alpha i) defines a morphism
-% in C(B),
-% and that this assignment is functorial. Now, we already checked (Lemma 4.13)
-% that
-% homotopic morphisms in C(A) are sent to homotopic morphisms in C(B); it follows
-% that F induces a functor K(F ) : K(A) \to  K(B). The diagram
-% A
-%  F
-%  / B
-% \iota 
-%  \iota 
-% \sqcup 
-%  \sqcup 
-% K(A)
-%  / K(B)
-% K(F )
-% commutes. Also, this operation clearly preserves boundedness conditions.
-% If now it were the case that additive functors send projective objects to
-% projec-
-% - -tive objects, then we could restrict K(F ) to K (P(A)) and land in K (P(B))
-% (where
-% P(A) and P(B) denote the classes of projective objects in A, resp., B); given
-% our
-% discussion in \S{}6.3, this would give us a natural candidate for the `derived
-% functor'
-% of F .
-% However, additive functors do not preserve projectivity or injectivity in gen-
-% eral. Why should they? For example, `tensor' does not preserve projectives30
-% (Ex-
-% ercise 7.1). Assuming that B has enough projectives, the natural way to `fix'
-% this
-% problem is to apply a corresponding functor PB constructed as in \S{}6.3,
-% associating
-% with each complex a projective resolution. By Lemma 5.14, PB sends homotopic
-% morphisms to homotopic morphisms; hence PB also descends to a functor defined
-% on the homotopic category (cf. Exercise 6.4).
-% Definition 7.1. The left-derived functor of F is the composition
-% K- (P(A))
-%  IA
-%  / K- (A)
-%  K(F )
-%  / K- (B)
-%  PB
-%  /2 K-(P(B))
-% LF
-% where IA is the `inclusion' of K-
-%  (P(A)) as a full subcategory of K- (A).
-%  ?
-% -It would seem sensible to denote this functor as D (F ); but the notation `LF '
-% is well established, so I will adopt it.
-% Of course a parallel discussion can be carried out if A, B have enough
-% injectives,
-% and it leads to a `right-derived functor' D+ (F ), pardon me, RF .
-% 30Note that tensor is right-exact, and it is so because it is left-adjoint to
-% another functor; see
-% Corollary VIII.2.5. Functors that are left-adjoints to right-exact functors do
-% preserve projectives:
-% Exercise 5.6.
+After deriving \emph{categories}, it should not seem too far-fetched
+to derive \emph{functors}.
+
+We have seen (Exercises~6.2 and 6.13) that, if $\mathsf{A}$ has
+enough projectives, then the full subcategory $\widehat{\mathsf{A}}$
+of $\mathsf{K}^-(\mathsf{P})$ whose objects are complexes with
+cohomology concentrated in degree $0$ is equivalent to $\mathsf{A}$:
+$H^0$ is a fully faithful, surjective functor $\widehat{\mathsf{A}}
+\to \mathsf{A}$. With notation as in \S{}6.3, the functor $\mathscr{P}
+\circ \iota$ associating with every object of $\mathsf{A}$ a
+projective resolution gives a `weak' inverse to $H^0$. As pointed out
+in \S{}6.3, there are many different possible $\mathscr{P}$; each of
+them will determine a copy $\mathscr{P} \circ \iota(\mathsf{A})$ of
+$\mathsf{A}$ in $\mathsf{K}^-(\mathsf{P})$.
+
+It may be argued that any such realization of (a category equivalent
+to) $\mathsf{A}$ is `better' than $\mathsf{A}$ itself. Indeed, I have
+repeatedly stressed that all the cohomological information carried
+by a complex is ideally captured by viewing that complex in the
+derived category, and for the complex $\iota(M)$ determined in the
+simplest way by an object $M$ of $\mathsf{A}$, this simply means
+replacing $\iota(M)$ with any projective resolution of $M$, viewed as
+an object of $\mathsf{K}^-(\mathsf{P})$.
+
+This, however, raises a question: if $\mathscr{F} : \mathsf{A} \to
+\mathsf{B}$ is a functor and we are serious about replacing
+$\mathsf{A}$ with its counterpart(s) in $\mathsf{D}^-(\mathsf{A})$,
+then there should be a way to `reinterpret' $\mathscr{F}$ in this new
+context: induce in some natural way a `derived functor'
+$\mathsf{D}^-(\mathsf{A}) \to \mathsf{D}^-(\mathsf{B})$. One would
+hope that this functor should carry at least as much information as
+$\mathscr{F}$ and satisfy better properties.
+
+Now I claim that there indeed \emph{is} an evident way to induce a
+functor between the realizations of the derived categories in terms
+of $\mathsf{K}^-(\mathsf{P})$. It is a little less clear what
+question this functor answers---that is, what kind of universal
+property it satisfies. The reader is invited to sort all of this out
+before I do it.
+
+Say that $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ is an additive
+functor between two abelian categories. It is clear that $\mathscr{F}$
+extends to a functor
+\[
+  \mathsf{C}(\mathscr{F}) : \mathsf{C}(\mathsf{A}) \to \mathsf{C}(\mathsf{B})
+\]
+(we briefly encountered this functor in \S{}4): the complex
+$L^\bullet$ is sent to the complex $\mathsf{C}(\mathscr{F})(L^\bullet)$
+whose objects are $\mathscr{F}(L^i)$ and whose differentials are
+$\mathscr{F}(d^i_{L^\bullet})$. Note that the functoriality and
+additivity of $\mathscr{F}$ imply that
+\[
+  \mathscr{F}(d^{i+1}_{L^\bullet}) \circ \mathscr{F}(d^i_{L^\bullet})
+  = \mathscr{F}(d^{i+1}_{L^\bullet} \circ d^i_{L^\bullet}) =
+  \mathscr{F}(0) = 0,
+\]
+so that $\mathsf{C}(\mathscr{F})(L^\bullet)$ is indeed a complex. It
+is equally clear that if $\alpha^\bullet$ is a morphism of cochain
+complexes in $\mathsf{C}(\mathsf{A})$, then the collection
+$\mathscr{F}(\alpha^i)$ defines a morphism in $\mathsf{C}(\mathsf{B})$,
+and that this assignment is functorial. Now, we already checked
+(Lemma~4.13) that homotopic morphisms in $\mathsf{C}(\mathsf{A})$ are
+sent to homotopic morphisms in $\mathsf{C}(\mathsf{B})$; it follows
+that $\mathscr{F}$ induces a functor $\mathsf{K}(\mathscr{F}) :
+\mathsf{K}(\mathsf{A}) \to \mathsf{K}(\mathsf{B})$. The diagram
+\[\begin{tikzcd}
+  \mathsf{A} \arrow[r, "\mathscr{F}"] \arrow[d, "\iota"'] &
+    \mathsf{B} \arrow[d, "\iota"] \\
+  \mathsf{K}(\mathsf{A}) \arrow[r, "\mathsf{K}(\mathscr{F})"'] &
+    \mathsf{K}(\mathsf{B})
+\end{tikzcd}\]
+commutes. Also, this operation clearly preserves boundedness
+conditions.
+
+If now it were the case that additive functors send projective
+objects to projective objects, then we could restrict
+$\mathsf{K}(\mathscr{F})$ to $\mathsf{K}^-(\mathsf{P}(\mathsf{A}))$
+and land in $\mathsf{K}^-(\mathsf{P}(\mathsf{B}))$ (where
+$\mathsf{P}(\mathsf{A})$ and $\mathsf{P}(\mathsf{B})$ denote the
+classes of projective objects in $\mathsf{A}$, resp., $\mathsf{B}$);
+given our discussion in \S{}6.3, this would give us a natural
+candidate for the `derived functor' of $\mathscr{F}$.
+
+However, additive functors do \emph{not} preserve projectivity or
+injectivity in general. Why should they? For example, `tensor' does
+not preserve projectives\footnote{Note that tensor is right-exact,
+and it is so because it is left-adjoint to another functor; see
+Corollary~VIII.2.5. Functors that are left-adjoints to right-exact
+functors do preserve projectives: Exercise~5.6.} (Exercise~7.1).
+Assuming that $\mathsf{B}$ has enough projectives, the natural way to
+`fix' this problem is to apply a corresponding functor
+$\mathscr{P}_{\mathsf{B}}$ constructed as in \S{}6.3, associating
+with each complex a projective resolution. By Lemma~5.14,
+$\mathscr{P}_{\mathsf{B}}$ sends homotopic morphisms to homotopic
+morphisms; hence $\mathscr{P}_{\mathsf{B}}$ also descends to a
+functor defined on the homotopic category (cf. Exercise~6.4).
+
+\begin{defn}{}{defn:homol:7.1}
+  The \emph{left-derived functor} of $\mathscr{F}$ is the composition
+  \[\begin{tikzcd}[column sep=large]
+    \mathsf{K}^-(\mathsf{P}(\mathsf{A})) \arrow[r, "\mathscr{I}_{\mathsf{A}}"]
+      \arrow[rrr, "\mathsf{L}\mathscr{F}"', bend right=15] &
+      \mathsf{K}^-(\mathsf{A}) \arrow[r, "\mathsf{K}(\mathscr{F})"] &
+      \mathsf{K}^-(\mathsf{B}) \arrow[r, "\mathscr{P}_{\mathsf{B}}"] &
+      \mathsf{K}^-(\mathsf{P}(\mathsf{B}))
+  \end{tikzcd}\]
+  where $\mathscr{I}_{\mathsf{A}}$ is the `inclusion' of
+  $\mathsf{K}^-(\mathsf{P}(\mathsf{A}))$ as a full subcategory of
+  $\mathsf{K}^-(\mathsf{A})$.
+\end{defn}
+
+It would seem sensible to denote this functor as
+$\mathsf{D}^-(\mathscr{F})$; but the notation `$\mathsf{L}\mathscr{F}$'
+is well established, so I will adopt it.
+
+Of course a parallel discussion can be carried out if $\mathsf{A}$,
+$\mathsf{B}$ have enough injectives, and it leads to a
+`right-derived functor' $\mathsf{D}^+(\mathscr{F})$, pardon me,
+$\mathsf{R}\mathscr{F}$.
 
 \subsection{Universal property of the derived functor}
 \label{subsec:homol:universal-property-of-the-derived-functor}
-% The definition I have given
 
-% for the derived functor depends on the chosen resolution functor PB , so that LF
-% :
-% K- (P(A)) \to  K- (P(B)) is really only defined up to a natural isomorphism. In
-% any
-% case, the derived functor should be thought of as the natural counterpart of F
-% at
-% the level of the derived categories of A and B: up to equivalences of
-% categories, LF
-% acts as D- (A) \to  D- (B).
-% Still, it is not too clear exactly what question this definition answers. For
-% example, the derived functor does not fit into a commutative diagram analogous
-% to
-% the one displayed above:
-% \^{A} ? _
-% \sqcup 
-% -K (P(A))
-% ??
-% LF
-% / \hat{B} ?
-%  _
-% \sqcup 
-% / K- (P(B))
-% Here \^{A} and \hat{B} are the replacements for A, B in the corresponding
-% derived categories,
-% discussed at the beginning of \S{}7.1, that is, the subcategories whose objects
-% have
-% cohomology concentrated in degree 0. The point is that there is no reason why
-% applying LF to a complex whose cohomology is concentrated in degree 0 should
-% yield a complex with the same property, unless F is very special to begin with.
-% This may be viewed as a nuisance. On the contrary, it is one of the main values
-% of deriving categories and functors. Recasting an additive functors F : A \to  B
-% at
-% the level of derived categories, one gets access to interesting new invariants
-% even
-% when starting from (the equivalent copy in the derived category of) A itself.
-% Exactness plays an important role in these considerations:
-% Example 7.2. Suppose that F is (additive and) exact. Then I claim that \^{A} is
-% sent to \hat{B} by LF .
-% Indeed, let P \bullet  be a complex in \^{A}: H i (P \bullet ) = 0 for i = 0.
-% The image LF (P \bullet )
-% is obtained by choosing a projective resolution PF \bullet  (P \bullet  ) of F
-% (P \bullet  ). Since quasi-
-% isomorphisms preserve cohomology and exact functors commute with cohomology
-% (Exercise 3.7),
-% H i (LF (P \bullet )) = H i (PF \bullet  (P \bullet )) \sim 
-%  = H i (F (P \bullet )) = \sim 
-%  F (H i (P \bullet )) = 0
-% \bullet for i = 0. Therefore LF (P ) is an object of \hat{B}.
-% We also see that H 0 (LF (P \bullet  )) \sim 
-%  = F (H 0 (P \bullet  )) in this case: this says that the
-% restriction of LF to \^{A} \to  \hat{B} agrees with F if F is exact, modulo the
-% equivalences
-% of categories between A, resp., B, and \^{A}, resp., \hat{B}.
-%  ?
-% The moral of Example 7.2 is that deriving exact functors is relatively straight-
-% forward, and we cannot expect to learn anything new about an exact functor by
-% deriving it. We will mostly be interested in deriving functors that are not
-% exact on
-% the nose but preserve a certain amount of exactness.
-% Another diagram that may look promising is
-% K- (A)
-%  K(F )
-%  / K-(B)
-% PA
-%  ??
-%  PB
-% \sqcup 
-%  \sqcup 
-% K-(P(A))
-%  / K- (P(B))
-% LF
-% This also should not be expected to commute. Note that since most of the
-% functors
-% appearing here are only defined up to natural isomorphism, the best we could
-% hope
-% for is that this diagram commutes up to natural isomorphism: that is,
-% conceivably
-% there could be a natural isomorphism
-% \sim 
-% LF \circ  PA ; PB \circ  K(F ).
-% Well, in general there isn't (Exercise 7.3). What is LF good for, then?
-% Proposition 7.3. The left-derived functor LF satisfies the following universal
-% property:
-% \bullet  There is a natural transformation
-% LF \circ  PA ; PB \circ  K(F );
-% \bullet  for every functor G : K- (P(A)) \to  K- (P(B)) and every natural transformation
-% \gamma  : G \circ PA ; PB \circ K(F ), there is a unique (up to natural isomorphism) natural
-% transformation G ; LF inducing a factorization of \gamma : G \circ  PA ; LF
-% \circ  PA ;
-% PB \circ  K(F ).
-% Thus, excuse our poor diagram, for it is doing its best to commute, and any
-% choice of a bottom side other than LF would make it commute even less.
-% Proof. If we have done our homework (and in particular Exercise 6.4), then we
-% know that there is a natural transformation
-% IA \circ  PA ; idK- (A) ;
-% composing on the left by PB \circ  K(F ) gives the first point, since LF = PB
-% \circ  K(F ) \circ
-% IA , by definition.
-% To verify the second point, note that every natural transformation G ; LF
-% will induce a natural transformation \gamma  as in the statement, by the first
-% point; on
-% the other hand, every factorization of \gamma ,
-% G \circ  PA ; LF \circ  PA ; P B \circ  K(F ),
-% comes from one and only one (up to natural isomorphism) natural transformation
-% G ; LF , because this can be recovered by composing on the right by idI A (and
-% again using Exercise 6.4):
-% \sim 
-% G ; G \circ  PA \circ  IA ; PB \circ  K(F ) \circ  IA = LF .
-% This concludes the proof.
-%  ?
-% The reader should formulate the universal property satisfied by the right-
-% derived functor. In this case, not surprisingly, all natural transformations go
-% `back-
-% wards'.
-% Remark 7.4. The fact that there is a natural transformation I \circ  P ; id
-% (Exer-
-% cise 6.4), used in the proof of Proposition 7.3, has another interesting
-% consequence.
-% Let A, B, C be abelian categories, and let F : A \to  B, G : B \to  C be
-% additive func-
-% tors. Assume that A and B have enough projectives, so that the derived functors
-% LF and LG are defined, as well as the derived functor L(G \circ  F ). Then there
-% is a
-% natural transformation
-% LG \circ  LF ; L(G \circ  F ).
-% Indeed, in the same notational style as above, LG \circ  LF expands to
-% PC \circ  K(G ) \circ  IB \circ  P B \circ  K(F ) \circ  IA ,
-% and contracting IB \circ  PB to idK- (B) takes this to
-% PC \circ  K(G ) \circ  K(F ) \circ  IA = L(G \circ  F ).
-% If additional conditions are satisfied (for example, if F preserves
-% projectives), then
-% this natural transformation is a natural isomorphism, so L `distributes' through
-% compositions in this case (Exercise 7.4).
-% Towards the end of the chapter the reader will look again at the relation
-% between
-% LG \circ  LF and L(G \circ  F ) from a different point of view, using spectral
-% sequences
-% (Exercises 8.8 and 9.10).
-%  ?
+The definition I have given for the derived functor depends on the
+chosen resolution functor $\mathscr{P}_{\mathsf{B}}$, so that
+$\mathsf{L}\mathscr{F} : \mathsf{K}^-(\mathsf{P}(\mathsf{A})) \to
+\mathsf{K}^-(\mathsf{P}(\mathsf{B}))$ is really only defined up to a
+natural isomorphism. In any case, the derived functor should be
+thought of as the natural counterpart of $\mathscr{F}$ at the level
+of the derived categories of $\mathsf{A}$ and $\mathsf{B}$: up to
+equivalences of categories, $\mathsf{L}\mathscr{F}$ acts as
+$\mathsf{D}^-(\mathsf{A}) \to \mathsf{D}^-(\mathsf{B})$.
+
+Still, it is not too clear exactly what question this definition
+answers. For example, the derived functor does \emph{not} fit into a
+commutative diagram analogous to the one displayed above:
+\[\begin{tikzcd}
+  \widehat{\mathsf{A}} \arrow[r, dashed, "??"] \arrow[d, hook] &
+    \widehat{\mathsf{B}} \arrow[d, hook] \\
+  \mathsf{K}^-(\mathsf{P}(\mathsf{A})) \arrow[r, "\mathsf{L}\mathscr{F}"'] &
+    \mathsf{K}^-(\mathsf{P}(\mathsf{B}))
+\end{tikzcd}\]
+Here $\widehat{\mathsf{A}}$ and $\widehat{\mathsf{B}}$ are the
+replacements for $\mathsf{A}$, $\mathsf{B}$ in the corresponding
+derived categories, discussed at the beginning of \S{}7.1, that is,
+the subcategories whose objects have cohomology concentrated in
+degree $0$. The point is that there is no reason why applying
+$\mathsf{L}\mathscr{F}$ to a complex whose cohomology is concentrated
+in degree $0$ should yield a complex with the same property, unless
+$\mathscr{F}$ is very special to begin with.
+
+This may be viewed as a nuisance. On the contrary, it is one of the
+main values of deriving categories and functors. Recasting an
+additive functors $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ at the
+level of derived categories, one gets access to interesting new
+invariants even when starting from (the equivalent copy in the
+derived category of) $\mathsf{A}$ itself.
+
+Exactness plays an important role in these considerations:
+
+\begin{exam}{}{exam:homol:7.2}
+  Suppose that $\mathscr{F}$ is (additive and) exact. Then I claim
+  that $\widehat{\mathsf{A}}$ is sent to $\widehat{\mathsf{B}}$ by
+  $\mathsf{L}\mathscr{F}$.
+
+  Indeed, let $P^\bullet$ be a complex in $\widehat{\mathsf{A}}$:
+  $H^i(P^\bullet) = 0$ for $i \ne 0$. The image
+  $\mathsf{L}\mathscr{F}(P^\bullet)$ is obtained by choosing a
+  projective resolution $P^\bullet_{\mathscr{F}(P^\bullet)}$ of
+  $\mathscr{F}(P^\bullet)$. Since quasi-isomorphisms preserve
+  cohomology and exact functors commute with cohomology
+  (Exercise~3.7),
+  \[
+    H^i(\mathsf{L}\mathscr{F}(P^\bullet)) =
+    H^i(P^\bullet_{\mathscr{F}(P^\bullet)}) \cong
+    H^i(\mathscr{F}(P^\bullet)) \cong \mathscr{F}(H^i(P^\bullet)) = 0
+  \]
+  for $i \ne 0$. Therefore $\mathsf{L}\mathscr{F}(P^\bullet)$ is an
+  object of $\widehat{\mathsf{B}}$.
+
+  We also see that $H^0(\mathsf{L}\mathscr{F}(P^\bullet)) \cong
+  \mathscr{F}(H^0(P^\bullet))$ in this case: this says that the
+  restriction of $\mathsf{L}\mathscr{F}$ to $\widehat{\mathsf{A}} \to
+  \widehat{\mathsf{B}}$ agrees with $\mathscr{F}$ if $\mathscr{F}$ is
+  exact, modulo the equivalences of categories between $\mathsf{A}$,
+  resp., $\mathsf{B}$, and $\widehat{\mathsf{A}}$, resp.,
+  $\widehat{\mathsf{B}}$.
+\end{exam}
+
+The moral of Example~\ref{exam:homol:7.2} is that deriving exact
+functors is relatively straightforward, and we cannot expect to
+learn anything new about an exact functor by deriving it. We will
+mostly be interested in deriving functors that are not exact on the
+nose but preserve a certain amount of exactness.
+
+Another diagram that may look promising is
+\[\begin{tikzcd}
+  \mathsf{K}^-(\mathsf{A}) \arrow[r, "\mathsf{K}(\mathscr{F})"]
+    \arrow[d, "\mathscr{P}_{\mathsf{A}}"'] \arrow[dr, dashed, "??"] &
+    \mathsf{K}^-(\mathsf{B}) \arrow[d, "\mathscr{P}_{\mathsf{B}}"] \\
+  \mathsf{K}^-(\mathsf{P}(\mathsf{A})) \arrow[r, "\mathsf{L}\mathscr{F}"'] &
+    \mathsf{K}^-(\mathsf{P}(\mathsf{B}))
+\end{tikzcd}\]
+This also should not be expected to commute. Note that since most of
+the functors appearing here are only defined up to natural
+isomorphism, the best we could hope for is that this diagram
+commutes up to natural isomorphism: that is, conceivably there could
+be a natural isomorphism
+\[
+  \mathsf{L}\mathscr{F} \circ \mathscr{P}_{\mathsf{A}} \rightsquigarrow
+  \mathscr{P}_{\mathsf{B}} \circ \mathsf{K}(\mathscr{F}).
+\]
+Well, in general there isn't (Exercise~7.3). What is
+$\mathsf{L}\mathscr{F}$ good for, then?
+
+\begin{prop}{}{prop:homol:7.3}
+  The left-derived functor $\mathsf{L}\mathscr{F}$ satisfies the
+  following universal property:
+  \begin{itemize}
+  \item There is a natural transformation
+    \[
+      \mathsf{L}\mathscr{F} \circ \mathscr{P}_{\mathsf{A}}
+      \rightsquigarrow \mathscr{P}_{\mathsf{B}} \circ
+      \mathsf{K}(\mathscr{F});
+    \]
+  \item for every functor $\mathscr{G} :
+    \mathsf{K}^-(\mathsf{P}(\mathsf{A})) \to
+    \mathsf{K}^-(\mathsf{P}(\mathsf{B}))$ and every natural
+    transformation $\gamma : \mathscr{G} \circ \mathscr{P}_{\mathsf{A}}
+    \rightsquigarrow \mathscr{P}_{\mathsf{B}} \circ \mathsf{K}(\mathscr{F})$,
+    there is a unique (up to natural isomorphism) natural
+    transformation $\mathscr{G} \rightsquigarrow \mathsf{L}\mathscr{F}$
+    inducing a factorization of $\gamma$: $\mathscr{G} \circ
+    \mathscr{P}_{\mathsf{A}} \rightsquigarrow \mathsf{L}\mathscr{F}
+    \circ \mathscr{P}_{\mathsf{A}} \rightsquigarrow
+    \mathscr{P}_{\mathsf{B}} \circ \mathsf{K}(\mathscr{F})$.
+  \end{itemize}
+  Thus, excuse our poor diagram, for it is doing its best to commute,
+  and any choice of a bottom side other than $\mathsf{L}\mathscr{F}$
+  would make it commute even less.
+\end{prop}
+\begin{proof}
+  If we have done our homework (and in particular Exercise~6.4), then
+  we know that there is a natural transformation
+  \[
+    \mathscr{I}_{\mathsf{A}} \circ \mathscr{P}_{\mathsf{A}}
+    \rightsquigarrow \operatorname{id}_{\mathsf{K}^-(\mathsf{A})};
+  \]
+  composing on the left by $\mathscr{P}_{\mathsf{B}} \circ
+  \mathsf{K}(\mathscr{F})$ gives the first point, since
+  $\mathsf{L}\mathscr{F} = \mathscr{P}_{\mathsf{B}} \circ
+  \mathsf{K}(\mathscr{F}) \circ \mathscr{I}_{\mathsf{A}}$, by
+  definition.
+
+  To verify the second point, note that every natural transformation
+  $\mathscr{G} \rightsquigarrow \mathsf{L}\mathscr{F}$ will induce a
+  natural transformation $\gamma$ as in the statement, by the first
+  point; on the other hand, every factorization of $\gamma$,
+  \[
+    \mathscr{G} \circ \mathscr{P}_{\mathsf{A}} \rightsquigarrow
+    \mathsf{L}\mathscr{F} \circ \mathscr{P}_{\mathsf{A}}
+    \rightsquigarrow \mathscr{P}_{\mathsf{B}} \circ
+    \mathsf{K}(\mathscr{F}),
+  \]
+  comes from one and only one (up to natural isomorphism) natural
+  transformation $\mathscr{G} \rightsquigarrow \mathsf{L}\mathscr{F}$,
+  because this can be recovered by composing on the right by
+  $\operatorname{id}_{\mathscr{I}_{\mathsf{A}}}$ (and again using
+  Exercise~6.4):
+  \[
+    \mathscr{G} \overset{\sim}{\rightsquigarrow} \mathscr{G} \circ
+    \mathscr{P}_{\mathsf{A}} \circ \mathscr{I}_{\mathsf{A}}
+    \rightsquigarrow \mathscr{P}_{\mathsf{B}} \circ
+    \mathsf{K}(\mathscr{F}) \circ \mathscr{I}_{\mathsf{A}} =
+    \mathsf{L}\mathscr{F}.
+  \]
+  This concludes the proof.
+\end{proof}
+
+The reader should formulate the universal property satisfied by the
+\emph{right}-derived functor. In this case, not surprisingly, all
+natural transformations go `backwards'.
+
+\begin{rem}{}{rem:homol:7.4}
+  The fact that there is a natural transformation $\mathscr{I} \circ
+  \mathscr{P} \rightsquigarrow \operatorname{id}$ (Exercise~6.4), used
+  in the proof of Proposition~\ref{prop:homol:7.3}, has another
+  interesting consequence. Let $\mathsf{A}$, $\mathsf{B}$, $\mathsf{C}$
+  be abelian categories, and let $\mathscr{F} : \mathsf{A} \to
+  \mathsf{B}$, $\mathscr{G} : \mathsf{B} \to \mathsf{C}$ be additive
+  functors. Assume that $\mathsf{A}$ and $\mathsf{B}$ have enough
+  projectives, so that the derived functors $\mathsf{L}\mathscr{F}$
+  and $\mathsf{L}\mathscr{G}$ are defined, as well as the derived
+  functor $\mathsf{L}(\mathscr{G} \circ \mathscr{F})$. Then there is
+  a natural transformation
+  \[
+    \mathsf{L}\mathscr{G} \circ \mathsf{L}\mathscr{F} \rightsquigarrow
+    \mathsf{L}(\mathscr{G} \circ \mathscr{F}).
+  \]
+  Indeed, in the same notational style as above, $\mathsf{L}\mathscr{G}
+  \circ \mathsf{L}\mathscr{F}$ expands to
+  \[
+    \mathscr{P}_{\mathsf{C}} \circ \mathsf{K}(\mathscr{G}) \circ
+    \mathscr{I}_{\mathsf{B}} \circ \mathscr{P}_{\mathsf{B}} \circ
+    \mathsf{K}(\mathscr{F}) \circ \mathscr{I}_{\mathsf{A}},
+  \]
+  and contracting $\mathscr{I}_{\mathsf{B}} \circ \mathscr{P}_{\mathsf{B}}$
+  to $\operatorname{id}_{\mathsf{K}^-(\mathsf{B})}$ takes this to
+  \[
+    \mathscr{P}_{\mathsf{C}} \circ \mathsf{K}(\mathscr{G}) \circ
+    \mathsf{K}(\mathscr{F}) \circ \mathscr{I}_{\mathsf{A}} =
+    \mathsf{L}(\mathscr{G} \circ \mathscr{F}).
+  \]
+  If additional conditions are satisfied (for example, if
+  $\mathscr{F}$ preserves projectives), then this natural
+  transformation is a natural isomorphism, so $\mathsf{L}$
+  `distributes' through compositions in this case (Exercise~7.4).
+
+  Towards the end of the chapter the reader will look again at the
+  relation between $\mathsf{L}\mathscr{G} \circ \mathsf{L}\mathscr{F}$
+  and $\mathsf{L}(\mathscr{G} \circ \mathscr{F})$ from a different
+  point of view, using spectral sequences (Exercises~8.8 and 9.10).
+\end{rem}
 
 \subsection{Taking cohomology}
 \label{subsec:homol:taking-cohomology}
