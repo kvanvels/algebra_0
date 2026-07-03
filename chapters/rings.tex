@@ -18,7 +18,7 @@ entertain us greatly in Chapter~IX.
 \label{subsec:rings:definition}
 Rings (and modules) are defined by `decorating' abelian groups with additional data.
 As motivation for the introduction of such structures, note that all number-based
-examples of groups that we have encountered, such as $\Z$ or $\mathbb{R}$,
+examples of groups that we have encountered, such as $\Z$ or $\R$,
 are endowed with an operation of \emph{multiplication} as well as the `addition' making
 them into (abelian) groups. The `ring axioms' will reflect closely the properties and
 compatibilities of these two operations in such examples.
@@ -26,9 +26,9 @@ These examples are, however, very special. A more sophisticated motivation
 for the introduction of rings arises by analyzing further the structure of
 homomorphisms of abelian groups. Recall (\S{}II.4.4) that if $G$, $H$ are abelian groups,
 then $\Hom_{\categ{Ab}}(G, H)$ is also an abelian group. In particular, if $G$ is an abelian group,
-then so is the set of \emph{endomorphisms} $\operatorname{End}_{\categ{Ab}}(G) = \Hom_{\categ{Ab}}(G, G)$. More is true: morphisms from an object of a category to itself may be composed with each other (by
-definition of category!). Thus, two operations coexist in $\operatorname{End}_{\categ{Ab}}(G)$: addition
-(inherited from $G$, making $\operatorname{End}_{\categ{Ab}}(G)$ an abelian group), and composition. These two
+then so is the set of \emph{endomorphisms} $\End_{\categ{Ab}}(G) = \Hom_{\categ{Ab}}(G, G)$. More is true: morphisms from an object of a category to itself may be composed with each other (by
+definition of category!). Thus, two operations coexist in $\End_{\categ{Ab}}(G)$: addition
+(inherited from $G$, making $\End_{\categ{Ab}}(G)$ an abelian group), and composition. These two
 operations are compatible with each other in a sense captured by the \emph{ring axioms}:
 \begin{defn}{Ring}{defn:rings:ring}
 A \emph{ring} $(R, +, \cdot)$ is an abelian group $(R, +)$ endowed with a second
@@ -92,7 +92,7 @@ in this ring (cf.\ Exercise~1.1).
 \end{exam}
 \begin{exam}{Number rings}{}
 More interesting examples are the number-based groups such as $\Z$
-or $\mathbb{R}$, with the usual operations. These are very well known to our reader, who will
+or $\R$, with the usual operations. These are very well known to our reader, who will
 realize immediately that they satisfy the requirements given in \cref{defn:rings:ring};
 but they are very special. Why?
 \end{exam}
@@ -124,7 +124,7 @@ rings: the groups $\Z/n\Z$, endowed with the multiplication defined in \S{}II.2.
 the ring axioms listed above.
 \end{exam}
 The rings $\Z/n\Z$ prompt me to highlight an important point. Another reason
-why rings such as $\Z$, $\Q$, $\mathbb{R}$, \dots\ are special is that multiplicative cancellation by
+why rings such as $\Z$, $\Q$, $\R$, \dots\ are special is that multiplicative cancellation by
 nonzero elements holds in these rings. Of course additive cancellation is automatic,
 since rings are in particular (abelian) groups; and multiplicative cancellation clearly
 fails in general since one cannot `cancel $0$' (by \cref{lem:rings:zero-mult}). But even the fact that
@@ -392,8 +392,8 @@ a great deal of attention in later sections.
 The polynomial ring is an instance of a rather general construction, which is occasionally very useful. A \emph{semigroup} is a set endowed with an
 associative operation; a \emph{monoid} is a semigroup with an identity element. Thus a
 group is a monoid in which every element has an inverse; positive integers with
-ordinary addition form a semigroup, while the set $\mathbb{N}$ of \emph{natural numbers} (that is,
-nonnegative integers\footnote{Some disagree, and insist that $\mathbb{N}$ should not include $0$.}) is a monoid under addition.
+ordinary addition form a semigroup, while the set $\N$ of \emph{natural numbers} (that is,
+nonnegative integers\footnote{Some disagree, and insist that $\N$ should not include $0$.}) is a monoid under addition.
 Given a monoid $(M, \cdot)$ and a ring $R$, we can obtain a new ring $R[M]$ as follows.
 Elements of $R[M]$ are formal linear combinations
 \[
@@ -412,7 +412,7 @@ The identity in $R[M]$ is $1_R \cdot 1_M$, viewed as a formal sum in which all o
 have $0$ as coefficient.
 
 The reader will hopefully see the similarity with the construction of the polynomial ring $R[x]$ in \S{}1.3; in fact (Exercise~1.17) the polynomial ring $R[x]$ may be
-interpreted as $R[\mathbb{N}]$.
+interpreted as $R[\N]$.
 
 \emph{Group rings} are the result of this construction when $M$ is in fact a group. The
 group ring $R[\Z]$ is a ring of `Laurent polynomials' $R[x, x^{-1}]$, allowing for negative
@@ -546,7 +546,7 @@ Let $R$ be a ring, and consider the ring of power series $R[[x]]$ (cf.\ \S{}1.3)
 \end{exer}
 
 \begin{exer}{\exerused}{exer:rings:rx-monoid-ring}
-Explain in what sense $R[x]$ agrees with the monoid ring $R[\mathbb{N}]$. [\S{}1.4]
+Explain in what sense $R[x]$ agrees with the monoid ring $R[\N]$. [\S{}1.4]
 \end{exer}
 
 \section{The Category Ring}
@@ -758,21 +758,21 @@ The reader should keep in mind that in general this is \emph{not} the only ring 
 The situation with \emph{coproducts} is more unfortunate---dealing with this in any generality (even for the case of \emph{commutative} rings) requires \emph{tensor products}, and by the time we develop tensor products (\S{}VIII.2), we will have almost forgotten this question. But the universal property reviewed in \S{}2.2 suffices to deal with simple examples, and the reader should work out one template case now, for fun (Exercise~2.14).
 Incidentally---with the case of abelian groups in mind (\S{}II.3.5), the reader may be tempted to consider a `direct sum of rings', agreeing with the product in the finite case and maybe giving something interesting in general. This is less promising than it looks: it does not satisfy the universal property of coproducts in $\categ{Ring}$ (why?), and, further, the `infinite version' is not a ring because it is missing the identity.
 
-\subsection{\texorpdfstring{$\operatorname{End}_{\categ{Ab}}(G)$}{End\_Ab(G)}}
+\subsection{\texorpdfstring{$\End_{\categ{Ab}}(G)$}{End\_Ab(G)}}
 \label{subsec:rings:endab-g}
 This is as good a place as any to expand a little on one of the main examples of rings, and one that is not quite as special as the examples reviewed in \S{}1.2.
-For every abelian group $G$, the group $\operatorname{End}_{\categ{Ab}}(G) := \Hom_{\categ{Ab}}(G, G)$ of endomorphisms of $G$ is a ring, under the operations of addition and composition (as discussed in the paragraph preceding Definition~1.1). Indeed, associativity follows from the category axioms, and distributivity is immediately checked.
+For every abelian group $G$, the group $\End_{\categ{Ab}}(G) := \Hom_{\categ{Ab}}(G, G)$ of endomorphisms of $G$ is a ring, under the operations of addition and composition (as discussed in the paragraph preceding Definition~1.1). Indeed, associativity follows from the category axioms, and distributivity is immediately checked.
 
 It is instructive to examine carefully the endomorphism ring of the abelian group $(\Z, +)$:
 \begin{prop}{}{prop:rings:endab-Z}
-  $\operatorname{End}_{\categ{Ab}}(\Z) \cong \Z$ as rings.
+  $\End_{\categ{Ab}}(\Z) \cong \Z$ as rings.
 \end{prop}
 \begin{proof}
 Consider the function
 \[
-  \varphi : \operatorname{End}_{\categ{Ab}}(\Z) \to \Z
+  \varphi : \End_{\categ{Ab}}(\Z) \to \Z
 \]
-defined by $\varphi(\alpha) = \alpha(1)$ for all group homomorphisms $\alpha : \Z \to \Z$. Then $\varphi$ is a group homomorphism: the addition in $\operatorname{End}_{\categ{Ab}}(\Z)$ is defined so that $\forall n \in \Z$
+defined by $\varphi(\alpha) = \alpha(1)$ for all group homomorphisms $\alpha : \Z \to \Z$. Then $\varphi$ is a group homomorphism: the addition in $\End_{\categ{Ab}}(\Z)$ is defined so that $\forall n \in \Z$
 \[
   (\alpha + \beta)(n) = \alpha(n) + \beta(n)
 \]
@@ -780,7 +780,7 @@ defined by $\varphi(\alpha) = \alpha(1)$ for all group homomorphisms $\alpha : \
 \[
   \varphi(\alpha + \beta) = (\alpha + \beta)(1) = \alpha(1) + \beta(1) = \varphi(\alpha) + \varphi(\beta).
 \]
-Further, $\varphi$ is a ring homomorphism. Indeed, for $\alpha$, $\beta$ in $\operatorname{End}_{\categ{Ab}}(\Z)$ denote $\alpha(1)$ by $a$; then
+Further, $\varphi$ is a ring homomorphism. Indeed, for $\alpha$, $\beta$ in $\End_{\categ{Ab}}(\Z)$ denote $\alpha(1)$ by $a$; then
 \[
   \alpha(n) = n\alpha(1) = na = an
 \]
@@ -799,8 +799,8 @@ the reader will easily check that $\psi$ is a ring homomorphism and inverse to $
 Therefore $\varphi$ is a ring isomorphism, verifying the statement.
 \end{proof}
 \Cref{prop:rings:endab-Z} gives a sense in which the ring structure on $\Z$ is truly `natural': this structure arises naturally from categorical considerations, there is nothing `arbitrary' about it.
-More generally, the rings $\operatorname{End}_{\categ{Ab}}(G)$ and other rings arising as endomorphism rings of other structures (e.g., vector spaces) are arguably the most important class of examples of rings. The entire theory of modules is based on the observation that $\operatorname{End}_{\categ{Ab}}(G)$ is a ring for every abelian group $G$.
-Some of the notions reviewed in \S{}1.2 are expressed very concretely in these endomorphism rings; for example, the group of units in $\operatorname{End}_{\categ{Ab}}(G)$ is nothing but $\operatorname{Aut}_{\categ{Ab}}(G)$.
+More generally, the rings $\End_{\categ{Ab}}(G)$ and other rings arising as endomorphism rings of other structures (e.g., vector spaces) are arguably the most important class of examples of rings. The entire theory of modules is based on the observation that $\End_{\categ{Ab}}(G)$ is a ring for every abelian group $G$.
+Some of the notions reviewed in \S{}1.2 are expressed very concretely in these endomorphism rings; for example, the group of units in $\End_{\categ{Ab}}(G)$ is nothing but $\operatorname{Aut}_{\categ{Ab}}(G)$.
 Every ring $R$ interacts with the ring of endomorphisms of the underlying abelian group $(R, +)$. For $r \in R$, define left- and right-multiplication by $r$ by $\lambda_r$, $\mu_r$, respectively. That is, $\forall a \in R$,
 \[
   \lambda_r(a) = ra, \qquad \mu_r(a) = ar.
@@ -809,7 +809,7 @@ The following observation is nothing more than easy notation juggling, but it is
 \begin{prop}{}{prop:rings:Cayley-ring}
   Let $R$ be a ring. Then the function $r \mapsto \lambda_r$ is an injective ring homomorphism
   \[
-    \lambda : R \to \operatorname{End}_{\categ{Ab}}(R).
+    \lambda : R \to \End_{\categ{Ab}}(R).
   \]
 \end{prop}
 \begin{proof}
@@ -817,11 +817,11 @@ For any $r \in R$ and for all $a, b \in R$, distributivity gives
 \[
   \lambda_r(a + b) = r(a + b) = ra + rb = \lambda_r(a) + \lambda_r(b):
 \]
-this shows that $\lambda_r$ is indeed an endomorphism of the group $(R, +)$, that is, $\lambda_r \in \operatorname{End}_{\categ{Ab}}(R)$.
+this shows that $\lambda_r$ is indeed an endomorphism of the group $(R, +)$, that is, $\lambda_r \in \End_{\categ{Ab}}(R)$.
 
-The function $\lambda : R \to \operatorname{End}_{\categ{Ab}}(R)$ defined by the assignment $r \mapsto \lambda_r$ is clearly injective, since if $r \neq s$, then $\lambda_r(1) = r \neq s = \lambda_s(1)$, so that $\lambda_r \neq \lambda_s$.
+The function $\lambda : R \to \End_{\categ{Ab}}(R)$ defined by the assignment $r \mapsto \lambda_r$ is clearly injective, since if $r \neq s$, then $\lambda_r(1) = r \neq s = \lambda_s(1)$, so that $\lambda_r \neq \lambda_s$.
 
-We have to verify that $\lambda$ is in fact a homomorphism of rings. Recall that the addition in $\operatorname{End}_{\categ{Ab}}(R)$ is inherited from $R$ (cf.\ \S{}II.4.4): for all $r, s \in R$, $\lambda_r + \lambda_s$ is defined by
+We have to verify that $\lambda$ is in fact a homomorphism of rings. Recall that the addition in $\End_{\categ{Ab}}(R)$ is inherited from $R$ (cf.\ \S{}II.4.4): for all $r, s \in R$, $\lambda_r + \lambda_s$ is defined by
 \[
   (\forall a \in R) : (\lambda_r + \lambda_s)(a) = \lambda_r(a) + \lambda_s(a).
 \]
@@ -835,7 +835,7 @@ As for multiplication, it is associativity's turn to do its job:
 \]
 Of course $\lambda_1$ is the identity, completing the verification.
 \end{proof}
-The function $\mu : R \to \operatorname{End}_{\categ{Ab}}(R)$ defined by $r \mapsto \mu_r$ is `almost' a ring homomorphism: the reader will check (Exercise~2.18) that
+The function $\mu : R \to \End_{\categ{Ab}}(R)$ defined by $r \mapsto \mu_r$ is `almost' a ring homomorphism: the reader will check (Exercise~2.18) that
 \[
   \mu_{r+s} = \mu_r + \mu_s, \qquad \mu_{rs} = \mu_s \circ \mu_r,
 \]
@@ -918,16 +918,16 @@ and $\mu_1 = \operatorname{id}_R$. That is, $\mu$ would in fact be a ring homomo
   (This shows that there are many different ways to give a structure of ring without identity to the group $(\Z, +)$. Compare this observation with Exercise~2.16.) [\S{}2.1]
 \end{exer}
 \begin{exer}{\exerused}{}
-  Prove that there is (up to isomorphism) only one structure of ring \emph{with identity} on the abelian group $(\Z, +)$. (Hint: Let $R$ be a ring whose underlying group is $\Z$. By \cref{prop:rings:Cayley-ring}, there is an injective ring homomorphism $\lambda : R \to \operatorname{End}_{\categ{Ab}}(R)$, and the latter is isomorphic to $\Z$ by \cref{prop:rings:endab-Z}. Prove that $\lambda$ is surjective.) [\S{}2.1, 2.15]
+  Prove that there is (up to isomorphism) only one structure of ring \emph{with identity} on the abelian group $(\Z, +)$. (Hint: Let $R$ be a ring whose underlying group is $\Z$. By \cref{prop:rings:Cayley-ring}, there is an injective ring homomorphism $\lambda : R \to \End_{\categ{Ab}}(R)$, and the latter is isomorphic to $\Z$ by \cref{prop:rings:endab-Z}. Prove that $\lambda$ is surjective.) [\S{}2.1, 2.15]
 \end{exer}
 \begin{exer}{\lnot}{}
-  Let $R$ be a ring, and let $E = \operatorname{End}_{\categ{Ab}}(R)$ be the ring of endomorphisms of the underlying abelian group $(R, +)$. Prove that the center of $E$ is isomorphic to a subring of the center of $R$. (Prove that if $\alpha \in E$ commutes with all right-multiplications by elements of $R$, then $\alpha$ is left-multiplication by an element of $R$; then use \cref{prop:rings:Cayley-ring}.)
+  Let $R$ be a ring, and let $E = \End_{\categ{Ab}}(R)$ be the ring of endomorphisms of the underlying abelian group $(R, +)$. Prove that the center of $E$ is isomorphic to a subring of the center of $R$. (Prove that if $\alpha \in E$ commutes with all right-multiplications by elements of $R$, then $\alpha$ is left-multiplication by an element of $R$; then use \cref{prop:rings:Cayley-ring}.)
 \end{exer}
 \begin{exer}{\exerused}{}
   Verify the statements made about right-multiplication $\mu$, following \cref{prop:rings:Cayley-ring}. [\S{}2.5]
 \end{exer}
 \begin{exer}{}{}
-  Prove that for $n \in \Z$ a positive integer, $\operatorname{End}_{\categ{Ab}}(\Z/n\Z)$ is isomorphic to $\Z/n\Z$ as a ring.
+  Prove that for $n \in \Z$ a positive integer, $\End_{\categ{Ab}}(\Z/n\Z)$ is isomorphic to $\Z/n\Z$ as a ring.
 \end{exer}
 
 \section{Ideals and quotient rings}
@@ -1576,7 +1576,7 @@ The situation in $\categ{Ring}$ is not nearly as neat. One of the three characte
 \subsection{Definition of (left-)R-module}
 \label{subsec:rings:definition-of-left-r-module}
 In short, $R$-modules are abelian groups endowed with an action of $R$. To flesh out this idea, recall that `actions' in general denote homomorphisms into some kind of endomorphism structure: for example, we defined group actions in \S{}II.9.1 as group homomorphisms from a fixed group to the groups of automorphisms of objects of a category.
-We can give an analogous definition of the action of a ring on an abelian group. Indeed, recall that if $M$ is an abelian group, then $\operatorname{End}_{\categ{Ab}}(M) := \Hom_{\categ{Ab}}(M, M)$ is a ring in a natural way (cf.\ \S{}2.5). A \emph{left-action} of a ring $R$ on $M$ is then simply a homomorphism of rings $\sigma : R \to \operatorname{End}_{\categ{Ab}}(M)$; we will say that $\sigma$ makes $M$ into a \emph{left-$R$-module}.
+We can give an analogous definition of the action of a ring on an abelian group. Indeed, recall that if $M$ is an abelian group, then $\End_{\categ{Ab}}(M) := \Hom_{\categ{Ab}}(M, M)$ is a ring in a natural way (cf.\ \S{}2.5). A \emph{left-action} of a ring $R$ on $M$ is then simply a homomorphism of rings $\sigma : R \to \End_{\categ{Ab}}(M)$; we will say that $\sigma$ makes $M$ into a \emph{left-$R$-module}.
 Similarly to the situation with group actions, it is convenient to spell out this definition.
 
 \begin{prop}{}{prop:rings:module-axioms}
@@ -1618,7 +1618,7 @@ where $M$ is a module over some ring (Exercise 5.3). The following fancier-sound
 \end{prop}
 
 \begin{proof}
-  Let $G$ be an abelian group. A $\Z$-module structure on $G$ is a ring homomorphism $\Z \to \operatorname{End}_{\categ{Ab}}(G)$. Since $\Z$ is initial in $\categ{Ring}$ (\S{}2.1), there exists exactly one such homomorphism, proving the statement.
+  Let $G$ be an abelian group. A $\Z$-module structure on $G$ is a ring homomorphism $\Z \to \End_{\categ{Ab}}(G)$. Since $\Z$ is initial in $\categ{Ring}$ (\S{}2.1), there exists exactly one such homomorphism, proving the statement.
 \end{proof}
 Thus, `abelian group' and `$\Z$-module' are one and the same notion. Quite concretely, the action of $n \in \Z$ on an element $a$ of an abelian group simply yields the ordinary `multiple' $na$; this operation is trivially compatible with the operations in $\Z$.
 A homomorphism of $R$-modules is a homomorphism of (abelian) groups which is compatible with the module structure. That is, if $M$, $N$ are $R$-modules and $\phi : M \to N$ is a function, then $\phi$ is a homomorphism of $R$-modules if and only if
@@ -1763,13 +1763,13 @@ More generally, it is hopefully clear that the sum $\sum_\alpha N_\alpha$ and th
   What is the initial object of the category $R$-$\categ{Alg}$?
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:endomorphism-algebra}
-  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that the operation of composition on the $R$-module $\operatorname{End}_{R\text{-}\categ{Mod}}(M)$ makes the latter an $R$-algebra in a natural way. Prove that $M_n(R)$ (cf.\ Exercise~1.4) is an $R$-algebra, in a natural way. [VI.1.12, VI.2.3]
+  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that the operation of composition on the $R$-module $\End_{R\text{-}\categ{Mod}}(M)$ makes the latter an $R$-algebra in a natural way. Prove that $M_n(R)$ (cf.\ Exercise~1.4) is an $R$-algebra, in a natural way. [VI.1.12, VI.2.3]
 \end{exer}
 \begin{exer}{}{exer:rings:simple-endomorphism-division}
-  Let $R$ be a commutative ring, and let $M$ be a simple $R$-module (cf.\ Exercise~5.4). Prove that $\operatorname{End}_{R\text{-}\categ{Mod}}(M)$ is a division $R$-algebra.
+  Let $R$ be a commutative ring, and let $M$ be a simple $R$-module (cf.\ Exercise~5.4). Prove that $\End_{R\text{-}\categ{Mod}}(M)$ is a division $R$-algebra.
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:Rx-module-structures}
-  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ and $\operatorname{End}_{R\text{-}\categ{Mod}}(M)$. [\S{}VI.7.1]
+  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ and $\End_{R\text{-}\categ{Mod}}(M)$. [\S{}VI.7.1]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:bijective-iso}
   Let $R$ be a ring. Let $M$, $N$ be $R$-modules, and let $\phi : M \to N$ be a homomorphism of $R$-modules. Assume $\phi$ is a bijection, so that it has an inverse $\phi^{-1}$ as a set-function. Prove that $\phi^{-1}$ is a homomorphism of $R$-modules. Conclude that a bijective $R$-module homomorphism is an isomorphism of $R$-modules. [\S{}5.2, \S{}VI.2.1, \S{}IX.1.3]

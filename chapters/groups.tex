@@ -2,12 +2,12 @@
 \label{chap:groups}
 
 In this chapter we introduce groups, we observe they form a category (called
-$\mathsf{Grp}$), and we study `general' features of this category: what are the
+$\categ{Grp}$), and we study `general' features of this category: what are the
 monomorphisms and the epimorphisms in this category? what is the appropriate
 notion of `equivalence relation' and `quotients' for a group? does a
-`decomposition theorem' hold in $\mathsf{Grp}$? and other analogous questions.
+`decomposition theorem' hold in $\categ{Grp}$? and other analogous questions.
 In Chapter~III we will acquire a similar degree of familiarity with \emph{rings}
-and \emph{modules}. A more object-oriented analysis of $\mathsf{Grp}$ (for
+and \emph{modules}. A more object-oriented analysis of $\categ{Grp}$ (for
 example, a treatment of the famous Sylow theorems, `composition series', or the
 classification of finite abelian groups) is deferred to Chapter~IV.
 
@@ -54,7 +54,8 @@ Our notation will be $\bullet(g, h) \df g \bullet h$, or simply $gh$ if the name
 of the operation can be understood. The careful reader may have expected that we
 should write $h \bullet g$, in the style of what we have done for categories,
 but this is what common conventions dictate.\footnote{Not without exceptions; see
-for example permutation groups, discussed in \S{}2.}
+  for example permutation groups, discussed in \S{}2.}
+
 \begin{defn}{Group}{defn:groups:group}
 The set $G$, endowed with the binary operation $\bullet$ (briefly, $(G, \bullet)$,
 or simply $G$ if the operation can be understood) is a \textbf{group} if
@@ -132,10 +133,12 @@ are popular alternatives, depending on the context. In any case, for any given
 group $G$ this element is unique. That is, no other element of $G$ can work as
 an identity:
 
-\begin{prop}{If $h \in G$ is an identity of $G$, then $h = e_G$.}{prop:groups:identity-unique}
+\begin{prop}{}{prop:groups:identity-unique}
+  If $h \in G$ is an identity of $G$, then $h = e_G$.
+\end{prop}
 Incidentally, this makes groups pointed sets in the sense of Example~I.3.8:
 every group has a well-defined distinguished element.
-\end{prop}
+
 \begin{proof}
 Using first that $e_G$ is an identity and then that $h$ is an identity, one
 gets\footnote{As previously announced, we may omit the symbol $\bullet$ for the
@@ -147,7 +150,8 @@ will be done without warning in the future.}
 (Amusingly, this argument only uses that $e_G$ is a `left' identity and $h$ is
 a `right' identity.)
 \end{proof}
-\begin{prop}{The inverse is also unique: if $h_1$, $h_2$ are both inverses of $g$ in $G$, then $h_1 = h_2$.}{prop:groups:inverse-unique}
+\begin{prop}{}{prop:groups:inverse-unique}
+  The inverse is also unique: if $h_1$, $h_2$ are both inverses of $g$ in $G$, then $h_1 = h_2$.
 \end{prop}
 \begin{proof}
 This actually follows from Proposition~I.4.2 (by viewing $G$ as the set of
@@ -266,7 +270,7 @@ notions of rings, modules, vector spaces are defined by suitably enriching a
 commutative group, which is then promoted to `abelian' for notational
 convenience.
 There are other situations in which commutative groups arise naturally, without
-triggering the `abelian' notation. For example, the group $(\mathbb{R}^*, \cdot)$
+triggering the `abelian' notation. For example, the group $(\R^*, \cdot)$
 mentioned at the end of \S{}1.4 is commutative, but its operation is indicated
 by $\cdot$ (if at all), and its identity element is written $1$. History,
 rather than logic, is often the main factor determining notation.
@@ -1404,7 +1408,7 @@ The reader can (and should) construct many more examples of this kind. We will
 have much more to say about actions of groups and other algebraic entities in
 later sections.
 Here is an example with a different flavor: the exponential function is a
-homomorphism from $(\mathbb{R}, +)$ to the group $(\mathbb{R}_{>0}, \cdot)$ of
+homomorphism from $(\R, +)$ to the group $(\R_{>0}, \cdot)$ of
 positive real numbers, with ordinary multiplication as operation. Indeed,
 $e^{a+b} = e^a e^b$. A similar (and very important) class of examples may be
 obtained as follows: let $G$ be any group and $g \in G$ any element of $G$;
@@ -1544,7 +1548,7 @@ as needed.
 \begin{exam}{}{exam:groups:isomorphism-examples}
 The function $D_6 \to S_3$ defined in $\S$2.2 is an isomorphism of groups,
 since it is a bijective group homomorphism. So is the exponential function
-$(\mathbb{R}, +) \to (\mathbb{R}_{>0}, \cdot)$ mentioned in $\S$4.1. If the
+$(\R, +) \to (\R_{>0}, \cdot)$ mentioned in $\S$4.1. If the
 exponential function $\varphi_g : \Z \to G$ determined by an element
 $g \in G$ (as in $\S$4.1) is an isomorphism, we say that $G$ is an `infinite
 cyclic' group.
@@ -1687,16 +1691,16 @@ and only if it contains an element of order $n$. [$\S$4.3]
 \end{exer}
 \begin{exer}{}{exer:groups:z-q-r-not-isomorphic}
 Prove that no two of the groups $(\Z, +)$, $(\Q, +)$,
-$(\mathbb{R}, +)$ are isomorphic to one another. Can you decide whether
-$(\mathbb{R}, +)$, $(\mathbb{C}, +)$ are isomorphic to one another? (Cf.\
+$(\R, +)$ are isomorphic to one another. Can you decide whether
+$(\R, +)$, $(\mathbb{C}, +)$ are isomorphic to one another? (Cf.\
 Exercise~VI.1.1.)
 \end{exer}
 \begin{exer}{}{exer:groups:rstar-cstar-not-isomorphic}
-Prove that the groups $(\mathbb{R} \setminus \{0\}, \cdot)$ and
+Prove that the groups $(\R \setminus \{0\}, \cdot)$ and
 $(\mathbb{C} \setminus \{0\}, \cdot)$ are not isomorphic.
 \end{exer}
 \begin{exer}{}{exer:groups:q-qpos-isomorphic}
-We have seen that $(\mathbb{R}, +)$ and $(\mathbb{R}_{>0}, \cdot)$ are
+We have seen that $(\R, +)$ and $(\R_{>0}, \cdot)$ are
 isomorphic (Example~4.4). Are the groups $(\Q, +)$ and
 $(\Q_{>0}, \cdot)$ isomorphic?
 \end{exer}
@@ -2262,7 +2266,7 @@ $A$, $B$. (That is, the constructions $F$, $F^{ab}$ `preserve
 coproducts'.)
 \end{exer}
 \begin{exer}{}{exer:groups:zoplusn-square-isomorphic}
-Let $G = \Z^{\oplus \mathbb{N}}$. Prove that $G \times G \cong G$.
+Let $G = \Z^{\oplus \N}$. Prove that $G \times G \cong G$.
 \end{exer}
 \begin{exer}{$\lnot$}{exer:groups:fab-quotient-by-2g}
 Let $F = F^{ab}(A)$.
@@ -2767,15 +2771,15 @@ $\categ{Grp}$ (cf.\ Exercise~6.16).
 
 \begin{exer}{$\lnot$}{exer:groups:matrix-subgroups-inclusions}
 (If you know about matrices.) The group of invertible $n \times n$
-matrices with entries in $\mathbb{R}$ is denoted $\mathrm{GL}_n(\mathbb{R})$
+matrices with entries in $\R$ is denoted $\mathrm{GL}_n(\R)$
 (Example~1.5). Similarly, $\mathrm{GL}_n(\mathbb{C})$ denotes the group of
 $n \times n$ invertible matrices with complex entries. Consider the
 following sets of matrices:
 \begin{itemize}
-\item $\mathrm{SL}_n(\mathbb{R}) = \{M \in \mathrm{GL}_n(\mathbb{R}) \mid \det(M) = 1\}$;
+\item $\mathrm{SL}_n(\R) = \{M \in \mathrm{GL}_n(\R) \mid \det(M) = 1\}$;
 \item $\mathrm{SL}_n(\mathbb{C}) = \{M \in \mathrm{GL}_n(\mathbb{C}) \mid \det(M) = 1\}$;
-\item $\mathrm{O}_n(\mathbb{R}) = \{M \in \mathrm{GL}_n(\mathbb{R}) \mid MM^t = M^tM = I_n\}$;
-\item $\mathrm{SO}_n(\mathbb{R}) = \{M \in \mathrm{O}_n(\mathbb{R}) \mid \det(M) = 1\}$;
+\item $\mathrm{O}_n(\R) = \{M \in \mathrm{GL}_n(\R) \mid MM^t = M^tM = I_n\}$;
+\item $\mathrm{SO}_n(\R) = \{M \in \mathrm{O}_n(\R) \mid \det(M) = 1\}$;
 \item $\mathrm{U}(n) = \{M \in \mathrm{GL}_n(\mathbb{C}) \mid MM^\dagger = M^\dagger M = I_n\}$;
 \item $\mathrm{SU}(n) = \{M \in \mathrm{U}(n) \mid \det(M) = 1\}$.
 \end{itemize}
@@ -2789,8 +2793,8 @@ possible inclusions among these sets, and prove that in every case the
 smaller set is a subgroup of the larger one.
 
 These sets of matrices have compelling geometric interpretations: for
-example, $\mathrm{SO}_3(\mathbb{R})$ is the group of `rotations' in
-$\mathbb{R}^3$. [8.8, 9.1, III.1.4, VI.6.16]
+example, $\mathrm{SO}_3(\R)$ is the group of `rotations' in
+$\R^3$. [8.8, 9.1, III.1.4, VI.6.16]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:groups:upper-triangular-subgroup}
 Prove that the set of $2 \times 2$ matrices
@@ -2809,9 +2813,9 @@ Prove that every matrix in $\mathrm{SU}(2)$ may be written in the form
 \[
   \begin{pmatrix} a+bi & c+di \\ -c+di & a-bi \end{pmatrix}
 \]
-where $a,b,c,d \in \mathbb{R}$ and $a^2+b^2+c^2+d^2=1$. (Thus,
+where $a,b,c,d \in \R$ and $a^2+b^2+c^2+d^2=1$. (Thus,
 $\mathrm{SU}(2)$ may be realized as a three-dimensional sphere embedded
-in $\mathbb{R}^4$; in particular, it is simply connected.) [8.9, III.2.5]
+in $\R^4$; in particular, it is simply connected.) [8.9, III.2.5]
 \end{exer}
 \begin{exer}{\exerused}{exer:groups:exponential-image-cyclic}
 Let $G$ be a group, and let $g \in G$. Verify that the image of the
@@ -3735,21 +3739,21 @@ One can give a \emph{circle} (denoted $S^1$) a group structure by
 identifying its points with rotations of a plane about a point and
 adding them accordingly. The function
 \[
-  \rho : \mathbb{R}^1 \to S^1
+  \rho : \R^1 \to S^1
 \]
 mapping a number $r$ to the result of a rotation by $2\pi r$ radians is
 then a surjective group homomorphism; this is the identity precisely
 when we rotate by an integer multiple of $2\pi$. Hence
 \[
-  \ker\rho = \Z \subseteq \mathbb{R}.
+  \ker\rho = \Z \subseteq \R.
 \]
 By Corollary~\ref{coro:groups:first-isomorphism-theorem}, therefore,
 \[
-  \frac{\mathbb{R}}{\Z} \cong S^1.
+  \frac{\R}{\Z} \cong S^1.
 \]
 (Cf.\ Exercise~I.1.6.) Geometrically, this amounts to `wrapping'
-$\mathbb{R}$ infinitely many times around the circle, realizing
-$\mathbb{R}$ as the `universal cover' of $S^1$; here, $\Z$
+$\R$ infinitely many times around the circle, realizing
+$\R$ as the `universal cover' of $S^1$; here, $\Z$
 plays the role of `fundamental group' of $S^1$.
 \end{exam}
 
@@ -4267,15 +4271,15 @@ $G \to G * G'$, $G' \to G * G'$.) [$\S$3.4, $\S$8.2, 9.14]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:groups:sln-normal-in-gln}
 (If you know about matrices (cf.\ Exercise~6.1).) Prove that
-$\mathrm{SL}_n(\mathbb{R})$ is a \emph{normal} subgroup of
-$\mathrm{GL}_n(\mathbb{R})$, and `compute'
-$\mathrm{GL}_n(\mathbb{R})/\mathrm{SL}_n(\mathbb{R})$ as a well-known
+$\mathrm{SL}_n(\R)$ is a \emph{normal} subgroup of
+$\mathrm{GL}_n(\R)$, and `compute'
+$\mathrm{GL}_n(\R)/\mathrm{SL}_n(\R)$ as a well-known
 group. [VI.3.3]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:groups:so3-su2-mod-plusminus-i}
-(Ditto.) Prove that $\mathrm{SO}_3(\mathbb{R}) \cong \mathrm{SU}(2)/\{\pm I_2\}$,
+(Ditto.) Prove that $\mathrm{SO}_3(\R) \cong \mathrm{SU}(2)/\{\pm I_2\}$,
 where $I_2$ is the identity matrix. (Hint: It so happens that every
-matrix in $\mathrm{SO}_3(\mathbb{R})$ can be written in the form
+matrix in $\mathrm{SO}_3(\R)$ can be written in the form
 \[
   \begin{pmatrix}
     a^2+b^2-c^2-d^2 & 2(bc-ad) & 2(ac+bd) \\
@@ -4283,30 +4287,30 @@ matrix in $\mathrm{SO}_3(\mathbb{R})$ can be written in the form
     2(bd-ac) & 2(ab+cd) & a^2-b^2-c^2+d^2
   \end{pmatrix}
 \]
-where $a,b,c,d \in \mathbb{R}$ and $a^2+b^2+c^2+d^2=1$. Proving this
+where $a,b,c,d \in \R$ and $a^2+b^2+c^2+d^2=1$. Proving this
 fact is not hard, but at this stage you will probably find it
 computationally demanding. Feel free to assume this, and use
 Exercise~6.3 to construct a surjective homomorphism
-$\mathrm{SU}(2) \to \mathrm{SO}_3(\mathbb{R})$; compute the kernel of
+$\mathrm{SU}(2) \to \mathrm{SO}_3(\R)$; compute the kernel of
 this homomorphism.)
 
 If you know a little topology, you can now conclude that the
 fundamental group\footnote{If you really want to believe this fact,
-remember that $\mathrm{SO}_3(\mathbb{R})$ parametrizes rotations in
-$\mathbb{R}^3$. Hold a tray with a glass of water on top of your
+remember that $\mathrm{SO}_3(\R)$ parametrizes rotations in
+$\R^3$. Hold a tray with a glass of water on top of your
 extended right hand. You should be able to rotate the tray clockwise
 by a full $360^\circ$ without spilling the water, and your muscles
-will tell you that the corresponding loop in $\mathrm{SO}_3(\mathbb{R})$
+will tell you that the corresponding loop in $\mathrm{SO}_3(\R)$
 is \emph{not} trivial. But then you will be able to rotate the tray
 again a full $360^\circ$ clockwise without spilling any water, taking
 it back to the original position. Thus, the square of the loop is
 (homotopically) trivial, as it should be if the fundamental group is
-cyclic of order $2$.} of $\mathrm{SO}_3(\mathbb{R})$ is $C_2$. [9.1,
+cyclic of order $2$.} of $\mathrm{SO}_3(\R)$ is $C_2$. [9.1,
 VI.1.3]
 \end{exer}
 \begin{exer}{}{exer:groups:r2-mod-z2-torus}
 View $\Z \times \Z$ as a subgroup of
-$\mathbb{R} \times \mathbb{R}$:
+$\R \times \R$:
 \begin{center}
 \begin{tikzpicture}[scale=0.6]
   \draw[->] (-3.5,0) -- (3.5,0);
@@ -4320,7 +4324,7 @@ $\mathbb{R} \times \mathbb{R}$:
 \end{center}
 Describe the quotient
 \[
-  \frac{\mathbb{R} \times \mathbb{R}}{\Z \times \Z}
+  \frac{\R \times \R}{\Z \times \Z}
 \]
 in terms analogous to those used in Example~\ref{exam:groups:r-mod-z-is-circle}.
 (Can you `draw a picture' of this group? Cf.\ Exercise~I.1.6.)
@@ -4728,13 +4732,13 @@ algebra\dots) The matrix groups listed in Exercise~6.1 all come with
 evident actions on a vector space: if $M$ is an $n \times n$ matrix
 with (say) real entries, multiplication to the right by a column
 $n$-vector $\mathbf{v}$ returns a column $n$-vector $M\mathbf{v}$, and
-this defines a left-action on $\mathbb{R}^n$ viewed as the space of
+this defines a left-action on $\R^n$ viewed as the space of
 column $n$-vectors.
 \begin{itemize}
 \item Prove that, through this action, matrices
-  $M \in \mathrm{O}_n(\mathbb{R})$ preserve lengths and angles in
-  $\mathbb{R}^n$.
-\item Find an interesting action of $\mathrm{SU}(2)$ on $\mathbb{R}^3$.
+  $M \in \mathrm{O}_n(\R)$ preserve lengths and angles in
+  $\R^n$.
+\item Find an interesting action of $\mathrm{SU}(2)$ on $\R^3$.
   (Hint: Exercise~8.9.)
 \end{itemize}
 \end{exer}
@@ -4746,7 +4750,7 @@ The effect of the matrices
 \]
 on the plane is to respectively flip the plane about the $y$-axis and
 to rotate it $90^\circ$ clockwise about the origin. With this in mind,
-construct an action of $D_8$ on $\mathbb{R}^2$.
+construct an action of $D_8$ on $\R^2$.
 \end{exer}
 \begin{exer}{}{exer:groups:opposite-group}
 If $G = (G, \cdot)$ is a group, we can define an `opposite' group
@@ -4853,7 +4857,7 @@ with one or more factors can equal the identity. This latter
 verification is traditionally carried out by cleverly exploiting an
 action.\footnote{The modular group acts on $\mathbb{C} \cup
 \{\infty\}$ by \emph{M\"obius transformations}. The observation that
-it suffices to act on $\mathbb{R} \setminus \Q$ for the
+it suffices to act on $\R \setminus \Q$ for the
 purpose of this verification is due to Roger Alperin.} Let the
 modular group act on the set of irrational real numbers by
 \[
@@ -4868,7 +4872,7 @@ and note that
 Now complete the verification with a case-by-case analysis. For
 example, a product $(y^{\pm 1}x)(y^{\pm 1}x) \cdots (y^{\pm 1}x)y$
 cannot equal the identity in $\mathrm{PSL}_2(\Z)$ because if
-it did, it would act as the identity on $\mathbb{R} \setminus
+it did, it would act as the identity on $\R \setminus
 \Q$, while if $r < 0$, then $y(r) > 0$, and both $yx$ and
 $y^{-1}x$ send positive irrationals to positive irrationals.) [3.8]
 \end{exer}

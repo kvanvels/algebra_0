@@ -33,68 +33,68 @@ this is done. The careful reader has likely seen it happen between the
 lines, at least in noninteresting ways: for example, if we strip a ring
 of its multiplicative structure, we are left with an abelian group; and
 if a field $F$ is an extension of a field $k$, then we may view $F$ as a
-$k$-vector space: thus, there are evident ways to go from $\mathsf{Ring}$
-to $\mathsf{Ab}$ or from the category $\mathsf{Fld}_k$ of extensions of
-$k$ to $k$-$\mathsf{Vect}$. More interesting examples are the group of
+$k$-vector space: thus, there are evident ways to go from $\categ{Ring}$
+to $\categ{Ab}$ or from the category $\categ{Fld}_k$ of extensions of
+$k$ to $k$-$\categ{Vect}$. More interesting examples are the group of
 units of a ring, the homology of a complex, the automorphism group of a
 Galois field extension (and note that this latter `turns arrows around';
 see below), etc. Implicitly, we have in fact encountered many instances
 of such `functions between categories'.
 The notion of functor formalizes these operations. A functor between two
-categories $\mathsf{C}$, $\mathsf{D}$ will `send objects of $\mathsf{C}$
-to objects of $\mathsf{D}$', and since categories carry the information
+categories $\categ{C}$, $\categ{D}$ will `send objects of $\categ{C}$
+to objects of $\categ{D}$', and since categories carry the information
 of morphisms, functors will have to deal with this information as well.
 \begin{defn}{}{linrep:1.1}
-  Let $\mathsf{C}$, $\mathsf{D}$ be two categories. A \emph{covariant
-  functor} $F : \mathsf{C} \to \mathsf{D}$ is an assignment of an object
-  $F(A) \in \mathrm{Obj}(\mathsf{D})$ for every $A \in \mathrm{Obj}(\mathsf{C})$
+  Let $\categ{C}$, $\categ{D}$ be two categories. A \emph{covariant
+  functor} $F : \categ{C} \to \categ{D}$ is an assignment of an object
+  $F(A) \in \mathrm{Obj}(\categ{D})$ for every $A \in \mathrm{Obj}(\categ{C})$
   and of a function
-  $\Hom_{\mathsf{C}}(A, B) \to \Hom_{\mathsf{D}}(F(A), F(B))$
-  for every pair of objects $A$, $B$ in $\mathsf{C}$; this function is
+  $\Hom_{\categ{C}}(A, B) \to \Hom_{\categ{D}}(F(A), F(B))$
+  for every pair of objects $A$, $B$ in $\categ{C}$; this function is
   also denoted\footnote{This minor abuse of notation is convenient and
   standard.} $F$ and must preserve identities and compositions. That is,
   \[
-    F(1_A) = 1_{F(A)} \quad \forall A \in \mathrm{Obj}(\mathsf{C}),
+    F(1_A) = 1_{F(A)} \quad \forall A \in \mathrm{Obj}(\categ{C}),
   \]
   and
   \[
     F(\beta \circ \alpha) = F(\beta) \circ F(\alpha) \quad
-    \forall A, B, C \in \mathrm{Obj}(\mathsf{C}),\;
-    \forall \alpha \in \Hom_{\mathsf{C}}(A, B),\;
-    \forall \beta \in \Hom_{\mathsf{C}}(B, C).
+    \forall A, B, C \in \mathrm{Obj}(\categ{C}),\;
+    \forall \alpha \in \Hom_{\categ{C}}(A, B),\;
+    \forall \beta \in \Hom_{\categ{C}}(B, C).
   \]
-  A \emph{contravariant functor} $\mathsf{C} \to \mathsf{D}$ is a
-  covariant functor $\mathsf{C}^{\mathrm{op}} \to \mathsf{D}$ from the
+  A \emph{contravariant functor} $\categ{C} \to \categ{D}$ is a
+  covariant functor $\categ{C}^{\mathrm{op}} \to \categ{D}$ from the
   opposite category.
 \end{defn}
-The opposite category $\mathsf{C}^{\mathrm{op}}$ is obtained from
-$\mathsf{C}$ by `reversing the arrows'; cf.\ Exercise~I.3.1. The fact
-that contravariant functors $G : \mathsf{C} \to \mathsf{D}$ (that is,
-covariant functors $\mathsf{C}^{\mathrm{op}} \to \mathsf{D}$) preserve
-compositions means that $\forall A, B, C \in \mathrm{Obj}(\mathsf{C})$,
-$\forall \alpha \in \Hom_{\mathsf{C}}(A, B)$,
-$\forall \beta \in \Hom_{\mathsf{C}}(B, C)$:
+The opposite category $\categ{C}^{\mathrm{op}}$ is obtained from
+$\categ{C}$ by `reversing the arrows'; cf.\ Exercise~I.3.1. The fact
+that contravariant functors $G : \categ{C} \to \categ{D}$ (that is,
+covariant functors $\categ{C}^{\mathrm{op}} \to \categ{D}$) preserve
+compositions means that $\forall A, B, C \in \mathrm{Obj}(\categ{C})$,
+$\forall \alpha \in \Hom_{\categ{C}}(A, B)$,
+$\forall \beta \in \Hom_{\categ{C}}(B, C)$:
 \[
   G(\beta \circ \alpha) = G(\alpha) \circ G(\beta).
 \]
 Note the switch in the order of composition. A covariant functor
-`preserves' arrows, in the sense that every diagram in $\mathsf{C}$,
+`preserves' arrows, in the sense that every diagram in $\categ{C}$,
 say
-a commutative diagram in $\mathsf{C}$ with vertices $A, B, C, D$ and
+a commutative diagram in $\categ{C}$ with vertices $A, B, C, D$ and
 arrows $\alpha_1, \alpha_2, \alpha_3, \beta, \gamma$, is mapped by a
-covariant functor $F : \mathsf{C} \to \mathsf{D}$ to a commutative
+covariant functor $F : \categ{C} \to \categ{D}$ to a commutative
 diagram with arrows in the same directions. A contravariant functor
-$G : \mathsf{C} \to \mathsf{D}$ `reverses' the arrows. In both cases,
+$G : \categ{C} \to \categ{D}$ `reverses' the arrows. In both cases,
 commutative diagrams are sent to commutative diagrams.
 In many contexts, contravariant functors are called \emph{presheaves}.
-Thus, a presheaf of sets on a category $\mathsf{C}$ is simply a
-contravariant functor $\mathsf{C} \to \mathsf{Set}$.
-If $\Hom_{\mathsf{C}}(A, B)$ carries more structure, we may
+Thus, a presheaf of sets on a category $\categ{C}$ is simply a
+contravariant functor $\categ{C} \to \categ{Set}$.
+If $\Hom_{\categ{C}}(A, B)$ carries more structure, we may
 require functors to preserve this structure. For example, we have seen
-that for $\mathsf{C} = R\text{-}\mathsf{Mod}$, the category of
+that for $\categ{C} = R\text{-}\categ{Mod}$, the category of
 left-modules over a ring $R$, $\Hom_{R\text{-}\mathrm{Mod}}(A,
 B)$ is itself an abelian group (end of \S{}III.5.2); a functor
-$F : R\text{-}\mathsf{Mod} \to S\text{-}\mathsf{Mod}$ is
+$F : R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ is
 \emph{additive} if it preserves this structure, that is, if the
 corresponding function
 \[
@@ -115,7 +115,7 @@ under addition) are covariant functors: for example, the fact that a
 homomorphism of rings is in particular a homomorphism of the underlying
 abelian groups amounts to the statement that labeling each ring with its
 underlying abelian group defines a covariant functor
-$\mathsf{Ring} \to \mathsf{Ab}$. Since such functors are obtained by
+$\categ{Ring} \to \categ{Ab}$. Since such functors are obtained by
 `forgetting' part of the structure of a given object, they are memorably
 called \emph{forgetful functors}. I have already mentioned briefly a few
 slightly more imaginative examples; here they are again.
@@ -124,7 +124,7 @@ slightly more imaginative examples; here they are again.
   $R$; every ring homomorphism $R \to S$ induces a group homomorphism
   $R^\ast \to S^\ast$, and this assignment is compatible with
   compositions; therefore this operation defines a
-  covariant functor $\mathsf{Ring} \to \mathsf{Grp}$.
+  covariant functor $\categ{Ring} \to \categ{Grp}$.
 \end{exam}
 \begin{exam}{}{linrep:exam:1.3}
   The operation $\mathrm{Aut}_k(-)$ from Galois field extensions to
@@ -146,7 +146,7 @@ slightly more imaginative examples; here they are again.
   $\phi^\ast : \mathrm{Spec}(S) \to \mathrm{Spec}(R)$. This assignment
   is clearly functorial, so we can view $\mathrm{Spec}$ as a
   contravariant functor from the category of commutative rings to
-  $\mathsf{Set}$. The reader will assign a topology to
+  $\categ{Set}$. The reader will assign a topology to
   $\mathrm{Spec}(R)$ (Exercise~1.7), making this example (even) more
   interesting.
 \end{exam}
@@ -154,7 +154,7 @@ slightly more imaginative examples; here they are again.
   If $S$ is a set, recall (Example~I.3.4) that one can construct a
   category $\hat{S}$ whose objects are subsets of $S$ and where
   morphisms correspond to inclusions of subsets. A presheaf of sets on
-  $S$ is a contravariant functor $\hat{S} \to \mathsf{Set}$. The
+  $S$ is a contravariant functor $\hat{S} \to \categ{Set}$. The
   prototypical example consists of the functor which associates to
   $U \subseteq S$ the set of functions from $U$ to a fixed set; the
   inclusion $U \subseteq V$ is mapped to the restriction
@@ -174,35 +174,35 @@ slightly more imaginative examples; here they are again.
 \end{exam}
 An important class of functors that are available on any category may
 be obtained as follows, and this will be a source of examples in the
-next few sections. Let $\mathsf{C}$ be a category, and let $X$ be an
-object of $\mathsf{C}$. Then the assignments
+next few sections. Let $\categ{C}$ be a category, and let $X$ be an
+object of $\categ{C}$. Then the assignments
 \[
-  A \mapsto \Hom_{\mathsf{C}}(X, A), \qquad
-  A \mapsto \Hom_{\mathsf{C}}(A, X)
+  A \mapsto \Hom_{\categ{C}}(X, A), \qquad
+  A \mapsto \Hom_{\categ{C}}(A, X)
 \]
 define, respectively, covariant and contravariant functors
-$\mathsf{C} \to \mathsf{Set}$. These are denoted
-$\Hom_{\mathsf{C}}(X, -)$ and
-$\Hom_{\mathsf{C}}(-, X)$, respectively. For example, if
+$\categ{C} \to \categ{Set}$. These are denoted
+$\Hom_{\categ{C}}(X, -)$ and
+$\Hom_{\categ{C}}(-, X)$, respectively. For example, if
 $A \xrightarrow{\alpha} B \xrightarrow{\beta} C$ is a diagram in
-$\mathsf{C}$, every $\alpha : A \to B$ determines a function
-$\Hom_{\mathsf{C}}(B, X) \to \Hom_{\mathsf{C}}(A, X)$
+$\categ{C}$, every $\alpha : A \to B$ determines a function
+$\Hom_{\categ{C}}(B, X) \to \Hom_{\categ{C}}(A, X)$
 defined by mapping $\xi_B$ to $\xi_A \coloneq \xi_B \circ \alpha$,
 that is, by requiring the obvious triangle to be commutative. The
 associativity of composition,
 $\xi_C \circ (\beta \circ \alpha) = (\xi_C \circ \beta) \circ \alpha$,
 expresses precisely the contravariant functoriality of this assignment.
-The functor $\Hom_{\mathsf{C}}(-, X)$ is often denoted $h^X$
-for short, if $\mathsf{C}$ is understood.
+The functor $\Hom_{\categ{C}}(-, X)$ is often denoted $h^X$
+for short, if $\categ{C}$ is understood.
 The brave reader may contemplate the fact that this technique
-associates to each object $X$ of a category $\mathsf{C}$ a presheaf of
-sets $h^X$ on $\mathsf{C}$. This raises natural and important
+associates to each object $X$ of a category $\categ{C}$ a presheaf of
+sets $h^X$ on $\categ{C}$. This raises natural and important
 questions, such as how to tell whether a given presheaf of sets $F$ in
-fact equals $h^X$ for some object $X$ of $\mathsf{C}$ (this makes $F$
+fact equals $h^X$ for some object $X$ of $\categ{C}$ (this makes $F$
 \emph{representable}) or whether an object $X$ may be reconstructed
-from the corresponding presheaf $h^X$. For example, if $\mathsf{Top}$
+from the corresponding presheaf $h^X$. For example, if $\categ{Top}$
 is the category of topological spaces and $p$ denotes the final object
-of $\mathsf{Top}$ (that is, the one-point topological space), then
+of $\categ{Top}$ (that is, the one-point topological space), then
 $h^X(p)$ is nothing but $X$, viewed as a set. For this reason, in such
 `geometric' contexts (for example, in algebraic geometry) $h^X(A)$ is
 called the `set of $A$-points of $X$'; $h^X$ is the \emph{functor of
@@ -233,39 +233,39 @@ isomorphism classes, rather than individual objects. The
 \emph{morphisms} are a more essential piece of information; the quality
 of a functor is first of all measured on how it acts on morphisms.
 \begin{defn}{}{linrep:1.6}
-  Let $\mathsf{C}$, $\mathsf{D}$ be two categories. A covariant functor
-  $F : \mathsf{C} \to \mathsf{D}$ is \emph{faithful} if for all objects
-  $A$, $B$ of $\mathsf{C}$, the induced function
+  Let $\categ{C}$, $\categ{D}$ be two categories. A covariant functor
+  $F : \categ{C} \to \categ{D}$ is \emph{faithful} if for all objects
+  $A$, $B$ of $\categ{C}$, the induced function
   \[
-    \Hom_{\mathsf{C}}(A, B) \to
-    \Hom_{\mathsf{D}}(F(A), F(B))
+    \Hom_{\categ{C}}(A, B) \to
+    \Hom_{\categ{D}}(F(A), F(B))
   \]
   is injective; it is \emph{full} if this function is surjective, for
   all objects $A$, $B$.
 \end{defn}
-`Fully faithful' functors $F : \mathsf{C} \to \mathsf{D}$ are bijective
+`Fully faithful' functors $F : \categ{C} \to \categ{D}$ are bijective
 on morphisms, and it follows easily that they preserve isomorphism
-classes: $A \cong B$ in $\mathsf{C}$ if and only if $F(A) \cong F(B)$
-in $\mathsf{D}$ (Exercise~1.2). For all intents and purposes, a fully
-faithful functor $F : \mathsf{C} \to \mathsf{D}$ identifies $\mathsf{C}$
+classes: $A \cong B$ in $\categ{C}$ if and only if $F(A) \cong F(B)$
+in $\categ{D}$ (Exercise~1.2). For all intents and purposes, a fully
+faithful functor $F : \categ{C} \to \categ{D}$ identifies $\categ{C}$
 with a full\footnote{See Exercise~I.3.8 for the definition of `full'
-subcategory.} subcategory of $\mathsf{D}$, even if `on objects' $F$ may
+subcategory.} subcategory of $\categ{D}$, even if `on objects' $F$ may
 be neither injective nor surjective onto that subcategory. This idea is
 captured by the following definition:
 \begin{defn}{}{linrep:1.7}
-  A covariant functor $F : \mathsf{C} \to \mathsf{D}$ is an
+  A covariant functor $F : \categ{C} \to \categ{D}$ is an
   \emph{equivalence of categories} if it is fully faithful and
   `essentially surjective'; that is, $F$ induces bijections on Hom-sets,
-  and for every object $Y$ of $\mathsf{D}$ there is an object $X$ of
-  $\mathsf{C}$ such that $F(X) \cong Y$ in $\mathsf{D}$.
+  and for every object $Y$ of $\categ{D}$ there is an object $X$ of
+  $\categ{C}$ such that $F(X) \cong Y$ in $\categ{D}$.
 \end{defn}
-Two categories $\mathsf{C}$, $\mathsf{D}$ are \emph{equivalent} if
-there is a functor $F : \mathsf{C} \to \mathsf{D}$ satisfying the
+Two categories $\categ{C}$, $\categ{D}$ are \emph{equivalent} if
+there is a functor $F : \categ{C} \to \categ{D}$ satisfying the
 requirements in Definition~1.7. It is not at all immediate that this is
 indeed an equivalence relation (why is it symmetric?), but this turns
 out to be the case. In fact, an equivalence of categories $F$ has an
 `inverse', in a suitably weakened sense: a functor
-$G : \mathsf{D} \to \mathsf{C}$ such that there are `natural
+$G : \categ{D} \to \categ{C}$ such that there are `natural
 isomorphisms' (see \S{}1.5) from $F \circ G$ and $G \circ F$ to the
 identity. Since we will not use these notions too extensively, I will
 let the interested reader research the issue and find proofs.
@@ -286,7 +286,7 @@ let the interested reader research the issue and find proofs.
 \begin{exam}{}{linrep:exam:1.9}
   Recall (Definition~VII.2.19) that the coordinate ring of an affine
   algebraic set over a field $K$ is a reduced, commutative, finite-type
-  $K$-algebra. We can define the category $K\text{-}\mathsf{Aff}$ of
+  $K$-algebra. We can define the category $K\text{-}\categ{Aff}$ of
   affine $K$-algebraic sets by prescribing that the objects be algebraic
   subsets of some affine $K$-space and
   defining\footnote{The switch in the order of $S$ and $T$ is
@@ -297,10 +297,10 @@ let the interested reader research the issue and find proofs.
   $\Hom_{K\text{-}\mathrm{Aff}}(S, T) =
   \Hom_{K\text{-}\mathrm{Alg}}(K[T], K[S])$.
 
-  Thus, $K\text{-}\mathsf{Aff}$ is defined in such a way that the
-  functor $K\text{-}\mathsf{Aff}^{\mathrm{op}} \to K\text{-}\mathsf{Alg}$
+  Thus, $K\text{-}\categ{Aff}$ is defined in such a way that the
+  functor $K\text{-}\categ{Aff}^{\mathrm{op}} \to K\text{-}\categ{Alg}$
   that maps an affine algebraic set $S$ to its coordinate ring $K[S]$
-  is an equivalence of the opposite category of $K\text{-}\mathsf{Aff}$
+  is an equivalence of the opposite category of $K\text{-}\categ{Aff}$
   with the subcategory of reduced, commutative, finite-type $K$-algebra.
 \end{exam}
 
@@ -308,14 +308,14 @@ let the interested reader research the issue and find proofs.
 \label{subsec:linrep:limits-and-colimits}
 The various universal properties encountered along the way in this book
 are all particular cases of the notion of categorical \emph{limit},
-which is worth mentioning explicitly. Let $\mathscr{F} : \mathsf{I} \to
-\mathsf{C}$ be a covariant functor, where one thinks of $\mathsf{I}$ as
+which is worth mentioning explicitly. Let $\mathscr{F} : \categ{I} \to
+\categ{C}$ be a covariant functor, where one thinks of $\categ{I}$ as
 a category `of indices'. The \emph{limit} of $\mathscr{F}$ is (if it
-exists) an object $L$ of $\mathsf{C}$, endowed with morphisms
-$\lambda_I : L \to \mathscr{F}(I)$ for all objects $I$ of $\mathsf{I}$,
+exists) an object $L$ of $\categ{C}$, endowed with morphisms
+$\lambda_I : L \to \mathscr{F}(I)$ for all objects $I$ of $\categ{I}$,
 satisfying the following properties.
 \begin{itemize}
-  \item If $\alpha : I \to J$ is a morphism in $\mathsf{I}$, then
+  \item If $\alpha : I \to J$ is a morphism in $\categ{I}$, then
     $\lambda_J = \mathscr{F}(\alpha) \circ \lambda_I$.
   \item $L$ is final with respect to this property: that is, if $M$ is
     another object, endowed with morphisms $\mu_I$, also satisfying the
@@ -328,37 +328,37 @@ satisfying the following properties.
 The limit $L$ (if it exists) is unique up to isomorphism, as is every
 notion defined by a universal property. It is denoted $\varprojlim
 \mathscr{F}$. The `left-pointing' arrow reminds us that $L$ stands
-`before' all objects of $\mathsf{C}$ indexed by $\mathsf{I}$ via
+`before' all objects of $\categ{C}$ indexed by $\categ{I}$ via
 $\mathscr{F}$ (but it is---up to isomorphisms---the `last' object that
 may do so). This notion is also called \emph{inverse}, or
 \emph{projective}, limit.
 \begin{exam}{(Products)}{linrep:exam:1.10}
-  Let $\mathsf{I}$ be the `discrete category' consisting of two objects
+  Let $\categ{I}$ be the `discrete category' consisting of two objects
   $\mathbf{1}$, $\mathbf{2}$, with only identity
   morphisms\footnote{This latter prescription is what makes the category
   `discrete'; cf.\ Example~I.3.3.}, and let $\mathscr{A}$ be a functor
-  from $\mathsf{I}$ to any category $\mathsf{C}$; let
+  from $\categ{I}$ to any category $\categ{C}$; let
   $A_1 = \mathscr{A}(\mathbf{1})$, $A_2 = \mathscr{A}(\mathbf{2})$ be
-  the two objects of $\mathsf{C}$ `indexed' by $\mathsf{I}$. Then
+  the two objects of $\categ{C}$ `indexed' by $\categ{I}$. Then
   $\varprojlim \mathscr{A}$ is nothing but the product of $A_1$ and
-  $A_2$ in $\mathsf{C}$, as defined in \S{}I.5.4: a limit exists if and
-  only if a product of $A_1$ and $A_2$ exists in $\mathsf{C}$.
+  $A_2$ in $\categ{C}$, as defined in \S{}I.5.4: a limit exists if and
+  only if a product of $A_1$ and $A_2$ exists in $\categ{C}$.
 
   We can similarly define the product of any (possibly infinite) family
   of objects in a category as the limit over the corresponding discrete
   indexing category, provided of course that this limit exists.
 \end{exam}
 The limit notion is a little more interesting if the indexing category
-$\mathsf{I}$ carries more structure.
+$\categ{I}$ carries more structure.
 \begin{exam}{(Equalizers and kernels)}{linrep:exam:1.11}
-  Let $\mathsf{I}$ again be a category with two objects $\mathbf{1}$,
+  Let $\categ{I}$ again be a category with two objects $\mathbf{1}$,
   $\mathbf{2}$, but assume that morphisms look like this: add to the
   discrete category two `parallel' morphisms $\alpha$, $\beta$ from
-  $\mathbf{2}$ to $\mathbf{1}$. A functor $\mathscr{K} : \mathsf{I}
-  \to \mathsf{C}$ amounts to the choice of two objects $A_1$, $A_2$ in
-  $\mathsf{C}$ and two parallel morphisms between them. Limits of such
+  $\mathbf{2}$ to $\mathbf{1}$. A functor $\mathscr{K} : \categ{I}
+  \to \categ{C}$ amounts to the choice of two objects $A_1$, $A_2$ in
+  $\categ{C}$ and two parallel morphisms between them. Limits of such
   functors are called \emph{equalizers}. For a concrete example, assume
-  $\mathsf{C} = R\text{-}\mathsf{Mod}$ is the category of $R$-modules
+  $\categ{C} = R\text{-}\categ{Mod}$ is the category of $R$-modules
   for some ring $R$; let $\phi : A_2 \to A_1$ be a homomorphism, and
   choose $\mathscr{K}$ as above, with $\mathscr{K}(\alpha) = \phi$ and
   $\mathscr{K}(\beta) = $ the zero-morphism. Then $\varprojlim
@@ -366,7 +366,7 @@ $\mathsf{I}$ carries more structure.
   verify (Exercise~1.14).
 \end{exam}
 \begin{exam}{(Limits over chains)}{linrep:exam:1.12}
-  In another typical situation, $\mathsf{I}$ may consist of a totally
+  In another typical situation, $\categ{I}$ may consist of a totally
   ordered set, for example:
   \[
     \cdots \to \mathbf{4} \to \mathbf{3} \to \mathbf{2} \to \mathbf{1}
@@ -374,8 +374,8 @@ $\mathsf{I}$ carries more structure.
   (that is, the objects are $\mathbf{i}$, for all positive integers $i$,
   and there is a unique morphism $\mathbf{i} \to \mathbf{j}$ whenever
   $i \geq j$; I am only drawing the morphisms $\mathbf{j+1} \to
-  \mathbf{j}$). Choosing $\mathscr{F} : \mathsf{I} \to \mathsf{C}$ is
-  equivalent to choosing objects $A_i$ of $\mathsf{C}$ for all positive
+  \mathbf{j}$). Choosing $\mathscr{F} : \categ{I} \to \categ{C}$ is
+  equivalent to choosing objects $A_i$ of $\categ{C}$ for all positive
   integers $i$ and morphisms $\varphi_{ji} : A_i \to A_j$ for all
   $i \geq j$, with the requirement that $\varphi_{ii} = 1_{A_i}$ and
   $\varphi_{kj} \circ \varphi_{ji} = \varphi_{ki}$ for all
@@ -385,7 +385,7 @@ $\mathsf{I}$ carries more structure.
     \cdots \xrightarrow{\varphi_{45}} A_4 \xrightarrow{\varphi_{34}}
     A_3 \xrightarrow{\varphi_{23}} A_2 \xrightarrow{\varphi_{12}} A_1
   \]
-  in $\mathsf{C}$. An inverse limit $\varprojlim \mathscr{F}$ (which
+  in $\categ{C}$. An inverse limit $\varprojlim \mathscr{F}$ (which
   may also be denoted $\varprojlim_i A_i$, when the morphisms
   $\varphi_{ji}$ are evident from the context) is then an object $A$
   endowed with morphisms $\varphi_i : A \to A_i$ such that the whole
@@ -393,10 +393,10 @@ $\mathsf{I}$ carries more structure.
   requirement factors uniquely through $A$.
 \end{exam}
 Such limits exist in many standard situations. For example, let
-$\mathsf{C} = R\text{-}\mathsf{Mod}$ be the category of left-modules
+$\categ{C} = R\text{-}\categ{Mod}$ be the category of left-modules
 over a fixed ring $R$, and let $A_i$, $\varphi_{ji}$ be as above.
 \begin{prop}{}{linrep:1.13}
-  The limit $\varprojlim_i A_i$ exists in $R\text{-}\mathsf{Mod}$.
+  The limit $\varprojlim_i A_i$ exists in $R\text{-}\categ{Mod}$.
 \end{prop}
 \begin{proof}
   The product $\prod_i A_i$ consists of arbitrary sequences
@@ -410,9 +410,9 @@ over a fixed ring $R$, and let $A_i$, $\varphi_{ji}$ be as above.
 This example easily generalizes to families indexed by more general
 posets.
 The `dual notion' to limit is the \emph{colimit} of a functor
-$\mathscr{F} : \mathsf{I} \to \mathsf{C}$. The colimit is an object $C$
-of $\mathsf{C}$, endowed with morphisms $\gamma_I : \mathscr{F}(I) \to
-C$ for all objects $I$ of $\mathsf{I}$, such that
+$\mathscr{F} : \categ{I} \to \categ{C}$. The colimit is an object $C$
+of $\categ{C}$, endowed with morphisms $\gamma_I : \mathscr{F}(I) \to
+C$ for all objects $I$ of $\categ{I}$, such that
 $\gamma_I = \gamma_J \circ \mathscr{F}(\alpha)$ for all
 $\alpha : I \to J$ and that $C$ is initial with respect to this
 requirement.
@@ -426,12 +426,12 @@ are colimits, just as kernels are limits (cf.\ Example~1.11).
 The colimit of $\mathscr{F}$ is (not surprisingly) denoted
 $\varinjlim \mathscr{F}$ and is called the \emph{direct}, or
 \emph{injective}, limit of $\mathscr{F}$. For a typical situation
-consider again the case of a totally ordered set $\mathsf{I}$, for
+consider again the case of a totally ordered set $\categ{I}$, for
 example:
 \[
   \mathbf{1} \to \mathbf{2} \to \mathbf{3} \to \mathbf{4} \to \cdots.
 \]
-A functor $\mathscr{F} : \mathsf{I} \to \mathsf{C}$ consists of the
+A functor $\mathscr{F} : \categ{I} \to \categ{C}$ consists of the
 choice of objects and morphisms
 \[
   A_1 \xrightarrow{\psi_{12}} A_2 \xrightarrow{\psi_{23}} A_3
@@ -441,7 +441,7 @@ and the direct limit $\varinjlim_i A_i$ will be an object $A$ with
 morphisms $\psi_i : A_i \to A$ such that the relevant diagram commutes
 and such that $A$ is initial with respect to this requirement.
 \begin{exam}{}{linrep:exam:1.14}
-  If $\mathsf{C} = \mathsf{Set}$ and all the $\psi_{ij}$ are
+  If $\categ{C} = \categ{Set}$ and all the $\psi_{ij}$ are
   injective, we are talking about a `nested sequence of sets':
   \[
     A_1 \subseteq A_2 \subseteq A_3 \subseteq A_4 \subseteq \cdots;
@@ -465,8 +465,8 @@ satisfies the needed universal property, as the reader will check. In
 fact, it is no harder to perform these constructions for more general
 posets (Exercise~1.16). They are somewhat more explicit and better
 behaved in the case of \emph{directed sets}: partially ordered sets
-$\mathsf{I}$ such that $\forall i, j \in \mathsf{I}$ there exists
-$k \in \mathsf{I}$ such that $i \leq k$, $j \leq k$.
+$\categ{I}$ such that $\forall i, j \in \categ{I}$ there exists
+$k \in \categ{I}$ such that $i \leq k$, $j \leq k$.
 
 Several standard constructions rely on a direct limit: for example,
 \emph{germs} of functions (or, more generally, `stalks of presheaves')
@@ -481,13 +481,13 @@ description of these notions is not needed in this book, but I want to
 mention briefly a few concepts and essential remarks, again because they
 offer a unifying viewpoint.
 \begin{defn}{}{linrep:1.15}
-  Let $\mathsf{C}$, $\mathsf{D}$ be categories, and let $F$, $G$ be
-  (say, covariant) functors $\mathsf{C} \to \mathsf{D}$. A \emph{natural
+  Let $\categ{C}$, $\categ{D}$ be categories, and let $F$, $G$ be
+  (say, covariant) functors $\categ{C} \to \categ{D}$. A \emph{natural
   transformation}\footnote{The symbol $\Rightarrow$ is more standard
   than $\leadsto$, but it looks a little too much like the logical
   connective $\implies$ for my taste.} $F \leadsto G$ is the datum of a
-  morphism $\nu_X : F(X) \to G(X)$ in $\mathsf{D}$ for every object $X$
-  in $\mathsf{C}$, such that $\forall \alpha : X \to Y$ in $\mathsf{C}$
+  morphism $\nu_X : F(X) \to G(X)$ in $\categ{D}$ for every object $X$
+  in $\categ{C}$, such that $\forall \alpha : X \to Y$ in $\categ{C}$
   the diagram
   \[
     \begin{array}{ccc}
@@ -510,21 +510,21 @@ meaning of the word `natural' matches, as a rule, its psychological use.
 A particularly basic and important example is the notion of
 \emph{adjoint functors}, which I will mention at a rather informal
 level, leaving to the inextinguishable reader the task of making it
-formal by suitable use of natural transformations. Let $\mathsf{C}$,
-$\mathsf{D}$ be categories, and let $F : \mathsf{C} \to \mathsf{D}$,
-$G : \mathsf{D} \to \mathsf{C}$ be functors. We say that $F$ and $G$
+formal by suitable use of natural transformations. Let $\categ{C}$,
+$\categ{D}$ be categories, and let $F : \categ{C} \to \categ{D}$,
+$G : \categ{D} \to \categ{C}$ be functors. We say that $F$ and $G$
 are \emph{adjoint} (and we say that $G$ is \emph{right-adjoint} to $F$
 and $F$ is \emph{left-adjoint} to $G$) if there are natural
 isomorphisms
 \[
-  \Hom_{\mathsf{C}}(X, G(Y)) \xrightarrow{\;\sim\;}
-  \Hom_{\mathsf{D}}(F(X), Y)
+  \Hom_{\categ{C}}(X, G(Y)) \xrightarrow{\;\sim\;}
+  \Hom_{\categ{D}}(F(X), Y)
 \]
-for all objects $X$ of $\mathsf{C}$ and $Y$ of $\mathsf{D}$. (More
+for all objects $X$ of $\categ{C}$ and $Y$ of $\categ{D}$. (More
 precisely, there should be a natural isomorphism of `bifunctors'
-$\mathsf{C}^{\mathrm{op}} \times \mathsf{D} \to \mathsf{Set}$:
-$\Hom_{\mathsf{C}}(\mathord{-}, G(\mathord{-})) \leadsto
-\Hom_{\mathsf{D}}(F(\mathord{-}), \mathord{-})$.) Once again,
+$\categ{C}^{\mathrm{op}} \times \categ{D} \to \categ{Set}$:
+$\Hom_{\categ{C}}(\mathord{-}, G(\mathord{-})) \leadsto
+\Hom_{\categ{D}}(F(\mathord{-}), \mathord{-})$.) Once again,
 several constructions we have encountered along the way may be recast in
 these terms, and we will run into more instances of this situation in
 this chapter.
@@ -535,13 +535,13 @@ this chapter.
   (\S{}II.5.2). What this really means is that for all sets $A$ and all
   groups $G$ there are natural identifications
   \[
-    \Hom_{\mathsf{Set}}(A, S(G)) \cong
-    \Hom_{\mathsf{Grp}}(F(A), G),
+    \Hom_{\categ{Set}}(A, S(G)) \cong
+    \Hom_{\categ{Grp}}(F(A), G),
   \]
   where $S(G)$ `forgets' the group structure of $G$. That is, the
-  functor $F : \mathsf{Set} \to \mathsf{Grp}$ constructing free groups
-  is left-adjoint to the forgetful functor $S : \mathsf{Grp} \to
-  \mathsf{Set}$. This of course applies to every other construction of
+  functor $F : \categ{Set} \to \categ{Grp}$ constructing free groups
+  is left-adjoint to the forgetful functor $S : \categ{Grp} \to
+  \categ{Set}$. This of course applies to every other construction of
   `free' objects we have encountered: the free functor is, as a rule,
   left-adjoint to the forgetful functor.
 \end{exam}
@@ -559,9 +559,9 @@ what the companion left-adjoint functor may be. Here is the prototypical
 example of this phenomenon.
 \begin{lem}{}{linrep:1.17}
   Right-adjoint functors commute with limits. That is, if
-  $G : \mathsf{D} \to \mathsf{C}$ has a left-adjoint
-  $F : \mathsf{C} \to \mathsf{D}$ and $\mathscr{A} : \mathsf{I} \to
-  \mathsf{D}$ is another functor, then there is a canonical isomorphism
+  $G : \categ{D} \to \categ{C}$ has a left-adjoint
+  $F : \categ{C} \to \categ{D}$ and $\mathscr{A} : \categ{I} \to
+  \categ{D}$ is another functor, then there is a canonical isomorphism
   \[
     G\!\left(\varprojlim \mathscr{A}\right) \xrightarrow{\;\sim\;}
     \varprojlim(G \circ \mathscr{A})
@@ -579,20 +579,20 @@ defining the various concepts. By contrast, proving that a specific
 given functor preserves products (for instance), without appealing to
 abstract nonsense, may sometimes appear to involve some `real' work.
 
-Assume $G : \mathsf{D} \to \mathsf{C}$ is right-adjoint to
-$F : \mathsf{C} \to \mathsf{D}$ and $\mathscr{A} : \mathsf{I} \to
-\mathsf{D}$ is a given functor. As we have seen, the limit of
+Assume $G : \categ{D} \to \categ{C}$ is right-adjoint to
+$F : \categ{C} \to \categ{D}$ and $\mathscr{A} : \categ{I} \to
+\categ{D}$ is a given functor. As we have seen, the limit of
 $\mathscr{A}$ is final subject to fitting in commutative diagrams (with
 hopefully evident notation). Applying $G$, we get commutative diagrams
-in $\mathsf{C}$, and hence, by the universal property defining the limit
+in $\categ{C}$, and hence, by the universal property defining the limit
 of $G \circ \mathscr{A}$, a morphism
 $G(\varprojlim \mathscr{A}) \to \varprojlim(G \circ \mathscr{A})$.
-Now, the morphisms in $\mathsf{C}$,
+Now, the morphisms in $\categ{C}$,
 $\varprojlim(G \circ \mathscr{A}) \to G \circ \mathscr{A}(I)$,
 determine via the adjunction identification
-$\Hom_{\mathsf{C}}(X, G(Y)) \xrightarrow{\sim}
-\Hom_{\mathsf{D}}(F(X), Y)$
-morphisms in $\mathsf{D}$:
+$\Hom_{\categ{C}}(X, G(Y)) \xrightarrow{\sim}
+\Hom_{\categ{D}}(F(X), Y)$
+morphisms in $\categ{D}$:
 $F(\varprojlim(G \circ \mathscr{A})) \to \mathscr{A}(I)$.
 By the universal property defining $\varprojlim \mathscr{A}$ we get a
 morphism $F(\varprojlim(G \circ \mathscr{A})) \to \varprojlim
@@ -619,8 +619,8 @@ products and that they must `preserve kernels' when kernels make sense.
   A functor is \emph{exact} if it preserves exactness, that is, it
   sends exact sequences to exact sequences. So far we have only studied
   exactness in the context of modules over a ring (\S{}III.7.1), so let
-  $R$, $S$ be rings and let $F : R\text{-}\mathsf{Mod} \to
-  S\text{-}\mathsf{Mod}$ be an additive functor; $F$ is exact if and
+  $R$, $S$ be rings and let $F : R\text{-}\categ{Mod} \to
+  S\text{-}\categ{Mod}$ be an additive functor; $F$ is exact if and
   only if whenever
   \[
     0 \to A \xrightarrow{\phi} B \xrightarrow{\psi} C \to 0
@@ -651,8 +651,8 @@ products and that they must `preserve kernels' when kernels make sense.
   it in Chapter~IX.
 \end{exam}
 \begin{prop}{}{linrep:1.19}
-  Right-adjoint additive functors $R\text{-}\mathsf{Mod} \to
-  S\text{-}\mathsf{Mod}$ are left-exact.
+  Right-adjoint additive functors $R\text{-}\categ{Mod} \to
+  S\text{-}\categ{Mod}$ are left-exact.
 \end{prop}
 As the reader will verify (Exercise~1.27), this follows from the fact
 that right-adjoint functors preserve kernels. (Note that exactness of
@@ -660,7 +660,7 @@ $0 \to A \xrightarrow{\phi} B$ amounts to the fact that $\phi : A
 \hookrightarrow B$ identifies $A$ with $\ker \psi$.) Of course the
 corresponding co-statements hold: since left-adjoint functors preserve
 colimits and cokernels are colimits, it follows that left-adjoint
-additive functors $G : R\text{-}\mathsf{Mod} \to S\text{-}\mathsf{Mod}$
+additive functors $G : R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$
 are necessarily \emph{right-exact}, in the sense that if
 $A \xrightarrow{\phi} B \xrightarrow{\psi} C \to 0$ is exact, then
 $G(A) \xrightarrow{G(\phi)} G(B) \xrightarrow{G(\psi)} G(C) \to 0$ is
@@ -669,29 +669,29 @@ also exact.
 \subsection*{Exercises}
 
 \begin{exer}{}{linrep:exer:1.1}
-  Let $F : \mathsf{C} \to \mathsf{D}$ be a covariant functor, and
-  assume that both $\mathsf{C}$ and $\mathsf{D}$ have products. Prove
-  that for all objects $A$, $B$ of $\mathsf{C}$, there is a unique
+  Let $F : \categ{C} \to \categ{D}$ be a covariant functor, and
+  assume that both $\categ{C}$ and $\categ{D}$ have products. Prove
+  that for all objects $A$, $B$ of $\categ{C}$, there is a unique
   morphism $F(A \times B) \to F(A) \times F(B)$ such that the relevant
-  diagram involving natural projections commutes. If $\mathsf{D}$ has
-  coproducts (denoted $\sqcup$) and $G : \mathsf{C} \to \mathsf{D}$ is
+  diagram involving natural projections commutes. If $\categ{D}$ has
+  coproducts (denoted $\sqcup$) and $G : \categ{C} \to \categ{D}$ is
   contravariant, prove that there is a unique morphism
   $G(A) \sqcup G(B) \to G(A \times B)$ (again, such that an appropriate
   diagram commutes).
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:1.2}
-  Let $F : \mathsf{C} \to \mathsf{D}$ be a fully faithful functor. If
-  $A$, $B$ are objects in $\mathsf{C}$, prove that $A \cong B$ in
-  $\mathsf{C}$ if and only if $F(A) \cong F(B)$ in $\mathsf{D}$.
+  Let $F : \categ{C} \to \categ{D}$ be a fully faithful functor. If
+  $A$, $B$ are objects in $\categ{C}$, prove that $A \cong B$ in
+  $\categ{C}$ if and only if $F(A) \cong F(B)$ in $\categ{D}$.
   [\S{}1.3]
 \end{exer}
 
 \begin{exer}{}{linrep:exer:1.3}
   Recall (\S{}II.1) that a group $G$ may be thought of as a groupoid
   $\mathcal{G}$ with a single object. Prove that defining the action of
-  $G$ on an object of a category $\mathsf{C}$ is equivalent to defining
-  a functor $\mathcal{G} \to \mathsf{C}$.
+  $G$ on an object of a category $\categ{C}$ is equivalent to defining
+  a functor $\mathcal{G} \to \categ{C}$.
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:1.4}
@@ -707,17 +707,17 @@ also exact.
 
 \begin{exer}{$*$}{linrep:exer:1.5}
   For $F$ a field, denote by $F^*$ the group of nonzero elements of
-  $F$, with multiplication. The assignment $\mathsf{Fld} \to \mathsf{Grp}$
+  $F$, with multiplication. The assignment $\categ{Fld} \to \categ{Grp}$
   mapping $F$ to $F^*$ and a homomorphism of fields $\phi : k \to F$
   (i.e., a field extension\footnote{Recall that there are no
   `zero-homomorphisms' between fields; cf.\ \S{}VII.1.1.}) to the
   restriction $\phi|_{k^*} : k^* \to F^*$ is clearly a covariant
   functor. On the other hand, we can consider the category
-  $\mathsf{Fld}^f_k$ of finite extensions of a fixed field $k$. Prove
+  $\categ{Fld}^f_k$ of finite extensions of a fixed field $k$. Prove
   that the assignment $F \mapsto F^*$ on objects, together with the
   prescription associating with every $F_1 \subseteq F_2$ the norm
   $N_{F_1 \subseteq F_2} : F_2^* \to F_1^*$ (cf.\ Exercise~VII.1.12),
-  gives a contravariant functor $\mathsf{Fld}^f_k \to \mathsf{Grp}$.
+  gives a contravariant functor $\categ{Fld}^f_k \to \categ{Grp}$.
   State and prove an analogous statement for the trace
   (cf.\ Exercise~VII.1.13).
 \end{exer}
@@ -759,7 +759,7 @@ also exact.
 
 \begin{exer}{}{linrep:exer:1.8}
   Let $K$ be an algebraically closed field, and consider the category
-  $K\text{-}\mathsf{Aff}$ defined in Example~1.9.
+  $K\text{-}\categ{Aff}$ defined in Example~1.9.
   \begin{itemize}
     \item Denote by $h_S$ the functor
       $\Hom_{K\text{-}\mathrm{Aff}}(\mathord{-}, S)$ (as in
@@ -778,58 +778,58 @@ also exact.
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:1.9}
-  Let $\mathsf{C}$, $\mathsf{D}$ be categories, and assume $\mathsf{C}$
-  to be small. Define a \emph{functor category} $\mathsf{D}^{\mathsf{C}}$,
-  whose objects are covariant functors $\mathsf{C} \to \mathsf{D}$ and
+  Let $\categ{C}$, $\categ{D}$ be categories, and assume $\categ{C}$
+  to be small. Define a \emph{functor category} $\categ{D}^{\categ{C}}$,
+  whose objects are covariant functors $\categ{C} \to \categ{D}$ and
   whose morphisms are natural transformations\footnote{The reason why
-  $\mathsf{C}$ is assumed to be small is that this ensures that the
+  $\categ{C}$ is assumed to be small is that this ensures that the
   natural transformations between two functors do form a set.}. Prove
-  that the assignment $X \mapsto h_X := \Hom_{\mathsf{C}}
+  that the assignment $X \mapsto h_X := \Hom_{\categ{C}}
   (\mathord{-}, X)$ (cf.\ \S{}1.2) defines a covariant functor
-  $\mathsf{C} \to \mathsf{Set}^{\mathsf{C}^{\mathrm{op}}}$. (Define the
+  $\categ{C} \to \categ{Set}^{\categ{C}^{\mathrm{op}}}$. (Define the
   action on morphisms in the natural way.) [1.11, IX.1.11]
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:1.10}
-  Let $\mathsf{C}$ be a category, $X$ an object of $\mathsf{C}$, and
-  consider the contravariant functor $h^X := \Hom_{\mathsf{C}}
+  Let $\categ{C}$ be a category, $X$ an object of $\categ{C}$, and
+  consider the contravariant functor $h^X := \Hom_{\categ{C}}
   (\mathord{-}, X)$ (cf.\ \S{}1.2). For every contravariant functor
-  $F : \mathsf{C} \to \mathsf{Set}$, prove that there is a bijection
+  $F : \categ{C} \to \categ{Set}$, prove that there is a bijection
   between the set of natural transformations $h^X \leadsto F$ and
   $F(X)$, defined as follows. The datum of a natural transformation
   $h^X \leadsto F$ consists of a morphism from
-  $h^X(A) = \Hom_{\mathsf{C}}(A, X)$ to $F(A)$ for every
-  object $A$ of $\mathsf{C}$. Map $h^X$ to the image of
+  $h^X(A) = \Hom_{\categ{C}}(A, X)$ to $F(A)$ for every
+  object $A$ of $\categ{C}$. Map $h^X$ to the image of
   $\mathrm{id}_X \in h^X(X)$ in $F(X)$. (Hint: Produce an inverse of
   the specified map. For every $f \in F(X)$ and every
-  $\phi \in \Hom_{\mathsf{C}}(A, X)$, how do you construct an
+  $\phi \in \Hom_{\categ{C}}(A, X)$, how do you construct an
   element of $F(A)$?) This result is called the \emph{Yoneda lemma}.
   [1.11, IX.2.17]
 \end{exer}
 
 \begin{exer}{}{linrep:exer:1.11}
-  (Cf.\ Exercise~1.9.) Let $\mathsf{C}$ be a small category. A
-  contravariant functor $\mathsf{C} \to \mathsf{Set}$ is
+  (Cf.\ Exercise~1.9.) Let $\categ{C}$ be a small category. A
+  contravariant functor $\categ{C} \to \categ{Set}$ is
   \emph{representable} if it is naturally isomorphic to a functor $h^X$
   (cf.\ \S{}1.2). In this case, $X$ `represents' the functor. Prove
-  that $\mathsf{C}$ is equivalent to the subcategory of representable
-  functors in $\mathsf{Set}^{\mathsf{C}^{\mathrm{op}}}$. (Hint: Yoneda;
+  that $\categ{C}$ is equivalent to the subcategory of representable
+  functors in $\categ{Set}^{\categ{C}^{\mathrm{op}}}$. (Hint: Yoneda;
   see Exercise~1.10.) Thus, every (small) category is equivalent to a
   subcategory of a functor category.
 \end{exer}
 
 \begin{exer}{}{linrep:exer:1.12}
-  Let $\mathsf{C}$, $\mathsf{D}$ be categories, and let
-  $F : \mathsf{C} \to \mathsf{D}$, $G : \mathsf{D} \to \mathsf{C}$ be
+  Let $\categ{C}$, $\categ{D}$ be categories, and let
+  $F : \categ{C} \to \categ{D}$, $G : \categ{D} \to \categ{C}$ be
   functors. Prove that $F$ is left-adjoint to $G$ if and only if, for
-  every object $Y$ in $\mathsf{D}$, the object $G(Y)$ represents the
+  every object $Y$ in $\categ{D}$, the object $G(Y)$ represents the
   functor $h^Y \circ F$ (`naturally' in $Y$).
 \end{exer}
 
 \begin{exer}{}{linrep:exer:1.13}
-  Let $\mathsf{Z}$ be the `Zen' category consisting of no objects and no
-  morphisms. One can contemplate a functor $Z$ from $\mathsf{Z}$ to any
-  category $\mathsf{C}$: no datum whatsoever need be specified. What is
+  Let $\categ{Z}$ be the `Zen' category consisting of no objects and no
+  morphisms. One can contemplate a functor $Z$ from $\categ{Z}$ to any
+  category $\categ{C}$: no datum whatsoever need be specified. What is
   $\varprojlim Z$ (when such an object exists)?
 \end{exer}
 
@@ -844,11 +844,11 @@ also exact.
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:1.16}
-  Flesh out the sketch of the constructions of colimits in $\mathsf{Set}$
-  and $R\text{-}\mathsf{Mod}$ given in \S{}1.4, for any indexing poset.
-  In $\mathsf{Set}$, observe that the construction of the colimit is
-  simpler if the poset $\mathsf{I}$ is directed; that is, if
-  $\forall i, j \in \mathsf{I}$, there exists $k \in \mathsf{I}$ such
+  Flesh out the sketch of the constructions of colimits in $\categ{Set}$
+  and $R\text{-}\categ{Mod}$ given in \S{}1.4, for any indexing poset.
+  In $\categ{Set}$, observe that the construction of the colimit is
+  simpler if the poset $\categ{I}$ is directed; that is, if
+  $\forall i, j \in \categ{I}$, there exists $k \in \categ{I}$ such
   that $i \leq k$, $j \leq k$. [\S{}1.4]
 \end{exer}
 
@@ -916,8 +916,8 @@ also exact.
   \to \Z/m\Z$. The limit ring
   $\hat{\Z} := \varprojlim_{(n)} \Z/n\Z$ exists
   and is denoted by $\hat{\Z}$. Prove that
-  $\hat{\Z} \cong \mathrm{End}_{\mathsf{Ab}}(\Q/\Z)$.
-  (Every $f \in \mathrm{End}_{\mathsf{Ab}}(\Q/\Z)$ is
+  $\hat{\Z} \cong \mathrm{End}_{\categ{Ab}}(\Q/\Z)$.
+  (Every $f \in \mathrm{End}_{\categ{Ab}}(\Q/\Z)$ is
   determined by $f(\tfrac{1}{n})$; note that since $n \cdot \tfrac{1}{n}
   = 1 \equiv 0 \pmod{\Z}$, $f(\tfrac{1}{n}) = \tfrac{g(n)}{n}$
   for some integer $g(n)$, which may be chosen so that $0 \leq g(n) < n$.
@@ -940,43 +940,43 @@ also exact.
       prime integers.
   \end{itemize}
   It follows that $\prod_p \Z_p \cong \hat{\Z} \cong
-  \mathrm{End}_{\mathsf{Ab}}(\Q/\Z)$.
+  \mathrm{End}_{\categ{Ab}}(\Q/\Z)$.
 \end{exer}
 
 \begin{exer}{}{linrep:exer:1.22}
-  Let $\mathsf{C}$ be a category, and consider the `product category'
-  $\mathsf{C} \times \mathsf{C}$ (make sense of such a notion!). There
-  is a `diagonal' functor associating to each object $X$ of $\mathsf{C}$
-  the pair $(X, X)$ as an object of $\mathsf{C} \times \mathsf{C}$. On
+  Let $\categ{C}$ be a category, and consider the `product category'
+  $\categ{C} \times \categ{C}$ (make sense of such a notion!). There
+  is a `diagonal' functor associating to each object $X$ of $\categ{C}$
+  the pair $(X, X)$ as an object of $\categ{C} \times \categ{C}$. On
   the other hand, there may be a `product functor'
-  $\mathsf{C} \times \mathsf{C} \to \mathsf{C}$, associating to
+  $\categ{C} \times \categ{C} \to \categ{C}$, associating to
   $(X, Y)$ a product $X \times Y$; for example, this is the case in
-  $\mathsf{Grp}$. Convince yourself that the product functor is
+  $\categ{Grp}$. Convince yourself that the product functor is
   right-adjoint to the diagonal functor. If there is a coproduct
   functor, verify that it is left-adjoint to the diagonal functor.
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:1.23}
   Let $R$, $S$ be rings. Prove that an additive covariant functor
-  $F : R\text{-}\mathsf{Mod} \to S\text{-}\mathsf{Mod}$ is exact if
+  $F : R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ is exact if
   and only if $F(A) \xrightarrow{F(\phi)} F(B) \xrightarrow{F(\psi)}
-  F(C)$ is exact in $S\text{-}\mathsf{Mod}$ whenever
+  F(C)$ is exact in $S\text{-}\categ{Mod}$ whenever
   $A \xrightarrow{\phi} B \xrightarrow{\psi} C$ is exact in
-  $R\text{-}\mathsf{Mod}$. Deduce that an exact functor sends exact
+  $R\text{-}\categ{Mod}$. Deduce that an exact functor sends exact
   complexes to exact complexes. [\S{}1.5, IX.3.7]
 \end{exer}
 
 \begin{exer}{}{linrep:exer:1.24}
   Let $R$, $S$ be rings. An additive covariant functor
-  $F : R\text{-}\mathsf{Mod} \to S\text{-}\mathsf{Mod}$ is
+  $F : R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ is
   \emph{faithfully exact} if `$F(A) \xrightarrow{F(\phi)} F(B)
-  \xrightarrow{F(\psi)} F(C)$ is exact in $S\text{-}\mathsf{Mod}$ if
+  \xrightarrow{F(\psi)} F(C)$ is exact in $S\text{-}\categ{Mod}$ if
   and only if $A \xrightarrow{\phi} B \xrightarrow{\psi} C$ is exact in
-  $R\text{-}\mathsf{Mod}$'. Prove that an exact functor
-  $F : R\text{-}\mathsf{Mod} \to S\text{-}\mathsf{Mod}$ is faithfully
+  $R\text{-}\categ{Mod}$'. Prove that an exact functor
+  $F : R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ is faithfully
   exact if and only if $F(M) = 0$ for every nonzero $R$-module $M$, if
   and only if $F(\phi) = 0$ for every nonzero morphism $\phi$ in
-  $R\text{-}\mathsf{Mod}$.
+  $R\text{-}\categ{Mod}$.
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:1.25}
@@ -1017,28 +1017,28 @@ also exact.
 
 \begin{exer}{$\lnot$}{linrep:exer:1.27}
   Let $R$, $S$ be rings. Prove that right-adjoint functors
-  $R\text{-}\mathsf{Mod} \to S\text{-}\mathsf{Mod}$ are left-exact and
+  $R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ are left-exact and
   left-adjoint functors are right-exact. [\S{}1.5]
 \end{exer}
 
 \begin{exer}{$\lnot$}{linrep:exer:1.28}
-  Let $\mathsf{C}$ be a category, and consider the identity functor
-  $\mathrm{Id} : \mathsf{C} \to \mathsf{C}$. Prove that the set
+  Let $\categ{C}$ be a category, and consider the identity functor
+  $\mathrm{Id} : \categ{C} \to \categ{C}$. Prove that the set
   $\mathrm{End}(\mathrm{Id})$ of natural transformations
   $\mathrm{Id} \leadsto \mathrm{Id}$ is a commutative ring under
-  composition. This is called the \emph{center} of $\mathsf{C}$. If $R$
-  is a ring, prove that the center of $R\text{-}\mathsf{Mod}$ is
+  composition. This is called the \emph{center} of $\categ{C}$. If $R$
+  is a ring, prove that the center of $R\text{-}\categ{Mod}$ is
   isomorphic to the center of $R$. [\S{}3.15]
 \end{exer}
 
 \section{Tensor products and the Tor functors}
 \label{sec:linrep:tensor-products-and-the-tor-functors}
 
-In the rest of the chapter we will work in the category $R\text{-}\mathsf{Mod}$
+In the rest of the chapter we will work in the category $R\text{-}\categ{Mod}$
 of modules over a commutative ring $R$. Essentially everything we will
 see can be upgraded to the noncommutative case without difficulty, but a
 bit of structure is lost in that case. For example, if $R$ is not
-commutative, then in the category $R\text{-}\mathsf{Mod}$ of
+commutative, then in the category $R\text{-}\categ{Mod}$ of
 left-$R$-modules the Hom-sets $\Hom_{R\text{-}\mathrm{Mod}}
 (M, N)$ are `only' abelian groups (cf.\ the end of \S{}III.5.2). A
 tensor product $M \otimes_R N$ can only be defined if $M$ is a
@@ -1093,7 +1093,7 @@ with an $R$-bilinear map $\otimes : M \times N \to M \otimes_R N$, such
 that every $R$-bilinear map $M \times N \to P$ factors uniquely through
 this new module $M \otimes_R N$, in such a way that the map $\phi$ is a
 usual $R$-module homomorphism. Thus, $M \otimes_R N$ would be the `best
-approximation' to $M \times N$ available in $R\text{-}\mathsf{Mod}$, if
+approximation' to $M \times N$ available in $R\text{-}\categ{Mod}$, if
 we want to view $R$-bilinear maps from $M \times N$ as $R$-linear. The
 module $M \otimes_R N$ is called the \emph{tensor product} of $M$ and
 $N$ over $R$. The subscript $R$ is very important: if $M$ and $N$ are
@@ -1127,7 +1127,7 @@ there is a canonical isomorphism $N \otimes_R M \cong M \otimes_R N$.
 However, such considerations are a little moot unless we establish that
 $M \otimes_R N$ exists to begin with. This requires a bit of work.
 \begin{lem}{}{linrep:2.3}
-  Tensor products exist in $R\text{-}\mathsf{Mod}$.
+  Tensor products exist in $R\text{-}\categ{Mod}$.
 \end{lem}
 \begin{proof}
   Given $R$-modules $M$ and $N$, we construct `by hand' a module
@@ -1216,7 +1216,7 @@ left-adjoint to any functor is enough to draw interesting conclusions
 about it.
 
 First, we note that every $R$-module $N$ defines, via $\otimes_R$, a
-new covariant functor $R\text{-}\mathsf{Mod} \to R\text{-}\mathsf{Mod}$,
+new covariant functor $R\text{-}\categ{Mod} \to R\text{-}\categ{Mod}$,
 defined on objects by $M \mapsto M \otimes_R N$. To see how this works
 on morphisms, let $\alpha : M_1 \to M_2$ be an $R$-module homomorphism.
 Crossing with $N$ and composing with $\otimes$ defines an $R$-bilinear
@@ -1389,7 +1389,7 @@ $M_1^{\oplus A} \subseteq M_2^{\oplus A}$.
 
 \begin{exam}{}{linrep:exam:2.12}
   Since vector spaces are free (Proposition~VI.1.7), tensoring is exact
-  in $k\text{-}\mathsf{Vect}$: if
+  in $k\text{-}\categ{Vect}$: if
   \[
     0 \to V_1 \to V_2 \to V_3 \to 0
   \]
@@ -1444,8 +1444,8 @@ key invariants.
 \subsection{The Tor functors}
 \label{subsec:linrep:the-tor-functors}
 The `failure of exactness' of the functor $\mathord{-} \otimes_R N$ is
-measured by another functor $R\text{-}\mathsf{Mod} \to
-R\text{-}\mathsf{Mod}$, called $\mathrm{Tor}^R_1(\mathord{-}, N)$: if
+measured by another functor $R\text{-}\categ{Mod} \to
+R\text{-}\categ{Mod}$, called $\mathrm{Tor}^R_1(\mathord{-}, N)$: if
 $N$ is flat (for example, if it is free), then
 $\mathrm{Tor}^R_1(M, N) = 0$ for all modules $M$. In fact (amazingly)
 if
@@ -1655,7 +1655,7 @@ $R$ denotes a fixed commutative ring.
   \begin{itemize}
     \item Prove that $\Q \otimes_{\Z} \Q \cong
       \Q \otimes_{\Q} \Q$.
-    \item Prove that $\mathbb{C} \otimes_{\mathbb{R}} \mathbb{C} \cong
+    \item Prove that $\mathbb{C} \otimes_{\R} \mathbb{C} \cong
       \mathbb{C} \otimes_{\mathbb{C}} \mathbb{C}$.
   \end{itemize}
 \end{exer}
@@ -1826,12 +1826,12 @@ $R$ denotes a fixed commutative ring.
 \end{exer}
 
 I have championed several times the viewpoint that deep properties of a
-ring $R$ are encoded in the category $R\text{-}\mathsf{Mod}$ of
+ring $R$ are encoded in the category $R\text{-}\categ{Mod}$ of
 $R$-modules; one extreme position is to simply replace $R$ with
-$R\text{-}\mathsf{Mod}$ as the main object of study. The question then
+$R\text{-}\categ{Mod}$ as the main object of study. The question then
 arises as to how to deal with ring homomorphisms from this point of
-view, or more generally how the categories $R\text{-}\mathsf{Mod}$,
-$S\text{-}\mathsf{Mod}$ of modules over two (commutative) rings $R$,
+view, or more generally how the categories $R\text{-}\categ{Mod}$,
+$S\text{-}\categ{Mod}$ of modules over two (commutative) rings $R$,
 $S$ may relate to each other. The reader should expect this to happen
 by way of functors between the two categories and that the situation at
 the categorical level will be substantially richer than at the ring
@@ -2012,27 +2012,27 @@ in this case the isomorphism is clearly $R$-linear.
 Coming back to the theme mentioned at the beginning of this section,
 consider the case in which we have a homomorphism $f : R \to S$ of
 (commutative) rings. It is natural to look for functors between the
-categories $R\text{-}\mathsf{Mod}$ and $S\text{-}\mathsf{Mod}$ of
+categories $R\text{-}\categ{Mod}$ and $S\text{-}\categ{Mod}$ of
 modules over $R$, $S$, respectively. There is a rather simple-minded
-functor from $S\text{-}\mathsf{Mod}$ to $R\text{-}\mathsf{Mod}$
+functor from $S\text{-}\categ{Mod}$ to $R\text{-}\categ{Mod}$
 (`restriction of scalars'), while tensor products allow us to define a
-functor from $R\text{-}\mathsf{Mod}$ to $S\text{-}\mathsf{Mod}$
-(`extension of scalars'). A third important functor $R\text{-}\mathsf{Mod}
-\to S\text{-}\mathsf{Mod}$ may be defined, also `extending scalars',
+functor from $R\text{-}\categ{Mod}$ to $S\text{-}\categ{Mod}$
+(`extension of scalars'). A third important functor $R\text{-}\categ{Mod}
+\to S\text{-}\categ{Mod}$ may be defined, also `extending scalars',
 but for which I do not know a good name.
 
 \pheader{Restriction of scalars.} Let $f : R \to S$ be a ring
 homomorphism, and let $N$ be an $S$-module. Recall (\S{}III.5.1) that
 this means that we have chosen an action of the ring $S$ on the abelian
-group $N$, that is, a ring homomorphism $\sigma : S \to \mathrm{End}_{\mathsf{Ab}}(N)$.
-Composing with $f$, $\sigma \circ f : R \to S \to \mathrm{End}_{\mathsf{Ab}}(N)$
+group $N$, that is, a ring homomorphism $\sigma : S \to \mathrm{End}_{\categ{Ab}}(N)$.
+Composing with $f$, $\sigma \circ f : R \to S \to \mathrm{End}_{\categ{Ab}}(N)$
 defines an action of $R$ on the abelian group $N$, and hence an
 $R$-module structure on $N$. More explicitly, if $r \in R$ and
 $n \in N$, define the action of $r$ on $n$ by setting $rn := f(r)n$.
 Since $S$ is commutative, this defines in fact an $(R,S)$-bimodule
 structure on $N$. Further, $S$-linear homomorphisms are in particular
 $R$-linear; this assignment is (covariantly) functorial
-$S\text{-}\mathsf{Mod} \to R\text{-}\mathsf{Mod}$.
+$S\text{-}\categ{Mod} \to R\text{-}\categ{Mod}$.
 
 If $f$ is injective, so that $R$ may be viewed as a subring of $S$,
 then all we are doing is viewing $N$ as a module on a `restricted'
@@ -2040,16 +2040,16 @@ range of scalars, hence the terminology. For example, this is how we
 view a complex vector space as a real vector space, in the simplest
 possible way.
 
-I will denote by $f_*$ this functor $S\text{-}\mathsf{Mod} \to
-R\text{-}\mathsf{Mod}$ induced from $f$ by restriction of scalars. Note
+I will denote by $f_*$ this functor $S\text{-}\categ{Mod} \to
+R\text{-}\categ{Mod}$ induced from $f$ by restriction of scalars. Note
 that $f_*$ is trivially exact, because the kernels and images of a
 homomorphism of modules are the same regardless of the base ring. In
 view of the considerations in Example~1.18, this hints that $f_*$ may
 have both a left-adjoint and a right-adjoint functor, and this will be
 precisely the case (Proposition~3.6).
 
-\pheader{Extension of scalars} is defined from $R\text{-}\mathsf{Mod}$
-to $S\text{-}\mathsf{Mod}$, by associating to an $R$-module $M$ the
+\pheader{Extension of scalars} is defined from $R\text{-}\categ{Mod}$
+to $S\text{-}\categ{Mod}$, by associating to an $R$-module $M$ the
 tensor product $f^*(M) := M \otimes_R S$, which (as we have seen in
 \S{}3.2) carries naturally an $S$-module structure. This association is
 evidently covariantly functorial. If
@@ -2060,8 +2060,8 @@ $S^{\oplus B} \to S^{\oplus A} \to M \otimes_R S \to 0$.
 Intuitively, this says that $f^*(M)$ is the module defined by `the same
 generators and relations' as $M$, but with coefficients in $S$.
 
-The third functor, denoted $f^!$, also acts from $R\text{-}\mathsf{Mod}$
-to $S\text{-}\mathsf{Mod}$ and is yet another natural way to combine the
+The third functor, denoted $f^!$, also acts from $R\text{-}\categ{Mod}$
+to $S\text{-}\categ{Mod}$ and is yet another natural way to combine the
 ingredients we have at our disposal: if $M$ is an $R$-module, I have
 pointed out in \S{}3.2 that
 $f^!(M) := \Hom_R(S, M)$ may be given a natural $S$-module
@@ -2237,18 +2237,18 @@ In the following exercises, $R$, $S$ denote commutative rings.
       and $f^* f_*(N) \cong N$.
     \item Prove that $f_*$ is fully faithful (Definition~1.6).
     \item Deduce that if there is an onto homomorphism $R \to S$, then
-      $S\text{-}\mathsf{Mod}$ is equivalent to a full subcategory of
-      $R\text{-}\mathsf{Mod}$.
+      $S\text{-}\categ{Mod}$ is equivalent to a full subcategory of
+      $R\text{-}\categ{Mod}$.
   \end{itemize}
 \end{exer}
 \begin{exer}{}{linrep:exer:3.15}
   Let $f : R \to S$ be a homomorphism of (commutative) rings, and
-  assume that the functor $f_* : S\text{-}\mathsf{Mod} \to
-  R\text{-}\mathsf{Mod}$ is an equivalence of categories.
+  assume that the functor $f_* : S\text{-}\categ{Mod} \to
+  R\text{-}\categ{Mod}$ is an equivalence of categories.
   \begin{itemize}
     \item Prove that there is a homomorphism of rings
-      $g : S \to \mathrm{End}_{\mathsf{Ab}}(R)$ such that the
-      composition $R \to S \to \mathrm{End}_{\mathsf{Ab}}(R)$ is the
+      $g : S \to \mathrm{End}_{\categ{Ab}}(R)$ such that the
+      composition $R \to S \to \mathrm{End}_{\categ{Ab}}(R)$ is the
       homomorphism realizing $R$ as a module over itself (that is, the
       homomorphism studied in Proposition~III.2.7).
     \item Use the facts that $S$ is commutative and $f_*$ is fully
@@ -2265,9 +2265,9 @@ In the following exercises, $R$, $S$ denote commutative rings.
   equivalent if and only if they are isomorphic. In fact, this more
   general statement is perhaps easier (!) to prove than the particular
   case worked out in this exercise. Recall (Exercise~1.28) that if $R$
-  is any ring, then the center of $R\text{-}\mathsf{Mod}$ is isomorphic
+  is any ring, then the center of $R\text{-}\categ{Mod}$ is isomorphic
   to the center of $R$. It is not difficult to deduce from this that if
-  $R\text{-}\mathsf{Mod}$ and $S\text{-}\mathsf{Mod}$ are equivalent,
+  $R\text{-}\categ{Mod}$ and $S\text{-}\categ{Mod}$ are equivalent,
   then the centers of $R$ and $S$ are isomorphic. So if two commutative
   rings $R$ and $S$ are Morita equivalent, then they must be isomorphic.
   The commutativity is crucial in this statement: for example, it can be
@@ -2323,7 +2323,7 @@ particular that there are canonical isomorphisms
 $(M_1 \otimes_R M_2) \otimes_R M_3 \cong M_1 \otimes_R (M_2 \otimes_R
 M_3)$ for all $R$-modules $M_1$, $M_2$, $M_3$. In this sense, the
 tensor product is associative\footnote{In fact, the tensor product is
-associative in a fancier sense; cf.\ Exercise~3.3.} in $R\text{-}\mathsf{Mod}$,
+associative in a fancier sense; cf.\ Exercise~3.3.} in $R\text{-}\categ{Mod}$,
 and we are indeed authorized to use the notation
 $M_1 \otimes_R \cdots \otimes_R M_\ell$.
 
