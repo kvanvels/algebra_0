@@ -6161,279 +6161,197 @@ right.
 
 \subsection{Long exact sequence of derived functors}
 \label{subsec:homol:long-exact-sequence-of-derived-functors}
-% The most remarkable property
 
-% of the functors Tori and Exti mentioned in Chapter VIII is probably that they
-% `repair' the lack of exactness of \otimes , Hom, respectively, in the sense that
-% they agree
-% with these functors in degree 0 and they fit into long exact sequences. I stated
-% the
-% existence of these exact sequences in \S{}VIII.2.4 and \S{}VIII.6.4, without
-% proof (save
-% for indications in case the base ring R is a PID); now we are ready to
-% understand
-% fully why these sequences exist, in the general context of derived functors.
-% I will keep assuming that A has enough projectives. We will prove that every
-% short exact sequence
-%  / L
-%  / M
-%  / N
-%  / 0
-% in A induces a `long exact sequence of derived functors'; the sequences for Tor
-% and Ext encountered in Chapter VIII will be particular cases. Surely the reader
-% expects this general fact to follow one way or the other from the long exact
-% coho-
-% mology sequence (Theorem 3.5); that reader will not be disappointed.
-% From a more sophisticated perspective, what happens is that derived functors
-% fit the vertices of a `distinguished triangle' in the derived category: as I
-% mentioned
-% in passing in \S{}4.2, these triangles play the role of exact sequences in the
-% homotopic
-% and derived categories, which do not happen to be abelian. Distinguished
-% triangles
-% give rise to long exact sequences, in much the same way as do exact sequences of
-% complexes in the abelian case explored in \S{}3.3.
-% Since we do not have the machinery of triangulated categories at our disposal,
-% we have to resort to bringing the action back to the ordinary category of
-% complexes,
-% with the aim of using Theorem 3.5. The key point is therefore the following:
-% assuming that A has enough projectives and that
-%  / L
-%  / M
-%  / N
-%  / 0
-% is an exact sequence in A, can we arrange for projective resolutions of L, M , N
-% to
-% form an exact sequence in C(A)?
-% 32In fact, the presence of injectives or projectives may be bypassed if we adopt
-% the `Yoneda'
-% viewpoint on Ext.
-% Yes. This is often called the `horseshoe lemma', after the shape of the main
-% diagram appearing in its proof.
-% Lemma 7.8. Let
-% (*)
-%  / L
-%  / M
-%  / N
-%  / 0
-% be an exact sequence in an abelian category A with enough projectives. Assume
-% \bullet  \bullet P L , PN are projective resolutions of L, N , respectively. Then there exists an exact
-% sequence
-% (**)
-%  / P \bullet 
-%  / P \bullet 
-%  / P \bullet 
-%  / 0
-% L
-%  M
-%  N
-% \bullet 
-% where PM
-%  is a projective resolution of M , inducing (*) in cohomology.
-% By `inducing (*) in cohomology' I mean that the (not too) long exact cohomol-
-% ogy sequence induced by (**) reduces to the H 0 part, since all other cohomology
-% objects of a resolution vanish; identifying the zero-th cohomology of the
-% resolutions
-% with the corresponding objects, this part is nothing but the original short
-% exact
-% sequence (*).
-% Proof. The hypotheses give us the solid part of the diagram
-%  / L
-%  / M
-%  / N
-%  / 0
-% O
-%  O
-%  O
-%  / P 0
-%  / PM
-%  / PN
-%  / 0
-% OL
-%  O
-%  O
-%  / P -1
-%  / P -1
-%  / P -1
-%  / 0
-% L O
-%  M
-%  O
-%  N O
-% / P -2
-% L O
-% / P -2
-% M
-%  O/ P -2
-% N
-%  O/ 0
-% ..
-%  ..
-%  ..
-% .
-%  .
-%  .
-% and our task is to fill in the blanks with projective objects and morphisms so
-% that
-% all rows are exact, and the middle column is a resolution of M . I claim that we
-% can
-% let PM
-%  i
-%  := PL i \oplus  PN i ; this is projective (Exercise 5.4), and the standard
-%  morphisms
-% make each sequence
-%  / PL
-%  i
-%  / PL
-%  i \oplus  PN
-%  i
-%  / PN
-%  i
-%  / 0
-% exact, so all we have to produce are morphisms giving an exact complex
-% ...
-%  / PL
-%  -2 \oplus  PN
-%  -2
-%  / PL
-%  -1 \oplus  PN
-%  -1
-%  / PL
-%  0 \oplus  PN
-%  / M
-%  / 0
-% fitting in the commutative diagram displayed above.
-% As always, the construction follows an inductive pattern. Since PN 0 is
-% projective
-% and M \to  N is an epimorphism, the morphism PN 0 \to  N lifts to a morphism
-% \beta  : PN 0 \to  M . On the other hand, PL 0 maps to M via \alpha  : PL 0 \to  L \to  M . Thus,
-% there is a morphism
-% \pi M := \alpha  \oplus  \beta 
-%  :
-%  PL 0 \oplus  PN 0 -\to  M,
-% and the diagram
-%  / L
-%  / M
-%  / N
-%  / 0
-% O
-%  O
-%  O
-% \pi L
-%  \pi M
-%  \pi N
-%  / PL
-%  / PL
-%  0 \oplus  PN
-%  / PN
-%  / 0
-% commutes by construction (note that the composition PL 0 \oplus  PN 0 \to  M \to
-% N is 0
-% on the PL 0 factor, by the exactness of the top row). The morphism \pi M is an
-% epimorphism, by an immediate application of the snake lemma.
-% The snake lemma and the fact that \pi L is an epimorphism also imply that the
-% kernels of the vertical maps form an exact sequence, and we have epimorphisms
-% -1 -1from PL and PN to the corresponding kernels since the columns of the
-% original
-% diagram are exact:
-%  / ker \pi L
-%  / ker \pi M
-%  / ker \pi N
-%  / 0
-% O
-%  O
-% -1
-%  -1
-% \pi  \pi L
-%  N
-% -1
-%  -1
-% PL PNWe let PM
-%  -1
-%  = PL -1 \oplus  PN -1 and define \pi M
-%  -1
-%  : PL -1 \oplus  PN -1 \to  ker \pi M \to  PL 0 \oplus  PN 0 by
-% the same mechanism used above:
-%  / L
-%  / M
-%  / N
-%  / 0
-% O
-%  O
-%  O
-% \pi L
-%  \pi M
-%  \pi N
-%  / P 0
-%  / PL 0 \oplus  PN
-%  / PN
-%  / 0
-% OL
-%  O
-%  O
-%  / PL
-%  -1
-%  / PL
-%  -1 \oplus  PN
-%  -1
-%  / PN
-%  -1
-%  / 0
-% By the snake lemma, PL -1 \oplus  PN -1 \to  ker \pi M is an epimorphism, and
-% this implies
-% exactness of the central column at PL 0 \oplus  PN 0 . Continuing inductively
-% constructs PM
-%  \bullet 
-% as required.
-%  ?
-% Lemma 7.8 tells us that we can lift exact sequences of objects to exact
-% sequences
-% of projective resolutions. Morally, we would like to say that the functor P
-% assigning
-% to every object of A a projective resolution in K(A) is `exact'; but as K(A) is
-% not
-% abelian, this is simply not an option. Lemma 7.8 gets as close as possible to
-% such a
-% \bullet 
-% statement. In fact, from the construction of PM
-%  given in the proof, it is easy to show
-% (Exercise 7.5) that PM \bullet 
-%  is the mapping cone of a morphism \rho \bullet  : PN [-1]\bullet  \to  PL
-%  \bullet  , so
-% that we obtain a `distinguished triangle'
-% \bullet 
-% PL+1 ?? ?
-%  ? ?
-% ?G B B B B
-%  B B
-%  B B
-%  !
-% PN
-%  \bullet  o
-%  M C(\rho )\bullet  = PM
-%  \bullet 
-% in the sense mentioned in \S{}4.1. These are the triangles giving the homotopic
-% cat-
-% egory the structure of `triangulated category'. Thus, the functor P allows us to
-% construct a distinguished triangle in K(P) starting from a `special' exact
-% triangle
-% \iota (L)
-% +1 ?
-%  ?
-%  ?
-%  ? ?
-%  ?
-%  C 8 8
-%  8 8
-%  8 8
-%  8 ?
-% \iota (N ) o
-%  \iota (M )
-% in the sense of \S{}3.4. The horseshoe lemma shows that this functor preserves
-% as
-% much exactness as is allowed by the context.
-% We should also note that once short exact sequences are lifted, we can in fact
-% lift every complex; this will be needed later. Here is the precise statement:
+The most remarkable property of the functors $\operatorname{Tor}_i$
+and $\operatorname{Ext}^i$ mentioned in Chapter~VIII is probably that
+they `repair' the lack of exactness of $\otimes$, $\Hom$,
+respectively, in the sense that they agree with these functors in
+degree $0$ and they fit into long exact sequences. I stated the
+existence of these exact sequences in \S{}VIII.2.4 and \S{}VIII.6.4,
+without proof (save for indications in case the base ring $R$ is a
+PID); now we are ready to understand fully why these sequences exist,
+in the general context of derived functors.
+
+I will keep assuming that $\mathsf{A}$ has enough projectives. We
+will prove that every short exact sequence
+\[\begin{tikzcd}
+  0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0
+\end{tikzcd}\]
+in $\mathsf{A}$ induces a `long exact sequence of derived functors';
+the sequences for Tor and Ext encountered in Chapter~VIII will be
+particular cases. Surely the reader expects this general fact to
+follow one way or the other from the long exact cohomology sequence
+(Theorem~3.5); that reader will not be disappointed.
+
+From a more sophisticated perspective, what happens is that derived
+functors fit the vertices of a `distinguished triangle' in the
+derived category: as I mentioned in passing in \S{}4.2, these
+triangles play the role of exact sequences in the homotopic and
+derived categories, which do not happen to be abelian. Distinguished
+triangles give rise to long exact sequences, in much the same way as
+do exact sequences of complexes in the abelian case explored in
+\S{}3.3.
+
+Since we do not have the machinery of triangulated categories at our
+disposal, we have to resort to bringing the action back to the
+ordinary category of complexes, with the aim of using Theorem~3.5.
+The key point is therefore the following: assuming that $\mathsf{A}$
+has enough projectives and that
+\[\begin{tikzcd}
+  0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0
+\end{tikzcd}\]
+is an exact sequence in $\mathsf{A}$, can we arrange for projective
+resolutions of $L$, $M$, $N$ to form an exact sequence in
+$\mathsf{C}(\mathsf{A})$?
+
+Yes. This is often called the `horseshoe lemma', after the shape of
+the main diagram appearing in its proof.
+
+\begin{lem}{}{lem:homol:7.8}
+  Let
+  \[\begin{tikzcd}
+    0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0
+  \end{tikzcd} \tag{$*$}\]
+  be an exact sequence in an abelian category $\mathsf{A}$ with
+  enough projectives. Assume $P_L^\bullet$, $P_N^\bullet$ are
+  projective resolutions of $L$, $N$, respectively. Then there
+  exists an exact sequence
+  \[\begin{tikzcd}
+    0 \arrow[r] & P_L^\bullet \arrow[r] & P_M^\bullet \arrow[r] &
+    P_N^\bullet \arrow[r] & 0
+  \end{tikzcd} \tag{$**$}\]
+  where $P_M^\bullet$ is a projective resolution of $M$, inducing
+  $(*)$ in cohomology.
+\end{lem}
+
+By `inducing $(*)$ in cohomology' I mean that the (not too) long
+exact cohomology sequence induced by $(**)$ reduces to the $H^0$
+part, since all other cohomology objects of a resolution vanish;
+identifying the zero-th cohomology of the resolutions with the
+corresponding objects, this part is nothing but the original short
+exact sequence $(*)$.
+\begin{proof}
+  The hypotheses give us the solid part of the diagram
+  \[\begin{tikzcd}[column sep=large]
+    0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0 \\
+    0 \arrow[r] & P_L^0 \arrow[u, twoheadrightarrow] \arrow[r] &
+      P_M^0 \arrow[u, dashed] \arrow[r] & P_N^0 \arrow[u, twoheadrightarrow]
+      \arrow[r] & 0 \\
+    0 \arrow[r] & P_L^{-1} \arrow[u] \arrow[r] & P_M^{-1} \arrow[u, dashed]
+      \arrow[r] & P_N^{-1} \arrow[u] \arrow[r] & 0 \\
+    0 \arrow[r] & P_L^{-2} \arrow[u] \arrow[r] & P_M^{-2} \arrow[u, dashed]
+      \arrow[r] & P_N^{-2} \arrow[u] \arrow[r] & 0 \\
+    & \vdots \arrow[u] & \vdots \arrow[u, dashed] & \vdots \arrow[u] &
+  \end{tikzcd}\]
+  and our task is to fill in the blanks with projective objects and
+  morphisms so that all rows are exact, and the middle column is a
+  resolution of $M$. I claim that we can let $P_M^i := P_L^i \oplus
+  P_N^i$; this is projective (Exercise~5.4), and the standard
+  morphisms make each sequence
+  \[\begin{tikzcd}
+    0 \arrow[r] & P_L^i \arrow[r] & P_L^i \oplus P_N^i \arrow[r] &
+    P_N^i \arrow[r] & 0
+  \end{tikzcd}\]
+  exact, so all we have to produce are morphisms giving an exact
+  complex
+  \[\begin{tikzcd}[column sep=small]
+    \dots \arrow[r] & P_L^{-2} \oplus P_N^{-2} \arrow[r] &
+    P_L^{-1} \oplus P_N^{-1} \arrow[r] & P_L^0 \oplus P_N^0 \arrow[r]
+    & M \arrow[r] & 0
+  \end{tikzcd}\]
+  fitting in the commutative diagram displayed above.
+
+  As always, the construction follows an inductive pattern. Since
+  $P_N^0$ is projective and $M \to N$ is an epimorphism, the morphism
+  $P_N^0 \to N$ lifts to a morphism $\beta : P_N^0 \to M$. On the
+  other hand, $P_L^0$ maps to $M$ via $\alpha : P_L^0 \to L \to M$.
+  Thus, there is a morphism
+  \[
+    \pi_M := \alpha \oplus \beta : P_L^0 \oplus P_N^0 \longrightarrow M,
+  \]
+  and the diagram
+  \[\begin{tikzcd}[column sep=large]
+    0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0 \\
+    0 \arrow[r] & P_L^0 \arrow[u, "\pi_L"] \arrow[r] &
+      P_L^0 \oplus P_N^0 \arrow[u, "\pi_M"] \arrow[r] &
+      P_N^0 \arrow[u, "\pi_N"] \arrow[r] & 0
+  \end{tikzcd}\]
+  commutes by construction (note that the composition $P_L^0 \oplus
+  P_N^0 \to M \to N$ is $0$ on the $P_L^0$ factor, by the exactness
+  of the top row). The morphism $\pi_M$ is an epimorphism, by an
+  immediate application of the snake lemma.
+
+  The snake lemma and the fact that $\pi_L$ is an epimorphism also
+  imply that the kernels of the vertical maps form an exact sequence,
+  and we have epimorphisms from $P_L^{-1}$ and $P_N^{-1}$ to the
+  corresponding kernels since the columns of the original diagram are
+  exact:
+  \[\begin{tikzcd}[column sep=large]
+    0 \arrow[r] & \ker\pi_L \arrow[r] & \ker\pi_M \arrow[r] &
+      \ker\pi_N \arrow[r] & 0 \\
+    & P_L^{-1} \arrow[u, twoheadrightarrow] & &
+      P_N^{-1} \arrow[u, twoheadrightarrow] &
+  \end{tikzcd}\]
+  We let $P_M^{-1} = P_L^{-1} \oplus P_N^{-1}$ and define $\pi_M^{-1}
+  : P_L^{-1} \oplus P_N^{-1} \to \ker\pi_M \to P_L^0 \oplus P_N^0$ by
+  the same mechanism used above:
+  \[\begin{tikzcd}[column sep=large]
+    0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0 \\
+    0 \arrow[r] & P_L^0 \arrow[u, "\pi_L"] \arrow[r] &
+      P_L^0 \oplus P_N^0 \arrow[u, "\pi_M"] \arrow[r] &
+      P_N^0 \arrow[u, "\pi_N"] \arrow[r] & 0 \\
+    0 \arrow[r] & P_L^{-1} \arrow[u] \arrow[r] &
+      P_L^{-1} \oplus P_N^{-1} \arrow[u] \arrow[r] &
+      P_N^{-1} \arrow[u] \arrow[r] & 0
+  \end{tikzcd}\]
+  By the snake lemma, $P_L^{-1} \oplus P_N^{-1} \to \ker\pi_M$ is an
+  epimorphism, and this implies exactness of the central column at
+  $P_L^0 \oplus P_N^0$. Continuing inductively constructs $P_M^\bullet$
+  as required.
+\end{proof}
+
+Lemma~\ref{lem:homol:7.8} tells us that we can lift exact sequences of
+objects to exact sequences of projective resolutions. Morally, we
+would like to say that the functor $\mathscr{P}$ assigning to every
+object of $\mathsf{A}$ a projective resolution in $\mathsf{K}(\mathsf{A})$
+is `exact'; but as $\mathsf{K}(\mathsf{A})$ is not abelian, this is
+simply not an option. Lemma~\ref{lem:homol:7.8} gets as close as
+possible to such a statement. In fact, from the construction of
+$P_M^\bullet$ given in the proof, it is easy to show (Exercise~7.5)
+that $P_M^\bullet$ is the mapping cone of a morphism $\rho^\bullet :
+P_N[-1]^\bullet \to P_L^\bullet$, so that we obtain a `distinguished
+triangle'
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$P_L^\bullet$};
+    \node (N) at (0,0) {$P_N^\bullet$};
+    \node (M) at (2,0) {$MC(\rho)^\bullet = P_M^\bullet$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+in the sense mentioned in \S{}4.1. These are the triangles giving the
+homotopic category the structure of `triangulated category'. Thus,
+the functor $\mathscr{P}$ allows us to construct a distinguished
+triangle in $\mathsf{K}(\mathsf{P})$ starting from a `special' exact
+triangle
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$\iota(L)$};
+    \node (N) at (0,0) {$\iota(N)$};
+    \node (M) at (2,0) {$\iota(M)$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+in the sense of \S{}3.4. The horseshoe lemma shows that this functor
+preserves as much exactness as is allowed by the context.
+
+We should also note that once short exact sequences are lifted, we
+can in fact lift every complex; this will be needed later. Here is
+the precise statement:
 % Corollary 7.9. Let
 % M \bullet  :
 %  \cdot \cdot \cdot 
