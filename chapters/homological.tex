@@ -5215,271 +5215,280 @@ construct a stand-alone proof for the injective case.
 
 \subsection{Poor man's derived category}
 \label{subsec:homol:poor-man-s-derived-category}
-% We are now in a position to close a relatively
 
-% large circle of ideas. I claim that if the abelian category A has enough
-% projectives,
-% resp., injectives, then K- (P), resp., K+ (I), is a solution `up to
-% isomorphisms' of the
-% universal problem presented in \S{}4.2. The precise statement is the following.
-% By Proposition 5.4, the functor C(A) \to  D(A) factors through the homotopic
-% category; this of course holds for the bounded versions of these categories as
-% well.
-% Thus, we have functors K- (A) \to  D-(A) and K+ (A) \to  D+ (A). By restriction,
-% we
-% obtain functors
-% K-(P) \to  D-(A),
-%  K+ (I) \to  D+ (A).
-% Theorem 6.7. Let A be an abelian category with enough projectives. Then the
-% functor K- (P) \to  D- (A) is an equivalence of categories.
-% If A has enough injectives, then the functor K+ (I) \to  D+ (A) is an
-% equivalence
-% of categories.
-% Theorem 6.7 is proven in full detail in any more complete treatment of homo-
-% logical algebra. Since we have not actually constructed D- (A), we cannot really
-% prove this statement here; but we now know enough to appreciate why Theorem 6.7
-% should be true, in the sense that K- (P), K+(I) satisfy the expected universal
-% prop-
-% erties. I will deal with the projective side of the story, since the injective
-% side
-% mirrors it faithfully.
-% Assume that A has enough projectives. Define a functor P : C- (A) \to 
-% K-
-%  (P) by associating with every bounded-above complex L\bullet  any projective
-%  res-
-% olution P(L\bullet  ) of L\bullet  (which exists by Theorem 6.6) and with every
-% morphism
-% \alpha  \bullet  : L\bullet  \to  M \bullet  in C- (A) the morphism P(\alpha \bullet  ) in K- (P) lifting \alpha \bullet  .
-% The morphism P(\alpha \bullet  ) is the homotopy class of a homotopy lift of
-% \alpha \bullet  ; we have
-% proved that any two such lifts are homotopy equivalent. It also follows that P
-% is
-% indeed a functor: for example, if \alpha \bullet  : L\bullet  \to  M \bullet
-% and \beta  \bullet  : M \bullet  \to  N \bullet  are morphisms
-% in C- (A), then both P(\beta \bullet  ) \circ  P(\alpha  \bullet  ) and P(\beta
-% \bullet  \circ  \alpha \bullet  ) are classes of homotopy lifts
-% of \beta  \bullet  \circ  \alpha \bullet  ; therefore P(\beta  \bullet  ) \circ
-% P(\alpha \bullet  ) = P(\beta  \bullet  \circ  \alpha \bullet  ) by uniqueness,
-% as needed.
-% Note that there is a very large element of arbitrariness in the choice of P: I
-% am not prescribing any particular recipe for choosing a projective resolution
-% rather
-% than another. But all such resolutions are homotopically equivalent, as proven
-% in
-% Theorem 6.6; therefore different choices would only move the resolutions in
-% their
-% -isomorphism class in K (P).
-% Remark 6.8. There is an efficient way to clarify (and defuse) this
-% arbitrariness.
-% Suppose P, P \setminus  are two choices for the resolution functor C- (A) \to
-% K- (P). Thus,
-% we have chosen two projective resolutions P(L\bullet  ), P \setminus  (L\bullet
-% ) for each object L\bullet
-% in C-(A). By Theorem 6.6, there is a homotopy equivalence between P(L\bullet  )
-% and P \setminus  (L\bullet  ), that is, an isomorphism \rho L\bullet  :
-% P(L\bullet  ) \to  P \setminus  (L\bullet  ) in K-(P); this
-% isomorphism is unique (since it lifts the identity on L\bullet  and lifts are
-% unique up to
-% homotopy). Further, for every morphism of cochain complexes \alpha \bullet  :
-% L\bullet  0 \to  L\bullet  1 , the
-% diagram
-% P(L\bullet  0 )
-%  P(\alpha \bullet  )
-%  / P(L\bullet  1 )
-% \rho L\bullet 
-%  ?
-%  ? \rho L\bullet 
-% \sqcup 
-%  P ? (\alpha \bullet  )
-%  \sqcup 
-% P \setminus  (L\bullet  0 )
-%  / P \setminus  (L\bullet  1 )
-% commutes: this is again by the uniqueness of lifts up to homotopy, since \rho
-% L\bullet  1 \circ  P(\alpha \bullet  )
-% and P \setminus  (\alpha \bullet ) \circ  \rho L\bullet  0 both correspond to
-% lifts of \alpha \bullet  to P(L\bullet  0 ) \to  P \setminus (L\bullet  1 ).
-% This says that there is a unique natural isomorphism 29 between any two choices
-% P, P \setminus  of functors of projective resolutions. In a categorical context,
-% this is essen-
-% tially as good as uniqueness. Thus the arbitrariness in the choice of P is less
-% dramatic than it may seem at first.
-%  ?
-% Choose any functor P as above. I claim that P : C- (A) \to  K- (P) is
-% essentially
-% -a solution to the universal problem defining the derived category D (A). Here
-% is a
-% more precise statement:
-% Theorem 6.9. With notation as above, we have the following.
-% \bullet  If \rho \bullet  is a quasi-isomorphism in C- (A), then P(\rho \bullet  ) is an isomorphism in K- (P).
-% \bullet  Let F : C- (A) -\to  D be an additive functor such that F (\rho \bullet  ) is an iso-
-% morphism for every quasi-isomorphism \rho \bullet  . Then there exists a functor
-% 0 F
-%  :
-% K-(P) \to  D, such that the diagram
-% C-(A)
-%  F
-%  / D
-% P
-%  \sqcup  { { { {
-%  {
-%  F {
-%  ?
-%  {
-%  { {
-%  =
-% -K (P)
-% commutes up to natural isomorphism. (That is, there is a natural transfor-
-% mation \nu  : 0 F
-%  \circ  P ; F such that
-% \nu L\bullet  : 0 F
-%  \circ  P(L\bullet  ) -\to 
-%  \sim 
-%  F (L\bullet  )
-% is an isomorphism for every complex L\bullet  in C- (A).) The functor F
-%  0 is unique
-% up to natural isomorphism.
-% The fact that the diagram does not commute on the nose should not be too
-% disturbing. It corresponds to the fact (stated in Theorem 6.7) that there is
-% `only'
-% - -an equivalence of categories between K (P) and D (A), not a hard and fast
-% `iso-
-% morphism'. As I already pointed out in \S{}VIII.1.3, this is what should be
-% expected
-% in a categorical context.
-% 29 `Natural transformations' were rapidly defined in \S{}VIII.1.5, Definition
-% VIII.1.15. They are
-% the most sensible notion of a morphism between functors. A natural isomorphism
+We are now in a position to close a relatively large circle of ideas.
+I claim that if the abelian category $\mathsf{A}$ has enough
+projectives, resp., injectives, then $\mathsf{K}^-(\mathsf{P})$,
+resp., $\mathsf{K}^+(\mathsf{I})$, is a solution `up to isomorphisms'
+of the universal problem presented in \S{}4.2. The precise statement
+is the following.
+
+By Proposition~5.4, the functor $\mathsf{C}(\mathsf{A}) \to
+\mathsf{D}(\mathsf{A})$ factors through the homotopic category; this
+of course holds for the bounded versions of these categories as
+well. Thus, we have functors $\mathsf{K}^-(\mathsf{A}) \to
+\mathsf{D}^-(\mathsf{A})$ and $\mathsf{K}^+(\mathsf{A}) \to
+\mathsf{D}^+(\mathsf{A})$. By restriction, we obtain functors
+\[
+  \mathsf{K}^-(\mathsf{P}) \to \mathsf{D}^-(\mathsf{A}), \qquad
+  \mathsf{K}^+(\mathsf{I}) \to \mathsf{D}^+(\mathsf{A}).
+\]
+
+\begin{thm}{}{thm:homol:6.7}
+  Let $\mathsf{A}$ be an abelian category with enough projectives.
+  Then the functor $\mathsf{K}^-(\mathsf{P}) \to \mathsf{D}^-(\mathsf{A})$
+  is an equivalence of categories.
+
+  If $\mathsf{A}$ has enough injectives, then the functor
+  $\mathsf{K}^+(\mathsf{I}) \to \mathsf{D}^+(\mathsf{A})$ is an
+  equivalence of categories.
+\end{thm}
+
+Theorem~\ref{thm:homol:6.7} is proven in full detail in any more
+complete treatment of homological algebra. Since we have not
+actually constructed $\mathsf{D}^-(\mathsf{A})$, we cannot really
+prove this statement here; but we now know enough to appreciate why
+Theorem~\ref{thm:homol:6.7} should be true, in the sense that
+$\mathsf{K}^-(\mathsf{P})$, $\mathsf{K}^+(\mathsf{I})$ satisfy the
+expected universal properties. I will deal with the projective side
+of the story, since the injective side mirrors it faithfully.
+
+Assume that $\mathsf{A}$ has enough projectives. Define a functor
+$\mathscr{P} : \mathsf{C}^-(\mathsf{A}) \to \mathsf{K}^-(\mathsf{P})$
+by associating with every bounded-above complex $L^\bullet$ any
+projective resolution $\mathscr{P}(L^\bullet)$ of $L^\bullet$ (which
+exists by Theorem~\ref{thm:homol:6.6}) and with every morphism
+$\alpha^\bullet : L^\bullet \to M^\bullet$ in $\mathsf{C}^-(\mathsf{A})$
+the morphism $\mathscr{P}(\alpha^\bullet)$ in $\mathsf{K}^-(\mathsf{P})$
+lifting $\alpha^\bullet$.
+
+The morphism $\mathscr{P}(\alpha^\bullet)$ is the homotopy class of a
+homotopy lift of $\alpha^\bullet$; we have proved that any two such
+lifts are homotopy equivalent. It also follows that $\mathscr{P}$ is
+indeed a functor: for example, if $\alpha^\bullet : L^\bullet \to
+M^\bullet$ and $\beta^\bullet : M^\bullet \to N^\bullet$ are
+morphisms in $\mathsf{C}^-(\mathsf{A})$, then both
+$\mathscr{P}(\beta^\bullet) \circ \mathscr{P}(\alpha^\bullet)$ and
+$\mathscr{P}(\beta^\bullet \circ \alpha^\bullet)$ are classes of
+homotopy lifts of $\beta^\bullet \circ \alpha^\bullet$; therefore
+$\mathscr{P}(\beta^\bullet) \circ \mathscr{P}(\alpha^\bullet) =
+\mathscr{P}(\beta^\bullet \circ \alpha^\bullet)$ by uniqueness, as
+needed.
+
+Note that there is a very large element of arbitrariness in the
+choice of $\mathscr{P}$: I am not prescribing any particular recipe
+for choosing a projective resolution rather than another. But all
+such resolutions are homotopically equivalent, as proven in
+Theorem~\ref{thm:homol:6.6}; therefore different choices would only
+move the resolutions in their isomorphism class in
+$\mathsf{K}^-(\mathsf{P})$.
+
+\begin{rem}{}{rem:homol:6.8}
+  There is an efficient way to clarify (and defuse) this
+  arbitrariness. Suppose $\mathscr{P}$, $\mathscr{P}'$ are two
+  choices for the resolution functor $\mathsf{C}^-(\mathsf{A}) \to
+  \mathsf{K}^-(\mathsf{P})$. Thus, we have chosen two projective
+  resolutions $\mathscr{P}(L^\bullet)$, $\mathscr{P}'(L^\bullet)$ for
+  each object $L^\bullet$ in $\mathsf{C}^-(\mathsf{A})$. By
+  Theorem~\ref{thm:homol:6.6}, there is a homotopy equivalence
+  between $\mathscr{P}(L^\bullet)$ and $\mathscr{P}'(L^\bullet)$,
+  that is, an isomorphism $\rho_{L^\bullet} : \mathscr{P}(L^\bullet)
+  \to \mathscr{P}'(L^\bullet)$ in $\mathsf{K}^-(\mathsf{P})$; this
+  isomorphism is unique (since it lifts the identity on $L^\bullet$
+  and lifts are unique up to homotopy). Further, for every morphism
+  of cochain complexes $\alpha^\bullet : L_0^\bullet \to L_1^\bullet$,
+  the diagram
+  \[\begin{tikzcd}[column sep=large]
+    \mathscr{P}(L_0^\bullet) \arrow[r, "\mathscr{P}(\alpha^\bullet)"]
+      \arrow[d, "\rho_{L_0^\bullet}"'] &
+      \mathscr{P}(L_1^\bullet) \arrow[d, "\rho_{L_1^\bullet}"] \\
+    \mathscr{P}'(L_0^\bullet) \arrow[r, "\mathscr{P}'(\alpha^\bullet)"'] &
+      \mathscr{P}'(L_1^\bullet)
+  \end{tikzcd}\]
+  commutes: this is again by the uniqueness of lifts up to homotopy,
+  since $\rho_{L_1^\bullet} \circ \mathscr{P}(\alpha^\bullet)$ and
+  $\mathscr{P}'(\alpha^\bullet) \circ \rho_{L_0^\bullet}$ both
+  correspond to lifts of $\alpha^\bullet$ to $\mathscr{P}(L_0^\bullet)
+  \to \mathscr{P}'(L_1^\bullet)$.
+
+  This says that there is a unique natural
+  isomorphism\footnote{`Natural transformations' were rapidly
+  defined in \S{}VIII.1.5, Definition~VIII.1.15. They are the most
+  sensible notion of a morphism between functors. A natural
+  \emph{isomorphism} is a natural transformation that is an
+  isomorphism on each object.} between any two choices $\mathscr{P}$,
+  $\mathscr{P}'$ of functors of projective resolutions. In a
+  categorical context, this is essentially as good as uniqueness.
+  Thus the arbitrariness in the choice of $\mathscr{P}$ is less
+  dramatic than it may seem at first.
+\end{rem}
+
+Choose any functor $\mathscr{P}$ as above. I claim that $\mathscr{P}
+: \mathsf{C}^-(\mathsf{A}) \to \mathsf{K}^-(\mathsf{P})$ is
+essentially a solution to the universal problem defining the derived
+category $\mathsf{D}^-(\mathsf{A})$. Here is a more precise
+statement:
+\begin{thm}{}{thm:homol:6.9}
+  With notation as above, we have the following.
+  \begin{itemize}
+  \item If $\rho^\bullet$ is a quasi-isomorphism in
+    $\mathsf{C}^-(\mathsf{A})$, then $\mathscr{P}(\rho^\bullet)$ is
+    an isomorphism in $\mathsf{K}^-(\mathsf{P})$.
+  \item Let $\mathscr{F} : \mathsf{C}^-(\mathsf{A}) \to \mathsf{D}$
+    be an additive functor such that $\mathscr{F}(\rho^\bullet)$ is
+    an isomorphism for every quasi-isomorphism $\rho^\bullet$. Then
+    there exists a functor $\widetilde{\mathscr{F}} : \mathsf{K}^-(
+    \mathsf{P}) \to \mathsf{D}$, such that the diagram
+    \[\begin{tikzcd}
+      \mathsf{C}^-(\mathsf{A}) \arrow[r, "\mathscr{F}"]
+        \arrow[d, "\mathscr{P}"'] & \mathsf{D} \\
+      \mathsf{K}^-(\mathsf{P}) \arrow[ur, dashed, "\widetilde{\mathscr{F}}"']
+    \end{tikzcd}\]
+    commutes up to natural isomorphism. (That is, there is a natural
+    transformation $\nu : \widetilde{\mathscr{F}} \circ \mathscr{P}
+    \rightsquigarrow \mathscr{F}$ such that
+    \[
+      \nu_{L^\bullet} : \widetilde{\mathscr{F}} \circ \mathscr{P}
+      (L^\bullet) \xrightarrow{\ \sim\ } \mathscr{F}(L^\bullet)
+    \]
+    is an isomorphism for every complex $L^\bullet$ in
+    $\mathsf{C}^-(\mathsf{A})$.) The functor $\widetilde{\mathscr{F}}$
+    is unique up to natural isomorphism.
+  \end{itemize}
+\end{thm}
+
+The fact that the diagram does not commute on the nose should not be
+too disturbing. It corresponds to the fact (stated in
+Theorem~\ref{thm:homol:6.7}) that there is `only' an equivalence of
+categories between $\mathsf{K}^-(\mathsf{P})$ and
+$\mathsf{D}^-(\mathsf{A})$, not a hard and fast `isomorphism'. As I
+already pointed out in \S{}VIII.1.3, this is what should be expected
+in a categorical context.
 % is a natural
 % transformation that is an isomorphism on each object.
-% Proof. For the first point, let \rho \bullet  : L\bullet  \to  M \bullet  be any
-% morphism in C- (A). By
-% Theorem 6.6, \rho \bullet  lifts to a morphism of resolutions: we have a diagram
-% P(L\bullet  )
-% ?\bullet 
-% \rho / P(M \bullet  )
-% \mu L\bullet 
-% \sqcup 
-% L\bullet 
-% \bullet 
-% \rho 
-% \mu M \bullet 
-% \sqcup 
-% / M \bullet 
-% which commutes up to homotopy; here \mu L\bullet  , \mu M \bullet  are
-% quasi-isomorphisms, and P(\rho \bullet )
-% is the homotopy class of \rho \setminus  \bullet  . If \rho \bullet  is a
-% quasi-isomorphism, then so is \rho \setminus  \bullet  (since the
-% diagram commutes up to homotopy; hence it commutes after taking cohomology);
-% it follows that P(\rho  \bullet  ) is an isomorphism in this case, by Corollary
-% 5.10.
-% To prove the factorization property, define F
-%  0 : K- (P) \to  D by setting
-% 0(P F
-%  \bullet ) := F (P \bullet )
-% for any bounded-above complex P \bullet  of projectives, and define 0 F
-%  of a morphism
-% in K-
-%  (P) to be F (\alpha \bullet 
-%  ), for any representative \alpha \bullet 
-%  of that morphism.
-% The fact that the action of 0 F
-%  on morphisms is well-defined is precisely the
-% content of Lemma 5.1: homotopic morphisms have the same image in D. It is
-% immediate that 0 F
-%  is a functor, and we have to check the statement about commu-
-% tativity up to isomorphism of the diagram and the uniqueness of 0 F
-%  up to natural
-% isomorphism.
-% Then let L\bullet  be a complex in C-(A). By construction there is a
-% quasi-isomorphism
-% \mu L\bullet  : P(L\bullet  ) \to  L\bullet  . Since F maps quasi-isomorphisms to isomorphisms, the in-
-% duced morphism
-% \nu L\bullet  : 0(P(L\bullet  F
-%  )) = F (P(L\bullet  )) -\to  F (L\bullet )
-% is an isomorphism. We just have to verify that the isomorphisms \nu L\bullet
-% define a
-% natural transformation: that is, that for all morphisms \alpha \bullet  :
-% L\bullet  \to  M \bullet  in C- (A) the
-% diagram
-% F
-%  ? (P(\alpha \bullet  ))
-% 0(P(L\bullet  F
-%  ))
-%  / F
-%  0(P(M \bullet  ))
-% \nu L\bullet 
-%  \nu M \bullet 
-% \sqcup 
-%  F (\alpha \bullet 
-%  )
-%  \sqcup 
-% F (L\bullet )
-%  / F (M \bullet  )
-% commutes. This diagram (in D) is obtained by applying F to the diagram (in the
-% category C(A))
-% P(L\bullet  )
-%  \alpha ? \bullet 
-%  / P(M \bullet  )
-% \mu L\bullet 
-%  \mu M \bullet 
-% \sqcup 
-%  \bullet 
-%  \sqcup 
-% L\bullet 
-%  \alpha 
-%  / M \bullet 
-% where \alpha  \setminus  \bullet 
-%  is a homotopy lift of \alpha \bullet  . This diagram commutes up to homotopy,
-%  so
-% the previous one commutes on the nose, again by Lemma 5.1.
-% To see that 0 F
-%  is unique up to isomorphism, let F : K- (P) \to  D be another
-% functor satisfying the same property. Thus there is a natural isomorphism \nu  :
-% F \circ  P ; F . For P \bullet  a complex in K- (P), consider the composition
-% \rho P \bullet  :
-% F (P \bullet )
-%  \sim 
-%  / F (P(P \bullet  ))
-%  \sim 
-%  / F (P \bullet  ) = F
-%  0 (P \bullet  )
-% F (\mu P \bullet  )-1
-%  \nu P \bullet 
-% (keep in mind that since \mu P \bullet  : P(P \bullet  ) \to  P \bullet  is a
-% quasi-isomorphism, F (\mu P \bullet  ) is
-% invertible in D). The reader will verify (Exercise 6.12) that this defines \rho
-% : F \to  0
-%  F
-% as a natural isomorphism, concluding the proof.
-%  ?
-% If A has enough injectives, we can define a functor Q : C+ (A) \to  K+ (I) by
-% choosing an injective resolution for every bounded-below complex. The situation
-% concerning this functor is precisely analogous to the situation just reviewed
-% for the
-% functor P, modulo reversing arrows as appropriate.
-% Summary. If an abelian category A has enough projectives (resp., enough in-
-% jectives), then the homotopic category K - (P) (resp., K+ (I)) works as a
-% replacement
-% of the derived category D-(A) (resp., D+ (A)). As I have argued earlier, viewing
-% a complex in these categories is the most natural way to extract the maximum
-% amount of `cohomological' information from the complex. The category A itself
-% (or
-% a category equivalent to A) sits as a full subcategory of these categories.
-% To reiterate the key point, there is a clear advantage in stopping short of
-% taking
-% cohomology. Resolving a complex L\bullet  by a complex P \bullet  of (say)
-% projectives, thanks
-% to Theorem 6.6, gives us an entity which certainly captures the cohomological
-% information of L\bullet  but that can still be manipulated with the entire range
-% of tools
-% \bullet available in dealing with complexes. For example, we can apply to P any additive
-% functor and still obtain a complex whose cohomology only depends on the original
-% complex L\bullet  (by Theorem 4.14). The cohomology of L\bullet  is only one
-% example of the
-% cohomological invariants that may be extracted from L\bullet  ; viewing L\bullet
-% in the derived
-% category gives direct access to all these invariants.
-% We will capitalize on these considerations in the next section.
+\begin{proof}
+  For the first point, let $\rho^\bullet : L^\bullet \to M^\bullet$
+  be any morphism in $\mathsf{C}^-(\mathsf{A})$. By
+  Theorem~\ref{thm:homol:6.6}, $\rho^\bullet$ lifts to a morphism of
+  resolutions: we have a diagram
+  \[\begin{tikzcd}[column sep=large]
+    \mathscr{P}(L^\bullet) \arrow[r, "\rho'^\bullet"]
+      \arrow[d, "\mu_{L^\bullet}"'] & \mathscr{P}(M^\bullet)
+      \arrow[d, "\mu_{M^\bullet}"] \\
+    L^\bullet \arrow[r, "\rho^\bullet"'] & M^\bullet
+  \end{tikzcd}\]
+  which commutes up to homotopy; here $\mu_{L^\bullet}$,
+  $\mu_{M^\bullet}$ are quasi-isomorphisms, and
+  $\mathscr{P}(\rho^\bullet)$ is the homotopy class of $\rho'^\bullet$.
+  If $\rho^\bullet$ is a quasi-isomorphism, then so is $\rho'^\bullet$
+  (since the diagram commutes up to homotopy; hence it commutes
+  after taking cohomology); it follows that $\mathscr{P}(\rho^\bullet)$
+  is an isomorphism in this case, by Corollary~5.10.
+
+  To prove the factorization property, define $\widetilde{\mathscr{F}}
+  : \mathsf{K}^-(\mathsf{P}) \to \mathsf{D}$ by setting
+  \[
+    \widetilde{\mathscr{F}}(P^\bullet) := \mathscr{F}(P^\bullet)
+  \]
+  for any bounded-above complex $P^\bullet$ of projectives, and
+  define $\widetilde{\mathscr{F}}$ of a morphism in
+  $\mathsf{K}^-(\mathsf{P})$ to be $\mathscr{F}(\alpha^\bullet)$, for
+  any representative $\alpha^\bullet$ of that morphism.
+
+  The fact that the action of $\widetilde{\mathscr{F}}$ on morphisms
+  is well-defined is precisely the content of
+  Lemma~\ref{lem:homol:5.1}: homotopic morphisms have the same image
+  in $\mathsf{D}$. It is immediate that $\widetilde{\mathscr{F}}$ is
+  a functor, and we have to check the statement about commutativity
+  up to isomorphism of the diagram and the uniqueness of
+  $\widetilde{\mathscr{F}}$ up to natural isomorphism.
+
+  Then let $L^\bullet$ be a complex in $\mathsf{C}^-(\mathsf{A})$. By
+  construction there is a quasi-isomorphism $\mu_{L^\bullet} :
+  \mathscr{P}(L^\bullet) \to L^\bullet$. Since $\mathscr{F}$ maps
+  quasi-isomorphisms to isomorphisms, the induced morphism
+  \[
+    \nu_{L^\bullet} : \widetilde{\mathscr{F}}(\mathscr{P}(L^\bullet))
+    = \mathscr{F}(\mathscr{P}(L^\bullet)) \longrightarrow
+    \mathscr{F}(L^\bullet)
+  \]
+  is an isomorphism. We just have to verify that the isomorphisms
+  $\nu_{L^\bullet}$ define a natural transformation: that is, that
+  for all morphisms $\alpha^\bullet : L^\bullet \to M^\bullet$ in
+  $\mathsf{C}^-(\mathsf{A})$ the diagram
+  \[\begin{tikzcd}[column sep=large]
+    \widetilde{\mathscr{F}}(\mathscr{P}(L^\bullet))
+      \arrow[r, "\widetilde{\mathscr{F}}(\mathscr{P}(\alpha^\bullet))"]
+      \arrow[d, "\nu_{L^\bullet}"'] &
+      \widetilde{\mathscr{F}}(\mathscr{P}(M^\bullet))
+      \arrow[d, "\nu_{M^\bullet}"] \\
+    \mathscr{F}(L^\bullet) \arrow[r, "\mathscr{F}(\alpha^\bullet)"'] &
+      \mathscr{F}(M^\bullet)
+  \end{tikzcd}\]
+  commutes. This diagram (in $\mathsf{D}$) is obtained by applying
+  $\mathscr{F}$ to the diagram (in the category $\mathsf{C}(\mathsf{A})$)
+  \[\begin{tikzcd}[column sep=large]
+    \mathscr{P}(L^\bullet) \arrow[r, "\alpha'^\bullet"]
+      \arrow[d, "\mu_{L^\bullet}"'] & \mathscr{P}(M^\bullet)
+      \arrow[d, "\mu_{M^\bullet}"] \\
+    L^\bullet \arrow[r, "\alpha^\bullet"'] & M^\bullet
+  \end{tikzcd}\]
+  where $\alpha'^\bullet$ is a homotopy lift of $\alpha^\bullet$.
+  This diagram commutes up to homotopy, so the previous one commutes
+  on the nose, again by Lemma~\ref{lem:homol:5.1}.
+
+  To see that $\widetilde{\mathscr{F}}$ is unique up to isomorphism,
+  let $F : \mathsf{K}^-(\mathsf{P}) \to \mathsf{D}$ be another functor
+  satisfying the same property. Thus there is a natural isomorphism
+  $\nu : F \circ \mathscr{P} \rightsquigarrow \mathscr{F}$. For
+  $P^\bullet$ a complex in $\mathsf{K}^-(\mathsf{P})$, consider the
+  composition
+  \[\begin{tikzcd}[column sep=large]
+    \rho_{P^\bullet} : \mathscr{F}(P^\bullet)
+      \arrow[r, "\mathscr{F}(\mu_{P^\bullet})^{-1}", "\sim"'] &
+      \mathscr{F}(\mathscr{P}(P^\bullet))
+      \arrow[r, "\nu_{P^\bullet}", "\sim"'] &
+      F(P^\bullet) = \widetilde{\mathscr{F}}(P^\bullet)
+  \end{tikzcd}\]
+  (keep in mind that since $\mu_{P^\bullet} : \mathscr{P}(P^\bullet)
+  \to P^\bullet$ is a quasi-isomorphism, $\mathscr{F}(\mu_{P^\bullet})$
+  is invertible in $\mathsf{D}$). The reader will verify
+  (Exercise~6.12) that this defines $\rho : \mathscr{F} \to
+  \widetilde{\mathscr{F}}$ as a natural isomorphism, concluding the
+  proof.
+\end{proof}
+
+If $\mathsf{A}$ has enough injectives, we can define a functor
+$\mathscr{Q} : \mathsf{C}^+(\mathsf{A}) \to \mathsf{K}^+(\mathsf{I})$
+by choosing an injective resolution for every bounded-below complex.
+The situation concerning this functor is precisely analogous to the
+situation just reviewed for the functor $\mathscr{P}$, modulo
+reversing arrows as appropriate.
+
+\emph{Summary.} If an abelian category $\mathsf{A}$ has enough
+projectives (resp., enough injectives), then the homotopic category
+$\mathsf{K}^-(\mathsf{P})$ (resp., $\mathsf{K}^+(\mathsf{I})$) works
+as a replacement of the derived category $\mathsf{D}^-(\mathsf{A})$
+(resp., $\mathsf{D}^+(\mathsf{A})$). As I have argued earlier,
+viewing a complex in these categories is the most natural way to
+extract the maximum amount of `cohomological' information from the
+complex. The category $\mathsf{A}$ itself (or a category equivalent
+to $\mathsf{A}$) sits as a full subcategory of these categories.
+
+To reiterate the key point, there is a clear advantage in stopping
+short of taking cohomology. Resolving a complex $L^\bullet$ by a
+complex $P^\bullet$ of (say) projectives, thanks to
+Theorem~\ref{thm:homol:6.6}, gives us an entity which certainly
+captures the cohomological information of $L^\bullet$ but that can
+still be manipulated with the entire range of tools available in
+dealing with complexes. For example, we can apply to $P^\bullet$ any
+additive functor and still obtain a complex whose cohomology only
+depends on the original complex $L^\bullet$ (by Theorem~4.14). The
+cohomology of $L^\bullet$ is only one example of the cohomological
+invariants that may be extracted from $L^\bullet$; viewing $L^\bullet$
+in the derived category gives direct access to all these invariants.
+
+We will capitalize on these considerations in the next section.
 
 \subsection*{Exercises}
 
