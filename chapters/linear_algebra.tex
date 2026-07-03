@@ -3078,1526 +3078,1560 @@ over the polynomial ring $k[x]$ over a field.
 \label{sec:linalg:classification-of-finitely-generated-modules-over-pids}
 
 
-%\lnot  A Koszul complex may be defined for any sequence a1, . . . , an of elements}
-
-% of a commutative ring R. The case n = 2 seen in Exercise 4.13 and the case n = 3
-% reviewed here will hopefully suffice to get a gist of the general construction;
-% the
-% general case will be given in Exercise VIII.4.22.
-% Let a, b, c \in  R. Consider the following complex:
-%  / R
-%  d3
-%  / R \oplus  R \oplus  R
-%  d2
-%  / R \oplus  R \oplus  R
-%  d1
-%  / R
-%  \pi 
-%  /
-%  (a,b,c)
-%  R
-%  / 0
-% where \pi  is the canonical projection and the matrices for d1 , d2, d3 are,
-% respectively,
-% (
-%  )
-%  ( )
-% 0 -c -b
-%  a
-% ?
-%  ?
-% a b c , (-c 0
-%  a ) , (-b) .
-% b
-%  a
-%  c
-% \bullet  Prove that this is indeed a complex, for every a, b, c.
-% \bullet  Prove that if (a, b, c) is a regular sequence, this complex is exact.
-% Koszul complexes are very important in commutative algebra and algebraic geom-
-% etry. [VIII.4.22]
-
-%View Z as a module over the ring R = Z[x, y], where x and y act by 0}
-
-% Find a free resolution of Z over R. [VIII.4.21]
-
-%Let \phi  : Rn \to  Rm and \psi  : Rp \to  Rq be two R-module homomorphisms,}
-
-% and let
-% \phi  \oplus  \psi  : Rn \oplus  Rp \to  Rm \oplus  Rq
-% be the morphism induced on direct sums. Prove that
-% coker(\phi  \oplus  \psi ) = coker \phi  \oplus  coker \psi .
-
-%Determine (as a better known entity) the module represented by the matrix}
-
-% (
-%  )
-% 1 + 3x
-%  2x
-%  3x
-% (1 + 2x 1 + 2x - x 2 2x)
-% x
-%  x2
-%  x
-% over the polynomial ring k[x] over a field.
-% It is finally time to prove the classification theorem for finitely generated
-% modules
-% over arbitrary PIDs. We have already proved this statement in the special case
-% of
-% finite Z-modules (\S{}IV.6), and the diligent reader has worked out a proof in
-% the less
-% special case of finitely generated modules over Euclidean domains, in Exercise
-% 2.19.
-% Now we go for the real thing.
+It is finally time to prove the classification theorem for finitely
+generated modules over arbitrary PIDs. We have already proved this
+statement in the special case of finite $\mathbb{Z}$-modules
+(\S{}IV.6), and the diligent reader has worked out a proof in the less
+special case of finitely generated modules over Euclidean domains, in
+Exercise~2.19. Now we go for the real thing.
 
 \subsection{Submodules of free modules}
 \label{subsec:linalg:submodules-of-free-modules}
-% Recall (Lemma 4.2, Example 4.3) that a
+Recall (Lemma~4.2, Example~4.3) that a submodule of a free module over
+an arbitrary integral domain $R$ is necessarily
+torsion-free but need not be free. For example, the ideal $I = (x,y)$
+of $R = k[x,y]$ (with $k$ a field, for example) is torsion-free as an
+$R$-module, but not free: for this to become really, really evident, it
+is helpful to rename $x = a$, $y = b$ when these are viewed as elements
+of $I$ and observe that $a$ and $b$ are not linearly independent over
+$k[x,y]$, since $ya - xb = 0$.
 
-% submodule of a free module over an arbitrary integral domain R is necessarily
-% torsion-free but need not be free. For example, the ideal I = (x, y) of R = k[x,
-% y]
-% (with k a field, for example) is torsion-free as an R-module, but not free: for
-% this
-% to become really, really evident, it is helpful to rename x = a, y = b when
-% these
-% are viewed as elements of I and observe that a and b are not linearly
-% independent
-% over k[x, y], since ya - xb = 0.
-% On the other hand, submodules of a free module over a field are automatically
-% free: simply because every module over a field is free (Proposition 1.7). It is
-% reasonable to expect that `some property in between' being a field and being a
-% friendly UFD such as k[x, y] will guarantee that a submodule of a free module is
-% free. We will now prove that this property is precisely that of being a
-% principal
-% ideal domain.
-% Proposition 5.1. Let R be a PID, let F be a finitely generated free module over
-% R,
-% and let M \subseteq  F be a submodule. Then M is free.
-% We will actually prove a more precise result, in view of the full statement of
-% the classification theorem: we will show that there is a basis (x1 , . . . , xn)
-% of F and
-% elements a1 , . . . , am of R (with m \leq  n) such that
-% y1 = a1 x1 , . . . ,
-%  ym = am xm
-% form a basis of M . That is, not only do we prove that M is free, but we also
-% show
-% that there are `compatible' bases of F and M .
-% In order to do this, we may of course assume that M = 0: otherwise there is
-% nothing to prove. Most of the work will then go into showing that if M = 0, we
-% can
-% split one direct summand off M ; iterating this process will prove the
-% proposition23 .
-% This is where the PID condition is used, so I will single out the main technical
-% point
-% into the following statement.
-% Lemma 5.2. Let R be a PID, let F be a finitely generated free module over R, and
-% let M \subseteq  F be a nonzero submodule. Then there exist a \in  R, x \in  F ,
-% y \in  M , and
-% submodules F \setminus  \subseteq  F and M \setminus  \subseteq  M , such that y
-% = ax = 0, M \setminus  = F \setminus  \cap  M , and
-% F = ?x? \oplus  F \setminus  ,
-%  M = ?y? \oplus  M \setminus .
-% The reader would find it instructive to pause a moment and try to imagine how
-% the PID hypothesis may enter into the proof of this lemma. The PID hypothesis is
-% a hypothesis on R, so the question is, where is the special copy of R to which
-% we
-% can apply it? Don't read on until you have spent a moment thinking about this.
-% It is tempting to look for this copy of R among the `factors' of F = Rn : for
-% example, we could map F to R by projecting onto the first component:
-% \pi (r1 , . . . , rn ) = r1.
-% But there is nothing special about the first component of R n; in fact there is
-% nothing special about the particular basis chosen for F , that is, the
-% particular
-% 23 In a loose sense, this is the same strategy we employed in the proof of the
-% classification
-% result for finite abelian groups in \S{}IV.6.
-% representation of F as Rn . Therefore, this does not look too promising. The way
-% out of this bind is to democratically map F to R in every possible way: we
-% consider
-% all homomorphisms \phi  : F \to  R. This is a set that does not depend on any
-% extra
-% choice, so it is more likely to carry the information we need.
-% For each \phi , \phi (M ) is a submodule of R, that is, an ideal of R; so we
-% have a
-% chance to use the PID hypothesis with profit. In fact, the much weaker fact that
-% R is Noetherian guarantees already that there must be some homomorphism \alpha
-% for
-% which \alpha (M ) is maximal among all ideals \phi (M ). This copy of R, that
-% is, the target
-% of such a homomorphism \alpha , is special for a good reason, independent of
-% inessential
-% choices. The fact that R is a PID tells us that \alpha (M ) is principal, and
-% then we are
-% clearly in business.
-% Here is the formal argument:
-% Proof. For all \phi  \in  HomR (F, R), \phi (M ) is a submodule of R, that is,
-% an ideal.
-% The family of all these ideals is nonempty, and PIDs are Noetherian; therefore
-% (by
-% Proposition V.1.1) there exists a maximal element in the family, say \alpha (M
-% ), for a
-% homomorphism \alpha  : M \to  R. The fact that M = 0 implies immediately that
-% some
-% \phi (M ) = 0 (for example, take for \phi  the projection to a suitable factor of Rn ); hence
-% \alpha (M ) = 0.
-% Since R is a PID, \alpha (M ) is principal: \alpha (M ) = (a) for some a \in  R,
-% a = 0. Since
-% a \in  \alpha (M ), there exists an element y \in  M , y = 0, such that \alpha
-% (y) = a. These are
-% the elements a, y mentioned in the statement.
-% I claim that a divides \phi (y) for all \phi  \in  HomR (F, R). Indeed, let b be
-% a generator
-% of (a, \phi (y)) (which exists since R is a PID; of course b is simply a gcd of
-% a and \phi (y)),
-% and let r, s \in  R such that b = ra+s\phi (y); consider the homomorphism \psi
-% := r\alpha +s\phi .
-% Since a \in  (b), we have \alpha (M ) \subseteq  (b). On the other hand
-% b = ra + s\phi (y) = (r\alpha  + s\phi )(y) = \psi (y) \in  \psi (M );
-% therefore (b) \subseteq  \psi (M ). It follows that \alpha (M ) \subseteq  \psi
-% (M ), and by maximality \alpha (M ) =
-% \psi (M ); hence (a) = (b), and in particular a divides \phi (y), as claimed.
-% Let y = (s1 , . . . , sn ) as an element of F = Rn . Each s i is the image of y
-% by a
-% homomorphism F \to  R (that is, the i-th projection), so a divides all of them
-% by
-% what we just proved. Therefore \exists r1 , . . . , rn \in  R such that si = ari
-% ; let
-% x = (r1 , . . . , rn ) \in  F.
-% This is the element x mentioned in the statement. By construction, y = ax. Fur-
-% ther, a = \alpha (y) = \alpha (ax) = a\alpha (x); since R is an integral domain
-% and a = 0, this
-% implies \alpha (x) = 1.
-% Finally, we let F \setminus  = ker \alpha  and M \setminus  = F \setminus  \cap
-% M , and we can proceed to verify the
-% stated direct sums.
-% First, every z \in  F may be written as
-% z = \alpha (z)x + (z - \alpha (z)x);
-% by linearity
-% \alpha (z - \alpha (z)x) = \alpha (z) - \alpha (z)\alpha (x) = \alpha (z) - \alpha (z) = 0,
-% that is, z - \alpha (z)x \in  ker \alpha . This implies that F = ?x? + F
-% \setminus . On the other hand,
-% rx \in  F \setminus  \implies  \alpha (rx) = 0 \implies  r\alpha (x) = 0
-% \implies  r = 0: that is, ?x? \cap  F \setminus  = 0.
-% Therefore
-% F = ?x? \oplus  F \setminus ,
-% as claimed (cf. Exercise 5.1).
-% Second, if z \in  M , then a divides \alpha (z): indeed, \alpha (z) \in  \alpha
-% (M ) = (a). Writing
-% \alpha (z) = ca, we have \alpha (z)x = cax = cy; splitting z as above, we note
-% z - \alpha (z)x = z - cy \in  M \cap  F \setminus  = M \setminus  ,
-% and this leads as before to
-% concluding the proof.
-% M = ?y? \oplus  M \setminus  ,
-% ?
-% Once Lemma 5.2 is established, the proof of Proposition 5.1 is mere busywork:
-% Proof of Proposition 5.1. If M = 0, we are done. If not, applying Lemma 5.2
-% to M \subseteq  F produces an element y1 \in  M and a submodule M (1) \subseteq
-% M such that
-% M = ?y1? \oplus  M (1) .
-% If M (1) = 0, we are done; otherwise, apply Lemma 5.2 again (to M (1) \subseteq
-% F ) to
-% obtain y2 \in  M (1) and M (2) \subseteq  M (1) so that
-% M = ?y1 ? \oplus  (?y2 ? \oplus  M (2)).
-% This process may be continued, producing elements y1 , . . . , ym \in  M such
-% that
-% M = ?y1 ? \oplus  \dots  \oplus  ?ym ? \oplus  M (m) ,
-% so long as the module M (m) is nonzero. However, by Proposition 1.9 we know
-% m \leq  n, since y1 , . . . , ym are linearly independent in F . It follows that
-% the process
-% must stop; that is, M (m) = 0 for some m \leq  n. That is,
-% M = ?y1 ? \oplus  \dots  \oplus  ?ym ?
-% is free, as needed.
-%  ?
-% Note that the proof has not used part of the result of Lemma 5.2, that is, the
-% fact that the `factor' ?y? of M is a submodule of a corresponding factor ?x? of
-% F .
-% This is needed in order to upgrade Proposition 5.1 along the lines mentioned
-% after
-% its statement. Here is that stronger statement:
-% Corollary 5.3. Let R be a PID, let F be a finitely generated free module over R,
-% and let M \subseteq  F be a submodule. Then there exist a basis (x1 , . . . , xn
-% ) of F and
-% nonzero elements a1, . . . , am of R (m \leq  n) such that (a1 x1, . . . , am xm
-% ) is a basis
-% of M . Further, we may assume a1 | a 2 | \dots  | am .
-% This statement should be compared with Proposition 2.11: it amounts to a
-% `Smith normal form over PIDs'; cf. Remark 2.12.
-% Proof. Now that we know that submodules of a free module are free, we see that
-% the submodule F \setminus  \subseteq  F produced in Lemma 5.2 is free. The first
-% part of the
-% statement then follows from Lemma 5.2, by an inductive argument analogous to
-% the proof of Proposition 5.1, and is left to the reader.
-% The most delicate part of the statement is the divisibility condition. By induc-
-% tion it suffices to prove a1 | a2 , and for this we refer back to the proof of
-% Lemma 5.2:
-% (a1) is maximal among the ideals \phi (M ) of R, as \phi  ranges over all
-% homomorphisms
-% F \to  R. Consider then any24 homomorphism \phi  such that \phi (x1 ) = \phi (x2
-% ) = 1.
-% Since \phi (y1) = \phi (a1x1 ) = a1 , we have (a1 ) \subseteq  \phi (M ); by
-% maximality (a1 ) = \phi (M ).
-% Therefore a2 = \phi (a2 x2 ) = \phi (y2 ) \in  \phi (M ) = (a1 ), proving a1 |
-% a2 as needed.
-%  ?
-% The logic of the argument given in this section is somewhat tricky: it takes
-% Lemma 5.2 to prove Proposition 5.1; but then it takes Proposition 5.1 (proving
-% \setminus that F is free) to revisit Lemma 5.2 and squeeze from it the stronger Corollary 5.3.
+On the other hand, submodules of a free module over a field are
+automatically free: simply because every module over a field is free
+(Proposition~1.7). It is reasonable to expect that `some property in
+between' being a field and being a friendly UFD such as $k[x,y]$ will
+guarantee that a submodule of a free module is free. We will now prove
+that this property is precisely that of being a \emph{principal ideal
+domain}.
+\begin{prop}{}{linalg:5.1}
+Let $R$ be a PID, let $F$ be a finitely generated free module over $R$,
+and let $M \subseteq F$ be a submodule. Then $M$ is free.
+\end{prop}
+We will actually prove a more precise result, in view of the full
+statement of the classification theorem: we will show that there is a
+basis $(x_1, \dots, x_n)$ of $F$ and elements $a_1, \dots, a_m$ of $R$
+(with $m \leq n$) such that
+\[
+y_1 = a_1 x_1, \dots, \quad y_m = a_m x_m
+\]
+form a basis of $M$. That is, not only do we prove that $M$ is free,
+but we also show that there are `compatible' bases of $F$ and $M$.
+
+In order to do this, we may of course assume that $M \neq 0$: otherwise
+there is nothing to prove. Most of the work will then go into showing
+that if $M \neq 0$, we can split one direct summand off $M$; iterating
+this process will prove the proposition\footnote{In a loose sense, this
+is the same strategy we employed in the proof of the classification
+result for finite abelian groups in \S{}IV.6.}. This is where the PID
+condition is used, so I will single out the main technical point into
+the following statement.
+\begin{lem}{}{linalg:5.2}
+Let $R$ be a PID, let $F$ be a finitely generated free module over $R$,
+and let $M \subseteq F$ be a nonzero submodule. Then there exist
+$a \in R$, $x \in F$, $y \in M$, and submodules $F' \subseteq F$ and
+$M' \subseteq M$, such that $y = ax \neq 0$, $M' = F' \cap M$, and
+\[
+F = \langle x \rangle \oplus F', \quad M = \langle y \rangle \oplus M'.
+\]
+\end{lem}
+The reader would find it instructive to pause a moment and try to
+imagine how the PID hypothesis may enter into the proof of this lemma.
+The PID hypothesis is a hypothesis on $R$, so the question is, where is
+the special copy of $R$ to which we can apply it? Don't read on until
+you have spent a moment thinking about this.
+
+It is tempting to look for this copy of $R$ among the `factors' of
+$F = R^n$: for example, we could map $F$ to $R$ by projecting onto the
+first component:
+\[
+\pi(r_1, \dots, r_n) = r_1.
+\]
+But there is nothing special about the first component of $R^n$; in
+fact there is nothing special about the particular basis chosen for
+$F$, that is, the particular representation of $F$ as $R^n$. Therefore,
+this does not look too promising. The way out of this bind is to
+democratically map $F$ to $R$ in every possible way: we consider
+\emph{all} homomorphisms $\varphi : F \to R$. This is a set that does
+not depend on any extra choice, so it is more likely to carry the
+information we need.
+
+For each $\varphi$, $\varphi(M)$ is a submodule of $R$, that is, an
+ideal of $R$; so we have a chance to use the PID hypothesis with
+profit. In fact, the much weaker fact that $R$ is Noetherian guarantees
+already that there must be some homomorphism $\alpha$ for which
+$\alpha(M)$ is maximal among all ideals $\varphi(M)$. This copy of $R$,
+that is, the target of such a homomorphism $\alpha$, is special for a
+good reason, independent of inessential choices. The fact that $R$ is a
+PID tells us that $\alpha(M)$ is principal, and then we are clearly in
+business.
+
+Here is the formal argument:
+\begin{proof}
+For all $\varphi \in \Hom_R(F,R)$, $\varphi(M)$ is a submodule of $R$,
+that is, an ideal. The family of all these ideals is nonempty, and PIDs
+are Noetherian; therefore (by
+Proposition~V.1.1) there exists a maximal element in the family, say
+$\alpha(M)$, for a homomorphism $\alpha : M \to R$. The fact that
+$M \neq 0$ implies immediately that some $\varphi(M) \neq 0$ (for
+example, take for $\varphi$ the projection to a suitable factor of
+$R^n$); hence $\alpha(M) \neq 0$.
+
+Since $R$ is a PID, $\alpha(M)$ is principal: $\alpha(M) = (a)$ for
+some $a \in R$, $a \neq 0$. Since $a \in \alpha(M)$, there exists an
+element $y \in M$, $y \neq 0$, such that $\alpha(y) = a$. These are the
+elements $a, y$ mentioned in the statement.
+
+I claim that $a$ divides $\varphi(y)$ for all $\varphi \in \Hom_R(F,R)$.
+Indeed, let $b$ be a generator of $(a, \varphi(y))$ (which exists since
+$R$ is a PID; of course $b$ is simply a gcd of $a$ and $\varphi(y)$),
+and let $r, s \in R$ such that $b = ra + s\varphi(y)$; consider the
+homomorphism $\psi := r\alpha + s\varphi$. Since $a \in (b)$, we have
+$\alpha(M) \subseteq (b)$. On the other hand
+\[
+b = ra + s\varphi(y) = (r\alpha + s\varphi)(y) = \psi(y) \in \psi(M);
+\]
+therefore $(b) \subseteq \psi(M)$. It follows that
+$\alpha(M) \subseteq \psi(M)$, and by maximality
+$\alpha(M) = \psi(M)$; hence $(a) = (b)$, and in particular $a$ divides
+$\varphi(y)$, as claimed.
+
+Let $y = (s_1, \dots, s_n)$ as an element of $F = R^n$. Each $s_i$ is
+the image of $y$ by a homomorphism $F \to R$ (that is, the $i$-th
+projection), so $a$ divides all of them by what we just proved.
+Therefore $\exists r_1, \dots, r_n \in R$ such that $s_i = ar_i$; let
+\[
+x = (r_1, \dots, r_n) \in F.
+\]
+This is the element $x$ mentioned in the statement. By construction,
+$y = ax$. Further, $a = \alpha(y) = \alpha(ax) = a\alpha(x)$; since $R$
+is an integral domain and $a \neq 0$, this implies $\alpha(x) = 1$.
+
+Finally, we let $F' = \ker\alpha$ and $M' = F' \cap M$, and we can
+proceed to verify the stated direct sums.
+
+First, every $z \in F$ may be written as
+\[
+z = \alpha(z)x + (z - \alpha(z)x);
+\]
+by linearity
+\[
+\alpha(z - \alpha(z)x) = \alpha(z) - \alpha(z)\alpha(x) = \alpha(z) -
+\alpha(z) = 0,
+\]
+that is, $z - \alpha(z)x \in \ker\alpha$. This implies that
+$F = \langle x \rangle + F'$. On the other hand,
+$rx \in F' \implies \alpha(rx) = 0 \implies r\alpha(x) = 0 \implies
+r = 0$: that is, $\langle x \rangle \cap F' = 0$. Therefore
+\[
+F = \langle x \rangle \oplus F',
+\]
+as claimed (cf.\ Exercise~5.1).
+
+Second, if $z \in M$, then $a$ divides $\alpha(z)$: indeed,
+$\alpha(z) \in \alpha(M) = (a)$. Writing $\alpha(z) = ca$, we have
+$\alpha(z)x = cax = cy$; splitting $z$ as above, we note
+\[
+z - \alpha(z)x = z - cy \in M \cap F' = M',
+\]
+and this leads as before to
+\[
+M = \langle y \rangle \oplus M',
+\]
+concluding the proof.
+\end{proof}
+
+Once Lemma~5.2 is established, the proof of Proposition~5.1 is mere
+busywork:
+\begin{proof}[Proof of Proposition~5.1]
+If $M = 0$, we are done. If not, applying Lemma~5.2 to $M \subseteq F$
+produces an element $y_1 \in M$ and a submodule $M^{(1)} \subseteq M$
+such that
+\[
+M = \langle y_1 \rangle \oplus M^{(1)}.
+\]
+If $M^{(1)} = 0$, we are done; otherwise, apply Lemma~5.2 again (to
+$M^{(1)} \subseteq F$) to obtain $y_2 \in M^{(1)}$ and
+$M^{(2)} \subseteq M^{(1)}$ so that
+\[
+M = \langle y_1 \rangle \oplus (\langle y_2 \rangle \oplus M^{(2)}).
+\]
+This process may be continued, producing elements
+$y_1, \dots, y_m \in M$ such that
+\[
+M = \langle y_1 \rangle \oplus \dots \oplus \langle y_m \rangle \oplus
+M^{(m)},
+\]
+so long as the module $M^{(m)}$ is nonzero. However, by
+Proposition~1.9 we know $m \leq n$, since $y_1, \dots, y_m$ are
+linearly independent in $F$. It follows that the process must stop;
+that is, $M^{(m)} = 0$ for some $m \leq n$. That is,
+\[
+M = \langle y_1 \rangle \oplus \dots \oplus \langle y_m \rangle
+\]
+is free, as needed.
+\end{proof}
+
+Note that the proof has not used part of the result of Lemma~5.2, that
+is, the fact that the `factor' $\langle y \rangle$ of $M$ is a
+submodule of a corresponding factor $\langle x \rangle$ of $F$. This is
+needed in order to upgrade Proposition~5.1 along the lines mentioned
+after its statement. Here is that stronger statement:
+\begin{coro}{}{linalg:5.3}
+Let $R$ be a PID, let $F$ be a finitely generated free module over $R$,
+and let $M \subseteq F$ be a submodule. Then there exist a basis
+$(x_1, \dots, x_n)$ of $F$ and nonzero elements $a_1, \dots, a_m$ of
+$R$ ($m \leq n$) such that $(a_1 x_1, \dots, a_m x_m)$ is a basis of
+$M$. Further, we may assume $a_1 \mid a_2 \mid \dots \mid a_m$.
+\end{coro}
+This statement should be compared with Proposition~2.11: it amounts to
+a `Smith normal form over PIDs'; cf.\ Remark~2.12.
+\begin{proof}
+Now that we know that submodules of a free module are free, we see
+that the submodule $F' \subseteq F$ produced in Lemma~5.2 is free. The
+first part of the statement then follows from Lemma~5.2, by an
+inductive argument analogous to the proof of Proposition~5.1, and is
+left to the reader.
+
+The most delicate part of the statement is the divisibility condition.
+By induction it suffices to prove $a_1 \mid a_2$, and for this we refer
+back to the proof of Lemma~5.2: $(a_1)$ is maximal among the ideals
+$\varphi(M)$ of $R$, as $\varphi$ ranges over all homomorphisms
+$F \to R$. Consider then any\footnote{In order to define a homomorphism
+on a free module $F$, one may define it on a basis of $F$ and then
+extend it by linearity; there is no restriction on the possible choices
+for the images of basis elements. The reader who is not sure about this
+should review the universal property of free modules!} homomorphism
+$\varphi$ such that $\varphi(x_1) = \varphi(x_2) = 1$.
+
+Since $\varphi(y_1) = \varphi(a_1x_1) = a_1$, we have
+$(a_1) \subseteq \varphi(M)$; by maximality $(a_1) = \varphi(M)$.
+Therefore $a_2 = \varphi(a_2x_2) = \varphi(y_2) \in \varphi(M) = (a_1)$,
+proving $a_1 \mid a_2$ as needed.
+\end{proof}
+
+The logic of the argument given in this section is somewhat tricky: it
+takes Lemma~5.2 to prove Proposition~5.1; but then it takes
+Proposition~5.1 (proving that $F'$ is free) to revisit Lemma~5.2 and
+squeeze from it the stronger Corollary~5.3.
 
 \subsection{PIDs and resolutions}
 \label{subsec:linalg:pids-and-resolutions}
-% Proposition 5.1 allows us to complete the circle of
+Proposition~5.1 allows us to complete the circle of ideas begun in
+\S{}4.2.
+\begin{prop}{}{linalg:5.4}
+Let $R$ be an integral domain. Then $R$ is a PID if and only if for
+every finitely generated $R$-module $M$ and every epimorphism
+\[
+R^{m_0} \xrightarrow{\pi_0} M \to 0,
+\]
+there exist a free $R$-module $R^{m_1}$ and a homomorphism
+$\pi_1 : R^{m_1} \to R^{m_0}$ such that the sequence
+\[
+0 \to R^{m_1} \xrightarrow{\pi_1} R^{m_0} \xrightarrow{\pi_0} M \to 0
+\]
+is exact.
+\end{prop}
+\begin{proof}
+The fact that the stated condition implies that $R$ is a PID was
+proved in Proposition~4.11. For the converse, let
+$\pi_0 : R^{m_0} \to M$ be an epimorphism; then $\ker\pi_0$ is free by
+Proposition~5.1; the result follows by choosing any isomorphism
+$\pi_1 : R^{m_1} \to \ker(\pi_0)$.
+\end{proof}
 
-% ideas begun in \S{}4.2.
-% Proposition 5.4. Let R be an integral domain. Then R is a PID if and only if
-% for every finitely generated R-module M and every epimorphism
-% Rm0
-%  \pi 0
-%  / M
-%  / 0,
-% there exist a free R-module R m1 and a homomorphism \pi 1 : Rm1 \to  Rm0 such
-% that
-% the sequence
-%  / Rm1
-%  \pi 1
-%  / Rm0
-%  \pi 0
-%  / M
-%  / 0
-% is exact.
-% Proof. The fact that the stated condition implies that R is a PID was proved
-% in Claim 4.11. For the converse, let \pi 0 : Rm0 \to  M be an epimorphism; then
-% ker \pi 0 is free by Proposition 5.1; the result follows by choosing any
-% isomorphism
-% \pi 1 : R m1 \to  ker(\pi 0).
-%  ?
-% The content of Proposition 5.4 is possibly simpler than its awkward formulation:
-% Proposition 5.4 is simply a characterization for PIDs analogous to the
-% characteri-
-% zation of fields worked out in Proposition 4.10. This is another example of the
-% fact
-% that we can study a ring R by looking at how R-Mod is put together.
-% The reader can well imagine the `length-n' version of the condition appearing
-% in these results: we may ask for the class of integral domains R with the
-% property
-% that for all finitely generated modules M and all partial free resolutions of M
-% ,
-% Rmn-1
-%  \pi n-1
-%  / \cdot \cdot \cdot 
-%  \pi 1
-%  / Rm0
-%  \pi 0
-%  / M
-%  / 0 ,
-% 24 In order to define a homomorphism on a free module F , one may define it on a
-% basis of F
-% and then extend it by linearity; there is no restriction on the possible choices
-% for the images of
-% basis elements. The reader who is not sure about this should review the
-% universal property of free
-% modules!
-% there exists a homomorphism \pi n : Rmn \to  Rmn-1 such that
-%  / Rmn
-%  \pi n
-%  / Rm n-1 \pi n-1 / \dots 
-%  \pi 1
-%  / Rm0
-%  \pi 0
-%  / M
-% / 0
-% is exact. We have proved that this condition characterizes fields for n = 0 and
-% PIDs
-% for n = 1.
-% The alert reader should now have a d\'ej\`{a} vu, as we have already encountered
-% a notion that is 0 precisely for fields and 1 for PIDs: the Krull dimension of a
-% ring; cf. Example III.4.14. Of course this is not a coincidence, but the full
-% relation
-% between the Krull dimension and the bound on the length of free resolutions is
-% be-
-% yond the scope of this book25 . `Most' rings (even rings with finite Krull
-% dimension)
-% do not satisfy any such bound for all modules. The local rings satisfying the
-% finite-
-% ness condition described above for some n correspond in the language of
-% algebraic
-% geometry to `smooth' points on varieties of dimension \leq  n.
+The content of Proposition~5.4 is possibly simpler than its awkward
+formulation: Proposition~5.4 is simply a characterization for PIDs
+analogous to the characterization of fields worked out in
+Proposition~4.10. This is another example of the fact that we can
+study a ring $R$ by looking at how $R$-\textsf{Mod} is put together.
+
+The reader can well imagine the `length-$n$' version of the condition
+appearing in these results: we may ask for the class of integral
+domains $R$ with the property that for all finitely generated modules
+$M$ and all partial free resolutions of $M$,
+\[
+R^{m_{n-1}} \xrightarrow{\pi_{n-1}} \dots \xrightarrow{\pi_1} R^{m_0}
+\xrightarrow{\pi_0} M \to 0,
+\]
+there exists a homomorphism $\pi_n : R^{m_n} \to R^{m_{n-1}}$ such
+that
+\[
+0 \to R^{m_n} \xrightarrow{\pi_n} R^{m_{n-1}} \xrightarrow{\pi_{n-1}}
+\dots \xrightarrow{\pi_1} R^{m_0} \xrightarrow{\pi_0} M \to 0
+\]
+is exact. We have proved that this condition characterizes fields for
+$n = 0$ and PIDs for $n = 1$.
+
+The alert reader should now have a \emph{d\'ej\`{a} vu}, as we have
+already encountered a notion that is $0$ precisely for fields and $1$
+for PIDs: the Krull dimension of a ring; cf.\ Example~III.4.14. Of
+course this is not a coincidence, but the full relation between the
+Krull dimension and the bound on the length of free resolutions is
+beyond the scope of this book\footnote{The most persistent of readers
+will take a more sophisticated look at these bounds in the exercises
+to \S{}IX.8.}. `Most' rings (even rings with finite Krull dimension) do
+not satisfy any such bound for all modules. The local rings satisfying
+the finiteness condition described above for some $n$ correspond in
+the language of algebraic geometry to `smooth' points on varieties of
+dimension $\leq n$.
 
 \subsection{The classification theorem}
 \label{subsec:linalg:the-classification-theorem}
-% The notion of the rank of a free module (Defi-
+The notion of the \emph{rank} of a free module (Definition~1.14)
+extends naturally to every finitely generated module $M$ over an
+integral domain $R$.
+\begin{defn}{}{linalg:5.5}
+Let $R$ be an integral domain. The \emph{rank} $\operatorname{rk} M$ of
+a finitely generated $R$-module $M$ is the maximum number of linearly
+independent elements in $M$.
+\end{defn}
+It should be clear that this number is finite (Exercise~5.6).
 
-% nition 1.14) extends naturally to every finitely generated module M over an
-% integral
-% domain R.
-% Definition 5.5. Let R be an integral domain. The rank rk M of a finitely
-% generated
-% R-module M is the maximum number of linearly independent elements in M . ?
-% It should be clear that this number is finite (Exercise 5.6).
-% Theorem 5.6. Let R be a PID, and let M be a finitely generated R-module. Then
-% the following hold:
-% \bullet  There exist distinct prime ideals (q1 ), . . . , (qn ) \subseteq  R, positive integers rij , and
-% an isomorphism
-%  (
-%  )
-% !
-%  RM \sim 
-%  = Rrk M \oplus  (
-%  rij
-%  )
-%  .
-% i,j
-%  (q
-% i )
-% \bullet  There exist nonzero, nonunit ideals (a1 ), . . . , (am ) of R, such that (a1 ) \supseteq 
-% (a2) \supseteq  \dots  \supseteq  (am), and an isomorphism
-% M \sim 
-%  = Rrk M \oplus 
-%  R
-%  \oplus  \cdot \cdot \cdot  \oplus 
-%  R
-%  .
-% (a1)
-%  (am )
-% These decompositions are unique (in the evident sense).
-% After all our preparatory work, this statement practically proves itself. I will
-% describe the arguments in general terms, leaving the details to the enterprising
-% reader.
-% The two forms taken by the theorem go under the name of invariant factors
-% and elementary divisors, as in the case of abelian groups. As in the case of
-% abelian
-% groups, the equivalence between the two formulations amounts to careful
-% bookkeep-
-% ing, and we will not prove it formally; see \S{}IV.6.2 for a reminder of how to
-% go from
-% 25 The most persistent of readers will take a more sophisticated look at these
-% bounds in the
-% exercises to \S{}IX.8.
-% one to the other. The role played by Lemma IV.6.1 in that discussion is taken
-% over
-% by the Chinese remainder theorem, Theorem V.6.1, in this more general setting.
-% As the two formulations are equivalent, it suffices to prove the existence and
-% uniqueness of the decompositions given in Theorem 5.6 for any one of the two.
-% The existence is a direct consequence of the results in \S{}5.1. Indeed, let M
-% be a
-% finitely generated module; thus there is an epimorphism
-% Rn
-%  \pi 
-%  / M
-%  / 0
-% where n is the number of generators of M . Apply Corollary 5.3 to the submodule
-% ker \pi  \subseteq  Rn : there exist a basis (x1, . . . , xn ) of Rn and nonzero
-% elements a1 , . . . , am
-% of R such that (a1 x1 , . . . , amxm ) is a basis of ker \pi  and further a1 |
-% \dots  | am .
-% That is, M is presented by the n \times  m matrix
-% (
-%  )
-% a1 \dots 
-% | | .. .
-%  . .
-%  .
-%  .. . |
-%  |
-% |
-%  |
-% | |
-%  0 \dots  am |
-%  | .
-% | 0 ...
-%  0 |
-% |
-%  |
-% | ( . ..
-%  .
-%  ..
-%  .. . |
-%  )
-%  ...
-% By Proposition 4.13, we may assume that a1 , . . . , am are not units: if any
-% one of
-% them is, the corresponding row and column may be omitted from the matrix (and
-% n corrected accordingly). It follows that
-% M \sim 
-%  =
-%  R
-%  \oplus  \cdot \cdot \cdot  \oplus 
-%  R
-%  \oplus  R (n-m)
-% (a 1 )
-%  (am )
-% with a1 | \dots  | am nonzero nonunits, as prescribed by Theorem 5.6, and the
-% existence
-% is proved.
-% As for the uniqueness of the representations, if
-% M \sim 
-%  = Rr \oplus  T,
-% with T a torsion module26 , then r = rk M and T \sim 
-%  = TorR (M ) (Exercise 5.10). Thus,
-% the `free part' and the `torsion part' in the decompositions given in Theorem
-% 5.6
-% are determined uniquely.
-% This reduces the uniqueness question to the structure of torsion modules: as-
-% suming that
-% ! R
-%  ! R
-% (*)
-%  rij \sim 
-%  =
-%  sk? ,
-% i,j
-%  (pi )
-%  k,?
-%  (qk )
-% with pi, qk irreducible elements of R, the task is to show that the range of the
-% indices is the same and, up to reordering, (pi) = (qi) and rij = sij for all i,
-% j.
-% Since a finitely generated module is torsion if and only if its annihilator is
-% nonzero (Exercise 4.4), it is reasonable that Ann(M ) will be of some use here.
-% 26 Recall that this means that every element of T is a torsion element; cf.
-% \S{}4.1.
-% Lemma 5.7. Let M be a torsion module, expressed as in Theorem 5.6 (with rk M =
-% 0). Then Ann(M ) = (am). Further, the prime ideals (qi ) are precisely the prime
-% ideals of R containing Ann(M ).
-% Proof. By hypothesis
-% M \sim 
-%  =
-%  R
-%  \oplus  \cdot \cdot \cdot  \oplus 
-%  R
-%  ,
-% (a1 )
-%  (am )
-% with a1 | \dots  | am . If r \in  Ann(M ), then
-% 0 = r(1, . . . , 1) = (r, . . . , r).
-% In particular r \equiv  0 modulo (am ); that is, r \in  (am ). Thus Ann(M )
-% \subseteq  (a m ).
-% For the reverse inclusion, assume r \in  (am ) and y \in  M . Identifying M with
-% its
-% decomposition, write y = (y1 , . . . , ym ), with yi \in  R/(ai ). Since r \in
-% (a m ) \subseteq  (ai ), we
-% have ryi = 0 for all i; therefore ry = 0, and r \in  Ann(M ) as needed.
-% For the second part of the statement, tracing the equivalence between the two
-% decompositions in Theorem 5.6 shows that the qi's are precisely the irreducible
-% factors of am , so the assertion follows from the first part.
-%  ?
-% By Lemma 5.7, the sets {pi }, {qk } of irreducibles appearing in (*) must co-
-% incide (up to inessential units): the ideals they generate are precisely the
-% prime
-% ideals containing Ann(M ). The fact that the sets coincide also follows from the
-% observation that the isomorphism in (*) must match like primes, in the sense
-% that
-% an element of a factor
-% R
-% r
-% ij(pi )
-% in the source must land in a combination of quotients in the target by powers of
-% the
-% same prime pi ; this follows by comparing annihilators (cf. Exercise 5.11).
-% Therefore,
-% uniqueness is reduced to the case of a single irreducible q \in  R: it suffices
-% to show
-% that if
-% R
-%  \oplus  \dots  \oplus  R
-%  = \sim 
-%  R
-%  \oplus  \dots  \oplus  R
-%  ,
-% (q r
-%  )
-%  (qrm )
-%  (q s1 )
-%  (qsn )
-% with r1 \geq  \dots  \geq  rm and s1 \geq  \dots  \geq  sn , then m = n and ri =
-% si for all i. This
-% situation reproduces precisely the key step the reader used in the proof of
-% uniqueness
-% for the particular case of abelian groups, in Exercise IV.6.1. Of course I will
-% not
-% spoil the reader's fun by giving any more details this time (Exercise 5.12).
-% Remark 5.8. To summarize, the information carried by a torsion module over a
-% PID is equivalent to the choice of a selection of nonzero, nonunit ideals (a1 ),
-% . . . , (am )
-% such that
-% (a1) \supseteq  (a2 ) \supseteq  \dots  \supseteq  (am ).
-% We have seen that (am) is in fact the annihilator ideal of the module; it would
-% be
-% nice if we had a similarly explicit description of all invariants (a1 ), . . . ,
-% (am ). As a
-% preview of coming attractions, we could call the ideal
-% (a1 \dots  am)
-% the characteristic ideal of the module27. In situations in which we can compute
-% both the annihilator and the characteristic ideal, comparing them may lead to
-% 27 Warning: This does not seem to be standard terminology.
+\begin{thm}{}{linalg:5.6}
+Let $R$ be a PID, and let $M$ be a finitely generated $R$-module. Then
+the following hold:
+\begin{itemize}
+\item There exist distinct prime ideals
+$(q_1), \dots, (q_n) \subseteq R$, positive integers $r_{ij}$, and an
+isomorphism
+\[
+M \cong R^{\operatorname{rk} M} \oplus \left( \bigoplus_{i,j}
+\frac{R}{(q_i^{r_{ij}})} \right).
+\]
+\item There exist nonzero, nonunit ideals $(a_1), \dots, (a_m)$ of $R$,
+such that $(a_1) \supseteq (a_2) \supseteq \dots \supseteq (a_m)$, and
+an isomorphism
+\[
+M \cong R^{\operatorname{rk} M} \oplus \frac{R}{(a_1)} \oplus \dots
+\oplus \frac{R}{(a_m)}.
+\]
+\end{itemize}
+These decompositions are unique (in the evident sense).
+\end{thm}
+After all our preparatory work, this statement practically proves
+itself. I will describe the arguments in general terms, leaving the
+details to the enterprising reader.
+
+The two forms taken by the theorem go under the name of
+\emph{invariant factors} and \emph{elementary divisors}, as in the case
+of abelian groups. As in the case of abelian groups, the equivalence
+between the two formulations amounts to careful bookkeeping, and we
+will not prove it formally; see \S{}IV.6.2 for a reminder of how to go
+from one to the other. The role played by Lemma~IV.6.1 in that
+discussion is taken over by the Chinese remainder theorem,
+Theorem~V.6.1, in this more general setting.
+
+As the two formulations are equivalent, it suffices to prove the
+existence and uniqueness of the decompositions given in Theorem~5.6 for
+any one of the two.
+
+The existence is a direct consequence of the results in \S{}5.1.
+Indeed, let $M$ be a finitely generated module; thus there is an
+epimorphism
+\[
+R^n \xrightarrow{\pi} M \to 0
+\]
+where $n$ is the number of generators of $M$. Apply Corollary~5.3 to
+the submodule $\ker\pi \subseteq R^n$: there exist a basis
+$(x_1, \dots, x_n)$ of $R^n$ and nonzero elements $a_1, \dots, a_m$ of
+$R$ such that $(a_1 x_1, \dots, a_m x_m)$ is a basis of $\ker\pi$ and
+further $a_1 \mid \dots \mid a_m$. That is, $M$ is presented by the
+$n \times m$ matrix
+\[
+\begin{pmatrix}
+a_1 & \cdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \cdots & a_m \\
+0 & \dots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \dots & 0
+\end{pmatrix}.
+\]
+By Proposition~4.13, we may assume that $a_1, \dots, a_m$ are not
+units: if any one of them is, the corresponding row and column may be
+omitted from the matrix (and $n$ corrected accordingly). It follows
+that
+\[
+M \cong \frac{R}{(a_1)} \oplus \dots \oplus \frac{R}{(a_m)} \oplus
+R^{(n-m)}
+\]
+with $a_1 \mid \dots \mid a_m$ nonzero nonunits, as prescribed by
+Theorem~5.6, and the existence is proved.
+
+As for the uniqueness of the representations, if
+\[
+M \cong R^r \oplus T,
+\]
+with $T$ a torsion module\footnote{Recall that this means that every
+element of $T$ is a torsion element; cf.\ \S{}4.1.}, then
+$r = \operatorname{rk} M$ and $T \cong \operatorname{Tor}_R(M)$
+$\cong \operatorname{Tor}_R(M)$ (Exercise~5.10). Thus, the `free part'
+and the `torsion part' in the decompositions given in Theorem~5.6 are
+determined uniquely.
+
+This reduces the uniqueness question to the structure of torsion
+modules: assuming that
+\[
+\tag{*}
+\bigoplus_{i,j} \frac{R}{(p_i^{r_{ij}})} \cong \bigoplus_{k,\ell}
+\frac{R}{(q_k^{s_{k\ell}})},
+\]
+with $p_i, q_k$ irreducible elements of $R$, the task is to show that
+the range of the indices is the same and, up to reordering,
+$(p_i) = (q_i)$ and $r_{ij} = s_{ij}$ for all $i, j$.
+
+Since a finitely generated module is torsion if and only if its
+annihilator is nonzero (Exercise~4.4), it is reasonable that
+$\operatorname{Ann}(M)$ will be of some use here.
+\begin{lem}{}{linalg:5.7}
+Let $M$ be a torsion module, expressed as in Theorem~5.6 (with
+$\operatorname{rk} M = 0$). Then $\operatorname{Ann}(M) = (a_m)$.
+Further, the prime ideals $(q_i)$ are precisely the prime ideals of $R$
+containing $\operatorname{Ann}(M)$.
+\end{lem}
+\begin{proof}
+By hypothesis
+\[
+M \cong \frac{R}{(a_1)} \oplus \dots \oplus \frac{R}{(a_m)},
+\]
+with $a_1 \mid \dots \mid a_m$. If $r \in \operatorname{Ann}(M)$, then
+\[
+0 = r(1, \dots, 1) = (r, \dots, r).
+\]
+In particular $r \equiv 0$ modulo $(a_m)$; that is, $r \in (a_m)$. Thus
+$\operatorname{Ann}(M) \subseteq (a_m)$.
+
+For the reverse inclusion, assume $r \in (a_m)$ and $y \in M$.
+Identifying $M$ with its decomposition, write $y = (y_1, \dots, y_m)$,
+with $y_i \in R/(a_i)$. Since $r \in (a_m) \subseteq (a_i)$, we have
+$ry_i = 0$ for all $i$; therefore $ry = 0$, and
+$r \in \operatorname{Ann}(M)$ as needed.
+
+For the second part of the statement, tracing the equivalence between
+the two decompositions in Theorem~5.6 shows that the $q_i$'s are
+precisely the irreducible factors of $a_m$, so the assertion follows
+from the first part.
+\end{proof}
+
+By Lemma~5.7, the sets $\{p_i\}$, $\{q_k\}$ of irreducibles appearing
+in $(*)$ must coincide (up to inessential units): the ideals they
+generate are precisely the prime ideals containing
+$\operatorname{Ann}(M)$. The fact that the sets coincide also follows
+from the observation that the isomorphism in $(*)$ must match like
+primes, in the sense that an element of a factor
+$R/(p_i^{r_{ij}})$ in the source must land in a combination of
+quotients in the target by powers of the same prime $p_i$; this follows
+by comparing annihilators (cf.\ Exercise~5.11). Therefore, uniqueness
+is reduced to the case of a single irreducible $q \in R$: it suffices
+to show that if
+\[
+\frac{R}{(q^{r_1})} \oplus \dots \oplus \frac{R}{(q^{r_m})} \cong
+\frac{R}{(q^{s_1})} \oplus \dots \oplus \frac{R}{(q^{s_n})},
+\]
+with $r_1 \geq \dots \geq r_m$ and $s_1 \geq \dots \geq s_n$, then
+$m = n$ and $r_i = s_i$ for all $i$. This situation reproduces
+precisely the key step the reader used in the proof of uniqueness for
+the particular case of abelian groups, in Exercise~IV.6.1. Of course I
+will not spoil the reader's fun by giving any more details this time
+(Exercise~5.12).
+
+\begin{rem}{}{linalg:5.8}
+To summarize, the information carried by a torsion module over a PID
+is equivalent to the choice of a selection of nonzero, nonunit ideals
+$(a_1), \dots, (a_m)$ such that
+\[
+(a_1) \supseteq (a_2) \supseteq \dots \supseteq (a_m).
+\]
+We have seen that $(a_m)$ is in fact the annihilator ideal of the
+module; it would be nice if we had a similarly explicit description of
+all invariants $(a_1), \dots, (a_m)$. As a preview of coming
+attractions, we could call the ideal
+\[
+(a_1 \dots a_m)
+\]
+the \emph{characteristic ideal} of the module\footnote{Warning: This
+does not seem to be standard terminology.}. In situations in which we
+can compute both the annihilator and the characteristic ideal,
+comparing them may lead to strong conclusions about the module. For
+example, a torsion module is cyclic if and only if its annihilator and
+characteristic ideals coincide.
+
+Further, the prime ideals appearing in Theorem~5.6 have been
+characterized as the prime ideals containing the annihilator ideal.
+They may just as well be characterized as those prime ideals containing
+the characteristic ideal, as the reader will check (Exercise~5.15).
+
+Finally, note that from this point of view it is immediate that the
+characteristic ideal is contained in the annihilator ideal. We will run
+into this fact again, in an important application (Theorem~6.11).
+\end{rem}
 
 \subsection*{Exercises}
 
-% strong conclusions about the module. For example, a torsion module is cyclic if
-% and only if its annihilator and characteristic ideals coincide.
-% Further, the prime ideals appearing in Theorem 5.6 have been characterized
-% as the prime ideals containing the annihilator ideal. They may just as well be
-% characterized as those prime ideals containing the characteristic ideal, as the
-% reader
-% will check (Exercise 5.15).
-% Finally, note that from this point of view it is immediate that the
-% characteristic
-% ideal is contained in the annihilator ideal. We will run into this fact again,
-% in an
-% important application (Theorem 6.11).
-%  ?
-% 5.1. ? Let N , P be submodules of a module M , such that N \cap  P = {0} and
-% M = N + P . Prove that M \sim 
-%  = N \oplus  P . (This is a word-for-word repetition of
-% Proposition IV.5.3 for modules.) [\S{}5.1]
-% 5.2. Let R be an integral domain, and let M be a finitely generated R-module.
-% Prove that M is torsion if and only if rk M = 0.
-% 5.3. Complete the proof of Corollary 5.3.
-% 5.4. Let R be an integral domain, and assume that a, b \in  R are such that a =
-% 0,
-% b \in 
-%  / (a), and R/(a), R/(a, b) are both integral domains.
-% \bullet  Prove that the Krull dimension of R is at least 2.
-% \bullet  Prove that if R satisfies the finiteness condition discussed in \S{}5.2 for some n,
-% then n \geq  2.
-% You can prove this second point by appealing to Proposition 5.4. For a more
-% concrete argument, you should look for an R-module admitting a free resolution
-% of
-% length 2 which cannot be shortened.
-% \bullet  Prove that (a, b) is a regular sequence in R (Exercise 4.13).
-% \bullet  Prove that the R-module R/(a, b) has a free resolution of length exactly 2.
-% Can you see how to construct analogous situations with n \geq  3 elements a1, .
-% . . , an ?
-% 5.5. \lnot  Recall (Exercise V.4.11) that a commutative ring is local if it has
-% a single
-% maximal ideal m. Let R be a local ring, and let M be a direct summand of a
-% finitely
-% generated free R-module: that is, there exists an R-module N such that M \oplus
-% N is
-% a free R-module.
-% \bullet  Choose elements m1 , . . . , mr \in  M whose cosets mod mM are a basis of M/mM
-% as a vector space over the field R/m. By Nakayama's lemma, M = ?m1 , . . . , mr
-% ?
-% (Exercise 3.10).
-% \bullet  Obtain a surjective homomorphism \pi  : F = R\oplus r \to  M .
-% \bullet  Show that \pi  splits, giving an isomorphism F = \sim 
-%  M \oplus  ker \pi . (Apply Exer-
-% cise III.6.9 to the surjective homomorphism \pi  and the free module M \oplus  N
-% to
-% obtain a splitting M \to  F ; then use Proposition III.7.5.)
-% \bullet  Show ker \pi /m ker \pi  = 0. Use Nakayama's lemma (Exercise 3.8) to deduce that
-% ker \pi  = 0.
-% \bullet  Conclude that M \sim 
-%  = F is in fact free. [VIII.2.24, VIII.6.8, VIII.6.11]
-% Summarizing, over a local ring, every direct summand of a finitely generated28
-% free R-module is free. Using the terminology we will introduce in Chapter VIII,
-% we
-% would say that `projective modules over local rings are free'. This result has
-% strong
-% implications in algebraic geometry, since it underlies the notion of vector
-% bundle.
-% Contrast this fact with Proposition 5.1, which shows that, over a PID, every
-% submodule of a finitely generated free module is free.
-% 5.6. ? Let R be an integral domain, and let M = ?m1 , . . . , mr ? be a finitely
-% gener-
-% ated module. Prove that rk M \leq  r. (Use Exercise 3.12.) [\S{}5.3]
-% 5.7. Let R be an integral domain, and let M be a finitely generated module over
-% R.
-% Prove that rk M = rk(M/ Tor(M )).
-% 5.8. Let R be an integral domain, and let M be a finitely generated module over
-% R.
-% Prove that rk M = r if and only if M has a free submodule N \sim 
-%  = Rr , such that
-% M/N is torsion.
-% If R is a PID, then N may be chosen so that 0 \to  N \to  M \to  M/N \to  0
-% splits.
-% 5.9. Let R be an integral domain, and let
-%  / M1
-%  / M2
-%  / M3
-%  / 0
-% be an exact sequence of finitely generated R-modules. Prove that rk M2 = rk M1 +
-% rk M3 .
-% Deduce that `rank' defines a homomorphism from the Grothendieck group of
-% the category of finitely generated R-modules to Z (cf. \S{}3.4).
-% 5.10. ? Let R be an integral domain, M an R-module, and assume M = \sim 
-%  Rr \oplus  T ,
-% with T a torsion module. Prove directly (that is, without using Theorem 5.6)
-% that
-% r = rk M and T \sim 
-%  = TorR (M ). [\S{}5.3]
-% 5.11. ? Let R be an integral domain, let M , N be R-modules, and let \phi  : M
-% \to  N
-% be a homomorphism. For m \in  M , show that Ann(?m?) \subseteq  Ann(?\phi (m)?).
-% [\S{}5.3]
-% 5.12. ? Complete the proof of uniqueness in Theorem 5.6. (The hint in Exer-
-% cise IV.6.1 may be helpful.) [\S{}5.3]
-% 5.13. Let M be a finitely generated module over an integral domain R.
-% Prove that if R is a PID, then M is torsion-free if and only if it is free.
-% Prove
-% that this property characterizes PIDs. (Cf. Exercise 4.3.)
-% 5.14. Give an example of a finitely generated module over an integral domain
-% which
-% is not isomorphic to a direct sum of cyclic modules.
-% 28 The finite rank hypothesis is actually unnecessary, but the proof is harder
-% without this
-% condition.
+\begin{exer}{\exerused}{exer:linalg:5.1}
+Let $N$, $P$ be submodules of a module $M$, such that $N \cap P =
+\{0\}$ and $M = N + P$. Prove that $M \cong N \oplus P$. (This is a
+word-for-word repetition of Proposition~IV.5.3 for modules.) [$\S$5.1]
+\end{exer}
+\begin{exer}{}{exer:linalg:5.2}
+Let $R$ be an integral domain, and let $M$ be a finitely generated
+$R$-module. Prove that $M$ is torsion if and only if
+$\operatorname{rk} M = 0$.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.3}
+Complete the proof of Corollary~5.3.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.4}
+Let $R$ be an integral domain, and assume that $a, b \in R$ are such
+that $a \neq 0$, $b \notin (a)$, and $R/(a)$, $R/(a,b)$ are both
+integral domains.
+\begin{itemize}
+\item Prove that the Krull dimension of $R$ is at least $2$.
+\item Prove that if $R$ satisfies the finiteness condition discussed
+in \S{}5.2 for some $n$, then $n \geq 2$.
+\end{itemize}
+You can prove this second point by appealing to Proposition~5.4. For a
+more concrete argument, you should look for an $R$-module admitting a
+free resolution of length $2$ which cannot be shortened.
+\begin{itemize}
+\item Prove that $(a,b)$ is a regular sequence in $R$ (Exercise~4.13).
+\item Prove that the $R$-module $R/(a,b)$ has a free resolution of
+length exactly $2$.
+\end{itemize}
+Can you see how to construct analogous situations with $n \geq 3$
+elements $a_1, \dots, a_n$?
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:5.5}
+Recall (Exercise~V.4.11) that a commutative ring is \emph{local} if it
+has a single maximal ideal $\mathfrak{m}$. Let $R$ be a local ring, and
+let $M$ be a direct summand of a finitely generated free $R$-module:
+that is, there exists an $R$-module $N$ such that $M \oplus N$ is a
+free $R$-module.
+\begin{itemize}
+\item Choose elements $m_1, \dots, m_r \in M$ whose cosets mod
+$\mathfrak{m}M$ are a basis of $M/\mathfrak{m}M$ as a vector space over
+the field $R/\mathfrak{m}$. By Nakayama's lemma,
+$M = \langle m_1, \dots, m_r \rangle$ (Exercise~3.10).
+\item Obtain a surjective homomorphism $\pi : F = R^{\oplus r} \to M$.
+\item Show that $\pi$ splits, giving an isomorphism
+$F \cong M \oplus \ker\pi$. (Apply Exercise~III.6.9 to the surjective
+homomorphism $\pi$ and the free module $M \oplus N$ to obtain a
+splitting $M \to F$; then use Proposition~III.7.5.)
+\item Show $\ker\pi/\mathfrak{m}\ker\pi = 0$. Use Nakayama's lemma
+(Exercise~3.8) to deduce that $\ker\pi = 0$.
+\item Conclude that $M \cong F$ is in fact free. [VIII.2.24, VIII.6.8,
+VIII.6.11]
+\end{itemize}
+Summarizing, over a local ring, every direct summand of a finitely
+generated\footnote{The finite rank hypothesis is actually unnecessary,
+but the proof is harder without this condition.} free $R$-module is
+free. Using the terminology we will introduce in Chapter~VIII, we would
+say that `projective modules over local rings are free'. This result
+has strong implications in algebraic geometry, since it underlies the
+notion of vector bundle.
+
+Contrast this fact with Proposition~5.1, which shows that, over a PID,
+every submodule of a finitely generated free module is free.
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.6}
+Let $R$ be an integral domain, and let $M = \langle m_1, \dots, m_r
+\rangle$ be a finitely generated module. Prove that
+$\operatorname{rk} M \leq r$. (Use Exercise~3.12.) [$\S$5.3]
+\end{exer}
+\begin{exer}{}{exer:linalg:5.7}
+Let $R$ be an integral domain, and let $M$ be a finitely generated
+module over $R$. Prove that
+$\operatorname{rk} M = \operatorname{rk}(M/\operatorname{Tor}(M))$.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.8}
+Let $R$ be an integral domain, and let $M$ be a finitely generated
+module over $R$. Prove that $\operatorname{rk} M = r$ if and only if
+$M$ has a free submodule $N \cong R^r$, such that $M/N$ is torsion.
+
+If $R$ is a PID, then $N$ may be chosen so that
+$0 \to N \to M \to M/N \to 0$ splits.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.9}
+Let $R$ be an integral domain, and let
+\[
+0 \to M_1 \to M_2 \to M_3 \to 0
+\]
+be an exact sequence of finitely generated $R$-modules. Prove that
+$\operatorname{rk} M_2 = \operatorname{rk} M_1 + \operatorname{rk} M_3$.
+
+Deduce that `rank' defines a homomorphism from the Grothendieck group
+of the category of finitely generated $R$-modules to $\mathbb{Z}$
+(cf.\ \S{}3.4).
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.10}
+Let $R$ be an integral domain, $M$ an $R$-module, and assume
+$M \cong R^r \oplus T$, with $T$ a torsion module. Prove directly (that
+is, without using Theorem~5.6) that $r = \operatorname{rk} M$ and
+$T \cong \operatorname{Tor}_R(M)$. [$\S$5.3]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.11}
+Let $R$ be an integral domain, let $M$, $N$ be $R$-modules, and let
+$\varphi : M \to N$ be a homomorphism. For $m \in M$, show that
+$\operatorname{Ann}(\langle m \rangle) \subseteq
+\operatorname{Ann}(\langle \varphi(m) \rangle)$. [$\S$5.3]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.12}
+Complete the proof of uniqueness in Theorem~5.6. (The hint in
+Exercise~IV.6.1 may be helpful.) [$\S$5.3]
+\end{exer}
+\begin{exer}{}{exer:linalg:5.13}
+Let $M$ be a finitely generated module over an integral domain $R$.
+Prove that if $R$ is a PID, then $M$ is torsion-free if and only if it
+is free. Prove that this property characterizes PIDs. (Cf.\
+Exercise~4.3.)
+\end{exer}
+\begin{exer}{}{exer:linalg:5.14}
+Give an example of a finitely generated module over an integral domain
+which is not isomorphic to a direct sum of cyclic modules.
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:5.15}
+Prove that the prime ideals appearing in the elementary divisor
+version of the classification theorem for a torsion module $M$ over a
+PID are the prime ideals containing the characteristic ideal of $M$,
+as defined in Remark~5.8. [$\S$5.3]
+\end{exer}
+\begin{exer}{}{exer:linalg:5.16}
+Prove that the prime ideals appearing in the elementary divisor
+version of the classification theorem for a module $M$ over a PID are
+the associated primes of $M$, as defined in Exercise~4.5.
+\end{exer}
+\begin{exer}{}{exer:linalg:5.17}
+Let $R$ be a PID. Prove that the Grothendieck group (cf.\ \S{}3.4) of
+the category of finitely generated $R$-modules is isomorphic to
+$\mathbb{Z}$.
+\end{exer}
 
 \section{Linear transformations of a free module}
 \label{sec:linalg:linear-transformations-of-a-free-module}
 
 
-%Prove that the prime ideals appearing in the elementary divisor version of}
+One beautiful application of the classification theorem for finitely
+generated modules over PIDs is the determination of `special' forms
+for matrices of linear maps of a vector space to itself.
 
-% the classification theorem for a torsion module M over a PID are the prime
-% ideals
-% containing the characteristic ideal of M , as defined in Remark 5.8. [\S{}5.3]
+Several fundamental concepts are associated with the general notion of
+a linear map from a vector space to itself, and we will review these
+concepts in this section. Not surprisingly, much of the discussion may
+be carried out for free modules over any integral domain $R$, and we
+will stay at this level of generality in (most of) the section.
+Theorem~5.6 will be used with great profit when $R$ is a field, in the
+next section.
 
-%Prove that the prime ideals appearing in the elementary divisor version of}
+\subsection{Endomorphisms and similarity}
+\label{subsec:linalg:endomorphisms-and-similarity}
+Let $R$ be an integral domain. We have considered in some detail the
+module $\Hom_R(F,G)$ of $R$-module homomorphisms $F \to G$ between two
+free modules. For example, I have argued that describing such
+homomorphisms for finitely generated free modules $F$, $G$ amounts to
+describing matrices with entries in $R$, up to `equivalence': the
+equivalence relation introduced in \S{}2.2 accounts for the (arbitrary)
+choice of bases for $F$ and $G$.
 
-% the classification theorem for a module M over a PID are the associated primes
-% of M , as defined in Exercise 4.5.
+We now shift the focus a little and consider the special case in which
+$F = G$, that is, the $R$-module $\operatorname{End}_R(F)$ of
+endomorphisms $\alpha$ of a fixed free $R$-module $F$:
+\[
+F \xrightarrow{\alpha} F.
+\]
+Note that $\operatorname{End}_R(F)$ is in fact an $R$-algebra: the
+operation of composition makes it a ring, compatibly with the
+$R$-module structure (cf.\ Exercise~2.3).
 
-\subsection{Let R be a PID}
-\label{subsec:linalg:let-r-be-a-pid}
-% Prove that the Grothendieck group (cf. \S{}3.4) of the category
+From the point of view championed in \S{}2, the two copies of $F$
+appearing in $\operatorname{End}_R(F) = \Hom_R(F,F)$ are unrelated;
+they are just (any) isomorphic representatives of a free module of a
+given rank. There are circumstances, however, in which we need to
+really choose one representative $F$ and stick with it: that is, view
+$\alpha$ as acting from a selected free module $F$ to \emph{itself},
+not just to an isomorphic copy of itself. In this situation we also say
+that $\alpha$ is a \emph{linear transformation} of $F$, or an
+\emph{operator} on $F$.
 
-% of finitely generated R-modules is isomorphic to Z.
-% One beautiful application of the classification theorem for finitely generated
-% mod-
-% ules over PIDs is the determination of `special' forms for matrices of linear
-% maps of
-% a vector space to itself.
-% Several fundamental concepts are associated with the general notion of a linear
-% map from a vector space to itself, and we will review these concepts in this
-% section.
-% Not surprisingly, much of the discussion may be carried out for free modules
-% over
-% any integral domain R, and we will stay at this level of generality in (most of)
-% the
-% section. Theorem 5.6 will be used with great profit when R is a field, in the
-% next
-% section.
+From this different point of view it makes sense to compare elements
+of $F$ `before and after' we apply $\alpha$; for example, we could ask
+whether for some $\mathbf{v} \in F$ we may have
+$\alpha(\mathbf{v}) = \lambda\mathbf{v}$ for some $\lambda \in R$, or
+more generally whether a submodule $M$ of $F$ may be sent to itself by
+$\alpha$. In other words, we can compare the action of $\alpha$ with
+the identity\footnote{The existence of the identity is one of the
+axioms of a category; every now and then, it is handy to be able to
+invoke it.} $I : F \to F$.
 
-\subsection{Endomorphisms and similarity. Let R be an integral domain}
-\label{subsec:linalg:endomorphisms-and-similarity-let-r-be-an-integral-domain}
-% We have
+In terms of matrix representations (in the finite rank case) the
+description of $\alpha$ can be carried out as we did in \S{}2, but with
+one interesting twist. In \S{}2.2 we dealt with how the matrix
+representation of a homomorphism changes when we change bases in the
+source \emph{and} in the target. As we are now \emph{identifying}
+source and target, we must choose \emph{the same} basis for both
+source and target. This leads to a different notion of equivalence of
+matrices:
+\begin{defn}{}{linalg:6.1}
+Two square matrices $A, B \in \mathcal{M}_n(R)$ are \emph{similar} if
+they represent the same homomorphism $F \to F$ of a free rank-$n$
+module $F$ to itself, up to the choice of a basis for $F$.
+\end{defn}
+This is clearly an equivalence relation. The analog of Proposition~2.5
+for this new notion is readily obtained:
+\begin{prop}{}{linalg:6.2}
+Two matrices $A, B \in \mathcal{M}_n(R)$ are similar if and only if
+there exists an invertible matrix $P$ such that
+\[
+B = PAP^{-1}.
+\]
+\end{prop}
+The reader who has really understood Proposition~2.5 will not need any
+detailed proof of this statement: it should be apparent from staring at
+the butterfly diagram
+\[
+\begin{tikzcd}
+R^n \arrow[dr, "\varphi"] \arrow[dd, bend right=60, "\pi"'] & &
+R^n \arrow[dl, "\varphi"'] \arrow[dd, bend left=60, "\pi"] \\
+& F \arrow[r, "\alpha"] & F & \\
+R^n \arrow[ur, "\psi"'] & & R^n \arrow[ul, "\psi"]
+\end{tikzcd}
+\]
+which I am essentially copying from \S{}2.2. The difference here is
+that we are choosing the same basis for source and target; hence the
+two triangles keeping track of the change of basis are the same.
+Suppose $A$ (resp., $B$) represents $\alpha$ with respect to the choice
+of basis dictated by $\varphi$ (resp., $\psi$); that is, $A$ (resp.,
+$B$) is the matrix of the `top' (resp., bottom) composition
+\[
+\varphi^{-1} \circ \alpha \circ \varphi : R^n \to R^n
+\]
+(resp., $\psi^{-1} \circ \alpha \circ \psi$). If $P$ is the matrix
+representing the change of basis $\pi$, then $B = PAP^{-1}$ simply
+because the diagram commutes:
+\[
+\psi^{-1} \circ \alpha \circ \psi = (\pi \circ \varphi^{-1}) \circ
+\alpha \circ (\varphi \circ \pi^{-1}) = \pi \circ (\varphi^{-1} \circ
+\alpha \circ \varphi) \circ \pi^{-1}.
+\]
 
-% considered in some detail the module HomR (F, G) of R-module homomorphisms
-% F \to  G
-% between two free modules. For example, I have argued that describing such homo-
-% morphisms for finitely generated free modules F , G amounts to describing
-% matrices
-% with entries in R, up to `equivalence': the equivalence relation introduced in
-% \S{}2.2
-% accounts for the (arbitrary) choice of bases for F and G.
-% We now shift the focus a little and consider the special case in which F = G,
-% that is, the R-module EndR (F ) of endomorphisms \alpha  of a fixed free
-% R-module F :
-% F
-%  \alpha 
-%  / F .
-% Note that EndR (F ) is in fact an R-algebra: the operation of composition makes
-% it
-% a ring, compatibly with the R-module structure (cf. Exercise 2.3).
-% From the point of view championed in \S{}2, the two copies of F appearing
-% in EndR (F ) = HomR (F, F ) are unrelated; they are just (any) isomorphic repre-
-% sentatives of a free module of a given rank. There are circumstances, however,
-% in
-% which we need to really choose one representative F and stick with it: that is,
-% view
-% \alpha  as acting from a selected free module F to itself, not just to an isomorphic copy
-% of itself. In this situation we also say that \alpha  is a linear transformation
-% of F , or an
-% operator on F .
-% From this different point of view it makes sense to compare elements of F
-% `before and after' we apply \alpha ; for example, we could ask whether for some
-% v \in  F
-% we may have \alpha (v) = \lambda v for some \lambda  \in  R, or more generally
-% whether a submodule
-% M of F may be sent to itself by \alpha . In other words, we can compare the
-% action of \alpha
-% with the identity29 I : F \to  F .
-% In terms of matrix representations (in the finite rank case) the description of
-% \alpha
-% can be carried out as we did in \S{}2, but with one interesting twist. In
-% \S{}2.2 we dealt
-% with how the matrix representation of a homomorphism changes when we change
-% bases in the source and in the target. As we are now identifying source and
-% target,
-% we must choose the same basis for both source and target. This leads to a
-% different
-% notion of equivalence of matrices:
-% Definition 6.1. Two square matrices A, B \in  Mn (R) are similar if they
-% represent
-% the same homomorphism F \to  F of a free rank-n module F to itself, up to the
-% choice of a basis for F .
-%  ?
-% This is clearly an equivalence relation. The analog of Proposition 2.5 for this
-% new notion is readily obtained:
-% Proposition 6.2. Two matrices A, B \in  Mn (R) are similar if and only if there
-% exists an invertible matrix P such that
-% -1B = P AP .
-% The reader who has really understood Proposition 2.5 will not need any detailed
-% proof of this statement: it should be apparent from staring at the butterfly
-% diagram
-% Rn I
-%  I I I \phi 
-%  I I I
-%  $
-%  \alpha 
-%  z
-% u
-%  uuu
-%  \phi 
-%  u
-%  u
-%  u
-%  R n
-% \pi 
-%  \sqcup  u u u \psi 
-%  u
-%  u u
-%  : F
-%  / F \psi  I \sqcup 
-%  \pi 
-% dI
-%  II
-% II
-% Rn
-%  R n
-% which I am essentially copying from \S{}2.2. The difference here is that we are
-% choosing
-% the same basis for source and target; hence the two triangles keeping track of
-% the
-% change of basis are the same. Suppose A (resp., B) represents \alpha  with
-% respect to
-% the choice of basis dictated by \phi  (resp., \psi ); that is, A (resp., B) is
-% the matrix of
-% the `top' (resp., bottom) composition
-% \phi -1 \circ  \alpha  \circ  \phi  : Rn \to  Rn
-% (resp., \psi -1 \circ  \alpha  \circ  \psi ). If P is the matrix representing
-% the change of basis \pi , then
-% -1B = P AP simply because the diagram commutes:
-% \psi  -1 \circ  \alpha  \circ  \psi  = (\pi  \circ  \phi -1 ) \circ  \alpha  \circ  (\phi  \circ  \pi  -1 ) = \pi  \circ  (\phi -1 \circ  \alpha  \circ  \phi ) \circ  \pi -1 .
-% Proposition 6.2 suggests a useful equivalence relation among endomorphisms:
-% Definition 6.3. Two R-module homomorphisms of a free module F to itself,
-% \alpha , \beta  : F \to  F,
-% 29 The existence of the identity is one of the axioms of a category; every now
-% and then, it is
-% handy to be able to invoke it.
-% are similar if there exists an automorphism \pi  : F \to  F such that
-% \beta  = \pi  \circ  \alpha  \circ  \pi -1 .
-% ?
-% In the finite rank case, similar endomorphisms are represented by similar matri-
-% ces, and two endomorphisms \alpha , \beta  are similar if and only if they may
-% be represented
-% by the same matrix by choosing appropriate (possibly different) bases on F . The
-% interesting invariants determined by similar endomorphisms will turn out (not
-% sur-
-% prisingly) to be the same.
-% From a group-theoretic viewpoint, similarity is an eminently natural notion
-% to study: the group GL(F ) = AutR (F ) of automorphisms of a free module acts
-% on EndR (F ) by conjugation, and two endomorphisms \alpha , \beta  are similar
-% if and only
-% if they are in the same orbit under this action. If the reader prefers matrices,
-% the
-% group GLn (R) of invertible n \times  n matrices with entries in R acts by
-% conjugation on
-% the module Mn (R) of square n \times  n matrices, and two matrices are similar
-% if and
-% only if they are in the same orbit.
-% Natural questions arise in this context. For example, we should look for ways
-% to distinguish different orbits: given two endomorphisms \alpha , \beta , can we
-% effectively
-% decide whether \alpha  and \beta  are similar? One way to approach this question
-% is to
-% determine invariants which can distinguish different orbits. Better still, we
-% can
-% look for `special' representatives within each orbit, that is, of a given
-% similarity
-% class. In other words, given an endomorphism \alpha  : F \to  F , find a basis
-% of F with
-% respect to which the matrix description of \alpha  has a particular, predictable
-% shape.
-% Then \alpha , \beta  are similar if these distinguished representatives
-% coincide.
-% This is what we are eventually going to squeeze out of Theorem 5.6, in the
-% friendly case of vector spaces over a fixed field.
+Proposition~6.2 suggests a useful equivalence relation among
+endomorphisms:
+\begin{defn}{}{linalg:6.3}
+Two $R$-module homomorphisms of a free module $F$ to itself,
+\[
+\alpha, \beta : F \to F,
+\]
+are similar if there exists an automorphism $\pi : F \to F$ such that
+\[
+\beta = \pi \circ \alpha \circ \pi^{-1}.
+\]
+\end{defn}
+In the finite rank case, similar endomorphisms are represented by
+similar matrices, and two endomorphisms $\alpha, \beta$ are similar if
+and only if they may be represented by the same matrix by choosing
+appropriate (possibly different) bases on $F$. The interesting
+invariants determined by similar endomorphisms will turn out (not
+surprisingly) to be the same.
+
+From a group-theoretic viewpoint, similarity is an eminently natural
+notion to study: the group $\mathrm{GL}(F) = \operatorname{Aut}_R(F)$
+of automorphisms of a free module acts on $\operatorname{End}_R(F)$ by
+conjugation, and two endomorphisms $\alpha, \beta$ are similar if and
+only if they are in the same orbit under this action. If the reader
+prefers matrices, the group $\mathrm{GL}_n(R)$ of invertible
+$n \times n$ matrices with entries in $R$ acts by
+conjugation on the module $\mathcal{M}_n(R)$ of square $n \times n$
+matrices, and two matrices are similar if and only if they are in the
+same orbit.
+
+Natural questions arise in this context. For example, we should look
+for ways to distinguish different orbits: given two endomorphisms
+$\alpha, \beta$, can we effectively decide whether $\alpha$ and $\beta$
+are similar? One way to approach this question is to determine
+invariants which can distinguish different orbits. Better still, we can
+look for `special' representatives within each orbit, that is, of a
+given similarity class. In other words, given an endomorphism
+$\alpha : F \to F$, find a basis of $F$ with respect to which the
+matrix description of $\alpha$ has a particular, predictable shape.
+Then $\alpha, \beta$ are similar if these distinguished representatives
+coincide.
+
+This is what we are eventually going to squeeze out of Theorem~5.6, in
+the friendly case of vector spaces over a fixed field.
 
 \subsection{The characteristic and minimal polynomials of an endomorphism}
 \label{subsec:linalg:the-characteristic-and-minimal-polynomials-of-an-endomorphism}
+Let $\alpha \in \operatorname{End}_R(F)$ be an endomorphism of a free
+$R$-module; henceforth I am often tacitly going to assume that $F$ is
+finitely generated (this is necessary anyway
+as we are aiming to translate what we do into the language of
+matrices). We want to identify \emph{invariants} of the similarity
+class of $\alpha$, that is, quantities that will not change if we
+replace $\alpha$ with a similar linear map $\beta \in
+\operatorname{End}_R(F)$.
 
-% Let \alpha  \in  EndR(F ) be an endomorphism of a free R-module; henceforth I am
-% often
-% tacitly going to assume that F is finitely generated (this is necessary anyway
-% as
-% we are aiming to translate what we do into the language of matrices). We want
-% to identify invariants of the similarity class of \alpha , that is, quantities
-% that will not
-% change if we replace \alpha  with a similar linear map \beta  \in  EndR (F ).
-% For example, the determinant is such a quantity:
-% Definition 6.4. Let \alpha  \in  End R (F ). The determinant of \alpha  is
-% det(\alpha ) := det(A),
-% where A is the matrix representing \alpha  with respect to any choice of basis
-% of F . ?
-% Of course there is something to check here, that is, that det(A) does not depend
-% on the choice of basis. But we know (Proposition 6.2) that A, B represent the
-% same endomorphism \alpha  if and only if there exists an invertible matrix P
-% such that
-% -1B = P AP ; then
-% -1 -1det(B) = det(P AP ) = det(P ) det(A) det(P ) = det(A)
-% by Proposition 3.3. Thus the determinant is indeed independent of the choice of
-% basis. Essentially the same argument shows that if \alpha  and \beta  are
-% similar linear
-% transformations, then det(\alpha ) = det(\beta ) (Exercise 6.3).
-% By Proposition 3.3, a linear transformation \alpha  is invertible if and only if
-% det(\alpha )
-% is a unit in R. If R is a field, this of course means simply det(\alpha ) = 0.
-% Even if R is
-% not a field, det(\alpha ) = 0 says something interesting:
-% Proposition 6.5. Let \alpha  be a linear transformation of a free R-module F =
-% \sim
-%  Rn .
-% Then det(\alpha ) = 0 if and only if \alpha  is injective.
-% Proof. Embed R in its field of fractions K, and view \alpha  as a linear
-% transformation
-% of K n ; note that the determinant of \alpha  is the same whether it is computed
-% over R
-% or over K. Then \alpha  is injective as a linear transformation Rn \to  Rn if
-% and only if it
-% is injective as a linear transformation K n \to  K n , if and only if it is
-% invertible as a
-% linear transformation K n \to  K n , if and only if det(\alpha ) = 0.
-%  ?
-% Of course over integral domains other than fields \alpha  may fail to be
-% surjective even
-% if det(\alpha ) = 0; and care is required even over fields, if we abandon the
-% hypothesis
-% that the free modules are finitely generated (cf. Exercises 6.4 and 6.5).
-% Another quantity that is invariant under similarity is the trace. The trace of a
-% square matrix A = (aij ) \in  Mn (R) is
-% ?
-%  n
-% tr(A) :=
-%  aii ,
-% i=1
-% that is, the sum of its diagonal entries.
-% Definition 6.6. Let \alpha  \in  EndR (F ). The trace of \alpha  is defined to
-% be tr(\alpha ) := tr(A),
-% where A is the matrix representing \alpha  with respect to any choice of basis
-% of F . ?
-% Again, we have to check that this is independent of the choice of basis; the key
-% is the following computation.
-% Lemma 6.7. Let A, B \in  Mn (R). Then tr(AB) = tr(BA).
-% ?n
-% Proof. Let A = (aij ), B = (bij ). Then AB = (
-%  k=1 aik bkj ); hence
-% ?
-%  n ?
-%  n
-% tr(AB) =
-%  aik bki.
-% i=1 k=1
-% This expression is symmetric in A, B, so it must equal tr(BA).
-%  ?
-% With this understood, if B = P AP -1, then
-% tr(B) = tr((P A)P -1) = tr(P -1 (P A)) = tr((P -1 P )A) = tr(A),
-% showing (by Proposition 6.2) that similar matrices have the same trace, as
-% needed.
-% Again, the reader will check that the same token shows that similar linear
-% transformations have the same trace.
-% The trace and determinant of an endomorphism \alpha  of a rank-n free module are
-% in fact just two of a sequence of n invariants, which can be nicely collected
-% together
-% into the characteristic polynomial of \alpha .
-% Definition 6.8. Let F be a free R-module, and let \alpha  \in  EndR (F ). Denote
-% by I
-% the identity map F \to  F . The characteristic polynomial of \alpha  is the
-% polynomial
-% P\alpha  (t) := det(tI - \alpha ) \in  R[t].
-%  ?
-% Proposition 6.9. Let F be a free R-module of rank n, and let \alpha  \in  EndR
-% (F ).
-% \bullet  The characteristic polynomial P\alpha  (t) is a monic polynomial of degree n.
-% \bullet  The coefficient of tn-1 in P\alpha  (t) equals - tr(\alpha ).
-% \bullet  The constant term of P\alpha  (t) equals (-1)n det(\alpha ).
-% \bullet  If \alpha  and \beta  are similar, then P\alpha  (t) = P\beta  (t).
-% Proof. The first point is immediate, and the third is checked by setting t = 0.
-% To
-% verify the second assertion, let A = (aij ) be a matrix representing \alpha
-% with respect
-% to any basis for F , so that
-% (
-%  )
-% t - a11 -a12 . . .
-%  -a1n
-% | |
-%  -a21 t - a22 . . .
-%  -a2n |
-%  |
-% P\alpha  (t) = det | ( ..
-%  .
-%  .
-%  ..
-%  .
-%  ..
-%  . .. )
-%  | .
-% -an1
-%  -an2 . . . t - ann
-% Expanding the determinant according to Definition 3.1 (or in any other way), we
-% see that the only contributions to the coefficient of tn-1 come from the
-% diagonal
-% entries, in the form
-% ?
-%  n
-% t \dots  t \cdot  (-aii) \cdot  t \dots  t,
-% i=1
-% and the statement follows.
-% Finally, assume that \alpha  and \beta  are similar. Then there exists an
-% invertible \pi
-% such that \beta  = \pi  \circ  \alpha  \circ  \pi  -1 , and hence
-% tI - \beta  = \pi  \circ  (tI - \alpha ) \circ  \pi  -1
-% are similar (as endomorphisms of R[t]n ). By Exercise 6.3 these two
-% transformations
-% must have the same determinant, and this proves the fourth point.
-%  ?
-% By Proposition 6.9, all coefficients in the characteristic polynomial
-% tn - tr(\alpha )tn-1 + \dots  + (-1)ndet(\alpha )
-% are invariant under similarity; as far as I know, trace and determinant are the
-% only
-% ones that have special names.
-% Determinants, traces, and more generally the characteristic polynomial can
-% show very quickly that two linear transformations are not similar; but do they
-% tell
-% us unfailingly when two transformations are similar? In general, the answer is
-% no,
-% even over fields. For example, the two matrices
-% 1 0
-%  1 1
-% I =
-%  ,
-%  A =
-% 0 1
-%  0 1
-% both have characteristic polynomial (t - 1)2, but they are not similar. Indeed,
-% I is
-% -1the identity and clearly only the identity is similar to the identity: P IP =
-% I for
-% all invertible matrices P .
-% Therefore, the equivalence relation defined by prescribing that two transforma-
-% tions have the same characteristic polynomial is coarser than similarity. This
-% hints
-% that there must be other interesting quantities associated with a linear
-% transforma-
-% tion and invariant under similarity.
-% We are going to understand this much more thoroughly in a short while (at least
-% over fields), but we can already gain some insight by contemplating another kind
-% of `polynomial' information, which also turns out to be invariant under
-% similarity.
-% As EndR (F ) is an R-algebra, we can evaluate every polynomial
-% f (t) = rm tm + rm-1 tm-1 + \dots  + r0 \in  R[t]
-% at any \alpha  \in  EndR (F ):
-% f (\alpha ) = rm \alpha m + rm-1 \alpha m-1 + \dots  + r0 \in  EndR (F ).
-% In other words, we can perform these operations in the ring EndR (F );
-% multiplica-
-% tion by r \in  R amounts to composition with rI \in  EndR (F ), and \alpha k
-% stands for the
-% k-fold composition \alpha  \circ  \dots  \circ  \alpha  of \alpha  with itself.
-% The set of polynomials such that
-% f (\alpha ) = 0 is an ideal of R[t] (Exercise 6.7), which I will denote I\alpha
-% and call the
-% annihilator ideal of \alpha .
-% Lemma 6.10. If \alpha  and \beta  are similar, then I\alpha  = I\beta  .
-% Proof. By hypothesis there exists an invertible \pi  such that \beta  = \pi
-% \circ  \alpha  \circ  \pi -1 . As
-% \beta  k = (\pi  \circ  \alpha  \circ  \pi  -1 )k = (\pi  \circ  \alpha  \circ  \pi  -1 ) \circ  (\pi  \circ  \alpha  \circ  \pi -1 ) \circ  \dots  \circ  (\pi  \circ  \alpha  \circ  \pi -1 ) = \pi  \circ  \alpha k \circ  \pi  -1 ,
-% we see that for all f (t) \in  R[t] we have
-% f (\beta ) = \pi  \circ  f (\alpha ) \circ  \pi  -1 .
-% It follows immediately that f (\alpha ) = 0 \iff  f (\beta ) = 0, which is the
-% statement.
-%  ?
-% Going back to the simple example shown above, the polynomial t - 1 is in the
-% annihilator ideal of the identity, while it is not in the annihilator ideal of
-% the matrix
-% 1 1
-% A =
-%  .
-% 0 1
-% An optimistic reader might now guess that two linear transformations are sim-
-% ilar if and only if both their characteristic polynomials and annihilator ideals
-% coin-
-% cide. This is unfortunatley not the case in general, but I promise that the
-% situation
-% will be considerably clarified in short order (cf. Exercise 7.3).
-% In any case, even the simple example given above allows me to point out a
-% remarkable fact. Note that the (common) characteristic polynomial (t - 1)2 of I
-% and A annihilates both:
-%  0 0
-% (A - I)2 =
-%  =
-%  .
-%  0 0
-% This is not a coincidence: P\alpha  (t) \in  I\alpha  for all linear
-% transformations \alpha . That is,
-% Theorem 6.11 (Cayley-Hamilton). Let P\alpha  (t) be the characteristic
-% polynomial of
-% the linear transformation \alpha  \in  End R (F ). Then
-% P\alpha  (\alpha ) = 0.
-% This beautiful observation can be proved directly by judicious use of Cramer's
-% rule30 , in the form of Corollary 3.5; cf. Exercise 6.9. In any case, the
-% Cayley-
-% Hamilton theorem will become essentially evident once we connect these linear
-% algebra considerations with the classification theorem for finitely generated
-% modules
-% over a PID; the adventurous reader can already look back at Remark 5.8 and
-% figure
-% out why the Cayley-Hamilton theorem is obvious.
-% If R is an arbitrary integral domain, we cannot expect too much of R[t], and it
-% seems hard to say something a priori concerning I\alpha  . However, consider the
-% field of
-% fractions K of R (\S{}V.4.2); viewing \alpha  as an element of EndK (K n ) (that
-% is, viewing
-% the entries of a matrix representation of \alpha  as elements of K, rather than
-% R), \alpha  will
-% have an annihilator ideal I\alpha  (K)
-%  `over K', and it is clear that
-% I\alpha  = I \alpha  (K) \cap  R[t].
-% The advantage of considering I\alpha  (K)
-%  \subseteq  K[t] is that K[t] is a PID, and it follows that
-% I\alpha  (K)
-%  has a (unique) monic generator.
-% Definition 6.12. Let F be a free R-module, and let \alpha  \in  EndR (F ). Let K
-% be
-% the field of fractions of R. The minimal polynomial of \alpha  is the monic
-% generator
-% m\alpha  (t) \in  K[t] of I\alpha  (K)
-%  .
-%  ?
-% With this terminology, the Cayley-Hamilton theorem amounts to the assertion
-% that the minimal polynomial divides the characteristic polynomial: m\alpha  (t)
-% | P\alpha  (t).
-% Of course the situation is simplified, at least from an expository point of
-% view,
-% if R is itself a field: then K = R, m\alpha  (t) \in  R[t], and I\alpha  =
-% (m\alpha  (t)). This is one
-% reason why we will eventually assume that R is a field.
+For example, the determinant is such a quantity:
+\begin{defn}{}{linalg:6.4}
+Let $\alpha \in \operatorname{End}_R(F)$. The \emph{determinant} of
+$\alpha$ is
+\[
+\det(\alpha) := \det(A),
+\]
+where $A$ is the matrix representing $\alpha$ with respect to any
+choice of basis of $F$.
+\end{defn}
+Of course there is something to check here, that is, that $\det(A)$
+does not depend on the choice of basis. But we know (Proposition~6.2)
+that $A, B$ represent the same endomorphism $\alpha$ if and only if
+there exists an invertible matrix $P$ such that $B = PAP^{-1}$; then
+\[
+\det(B) = \det(PAP^{-1}) = \det(P)\det(A)\det(P^{-1}) = \det(A)
+\]
+by Proposition~3.3. Thus the determinant is indeed independent of the
+choice of basis. Essentially the same argument shows that if $\alpha$
+and $\beta$ are similar linear transformations, then
+$\det(\alpha) = \det(\beta)$ (Exercise~6.3).
+
+By Proposition~3.3, a linear transformation $\alpha$ is invertible if
+and only if $\det(\alpha)$ is a unit in $R$. If $R$ is a field, this of
+course means simply $\det(\alpha) \neq 0$. Even if $R$ is not a field,
+$\det(\alpha) \neq 0$ says something interesting:
+\begin{prop}{}{linalg:6.5}
+Let $\alpha$ be a linear transformation of a free $R$-module
+$F \cong R^n$. Then $\det(\alpha) \neq 0$ if and only if $\alpha$ is
+injective.
+\end{prop}
+\begin{proof}
+Embed $R$ in its field of fractions $K$, and view $\alpha$ as a linear
+transformation of $K^n$; note that the determinant of $\alpha$ is the
+same whether it is computed over $R$ or over $K$. Then $\alpha$ is
+injective as a linear transformation $R^n \to R^n$ if and only if it
+is injective as a linear transformation $K^n \to K^n$, if and only if
+it is invertible as a linear transformation $K^n \to K^n$, if and only
+if $\det(\alpha) \neq 0$.
+\end{proof}
+
+Of course over integral domains other than fields $\alpha$ may fail to
+be surjective even if $\det(\alpha) \neq 0$; and care is required even
+over fields, if we abandon the hypothesis that the free modules are
+finitely generated (cf.\ Exercises 6.4 and 6.5).
+
+Another quantity that is invariant under similarity is the
+\emph{trace}. The trace of a square matrix
+$A = (a_{ij}) \in \mathcal{M}_n(R)$ is
+\[
+\operatorname{tr}(A) := \sum_{i=1}^n a_{ii},
+\]
+that is, the sum of its diagonal entries.
+\begin{defn}{}{linalg:6.6}
+Let $\alpha \in \operatorname{End}_R(F)$. The \emph{trace} of $\alpha$
+is defined to be $\operatorname{tr}(\alpha) := \operatorname{tr}(A)$,
+where $A$ is the matrix representing $\alpha$ with respect to any
+choice of basis of $F$.
+\end{defn}
+Again, we have to check that this is independent of the choice of
+basis; the key is the following computation.
+\begin{lem}{}{linalg:6.7}
+Let $A, B \in \mathcal{M}_n(R)$. Then
+$\operatorname{tr}(AB) = \operatorname{tr}(BA)$.
+\end{lem}
+\begin{proof}
+Let $A = (a_{ij})$, $B = (b_{ij})$. Then
+$AB = (\sum_{k=1}^n a_{ik}b_{kj})$; hence
+\[
+\operatorname{tr}(AB) = \sum_{i=1}^n \sum_{k=1}^n a_{ik}b_{ki}.
+\]
+This expression is symmetric in $A, B$, so it must equal
+$\operatorname{tr}(BA)$.
+\end{proof}
+
+With this understood, if $B = PAP^{-1}$, then
+\[
+\operatorname{tr}(B) = \operatorname{tr}((PA)P^{-1}) =
+\operatorname{tr}(P^{-1}(PA)) = \operatorname{tr}((P^{-1}P)A) =
+\operatorname{tr}(A),
+\]
+showing (by Proposition~6.2) that similar matrices have the same
+trace, as needed.
+
+Again, the reader will check that the same token shows that similar
+linear transformations have the same trace.
+
+The trace and determinant of an endomorphism $\alpha$ of a rank-$n$
+free module are in fact just two of a sequence of $n$ invariants, which
+can be nicely collected together into the \emph{characteristic
+polynomial} of $\alpha$.
+\begin{defn}{}{linalg:6.8}
+Let $F$ be a free $R$-module, and let
+$\alpha \in \operatorname{End}_R(F)$. Denote by $I$ the identity map
+$F \to F$. The \emph{characteristic polynomial} of $\alpha$ is the
+polynomial
+\[
+P_\alpha(t) := \det(tI - \alpha) \in R[t].
+\]
+\end{defn}
+\begin{prop}{}{linalg:6.9}
+Let $F$ be a free $R$-module of rank $n$, and let
+$\alpha \in \operatorname{End}_R(F)$.
+\begin{itemize}
+\item The characteristic polynomial $P_\alpha(t)$ is a monic
+polynomial of degree $n$.
+\item The coefficient of $t^{n-1}$ in $P_\alpha(t)$ equals
+$-\operatorname{tr}(\alpha)$.
+\item The constant term of $P_\alpha(t)$ equals $(-1)^n \det(\alpha)$.
+\item If $\alpha$ and $\beta$ are similar, then
+$P_\alpha(t) = P_\beta(t)$.
+\end{itemize}
+\end{prop}
+\begin{proof}
+The first point is immediate, and the third is checked by setting
+$t = 0$. To verify the second assertion, let $A = (a_{ij})$ be a matrix
+representing $\alpha$ with respect to any basis for $F$, so that
+\[
+P_\alpha(t) = \det
+\begin{pmatrix}
+t-a_{11} & -a_{12} & \dots & -a_{1n} \\
+-a_{21} & t-a_{22} & \dots & -a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+-a_{n1} & -a_{n2} & \dots & t-a_{nn}
+\end{pmatrix}.
+\]
+Expanding the determinant according to Definition~3.1 (or in any other
+way), we see that the only contributions to the coefficient of
+$t^{n-1}$ come from the diagonal entries, in the form
+\[
+\sum_{i=1}^n t \dots t \cdot (-a_{ii}) \cdot t \dots t,
+\]
+and the statement follows.
+
+Finally, assume that $\alpha$ and $\beta$ are similar. Then there
+exists an invertible $\pi$ such that $\beta = \pi \circ \alpha \circ
+\pi^{-1}$, and hence
+\[
+tI - \beta = \pi \circ (tI - \alpha) \circ \pi^{-1}
+\]
+are similar (as endomorphisms of $R[t]^n$). By Exercise~6.3 these two
+transformations must have the same determinant, and this proves the
+fourth point.
+\end{proof}
+
+By Proposition~6.9, all coefficients in the characteristic polynomial
+\[
+t^n - \operatorname{tr}(\alpha)t^{n-1} + \dots + (-1)^n \det(\alpha)
+\]
+are invariant under similarity; as far as I know, trace and determinant
+are the only ones that have special names.
+
+Determinants, traces, and more generally the characteristic polynomial
+can show very quickly that two linear transformations are \emph{not}
+similar; but do they tell us unfailingly when two transformations
+\emph{are} similar? In general, the answer is no, even over fields. For
+example, the two matrices
+\[
+I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad
+A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
+\]
+both have characteristic polynomial $(t-1)^2$, but they are not
+similar. Indeed, $I$ is the identity and clearly only the identity is
+similar to the identity: $PIP^{-1} = I$ for all invertible matrices
+$P$.
+
+Therefore, the equivalence relation defined by prescribing that two
+transformations have the same characteristic polynomial is coarser
+than similarity. This hints
+that there must be other interesting quantities associated with a
+linear transformation and invariant under similarity.
+
+We are going to understand this much more thoroughly in a short while
+(at least over fields), but we can already gain some insight by
+contemplating another kind of `polynomial' information, which also
+turns out to be invariant under similarity. As
+$\operatorname{End}_R(F)$ is an $R$-algebra, we can evaluate every
+polynomial
+\[
+f(t) = r_m t^m + r_{m-1} t^{m-1} + \dots + r_0 \in R[t]
+\]
+at any $\alpha \in \operatorname{End}_R(F)$:
+\[
+f(\alpha) = r_m \alpha^m + r_{m-1} \alpha^{m-1} + \dots + r_0 \in
+\operatorname{End}_R(F).
+\]
+In other words, we can perform these operations in the ring
+$\operatorname{End}_R(F)$; multiplication by $r \in R$ amounts to
+composition with $rI \in \operatorname{End}_R(F)$, and $\alpha^k$
+stands for the $k$-fold composition $\alpha \circ \dots \circ \alpha$
+of $\alpha$ with itself. The set of polynomials such that $f(\alpha) =
+0$ is an ideal of $R[t]$ (Exercise~6.7), which I will denote
+$\mathscr{I}_\alpha$ and call the \emph{annihilator ideal} of $\alpha$.
+\begin{lem}{}{linalg:6.10}
+If $\alpha$ and $\beta$ are similar, then
+$\mathscr{I}_\alpha = \mathscr{I}_\beta$.
+\end{lem}
+\begin{proof}
+By hypothesis there exists an invertible $\pi$ such that
+$\beta = \pi \circ \alpha \circ \pi^{-1}$. As
+\[
+\beta^k = (\pi \circ \alpha \circ \pi^{-1})^k = (\pi \circ \alpha \circ
+\pi^{-1}) \circ (\pi \circ \alpha \circ \pi^{-1}) \circ \dots \circ
+(\pi \circ \alpha \circ \pi^{-1}) = \pi \circ \alpha^k \circ \pi^{-1},
+\]
+we see that for all $f(t) \in R[t]$ we have
+\[
+f(\beta) = \pi \circ f(\alpha) \circ \pi^{-1}.
+\]
+It follows immediately that
+$f(\alpha) = 0 \iff f(\beta) = 0$, which is the statement.
+\end{proof}
+
+Going back to the simple example shown above, the polynomial $t - 1$
+is in the annihilator ideal of the identity, while it is not in the
+annihilator ideal of the matrix
+\[
+A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}.
+\]
+An optimistic reader might now guess that two linear transformations
+are similar if and only if both their characteristic polynomials and
+annihilator ideals coincide. This is unfortunatley not the case in
+general, but I promise that the situation will be considerably
+clarified in short order (cf.\ Exercise~7.3).
+
+In any case, even the simple example given above allows me to point
+out a remarkable fact. Note that the (common) characteristic polynomial
+$(t-1)^2$ of $I$ and $A$ annihilates both:
+\[
+(A - I)^2 = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}^2 =
+\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}.
+\]
+This is not a coincidence: $P_\alpha(t) \in \mathscr{I}_\alpha$ for all
+linear transformations $\alpha$. That is,
+\begin{thm}{Cayley-Hamilton}{linalg:6.11}
+Let $P_\alpha(t)$ be the characteristic polynomial of the linear
+transformation $\alpha \in \operatorname{End}_R(F)$. Then
+\[
+P_\alpha(\alpha) = 0.
+\]
+\end{thm}
+This beautiful observation can be proved directly by judicious use of
+Cramer's rule\footnote{Here is an even more direct `proof':
+$P_\alpha(\alpha) = \det(\alpha I - \alpha) = \det(0) = 0$.
+Unfortunately this does not work: in the definition $\det(tI - \alpha)$
+of the characteristic polynomial, $t$ is assumed to act as a scalar and
+cannot be replaced by $\alpha$. Applying Cramer's rule circumvents this
+obstacle.}, in the form of Corollary~3.5; cf.\ Exercise~6.9. In any
+case, the Cayley-Hamilton theorem will become essentially evident once
+we connect these linear algebra considerations with the classification
+theorem for finitely generated modules over a PID; the adventurous
+reader can already look back at Remark~5.8 and figure out why the
+Cayley-Hamilton theorem is obvious.
+
+If $R$ is an arbitrary integral domain, we cannot expect too much of
+$R[t]$, and it seems hard to say something \emph{a priori} concerning
+$\mathscr{I}_\alpha$. However, consider the field of fractions $K$ of
+$R$ (\S{}V.4.2); viewing $\alpha$ as an element of
+$\operatorname{End}_K(K^n)$ (that is, viewing
+the entries of a matrix representation of $\alpha$ as elements of $K$,
+rather than $R$), $\alpha$ will have an annihilator ideal
+$\mathscr{I}_\alpha^{(K)}$ `over $K$', and it is clear that
+\[
+\mathscr{I}_\alpha = \mathscr{I}_\alpha^{(K)} \cap R[t].
+\]
+The advantage of considering $\mathscr{I}_\alpha^{(K)} \subseteq K[t]$
+is that $K[t]$ is a PID, and it follows that $\mathscr{I}_\alpha^{(K)}$
+has a (unique) monic generator.
+\begin{defn}{}{linalg:6.12}
+Let $F$ be a free $R$-module, and let
+$\alpha \in \operatorname{End}_R(F)$. Let $K$ be the field of fractions
+of $R$. The \emph{minimal polynomial} of $\alpha$ is the monic
+generator $m_\alpha(t) \in K[t]$ of $\mathscr{I}_\alpha^{(K)}$.
+\end{defn}
+With this terminology, the Cayley-Hamilton theorem amounts to the
+assertion that the minimal polynomial divides the characteristic
+polynomial: $m_\alpha(t) \mid P_\alpha(t)$.
+
+Of course the situation is simplified, at least from an expository
+point of view, if $R$ is itself a field: then $K = R$,
+$m_\alpha(t) \in R[t]$, and $\mathscr{I}_\alpha = (m_\alpha(t))$. This
+is one reason why we will eventually assume that $R$ is a field.
 
 \subsection{Eigenvalues, eigenvectors, eigenspaces}
 \label{subsec:linalg:eigenvalues-eigenvectors-eigenspaces}
 
-% Definition 6.13. Let F be a free R-module, and let \alpha  \in  EndR (F ) be a
-% linear
-% transformation of F . A scalar \lambda  \in  R is an eigenvalue for \alpha  if
-% there exists v \in  F ,
-% v = 0, such that
-% \alpha (v) = \lambda v.
-%  ?
-% For example, 0 is an eigenvalue for \alpha  precisely when \alpha  has a
-% nontrivial kernel.
-% The notion of eigenvalue is one of the most important in linear algebra, if not
-% in
-% algebra, if not in mathematics, if not in the whole of science. The set of
-% eigenvalues
-% of a linear transformation is called its spectrum. Spectra of operators show up
-% everywhere, from number theory to differential equations to quantum mechanics.
-% The spectrum of a ring, encountered briefly in \S{}III.4.3, was so named because
-% it
-% may be interpreted (in important motivating contexts) as a spectrum in the sense
-% 30 Here is an even more direct `proof': P\alpha 
-%  (\alpha ) = det(\alpha I - \alpha ) = det(0) = 0. Unfortunately this
-% does not work: in the definition det(tI - \alpha ) of the characteristic
-% polynomial, t is assumed to act
-% as a scalar and cannot be replaced by \alpha . Applying Cramer's rule
-% circumvents this obstacle.
-% of Definition 6.13. The `spectrum of the hydrogen atom' is also a spectrum in
-% this
-% sense.
-% It is hopefully immediate that similar transformations have the same spectrum:
-% for if \beta  = \pi  \circ  \alpha  \circ  \pi  -1 and \alpha (v) = \lambda v,
-% then
-% \beta (\pi (v)) = \pi  \circ  \alpha  \circ  \pi  -1(\pi (v)) = \pi  \circ  (\alpha (v)) = \pi (\lambda v) = \lambda \pi (v);
-% as \pi (v) = 0 if v = 0, this shows that every eigenvalue of \alpha  is an
-% eigenvalue of \beta .
-% If F is finitely generated, then we have the following useful translation of the
-% notion of eigenvalue:
-% Lemma 6.14. Let F be a finitely generated R-module, and let \alpha  \in  EndR (F
-% ). Then
-% the set of eigenvalues of \alpha  is precisely the set of roots in R of the
-% characteristic
-% polynomial P\alpha  (t).
-% Proof. This is a straightforward consequence of Proposition 6.5:
-% \lambda  is an eigenvalue for \alpha  \iff  \exists v = 0 such that \alpha (v) = \lambda I(v)
-% \iff  \exists v = 0 such that (\lambda I - \alpha )(v) = 0
-% \iff  \lambda I - \alpha  is not injective
-% \iff  det(\lambda I - \alpha ) = 0
-% \iff  P\alpha  (\lambda ) = 0
-% as claimed.
-% ?
-% It is an evident consequence of Lemma 6.14 that eigenvalue considerations
-% depend very much on the base ring R.
-% Example 6.15. The matrix
-% 0 -1
-% 1 0
-% has no eigenvalues over R, while it has eigenvalues over C: indeed, the
-% characteristic
-% polynomial t2 + 1 has no real roots and two complex roots. The reader should
-% observe that, as a linear transformation of the real plane R2 , this matrix
-% corresponds
-% to a 90\circ  counterclockwise rotation; the reason why this transformation has
-% no (real)
-% eigenvalues is that no direction in the plane is preserved through a 90\circ
-% rotation. ?
-% Example 6.16. An example with a different flavor is given by the matrix
-% 0 2
-% .
-% 1 0
-% This has characteristic polynomial t2 - 2; hence it has eigenvalues over R, but
-% not over Q. Geometrically, the corresponding transformation flips the plane
-% about
-% a line; but that line has irrational slope, so it contains no nonzero vectors
-% with
-% rational components.
-%  ?
-% As another benefit of Lemma 6.14, we may now introduce the following notion:
-% Definition 6.17. The algebraic multiplicity of an eigenvalue of a linear
-% transfor-
-% mation \alpha  of a finitely generated free module is its multiplicity as a root
-% of the
-% characteristic polynomial of \alpha .
-%  ?
-% For example, the identity on F has the single eigenvalue 1, with (algebraic)
-% multiplicity equal to the rank of F .
-% The sum of the algebraic multiplicities is bounded by the degree of the charac-
-% teristic polynomial, that is, the dimension of the space. In particular,
-% Corollary 6.18. The number of eigenvalues of a linear transformation of Rn is
-% at most n. If the base ring R is an algebraically closed field, then every
-% linear
-% transformation has exactly n eigenvalues (counted with algebraic multiplicity).
-% Proof. Immediate from Lemmas 6.14, V.5.1, and V.5.10.
-%  ?
-% There is a different notion of multiplicity of an eigenvalue, related to how big
-% the corresponding31 eigenspace may be.
-% Definition 6.19. Let \lambda  be an eigenvalue of a linear transformation \alpha
-% of a free
-% R-module F . Then a nonzero v \in  F is an eigenvector for \alpha ,
-% corresponding to the
-% eigenvalue \lambda , if \alpha (v) = \lambda v, that is, if v \in  ker(\lambda I
-% - \alpha ). The submodule ker(\lambda I - \alpha )
-% is the eigenspace corresponding to \lambda .
-%  ?
-% Definition 6.20. The geometric multiplicity of an eigenvalue \lambda  is the
-% rank of its
-% eigenspace.
-%  ?
-% This is clearly invariant under similarity (Exercise 6.14). Geometric and alge-
-% braic multiplicities do not necessarily coincide: for example, the matrix
-% 1 1
-% 0 1
-% has characteristic polynomial (t - 1)2, and hence the
-%  single eigenvalue 1, with
-% ?v1?algebraic multiplicity 2. However, for a vector v = ,
-% v21 1
-%  v1
-%  v1 + v2
-% =
-% 0 1
-%  v2
-%  v2
-% equals 1v if and only if v2 = 0: that is, the eigenspace
-%  ? ?
-%  corresponding to the single
-% eigenvalue 1 consists of the span of the vector 10 and has dimension 1. Thus,
-% the
-% geometric multiplicity of the eigenvalue is 1 in this example.
-% Contemplating this example will convince the reader that the geometric multi-
-% plicity of an eigenvalue is always less than its algebraic multiplicity. In the
-% neatest
-% possible situation, an operator \alpha  on a free module F of rank n may have
-% all its n
-% eigenvalues in the base ring R, and each algebraic multiplicity may agree with
-% the
-% corresponding geometric multiplicity. If this is the case, F may then be
-% expressed as
-% a direct sum of the eigenspaces, producing the so-called spectral decomposition
-% of F
-% determined by \alpha  (cf. Exercise 6.15 for a concrete instance of this
-% situation). The
-% action of \alpha  on F is then completely transparent, as it amounts to simply
-% applying
-% a (possibly) different scaling factor on each piece of the spectral
-% decomposition.
-% 31 If we were serious about pursuing the theory over arbitrary integral domains,
-% I would feel
-% compelled to call this object the eigenmodule of \alpha . However, we are
-% eventually going to restrict
-% our attention to the case in which the base ring is a field, so I will not
-% bother.
-% If A is a matrix representing \alpha  \in  EndR (V ) with respect to any basis,
-% then \alpha
-% admits a spectral decomposition if and only if A is similar to a diagonal
-% matrix:
-% (
-%  )
-% \lambda 1 0 . . . 0
-% | 0 \lambda 2 . . . 0 |
-% |
-%  | -1
-% A = P | ( .
-%  ..
-%  .
-%  ..
-%  ..
-%  .
-%  . .. )
-%  | P ,
-%  0 . . . \lambda n
-% where \lambda 1 , . . . , \lambda n are the eigenvalues of \alpha . In this case
-% we say that A (or \alpha ) is
-% diagonalizable. A moment's thought reveals that the columns of P are then a
-% basis
-% of V consisting of eigenvectors of \alpha .
-% Once more, I promise that the situation will become (even) clearer once we
-% bring Theorem 5.6 into the picture.
+\begin{defn}{}{linalg:6.13}
+Let $F$ be a free $R$-module, and let
+$\alpha \in \operatorname{End}_R(F)$ be a linear transformation of $F$.
+A scalar $\lambda \in R$ is an \emph{eigenvalue} for $\alpha$ if there
+exists $\mathbf{v} \in F$, $\mathbf{v} \neq 0$, such that
+\[
+\alpha(\mathbf{v}) = \lambda\mathbf{v}.
+\]
+\end{defn}
+For example, $0$ is an eigenvalue for $\alpha$ precisely when $\alpha$
+has a nontrivial kernel. The notion of eigenvalue is one of the most
+important in linear algebra, if not in algebra, if not in mathematics,
+if not in the whole of science. The set of eigenvalues of a linear
+transformation is called its \emph{spectrum}. Spectra of operators show
+up everywhere, from number theory to differential equations to quantum
+mechanics. The spectrum of a ring, encountered briefly in \S{}III.4.3,
+was so named because it may be interpreted (in important motivating
+contexts) as a spectrum in the sense of Definition~6.13. The `spectrum
+of the hydrogen atom' is also a spectrum in this sense.
+
+It is hopefully immediate that similar transformations have the same
+spectrum: for if $\beta = \pi \circ \alpha \circ \pi^{-1}$ and
+$\alpha(\mathbf{v}) = \lambda\mathbf{v}$, then
+\[
+\beta(\pi(\mathbf{v})) = \pi \circ \alpha \circ
+\pi^{-1}(\pi(\mathbf{v})) = \pi \circ (\alpha(\mathbf{v})) =
+\pi(\lambda\mathbf{v}) = \lambda\pi(\mathbf{v});
+\]
+as $\pi(\mathbf{v}) \neq 0$ if $\mathbf{v} \neq 0$, this shows that
+every eigenvalue of $\alpha$ is an eigenvalue of $\beta$.
+
+If $F$ is finitely generated, then we have the following useful
+translation of the notion of eigenvalue:
+\begin{lem}{}{linalg:6.14}
+Let $F$ be a finitely generated $R$-module, and let
+$\alpha \in \operatorname{End}_R(F)$. Then the set of eigenvalues of
+$\alpha$ is precisely the set of roots in $R$ of the characteristic
+polynomial $P_\alpha(t)$.
+\end{lem}
+\begin{proof}
+This is a straightforward consequence of Proposition~6.5:
+\[
+\begin{aligned}
+\lambda \text{ is an eigenvalue for } \alpha
+&\iff \exists \mathbf{v} \neq 0 \text{ such that }
+\alpha(\mathbf{v}) = \lambda I(\mathbf{v}) \\
+&\iff \exists \mathbf{v} \neq 0 \text{ such that }
+(\lambda I - \alpha)(\mathbf{v}) = 0 \\
+&\iff \lambda I - \alpha \text{ is not injective} \\
+&\iff \det(\lambda I - \alpha) = 0 \\
+&\iff P_\alpha(\lambda) = 0
+\end{aligned}
+\]
+as claimed.
+\end{proof}
+
+It is an evident consequence of Lemma~6.14 that eigenvalue
+considerations depend very much on the base ring $R$.
+\begin{exam}{}{linalg:6.15}
+The matrix
+\[
+\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
+\]
+has no eigenvalues over $\mathbb{R}$, while it has eigenvalues over
+$\mathbb{C}$: indeed, the characteristic polynomial $t^2 + 1$ has no
+real roots and two complex roots. The reader should observe that, as a
+linear transformation of the real plane $\mathbb{R}^2$, this matrix
+corresponds to a $90^\circ$ counterclockwise rotation; the reason why
+this transformation has no (real) eigenvalues is that no direction in
+the plane is preserved through a $90^\circ$ rotation.
+\end{exam}
+\begin{exam}{}{linalg:6.16}
+An example with a different flavor is given by the matrix
+\[
+\begin{pmatrix} 0 & 2 \\ 1 & 0 \end{pmatrix}.
+\]
+This has characteristic polynomial $t^2 - 2$; hence it has eigenvalues
+over $\mathbb{R}$, but not over $\mathbb{Q}$. Geometrically, the
+corresponding transformation flips the plane about a line; but that
+line has irrational slope, so it contains no nonzero vectors with
+rational components.
+\end{exam}
+As another benefit of Lemma~6.14, we may now introduce the following
+notion:
+\begin{defn}{}{linalg:6.17}
+The \emph{algebraic multiplicity} of an eigenvalue of a linear
+transformation $\alpha$ of a finitely generated free module is its
+multiplicity as a root of the characteristic polynomial of $\alpha$.
+\end{defn}
+For example, the identity on $F$ has the single eigenvalue $1$, with
+(algebraic) multiplicity equal to the rank of $F$.
+
+The sum of the algebraic multiplicities is bounded by the degree of
+the characteristic polynomial, that is, the dimension of the space. In
+particular,
+\begin{coro}{}{linalg:6.18}
+The number of eigenvalues of a linear transformation of $R^n$ is at
+most $n$. If the base ring $R$ is an algebraically closed field, then
+every linear transformation has exactly $n$ eigenvalues (counted with
+algebraic multiplicity).
+\end{coro}
+\begin{proof}
+Immediate from Lemmas~6.14, V.5.1, and V.5.10.
+\end{proof}
+
+There is a different notion of multiplicity of an eigenvalue, related
+to how big the corresponding\footnote{If we were serious about
+pursuing the theory over arbitrary integral domains, I would feel
+compelled to call this object the \emph{eigenmodule} of $\alpha$.
+However, we are eventually going to restrict our attention to the case
+in which the base ring is a field, so I will not bother.} eigenspace
+may be.
+\begin{defn}{}{linalg:6.19}
+Let $\lambda$ be an eigenvalue of a linear transformation $\alpha$ of a
+free $R$-module $F$. Then a nonzero $\mathbf{v} \in F$ is an
+\emph{eigenvector} for $\alpha$, corresponding to the eigenvalue
+$\lambda$, if $\alpha(\mathbf{v}) = \lambda\mathbf{v}$, that is, if
+$\mathbf{v} \in \ker(\lambda I - \alpha)$. The submodule
+$\ker(\lambda I - \alpha)$ is the \emph{eigenspace} corresponding to
+$\lambda$.
+\end{defn}
+\begin{defn}{}{linalg:6.20}
+The \emph{geometric multiplicity} of an eigenvalue $\lambda$ is the
+rank of its eigenspace.
+\end{defn}
+This is clearly invariant under similarity (Exercise~6.14). Geometric
+and algebraic multiplicities do not necessarily coincide: for example,
+the matrix
+\[
+\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
+\]
+has characteristic polynomial $(t-1)^2$, and hence the single
+eigenvalue $1$, with algebraic multiplicity $2$. However, for a vector
+$\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}$,
+\[
+\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
+\begin{pmatrix} v_1 \\ v_2 \end{pmatrix}
+=
+\begin{pmatrix} v_1 + v_2 \\ v_2 \end{pmatrix}
+\]
+equals $1\mathbf{v}$ if and only if $v_2 = 0$: that is, the eigenspace
+corresponding to the single eigenvalue $1$ consists of the span of the
+vector $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ and has dimension $1$.
+Thus, the geometric multiplicity of the eigenvalue is $1$ in this
+example.
+
+Contemplating this example will convince the reader that the geometric
+multiplicity of an eigenvalue is always \emph{less than} its algebraic
+multiplicity. In the neatest possible situation, an operator $\alpha$
+on a free module $F$ of rank $n$ may have all its $n$ eigenvalues in
+the base ring $R$, and each algebraic multiplicity may agree with the
+corresponding geometric multiplicity. If this is the case, $F$ may
+then be expressed as a direct sum of the eigenspaces, producing the
+so-called \emph{spectral decomposition} of $F$ determined by $\alpha$
+(cf.\ Exercise~6.15 for a concrete instance of this situation). The
+action of $\alpha$ on $F$ is then completely transparent, as it
+amounts to simply applying a (possibly) different scaling factor on
+each piece of the spectral decomposition.
+
+If $A$ is a matrix representing $\alpha \in \operatorname{End}_R(V)$
+with respect to any basis, then $\alpha$ admits a spectral
+decomposition if and only if $A$ is similar to a diagonal matrix:
+\[
+A = P
+\begin{pmatrix}
+\lambda_1 & 0 & \dots & 0 \\
+0 & \lambda_2 & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \dots & \lambda_n
+\end{pmatrix}
+P^{-1},
+\]
+where $\lambda_1, \dots, \lambda_n$ are the eigenvalues of $\alpha$. In
+this case we say that $A$ (or $\alpha$) is \emph{diagonalizable}. A
+moment's thought reveals that the columns of $P$ are then a basis of
+$V$ consisting of eigenvectors of $\alpha$.
+
+Once more, I promise that the situation will become (even) clearer
+once we bring Theorem~5.6 into the picture.
 
 \subsection*{Exercises}
 
-% In these exercises, R denotes an integral domain.
-% 6.1. Let k be an infinite field, and let n be any positive integer.
-% \bullet  Prove that there are finitely many equivalence classes of matrices in Mn (k).
-% \bullet  Prove that there are infinitely many similarity classes of matrices in Mn (k).
-% 6.2. Let F be a free R-module of rank n, and let \alpha , \beta  \in  EndR (F ).
-% Prove that
-% det(\alpha  \circ  \beta ) = det(\alpha ) det(\beta ). Prove that \alpha  is
-% invertible if and only if det(\alpha ) is
-% invertible.
-% 6.3. ? Prove that if \alpha  and \beta  are similar in the sense of Definition
-% 6.3, then det(\alpha ) =
-% det(\beta ) and tr(\alpha ) = tr(\beta ). (Do this without using Proposition
-% 6.9!) [\S{}6.2]
-% 6.4. ? Let F be a finitely generated free R-module, and let \alpha  be a linear
-% trans-
-% formation of F . Give an example of an injective \alpha  which is not
-% surjective; in fact,
-% prove that \alpha  is not surjective precisely when det(\alpha ) is not a unit.
-% [\S{}6.2]
-% 6.5. ? Let k be a field, and view k[t] as a vector space over k in the evident
-% way.
-% Give an example of a k-linear transformation k[t] \to  k[t] which is injective
-% but not
-% surjective; give an example of a linear transformation which is surjective but
-% not
-% injective. [\S{}6.2, \S{}VII.4.1]
-% 6.6. Prove that two 2 \times  2 matrices have the same characteristic polynomial
-% if and
-% only if they have the same trace and determinant. Find two 3 \times  3 matrices
-% with
-% the same trace and determinant but different characteristic polynomials.
-% 6.7. ? Let \alpha  \in  EndR (F ) be a linear transformation on a free R-module
-% F . Prove
-% that the set of polynomials f (t) \in  R[t] such that f (\alpha ) = 0 is an
-% ideal of R[t]. [\S{}6.2]
-% 6.8. ? Let A \in  Mn (R) be a square matrix, and let At be its transpose. Prove
-% that
-% A and At have the same characteristic polynomial and the same annihilator
-% ideals.
-% [\S{}7.2]
-% 6.9. ? Prove the Cayley-Hamilton theorem, as follows. Recall that every square
-% matrix M has an adjoint matrix, which I will denote adj(M ), and that we proved
-% (Corollary 3.5) that adj(M ) \cdot  M = det(M ) \cdot  I. Applying this to M =
-% tI - A (with
-% A a matrix realization of \alpha  \in  EndR(F )) gives
-% (*)
-%  adj(tI - A) \cdot  (tI - A) = P\alpha  (t) \cdot  I.
-% ?
-% n-1
-%  k
-% Prove that there exist matrices Bk \in  Mn (R) such that adj(tI - A) = k=0 Bk t
-% ;
-% then use (*) to obtain P\alpha  (A) = 0, proving the Cayley-Hamilton theorem.
-% [\S{}6.2]
-% 6.10. ? Let F1 , F2 be free R-modules of finite rank, and let \alpha 1 , resp.,
-% \alpha 2 , be linear
-% transformations of F1 , resp., F2 . Let F = F1 \oplus  F2 , and let \alpha  =
-% \alpha 1 \oplus  \alpha 2 be the
-% linear transformation of F restricting to \alpha 1 on F1 and \alpha 2 on F2 .
-% \bullet  Prove that P\alpha  (t) = P\alpha 1 (t)P\alpha 2 (t). That is, the characteristic polynomial is
-% multiplicative under direct sums.
-% \bullet  Find an example showing that the minimal polynomial is not multiplicative
-% under direct sums.
-% [6.11, \S{}7.2]
-% 6.11. \lnot  Let \alpha  be a linear transformation of a finite-dimensional
-% vector space V ,
-% and let V1 be an invariant subspace, that is, such that \alpha (V1 ) \subseteq
-% V1 . Let \alpha 1 be
-% the restriction of \alpha  to V1, and let V2 = V /V1 . Prove that \alpha
-% induces a linear
-% transformation \alpha 2 on V2 , and (in the same vein as Exercise 6.10) show
-% that P\alpha  (t) =
-% P \alpha 1 (t)P\alpha 2 (t). Also, prove that tr(\alpha r ) = tr(\alpha 1 r ) +
-% tr(\alpha 2 r ), for all r \geq  0. [6.12]
-% 6.12. Let \alpha  be a linear transformation of a finite-dimensional C-vector
-% space V .
-% Prove the identity of formal power series with coefficients in C:
-% ? ?
-%  ?
-%  \infty 
-%  r t
-% r
-% = exp
-%  tr(\alpha  )
-%  .
-% det(1 - \alpha t)
-%  r
-% r=1
-% (Hint: The left-hand side is essentially the inverse of the characteristic
-% polynomial
-% of \alpha . Use Exercise 6.11 to show that both sides are multiplicative with
-% respect
-% to exact sequences 0 \to  V1 \to  V \to  V2 \to  0, where V1 is an invariant
-% subspace.
-% Use this and the fact that \alpha  admits nontrivial invariant subspaces since C
-% is alge-
-% braically closed (why?) to reduce to the case dim V = 1, for which the identity
-% is
-% an elementary calculus exercise.)
-% With due care, the identity can be stated and proved (in the same way) over
-% arbitrary fields of characteristic 0. It is an ingredient in the cohomological
-% inter-
-% pretation of the `Weil conjectures'.
-% 6.13. Let A be a square matrix with integer entries. Prove that if \lambda  is a
-% rational
-% eigenvalue of A, then in fact \lambda  \in  Z. (Hint: Proposition V.5.5.)
-% 6.14. ? Let \lambda  be an eigenvalue of two similar transformations \alpha ,
-% \beta . Prove that the
-% geometric multiplicities of \lambda  with respect to \alpha  and \beta
-% coincide. [\S{}6.3]
-% 6.15. ? Let \alpha  be a linear transformation on a free R-module F , and let v
-% 1 , . . . , vn
-% be eigenvectors corresponding to pairwise distinct eigenvalues \lambda 1 , . . .
-% , \lambda n . Prove
-% that v1, . . . , vn are linearly independent. (Hint: If not, there is a shortest
-% linear
-% combination r1vi1 + \dots  + rm vim = 0 with all rj \in  R, rj = 0. Compare the
-% action
-% of \alpha  on this linear combination with the product by \lambda i1 .)
-% It follows that if F has rank n and \alpha  has n distinct eigenvalues, then
-% \alpha  induces
-% a spectral decomposition of F . [\S{}6.3, VII.6.14]
-% 6.16. \lnot  The standard inner product on V = Rn is the map V \times  V \to  R
-% defined by
-% (v, w) := vt \cdot  w
-% (viewing elements v \in  V as column vectors). The standard hermitian product
-% on W = Cn is the map W \times  W \to  C defined by
-% (v, w) := v \dagger  \cdot  w,
-% \dagger where for any matrix M , M stands for the matrix obtained by taking the complex
-% conjugates of the entries of the transpose M t .
-% These products satisfy evident linearity properties: for example, for \lambda
-% \in  C and
-% v, w \in  W
-% (\lambda v, w) = \lambda (v, w).
-% Prove32 that a matrix M \in  Mn (R) belongs to On (R) if and only if it
-% preserves
-% the standard inner product on Rn :
-% (\forall v, w \in  Rn)
-%  (M v, M w) = (v, w).
-% Likewise, prove that a matrix M \in  Mn (C) belongs to U(n) if and only if it
-% preserves
-% the standard hermitian product on Cn . [6.18]
-% 6.17. \lnot  We say that two vectors v, w of Rn or Cn are orthogonal if (v, w) =
-% 0.
-% The orthogonal complement v\bot  of v is the set of vectors w that are
-% orthogonal to v.
-% Prove that if v = 0 in V = Rn or Cn, then v \bot  is a subspace of V of
-% dimension n-1.
-% [7.16, VIII.5.15]
-% 6.18. \lnot  Let V = Rn, endowed with the standard inner product defined in
-% Exer-
-% cise 6.16. A set of distinct vectors v1 , . . . , vr is orthonormal if (vi , vj
-% ) = 0 for i = j
-% and 1 for i = j. Geometrically, this means that each vector has length 1, and
-% dif-
-% ferent vectors are orthogonal. The same terminology may be used in Cn, w.r.t.
-% the
-% standard hermitian product.
-% Prove that M \in  On (R) if and only if the columns of M are orthonormal, if and
-% only if the rows of M are orthonormal33 .
-% Formulate and prove an analogous statement for U(n). (The group U(n) is
-% called the unitary group. Note that, for n = 1, it consists of the complex
-% numbers
-% of norm 1.) [6.19, 7.16, VIII.5.9]
-% 6.19. \lnot  Let v1 , . . . , vr form an orthonormal set of vectors in Rn .
-% 32 See Exercise II.6.1 for the definitions of On
-%  (R) and U(n). I trust that basic facts on inner
-% products are not new to the reader. Among these, recall that for v, w \in  Rn,
-% (v, v) equals the
-% square of the length of v, and (v, w) equals the product of the lengths of v and
-% w and the cosine
-% of the angle formed by v and w. Thus, the reader is essentially asked to verify
-% that M \in  On(R) if
-% and only if M preserves lengths and angles, and to check an analogous statement
-% in the complex
-% environment.
-% 33 The group On
-%  (R) is called the orthogonal group; orthonormal group would probably be a
-% more appropriate terminology.
+In these exercises, $R$ denotes an integral domain.
+\begin{exer}{}{exer:linalg:6.1}
+Let $k$ be an infinite field, and let $n$ be any positive integer.
+\begin{itemize}
+\item Prove that there are finitely many equivalence classes of
+matrices in $\mathcal{M}_n(k)$.
+\item Prove that there are infinitely many similarity classes of
+matrices in $\mathcal{M}_n(k)$.
+\end{itemize}
+\end{exer}
+\begin{exer}{}{exer:linalg:6.2}
+Let $F$ be a free $R$-module of rank $n$, and let
+$\alpha, \beta \in \operatorname{End}_R(F)$. Prove that
+$\det(\alpha \circ \beta) = \det(\alpha)\det(\beta)$. Prove that
+$\alpha$ is invertible if and only if $\det(\alpha)$ is invertible.
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:6.3}
+Prove that if $\alpha$ and $\beta$ are similar in the sense of
+Definition~6.3, then $\det(\alpha) =
+\det(\beta)$ and $\operatorname{tr}(\alpha) = \operatorname{tr}(\beta)$.
+(Do this without using Proposition~6.9!) [$\S$6.2]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:6.4}
+Let $F$ be a finitely generated free $R$-module, and let $\alpha$ be a
+linear transformation of $F$. Give an example of an injective $\alpha$
+which is not surjective; in fact, prove that $\alpha$ is not surjective
+precisely when $\det(\alpha)$ is not a unit. [$\S$6.2]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:6.5}
+Let $k$ be a field, and view $k[t]$ as a vector space over $k$ in the
+evident way. Give an example of a $k$-linear transformation
+$k[t] \to k[t]$ which is injective but not surjective; give an example
+of a linear transformation which is surjective but not injective.
+[$\S$6.2, $\S$VII.4.1]
+\end{exer}
+\begin{exer}{}{exer:linalg:6.6}
+Prove that two $2 \times 2$ matrices have the same characteristic
+polynomial if and only if they have the same trace and determinant.
+Find two $3 \times 3$ matrices with the same trace and determinant but
+different characteristic polynomials.
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:6.7}
+Let $\alpha \in \operatorname{End}_R(F)$ be a linear transformation on
+a free $R$-module $F$. Prove that the set of polynomials
+$f(t) \in R[t]$ such that $f(\alpha) = 0$ is an ideal of $R[t]$.
+[$\S$6.2]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:6.8}
+Let $A \in \mathcal{M}_n(R)$ be a square matrix, and let $A^t$ be its
+transpose. Prove that $A$ and $A^t$ have the same characteristic
+polynomial and the same annihilator ideals. [$\S$7.2]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:6.9}
+Prove the Cayley-Hamilton theorem, as follows. Recall that every
+square matrix $M$ has an adjoint matrix, which I will denote
+$\operatorname{adj}(M)$, and that we proved (Corollary~3.5) that
+$\operatorname{adj}(M) \cdot M = \det(M) \cdot I$. Applying this to
+$M = tI - A$ (with $A$ a matrix realization of
+$\alpha \in \operatorname{End}_R(F)$) gives
+\[
+\tag{*}
+\operatorname{adj}(tI - A) \cdot (tI - A) = P_\alpha(t) \cdot I.
+\]
+Prove that there exist matrices $B_k \in \mathcal{M}_n(R)$ such that
+$\operatorname{adj}(tI - A) = \sum_{k=0}^{n-1} B_k t^k$; then use $(*)$
+to obtain $P_\alpha(A) = 0$, proving the Cayley-Hamilton theorem.
+[$\S$6.2]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:6.10}
+Let $F_1, F_2$ be free $R$-modules of finite rank, and let
+$\alpha_1$, resp., $\alpha_2$, be linear transformations of $F_1$,
+resp., $F_2$. Let $F = F_1 \oplus F_2$, and let
+$\alpha = \alpha_1 \oplus \alpha_2$ be the linear transformation of $F$
+restricting to $\alpha_1$ on $F_1$ and $\alpha_2$ on $F_2$.
+\begin{itemize}
+\item Prove that $P_\alpha(t) = P_{\alpha_1}(t)P_{\alpha_2}(t)$. That
+is, the characteristic polynomial is multiplicative under direct sums.
+\item Find an example showing that the minimal polynomial is
+\emph{not} multiplicative under direct sums.
+\end{itemize}
+[6.11, $\S$7.2]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:6.11}
+Let $\alpha$ be a linear transformation of a finite-dimensional vector
+space $V$, and let $V_1$ be an invariant subspace, that is, such that
+$\alpha(V_1) \subseteq V_1$. Let $\alpha_1$ be the restriction of
+$\alpha$ to $V_1$, and let $V_2 = V/V_1$. Prove that $\alpha$ induces
+a linear transformation $\alpha_2$ on $V_2$, and (in the same vein as
+Exercise~6.10) show that $P_\alpha(t) = P_{\alpha_1}(t)P_{\alpha_2}(t)$.
+Also, prove that
+$\operatorname{tr}(\alpha^r) = \operatorname{tr}(\alpha_1^r) +
+\operatorname{tr}(\alpha_2^r)$, for all $r \geq 0$. [6.12]
+\end{exer}
+\begin{exer}{}{exer:linalg:6.12}
+Let $\alpha$ be a linear transformation of a finite-dimensional
+$\mathbb{C}$-vector space $V$. Prove the identity of formal power
+series with coefficients in $\mathbb{C}$:
+\[
+\frac{1}{\det(1-\alpha t)} = \exp \left( \sum_{r=1}^\infty
+\operatorname{tr}(\alpha^r) \frac{t^r}{r} \right).
+\]
+(Hint: The left-hand side is essentially the inverse of the
+characteristic polynomial of $\alpha$. Use Exercise~6.11 to show that
+both sides are multiplicative with respect to exact sequences
+$0 \to V_1 \to V \to V_2 \to 0$, where $V_1$
+is an invariant subspace. Use this and the fact that $\alpha$ admits
+nontrivial invariant subspaces since $\mathbb{C}$ is algebraically
+closed (why?) to reduce to the case $\dim V = 1$, for which the
+identity is an elementary calculus exercise.)
+
+With due care, the identity can be stated and proved (in the same way)
+over arbitrary fields of characteristic $0$. It is an ingredient in the
+cohomological interpretation of the `Weil conjectures'.
+\end{exer}
+\begin{exer}{}{exer:linalg:6.13}
+Let $A$ be a square matrix with integer entries. Prove that if
+$\lambda$ is a rational eigenvalue of $A$, then in fact
+$\lambda \in \mathbb{Z}$. (Hint: Proposition~V.5.5.)
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:6.14}
+Let $\lambda$ be an eigenvalue of two similar transformations
+$\alpha, \beta$. Prove that the geometric multiplicities of $\lambda$
+with respect to $\alpha$ and $\beta$ coincide. [$\S$6.3]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:6.15}
+Let $\alpha$ be a linear transformation on a free $R$-module $F$, and
+let $\mathbf{v}_1, \dots, \mathbf{v}_n$ be eigenvectors corresponding
+to pairwise distinct eigenvalues $\lambda_1, \dots, \lambda_n$. Prove
+that $\mathbf{v}_1, \dots, \mathbf{v}_n$ are linearly independent.
+(Hint: If not, there is a shortest linear combination
+$r_1\mathbf{v}_{i_1} + \dots + r_m\mathbf{v}_{i_m} = 0$ with all
+$r_j \in R$, $r_j \neq 0$. Compare the action of $\alpha$ on this
+linear combination with the product by $\lambda_{i_1}$.)
+
+It follows that if $F$ has rank $n$ and $\alpha$ has $n$ distinct
+eigenvalues, then $\alpha$ induces a spectral decomposition of $F$.
+[$\S$6.3, VII.6.14]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:6.16}
+The \emph{standard inner product} on $V = \mathbb{R}^n$ is the map
+$V \times V \to \mathbb{R}$ defined by
+\[
+(\mathbf{v}, \mathbf{w}) := \mathbf{v}^t \cdot \mathbf{w}
+\]
+(viewing elements $\mathbf{v} \in V$ as column vectors). The
+\emph{standard hermitian product} on $W = \mathbb{C}^n$ is the map
+$W \times W \to \mathbb{C}$ defined by
+\[
+(\mathbf{v}, \mathbf{w}) := \mathbf{v}^\dagger \cdot \mathbf{w},
+\]
+where for any matrix $M$, $M^\dagger$ stands for the matrix obtained
+by taking the complex conjugates of the entries of the transpose
+$M^t$.
+
+These products satisfy evident linearity properties: for example, for
+$\lambda \in \mathbb{C}$ and $\mathbf{v}, \mathbf{w} \in W$
+\[
+(\lambda\mathbf{v}, \mathbf{w}) = \lambda(\mathbf{v}, \mathbf{w}).
+\]
+Prove\footnote{See Exercise~II.6.1 for the definitions of
+$\mathrm{O}_n(\mathbb{R})$ and $\mathrm{U}(n)$. I trust that basic
+facts on inner products are not new to the reader. Among these, recall
+that for $\mathbf{v}, \mathbf{w} \in \mathbb{R}^n$,
+$(\mathbf{v}, \mathbf{v})$ equals the square of the length of
+$\mathbf{v}$, and $(\mathbf{v}, \mathbf{w})$ equals the product of the
+lengths of $\mathbf{v}$ and $\mathbf{w}$ and the cosine of the angle
+formed by $\mathbf{v}$ and $\mathbf{w}$. Thus, the reader is
+essentially asked to verify that $M \in \mathrm{O}_n(\mathbb{R})$ if
+and only if $M$ preserves lengths and angles, and to check an
+analogous statement in the complex environment.} that a matrix
+$M \in \mathcal{M}_n(\mathbb{R})$ belongs to $\mathrm{O}_n(\mathbb{R})$
+if and only if it preserves the standard inner product on
+$\mathbb{R}^n$:
+\[
+(\forall \mathbf{v}, \mathbf{w} \in \mathbb{R}^n) \quad
+(M\mathbf{v}, M\mathbf{w}) = (\mathbf{v}, \mathbf{w}).
+\]
+Likewise, prove that a matrix $M \in \mathcal{M}_n(\mathbb{C})$
+belongs to $\mathrm{U}(n)$ if and only if it preserves the standard
+hermitian product on $\mathbb{C}^n$. [6.18]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:6.17}
+We say that two vectors $\mathbf{v}, \mathbf{w}$ of $\mathbb{R}^n$ or
+$\mathbb{C}^n$ are \emph{orthogonal} if $(\mathbf{v}, \mathbf{w}) = 0$.
+The \emph{orthogonal complement} $\mathbf{v}^\perp$ of $\mathbf{v}$ is
+the set of vectors $\mathbf{w}$ that are orthogonal to $\mathbf{v}$.
+Prove that if $\mathbf{v} \neq 0$ in $V = \mathbb{R}^n$ or
+$\mathbb{C}^n$, then $\mathbf{v}^\perp$ is a subspace of $V$ of
+dimension $n-1$. [7.16, VIII.5.15]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:6.18}
+Let $V = \mathbb{R}^n$, endowed with the standard inner product
+defined in Exercise~6.16. A set of distinct vectors
+$\mathbf{v}_1, \dots, \mathbf{v}_r$ is \emph{orthonormal} if
+$(\mathbf{v}_i, \mathbf{v}_j) = 0$ for $i \neq j$ and $1$ for $i = j$.
+Geometrically, this means that each vector has length $1$, and
+different vectors are orthogonal. The same terminology may be used in
+$\mathbb{C}^n$, w.r.t.\ the standard hermitian product.
+
+Prove that $M \in \mathrm{O}_n(\mathbb{R})$ if and only if the columns
+of $M$ are orthonormal, if and only if the rows of $M$ are
+orthonormal\footnote{The group $\mathrm{O}_n(\mathbb{R})$ is called the
+\emph{orthogonal group}; orthonormal group would probably be a more
+appropriate terminology.}.
+
+Formulate and prove an analogous statement for $\mathrm{U}(n)$. (The
+group $\mathrm{U}(n)$ is called the \emph{unitary group}. Note that,
+for $n = 1$, it consists of the complex numbers of norm $1$.) [6.19,
+7.16, VIII.5.9]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:6.19}
+Let $\mathbf{v}_1, \dots, \mathbf{v}_r$ form an orthonormal set of
+vectors in $\mathbb{R}^n$.
+\begin{itemize}
+\item Prove that $\mathbf{v}_1, \dots, \mathbf{v}_r$ are linearly
+independent; so they form an orthonormal basis of the space $V$ they
+span.
+\item Let $\mathbf{w} = a_1\mathbf{v}_1 + \dots + a_r\mathbf{v}_r$ be a
+vector of $V$. Prove that $a_i = (\mathbf{v}_i, \mathbf{w})$.
+\item More generally, prove that if $\mathbf{w} \in \mathbb{R}^n$,
+then $(\mathbf{v}_i, \mathbf{w})$ is the component of $\mathbf{v}_i$ in
+the orthogonal projection $\mathbf{w}_V$ of $\mathbf{w}$ onto $V$.
+(That is, prove that $\mathbf{w} - \mathbf{w}_V$ is orthogonal to all
+vectors of $V$.)
+\end{itemize}
+\begin{center}
+\begin{tikzpicture}
+\draw[fill=gray!10] (-1.5,-0.5) -- (2.5,-0.5) -- (3.2,0.5) -- (-0.8,0.5)
+-- cycle;
+\node at (2.9,0) {$V$};
+\draw[->, thick] (0,0) -- (2,2) node[above] {$\mathbf{w}$};
+\draw[->, thick] (0,0) -- (1,0) node[below] {$\mathbf{w}_V$};
+\draw[dashed] (2,2) -- (1,0);
+\end{tikzpicture}
+\end{center}
+For reasons such as these, it is convenient to work with orthonormal
+bases. Note that, by Exercise~6.18, a matrix is in
+$\mathrm{O}_n(\mathbb{R})$ if and only if its columns form an
+orthonormal basis of $\mathbb{R}^n$. Again, the reader should formulate
+parallel statements for hermitian products in $\mathbb{C}^n$. [6.20]
+\end{exer}
+\begin{exer}{}{exer:linalg:6.20}
+The \emph{Gram-Schmidt process} takes as input a choice of linearly
+independent vectors $\mathbf{v}_1, \dots, \mathbf{v}_r$ of
+$\mathbb{R}^n$ and returns vectors $\mathbf{w}_1, \dots, \mathbf{w}_r$
+spanning the same space $V$ spanned by
+$\mathbf{v}_1, \dots, \mathbf{v}_r$ and such that
+$(\mathbf{w}_i, \mathbf{w}_j) = 0$ for $i \neq j$. Scaling each
+$\mathbf{w}_i$ by its length, this yields an orthonormal basis for $V$.
+
+Here is how the Gram-Schmidt process works:
+\begin{itemize}
+\item[---] $\mathbf{w}_1 := \mathbf{v}_1$.
+\item[---] For $k \geq 1$, $\mathbf{w}_k := \mathbf{v}_k -$
+orthogonal projection of $\mathbf{v}_k$ onto
+$\langle \mathbf{w}_1, \dots,
+\mathbf{w}_{k-1} \rangle$.
+\end{itemize}
+(Cf.\ Exercise~6.19.) Prove that this process accomplishes the stated
+goal.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:6.21}
+A matrix $M \in \mathcal{M}_n(\mathbb{R})$ is \emph{symmetric} if
+$M^t = M$. Prove that $M$ is symmetric if and only if
+$(\forall \mathbf{v}, \mathbf{w} \in \mathbb{C}^n)$,
+$(M\mathbf{v}, \mathbf{w}) = (\mathbf{v}, M\mathbf{w})$.
+
+A matrix $M \in \mathcal{M}_n(\mathbb{C})$ is \emph{hermitian} if
+$M^\dagger = M$. Prove that $M$ is hermitian if and only if
+$(\forall \mathbf{v}, \mathbf{w} \in \mathbb{C}^n)$,
+$(M\mathbf{v}, \mathbf{w}) = (\mathbf{v}, M\mathbf{w})$.
+
+In both cases, one may say that $M$ is \emph{self-adjoint}; this means
+that shuttling it from one side of the product to the other does not
+change the result of the operation.
+
+A hermitian matrix with real entries is symmetric. It is in fact
+useful to think of real symmetric matrices as particular cases of
+hermitian matrices. [6.22]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:6.22}
+Prove that the eigenvalues of a hermitian matrix (Exercise~6.21) are
+real. Also, prove that if $\mathbf{v}, \mathbf{w}$ are eigenvectors of
+a hermitian matrix, corresponding to different eigenvalues, then
+$(\mathbf{v}, \mathbf{w}) = 0$. (Thus, eigenvectors with distinct
+eigenvalues for a real symmetric matrix are orthogonal.) [7.20]
+\end{exer}
 
 \section{Canonical forms}
 \label{sec:linalg:canonical-forms}
 
-% \bullet  Prove that v1 , . . . , vr are linearly independent; so they form an orthonormal
-% basis of the space V they span.
-% \bullet  Let w = a1v1 + \dots  + ar vr be a vector of V . Prove that ai = (vi , w).
-% \bullet  More generally, prove that if w \in  Rn , then (vi , w) is the component of vi in
-% the orthogonal projection wV of w onto V . (That is, prove that w - wV is
-% orthogonal to all vectors of V .)
-% w
-% wV
-%  V
-% For reasons such as these, it is convenient to work with orthonormal bases. Note
-% that, by Exercise 6.18, a matrix is in On (R) if and only if its columns form an
-% orthonormal basis of R n. Again, the reader should formulate parallel statements
-% for hermitian products in Cn . [6.20]
-
-\subsection{The Gram-Schmidt process takes as input a choice of linearly independent}
-\label{subsec:linalg:the-gram-schmidt-process-takes-as-input-a-choice-of-linearly-independent}
-
-% vectors v1 , . . . , vr of Rn and returns vectors w1 , . . . , wr spanning the
-% same space V
-% spanned by v1 , . . . , vr and such that (wi, wj ) = 0 for i = j. Scaling each
-% wi by its
-% length, this yields an orthonormal basis for V .
-% Here is how the Gram-Schmidt process works:
-% --- w1 := v1 .
-% --- For k \geq  1, wk := vk - orthogonal projection of v k onto ?w1 , . . . ,
-% wk-1 ?.
-% (Cf. Exercise 6.19.) Prove that this process accomplishes the stated goal.
-
-%\lnot  A matrix M \in  Mn(Rn) is symmetric if M t = M}
-% Prove that M is
-
-% symmetric if and only if (\forall v, w \in  Cn), (M v, w) = (v, M w).
-% A matrix M \in  Mn (Cn ) is hermitian if M \dagger  = M . Prove that M is
-% hermitian if
-% and only if (\forall v, w \in  Cn ), (M v, w) = (v, M w).
-% In both cases, one may say that M is self-adjoint; this means that shuttling it
-% from one side of the product to the other does not change the result of the
-% operation.
-% A hermitian matrix with real entries is symmetric. It is in fact useful to think
-% of real symmetric matrices as particular cases of hermitian matrices. [6.22]
-
-%Prove that the eigenvalues of a hermitian matrix (Exercise 6.21) are real}
-
-% Also, prove that if v, w are eigenvectors of a hermitian matrix, corresponding
-% to
-% different eigenvalues, then (v, w) = 0. (Thus, eigenvectors with distinct
-% eigenvalues
-% for a real symmetric matrix are orthogonal.) [7.20]
-
 \subsection{Linear transformations of free modules; actions of polynomial rings}
 \label{subsec:linalg:linear-transformations-of-free-modules-actions-of-polynomial-rings}
-
-% I have promised to use Theorem 5.6 to better understand the similarity relation
+I have promised to use Theorem~5.6 to better understand the similarity
+relation
 % and to obtain special forms for square matrices with entries in a field. I am
 % now
 % ready to make good on my promise.
