@@ -157,7 +157,7 @@ again, expanded for intelligibility:
 Here is the same in sound-bite format: if $\varphi \circ \zeta = 0$,
 then $\zeta$ factors uniquely through $\ker\varphi$. If
 $\beta \circ \varphi = 0$, then $\beta$ factors uniquely through
-$\operatorname{coker}\varphi$.  We have to get used to the fact that
+$\coker\varphi$.  We have to get used to the fact that
 morphisms may have `many' kernels (or cokernels), uniquely identified
 with each other by virtue of being answers to a universal question
 (Proposition~I.5.4); it is common to harmlessly abuse language and
@@ -225,22 +225,22 @@ reflects inveterate biases acquired by early exposure to
 $\categ{Set}$.
 \begin{proof}
   Let $\varphi : A \to B$ be a morphism in an additive category
-  $\categ{A}$, and let $\operatorname{coker}\varphi : B \to C$ be its
+  $\categ{A}$, and let $\coker\varphi : B \to C$ be its
   cokernel. Let $\gamma : C \to Z$ be a morphism such that
-  $\gamma \circ \operatorname{coker}\varphi = 0$. The composition
-  $(\gamma \circ \operatorname{coker}\varphi) \circ \varphi$ is $0$;
+  $\gamma \circ \coker\varphi = 0$. The composition
+  $(\gamma \circ \coker\varphi) \circ \varphi$ is $0$;
   by definition of cokernel,
-  $\gamma \circ \operatorname{coker}\varphi$ factors uniquely through
+  $\gamma \circ \coker\varphi$ factors uniquely through
   $C$:
   \[\begin{tikzcd}
       A \arrow[r, "\varphi"] & B \arrow[r, "\gamma \circ
-      \operatorname{coker}\varphi = 0"]
-      \arrow[d, "\operatorname{coker}\varphi"'] & Z \\
+      \coker\varphi = 0"]
+      \arrow[d, "\coker\varphi"'] & Z \\
       & C \arrow[ur, dashed, "\gamma"', "\exists!"']
     \end{tikzcd}\] Since
-  $\gamma \circ \operatorname{coker}\varphi = 0 = 0 \circ
-  \operatorname{coker}\varphi$, the uniqueness forces $\gamma = 0$.
-  This proves that $\operatorname{coker}\varphi$ is an epimorphism, by
+  $\gamma \circ \coker\varphi = 0 = 0 \circ
+  \coker\varphi$, the uniqueness forces $\gamma = 0$.
+  This proves that $\coker\varphi$ is an epimorphism, by
   Lemma~\ref{homol:1.3}.
 
   The proof that kernels are monomorphisms is analogous and is left to
@@ -256,7 +256,7 @@ a ring is additive, but it does not have kernels in general
 necessarily finitely generated). But as soon as a morphism $\varphi$
 does have kernels or cokernels in an additive category, the basic
 qualities of that morphism can be detected `as usual' by looking at
-$\ker\varphi$ and $\operatorname{coker}\varphi$. This is the case for
+$\ker\varphi$ and $\coker\varphi$. This is the case for
 monomorphisms and epimorphisms:
 \begin{lem}{}{homol:1.5}
   Let $\varphi : A \to B$ be a morphism in an additive category. Then
@@ -335,7 +335,7 @@ epimorphisms).
   $A \rightarrowtail B$ as defining $A$ as a `subobject' of $B$, it is
   occasionally convenient to think of epimorphisms as `quotients': if
   $\varphi : A \rightarrowtail B$ is a monomorphism, we can use $B/A$
-  to denote (the target of) $\operatorname{coker}\varphi$. We will
+  to denote (the target of) $\coker\varphi$. We will
   have no real use for this notation in this section, but it will come
   in handy later on.
 \end{rem}
@@ -426,24 +426,24 @@ abelian category:
 
   Now consider the identity $B \to B$:
   \[\begin{tikzcd}
-      & & B \arrow[d, "\mathrm{id}"] & \\
+      & & B \arrow[d, "\id"] & \\
       0 \arrow[r] & A \arrow[r, "\varphi", tail, two heads] & B
       \arrow[r] & 0
     \end{tikzcd}\] Since $B \to B \to 0$ is (trivially) the zero
   morphism and $\varphi$ is the kernel of $B \to 0$, we obtain a
   unique morphism $\psi : B \to A$ making the diagram commute:
   \[\begin{tikzcd}
-      & & B \arrow[d, "\mathrm{id}"] \arrow[dl, dashed, "\exists! \psi"'] & \\
+      & & B \arrow[d, "\id"] \arrow[dl, dashed, "\exists! \psi"'] & \\
       0 \arrow[r] & A \arrow[r, "\varphi", tail, two heads] & B
       \arrow[r] & 0
     \end{tikzcd}\]
 
-  As $\varphi\psi = \mathrm{id}_B$, this shows that $\varphi$ has a
+  As $\varphi\psi = \id_B$, this shows that $\varphi$ has a
   right-inverse. Similarly, consider the identity $A \to A$, as
   follows:
   \[\begin{tikzcd}
       & A & & \\
-      0 \arrow[r] & A \arrow[u, "\mathrm{id}"] \arrow[r, "\varphi",
+      0 \arrow[r] & A \arrow[u, "\id"] \arrow[r, "\varphi",
       tail, two heads] & B \arrow[r] & 0
     \end{tikzcd}\]
 
@@ -452,12 +452,12 @@ abelian category:
   $\eta : B \to A$ making this diagram commute:
   \[\begin{tikzcd}
       & A & & \\
-      0 \arrow[r] & A \arrow[u, "\mathrm{id}"] \arrow[r, "\varphi",
+      0 \arrow[r] & A \arrow[u, "\id"] \arrow[r, "\varphi",
       tail, two heads] & B \arrow[r] \arrow[ul, dashed, "\exists!
       \eta"'] & 0
     \end{tikzcd}\]
 
-  This says $\eta\varphi = \mathrm{id}_A$, so $\varphi$ has a
+  This says $\eta\varphi = \id_A$, so $\varphi$ has a
   left-inverse as well.
 
   Thus, $\varphi$ has both a left-inverse $\eta$ and a right-inverse
@@ -542,7 +542,7 @@ have such morphisms: map $A \to A$ by the identity and $B \to A$ by
 the zero-morphism to obtain a unique morphism
 $\pi_A : A \sqcup B \to A$, making the following diagram commute:
 \[\begin{tikzcd}
-    A \arrow[r, "i_A"] \arrow[dr, "\mathrm{id}"'] &
+    A \arrow[r, "i_A"] \arrow[dr, "\id"'] &
     A \sqcup B \arrow[d, dashed, "\exists! \pi_A"] \\
     B \arrow[ur, "i_B"] \arrow[r, "0"'] & A
   \end{tikzcd}\] You can similarly define a morphism
@@ -585,7 +585,7 @@ with $R\text{-}\categ{Mod}$.
       i_B"'] &
     \end{tikzcd}\] and keep in mind that $\pi_B$ is determined by the
   requirements that $\pi_B \circ i_A = 0$ and
-  $\pi_B \circ i_B = \mathrm{id}_B$.  We have to show that $\gamma$
+  $\pi_B \circ i_B = \id_B$.  We have to show that $\gamma$
   factors uniquely through $\pi_B$.  Note that if it factors at all,
   then the factorization is unique: indeed, if
   $\gamma = \delta \circ \pi_B$, then
@@ -598,7 +598,7 @@ with $R\text{-}\categ{Mod}$.
     $(\gamma \circ i_B) \circ \pi_B \circ i_A = 0 = \gamma \circ i_A$
     (since $\pi_B \circ i_A = 0$); and
   \item $(\gamma \circ i_B) \circ \pi_B \circ i_B = \gamma \circ i_B$
-    (since $\pi_B \circ i_B = \mathrm{id}_B$).
+    (since $\pi_B \circ i_B = \id_B$).
   \end{itemize}
   By the universal property of coproducts, it follows that
   $(\gamma \circ i_B) \circ \pi_B = \gamma$, proving that $\gamma$
@@ -632,10 +632,10 @@ with $R\text{-}\categ{Mod}$.
       & A \arrow[d, "i_A"] & \\
       K \arrow[ur] \arrow[dr]' \arrow[r, "\iota"] &
       A \sqcup B \arrow[dr, "\pi_B"] & \\
-      & B \arrow[u, "i_B"'] \arrow[r, "\mathrm{id}"'] & B
+      & B \arrow[u, "i_B"'] \arrow[r, "\id"'] & B
     \end{tikzcd}\] The composition $K \to A \to A \sqcup B \to B$ is
   zero (because $\pi_B \circ i_A = 0$); therefore so is the
-  composition $K \to B \xrightarrow{\mathrm{id}} B$. That is,
+  composition $K \to B \xrightarrow{\id} B$. That is,
   $K \to B$ is actually the zero-morphism; a fortiori, $\iota = 0$:
   the kernel of $A \sqcup B \to A \times B$ is $0$, so this morphism
   is indeed a monomorphism (by Lemma~\ref{homol:1.5}).
@@ -694,7 +694,7 @@ Here is the precise statement:
 This theorem will follow from useful related considerations. Comparing
 the statement with its set-theoretic counterpart suggests that
 \[
-  \ker(\operatorname{coker}\varphi) : \quad K \rightarrowtail B
+  \ker(\coker\varphi) : \quad K \rightarrowtail B
 \]
 should play the role of the `image of $\varphi$'. Again note that the
 set-theoretic definition of `image' is not an option in the general
@@ -710,7 +710,7 @@ image of a function $\varphi$ is; mine looks like this:
     1.1); \draw[fill=black!70] (2.6,0) ellipse (0.35 and 0.7);
     \draw[->] (0.9,0) -- (1.7,0) node[midway, above] {$\varphi$};
     \node at (0,1.4) {$A$}; \node at (2.6,1.4) {$B$}; \node at
-    (2.6,-1.4) {$\operatorname{im}\varphi$};
+    (2.6,-1.4) {$\image\varphi$};
   \end{tikzpicture}
 \end{center}
 We can fit many `subobjects' in $B$ to which $A$ maps via $\varphi$:
@@ -723,10 +723,10 @@ We can fit many `subobjects' in $B$ to which $A$ maps via $\varphi$:
     {$\varphi$}; \node at (0,1.4) {$A$}; \node at (2.6,1.4) {$B$};
   \end{tikzpicture}
 \end{center}
-and $\operatorname{im}\varphi$ is the `smallest' such subobject; that
+and $\image\varphi$ is the `smallest' such subobject; that
 is, it is initial with the property of being a subobject of $B$
 through which $\varphi$ factors. This intuition is precisely captured
-by $\ker(\operatorname{coker}\varphi)$, once we adapt to thinking of
+by $\ker(\coker\varphi)$, once we adapt to thinking of
 `subobjects' as `monomorphisms':
 \begin{lem}{}{homol:1.14}
   Let $\varphi : A \to B$ be a morphism in an abelian category, and
@@ -741,7 +741,7 @@ by $\ker(\operatorname{coker}\varphi)$, once we adapt to thinking of
 
 By Lemma~\ref{homol:1.4}, $\iota$ is a monomorphism. It is clear that
 $\varphi$ factors through $\iota$: the composition
-$A \to B \to \operatorname{coker}\varphi$ is the zero-morphism, so
+$A \to B \to \coker\varphi$ is the zero-morphism, so
 there is a naturally induced $A \to K$ by the universal property of
 kernels. The more interesting part of the statement of Lemma~1.14
 asserts that if $\lambda : L \rightarrowtail B$ is any monomorphism
@@ -753,27 +753,27 @@ uniquely through $\lambda$:
     dashed, "\exists!"] \arrow[r, hook, "\iota"'] & B
   \end{tikzcd}\]
 \begin{proof}
-  Consider $\operatorname{coker}\lambda$:
+  Consider $\coker\lambda$:
   \[\begin{tikzcd}
       & L \arrow[dr, "\lambda"] & \\
       A \arrow[ur] \arrow[r] & K \arrow[r, hook] &
-      B \arrow[dr, "\operatorname{coker}\lambda"'] \\
+      B \arrow[dr, "\coker\lambda"'] \\
       & & & \operatorname{Cok}\lambda
     \end{tikzcd}\] Since $\varphi$ factors through $\lambda$, the
   composition $A \to B \to \operatorname{Cok}\lambda$ is $0$; by the
-  universal property of $\operatorname{coker}\varphi$, we have an
+  universal property of $\coker\varphi$, we have an
   induced map:
   \[\begin{tikzcd}
       & L \arrow[dr, "\lambda"] & & \\
       A \arrow[ur] \arrow[r] & K \arrow[r, hook] & B \arrow[r,
-      "\operatorname{coker}\varphi"] \arrow[dr,
-      "\operatorname{coker}\lambda"'] &
+      "\coker\varphi"] \arrow[dr,
+      "\coker\lambda"'] &
       \operatorname{Cok}_\varphi \arrow[d, dashed, "\exists!"] \\
       & & & \operatorname{Cok}\lambda
     \end{tikzcd}\] Since $K \to \operatorname{Cok}_\varphi$ is the
   zero-morphism, this implies that
   \[
-    K \to B \xrightarrow{\operatorname{coker}\lambda}
+    K \to B \xrightarrow{\coker\lambda}
     \operatorname{Cok}\lambda
   \]
   is the zero-morphism. Since $\lambda : L \to B$ is the kernel of its
@@ -783,16 +783,16 @@ uniquely through $\lambda$:
 
 \begin{defn}{}{homol:1.15}
   Let $\varphi : A \to B$ be a morphism in an abelian category. The
-  \emph{image} of $\varphi$, denoted $\operatorname{im}\varphi$, is
-  $\ker(\operatorname{coker}\varphi)$. The \emph{coimage} of
+  \emph{image} of $\varphi$, denoted $\image\varphi$, is
+  $\ker(\coker\varphi)$. The \emph{coimage} of
   $\varphi$, denoted $\operatorname{coim}\varphi$, is
-  $\operatorname{coker}(\ker\varphi)$.
+  $\coker(\ker\varphi)$.
 \end{defn}
 
 Lemma~\ref{homol:1.14} motivates the first definition: every
 monomorphism through which $\varphi$ factors must factor uniquely
-through $\operatorname{im}\varphi$. (Of course in this context the
-source of $\operatorname{im}\varphi$ is only defined up to (unique)
+through $\image\varphi$. (Of course in this context the
+source of $\image\varphi$ is only defined up to (unique)
 isomorphism, as is every solution to a universal problem.) As for the
 second definition, the reader will formulate the universal property
 satisfied by $\operatorname{coim}\varphi$ (Exercise~1.19). With the
@@ -809,7 +809,7 @@ $\overline{\varphi} : A \to K$,
   \end{tikzcd}\] should be an epimorphism. This is indeed the case:
 \begin{lem}{}{homol:1.16}
   Let $\varphi : A \to B$ be a morphism in an abelian category, and
-  let $\operatorname{im}\varphi : K \to B$,
+  let $\image\varphi : K \to B$,
   $\operatorname{coim}\varphi : A \to C$ be its image and coimage,
   respectively. Then the induced morphisms $A \to K$ and $C \to B$
   are, respectively, an epimorphism and a monomorphism.
@@ -822,28 +822,28 @@ $\overline{\varphi} : A \to K$,
   To verify that $\overline{\varphi} : A \to K$ is an epimorphism,
   consider its image $K' \to K$:
   \[\begin{tikzcd}
-      K' \arrow[r, hook, "\operatorname{im}\overline{\varphi} =
-      \ker\operatorname{coker}\overline{\varphi}"] & K \arrow[r, two
-      heads, "\operatorname{coker}\overline{\varphi}"] &
+      K' \arrow[r, hook, "\image\overline{\varphi} =
+      \ker\coker\overline{\varphi}"] & K \arrow[r, two
+      heads, "\coker\overline{\varphi}"] &
       \operatorname{Cok}.
     \end{tikzcd}\] Recall that every epimorphism is the cokernel of
   its kernel (Lemma~\ref{homol:1.8}); in particular,
-  $\operatorname{coker}\overline{\varphi} =
-  \operatorname{coker}(\operatorname{im}\overline{\varphi})$.  Now,
+  $\coker\overline{\varphi} =
+  \coker(\image\overline{\varphi})$.  Now,
   $K' \to K$ is a monomorphism through which $\varphi$ factors:
   \[\begin{tikzcd}
       A \arrow[r] \arrow[rr, bend left, "\varphi"] & K' \arrow[r,
-      hook, "\operatorname{im}\overline{\varphi}"] & K \arrow[r, hook]
+      hook, "\image\overline{\varphi}"] & K \arrow[r, hook]
       & B.
     \end{tikzcd}\] Therefore, $K' \to B$ is a monomorphism through
   which $\varphi$ factors and `preceding'
-  $\operatorname{im}\varphi : K \to B$. Since the image of $\varphi$
+  $\image\varphi : K \to B$. Since the image of $\varphi$
   is initial among such morphisms (as proven in
   Lemma~\ref{homol:1.14}), necessarily
-  $\operatorname{im}\overline{\varphi}$ is an isomorphism. It follows
+  $\image\overline{\varphi}$ is an isomorphism. It follows
   that
-  $0 = \operatorname{coker}\operatorname{im}\overline{\varphi} =
-  \operatorname{coker}\overline{\varphi}$, proving that
+  $0 = \coker\image\overline{\varphi} =
+  \coker\overline{\varphi}$, proving that
   $\overline{\varphi}$ is an epimorphism by Lemma~\ref{homol:1.5}.
 \end{proof}
 % ?
@@ -851,7 +851,7 @@ To summarize the situation, we have the following commutative diagram
 of epimorphisms and monomorphisms factoring a given morphism $\varphi$
 in an abelian category:
 \[\begin{tikzcd}
-    & K \arrow[dr, hook, "\operatorname{im}\varphi"] & \\
+    & K \arrow[dr, hook, "\image\varphi"] & \\
     A \arrow[ur, "\overline{\varphi}"] \arrow[rr, "\varphi"']
     \arrow[dr, two heads, "\operatorname{coim}\varphi"'] & & B. \\
     & C \arrow[ur, hook, "\underline{\varphi}"'] &
@@ -872,10 +872,10 @@ We now see that this amounts to the statement that \emph{in an abelian
 
 \begin{proof}[Proof of \cref{homol:1.13}]
   A unique morphism $\psi : K \to C$ making the above diagram commute
-  exists, by the universal property of $\operatorname{im}\varphi$
+  exists, by the universal property of $\image\varphi$
   (Lemma~\ref{homol:1.14}), as well as by the universal property of
   $\operatorname{coim}\varphi$. Since
-  $\underline{\varphi} \circ \psi = \operatorname{im}\varphi$ is a
+  $\underline{\varphi} \circ \psi = \image\varphi$ is a
   monomorphism, so is $\psi$. Since
   $\psi \circ \overline{\varphi} = \operatorname{coim}\varphi$ is an
   epimorphism, so is $\psi$. It follows that $\psi$ is an isomorphism
@@ -1087,7 +1087,7 @@ immaterial.
       & C \arrow[r, hook, "i"'] & B.
     \end{tikzcd}\] Prove that necessarily
   $\pi = \operatorname{coim}\varphi$ and
-  $i = \operatorname{im}\varphi$. [\S{}7.4]
+  $i = \image\varphi$. [\S{}7.4]
 \end{exer}
 \begin{exer}{}{exer:homol:1.22}
   \exerused{} Prove that finite products and coproducts coincide in
@@ -1113,19 +1113,19 @@ objects and morphisms in an abelian category:
   \end{tikzcd}\] The sequence is \emph{exact at $B$} if
 \begin{enumerate}[label=(\arabic*)]
 \item $\psi \circ \varphi = 0$ and
-\item $\operatorname{coker}\varphi \circ \ker\psi = 0$.
+\item $\coker\varphi \circ \ker\psi = 0$.
 \end{enumerate}
 The first condition makes the sequence a `complex'; it tells us that
 $\varphi$ factors through $\ker\psi$. As $\ker\psi$ is a monomorphism,
 the universal property of images (Lemma~\ref{homol:1.14}) yields a
-unique factorization of $\operatorname{im}\varphi$ through $\ker\psi$.
+unique factorization of $\image\varphi$ through $\ker\psi$.
 Similarly, the second condition tells us that $\ker\psi$ factors
 through
-$\ker(\operatorname{coker}\varphi) = \operatorname{im}\varphi$.  This
-implies that $\operatorname{im}\varphi$ and $\ker\psi$ coincide.  The
+$\ker(\coker\varphi) = \image\varphi$.  This
+implies that $\image\varphi$ and $\ker\psi$ coincide.  The
 conditions defining exactness can therefore be summarized as
 \begin{itemize}
-\item $\operatorname{im}\varphi = \ker\psi$.
+\item $\image\varphi = \ker\psi$.
 \end{itemize}
 Of course this recovers precisely the condition used to define the
 notion of exactness of a sequence of $R$-modules, in \S{}III.7.1. All
@@ -1258,7 +1258,7 @@ Here is a quicker proof (for those who have done their homework): if
 $\varphi$ is an epimorphism, then $A \oplus B \to C$ is an
 epimorphism, so the diagram is a push-out as well as a pull-back
 (Example~\ref{homol:2.2}). By Exercise~1.16,
-$\operatorname{coker}\varphi' = \operatorname{coker}\varphi = 0$;
+$\coker\varphi' = \coker\varphi = 0$;
 therefore $\varphi'$ is an epimorphism. The reader should have no
 difficulty now proving the statement dual to Lemma~\ref{homol:2.3},
 for fibered coproducts (Exercise~2.2).  Going back to the snake lemma,
@@ -1273,7 +1273,7 @@ abelian category:
   \end{tikzcd}\] The main task is to construct a connecting
 morphism\footnote{To avoid unbearably heavy notation, I will write
   $\ker\nu$, etc., for the \emph{source} of the morphism $\ker\nu$,
-  etc.}  $\delta : \ker\nu \to \operatorname{coker}\lambda$; once this
+  etc.}  $\delta : \ker\nu \to \coker\lambda$; once this
 is done, we should prove the exactness of the sequence displayed in
 Lemma~III.7.8. I will leave this latter step to the more enterprising
 reader (who may want to wait until we go through \S{}2.3).  The
@@ -1284,12 +1284,12 @@ here and resume when you have tried on your own.
 
 The `problem' is that the universal properties of kernel and cokernel
 would seem to guarantee the existence of morphisms \emph{to} $\ker\nu$
-and \emph{from} $\operatorname{coker}\lambda$. There's the rub: how on
+and \emph{from} $\coker\lambda$. There's the rub: how on
 earth are we going to get a morphism \emph{from} $\ker\nu$ \emph{to}
-$\operatorname{coker}\lambda$? (Last chance to try on your own!)
+$\coker\lambda$? (Last chance to try on your own!)
 
 The answer is to view $\ker\nu$ as a cokernel and
-$\operatorname{coker}\lambda$ as a kernel. This can be achieved by
+$\coker\lambda$ as a kernel. This can be achieved by
 constructing suitable pull-back, resp., push-out, diagrams:
 \[\begin{tikzcd}
     M_1 \times_{N_1} (\ker\nu) \arrow[r, "\beta_1'"] \arrow[d] &
@@ -1298,8 +1298,8 @@ constructing suitable pull-back, resp., push-out, diagrams:
   \end{tikzcd}\!, \qquad
   \begin{tikzcd}
     L_0 \arrow[r, "\alpha_0"] \arrow[d] & M_0 \arrow[d] \\
-    \operatorname{coker}\lambda \arrow[r, "\alpha_0'"'] &
-    (\operatorname{coker}\lambda) \amalg_{L_0} M_0.
+    \coker\lambda \arrow[r, "\alpha_0'"'] &
+    (\coker\lambda) \amalg_{L_0} M_0.
   \end{tikzcd}\] By Lemma~\ref{homol:2.3}, $\beta_1'$ is an
 epimorphism since $\beta_1$ is an epimorphism, and $\ker\beta_1$,
 $\ker\beta_1'$ have matching sources by Exercise~1.16. Analogous
@@ -1316,35 +1316,35 @@ $\ker\beta_1'$ have matching sources by Exercise~1.16. Analogous
     0 \arrow[r] & L_0 \arrow[r, "\alpha_0"'] \arrow[d] & M_0 \arrow[r,
     "\beta_0"'] \arrow[d] &
     N_0 \arrow[r] \arrow[d, equal] & 0 \\
-    0 \arrow[r] & \operatorname{coker}\lambda \arrow[r, "\alpha_0'"']
-    & (\operatorname{coker}\lambda) \amalg_{L_0} M_0 \arrow[r,
+    0 \arrow[r] & \coker\lambda \arrow[r, "\alpha_0'"']
+    & (\coker\lambda) \amalg_{L_0} M_0 \arrow[r,
     "\tau"'] & N_0 \arrow[r] & 0
   \end{tikzcd}\] has exact rows (not columns!). We get a morphism
 \[
   \epsilon : M_1 \times_{N_1} (\ker\nu) \to
-  (\operatorname{coker}\lambda) \amalg_{L_0} M_0.
+  (\coker\lambda) \amalg_{L_0} M_0.
 \]
 Note that
 \[
   \epsilon \circ \sigma = 0, \qquad \tau \circ \epsilon = 0
 \]
 by the commutativity of the diagram: indeed, the compositions
-$L_1 \to \operatorname{coker}\lambda$, $\ker\nu \to N_0$ are both
+$L_1 \to \coker\lambda$, $\ker\nu \to N_0$ are both
 zero.  Since $\ker\nu$ plays the role of cokernel in the top row,
 $\epsilon \circ \sigma = 0$ implies that $\epsilon$ must factor
 through $\ker\nu$, giving a morphism
 \[
-  \epsilon' : \ker\nu \to (\operatorname{coker}\lambda) \amalg_{L_0}
+  \epsilon' : \ker\nu \to (\coker\lambda) \amalg_{L_0}
   M_0.
 \]
-Since $\operatorname{coker}\lambda$ plays the role of kernel in the
+Since $\coker\lambda$ plays the role of kernel in the
 bottom row and $\tau \circ \epsilon' : \ker\nu \to N_0$ is the
 zero-morphism (because
 $\tau \circ \epsilon' \circ \beta_1' = \tau \circ \epsilon = 0$ and
 $\beta_1'$ is an epimorphism), $\epsilon'$ must factor through
-$\operatorname{coker}\lambda$, finally yielding
+$\coker\lambda$, finally yielding
 \[
-  \delta : \ker\nu \to \operatorname{coker}\lambda.
+  \delta : \ker\nu \to \coker\lambda.
 \]
 Writing elements out, the reader can verify that this morphism
 $\delta$ agrees with the connecting morphism $\delta$ defined in
@@ -1352,8 +1352,8 @@ $\delta$ agrees with the connecting morphism $\delta$ defined in
 obtain the sequence of morphisms
 \[\begin{tikzcd}[column sep=small]
     0 \arrow[r] & \ker\lambda \arrow[r] & \ker\mu \arrow[r] & \ker\nu
-    \arrow[r, "\delta"] & \operatorname{coker}\lambda \arrow[r] &
-    \operatorname{coker}\mu \arrow[r] & \operatorname{coker}\nu
+    \arrow[r, "\delta"] & \coker\lambda \arrow[r] &
+    \coker\mu \arrow[r] & \coker\nu
     \arrow[r] & 0
   \end{tikzcd}\] in our abelian category. I should now recommend that
 the reader prove the exactness of this sequence, by appropriate
@@ -1691,12 +1691,12 @@ counterparts in $\categ{Set}^*$.
   small abelian category $\categ{A}$, and let
   $\hat{\varphi} : \hat{A} \to \hat{B}$ be the corresponding function
   of pointed sets. Let $\ker\varphi : K \to A$, resp.,
-  $\operatorname{im}\varphi : I \to B$, be the kernel and the image of
+  $\image\varphi : I \to B$, be the kernel and the image of
   $\varphi$, respectively. Then
   \begin{itemize}
   \item $\widehat{\ker\varphi}$ identifies $\hat{K}$ with the subset
     $\hat{\varphi}^{-1}(0)$ of $\hat{A}$;
-  \item $\widehat{\operatorname{im}\varphi}$ identifies $\hat{I}$ with
+  \item $\widehat{\image\varphi}$ identifies $\hat{I}$ with
     the image of $\hat{\varphi}$ in $\hat{B}$.
   \end{itemize}
 \end{lem}
@@ -1710,17 +1710,17 @@ counterparts in $\categ{Set}^*$.
   of $\varphi$,
   \[\begin{tikzcd}
       \varphi : A \arrow[r, two heads] & I \arrow[r,
-      "\operatorname{im}\varphi", hook] & B,
-    \end{tikzcd}\] and that $\operatorname{im}\varphi : I \to B$ is a
-  kernel of $\operatorname{coker}\varphi$ (this is the definition of
+      "\image\varphi", hook] & B,
+    \end{tikzcd}\] and that $\image\varphi : I \to B$ is a
+  kernel of $\coker\varphi$ (this is the definition of
   `image' (cf.\ \S{}1.5); the fact that $A \to I$ is an epimorphism is
   part of the content of Theorem~\ref{homol:1.13}).
 
-  To simplify the notation, let $j = \operatorname{im}\varphi$. Then
+  To simplify the notation, let $j = \image\varphi$. Then
   (by Lemma~\ref{homol:2.6}) $\hat{\jmath}$ is an injective function
   $\hat{I} \to \hat{B}$, mapping a representative $z : Z \to I$ to
   $j \circ z : Z \to B$; we have to verify that
-  $\hat{\jmath}(I) = \operatorname{im}\hat{\varphi}$. To verify that
+  $\hat{\jmath}(I) = \image\hat{\varphi}$. To verify that
   $\hat{\jmath}(z)$ is in the image of $\hat{\varphi}$, consider the
   fiber product
   \[\begin{tikzcd}
@@ -1744,14 +1744,14 @@ counterparts in $\categ{Set}^*$.
       & W \arrow[dl, two heads, "w_1"'] \arrow[dr, two heads, "w_2"] & \\
       Z' \arrow[d, "z'"'] & & Z \arrow[d, "z"] \\
       A \arrow[rr, "\varphi"] & & B \arrow[r,
-      "\operatorname{coker}\varphi"] & \operatorname{Cok}
+      "\coker\varphi"] & \operatorname{Cok}
     \end{tikzcd}\] Note that
-  $\operatorname{coker}\varphi \circ z \circ w_2 =
-  (\operatorname{coker}\varphi \circ \varphi) \circ z' \circ w_1 = 0$;
+  $\coker\varphi \circ z \circ w_2 =
+  (\coker\varphi \circ \varphi) \circ z' \circ w_1 = 0$;
   since $w_2$ is an epimorphism, it follows that
-  $\operatorname{coker}\varphi \circ z = 0$. By the universal property
+  $\coker\varphi \circ z = 0$. By the universal property
   of kernels, this says that $z$ factors uniquely through
-  $\ker\operatorname{coker}\varphi = \operatorname{im}\varphi = j$:
+  $\ker\coker\varphi = \image\varphi = j$:
   \[\begin{tikzcd}
       A \arrow[r, two heads] & I \arrow[r, "j", hook] & B \\
       & Z \arrow[u, dashed, "\exists!"'] \arrow[ur, "z"'] &
@@ -1775,7 +1775,7 @@ Finally, let's check that the functor is exact:
 
 \begin{proof}
   This now follows immediately from Lemma~\ref{homol:2.7}: exactness
-  in $\categ{A}$ means that $\operatorname{im}\varphi = \ker\psi$, and
+  in $\categ{A}$ means that $\image\varphi = \ker\psi$, and
   exactness in $\categ{Set}^*$ means that the image of $\hat{\varphi}$
   equals $\hat{\psi}^{-1}(0)$. By Lemma~\ref{homol:2.7}, these
   conditions are equivalent.
@@ -1862,7 +1862,7 @@ simpler considerations of \S{}2.3.
 \begin{exer}{}{exer:homol:2.1}
   In an abelian category, prove that
   $A \xrightarrow{\varphi} B \xrightarrow{\psi} C$ is exact at $B$ if
-  and only if $\psi$ and $\operatorname{coker}\varphi$ (both of which
+  and only if $\psi$ and $\coker\varphi$ (both of which
   are morphisms with $B$ as source) have the same kernel, if and only
   if $\varphi$ and $\ker\psi$ (both of which are morphisms with $B$ as
   target) have the same cokernel.
@@ -1954,8 +1954,8 @@ simpler considerations of \S{}2.3.
     the image of the restriction of $\lambda$ to the source of
     $\ker\nu$, etc.; see Remark~1.7 for `quotients'.}
   \[
-    \frac{\operatorname{im}\lambda}{\lambda(\ker\nu)} \cong
-    \frac{\operatorname{im}\nu}{\nu(\ker\lambda)}.
+    \frac{\image\lambda}{\lambda(\ker\nu)} \cong
+    \frac{\image\nu}{\nu(\ker\lambda)}.
   \]
   (Hint: By the considerations in this section, this can be proved by
   using elements; in fact, by the Freyd--Mitchell theorem it suffices
@@ -2081,21 +2081,21 @@ a chain complex $(M_\bullet, d_\bullet)$ may be (and usually is)
 viewed as the cochain complex $(M^{-\bullet}, d^{-\bullet})$.
 
 The condition $d^i \circ d^{i-1} = 0$ is equivalent to
-$\operatorname{im}d^{i-1} \subseteq \ker d^i$. The complex is
-\emph{exact} at $M^i$ if $\operatorname{im}d^{i-1} = \ker d^i$; it is
+$\imaged^{i-1} \subseteq \ker d^i$. The complex is
+\emph{exact} at $M^i$ if $\imaged^{i-1} = \ker d^i$; it is
 `exact' if it is exact everywhere. The $i$-th \emph{cohomology} of a
 complex $(M^\bullet, d^\bullet)$ measures its `deviation from
 exactness' at $M^i$:
 \[
-  H^i(M^\bullet) := \frac{\ker d^i}{\operatorname{im}d^{i-1}}.
+  H^i(M^\bullet) := \frac{\ker d^i}{\imaged^{i-1}}.
 \]
 Setting $H_i(M_\bullet) = H^{-i}(M^{-\bullet})$ gives homology from
 cohomology, if desired.
 \begin{rem}{}{homol:3.1}
   In an abelian category, the definition of cohomology should be
   parsed as follows (cf. Remark~\ref{homol:1.7}). Let $I \to M^i$ be
-  $\operatorname{im}d^{i-1}$, and let $K \to M^i$ be $\ker d^i$; since
-  $M^\bullet$ is a complex, $\operatorname{im}d^{i-1}$ factors through
+  $\imaged^{i-1}$, and let $K \to M^i$ be $\ker d^i$; since
+  $M^\bullet$ is a complex, $\imaged^{i-1}$ factors through
   $\ker d^i$, giving a monomorphism $I \to K$; then $H^i(M^\bullet)$
   is the cokernel of this morphism. I will use the `quotient' notation
   as a good shorthand for this operation.
@@ -2123,7 +2123,7 @@ $M^i = 0$ for $i > 0$ or $i < 0$. For example, a complex
   \xrightarrow{d^{-1}} M^0 \xrightarrow{d^0} 0 \longrightarrow 0
   \longrightarrow \dots
 \]
-is a resolution of $A$ if $\operatorname{coker}d^{-1} \cong A$, and
+is a resolution of $A$ if $\cokerd^{-1} \cong A$, and
 the complex is exact otherwise. Down the road we will restrict our
 attention to bounded (-above or -below) resolutions. In a sense, this
 is not a very serious restriction: any resolution may be truncated (at
@@ -2156,7 +2156,7 @@ invariants:
 attack: start with two $R$-modules $M$, $N$; find (for example) a free
 resolution of $M$, and tensor it by $N$, obtaining a chain complex;
 then the homology of this complex computes the modules
-$\operatorname{Tor}^R_i(M, N)$ (cf. \S{}VIII.2.4). Algebraic topology
+$\Tor^R_i(M, N)$ (cf. \S{}VIII.2.4). Algebraic topology
 is a source of many other examples and was in fact historically the
 main motivation driving the development of homological algebra. In the
 1950's it became clear that this tool would be extremely useful in
@@ -2252,14 +2252,14 @@ following is also essentially evident, but a little more interesting:
       M^i \arrow[rr, "d^i_{M^\bullet}"] \arrow[d, "\alpha^i"'] &
       & M^{i+1} \arrow[d, "\alpha^{i+1}"] \\
       N^i \arrow[rr, "d^i_{N^\bullet}"'] \arrow[d,
-      "\operatorname{coker}\alpha^i"'] &
-      & N^{i+1} \arrow[d, "\operatorname{coker}\alpha^{i+1}"] \\
+      "\coker\alpha^i"'] &
+      & N^{i+1} \arrow[d, "\coker\alpha^{i+1}"] \\
       C^i \arrow[rr, dashed, "\exists!"'] & & C^{i+1}
     \end{tikzcd}\] commute. The resulting sequences $K^\bullet$,
   $C^\bullet$ are immediately checked to be complexes, and the
   collections $\ker\alpha^i : K^i \to M^i$,
-  $\operatorname{coker}\alpha^i : N^i \to C^i$ give morphisms of
-  complexes $\ker\alpha^\bullet$, $\operatorname{coker}\alpha^\bullet$
+  $\coker\alpha^i : N^i \to C^i$ give morphisms of
+  complexes $\ker\alpha^\bullet$, $\coker\alpha^\bullet$
   satisfying the universal property for kernels and cokernels in
   $\categ{C}(\categ{A})$. The reader will check that every
   monomorphism in $\categ{C}(\categ{A})$ is a kernel and every
@@ -2380,7 +2380,7 @@ apparent. I claim that cohomology is a functor:
   \[
     \ker d^i \to H^i(N^\bullet).
   \]
-  This morphism is $0$ when restricted to $\operatorname{im}d^{i-1}$,
+  This morphism is $0$ when restricted to $\imaged^{i-1}$,
   by the commutativity of the square on the left. Therefore $\alpha^i$
   induces a morphism
   \[
@@ -2445,7 +2445,7 @@ follows:
 \item It is immediately seen that $\mu^0(m)$ maps to $0$ in $N^1$;
   therefore it determines a unique element $\ell \in L^1$.
 \item Set $\delta(n) = $ the class of $\ell$ in
-  $H^1(L^\bullet) = \operatorname{coker}(\lambda^0)$.
+  $H^1(L^\bullet) = \coker(\lambda^0)$.
 \end{itemize}
 Pictorially,
 % TODO: diagram of the "climbing the ladder" element chase for
@@ -2455,7 +2455,7 @@ Pictorially,
 
 We checked in \S{}III.7.3 that choosing a different preimage for $n$
 in $M^0$, while it may change the element $\ell$, does not change its
-image in $\operatorname{coker}(\lambda^0)$. Thus $\delta$ is
+image in $\coker(\lambda^0)$. Thus $\delta$ is
 well-defined. As we have seen in \S{}2.2, it is relatively
 straightforward to provide an arrow-theoretic version of this
 construction; but we have also seen (Theorem~2.9) that we do not need
@@ -2490,8 +2490,8 @@ $N^\bullet$; that is, consider a large commutative diagram
 columns are complexes. The connecting morphism constructed for the
 snake lemma still gives an interesting morphism
 \[
-  \delta : \ker\nu^i \to \operatorname{coker}\lambda^i \cong
-  \frac{L^{i+1}}{\operatorname{im}\lambda^i},
+  \delta : \ker\nu^i \to \coker\lambda^i \cong
+  \frac{L^{i+1}}{\image\lambda^i},
 \]
 obtained by `climbing the ladder' in precisely the same way as for the
 snake lemma:
@@ -2501,14 +2501,14 @@ snake lemma:
 % representing delta(n) (page 598)
 Where does the image $\delta(n)$ really lie? It is represented by an
 element $\ell$ in $L^{i+1}$, determined by an element
-$\mu^i(m) \in \operatorname{im}\mu^i$. The image of $\mu^i(m)$ in
+$\mu^i(m) \in \image\mu^i$. The image of $\mu^i(m)$ in
 $M^{i+2}$ must be $0$, because the central column is a complex:
 % TODO: diagram showing mu^i(m) mapping to 0 in M^{i+2}, with ell in
 % L^{i+1}, m in M^i, and n in N^i tracked alongside (page 598-599)
 It follows that $\ell \in \ker\lambda^{i+1}$, and therefore we can
 place $\delta(n)$ in cohomology,
 \[
-  \delta(n) \in \frac{\ker\lambda^{i+1}}{\operatorname{im}\lambda^i} =
+  \delta(n) \in \frac{\ker\lambda^{i+1}}{\image\lambda^i} =
   H^{i+1}(L^\bullet),
 \]
 and view $\delta$ as a morphism
@@ -2517,15 +2517,15 @@ and view $\delta$ as a morphism
 \]
 Next, the kernel of $\nu^i$ contains the image of $\nu^{i-1}$, again
 because columns are complexes. What is the restriction of $\delta$ to
-$\operatorname{im}\nu^{i-1}$? I claim it is $0$. Indeed, if $n$ comes
+$\image\nu^{i-1}$? I claim it is $0$. Indeed, if $n$ comes
 from $N^{i-1}$, then a preimage in $M^i$ of $\nu^{i-1}(n)$ may be
 obtained by taking a preimage of $n$ in $M^{i-1}$ and mapping it to
 $M^i$; but since the central column is a complex, this preimage maps
 to $0$ in $M^{i+1}$. It follows that $\delta(n) = 0$ in this case:
 % TODO: diagram showing the degenerate chase producing delta(n) = 0
 % when n comes from im nu^{i-1} (page 599)
-Therefore, $\delta$ factors through $\operatorname{im}\nu^{i-1}$.
-Since $\ker\nu^i / \operatorname{im}\nu^{i-1}$ is nothing but the
+Therefore, $\delta$ factors through $\image\nu^{i-1}$.
+Since $\ker\nu^i / \image\nu^{i-1}$ is nothing but the
 cohomology $H^i(N^\bullet)$, we have obtained a morphism
 \[
   \delta^i : H^i(N^\bullet) \to H^{i+1}(L^\bullet).
@@ -2588,10 +2588,10 @@ The snake lemma is recovered as a particular case of this statement
 
   Let's check exactness at $H^i(M)$. The sequence is a complex, simply
   because $H^i$ is a functor; thus we only have to verify that
-  $\ker\beta \subseteq \operatorname{im}\alpha$. If $\bar m$ is a
+  $\ker\beta \subseteq \image\alpha$. If $\bar m$ is a
   class in $H^i(M^\bullet)$ such that $\beta(\bar m) = 0$ in $H^i(N)$,
   $\bar m$ is represented by an element $m \in \ker\mu^i$ such that
-  $\beta^i(m) \in \operatorname{im}\nu^{i-1}$:
+  $\beta^i(m) \in \image\nu^{i-1}$:
   $\beta^i(m) = \nu^{i-1}(n)$ for some $n \in N^{i-1}$. There is an
   $m' \in M^{i-1}$ such that $\beta^{i-1}(m') = n$, and
   $m - \mu^{i-1}(m')$ represents the same class $\bar m$ in $H^i(M)$
@@ -2740,7 +2740,7 @@ last cryptic remarks (\S{}9.2).
   \]
   \[
     \dots \longrightarrow 0 \longrightarrow A \longrightarrow
-    \operatorname{coker}d^{-1} \longrightarrow M^1 \xrightarrow{d^1}
+    \cokerd^{-1} \longrightarrow M^1 \xrightarrow{d^1}
     M^2 \xrightarrow{d^2} \dots
   \]
   and that replacing $A$ by $0$ in these complexes produces new
@@ -2842,18 +2842,18 @@ last cryptic remarks (\S{}9.2).
 
   Every complex $(L^\bullet, \lambda^\bullet)$ determines a complex
   $\ker^\bullet$, with the object\footnote{Of course $\ker$ and
-    $\operatorname{coker}$ mean the target and source of the arrows
-    $\ker$ and $\operatorname{coker}$, respectively.}
+    $\coker$ mean the target and source of the arrows
+    $\ker$ and $\coker$, respectively.}
   $\ker\lambda^{i+1}$ in degree $i$, connected by zero-morphisms, and
-  a complex $\operatorname{coker}^\bullet$, with the object
-  $\operatorname{coker}\lambda^{i-1}$ in degree $i$, also connected by
+  a complex $\coker^\bullet$, with the object
+  $\coker\lambda^{i-1}$ in degree $i$, also connected by
   zero-morphisms.
 
   Prove that $\lambda^\bullet$ induces a morphism
-  $\overline{\lambda}^\bullet : \operatorname{coker}^\bullet \to
+  $\overline{\lambda}^\bullet : \coker^\bullet \to
   \ker^\bullet$ in the abelian category of complexes, such that
   $\ker\overline{\lambda}^\bullet \cong H^\bullet(L^\bullet)$ and
-  $\operatorname{coker}\overline{\lambda}^\bullet \cong
+  $\coker\overline{\lambda}^\bullet \cong
   H(L^\bullet)[1]^\bullet$.
 
   Now work out the whole long exact cohomology sequence as a
@@ -2884,9 +2884,9 @@ last cryptic remarks (\S{}9.2).
   \begin{itemize}
   \item Prove that $d\categ{A}$ is an abelian category.
   \item For any $(A, d)$ in $d\categ{A}$, prove that $d$ induces a
-    morphism $\bar d : \operatorname{coker}d \to \ker d$.
+    morphism $\bar d : \cokerd \to \ker d$.
   \item Define $H(A, d)$ to be $\ker \bar d$. Prove that
-    $\operatorname{coker}\bar d \cong H(A, d)$.
+    $\coker\bar d \cong H(A, d)$.
   \item Show that $H$ defines an additive functor
     $d\categ{A} \to \categ{A}$ and that this functor is not exact in
     general.
@@ -3142,7 +3142,7 @@ by shifting the complex `one step to the left' and completing it with
 $A$, obtaining the \emph{exact} complex:
 \[
   \dots \longrightarrow M^{-1} \xrightarrow{-d^{-1}_{M^\bullet}} M^0
-  \xrightarrow{\operatorname{coker}d^{-1}_{M^\bullet}} A
+  \xrightarrow{\cokerd^{-1}_{M^\bullet}} A
   \longrightarrow 0 \longrightarrow \dots.
 \]
 This is nothing but our other point of view on resolutions (as in
@@ -3442,7 +3442,7 @@ of morphisms (Exercises~4.5 and~4.6).
   shows that
   \[
     \beta^i(\ell) - \alpha^i(\ell) \in
-    \operatorname{im}d^i_{M^\bullet},
+    \imaged^i_{M^\bullet},
   \]
   proving that $\beta^i(\ell) - \alpha^i(\ell)$ vanishes in
   $H^i(M^\bullet)$, as needed.
@@ -4168,7 +4168,7 @@ $i < 0$.
   $d^{-1}_{L^\bullet}$:
   \[\begin{tikzcd}
       & P^0 \arrow[d, "\alpha^0"] \\
-      L^{-1} \arrow[r, "d_{L^\bullet}^{-1}"'] & \operatorname{im}
+      L^{-1} \arrow[r, "d_{L^\bullet}^{-1}"'] & \image
       d_{L^\bullet}^{-1} \arrow[r] & 0
     \end{tikzcd}\] Since $P^0$ is projective, there exists a morphism
   $h^0 : P^0 \to L^{-1}$ such that
@@ -4194,12 +4194,12 @@ $i < 0$.
   tells us that $\alpha^{i-1} - h^i \circ d^{i-1}_{P^\bullet}$ factors
   through $\ker d^{i-1}_{L^\bullet}$. Since $L^\bullet$ is exact at
   $L^{i-1}$ for $i \le 0$,
-  $\ker d^{i-1}_{L^\bullet} = \operatorname{im}
+  $\ker d^{i-1}_{L^\bullet} = \image
   d^{i-2}_{L^\bullet}$. Therefore, we again have a factorization
   \[\begin{tikzcd}
       & P^{i-1} \arrow[d, "\alpha^{i-1} - h^i \circ
       d_{P^\bullet}^{i-1}"] \\
-      L^{i-2} \arrow[r, "d_{L^\bullet}^{i-2}"'] & \operatorname{im}
+      L^{i-2} \arrow[r, "d_{L^\bullet}^{i-2}"'] & \image
       d_{L^\bullet}^{i-2} \arrow[r] & 0
     \end{tikzcd}\] Now $P^{i-1}$ is projective; therefore there exists
   $h^{i-1} : P^{i-1} \to L^{i-2}$ such that
@@ -4317,7 +4317,7 @@ certain lifts are uniquely defined up to homotopy.
   Example~4.6:
   \[\begin{tikzcd}[column sep=small]
       P^\bullet: & \dots \arrow[r] & 0 \arrow[r] \arrow[d] & \Z
-      \arrow[r, "\mathrm{id}"] \arrow[d, "\mathrm{id}"'] & \Z
+      \arrow[r, "\id"] \arrow[d, "\id"'] & \Z
       \arrow[r] \arrow[d, "\cdot 2"'] &
       0 \arrow[r] \arrow[d] & \dots \\
       L^\bullet: & \dots \arrow[r] & 0 \arrow[r] \arrow[d] & \Z
@@ -4803,11 +4803,11 @@ resolution of $A$. The following key lemma proves this and more:
   \]
   therefore, $\alpha^0 \circ d^{-1}_{P^\bullet}$ factors through
   $\ker\mu$. Since the bottom complex is exact,
-  $\ker\mu = \operatorname{im} d^{-1}_{M^\bullet}$. Therefore, we have
+  $\ker\mu = \image d^{-1}_{M^\bullet}$. Therefore, we have
   the diagram
   \[\begin{tikzcd}
       & P^{-1} \arrow[d, "\alpha^0 \circ d_{P^\bullet}^{-1}"] \\
-      M^{-1} \arrow[r, "d_{M^\bullet}^{-1}"'] & \operatorname{im}
+      M^{-1} \arrow[r, "d_{M^\bullet}^{-1}"'] & \image
       d_{M^\bullet}^{-1} \arrow[r] & 0
     \end{tikzcd}\] and a lift $\alpha^{-1}$ then exists since $P^{-1}$
   is projective.
@@ -4905,7 +4905,7 @@ functor' to a corresponding object in $\categ{K}^-(\categ{P})$
 preserves that information.
 
 We will follow this lead in the next section; the functors
-$\operatorname{Tor}_i$ and $\operatorname{Ext}^i$ encountered in
+$\Tor_i$ and $\operatorname{Ext}^i$ encountered in
 Chapter~VIII will arise precisely in this fashion and will stand as
 our poster examples of derived functors.
 
@@ -5021,7 +5021,7 @@ construct a stand-alone proof for the injective case.
   As the diagram is a pull-back, this implies (as observed in
   Example~2.2) that it is a push-out as well, and (Exercise~1.16
   again) it follows that the induced morphism
-  $\operatorname{coker}\pi \to \operatorname{coker} d^i_{L^\bullet}$
+  $\coker\pi \to \coker d^i_{L^\bullet}$
   is an isomorphism. As noted, this is nothing but
   \[
     H^{i+1}(\lambda^\bullet) : H^{i+1}(P^\bullet) \longrightarrow
@@ -5518,7 +5518,7 @@ We will capitalize on these considerations in the next section.
       0 \arrow[r] & \Z \arrow[r] & \Z/3\Z \arrow[r] & 0
     \end{tikzcd}\] is the zero-morphism, while the morphism induced by
   \[\begin{tikzcd}
-      0 \arrow[r] & \Z \arrow[r, "\cdot 2"] \arrow[d, "\mathrm{id}"']
+      0 \arrow[r] & \Z \arrow[r, "\cdot 2"] \arrow[d, "\id"']
       &
       \Z \arrow[r] \arrow[d, "\cdot 2"] & 0 \\
       0 \arrow[r] & \Z \arrow[r] & \Z/3\Z \arrow[r] & 0
@@ -6031,21 +6031,21 @@ right.
   $\categ{D}^-(R\text{-Mod}) \to \categ{D}^-(R\text{-Mod})$. The
   $i$-th left-derived functor of $\_ \otimes_R N$, viewed as a functor
   $R\text{-Mod} \to R\text{-Mod}$, is
-  $\operatorname{Tor}^R_i (\_ \otimes_R N)$: indeed, the construction
-  of $\operatorname{Tor}^R_i (M, N)$ given in \S{}VIII.2.4 matches
+  $\Tor^R_i (\_ \otimes_R N)$: indeed, the construction
+  of $\Tor^R_i (M, N)$ given in \S{}VIII.2.4 matches
   precisely the `concrete' interpretation of the $i$-th left-derived
   functor given above. The reader may note that in \S{}VIII.2.4 we
   used a free resolution of $M$; free modules are projective, so this
   was simply a convenient way to choose a projective resolution. The
   fact that we could use \emph{any} projective resolution of $M$ to
-  compute $\operatorname{Tor}^R_i(M, N)$ was mentioned at the end of
+  compute $\Tor^R_i(M, N)$ was mentioned at the end of
   \S{}VIII.6.2 and was attributed there to the `magic of homological
   algebra'. This piece of magic has now been explained in gory detail.
 
   However, I also mentioned that \emph{flat} resolutions may be used
   in place of projective resolutions, and this piece of magic still
   needs to be explained. The same applies to the fact, mentioned in
-  \S{}VIII.2.4, that $\operatorname{Tor}_i(M, N)$ may in fact be
+  \S{}VIII.2.4, that $\Tor_i(M, N)$ may in fact be
   computed by using a projective resolution \emph{of $N$} rather than
   $M$. Both mysteries will be dispelled in \S{}8.
 \end{exam}
@@ -6080,7 +6080,7 @@ right.
 \subsection{Long exact sequence of derived functors}
 \label{subsec:homol:long-exact-sequence-of-derived-functors}
 
-The most remarkable property of the functors $\operatorname{Tor}_i$
+The most remarkable property of the functors $\Tor_i$
 and $\operatorname{Ext}^i$ mentioned in Chapter~VIII is probably that
 they `repair' the lack of exactness of $\otimes$, $\Hom$,
 respectively, in the sense that they agree with these functors in
@@ -6326,8 +6326,8 @@ precise statement:
       P_{M^\bullet}^{-1} \arrow[r, "d^{-1}"] & P_{M^\bullet}^0
       \arrow[r] & 0,
     \end{tikzcd}\] can in fact be chosen so that
-  $\operatorname{im} d^i$, $\ker d^i$, and the cohomology
-  $\ker d^i / \operatorname{im} d^{i-1}$ are all projective
+  $\image d^i$, $\ker d^i$, and the cohomology
+  $\ker d^i / \image d^{i-1}$ are all projective
   resolutions of the corresponding objects from $M^\bullet$. This is
   useful in some applications. Resolutions satisfying this property
   are called \emph{Cartan-Eilenberg} (or `fully projective')
@@ -6483,7 +6483,7 @@ $\categ{C}^{\ge 0}(\categ{B})$.
 \label{subsec:homol:relating-f-li-f-rif}
 
 The reader may have noticed that $\otimes$ was derived \emph{to the
-  left} to obtain $\operatorname{Tor}$, while $\Hom$ was derived
+  left} to obtain $\Tor$, while $\Hom$ was derived
 \emph{to the right} to obtain $\operatorname{Ext}$. The asymmetry
 mandating this choice lies in the fact that $\otimes$ is right-exact,
 while $\Hom$ is left-exact: any additive functor can be derived to the
@@ -6813,7 +6813,7 @@ $\alpha : G \to M$ in $C^1(G, M)$,
 \end{prop}
 
 Indeed, with notation as above we have
-$H^1(G, F^*) \cong \ker d_G^1 / \operatorname{im} d_G^0$, and we can
+$H^1(G, F^*) \cong \ker d_G^1 / \image d_G^0$, and we can
 compute this quotient explicitly. Let $\alpha \in C^1(G, F^*)$; denote
 by $\alpha_g$ the image of $g$ in $F^*$ by $\alpha$. The `cocycle
 condition' $\alpha \in \ker d_G^1$ translates into
@@ -6843,7 +6843,7 @@ such that
 \]
 for all $g \in G$. But this says precisely that $\alpha$ is in the
 image of $d_G^0$, proving that
-$\ker d_G^1 / \operatorname{im} d_G^0 = 0$, as claimed.
+$\ker d_G^1 / \image d_G^0 = 0$, as claimed.
 
 Claim~\ref{prop:homol:7.18} is significant: it goes under the name of
 \emph{Hilbert's theorem 90}, because in the case in which $G$ is the
@@ -7086,7 +7086,7 @@ $H_\bullet(\Z, M)$ (Exercise~7.19).
   $\mathscr{T}^0 \rightsquigarrow \mathscr{S}^0$ to a natural
   transformation $\mathscr{T}^1 \rightsquigarrow \mathscr{S}^1$,
   compatibly with the connecting morphisms. (Hint: If $\mathscr{T}^1$
-  is effaced by $\iota : A \to B$, let $C = \operatorname{coker}\iota$
+  is effaced by $\iota : A \to B$, let $C = \coker\iota$
   and consider the exact sequence $0 \to A \to B \to C \to 0$.) [7.15]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:homol:7.15}
@@ -7218,12 +7218,12 @@ functor $\mathscr{F}$ may admit other $\mathscr{F}$-acyclic objects.
   equivalently (by the symmetry of $\otimes$) if $M \otimes_R \_$ is
   exact. Flat modules are acyclic with respect to tensor products, in
   a very strong sense: if $N$ is flat, then
-  $\operatorname{Tor}_i(M, N) = 0$ for $i \ne 0$ and all $M$; see
+  $\Tor_i(M, N) = 0$ for $i \ne 0$ and all $M$; see
   \S{}VIII.2.4 to be reminded of why, or---better---prove it anew.
   Further, since (as we will finally prove in this section) Tor
   functors may be computed by resolving either argument, we also know
   that, `symmetrically', if $M$ is flat, then
-  $\operatorname{Tor}_i(M, N) = 0$ for all $i \ne 0$ and all modules
+  $\Tor_i(M, N) = 0$ for all $i \ne 0$ and all modules
   $N$. Thus, a flat module is $\mathscr{F}$-acyclic for every functor
   $\mathscr{F}$ defined by $\_ \otimes_R N$, for all modules $N$.
 \end{exam}
@@ -7335,7 +7335,7 @@ $\categ{L}_i\mathscr{F}$.
     \end{tikzcd}\] be a resolution of an $R$-module $M$ by flat
   $R$-modules. Then for every $R$-module $N$,
   \[
-    \operatorname{Tor}^R_i(M, N) \cong H_i(F_\bullet \otimes_R N).
+    \Tor^R_i(M, N) \cong H_i(F_\bullet \otimes_R N).
   \]
   Indeed, flat modules are acyclic with respect to $\_ \otimes N$
   (Example~\ref{exam:homol:8.2}), so this is now a consequence of
@@ -8117,7 +8117,7 @@ their arguments.
   $M$, resp., $N$. Then
   \[
     H^i(P_M^\bullet \otimes_R N) \cong H^i(M \otimes_R P_N^\bullet)
-    \quad (\cong \operatorname{Tor}^R_i(M, N)).
+    \quad (\cong \Tor^R_i(M, N)).
   \]
 \end{thm}
 
@@ -8201,7 +8201,7 @@ really lies beyond the scope of these notes.
   Let $M$ be an object of an abelian category $\categ{A}$ with enough
   projectives, and let $\mathscr{F} : \categ{A} \to \categ{B}$ be an
   additive functor. Let $A^\bullet$ be an $\mathscr{F}$-acyclic
-  resolution of $M$, and let $J^i := \operatorname{im} d_A^i$. Prove
+  resolution of $M$, and let $J^i := \image d_A^i$. Prove
   that
   \[
     \categ{L}_i\mathscr{F}(M) \cong \categ{L}_1\mathscr{F}(J^{-i+1})
@@ -8901,9 +8901,9 @@ spectral sequence. Let
   \end{tikzpicture}
 \]
 be an exact triangle\footnote{That is,
-  $\operatorname{im}\alpha = \ker\beta$,
-  $\operatorname{im}\beta = \ker\gamma$, and
-  $\operatorname{im}\gamma = \ker\alpha$.} in an abelian category; I
+  $\image\alpha = \ker\beta$,
+  $\image\beta = \ker\gamma$, and
+  $\image\gamma = \ker\alpha$.} in an abelian category; I
 am placing no assumption on the `degree' of $\gamma$ (and indeed, I am
 not assuming we have defined a translation functor).
 
@@ -8914,9 +8914,9 @@ $\gamma \circ \beta = 0$, we have
 \]
 Thus we can take the homology of $E$ with respect to $d$ and define
 \[
-  E' := \frac{\ker d}{\operatorname{im} d}.
+  E' := \frac{\ker d}{\image d}.
 \]
-Further, we can let $A' := \operatorname{im}\alpha$ and let
+Further, we can let $A' := \image\alpha$ and let
 \begin{itemize}
 \item $\alpha' : A' \to A'$ be the restriction of $\alpha$ to $A'$;
 \item $\beta' : A' \to E'$ be defined by
@@ -8925,7 +8925,7 @@ Further, we can let $A' := \operatorname{im}\alpha$ and let
 \end{itemize}
 where $[e]$ denotes the class of $e \in E$ in $E'$. (Since
 $\beta \circ \gamma(e) = d(e) = 0$,
-$\gamma(e) \in \ker\beta = \operatorname{im}\alpha = A'$.) All needed
+$\gamma(e) \in \ker\beta = \image\alpha = A'$.) All needed
 verifications (such as the independence on the representative $e$ of
 $[e]$ in the third prescription) are straightforward, from the
 exactness of the given triangle.
@@ -8966,13 +8966,13 @@ $A_{i+1}$ is the image of $\alpha^i$.
 Thus, one exact triangle produces a whole sequence of triangles and in
 particular a sequence of objects $E_i$, each endowed with a
 differential $d_i$, such that
-$E_{i+1} = \ker d_i / \operatorname{im} d_i$.
+$E_{i+1} = \ker d_i / \image d_i$.
 
 \begin{defn}{}{defn:homol:9.2}
   A \emph{spectral sequence} $\{(E_i, d_i)\}_{i=1,2,\dots}$ is a
   sequence of objects $E_i$ and morphisms $d_i : E_i \to E_i$ in an
   abelian category, such that $d_i \circ d_i = 0$ and
-  $E_{i+1} \cong \ker d_i / \operatorname{im} d_i$.
+  $E_{i+1} \cong \ker d_i / \image d_i$.
 \end{defn}
 
 Thus, exact couples are a way to produce spectral sequences. There is
@@ -8984,7 +8984,7 @@ fact, this can be done with any spectral sequence. To see this, let
 so that $E_1 \cong Z_1/B_1$; inductively, assume we have defined
 $Z_i \subseteq Z_1$, $B_i \subseteq Z_i$ so that $E_i \cong Z_i/B_i$,
 and let $\overline{Z}_{i+1} = \ker d_i$,
-$\overline{B}_{i+1} = \operatorname{im} d_i$; define $Z_{i+1}$,
+$\overline{B}_{i+1} = \image d_i$; define $Z_{i+1}$,
 $B_{i+1}$ as the corresponding subobjects of $Z_i$. Then
 \[
   E_{i+1} \cong \frac{\overline{Z}_{i+1}}{\overline{B}_{i+1}} \cong
@@ -9021,7 +9021,7 @@ that the sequence \emph{collapses} at $E_r$.
 The reader will verify (Exercise~\ref{exer:homol:9.8}) that if the
 spectral sequence arises from an exact couple, as above, then
 \[
-  Z_\infty = \bigcap_r \gamma^{-1}(\operatorname{im} \alpha^r), \quad
+  Z_\infty = \bigcap_r \gamma^{-1}(\image \alpha^r), \quad
   B_\infty = \bigcup_r \beta(\ker \alpha^r),
 \]
 so the limit $E_\infty$ has a concrete realization in this case.
@@ -9215,7 +9215,7 @@ the statement that follows, which also summarizes the situation.
   couple (Exercise~\ref{exer:homol:9.8}), as a subquotient of
   ${}_vE_1$: it is the quotient $Z_\infty/B_\infty$, where
   \[
-    Z_\infty = \bigcap_r \gamma^{-1}(\operatorname{im}\alpha^r),
+    Z_\infty = \bigcap_r \gamma^{-1}(\image\alpha^r),
     \qquad B_\infty = \beta\Big(\bigcup_r \ker\alpha^r\Big).
   \]
   The computation is streamlined by focusing on a specific degree $k$
@@ -9232,9 +9232,9 @@ the statement that follows, which also summarizes the situation.
 
   By the first of these observations, the piece sent by $\alpha^r$ to
   $H^k(T_m^\bullet)$ is $0$ for $r \gg 0$, and it follows that
-  $\bigcap_r \operatorname{im}\alpha^r = 0$. Therefore,
+  $\bigcap_r \image\alpha^r = 0$. Therefore,
   \[
-    Z_\infty = \ker\gamma = \operatorname{im}\beta.
+    Z_\infty = \ker\gamma = \image\beta.
   \]
   By the second observation, $\ker\alpha^r$ stabilizes to
   $\ker(H^k(T_m^\bullet) \to H^k(T^\bullet))$ for each $k$, hence
@@ -9253,27 +9253,27 @@ the statement that follows, which also summarizes the situation.
     \bigoplus_m H^\bullet(T^\bullet),
   \]
   and we have obtained
-  \[ {}_vE_\infty \cong \frac{\operatorname{im}\beta}{\beta(\ker\nu)}.
+  \[ {}_vE_\infty \cong \frac{\image\beta}{\beta(\ker\nu)}.
   \]
 
   By the innocent Exercise~2.12,
   \[
-    \frac{\operatorname{im}\beta}{\beta(\ker\nu)} \cong
-    \frac{\operatorname{im}\nu}{\nu(\ker\beta)};
+    \frac{\image\beta}{\beta(\ker\nu)} \cong
+    \frac{\image\nu}{\nu(\ker\beta)};
   \]
   by the exactness of the original couple,
   \[
-    \ker\beta = \operatorname{im}\alpha = \bigoplus_m
-    \operatorname{im}(H^\bullet(T_{m+1}^\bullet) \to
+    \ker\beta = \image\alpha = \bigoplus_m
+    \image(H^\bullet(T_{m+1}^\bullet) \to
     H^\bullet(T_m^\bullet)),
   \]
   hence
   \[
-    \nu(\ker\beta) = \bigoplus_m \operatorname{im}\nu_{m+1}.
+    \nu(\ker\beta) = \bigoplus_m \image\nu_{m+1}.
   \]
   Therefore
-  \[ {}_vE_\infty \cong \bigoplus_m \frac{\operatorname{im}\nu_m}
-    {\operatorname{im}\nu_{m+1}} =
+  \[ {}_vE_\infty \cong \bigoplus_m \frac{\image\nu_m}
+    {\image\nu_{m+1}} =
     \operatorname{gr}_v(H^\bullet(T^\bullet))
   \]
   as stated.
@@ -9407,8 +9407,8 @@ $f : R \to S$ is a homomorphism of commutative rings (so that $S$ may
 be viewed as an $R$-module), $A$ is an $R$-module, and $B$ is an
 $S$-module (and hence an $R$-module, via $f$), then there is a
 `change-of-ring spectral sequence'
-$\operatorname{Tor}^S_p(\operatorname{Tor}^R_q(A,S),B) \Rightarrow
-\operatorname{Tor}^R_\bullet(A,B)$. In topology, the \emph{Serre
+$\Tor^S_p(\Tor^R_q(A,S),B) \Rightarrow
+\Tor^R_\bullet(A,B)$. In topology, the \emph{Serre
   spectral sequence} can be used to compute the homology of a
 fibration in terms of the homology of the base and of the fiber. It
 would be completely futile for me to attempt to do any justice to the
@@ -9543,9 +9543,9 @@ put together by working out Exercise~\ref{exer:homol:9.10}.
     \end{tikzpicture}
   \]
   Prove that the limit $E_\infty$ is isomorphic to
-  $\gamma^{-1}(\bigcap_r \operatorname{im}\alpha^r) / \beta(\bigcup_r
+  $\gamma^{-1}(\bigcap_r \image\alpha^r) / \beta(\bigcup_r
   \ker\alpha^r)$. (Hint: In fact,
-  $Z_{r+1} = \gamma^{-1}(\operatorname{im}\alpha^r)$ and
+  $Z_{r+1} = \gamma^{-1}(\image\alpha^r)$ and
   $B_{r+1} = \beta(\ker\alpha^r)$.) [\S{}9.3]
 \end{exer}
 

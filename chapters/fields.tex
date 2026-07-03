@@ -301,7 +301,7 @@ of study in this chapter, so I should make its definition official:
   Let $k \subseteq F$ be a field extension. The \emph{group of
     automorphisms of the extension}, denoted
   $\Aut_k(F)$, is the group of field automorphisms
-  $j : F \to F$ such that $j|_k = \mathrm{id}_k$.
+  $j : F \to F$ such that $j|_k = \id_k$.
 \end{defn}
 
 \begin{coro}{}{fields:1.7}
@@ -3115,7 +3115,7 @@ separability?
 \begin{proof}
   The proof is essentially (and not by coincidence) a rehash of the
   proof of \cref{coro:fields:1.7}. Associate with each
-  $\iota : k(\alpha) \to \bar{k}$ extending $\mathrm{id}_k$ the image
+  $\iota : k(\alpha) \to \bar{k}$ extending $\id_k$ the image
   $\iota(\alpha)$, which must be a root of the minimal polynomial of
   $\alpha$. This correspondence is injective, since $\iota(\alpha)$
   determines $\iota$ (as $\iota$ extends the identity on $k$). To see
@@ -3251,7 +3251,7 @@ for the minimal polynomial of $\beta$? It does, by virtue of
   Let $k \subseteq F = k(\alpha)$ be a simple algebraic
   extension. Prove that $F$ is normal over $k$ if and only if for
   every algebraic extension $F \subseteq K$ and every
-  $\sigma \in \mathrm{Aut}_k(K)$, $\sigma(F) = F$. [$\S$6.1]
+  $\sigma \in \Aut_k(K)$, $\sigma(F) = F$. [$\S$6.1]
 \end{exer}
 \begin{exer}{}{fields:exer:4.8}
   Let $p$ be a prime, and let $k$ be a field of characteristic
@@ -3360,7 +3360,7 @@ for the minimal polynomial of $\beta$? It does, by virtue of
 \begin{exer}{}{fields:exer:4.19}
   Let $k \subseteq F$ be a finite separable extension, and let
   $\iota_1, \dots, \iota_d$ be the distinct embeddings of $F$ in
-  $\bar{k}$ extending $\mathrm{id}_k$. For $\alpha \in F$, prove that
+  $\bar{k}$ extending $\id_k$. For $\alpha \in F$, prove that
   the norm $N_{k \subseteq F}(\alpha)$ (cf.\ Exercise~1.12) equals
   $\prod_{i=1}^d \iota_i(\alpha)$ and its trace
   $\mathrm{tr}_{k \subseteq F} (\alpha)$ (Exercise~1.13) equals
@@ -3369,7 +3369,7 @@ for the minimal polynomial of $\beta$? It does, by virtue of
 \end{exer}
 \begin{exer}{}{fields:exer:4.20}
   Let $k \subseteq F$ be a finite separable extension, and let
-  $\alpha \in F$. Prove that for all $\sigma \in \mathrm{Aut}_k(F)$,
+  $\alpha \in F$. Prove that for all $\sigma \in \Aut_k(F)$,
   $N_{k \subseteq F}(\alpha / \sigma(\alpha)) = 1$ and
   $\mathrm{tr}_{k \subseteq F}(\alpha - \sigma(\alpha)) = 0$. [6.16,
   6.19]
@@ -3384,7 +3384,7 @@ for the minimal polynomial of $\beta$? It does, by virtue of
                               &= \mathrm{tr}_{k \subseteq E}(\mathrm{tr}_{E \subseteq F}(\alpha)).
   \end{align*}
   (Hint: Use Exercise~4.19: if $d = [E : k]$ and $e = [F : E]$, the
-  $de$ embeddings of $F$ into $\bar{k}$ lifting $\mathrm{id}_k$ must
+  $de$ embeddings of $F$ into $\bar{k}$ lifting $\id_k$ must
   divide into $d$ groups of $e$ each, according to their restriction
   to $E$.)
 
@@ -3658,10 +3658,10 @@ $p$, we know these can be realized as simple extensions by an element
 with minimal polynomial of degree $d$. This polynomial is necessarily
 separable ($\mathbb{F}_p$ is perfect), so \cref{coro:fields:1.7}
 immediately gives us the size of the automorphism group:
-$|\mathrm{Aut}_{\mathbb{F}_p}(\mathbb{F}_{p^d})| = d$. But what is
+$|\Aut_{\mathbb{F}_p}(\mathbb{F}_{p^d})| = d$. But what is
 this group?
 \begin{prop}{}{fields:5.8}
-  $\mathrm{Aut}_{\mathbb{F}_p}(\mathbb{F}_{p^d})$ is cyclic, generated
+  $\Aut_{\mathbb{F}_p}(\mathbb{F}_{p^d})$ is cyclic, generated
   by the Frobenius isomorphism.
 \end{prop}
 \begin{proof}
@@ -3670,16 +3670,16 @@ this group?
   Frobenius homomorphism is an isomorphism on a finite field
   (\cref{coro:fields:4.18}) and restricts to the identity on
   $\mathbb{F}_p$ (Exercise~4.11), so
-  $\phi \in \mathrm{Aut}_{\mathbb{F}_p}(\mathbb{F}_{p^d})$. Since we
+  $\phi \in \Aut_{\mathbb{F}_p}(\mathbb{F}_{p^d})$. Since we
   know a priori the size of this group, all we have to show is that
   the order of $\phi$ is $d$.
 
-  Let $e = |\phi|$. Then $\phi^e = \mathrm{id}$; hence $x^{p^e} = x$
+  Let $e = |\phi|$. Then $\phi^e = \id$; hence $x^{p^e} = x$
   for all $x \in \mathbb{F}_{p^d}$. In other words, the (nonzero)
   polynomial $x^{p^e} - x$ has $p^d$ roots in $\mathbb{F}_{p^d}$; this
   implies $p^d \leq p^e$ (Lemma~V.5.1). Equivalently, $d \leq e$,
   yielding
-  $|\mathrm{Aut}_{\mathbb{F}_p}(\mathbb{F}_{p^d})| \leq |\phi|$. But
+  $|\Aut_{\mathbb{F}_p}(\mathbb{F}_{p^d})| \leq |\phi|$. But
   then these two numbers must be equal, since the order of an element
   always divides the order of the group (Example~II.8.15).
 \end{proof}
@@ -3886,15 +3886,15 @@ $\zeta_n$.  As usual, we now preoccupy ourselves with the automorphism
 group of this extension, and as in previous examples the situation is
 very neat.
 \begin{prop}{}{fields:5.16}
-  $\mathrm{Aut}_\Q(\Q(\zeta_n))$ is isomorphic to the group of units
+  $\Aut_\Q(\Q(\zeta_n))$ is isomorphic to the group of units
   in $\Z/n\Z$.
 \end{prop}
 \begin{proof}
-  We know that $\mathrm{Aut}_\Q(\Q(\zeta_n))$ has cardinality
+  We know that $\Aut_\Q(\Q(\zeta_n))$ has cardinality
   $\varphi(n)$ (\cref{coro:fields:1.7}; the roots are distinct since
   $\Phi_n(x)$ is separable), so all we need to do is exhibit an
   injective homomorphism
-  $j : (\Z/n\Z)^* \to \mathrm{Aut}_\Q(\Q(\zeta_n))$. For
+  $j : (\Z/n\Z)^* \to \Aut_\Q(\Q(\zeta_n))$. For
   $[m]_n \in (\Z/n\Z)^*$, that is, for $m$ an integer relatively prime
   to $n$, let $j([m]_n)$ be the unique automorphism
   $\Q(\zeta_n) \to \Q(\zeta_n)$ sending $\zeta_n$ to $\zeta_n^m$ (cf.\
@@ -4023,7 +4023,7 @@ Here is the connection with separability:
     \gamma = c\alpha + \beta
   \]
   to distinct elements $\iota(\gamma) = \iota(\alpha)c + \iota(\beta)$
-  (each $\iota$ extends $\mathrm{id}_k$, so $\iota(c) = c$). Since the
+  (each $\iota$ extends $\id_k$, so $\iota(c) = c$). Since the
   cardinality of $I$ is $[F : k]_s$ (\cref{defn:fields:4.21}) and each
   $\iota(\gamma)$ is a root of the minimal polynomial of $\gamma$ over
   $k$, we have
@@ -4039,7 +4039,7 @@ note that we are now in a position to extend the convenient inequality
 found in \cref{coro:fields:1.7} to all finite separable extensions:
 \begin{coro}{}{fields:5.20}
   Let $k \subseteq F$ be a finite, separable extension. Then
-  $|\mathrm{Aut}_k(F)| \leq [F : k]$, with equality if and only if
+  $|\Aut_k(F)| \leq [F : k]$, with equality if and only if
   $k \subseteq F$ is a normal extension.
 \end{coro}
 \begin{proof}
@@ -4052,7 +4052,7 @@ found in \cref{coro:fields:1.7} to all finite separable extensions:
   so it is normal over $k$ by \cref{thm:fields:4.8}.  Conversely, if
   $F$ is normal over $k$, then $f(x)$ splits completely in $F$ and has
   distinct roots since $\alpha$ is separable over $k$; therefore
-  $|\mathrm{Aut}_k(F)| = [F : k]$, again by \cref{coro:fields:1.7}.
+  $|\Aut_k(F)| = [F : k]$, again by \cref{coro:fields:1.7}.
 \end{proof}
 \begin{exam}{}{fields:exam:5.21}
   By \cref{prop:fields:5.19}, if we want to construct a nonsimple
@@ -4292,7 +4292,7 @@ into these waters, we should formalize the precise relation between
 groups of automorphisms of an extension and intermediate fields.
 \begin{defn}{}{fields:6.1}
   Let $k \subseteq F$ be a field extension, and let
-  $G \subseteq \mathrm{Aut}_k(F)$ be a group of automorphisms of the
+  $G \subseteq \Aut_k(F)$ be a group of automorphisms of the
   extension. The \emph{fixed field} of $G$ is the intermediate field
   \[
     F^G := \{\alpha \in F \mid \forall g \in G,\; g\alpha = \alpha\}.
@@ -4303,30 +4303,30 @@ immediate. The notion of fixed field allows us to set up a
 correspondence
 \[
   \{\text{intermediate fields } E : k \subseteq E \subseteq F\}
-  \rightleftharpoons \{\text{subgroups of } \mathrm{Aut}_k(F)\},
+  \rightleftharpoons \{\text{subgroups of } \Aut_k(F)\},
 \]
-sending the intermediate field $E$ to the subgroup $\mathrm{Aut}_E(F)$
-of $\mathrm{Aut}_k(F)$ and the subgroup
-$G \subseteq \mathrm{Aut}_k(F)$ to the fixed field $F^G$.
+sending the intermediate field $E$ to the subgroup $\Aut_E(F)$
+of $\Aut_k(F)$ and the subgroup
+$G \subseteq \Aut_k(F)$ to the fixed field $F^G$.
 \begin{defn}{}{fields:6.2}
   This is known as the \emph{Galois correspondence}.
 \end{defn}
 \begin{lem}{}{fields:6.3}
   The Galois correspondence is inclusion-reversing: for all subgroups
-  $G$ of $\mathrm{Aut}_k(F)$ and all intermediate fields
+  $G$ of $\Aut_k(F)$ and all intermediate fields
   $k \subseteq E \subseteq F$:
   \begin{itemize}
-  \item $E \subseteq F^{\mathrm{Aut}_E(F)}$;
-  \item $G \subseteq \mathrm{Aut}_{F^G}(F)$.
+  \item $E \subseteq F^{\Aut_E(F)}$;
+  \item $G \subseteq \Aut_{F^G}(F)$.
   \end{itemize}
   Further, denote by $E_1 E_2$ the smallest subfield of $F$ containing
   two intermediate fields $E_1$, $E_2$, and denote by
   $\langle G_1, G_2 \rangle$ the smallest subgroup of
-  $\mathrm{Aut}_k(F)$ containing two subgroups $G_1$, $G_2$. Then
+  $\Aut_k(F)$ containing two subgroups $G_1$, $G_2$. Then
   \begin{itemize}
   \item
-    $\mathrm{Aut}_{E_1 E_2}(F) = \mathrm{Aut}_{E_1}(F) \cap
-    \mathrm{Aut}_{E_2}(F)$;
+    $\Aut_{E_1 E_2}(F) = \Aut_{E_1}(F) \cap
+    \Aut_{E_2}(F)$;
   \item $F^{\langle G_1, G_2 \rangle} = F^{G_1} \cap F^{G_2}$.
   \end{itemize}
 \end{lem}
@@ -4343,33 +4343,33 @@ observation is that this is not always the case:
   $[\Q(\sqrt[3]{2}) : \Q] = 3$ is prime, the only intermediate fields
   are $\Q$ and $\Q(\sqrt[3]{2})$ (by
   \cref{coro:fields:1.11}). Concerning
-  $\mathrm{Aut}_\Q(\Q(\sqrt[3]{2}))$: since $\sqrt[3]{2} \in \R$, we
+  $\Aut_\Q(\Q(\sqrt[3]{2}))$: since $\sqrt[3]{2} \in \R$, we
   have an extension $\Q(\sqrt[3]{2}) \subseteq \R$; since
   $\sqrt[3]{2}$ is the only cube root of $2$ in $\R$, the minimal
   polynomial $t^3 - 2$ of $\sqrt[3]{2}$ has a single root in
   $\Q(\sqrt[3]{2})$. By \cref{coro:fields:1.7},
-  $\mathrm{Aut}_\Q(\Q(\sqrt[3]{2}))$ consists of a single element: it
+  $\Aut_\Q(\Q(\sqrt[3]{2}))$ consists of a single element: it
   is trivial.
 
   Thus, in this example the Galois correspondence acts between a set
   with two elements and a singleton:
   \[
     \{\Q,\; \Q(\sqrt[3]{2})\} \rightleftharpoons
-    \{\mathrm{Aut}_\Q(\Q(\sqrt[3]{2}))\} = \{e\}.
+    \{\Aut_\Q(\Q(\sqrt[3]{2}))\} = \{e\}.
   \]
   In particular, the function associating with each intermediate field
   the corresponding automorphism group is not injective in general.
 \end{exam}
 This example shows that the inclusion
-$E \subseteq F^{\mathrm{Aut}_E(F)}$ in \cref{lem:fields:6.3} may be
+$E \subseteq F^{\Aut_E(F)}$ in \cref{lem:fields:6.3} may be
 proper: $\Q$ is properly contained in $\Q(\sqrt[3]{2})$, which is the
 fixed field of the (only) subgroup of
-$\mathrm{Aut}_\Q(\Q(\sqrt[3]{2}))$. Fortunately, the situation with
+$\Aut_\Q(\Q(\sqrt[3]{2}))$. Fortunately, the situation with
 the other inclusion is more constrained:
 \begin{prop}{}{fields:6.5}
   Let $k \subseteq F$ be a finite extension, and let $G$ be a subgroup
-  of $\mathrm{Aut}_k(F)$. Then $|G| = [F : F^G]$, and
-  $G = \mathrm{Aut}_{F^G}(F)$.  In particular, the Galois
+  of $\Aut_k(F)$. Then $|G| = [F : F^G]$, and
+  $G = \Aut_{F^G}(F)$.  In particular, the Galois
   correspondence (from intermediate fields to automorphism groups) is
   surjective for a finite extension.
 \end{prop}
@@ -4378,7 +4378,7 @@ extensions of the type $F^G \subseteq F$. Surprisingly, these turn out
 to satisfy just about every property we have encountered so far:
 \begin{lem}{}{fields:6.6}
   Let $k \subseteq F$ be a finite extension, and let $G$ be a subgroup
-  of $\mathrm{Aut}_k(F)$. Then $F^G \subseteq F$ is a finite, simple,
+  of $\Aut_k(F)$. Then $F^G \subseteq F$ is a finite, simple,
   normal, separable extension.
 \end{lem}
 \begin{rem}{}{fields:6.7}
@@ -4415,21 +4415,21 @@ to satisfy just about every property we have encountered so far:
 \end{proof}
 \begin{proof}[Proof of \cref{prop:fields:6.5}]
   By \cref{lem:fields:6.3}, $G$ is a subgroup of
-  $\mathrm{Aut}_{F^G}(F)$, and in particular
-  $|G| \leq |\mathrm{Aut}_{F^G}(F)|$. In order to verify that
-  $G = \mathrm{Aut}_{F^G}(F)$, it suffices to prove the converse
+  $\Aut_{F^G}(F)$, and in particular
+  $|G| \leq |\Aut_{F^G}(F)|$. In order to verify that
+  $G = \Aut_{F^G}(F)$, it suffices to prove the converse
   inequality. By \cref{lem:fields:6.6}, $F = F^G(\alpha)$ for some
-  $\alpha \in F$; therefore $|\mathrm{Aut}_{F^G}(F)|$ equals the
+  $\alpha \in F$; therefore $|\Aut_{F^G}(F)|$ equals the
   number of distinct roots in $F$ of the minimal polynomial of
   $\alpha$ over $F^G$ (by \cref{coro:fields:1.7}). With notation as in
   \cref{rem:fields:6.7}, $\alpha$ is a root of
   $q_\alpha(x) \in F^G[x]$; hence the minimal polynomial of $\alpha$
   is a factor of $q_\alpha(x)$.  Since by construction the number of
   roots of $q_\alpha(x)$ is $\leq |G|$, we obtain
-  $|\mathrm{Aut}_{F^G}(F)| \leq |G|$, as needed.
+  $|\Aut_{F^G}(F)| \leq |G|$, as needed.
 
   To verify that $[F : F^G] = |G|$, just note that
-  $[F : F^G] = |\mathrm{Aut}_{F^G}(F)|$ by \cref{coro:fields:5.20},
+  $[F : F^G] = |\Aut_{F^G}(F)|$ by \cref{coro:fields:5.20},
   since $F^G \subseteq F$ is normal and separable by
   \cref{lem:fields:6.6}.
 \end{proof}
@@ -4451,12 +4451,12 @@ to satisfy just about every property we have encountered so far:
   \item $F$ is the splitting field of a separable polynomial
     $f(t) \in k[t]$ over $k$;
   \item $k \subseteq F$ is normal and separable;
-  \item $|\mathrm{Aut}_k(F)| = [F : k]$;
-  \item $k = F^{\mathrm{Aut}_k(F)}$ is the fixed field of
-    $\mathrm{Aut}_k(F)$;
+  \item $|\Aut_k(F)| = [F : k]$;
+  \item $k = F^{\Aut_k(F)}$ is the fixed field of
+    $\Aut_k(F)$;
   \item the Galois correspondence for $k \subseteq F$ is a bijection;
   \item $k \subseteq F$ is separable, and if $F \subseteq K$ is an
-    algebraic extension and $\sigma \in \mathrm{Aut}_k(K)$, then
+    algebraic extension and $\sigma \in \Aut_k(K)$, then
     $\sigma(F) = F$.
   \end{enumerate}
 \end{thm}
@@ -4465,33 +4465,33 @@ to satisfy just about every property we have encountered so far:
   $(1) \iff (2)$ by \cref{thm:fields:4.8}; $(2) \Rightarrow (3)$ by
   \cref{coro:fields:5.20}. $(3) \iff (4)$ follows from
   \cref{prop:fields:6.5}, applied to the extension
-  $F^{\mathrm{Aut}_k(F)} \subseteq F$: by \cref{prop:fields:6.5}, we
-  have $[F : F^{\mathrm{Aut}_k(F)}] = |\mathrm{Aut}_k(F)|$; since
-  $k \subseteq F^{\mathrm{Aut}_k(F)} \subseteq F$, it follows that
-  $k = F^{\mathrm{Aut}_k(F)}$ if and only if
-  $|\mathrm{Aut}_k(F)| = [F : k]$. $(4) \Rightarrow (2)$ by
+  $F^{\Aut_k(F)} \subseteq F$: by \cref{prop:fields:6.5}, we
+  have $[F : F^{\Aut_k(F)}] = |\Aut_k(F)|$; since
+  $k \subseteq F^{\Aut_k(F)} \subseteq F$, it follows that
+  $k = F^{\Aut_k(F)}$ if and only if
+  $|\Aut_k(F)| = [F : k]$. $(4) \Rightarrow (2)$ by
   \cref{lem:fields:6.6}.
 
   $(2) \iff (6)$ holds by Exercise~4.7, since finite separable
   extensions are simple (\cref{prop:fields:5.19}).
 
-  To prove $(5) \Rightarrow (4)$, let $E = F^{\mathrm{Aut}_k(F)}$; by
-  \cref{prop:fields:6.5}, $\mathrm{Aut}_E(F) = \mathrm{Aut}_k(F)$.
+  To prove $(5) \Rightarrow (4)$, let $E = F^{\Aut_k(F)}$; by
+  \cref{prop:fields:6.5}, $\Aut_E(F) = \Aut_k(F)$.
   Assuming that the Galois correspondence is bijective, it follows
-  that $k = E = F^{\mathrm{Aut}_k(F)}$, giving (4).
+  that $k = E = F^{\Aut_k(F)}$, giving (4).
 
   Finally, we prove that $(1) \Rightarrow (5)$. Since $k \subseteq F$
   is a finite extension, we already know that the Galois
   correspondence from intermediate fields to subgroups of
-  $\mathrm{Aut}_k(F)$ has a right inverse (\cref{prop:fields:6.5}), so
+  $\Aut_k(F)$ has a right inverse (\cref{prop:fields:6.5}), so
   it suffices to show it has a left-inverse. Therefore, it suffices to
   verify that every intermediate field $E$ equals the fixed field of
-  the corresponding subgroup $\mathrm{Aut}_E(F)$. Let $E$ be an
+  the corresponding subgroup $\Aut_E(F)$. Let $E$ be an
   intermediate field. By (1), $F$ is the splitting field of a
   separable polynomial $f(t) \in k[t] \subseteq E[t]$; therefore,
   condition (1) holds for the extension $E \subseteq F$.  As we have
   already proved that $(1) \iff (4)$, this implies that
-  $E = F^{\mathrm{Aut}_E(F)}$, and we are done.
+  $E = F^{\Aut_E(F)}$, and we are done.
 \end{proof}
 \begin{defn}{}{fields:6.10}
   A finite extension $k \subseteq F$ is \emph{Galois} if it satisfies
@@ -4509,7 +4509,7 @@ $k \subseteq \bar{k}$) in many possible ways, with different images
 $\sigma(F)$. If $k \subseteq F$ is Galois, all these images must
 coincide: $F = \sigma(F)$. Of course there are possibly still many
 ways\footnote{In fact, precisely
-  $[F : k]_s = [F : k] = |\mathrm{Aut}_k(F)|$ if $K = \bar{k}$ and
+  $[F : k]_s = [F : k] = |\Aut_k(F)|$ if $K = \bar{k}$ and
   hence for all $K \supseteq F$.}  to embed $F$ in $K$, but they all
 have the same image $F$.
 
@@ -4529,12 +4529,12 @@ is independent of the choice of embeddings $F_1 \subseteq \bar{k}$,
 $F_2 \subseteq \bar{k}$.
 \begin{defn}{}{fields:6.11}
   If $k \subseteq F$ is a Galois extension, the corresponding
-  automorphism group $\mathrm{Aut}_k(F)$ is called the \emph{Galois
+  automorphism group $\Aut_k(F)$ is called the \emph{Galois
     group} of the extension.
 \end{defn}
 To reiterate, the extension $\Q \subseteq \Q(\sqrt[3]{2})$ is not a
 Galois extension: as we have observed in Example~6.4,
-$\mathrm{Aut}_\Q(\Q( \sqrt[3]{2}))$ is trivial (hence, for example,
+$\Aut_\Q(\Q( \sqrt[3]{2}))$ is trivial (hence, for example,
 condition (3) of \cref{thm:fields:6.9} does not hold).
 
 On the other hand, we have already run into several examples of Galois
@@ -4545,7 +4545,7 @@ are all Galois extensions. The `Galois fields' of $\S$5.1 are
 extensions of $\Q$.
 
 A Galois extension $k \subseteq F$ is \emph{cyclic}, \emph{abelian},
-etc., if the corresponding group of automorphisms $\mathrm{Aut}_k(F)$
+etc., if the corresponding group of automorphisms $\Aut_k(F)$
 is cyclic, abelian, etc. For example, $\Q \subseteq \Q(\zeta_8)$ is an
 abelian, but not cyclic, Galois extension (cf.\
 \cref{prop:fields:5.16} and Example~5.17).
@@ -4562,16 +4562,16 @@ this stage, this is what we know:\footnote{`Separability' does not
   an inclusion-reversing bijection
   \[
     \{\text{intermediate fields } E : k \subseteq E \subseteq F\}
-    \leftrightarrow \{\text{subgroups of } \mathrm{Aut}_k(F)\}:
+    \leftrightarrow \{\text{subgroups of } \Aut_k(F)\}:
   \]
   through this bijection, the intermediate field $E$ corresponds to
-  the subgroup $\mathrm{Aut}_E(F)$ of $\mathrm{Aut}_k(F)$, and the
-  subgroup $G \subseteq \mathrm{Aut}_k(F)$ corresponds to the fixed
+  the subgroup $\Aut_E(F)$ of $\Aut_k(F)$, and the
+  subgroup $G \subseteq \Aut_k(F)$ corresponds to the fixed
   field $F^G$.
 \item For every intermediate field $E$,
-  $[F : E] = |\mathrm{Aut}_E(F)|$. The extension $E \subseteq F$ is
+  $[F : E] = |\Aut_E(F)|$. The extension $E \subseteq F$ is
   then also a Galois extension (Exercise~6.3), and
-  \[ [E : k] = [\mathrm{Aut}_k(F) : \mathrm{Aut}_E(F)]:
+  \[ [E : k] = [\Aut_k(F) : \Aut_E(F)]:
   \]
   this follows from Lagrange's theorem (\cref{coro:fields:II.8.14})
   and its field theory counterpart (\cref{prop:fields:1.10}).
@@ -4586,9 +4586,9 @@ as follows:
   Let $k \subseteq F$ be a Galois extension. The Galois correspondence
   is an inclusion-reversing isomorphism of the lattice of intermediate
   subfields of $k \subseteq F$ with the lattice of subgroups of
-  $\mathrm{Aut}_k(F)$. That is (with notation as in
+  $\Aut_k(F)$. That is (with notation as in
   \cref{lem:fields:6.3}), if $E_1$, $E_2$ are intermediate fields and
-  $G_1$, $G_2$ are the corresponding subgroups of $\mathrm{Aut}_k(F)$,
+  $G_1$, $G_2$ are the corresponding subgroups of $\Aut_k(F)$,
   then $E_1 \cap E_2$ corresponds to $\langle G_1, G_2 \rangle$ and
   $E_1 E_2$ corresponds to $G_1 \cap G_2$.
 \end{thm}
@@ -4596,7 +4596,7 @@ as follows:
   This follows immediately from \cref{thm:fields:6.9} and
   \cref{lem:fields:6.3}, which gives
   \[
-    \mathrm{Aut}_{E_1 E_2}(F) = G_1 \cap G_2, \qquad F^{\langle G_1,
+    \Aut_{E_1 E_2}(F) = G_1 \cap G_2, \qquad F^{\langle G_1,
       G_2 \rangle} = E_1 \cap E_2,
   \]
   as needed.
@@ -4604,7 +4604,7 @@ as follows:
 In this context, it is common to use the `vertical' depiction of field
 extensions, with a parallel notation for subgroups: the field $F$ at
 the top corresponds to $\{e\}$, an intermediate field $E$ to
-$\mathrm{Aut}_E(F)$, and $k$ at the bottom to $\mathrm{Aut}_k(F)$.
+$\Aut_E(F)$, and $k$ at the bottom to $\Aut_k(F)$.
 
 The content of \cref{thm:fields:6.12} is that the lattice of
 intermediate fields of a Galois extension $k \subseteq F$ and the
@@ -4647,8 +4647,8 @@ corresponding Galois extension.
 \label{subsec:fields:the-fundamental-theorem-of-galois-theory-ii}
 Another popular notational device is to mark an extension by the
 corresponding Galois group, if the extension is Galois: one writes the
-group label $\mathrm{Aut}_k(F)$ on the segment from $k$ to $F$, and
-$\mathrm{Aut}_E(F)$ on the segment from $E$ to $F$.
+group label $\Aut_k(F)$ on the segment from $k$ to $F$, and
+$\Aut_E(F)$ on the segment from $E$ to $F$.
 
 Example~6.4 shows that the extension $k \subseteq E$ need not be a
 Galois extension: $\Q(\sqrt[3]{2})$ is an intermediate field for the
@@ -4667,11 +4667,11 @@ fundamental theorem of Galois theory:
 \begin{thm}{}{fields:6.15}
   Let $k \subseteq F$ be a Galois extension, and let $E$ be an
   intermediate field. Then $k \subseteq E$ is Galois if and only if
-  $\mathrm{Aut}_E(F)$ is normal in $\mathrm{Aut}_k(F)$; in this case,
+  $\Aut_E(F)$ is normal in $\Aut_k(F)$; in this case,
   there is an isomorphism
   \[
-    \mathrm{Aut}_k(E) \cong
-    \frac{\mathrm{Aut}_k(F)}{\mathrm{Aut}_E(F)}.
+    \Aut_k(E) \cong
+    \frac{\Aut_k(F)}{\Aut_E(F)}.
   \]
 \end{thm}
 The `problem' with $\Q \subseteq \Q(\sqrt[3]{2})$ is that the
@@ -4681,22 +4681,22 @@ corresponding to $\Q(\sqrt[3]{2})$ has index $3$; hence (as we know,
 since we are well acquainted with $S_3$) it is not normal.
 
 The fact that the Galois group of $k \subseteq E$ will turn out to be
-isomorphic to the quotient $\mathrm{Aut}_k(F)/\mathrm{Aut}_E(F)$ in
+isomorphic to the quotient $\Aut_k(F)/\Aut_E(F)$ in
 the Galois case should not be too surprising, since we know already
-that in any case $[E : k]$ equals the index of $\mathrm{Aut}_E(F)$ in
-$\mathrm{Aut}_k(F)$, and the index equals the order of the quotient if
+that in any case $[E : k]$ equals the index of $\Aut_E(F)$ in
+$\Aut_k(F)$, and the index equals the order of the quotient if
 the subgroup is normal. In general, $[E : k]$ equals the number of
-cosets of $\mathrm{Aut}_E(F)$ in $\mathrm{Aut}_k(F)$, and it is worth
+cosets of $\Aut_E(F)$ in $\Aut_k(F)$, and it is worth
 shooting for a concrete interpretation of these cosets, even when
 $k \subseteq E$ does not turn out to be a Galois extension.  We
-already know that the number of left-cosets of $\mathrm{Aut}_E(F)$
-equals the index of $\mathrm{Aut}_E(F)$ in $\mathrm{Aut}_k(F)$, hence
+already know that the number of left-cosets of $\Aut_E(F)$
+equals the index of $\Aut_E(F)$ in $\Aut_k(F)$, hence
 $[E : k]$, hence $[E : k]_s$ (because $k \subseteq E$ is separable, as
 a subextension of a separable extension), and hence there must exist a
-bijection between the set of left-cosets $g\,\mathrm{Aut}_E(F)$ as $g$
-ranges in $\mathrm{Aut}_k(F)$ and the set of different embeddings
+bijection between the set of left-cosets $g\,\Aut_E(F)$ as $g$
+ranges in $\Aut_k(F)$ and the set of different embeddings
 $\iota : E \to \bar{k}$ in an algebraic closure of $k$, extending
-$\mathrm{id}_k$. Not surprisingly, there is a reason for this---that
+$\id_k$. Not surprisingly, there is a reason for this---that
 is, a `meaningful' bijection between these two sets.  This is an
 excellent moment to review the material on group actions we covered in
 \S{}II.9, especially \S{}II.9.3. Recall in particular that we were
@@ -4704,10 +4704,10 @@ able to classify all transitive actions of a group $G$ on a set $S$
 (Proposition~II.9.9): these $G$-sets are all isomorphic to the set of
 left-cosets of a subgroup $H$ of $G$ under the natural action of $G$;
 and $H$ may be taken to be the stabilizer of any element of $S$.  We
-are going to define a natural action of $\mathrm{Aut}_k(F)$ on the set
+are going to define a natural action of $\Aut_k(F)$ on the set
 $I$ of embeddings of $E$ in $\bar{k}$ extending the identity, and
-prove that, as an $\mathrm{Aut}_k(F)$-set, $I$ is isomorphic to the
-set of left-cosets of $\mathrm{Aut}_E(F)$ in $\mathrm{Aut}_k(F)$. This
+prove that, as an $\Aut_k(F)$-set, $I$ is isomorphic to the
+set of left-cosets of $\Aut_E(F)$ in $\Aut_k(F)$. This
 will be our `meaningful bijection', and after this is done
 Theorem~6.15 will look perfectly reasonable.  Fix an embedding
 $F \subseteq \bar{k}$ of $F$ in an algebraic closure of $k$, and let
@@ -4729,14 +4729,14 @@ $\iota(E) \subseteq F$ for some $\iota \in I$.
   (Definition~4.7). That is, $\iota(\alpha) \in F$ for all
   $\iota \in I$, implying $\iota(k(\alpha)) \subseteq F$ for all
   $\iota \in I$.
-\item Let $\iota \in I$, and let $g \in \mathrm{Aut}_k(F)$; then
-  $g \circ \iota \in I$. Therefore, $\mathrm{Aut}_k(F)$ acts on $I$.
+\item Let $\iota \in I$, and let $g \in \Aut_k(F)$; then
+  $g \circ \iota \in I$. Therefore, $\Aut_k(F)$ acts on $I$.
 
   Here $g \circ \iota$ is interpreted in the following way:
   $\iota(E) \subseteq F$, as we have seen; hence $g$ restricts to a
   homomorphism $\iota(E) \to F$, and $g \circ \iota$ is the
   composition of this homomorphism with $\iota$.
-\item The action of $\mathrm{Aut}_k(F)$ on $I$ is transitive.
+\item The action of $\Aut_k(F)$ on $I$ is transitive.
 
   This follows from the `uniqueness of splitting fields', Lemma~4.2.
   Indeed, let $\iota_1, \iota_2 \in I$. Both $\iota_1(E)$,
@@ -4746,18 +4746,18 @@ $\iota(E) \subseteq F$ for some $\iota \in I$.
   Lemma~4.2, there exists an automorphism $g : F \to F$ extending the
   isomorphism
   $\iota_2 \circ \iota_1^{-1} : \iota_1(E) \to \iota_2(E)$.  Then
-  $g \in \mathrm{Aut}_k(F)$ (since $\iota_2 \circ \iota_1^{-1}$
+  $g \in \Aut_k(F)$ (since $\iota_2 \circ \iota_1^{-1}$
   restricts to the identity on $k$), and the fact that $g$ restricts
   to $\iota_2 \circ \iota_1^{-1}$ means precisely that
   $g \circ \iota_1 = \iota_2$.
-\item As an $\mathrm{Aut}_k(F)$-set, $I$ is isomorphic to the set of
-  left-cosets of $\mathrm{Aut}_E(F)$ in $\mathrm{Aut}_k(F)$.
+\item As an $\Aut_k(F)$-set, $I$ is isomorphic to the set of
+  left-cosets of $\Aut_E(F)$ in $\Aut_k(F)$.
 \end{itemize}
 
 Now choose one $\iota \in I$, and use it to identify $E$ with an
 intermediate field of $k \subseteq F$. Then
-$\mathrm{Aut}_E(F) = \mathrm{Aut}_{\iota(E)}(F)$ is the subgroup of
-$\mathrm{Aut}_k(F)$ consisting of those elements $g$ which restrict to
+$\Aut_E(F) = \Aut_{\iota(E)}(F)$ is the subgroup of
+$\Aut_k(F)$ consisting of those elements $g$ which restrict to
 the identity on $E = \iota(E)$, that is, the stabilizer of $\iota$. At
 this point, Proposition~II.9.9 is all that is needed to conclude the
 promised result in the last bullet above.
@@ -4766,11 +4766,11 @@ I view this observation as an integral part of the fundamental theorem
 of Galois theory. The conventional statement (Theorem~6.15) is an
 essentially immediate consequence of this fact.
 \begin{proof}[Proof of \cref{thm:fields:6.15}]
-  As observed above, the $\mathrm{Aut}_k(F)$-stabilizer of
-  $\iota \in I$ equals $\mathrm{Aut}_{\iota(E)}(F)$. By
+  As observed above, the $\Aut_k(F)$-stabilizer of
+  $\iota \in I$ equals $\Aut_{\iota(E)}(F)$. By
   Proposition~II.9.12, stabilizers of different $\iota$ are conjugates
-  of each other; if $\mathrm{Aut}_E(F)$ is normal, it follows that for
-  all $\iota \in I$, $\mathrm{Aut}_{\iota(E)}(F) = \mathrm{Aut}_E(F)$.
+  of each other; if $\Aut_E(F)$ is normal, it follows that for
+  all $\iota \in I$, $\Aut_{\iota(E)}(F) = \Aut_E(F)$.
   This implies that $\iota(E) = E$ for all $\iota \in I$, since the
   Galois correspondence is bijective for the Galois extension
   $k \subseteq F$. It follows that $k \subseteq E$ satisfies
@@ -4779,12 +4779,12 @@ essentially immediate consequence of this fact.
   Conversely, assume that $k \subseteq E$ is Galois; by the same
   condition~(6), $\iota(E) = E$ for all $\iota \in I$. Restriction to
   $E = \iota(E)$ then defines a homomorphism
-  $\rho : \mathrm{Aut}_k(F) \to \mathrm{Aut}_k(E)$.  This homomorphism
-  is surjective (because the $\mathrm{Aut}_k(F)$-action on $I$ is
+  $\rho : \Aut_k(F) \to \Aut_k(E)$.  This homomorphism
+  is surjective (because the $\Aut_k(F)$-action on $I$ is
   transitive), and its kernel consists of those
-  $g \in \mathrm{Aut}_k(F)$ which restrict to the identity on $E$,
-  that is, precisely of $\mathrm{Aut}_E(F)$. This shows that
-  $\mathrm{Aut}_E(F)$ is normal and establishes the stated isomorphism
+  $g \in \Aut_k(F)$ which restrict to the identity on $E$,
+  that is, precisely of $\Aut_E(F)$. This shows that
+  $\Aut_E(F)$ is normal and establishes the stated isomorphism
   by virtue of the first isomorphism theorem for groups,
   Corollary~II.8.2.
 \end{proof}
@@ -4827,7 +4827,7 @@ question how the Galois condition behaves under this operation.
 \begin{prop}{}{fields:6.17}
   Suppose $k \subseteq F$ is a Galois extension and $k \subseteq K$ is
   any finite extension. Then $K \subseteq KF$ is a Galois extension,
-  and $\mathrm{Aut}_K(KF) \cong \mathrm{Aut}_{F \cap K}(F)$.
+  and $\Aut_K(KF) \cong \Aut_{F \cap K}(F)$.
 \end{prop}
 
 The situation is depicted in the lattice:
@@ -4841,7 +4841,7 @@ The situation is depicted in the lattice:
   \end{array}
   \qquad
   \begin{array}{c}
-    \mathrm{Aut}_K(KF) \cong \mathrm{Aut}_{F \cap K}(F)
+    \Aut_K(KF) \cong \Aut_{F \cap K}(F)
   \end{array}
 \]
 \begin{proof}
@@ -4856,23 +4856,23 @@ The situation is depicted in the lattice:
   $F \to \sigma(F)$ extending the identity on $k$. Since
   $k \subseteq F$ is Galois, $\sigma(F) = F$ (condition~(6) in
   Theorem~6.9). Thus, `restriction' defines a natural group
-  homomorphism $\rho : \mathrm{Aut}_K(KF) \to \mathrm{Aut}_k(F)$.
+  homomorphism $\rho : \Aut_K(KF) \to \Aut_k(F)$.
 
   I claim that $\rho$ is injective. Indeed, by definition every
-  $\sigma \in \mathrm{Aut}_K(KF)$ is the identity on $K$; if $\sigma$
+  $\sigma \in \Aut_K(KF)$ is the identity on $K$; if $\sigma$
   restricts to the identity on $F$, then $\sigma$ is the identity on
-  the composite $KF$; that is, $\sigma = \mathrm{id}$ in
-  $\mathrm{Aut}_K(KF)$.
+  the composite $KF$; that is, $\sigma = \id$ in
+  $\Aut_K(KF)$.
 
-  Therefore, $\mathrm{Aut}_K(KF)$ may be identified with a subgroup
-  $G$ of $\mathrm{Aut}_k(F)$. Since every
-  $\sigma \in \mathrm{Aut}_K(KF)$ fixes $K$, the restriction
+  Therefore, $\Aut_K(KF)$ may be identified with a subgroup
+  $G$ of $\Aut_k(F)$. Since every
+  $\sigma \in \Aut_K(KF)$ fixes $K$, the restriction
   $\rho(\sigma)$ fixes $F \cap K$; that is, $F^G \supseteq F \cap
   K$. Conversely, suppose $\alpha \in F^G$; then $K(\alpha)$ is in the
-  fixed field of $\mathrm{Aut}_K(KF)$, which is $K$ itself since
+  fixed field of $\Aut_K(KF)$, which is $K$ itself since
   $K \subseteq KF$ is Galois (condition~(4) of Theorem~6.9). That is,
   $\alpha \in K$, and it follows that $F^G = F \cap K$. By
-  Proposition~6.5, $G = \mathrm{Aut}_{F \cap K}(F)$, concluding the
+  Proposition~6.5, $G = \Aut_{F \cap K}(F)$, concluding the
   proof.
 \end{proof}
 I will leave to the reader the pleasure of verifying that if both
@@ -4882,13 +4882,13 @@ Galois over $k$, and so is $F \cap K$ (Exercise~6.13).
   We have studied cyclotomic fields $\Q(\zeta_n)$ as extensions of
   $\Q$; $\Q(\zeta_n)$ is the splitting field of $x^n - 1$, so these
   extensions are Galois; we have proved (Proposition~5.16) that
-  $\mathrm{Aut}_\Q(\Q(\zeta_n))$ is isomorphic to the group of units
+  $\Aut_\Q(\Q(\zeta_n))$ is isomorphic to the group of units
   in $\Z/n\Z$.
 
   Now let $k$ be any field of characteristic zero. The splitting field
   of $x^n - 1$ over $k$ is the composite $k(\zeta)$ of $k$ and
   $\Q(\zeta)$.  By Proposition~6.17 the extension
-  $k \subseteq k(\zeta)$ is Galois, and $\mathrm{Aut}_k(k(\zeta))$ is
+  $k \subseteq k(\zeta)$ is Galois, and $\Aut_k(k(\zeta))$ is
   isomorphic to a subgroup of the group of units of $\Z/n\Z$. In
   particular, it is abelian.
 \end{exam}
@@ -4924,14 +4924,14 @@ equations.
   are in $F$, and $F$ is generated by them; therefore $F$ is the
   splitting field of the separable (since $\mathrm{char}\,k$ does not
   divide $m$) polynomial $x^m - c$ over $k$; hence (Theorem~6.9,
-  part~(1)) $k \subseteq F$ is Galois. To see that $\mathrm{Aut}_k(F)$
-  is cyclic, note that every $\phi \in \mathrm{Aut}_k(F)$ is
+  part~(1)) $k \subseteq F$ is Galois. To see that $\Aut_k(F)$
+  is cyclic, note that every $\phi \in \Aut_k(F)$ is
   determined by $\phi(\delta)$, which is necessarily a root of
   $x^m - c$; therefore $\phi(\delta) = \zeta^i \delta$ for some $i$,
   determined up to a multiple of $m$. This defines an isomorphism of
-  $\mathrm{Aut}_k(F)$ with $\Z/m\Z$, as is immediately verified.
+  $\Aut_k(F)$ with $\Z/m\Z$, as is immediately verified.
   Conversely, assume that $k \subseteq F$ is Galois and
-  $\mathrm{Aut}_k(F)$ is cyclic, generated by $\phi$. The
+  $\Aut_k(F)$ is cyclic, generated by $\phi$. The
   automorphisms $\phi^i$, $i = 0, \dots, m-1$, are pairwise distinct;
   thus they are linearly independent over $F$
   (Exercise~6.14). Therefore, there exists an $\alpha \in F$ such
@@ -4949,13 +4949,13 @@ equations.
   \]
   (since $\zeta \in k$, so $\phi(\zeta) = \zeta$). This implies that
   $\delta$ is not fixed by any nonidentity element of
-  $\mathrm{Aut}_k(F)$; that is, $\mathrm{Aut}_{k(\delta)}(F) = \{e\}$;
+  $\Aut_k(F)$; that is, $\Aut_{k(\delta)}(F) = \{e\}$;
   that is, $k(\delta) = F$. Further,
   \[
     \phi(\delta^m) = (\phi(\delta))^m = \zeta^m \delta^m = \delta^m;
   \]
   that is, $\delta^m$ is fixed by $\phi$, and hence by the whole of
-  $\mathrm{Aut}_k(F)$. Since $k \subseteq F$ is Galois, this implies
+  $\Aut_k(F)$. Since $k \subseteq F$ is Galois, this implies
   $\delta^m \in k$ (Theorem~6.9, part~(4)). That is, $\delta$
   satisfies the stated conditions.
 \end{proof}
@@ -4991,7 +4991,7 @@ equations.
   Galois closure of $k \subseteq E$ (Exercise~6.4). For
   $\alpha \in E$, prove that $E = k(\alpha)$ if and only if $\alpha$
   is moved by all
-  $\sigma \in \mathrm{Aut}_k(F) \setminus \mathrm{Aut}_E(F)$.
+  $\sigma \in \Aut_k(F) \setminus \Aut_E(F)$.
 \end{exer}
 \begin{exer}{}{fields:exer:6.6}
   \begin{enumerate}[label=(\roman*)]
@@ -5001,13 +5001,13 @@ equations.
     and its Galois group is isomorphic to $(\Z/2\Z) \times (\Z/2\Z)$.
   \item Prove that $\Q \subseteq \Q(\sqrt{1 + \sqrt{2}})$ is not
     Galois, and compute its Galois closure $\Q \subseteq F$. Prove
-    that $\mathrm{Aut}_\Q(F) \cong D_8$. (Use Exercise~IV.2.16.)
+    that $\Aut_\Q(F) \cong D_8$. (Use Exercise~IV.2.16.)
   \end{enumerate}
 \end{exer}
 \begin{exer}{}{fields:exer:6.7}
   Let $p > 0$ be prime, and let $d \mid e$ be positive integers, so
   that there is an extension $\F_{p^d} \subseteq \F_{p^e}$. Prove that
-  $\mathrm{Aut}_{\F_{p^d}}(\F_{p^e})$ is cyclic, and describe a
+  $\Aut_{\F_{p^d}}(\F_{p^e})$ is cyclic, and describe a
   generator of this group. (This generalizes Proposition~5.8; use
   Galois theory.)
 \end{exer}
@@ -5024,19 +5024,19 @@ equations.
 \end{exer}
 \begin{exer}{}{fields:exer:6.10}
   Let $k \subseteq F$ be a Galois extension and $E$ an intermediate
-  field.  Prove that the normalizer of $\mathrm{Aut}_E(F)$ in
-  $\mathrm{Aut}_k(F)$ is the set of $\sigma \in \mathrm{Aut}_k(F)$
+  field.  Prove that the normalizer of $\Aut_E(F)$ in
+  $\Aut_k(F)$ is the set of $\sigma \in \Aut_k(F)$
   such that $\sigma(E) \subseteq E$. Use this to give an alternative
   proof of the fact that $E$ is Galois over $k$ if and only if
-  $\mathrm{Aut}_E(F)$ is normal in $\mathrm{Aut}_k(F)$.
+  $\Aut_E(F)$ is normal in $\Aut_k(F)$.
 \end{exer}
 \begin{exer}{}{fields:exer:6.11}
   Let $k \subseteq E$ and $E \subseteq F$ be Galois extensions.
   \begin{enumerate}[label=(\roman*)]
   \item Find an example showing that $k \subseteq F$ is not
     necessarily Galois.
-  \item Prove that if every $\sigma \in \mathrm{Aut}_k(E)$ is the
-    restriction of an element of $\mathrm{Aut}_k(F)$, then
+  \item Prove that if every $\sigma \in \Aut_k(E)$ is the
+    restriction of an element of $\Aut_k(F)$, then
     $k \subseteq F$ is Galois.
   \end{enumerate}
 \end{exer}
@@ -5056,7 +5056,7 @@ equations.
 \end{exer}
 \begin{exer}{}{fields:exer:6.14}
   Let $k \subseteq F$ be a field extension, and let
-  $\phi_1, \dots, \phi_m \in \mathrm{Aut}_k(F)$ be pairwise distinct
+  $\phi_1, \dots, \phi_m \in \Aut_k(F)$ be pairwise distinct
   automorphisms. Prove that $\phi_1, \dots, \phi_m$ are linearly
   independent over $F$. (Recycle/adapt the hint for Exercise~VI.6.15.)
   [\S{}6.4, 6.16, \S{}IX.7.6]
@@ -5065,19 +5065,19 @@ equations.
   Let $k \subseteq F$ be a Galois extension, and let $\alpha \in
   F$. Prove that
   \[
-    N_{k \subseteq F}(\alpha) = \prod_{\sigma \in \mathrm{Aut}_k(F)}
+    N_{k \subseteq F}(\alpha) = \prod_{\sigma \in \Aut_k(F)}
     \sigma(\alpha), \qquad \mathrm{tr}_{k \subseteq F}(\alpha) =
-    \sum_{\sigma \in \mathrm{Aut}_k(F)} \sigma(\alpha).
+    \sum_{\sigma \in \Aut_k(F)} \sigma(\alpha).
   \]
   (Exercise~4.19.)
 \end{exer}
 \begin{exer}{}{fields:exer:6.16}
   Let $k \subseteq F$ be a cyclic Galois extension of degree $d$, and
-  let $\phi$ be a generator of $\mathrm{Aut}_k(F)$. Let $\alpha \in F$
+  let $\phi$ be a generator of $\Aut_k(F)$. Let $\alpha \in F$
   be an element such that $N_{k \subseteq F}(\alpha) = 1$.
   \begin{enumerate}[label=(\roman*)]
   \item Prove that the automorphisms
-    $\mathrm{id}_F, \phi, \dots, \phi^{d-1}$ are linearly independent
+    $\id_F, \phi, \dots, \phi^{d-1}$ are linearly independent
     over $F$. (Exercise~6.14.)
   \item Prove that there exists a $\gamma \in F$ such that
     \[
@@ -5119,7 +5119,7 @@ equations.
 \end{exer}
 \begin{exer}{}{fields:exer:6.19}
   Let $k \subseteq F$ be a cyclic Galois extension of degree $d$, and
-  let $\phi$ be a generator of $\mathrm{Aut}_k(F)$. Let $\alpha \in F$
+  let $\phi$ be a generator of $\Aut_k(F)$. Let $\alpha \in F$
   be an element such that $\mathrm{tr}_{k \subseteq F}(\alpha) =
   0$. Prove an `additive version' of Hilbert's theorem 90:
   \begin{enumerate}[label=(\roman*)]
@@ -5174,7 +5174,7 @@ of algebra, promised back in \S{}V.5.3.
   square-free part\footnote{That is, take each irreducible factor of
     the polynomial with a power of exactly $1$. Over a perfect field,
     square-free polynomials are clearly separable.} of
-  $f(x)(x^2 + 1)$.  Let $G = \mathrm{Aut}_\R(F(i))$.  By Sylow I
+  $f(x)(x^2 + 1)$.  Let $G = \Aut_\R(F(i))$.  By Sylow I
   (Theorem~IV.2.5), $G$ has a $2$-Sylow subgroup $H$. The index
   $[G : H]$ is odd, so it corresponds to a finite, separable extension
   $\R \subseteq E$ with $[E : \R]$ odd. However, every polynomial of
@@ -5185,18 +5185,18 @@ of algebra, promised back in \S{}V.5.3.
 
   Since $\C = \R(i) \subseteq F(i)$, the Galois group of the (Galois)
   extension $\C \subseteq F(i)$ is a subgroup of $G$; therefore it is
-  a $2$-group: $|\mathrm{Aut}_\C(F(i))| = 2^n$ for some $n \geq
+  a $2$-group: $|\Aut_\C(F(i))| = 2^n$ for some $n \geq
   0$. Now recall (Proposition~IV.2.6) that every group of order $p^n$,
   with $p$ prime, contains subgroups of order $p^m$ for all
   $0 \leq m \leq n$. In particular, if $n \geq 1$, then
-  $\mathrm{Aut}_\C(F(i))$ contains a subgroup of order $2^{n-1}$,
+  $\Aut_\C(F(i))$ contains a subgroup of order $2^{n-1}$,
   which corresponds to a quadratic extension of $\C$ via the Galois
   correspondence. However, there are no quadratic extensions of $\C$,
   because there are no irreducible quadratic polynomials in $\C[x]$
   (Exercise~5.23 again).
 
   This contradiction shows that $n = 0$; that is,
-  $\mathrm{Aut}_\C(F(i))$ is necessarily trivial. This proves that
+  $\Aut_\C(F(i))$ is necessarily trivial. This proves that
   $F(i) = \C$ and in particular that $\C$ contains the roots of
   $f(x)$.
 \end{proof}
@@ -5254,11 +5254,11 @@ For example, $\varphi(17) = 16 = 2^4$; the Galois group of
 $\Q(\zeta_{17})$ over $\Q$ is isomorphic to $(\Z/17\Z)^\ast$ (by
 Proposition~5.16), and therefore (Theorem~IV.6.10) it is cyclic, of
 order $16$. A generator of $(\Z/17\Z)^\ast$ is $[6]_{17}$; it follows
-that $\mathrm{Aut}_\Q(\Q(\zeta_{17}))$ is generated by the
+that $\Aut_\Q(\Q(\zeta_{17}))$ is generated by the
 automorphism $\sigma$ defined by $\zeta_{17} \mapsto
 \zeta_{17}^6$. The sequence of subgroups
 \[
-  \mathrm{Aut}_\Q(\Q(\zeta_{17})) = \langle\sigma\rangle \supseteq
+  \Aut_\Q(\Q(\zeta_{17})) = \langle\sigma\rangle \supseteq
   \langle\sigma^2\rangle \supseteq \langle\sigma^4\rangle \supseteq
   \langle\sigma^8\rangle \supseteq \{e\}
 \]
@@ -5366,12 +5366,12 @@ which we can do unambiguously since $\Z$ is initial in $\categ{Ring}$.
   the subfield generated by the elementary symmetric functions over
   $K$. Then $F$ is a splitting field of the separable polynomial
   $P_n(x)$ over $k$.  In particular $k \subseteq F$ is a Galois
-  extension, and $|\mathrm{Aut}_k(F)| = [F : k] \leq n!$ by
+  extension, and $|\Aut_k(F)| = [F : k] \leq n!$ by
   Lemma~4.2. The symmetric group $S_n$ acts (faithfully) on $F$ by
   permuting $t_1, \dots, t_n$, and this action is the identity on
   $k = K(s_1, \dots, s_n)$ since each $s_i$ is symmetric. Thus $S_n$
-  may be identified with a subgroup of $\mathrm{Aut}_k(F)$; but
-  $|S_n| = n!$, so it follows that $\mathrm{Aut}_k(F) = S_n$.
+  may be identified with a subgroup of $\Aut_k(F)$; but
+  $|S_n| = n!$, so it follows that $\Aut_k(F) = S_n$.
 
   Since $k \subseteq F$ is Galois, we obtain $k = F^{S_n}$. This says
   precisely that if $\phi \in K(t_1, \dots, t_n)$, then $\phi$ is
@@ -5396,7 +5396,7 @@ the following:
 
 \begin{coro}{}{fields:7.6}
   Let $G$ be a finite group. Then there exists a Galois extension
-  $k \subseteq F$ such that $\mathrm{Aut}_k(F) \cong G$.
+  $k \subseteq F$ such that $\Aut_k(F) \cong G$.
 \end{coro}
 
 \begin{proof}
@@ -5539,7 +5539,7 @@ roots of $1$ are in $k$, by Proposition~6.19. Also,
   polynomial of $\alpha$ over $k$. The splitting field $L$ of $p(x)$
   over $k$ may be obtained as the composite of $\sigma(F)$ as $\sigma$
   ranges over the embeddings of $F$ in $\bar{k}$, extending
-  $\mathrm{id}_k$: indeed, this composite is generated over $k$ by all
+  $\id_k$: indeed, this composite is generated over $k$ by all
   $\sigma(\alpha)$, which range over all roots of $p(x)$. As a
   composite of radical extensions, $L$ is radical over $k$. As a
   splitting field of a separable polynomial, $L$ is Galois over $k$
@@ -5564,7 +5564,7 @@ $f(x)$. Here is a first formalization of this connection:
   For the converse, assume $f(x)$ is solvable by radicals. A formula
   for a root $t_1$ can be turned into a formula for any other root
   $t_i$ by applying an element $\sigma_i$ of (for example)
-  $\mathrm{Aut}_k(\bar{k})$ sending $t_1$ to $t_i$ (such an
+  $\Aut_k(\bar{k})$ sending $t_1$ to $t_i$ (such an
   automorphism exists since $f(x)$ is irreducible). Thus, if a formula
   exists for one root, then a formula exists for all roots. The
   composite of all the corresponding radical extensions gives one,
@@ -5582,7 +5582,7 @@ is that the Galois group should be solvable.
 
 \begin{defn}{}{fields:7.12}
   A Galois extension $k \subseteq F$ is \emph{solvable} if
-  $\mathrm{Aut}_k(F)$ is a solvable group.
+  $\Aut_k(F)$ is a solvable group.
 \end{defn}
 
 The reader may want to revisit \S{}IV.3.3 now, for a reminder on
@@ -5612,11 +5612,11 @@ the corresponding cyclic factors.
   with $\delta_i^{m_i} \in k(\delta_1, \dots, \delta_{i-1})$. By
   hypothesis, $k$ contains primitive $m_i$-th roots of $1$ for all
   $i$.  Consider the corresponding series of subgroups of
-  $G = \mathrm{Aut}_k(F)$:
+  $G = \Aut_k(F)$:
   \[
     G = G_0 \supseteq G_1 \supseteq \dots \supseteq G_r = \{e\},
   \]
-  with $G_i = \mathrm{Aut}_{k(\delta_1,\dots,\delta_i)}(F)$. Note that
+  with $G_i = \Aut_{k(\delta_1,\dots,\delta_i)}(F)$. Note that
   $F$ is Galois over each intermediate field. Each extension
   $k(\delta_1, \dots, \delta_{i-1}) \subseteq k(\delta_1, \dots,
   \delta_i)$ satisfies the hypothesis of Proposition~6.19, and it
@@ -5639,17 +5639,17 @@ The characteristic $0$ in Proposition~7.14 is an overshoot; as in
 Proposition~6.19, it would suffice to require that $\mathrm{char}\,k$
 does not divide the relevant degrees.
 \begin{proof}
-  Assume $\mathrm{Aut}_k(F)$ is solvable. Let $M$ be a common multiple
+  Assume $\Aut_k(F)$ is solvable. Let $M$ be a common multiple
   of the orders of the cyclic quotients, and let $\zeta$ be a
   primitive $M$-th root of $1$ in an algebraic closure $\bar{k}$ of
   $k$. The splitting field $k(\zeta)$ of $x^M - 1$ over $k$ is Galois
   over $k$ ($x^M - 1$ is separable since $k$ has characteristic
   $0$). By Proposition~6.17, the extension
   $k(\zeta) \subseteq F(\zeta)$ is also Galois, with Galois group
-  isomorphic to $\mathrm{Aut}_{k(\zeta) \cap F}(F)$.  It follows that
-  $\mathrm{Aut}_{k(\zeta)}(F(\zeta))$ is solvable, since
-  $\mathrm{Aut}_{k(\zeta) \cap F}(F)$ is a subgroup of
-  $\mathrm{Aut}_k(F)$ and the latter is solvable by assumption. (See
+  isomorphic to $\Aut_{k(\zeta) \cap F}(F)$.  It follows that
+  $\Aut_{k(\zeta)}(F(\zeta))$ is solvable, since
+  $\Aut_{k(\zeta) \cap F}(F)$ is a subgroup of
+  $\Aut_k(F)$ and the latter is solvable by assumption. (See
   the comment following Corollary~IV.3.13.) Since
   $k(\zeta) \subseteq F(\zeta)$ has enough roots of $1$, Lemma~7.13
   implies that it is radical. So is $k \subseteq F(\zeta)$, since
@@ -5667,16 +5667,16 @@ does not divide the relevant degrees.
   $k \subseteq L(\zeta)$ is solvable. Indeed, this extension is Galois
   (Exercise~6.13); apply the fundamental theorem to
   $k \subseteq k(\zeta) \subseteq L(\zeta)$ to establish that
-  $\mathrm{Aut}_k(k(\zeta))$ is isomorphic to the quotient of
-  $\mathrm{Aut}_k(L(\zeta))$ by its normal subgroup
-  $\mathrm{Aut}_{k(\zeta)}(L(\zeta))$. Both
-  $\mathrm{Aut}_{k(\zeta)}(L(\zeta))$ (as shown above) and
-  $\mathrm{Aut}_k(k(\zeta))$ (an abelian group; cf.\ Example~6.18) are
-  solvable, and it follows that $\mathrm{Aut}_k(L(\zeta))$ is solvable
+  $\Aut_k(k(\zeta))$ is isomorphic to the quotient of
+  $\Aut_k(L(\zeta))$ by its normal subgroup
+  $\Aut_{k(\zeta)}(L(\zeta))$. Both
+  $\Aut_{k(\zeta)}(L(\zeta))$ (as shown above) and
+  $\Aut_k(k(\zeta))$ (an abelian group; cf.\ Example~6.18) are
+  solvable, and it follows that $\Aut_k(L(\zeta))$ is solvable
   as promised, by Corollary~IV.3.13. Since $F$ is an intermediate
   field and Galois over $k$, by the fundamental theorem
-  $\mathrm{Aut}_k(F)$ is a homomorphic image of
-  $\mathrm{Aut}_k(L(\zeta))$. This shows that $\mathrm{Aut}_k(F)$ is a
+  $\Aut_k(F)$ is a homomorphic image of
+  $\Aut_k(L(\zeta))$. This shows that $\Aut_k(F)$ is a
   homomorphic image of a solvable group; hence it is itself solvable
   (Corollary~IV.3.13 again), and we are done.
 \end{proof}
@@ -5728,7 +5728,7 @@ subsection.  Computing Galois groups of polynomials is in fact a
 popular sport among algebraists, excelling at which would require much
 more information than the reader will glean here. I will just list a
 few straightforward observations.  To begin with, recall that an
-element of $\mathrm{Aut}_k(F)$ must send roots of a polynomial
+element of $\Aut_k(F)$ must send roots of a polynomial
 $f(x) \in k[x]$ to roots of the same polynomial, and if $f(x)$ is
 irreducible and $F$ is its splitting field, then there are
 automorphisms of $F$ sending any root of $f(x)$ to any other root
@@ -5858,13 +5858,13 @@ Exercise~5.18). Assuming this fact, argue as follows:
   cyclic of order $p_i - 1$, a multiple of $n_i$.
 \item It follows that $(\Z/n\Z)^\ast$ has a subgroup $H$ such that
   $G \cong (\Z/n\Z)^\ast / H$.
-\item Since $(\Z/n\Z)^\ast \cong \mathrm{Aut}_\Q(\Q(\zeta_n))$
+\item Since $(\Z/n\Z)^\ast \cong \Aut_\Q(\Q(\zeta_n))$
   (Proposition~5.16) and cyclotomic fields are Galois over $\Q$, $H$
   corresponds to an intermediate field $F$,
   $\Q \subseteq F \subseteq \Q(\zeta_n)$.
-\item Since $\mathrm{Aut}_\Q(\Q(\zeta_n))$ is abelian, $H$ is
+\item Since $\Aut_\Q(\Q(\zeta_n))$ is abelian, $H$ is
   automatically normal; hence $\Q \subseteq F$ is Galois, and
-  $\mathrm{Aut}_\Q(F) \cong G$, as needed.
+  $\Aut_\Q(F) \cong G$, as needed.
 \end{itemize}
 Thus, the `inverse Galois problem' has an easy solution for abelian
 groups. A much stronger result is true: it can be proven that every
@@ -5985,10 +5985,10 @@ field.
 \begin{exer}{}{fields:exer:7.17}
   Let $f(x) \in k[x]$ be a separable irreducible polynomial of degree
   $n$ over a field $k$, and let $F$ be its splitting field. Assume
-  $\mathrm{Aut}_k(F) \cong S_n$, and let $\alpha$ be a root of $f(x)$
+  $\Aut_k(F) \cong S_n$, and let $\alpha$ be a root of $f(x)$
   in $F$.
   \begin{enumerate}[label=(\roman*)]
-  \item Prove that $\mathrm{Aut}_{k(\alpha)}(F) \cong S_{n-1}$.
+  \item Prove that $\Aut_{k(\alpha)}(F) \cong S_{n-1}$.
   \item Prove that there are no proper subfields of $k(\alpha)$
     properly containing $k$. (Hint: Exercise~IV.4.8.)
   \end{enumerate} [7.18]

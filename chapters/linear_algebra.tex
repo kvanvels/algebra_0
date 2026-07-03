@@ -554,7 +554,7 @@ cardinality higher than or equal to the rank. Indeed,
   $\varphi : V \to V$ be a homomorphism of vector spaces. Prove that
   there is an integer $n$ such that
   $\ker\varphi^{n+1} = \ker\varphi^n$ and
-  $\operatorname{im}\varphi^{n+1} = \operatorname{im}\varphi^n$.
+  $\image\varphi^{n+1} = \image\varphi^n$.
 
   Show that both claims may fail if $V$ has infinite dimension. [1.15]
 \end{exer}
@@ -568,8 +568,8 @@ cardinality higher than or equal to the rank. Indeed,
 
   Show that there is an $R$-module homomorphism $\varphi : F \to F$
   such that
-  $\operatorname{im}\varphi^{n+1} \subsetneq
-  \operatorname{im}\varphi^n$ for all $n \geq 0$.
+  $\image\varphi^{n+1} \subsetneq
+  \image\varphi^n$ for all $n \geq 0$.
 \end{exer}
 \begin{exer}{$\lnot$}{exer:linalg:1.16}
   Let $M$ be a module over a ring $R$. A \emph{finite composition
@@ -2042,11 +2042,11 @@ spaces over a field $k$. Using the convenient language introduced in
 \S{}III.7.1, note that each $\alpha$ determines an exact sequence of
 vector spaces
 \[
-  0 \to \ker\alpha \to V \to \operatorname{im}\alpha \to 0.
+  0 \to \ker\alpha \to V \to \image\alpha \to 0.
 \]
 \begin{defn}{}{linalg:3.9}
   The \emph{rank} of $\alpha$, denoted $\operatorname{rk}\alpha$, is
-  the dimension of $\operatorname{im}\alpha$. The \emph{nullity} of
+  the dimension of $\image\alpha$. The \emph{nullity} of
   $\alpha$ is $\dim(\ker\alpha)$.
 \end{defn}
 \begin{prop}{}{linalg:3.10}
@@ -2105,15 +2105,15 @@ maps:
 \]
 (cf.\ \S{}III.7.1). Thus, $\alpha_{i-1} \circ \alpha_i = 0$ for all
 $i$.  This condition is equivalent to the requirement that
-$\operatorname{im}(\alpha_{i+1}) \subseteq \ker(\alpha_i)$; recall
+$\image(\alpha_{i+1}) \subseteq \ker(\alpha_i)$; recall
 that the \emph{homology} of this complex is defined as the collection
 of spaces
 \[
   H_i(V_\bullet) =
-  \frac{\ker(\alpha_i)}{\operatorname{im}(\alpha_{i+1})}.
+  \frac{\ker(\alpha_i)}{\image(\alpha_{i+1})}.
 \]
 The complex is \emph{exact} if
-$\operatorname{im}(\alpha_{i+1}) = \ker(\alpha_i)$ for all $i$, that
+$\image(\alpha_{i+1}) = \ker(\alpha_i)$ for all $i$, that
 is, if $H_i(V_\bullet) = 0$ for all $i$.
 
 \begin{defn}{}{linalg:3.12}
@@ -2164,18 +2164,18 @@ useful) generalization of Proposition~3.11:
   while
   \[
     H_{N-1}(V_\bullet') = \ker(\alpha_{N-1}), \quad H_{N-1}(V_\bullet)
-    = \frac{\ker(\alpha_{N-1})}{\operatorname{im}(\alpha_N)}, \quad
+    = \frac{\ker(\alpha_{N-1})}{\image(\alpha_N)}, \quad
     H_N(V_\bullet) = \ker(\alpha_N).
   \]
   By Proposition~3.11 (cf.\ Proposition~3.10),
   \[
-    \dim(V_N) = \dim(\operatorname{im}(\alpha_N)) +
+    \dim(V_N) = \dim(\image(\alpha_N)) +
     \dim(\ker(\alpha_N))
   \]
   and
   \[
     \dim(H_{N-1}(V_\bullet)) = \dim(\ker(\alpha_{N-1})) -
-    \dim(\operatorname{im}(\alpha_N));
+    \dim(\image(\alpha_N));
   \]
   therefore
   \[
@@ -2481,9 +2481,9 @@ most spectacular one is that $M$ may have \emph{torsion}.
   Let $M$ be an $R$-module. An element $m \in M$ is a \emph{torsion
     element} if $\{m\}$ is linearly dependent, that is, if
   $\exists r \in R$, $r \neq 0$, such that $rm = 0$. The subset of
-  torsion elements of $M$ is denoted $\operatorname{Tor}_R(M)$. A
+  torsion elements of $M$ is denoted $\Tor_R(M)$. A
   module $M$ is \emph{torsion-free} if
-  $\operatorname{Tor}_R(M) = \{0\}$. A \emph{torsion module} is a
+  $\Tor_R(M) = \{0\}$. A \emph{torsion module} is a
   module $M$ in which every element is a torsion element.
 \end{defn}
 The subscript $R$ is usually omitted if there is no uncertainty about
@@ -2493,7 +2493,7 @@ A commutative ring is torsion-free as a module over itself if and only
 if it is an integral domain; this is a good reason to limit the
 discussion to integral domains in this chapter. Also, the reader will
 check (Exercise~4.1) that if $R$ is an integral domain, then
-$\operatorname{Tor}(M)$ is a \emph{submodule} of $M$. Equally easy is
+$\Tor(M)$ is a \emph{submodule} of $M$. Equally easy is
 the following observation:
 \begin{lem}{}{linalg:4.2}
   Submodules and direct sums of torsion-free modules are torsion-free.
@@ -2552,11 +2552,11 @@ is a field by just looking at its cyclic modules:
 \end{lem}
 \begin{proof}
   Let $c \in R$, $c \neq 0$; then $M = R/(c)$ is a cyclic module. Note
-  that $\operatorname{Tor}(M) = M$: indeed, the class of $1$ generates
-  $R/(c)$ and belongs to $\operatorname{Tor}(M)$ since $c \cdot 1$ is
+  that $\Tor(M) = M$: indeed, the class of $1$ generates
+  $R/(c)$ and belongs to $\Tor(M)$ since $c \cdot 1$ is
   $0$ mod $(c)$ and $c \neq 0$. However, by hypothesis $M$ is
-  torsion-free; that is, $\operatorname{Tor}(M) = \{0\}$. Therefore
-  $M = \operatorname{Tor}(M)$ is the zero module.
+  torsion-free; that is, $\Tor(M) = \{0\}$. Therefore
+  $M = \Tor(M)$ is the zero module.
 
   This shows $R/(c)$ is the zero $R$-module; that is, $(c) = (1)$.
   Therefore, $c$ is a unit. Thus every nonzero element of $R$ is a
@@ -2762,7 +2762,7 @@ module $M$ by studying a homomorphism of free modules
 \[
   \tag{*} \varphi : R^n \to R^m
 \]
-such that $M = \operatorname{coker}\varphi$. As we know, we can
+such that $M = \coker\varphi$. As we know, we can
 describe $\varphi$ completely by considering a matrix $A$ representing
 it, and therefore we can describe any finitely presented module by
 giving a matrix corresponding to (a homomorphism corresponding to) it.
@@ -2805,7 +2805,7 @@ can be executed on the corresponding matrices. For example,
 
 Coming back to $(*)$, note that the module $M$ cannot know which bases
 we have chosen for $R^n$ or $R^m$; that is,
-$M = \operatorname{coker}\varphi$ really depends on the homomorphism
+$M = \coker\varphi$ really depends on the homomorphism
 $\varphi$, not on the specific matrix representation we have chosen
 for $\varphi$. This is an issue that we have already encountered, and
 treated rather thoroughly, in \S{}2.2 and following: `equivalent'
@@ -2903,7 +2903,7 @@ The following proposition attempts to formalize these observations.
   identifies $\Z$ with the subgroup $3\Z \oplus 0$ of the target.
   Therefore
   \[
-    G \cong \operatorname{coker}\varphi \cong \frac{\Z \oplus \Z}{3\Z
+    G \cong \coker\varphi \cong \frac{\Z \oplus \Z}{3\Z
       \oplus 0} \cong \frac{\Z}{3\Z} \oplus \Z.
   \]
 \end{exam}
@@ -2920,7 +2920,7 @@ general rings, since in general elementary transformations do not
 generate $\mathrm{GL}$; cf.\ Remark~2.12.
 \begin{exer}{\exerused}{exer:linalg:4.1}
   Prove that if $R$ is an integral domain and $M$ is an $R$-module,
-  then $\operatorname{Tor}(M)$ is a submodule of $M$. Give an example
+  then $\Tor(M)$ is a submodule of $M$. Give an example
   showing that the hypothesis that $R$ is an integral domain is
   necessary.  [$\S$4.1]
 \end{exer}
@@ -3094,8 +3094,8 @@ generate $\mathrm{GL}$; cf.\ Remark~2.12.
   \]
   be the morphism induced on direct sums. Prove that
   \[
-    \operatorname{coker}(\varphi \oplus \psi) =
-    \operatorname{coker}\varphi \oplus \operatorname{coker}\psi.
+    \coker(\varphi \oplus \psi) =
+    \coker\varphi \oplus \coker\psi.
   \]
 \end{exer}
 \begin{exer}{}{exer:linalg:4.17}
@@ -3514,8 +3514,8 @@ As for the uniqueness of the representations, if
 \]
 with $T$ a torsion module\footnote{Recall that this means that every
   element of $T$ is a torsion element; cf.\ \S{}4.1.}, then
-$r = \operatorname{rk} M$ and $T \cong \operatorname{Tor}_R(M)$
-$\cong \operatorname{Tor}_R(M)$ (Exercise~5.10). Thus, the `free part'
+$r = \operatorname{rk} M$ and $T \cong \Tor_R(M)$
+$\cong \Tor_R(M)$ (Exercise~5.10). Thus, the `free part'
 and the `torsion part' in the decompositions given in Theorem~5.6 are
 determined uniquely.
 
@@ -3696,7 +3696,7 @@ will not spoil the reader's fun by giving any more details this time
 \begin{exer}{}{exer:linalg:5.7}
   Let $R$ be an integral domain, and let $M$ be a finitely generated
   module over $R$. Prove that
-  $\operatorname{rk} M = \operatorname{rk}(M/\operatorname{Tor}(M))$.
+  $\operatorname{rk} M = \operatorname{rk}(M/\Tor(M))$.
 \end{exer}
 \begin{exer}{}{exer:linalg:5.8}
   Let $R$ be an integral domain, and let $M$ be a finitely generated
@@ -3723,7 +3723,7 @@ will not spoil the reader's fun by giving any more details this time
   Let $R$ be an integral domain, $M$ an $R$-module, and assume
   $M \cong R^r \oplus T$, with $T$ a torsion module. Prove directly
   (that is, without using Theorem~5.6) that $r = \operatorname{rk} M$
-  and $T \cong \operatorname{Tor}_R(M)$. [$\S$5.3]
+  and $T \cong \Tor_R(M)$. [$\S$5.3]
 \end{exer}
 \begin{exer}{\exerused}{exer:linalg:5.11}
   Let $R$ be an integral domain, let $M$, $N$ be $R$-modules, and let

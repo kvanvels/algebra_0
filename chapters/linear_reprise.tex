@@ -128,12 +128,12 @@ briefly a few slightly more imaginative examples; here they are again.
   $\categ{Ring} \to \categ{Grp}$.
 \end{exam}
 \begin{exam}{}{linrep:exam:1.3}
-  The operation $\mathrm{Aut}_k(-)$ from Galois field extensions to
+  The operation $\Aut_k(-)$ from Galois field extensions to
   groups is contravariantly functorial. Indeed, if
   $k \subseteq E \subseteq F$ is viewed as a morphism of two Galois
   extensions ($k \subseteq E$ to $k \subseteq F$), we have a
   corresponding group homomorphism
-  $\mathrm{Aut}_k(F) \to \mathrm{Aut}_k(E)$ defined by restriction:
+  $\Aut_k(F) \to \Aut_k(E)$ defined by restriction:
   $\phi \mapsto \phi|_E$; the latter maps $E$ to $E$ by virtue of the
   Galois condition. The composition of two restrictions is a
   restriction, so the assignment is indeed functorial.
@@ -813,7 +813,7 @@ also exact.
   $h^X \leadsto F$ and $F(X)$, defined as follows. The datum of a
   natural transformation $h^X \leadsto F$ consists of a morphism from
   $h^X(A) = \Hom_{\categ{C}}(A, X)$ to $F(A)$ for every object $A$ of
-  $\categ{C}$. Map $h^X$ to the image of $\mathrm{id}_X \in h^X(X)$ in
+  $\categ{C}$. Map $h^X$ to the image of $\id_X \in h^X(X)$ in
   $F(X)$. (Hint: Produce an inverse of the specified map. For every
   $f \in F(X)$ and every $\phi \in \Hom_{\categ{C}}(A, X)$, how do you
   construct an element of $F(A)$?) This result is called the
@@ -1470,8 +1470,8 @@ invariants.
 The `failure of exactness' of the functor $\mathord{-} \otimes_R N$ is
 measured by another functor
 $R\text{-}\categ{Mod} \to R\text{-}\categ{Mod}$, called
-$\mathrm{Tor}^R_1(\mathord{-}, N)$: if $N$ is flat (for example, if it
-is free), then $\mathrm{Tor}^R_1(M, N) = 0$ for all modules $M$. In
+$\Tor^R_1(\mathord{-}, N)$: if $N$ is flat (for example, if it
+is free), then $\Tor^R_1(M, N) = 0$ for all modules $M$. In
 fact (amazingly) if
 \[
   0 \to A \to B \to C \to 0
@@ -1479,22 +1479,22 @@ fact (amazingly) if
 is an exact sequence of $R$-modules, one obtains a new exact sequence
 after tensoring by any $N$:
 \[
-  \mathrm{Tor}^R_1(C, N) \to A \otimes_R N \to B \otimes_R N \to C
+  \Tor^R_1(C, N) \to A \otimes_R N \to B \otimes_R N \to C
   \otimes_R N \to 0,
 \]
-so if $\mathrm{Tor}^R_1(C, N) = 0$, then the module on the left
+so if $\Tor^R_1(C, N) = 0$, then the module on the left
 vanishes; thus every short exact sequence ending in $C$ remains exact
 after tensoring by $N$ in this case. In fact (astonishingly) for all
 $N$ one can continue this sequence with more Tor-modules, obtaining a
 longer exact complex:
 \[
-  \mathrm{Tor}^R_1(A, N) \to \mathrm{Tor}^R_1(B, N) \to
-  \mathrm{Tor}^R_1(C, N) \to A \otimes_R N \to B \otimes_R N \to C
+  \Tor^R_1(A, N) \to \Tor^R_1(B, N) \to
+  \Tor^R_1(C, N) \to A \otimes_R N \to B \otimes_R N \to C
   \otimes_R N \to 0.
 \]
 This is not the end of the story: the complex may be continued even
-further by invoking new functors $\mathrm{Tor}^R_2(\mathord{-}, N)$,
-$\mathrm{Tor}^R_3(\mathord{-}, N)$, etc. These are the derived
+further by invoking new functors $\Tor^R_2(\mathord{-}, N)$,
+$\Tor^R_3(\mathord{-}, N)$, etc. These are the derived
 functors of tensor. To `compute' these functors, one may apply the
 following procedure: given an $R$-module $M$, find a free resolution
 (\S{}VI.4.2)
@@ -1514,25 +1514,25 @@ take the homology of this complex (cf.\ \S{}III.7.3). Astoundingly,
 this will not depend (up to isomorphism) on the chosen free
 resolution, so we can define
 \[
-  \mathrm{Tor}^R_i(M, N) := H_i(M_\bullet \otimes N).
+  \Tor^R_i(M, N) := H_i(M_\bullet \otimes N).
 \]
 For example, according to this definition
-$\mathrm{Tor}^R_0(M, N) \cong M \otimes_R N$ (Exercise~2.14), and
-$\mathrm{Tor}^R_i(M, N) = 0$ for all $i > 0$ and all $M$ if $N$ is
+$\Tor^R_0(M, N) \cong M \otimes_R N$ (Exercise~2.14), and
+$\Tor^R_i(M, N) = 0$ for all $i > 0$ and all $M$ if $N$ is
 flat (because then tensoring by $N$ is an exact functor, so tensoring
 the resolution of $M$ returns an exact sequence, thus with no
 homology). In fact, this proves a remarkable property of the Tor
-functors: if $\mathrm{Tor}^R_1(M, N) = 0$ for all $M$, then
-$\mathrm{Tor}^R_i(M, N) = 0$ for all $i > 0$ for all modules $M$.
+functors: if $\Tor^R_1(M, N) = 0$ for all $M$, then
+$\Tor^R_i(M, N) = 0$ for all $i > 0$ for all modules $M$.
 Indeed, $N$ is then flat.  At this point you may feel that something
 is a little out of balance: why focus on the functor
 $\mathord{-} \otimes_R N$, rather than $M \otimes_R \mathord{-}$?
 Since $M \otimes_R N$ is canonically isomorphic to $N \otimes_R M$ (in
 the commutative case; cf.\ Example~2.2), we could expect the same to
-apply to every $\mathrm{Tor}^R_i$: $\mathrm{Tor}^R_i(M, N)$ ought to
-be canonically isomorphic to $\mathrm{Tor}^R_i(N, M)$ for all
+apply to every $\Tor^R_i$: $\Tor^R_i(M, N)$ ought to
+be canonically isomorphic to $\Tor^R_i(N, M)$ for all
 $i$. Equivalently, we should be able to compute
-$\mathrm{Tor}^R_i(M, N)$ as the homology of $M \otimes_R N_\bullet$,
+$\Tor^R_i(M, N)$ as the homology of $M \otimes_R N_\bullet$,
 where $N_\bullet$ is a free resolution of $N$.  This is indeed the
 case.
 
@@ -1595,15 +1595,15 @@ the exact sequence
 
 which is precisely the sequence of Tor modules conjured up above,
 \[
-  \mathrm{Tor}^R_1(A, N) \to \mathrm{Tor}^R_1(B, N) \to
-  \mathrm{Tor}^R_1(C, N) \xrightarrow{\delta} A \otimes_R N \to B
+  \Tor^R_1(A, N) \to \Tor^R_1(B, N) \to
+  \Tor^R_1(C, N) \xrightarrow{\delta} A \otimes_R N \to B
   \otimes_R N \to C \otimes_R N \to 0,
 \]
 with a $0$ on the left for good measure (due to the fact that
-$\mathrm{Tor}^R_2$ vanishes if $R$ is a PID; cf.\ Exercise~2.17).
+$\Tor^R_2$ vanishes if $R$ is a PID; cf.\ Exercise~2.17).
 
-Note that $\mathrm{Tor}^k_i$ vanishes for $i > 0$ if $k$ is a field,
-as vector spaces are flat, and $\mathrm{Tor}^R_i$ vanishes for $i > 1$
+Note that $\Tor^k_i$ vanishes for $i > 0$ if $k$ is a field,
+as vector spaces are flat, and $\Tor^R_i$ vanishes for $i > 1$
 if $R$ is a PID (Exercise~2.17). These facts are not surprising, in
 view of the procedure described above for computing Tor and of the
 considerations at the end of \S{}VI.5.2: a bound on the length of free
@@ -1723,26 +1723,26 @@ $R$ denotes a fixed commutative ring.
 \end{exer}
 \begin{exer}{$?$}{linrep:exer:2.14}
   Prove that, according to the definition given in \S{}2.4,
-  $\mathrm{Tor}^R_0(M, N)$ is isomorphic to $M \otimes_R N$.
+  $\Tor^R_0(M, N)$ is isomorphic to $M \otimes_R N$.
   [\S{}2.4]
 \end{exer}
 \begin{exer}{$?$}{linrep:exer:2.15}
   Prove that for $r \in R$ a non-zero-divisor and $N$ an $R$-module,
-  the module $\mathrm{Tor}^R_1(R/(r), N)$ is isomorphic to the
+  the module $\Tor^R_1(R/(r), N)$ is isomorphic to the
   $r$-torsion of $N$, that is, the submodule of elements $n \in N$
   such that $rn = 0$ (cf.\ \S{}VI.4.1). (This is the reason why Tor is
   called Tor.) [\S{}2.4, 6.21]
 \end{exer}
 \begin{exer}{}{linrep:exer:2.16}
   Let $I$, $J$ be ideals of $R$. Prove that
-  $\mathrm{Tor}^R_1(R/I, R/J) \cong (I \cap J)/IJ$. (For example, this
-  $\mathrm{Tor}^R_1$ vanishes if $I + J = R$, by Lemma~V.6.3.)  Prove
-  that $\mathrm{Tor}^R_i(R/I, R/J)$ is isomorphic to
-  $\mathrm{Tor}^R_{i-1}(I, R/J)$ for $i > 1$.
+  $\Tor^R_1(R/I, R/J) \cong (I \cap J)/IJ$. (For example, this
+  $\Tor^R_1$ vanishes if $I + J = R$, by Lemma~V.6.3.)  Prove
+  that $\Tor^R_i(R/I, R/J)$ is isomorphic to
+  $\Tor^R_{i-1}(I, R/J)$ for $i > 1$.
 \end{exer}
 \begin{exer}{$?$}{linrep:exer:2.17}
   Let $M$, $N$ be modules over a PID $R$. Prove that
-  $\mathrm{Tor}^R_i(M, N) = 0$ for $i \geq 2$. (Assume $M$, $N$ are
+  $\Tor^R_i(M, N) = 0$ for $i \geq 2$. (Assume $M$, $N$ are
   finitely generated, for simplicity.) [\S{}2.4]
 \end{exer}
 \begin{exer}{}{linrep:exer:2.18}
@@ -1765,7 +1765,7 @@ $R$ denotes a fixed commutative ring.
     every ideal $I$ of $R$.
   \end{itemize}
   If you believe in Tor's, now you can also show that an $R$-module
-  $M$ is flat if and only if $\mathrm{Tor}^R_1(R/I, M) = 0$ for all
+  $M$ is flat if and only if $\Tor^R_1(R/I, M) = 0$ for all
   ideals $I$ of $R$. [2.20]
 \end{exer}
 \begin{exer}{}{linrep:exer:2.20}
@@ -1795,8 +1795,8 @@ $R$ denotes a fixed commutative ring.
 \begin{exer}{$\lnot$}{linrep:exer:2.22}
   Let $M$, $N$ be $R$-modules, and let $S$ be a multiplicative subset
   of $R$. Use the definition of Tor given in \S{}2.4 to show
-  $S^{-1}\mathrm{Tor}^R_i(M, N) \cong
-  \mathrm{Tor}^{S^{-1}R}_i(S^{-1}M, S^{-1}N)$. (Use Exercise~1.25.)
+  $S^{-1}\Tor^R_i(M, N) \cong
+  \Tor^{S^{-1}R}_i(S^{-1}M, S^{-1}N)$. (Use Exercise~1.25.)
   Use this fact to give a leaner proof that flatness is a local
   property (Exercise~2.21). [2.25]
 \end{exer}
@@ -1842,7 +1842,7 @@ $R$ denotes a fixed commutative ring.
 \begin{exer}{}{linrep:exer:2.25}
   Let $R$ be a commutative Noetherian ring, and let $M$ be a finitely
   generated $R$-module. Prove that $M$ is flat if and only if
-  $\mathrm{Tor}^R_1(M, R/\mathfrak{m}) = 0$ for every maximal ideal
+  $\Tor^R_1(M, R/\mathfrak{m}) = 0$ for every maximal ideal
   $\mathfrak{m}$ of $R$. (Use Exercise~2.21, and refine the argument
   you used in Exercise~2.24; remember that Tor localizes, by
   Exercise~2.22. The Noetherian hypothesis is actually unnecessary,
@@ -3556,7 +3556,7 @@ case of Exercise III.7.8 and, further, it is a consequence of Exercise
       bend right, "\rho"'] & 0
     \end{tikzcd}
   \]
-  By construction, $\nu \circ \rho = \mathrm{id}_P$. Now let
+  By construction, $\nu \circ \rho = \id_P$. Now let
   $n \in N$. Then $\nu(\rho(\nu(n))) = \nu(n)$, giving
   $\nu(n - \rho(\nu(n))) = 0$. By the exactness of the given sequence,
   $\exists m \in M$ such that $n - \rho(\nu(n)) = \mu(m)$. The element
@@ -3717,8 +3717,8 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   \]
   is exact for all $R$-modules $N$. (You have done most of this
   already, in Exercise~5.2. To show
-  $\ker\beta \subseteq \operatorname{im}\alpha$, choose
-  $N = B/\operatorname{im}(\alpha)$.) Remember that the converse does
+  $\ker\beta \subseteq \image\alpha$, choose
+  $N = B/\image(\alpha)$.) Remember that the converse does
   not hold, since in general $\Hom_R(-,N)$ is not exact.  What extra
   hypothesis on $\alpha$ would guarantee the exactness of $(*)$ for
   all $N$?
@@ -3903,7 +3903,7 @@ advertised here and substantially more.
 As in the rest of the chapter, $R$ will be a commutative ring. As
 elsewhere, the hypothesis of commutativity is essentially unnecessary;
 it has the convenient consequence that the objects defined below (such
-as $\mathrm{Ext}^i_R(M, N)$ for two $R$-modules $M$ and $N$) are
+as $\Ext^i_R(M, N)$ for two $R$-modules $M$ and $N$) are
 naturally endowed with an $R$-module structure. If $R$ is not
 necessarily commutative, they are `just' abelian groups.
 
@@ -4103,7 +4103,7 @@ $(r) \cong R$ in $R$:
 extending the identity on $R$ through the multiplication by $r$,
 \[
   \begin{tikzcd}
-    0 \ar[r] & R \ar[r, "\cdot r"] \ar[d, "\mathrm{id}"'] &
+    0 \ar[r] & R \ar[r, "\cdot r"] \ar[d, "\id"'] &
     R \ar[dl, dashed, "\exists?"] \\
     & R
   \end{tikzcd}
@@ -4288,33 +4288,33 @@ algebraic geometry.
 \label{subsec:linrep:the-ext-functors}
 The next step to take now is the construction of tools to `quantify'
 the lack of exactness of $\Hom_R$, in the same sense that the functors
-$\mathrm{Tor}^R_i$ quantify the lack of exactness of $\otimes_R$. The
-corresponding functors are called $\mathrm{Ext}^i_R$.
+$\Tor^R_i$ quantify the lack of exactness of $\otimes_R$. The
+corresponding functors are called $\Ext^i_R$.
 
 Since there are two functors associated with Hom (the covariant
 $\Hom_R(M, -)$ and the contravariant $\Hom_R(-, N)$), it would be
 natural to expect two corresponding sequences of functors.  Amazingly,
-the same `bifunctors' $\mathrm{Ext}^i_R(-, -)$ work for both! For all
+the same `bifunctors' $\Ext^i_R(-, -)$ work for both! For all
 $R$-modules $M$ and $N$, we have the following:
 \begin{itemize}
-\item For all $i \geq 0$, $\mathrm{Ext}^i_R(M, -)$ and
-  $\mathrm{Ext}^i_R(-, N)$ are covariant, resp., contravariant,
+\item For all $i \geq 0$, $\Ext^i_R(M, -)$ and
+  $\Ext^i_R(-, N)$ are covariant, resp., contravariant,
   functors $R\text{-Mod} \to R\text{-Mod}$.
-\item For $i = 0$, $\mathrm{Ext}^0_R(M, N) = \Hom_R(M, N)$.
+\item For $i = 0$, $\Ext^0_R(M, N) = \Hom_R(M, N)$.
 \item For every exact sequence $0 \to A \to B \to C \to 0$ of
   $R$-modules, there are long exact sequences
   \begin{gather*}
     0 \to \Hom_R(M,A) \to \Hom_R(M,B) \to
     \Hom_R(M,C) \xrightarrow{\delta_0}
-    \mathrm{Ext}^1_R(M,A) \to \mathrm{Ext}^1_R(M,B) \to
-    \mathrm{Ext}^1_R(M,C) \xrightarrow{\delta_1} \cdots
+    \Ext^1_R(M,A) \to \Ext^1_R(M,B) \to
+    \Ext^1_R(M,C) \xrightarrow{\delta_1} \cdots
   \end{gather*}
   and
   \begin{gather*}
     0 \to \Hom_R(C,N) \to \Hom_R(B,N) \to
     \Hom_R(A,N) \xrightarrow{\delta^0}
-    \mathrm{Ext}^1_R(C,N) \to \mathrm{Ext}^1_R(B,N) \to
-    \mathrm{Ext}^1_R(A,N) \xrightarrow{\delta^1} \cdots
+    \Ext^1_R(C,N) \to \Ext^1_R(B,N) \to
+    \Ext^1_R(A,N) \xrightarrow{\delta^1} \cdots
   \end{gather*}
   for suitable natural connecting morphisms $\delta_i$, $\delta^i$.
 \end{itemize}
@@ -4322,13 +4322,13 @@ This will be proven in Chapter IX. In any case, just knowing that such
 wonderful things exist gives us enough information to be able to play
 with them a little. For example,
 \begin{itemize}
-\item if $\mathrm{Ext}^1_R(P, -) = 0$, then $P$ is projective;
-\item if $\mathrm{Ext}^1_R(-, Q) = 0$, then $Q$ is injective.
+\item if $\Ext^1_R(P, -) = 0$, then $P$ is projective;
+\item if $\Ext^1_R(-, Q) = 0$, then $Q$ is injective.
 \end{itemize}
 Indeed, the exactness of the corresponding $\Hom_R(P, -)$, resp.,
 $\Hom_R(-, Q)$, follows immediately from the exact sequences displayed
 above.  In fact, pushing the envelope a little will tell us much
-more. Recall the procedure that defines $\mathrm{Tor}^R_i(-, N)$ from
+more. Recall the procedure that defines $\Tor^R_i(-, N)$ from
 the functor $- \otimes_R N$: to compute the value of these functors at
 a module $M$,
 \begin{itemize}
@@ -4340,7 +4340,7 @@ a module $M$,
   $\dots \to N^{\oplus S_2} \to N^{\oplus S_1} \to N^{\oplus S_0} \to
   0$;
 \item define Tor by taking the homology of this complex:
-  $\mathrm{Tor}^R_i(M, N) := H_i(M_\bullet \otimes N)$.
+  $\Tor^R_i(M, N) := H_i(M_\bullet \otimes N)$.
 \end{itemize}
 I also pointed out that projective resolutions may be used in place of
 free resolutions.\footnote{In fact, resolutions by flat modules
@@ -4350,7 +4350,7 @@ dream up how the same strategy may be applied in order to compute
 Ext-modules? Don't read ahead until you have thought a little about
 this!
 
-$*$ Welcome back. In the case of $\mathrm{Ext}^i_R(M,N)$, there would
+$*$ Welcome back. In the case of $\Ext^i_R(M,N)$, there would
 seem to be two natural and possibly different ways to go:
 \begin{itemize}
 \item One could start from a projective resolution of $M$:
@@ -4362,14 +4362,14 @@ seem to be two natural and possibly different ways to go:
     of complexes with increasing (rather than decreasing) indices is
     called cohomology; this is usually denoted $H^*$, with `upper'
     indices.} proposing the definition
-  $\mathrm{Ext}^i_R(M,N) := H^i(\Hom_R(M_\bullet, N))$.
+  $\Ext^i_R(M,N) := H^i(\Hom_R(M_\bullet, N))$.
 \item Or one could start from an injective resolution of $N$:
   $0 \to N \to Q^0 \to Q^1 \to Q^2 \to \dots$; apply the covariant
   $\Hom_R(M, -)$ to the injective part, obtaining a new complex
   $\Hom_R(M, N^\bullet)$, i.e.,
   $\Hom_R(M,Q^0) \to \Hom_R(M,Q^1) \to \Hom_R(M,Q^2) \to \dots$, and
   again take cohomology, leading to
-  $\mathrm{Ext}^i_R(M,N) := H^i(\Hom_R(M, N^\bullet))$.
+  $\Ext^i_R(M,N) := H^i(\Hom_R(M, N^\bullet))$.
 \end{itemize}
 These definitions are independent of all choices and agree with each
 other! Again, the reader will have to wait for Chapter IX to see a
@@ -4386,48 +4386,48 @@ better. For example,
 
 \begin{prop}{}{linrep:6.14}
   An $R$-module $P$ is projective if and only if
-  $\mathrm{Ext}^1_R(P, -) = 0$, if and only if
-  $\mathrm{Ext}^i_R(P, -) = 0$ for all $i > 0$. An $R$-module $Q$ is
-  injective if and only if $\mathrm{Ext}^1_R(-, Q) = 0$, if and only
-  if $\mathrm{Ext}^i_R(-, Q) = 0$ for all $i > 0$.
+  $\Ext^1_R(P, -) = 0$, if and only if
+  $\Ext^i_R(P, -) = 0$ for all $i > 0$. An $R$-module $Q$ is
+  injective if and only if $\Ext^1_R(-, Q) = 0$, if and only
+  if $\Ext^i_R(-, Q) = 0$ for all $i > 0$.
 \end{prop}
 
 \begin{proof}
   The second assertion: we have seen that $Q$ is injective if
-  $\mathrm{Ext}^1_R(-, Q) = 0$, and this is trivially the case if
-  $\mathrm{Ext}^i_R(-, Q) = 0$ for all $i > 0$. So we just have to
-  prove that $\mathrm{Ext}^i_R(-, Q) = 0$ for all $i > 0$ if $Q$ is
+  $\Ext^1_R(-, Q) = 0$, and this is trivially the case if
+  $\Ext^i_R(-, Q) = 0$ for all $i > 0$. So we just have to
+  prove that $\Ext^i_R(-, Q) = 0$ for all $i > 0$ if $Q$ is
   injective. This is immediate from the second definition given above:
   if $Q$ is injective, then $0 \to Q \to Q \to 0 \to 0 \to \dots$ is
   an injective resolution of $Q$; thus, for an $R$-module $M$,
-  $\mathrm{Ext}^i_R(M, Q)$ is the cohomology of the complex
+  $\Ext^i_R(M, Q)$ is the cohomology of the complex
   $\Hom_R(M,Q) \to 0 \to 0 \to \dots$, giving
-  $\mathrm{Ext}^0_R(M,Q) = \Hom_R(M,Q)$ and
-  $\mathrm{Ext}^i_R(M,Q) = 0$ for $i > 0$ and all $M$. The first
+  $\Ext^0_R(M,Q) = \Hom_R(M,Q)$ and
+  $\Ext^i_R(M,Q) = 0$ for $i > 0$ and all $M$. The first
   assertion is proven similarly, using the first definition given
   above for Ext.
 \end{proof}
 
-\subsection{$\mathrm{Ext}^*_{\Z}(G, \Z)$}
+\subsection{$\Ext^*_{\Z}(G, \Z)$}
 \label{subsec:linrep:ext-Z-G-Z}
 I will attempt to convince the reader that computing Ext modules is
 not too unreasonable, by discussing the computation of
-$\mathrm{Ext}^*_{\Z}(G, \Z)$ for an arbitrary finitely generated
+$\Ext^*_{\Z}(G, \Z)$ for an arbitrary finitely generated
 abelian group $G$.
 \begin{itemize}
 \item Since Hom commutes with finite direct sums
   (Corollary~\ref{linrep:5.3}), so does Ext; this is an easy
   consequence of the definitions given above.
 \item By the classification theorem for finitely generated abelian
-  groups, we are reduced to computing $\mathrm{Ext}^i_{\Z}(\Z, \Z)$
-  and $\mathrm{Ext}^i_{\Z}(\Z/m\Z, \Z)$, for all $m > 0$ and
+  groups, we are reduced to computing $\Ext^i_{\Z}(\Z, \Z)$
+  and $\Ext^i_{\Z}(\Z/m\Z, \Z)$, for all $m > 0$ and
   $i \geq 0$.
 \item The first module is $\Hom_{\Z}(\Z,\Z) \cong \Z$ for $i = 0$, and
   it is $0$ for $i > 0$: indeed, this follows from
   Proposition~\ref{linrep:6.14}, since $\Z$ is projective.
 \item The second module: use the projective resolution
   $0 \to \Z \xrightarrow{\cdot m} \Z \to \Z/m\Z \to 0$; this yields
-  that $\mathrm{Ext}^i_{\Z}(\Z/m\Z, \Z)$ is the cohomology of the
+  that $\Ext^i_{\Z}(\Z/m\Z, \Z)$ is the cohomology of the
   complex
   \[
     0 \to \Hom_{\Z}(\Z,\Z) \xrightarrow{\cdot m} \Hom_{\Z}(\Z,\Z) \to
@@ -4435,28 +4435,28 @@ abelian group $G$.
   \]
   that is, $0 \to \Z \xrightarrow{\cdot m} \Z \to 0 \to \dots$,
   confirming that
-  $\mathrm{Ext}^0_{\Z}(\Z/m\Z, \Z) = \Hom_{\Z}(\Z/m\Z, \Z) = 0$ ($\Z$
+  $\Ext^0_{\Z}(\Z/m\Z, \Z) = \Hom_{\Z}(\Z/m\Z, \Z) = 0$ ($\Z$
   has no torsion) and computing
-  $\mathrm{Ext}^1_{\Z}(\Z/m\Z, \Z) \cong \Z/m\Z$, with vanishing
-  $\mathrm{Ext}^2$ and higher.
-\item The conclusion is that $\mathrm{Ext}^0_{\Z}(G, \Z)$ picks up the
-  free part of $G$, while $\mathrm{Ext}^1_{\Z}(G, \Z)$ is isomorphic
-  to the torsion part, and $\mathrm{Ext}^i_{\Z}(G, \Z) = 0$ for
+  $\Ext^1_{\Z}(\Z/m\Z, \Z) \cong \Z/m\Z$, with vanishing
+  $\Ext^2$ and higher.
+\item The conclusion is that $\Ext^0_{\Z}(G, \Z)$ picks up the
+  free part of $G$, while $\Ext^1_{\Z}(G, \Z)$ is isomorphic
+  to the torsion part, and $\Ext^i_{\Z}(G, \Z) = 0$ for
   $i \geq 2$ (as should have been expected; cf.\ Exercise~6.18).
 \end{itemize}
 In particular, if $G$ is a finite abelian group, then
-$G \cong \mathrm{Ext}^1_{\Z}(G, \Z)$; as it happens, this isomorphism
+$G \cong \Ext^1_{\Z}(G, \Z)$; as it happens, this isomorphism
 is not canonical.
 
 Another Ext computation gives a different interpretation of this
 group. The exact sequence $0 \to \Z \to \Q \to \Q/\Z \to 0$ is an
-injective resolution of $\Z$; thus, $\mathrm{Ext}^*_{\Z}(G, \Z)$ is
+injective resolution of $\Z$; thus, $\Ext^*_{\Z}(G, \Z)$ is
 the cohomology of
 \[
   0 \to \Hom_{\Z}(G, \Q) \to \Hom_{\Z}(G, \Q/\Z) \to 0 \to \dots.
 \]
 If $G$ is torsion (for example, if $G$ is finite), it follows that
-$\mathrm{Ext}^1_{\Z}(G, \Z)$ is isomorphic to $\Hom_{\Z}(G,
+$\Ext^1_{\Z}(G, \Z)$ is isomorphic to $\Hom_{\Z}(G,
 \Q/\Z)$. This group is the \emph{Pontryagin dual} of $G$, denoted
 $\hat{G}$. Thus, we have verified that if $G$ is a finite abelian
 group, then $G$ is isomorphic (not canonically) to its Pontryagin dual
@@ -4464,7 +4464,7 @@ $\hat{G} = \Hom_{\Z}(G, \Q/\Z)$. Of course this fact is not difficult
 to check directly, but it is immediate from the point of view of Ext.
 
 Finally, the notation \emph{Ext} is due to the fact that one can
-construct a bijection between the group $\mathrm{Ext}^1_R(M, N)$ and
+construct a bijection between the group $\Ext^1_R(M, N)$ and
 the set of equivalence classes of \emph{extensions} of $M$ by $N$,
 that is, of exact sequences $0 \to N \to E \to M \to 0$, modulo a
 suitable isomorphism relation (cf.\ \S{}IV.5.2). For example, the
@@ -4576,23 +4576,23 @@ As usual, $R$ denotes a fixed commutative ring.
 \end{exer}
 
 \begin{exer}{}{linrep:exer:6.17}
-  Prove that $\Hom_R(M, N) \cong \mathrm{Ext}^0_R(M, N)$, using any of
-  the definitions provided for $\mathrm{Ext}^i_R(M, N)$.
+  Prove that $\Hom_R(M, N) \cong \Ext^0_R(M, N)$, using any of
+  the definitions provided for $\Ext^i_R(M, N)$.
 \end{exer}
 
 \begin{exer}{$*$}{linrep:exer:6.18}
-  Prove that if $R$ is a PID, then $\mathrm{Ext}^i_R(M, N) = 0$ for
+  Prove that if $R$ is a PID, then $\Ext^i_R(M, N) = 0$ for
   all $i \geq 2$ and all $R$-modules $M$, $N$. [\S{}6.5]
 \end{exer}
 
 \begin{exer}{}{linrep:exer:6.19}
   Let $r$ be a non-zero-divisor in $R$, and let $M$ be an
-  $R$-module. Compute all $\mathrm{Ext}^i_R(R/(r), M)$.
+  $R$-module. Compute all $\Ext^i_R(R/(r), M)$.
 \end{exer}
 
 \begin{exer}{}{linrep:exer:6.20}
   Let $I$ be an ideal of $R$. Prove that
-  $\mathrm{Ext}^1_R(R/I, R/I) \cong \Hom_R(I/I^2, R/I)$.  (Cf.\
+  $\Ext^1_R(R/I, R/I) \cong \Hom_R(I/I^2, R/I)$.  (Cf.\
   Exercise~5.4. This says that this Ext module essentially computes
   the normal bundle of an embedding.)
 \end{exer}
@@ -4618,14 +4618,14 @@ As usual, $R$ denotes a fixed commutative ring.
   $0 \to N \to N \oplus M \to M \to 0$ are `trivial'.
 
   Every extension $E$ as above determines an element
-  $\xi = \xi(E) \in \mathrm{Ext}^1_R(M, N)$ as follows. The sequence
+  $\xi = \xi(E) \in \Ext^1_R(M, N)$ as follows. The sequence
   $(*)$ induces a long exact sequence of Ext, i.e.,
   \[
-    \dots \to \Hom_R(E, N) \to \Hom_R(N, N) \to \mathrm{Ext}^1_R(M, N)
+    \dots \to \Hom_R(E, N) \to \Hom_R(N, N) \to \Ext^1_R(M, N)
     \to \dots,
   \]
-  and we let $\xi(E)$ be the image in $\mathrm{Ext}^1_R(M, N)$ of the
-  distinguished element $\mathrm{id}_N \in \Hom_R(N, N)$.
+  and we let $\xi(E)$ be the image in $\Ext^1_R(M, N)$ of the
+  distinguished element $\id_N \in \Hom_R(N, N)$.
 
   Prove that if $E$ and $E'$ are isomorphic extensions, then
   $\xi(E) = \xi(E')$. Prove that if $E$ is a trivial extension, then
@@ -4634,9 +4634,9 @@ As usual, $R$ denotes a fixed commutative ring.
 
 \begin{exer}{}{linrep:exer:6.22}
   Exercise~6.21 teaches us that extensions determine elements of
-  $\mathrm{Ext}^1_R$. We get an even sharper statement by constructing
+  $\Ext^1_R$. We get an even sharper statement by constructing
   an inverse to the map $\xi$: for every element
-  $\kappa \in \mathrm{Ext}^1_R(M, N)$, we will construct an extension
+  $\kappa \in \Ext^1_R(M, N)$, we will construct an extension
   $e(\kappa)$ such that $\xi(e(\kappa)) = \kappa$ and such that
   $e(\xi(E))$ is isomorphic to $E$.
   \begin{itemize}
@@ -4645,11 +4645,11 @@ As usual, $R$ denotes a fixed commutative ring.
     $\pi : F \twoheadrightarrow M$. Since $F$ is free (hence
     projective), a piece of the long exact sequence of Ext, i.e.,
     \[
-      \dots \to \Hom_R(K, N) \to \mathrm{Ext}^1_R(M, N) \to
-      \mathrm{Ext}^1_R(F, N) = 0 \to \dots,
+      \dots \to \Hom_R(K, N) \to \Ext^1_R(M, N) \to
+      \Ext^1_R(F, N) = 0 \to \dots,
     \]
     tells us that there exists a homomorphism $k : K \to N$ mapping to
-    the element $\kappa \in \mathrm{Ext}^1_R(M, N)$.
+    the element $\kappa \in \Ext^1_R(M, N)$.
   \item We now have a monomorphism $(\iota, k) : K \to F \oplus N$.
     Let $E$ be the cokernel $(F \oplus N)/K$. Prove that the
     epimorphism $(\pi, 0) : F \oplus N \to M$ factors through this
@@ -4665,10 +4665,10 @@ As usual, $R$ denotes a fixed commutative ring.
     $\xi(e(\kappa)) = \kappa$.
   \end{itemize}
   The upshot is that there is a natural bijection between
-  $\mathrm{Ext}^1_R(M, N)$ and the set of isomorphism classes of
+  $\Ext^1_R(M, N)$ and the set of isomorphism classes of
   extensions of $M$ by $N$. Hence the name. `Higher'
-  $\mathrm{Ext}^i_R$ ($i > 1$) may also be treated similarly: for
-  example, $\mathrm{Ext}^2_R(M, N)$ can be analyzed in terms of
+  $\Ext^i_R$ ($i > 1$) may also be treated similarly: for
+  example, $\Ext^2_R(M, N)$ can be analyzed in terms of
   two-step extensions consisting of exact sequences
   $0 \to N \to E_1 \to E_2 \to M \to 0$, where two such extensions are
   `isomorphic' if there is a diagram

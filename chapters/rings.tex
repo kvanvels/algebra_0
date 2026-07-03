@@ -833,7 +833,7 @@ $x_k$.
     f(r) = \sum_{i \geq 0} a_i r^i\,;
   \]
   this may be viewed as $\bar{\alpha}(f(x))$, where $\bar{\alpha}$ is
-  obtained as above with $\alpha = \mathrm{id}_R : R \to R$ and
+  obtained as above with $\alpha = \id_R : R \to R$ and
   $s = r$.
 
   Thus, every polynomial $f(x)$ determines a \emph{polynomial
@@ -923,7 +923,7 @@ homomorphism of rings
 \]
 $\iota$ is not surjective, and hence it is not an epimorphism in
 $\categ{Set}$ or $\categ{Ab}$ (can the reader `describe'
-$\operatorname{coker}\iota$? Exercise~2.12); but it \emph{is} an
+$\coker\iota$? Exercise~2.12); but it \emph{is} an
 epimorphism of rings.  Indeed, if $\alpha_1$, $\alpha_2$ are parallel
 ring homomorphisms
 \[
@@ -1500,7 +1500,7 @@ homomorphisms obtained in \S{}II.8.1. Here is the statement:
     \begin{tikzcd}
       R \arrow[r, two heads] \arrow[rrr, bend left, "\varphi"] &
       R/\ker\varphi \arrow[r, "\tilde{\varphi}"', "\sim"] &
-      \operatorname{im}\varphi \arrow[r, hook] & S
+      \image\varphi \arrow[r, hook] & S
     \end{tikzcd}
   \]
   where the isomorphism $\tilde{\varphi}$ in the middle is the
@@ -2787,7 +2787,7 @@ following form:
   \[\begin{tikzcd}
       M \arrow[r, two heads] \arrow[rr, bend left, "\phi"] &
       M/\ker\phi \arrow[r, "\tilde{\phi}", "\sim"'] &
-      \operatorname{im}\phi \arrow[r, hook] & M'
+      \image\phi \arrow[r, hook] & M'
     \end{tikzcd}\] where the isomorphism $\tilde{\phi}$ in the middle
   is the homomorphism induced by $\phi$ (as in
   \cref{thm:rings:module-quotient-universal}).
@@ -3054,12 +3054,12 @@ $\phi \circ \alpha = 0$:
     P \arrow[r, dashed, "\exists!\alpha"] \arrow[rr, bend left,
     "\alpha"] \arrow[rrr, bend left=40, "0"] & \ker\phi \arrow[r] & M
     \arrow[r, "\phi"] & N
-  \end{tikzcd}\] while $\operatorname{coker}\phi$ is initial with
+  \end{tikzcd}\] while $\coker\phi$ is initial with
 respect to the property of factoring $R$-module homomorphisms
 $\beta : N \to P$ such that $\beta \circ \phi = 0$:
 \[\begin{tikzcd}
     M \arrow[r, "\phi"] \arrow[rrr, bend right=40, "0"'] & N \arrow[r,
-    "\pi"] \arrow[rr, bend right, "\beta"'] & \operatorname{coker}\phi
+    "\pi"] \arrow[rr, bend right, "\beta"'] & \coker\phi
     \arrow[r, dashed, "\exists!\beta"'] & P
   \end{tikzcd}\]
 \begin{prop}{}{prop:rings:kernels-cokernels}
@@ -3068,7 +3068,7 @@ $\beta : N \to P$ such that $\beta \circ \phi = 0$:
   \item kernels and cokernels exist;
   \item $\phi$ is a monomorphism $\iff$ $\ker\phi$ is trivial $\iff$
     $\phi$ is injective as a set-function;
-  \item $\phi$ is an epimorphism $\iff$ $\operatorname{coker}\phi$ is
+  \item $\phi$ is an epimorphism $\iff$ $\coker\phi$ is
     trivial $\iff$ $\phi$ is surjective as a set-function.
   \end{itemize}
   Further, every monomorphism identifies its source with the kernel of
@@ -3082,12 +3082,12 @@ $\beta : N \to P$ such that $\beta \circ \phi = 0$:
   indeed, the `standard' definition of kernel satisfies the universal
   properties spelled out above (same argument as in
   Proposition~II.6.6). \emph{Cokernels exist:} indeed, let
-  $\operatorname{coker}\phi = N / \operatorname{im}\phi$; if
+  $\coker\phi = N / \image\phi$; if
   $\beta : N \to P$ is such that $\beta \circ \phi = 0$, then
-  $\operatorname{im}\phi \subseteq \ker\beta$; so $\beta$ must factor
-  uniquely through $N/\operatorname{im}\phi$ by the universal property
+  $\image\phi \subseteq \ker\beta$; so $\beta$ must factor
+  uniquely through $N/\image\phi$ by the universal property
   of quotients, \cref{thm:rings:module-quotient-universal}. That is,
-  $N/\operatorname{im}\phi$ does satisfy the universal property for
+  $N/\image\phi$ does satisfy the universal property for
   cokernels.
 
   The proofs of all the implications in the second and third points
@@ -3380,7 +3380,7 @@ hints; we will see it in \S{}V.1.1.
   Let $R$ be a ring, $M$ an $R$-module, and $p : M \to M$ an
   $R$-module homomorphism such that $p^2 = p$. (Such a map is called a
   \emph{projection}.) Prove that
-  $M \cong \ker p \oplus \operatorname{im} p$.
+  $M \cong \ker p \oplus \image p$.
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:free-module-quotient}
   Let $R$ be a ring, and let $n > 1$. View $R^{\oplus(n-1)}$ as a
@@ -3542,15 +3542,15 @@ considerations which follow.
 The homomorphisms $d_i$ are called \emph{boundary maps}, or
 \emph{differentials}, due to important examples from geometry. Note
 that the defining condition $d_i \circ d_{i+1} = 0$ is equivalent to
-the requirement $\operatorname{im} d_{i+1} \subseteq \ker d_i$.
+the requirement $\image d_{i+1} \subseteq \ker d_i$.
 Almost the whole point about complexes is to `measure' the difference
-between $\operatorname{im} d_{i+1}$ and $\ker d_i$, which is called
+between $\image d_{i+1}$ and $\ker d_i$, which is called
 the \emph{homology} of the complex (cf.\ \S{}7.3). We say that a
 complex is \emph{exact} `at $M_i$' if it has no homology there; that
-is, $\operatorname{im} d_{i+1} = \ker d_i$. For example, if $M_i$ is a
+is, $\image d_{i+1} = \ker d_i$. For example, if $M_i$ is a
 trivial module (usually denoted simply by $0$), then the complex is
 necessarily exact at $M_i$, since then
-$\operatorname{im} d_{i+1} = \ker d_i = 0$. A complex is \emph{exact}
+$\image d_{i+1} = \ker d_i = 0$. A complex is \emph{exact}
 and is often called an \emph{exact sequence} if it is exact at all its
 modules.
 \begin{exam}{}{}
@@ -3564,9 +3564,9 @@ modules.
 \begin{exam}{}{}
   A complex $\cdots \to M \xrightarrow{\beta} N \to 0 \to \cdots$ is
   exact at $N$ if and only if $\beta$ is an epimorphism. Indeed, the
-  complex is exact at $N$ if and only if $\operatorname{im}\beta = $
+  complex is exact at $N$ if and only if $\image\beta = $
   kernel of the trivial homomorphism $N \to 0$, that is,
-  $\operatorname{im}\beta = N$.
+  $\image\beta = N$.
 \end{exam}
 \begin{defn}{}{defn:rings:short-exact-sequence}
   A \emph{short exact sequence} is an exact complex of the form
@@ -3578,9 +3578,9 @@ As seen in the previous two examples, exactness at $L$ and $N$ is
 equivalent to $\alpha$ being injective and $\beta$ being
 surjective. The extra piece of data carried by a short exact sequence
 is the exactness at $M$, that is,
-$\operatorname{im}\alpha = \ker\beta$; by the first isomorphism
+$\image\alpha = \ker\beta$; by the first isomorphism
 theorem (Corollary~5.16), we then have
-$N \cong M/\ker\beta = M/\operatorname{im}\alpha$.
+$N \cong M/\ker\beta = M/\image\alpha$.
 
 All in all, we have good material to work on some more Pavlovian
 conditioning: at the sight of a short exact sequence as above, the
@@ -3591,7 +3591,7 @@ of the first isomorphism theorem).  Short exact sequences abound in
 nature. For example, a single homomorphism $\phi : M \to M'$ gives
 rise immediately to a short exact sequence
 \[
-  0 \to \ker\phi \to M \to \operatorname{im}\phi \to 0.
+  0 \to \ker\phi \to M \to \image\phi \to 0.
 \]
 In fact, one important reason to focus on short exact sequences is
 that this observation allows us to break up every exact complex into a
@@ -3639,7 +3639,7 @@ give a more explicit description of such morphisms?
   Let $\phi : M \to N$ be an $R$-module homomorphism. Then
   \begin{itemize}
   \item $\phi$ has a left-inverse if and only if the sequence
-    $0 \to M \xrightarrow{\phi} N \to \operatorname{coker}\phi \to 0$
+    $0 \to M \xrightarrow{\phi} N \to \coker\phi \to 0$
     splits.
   \item $\phi$ has a right-inverse if and only if the sequence
     $0 \to \ker\phi \to M \xrightarrow{\phi} N \to 0$ splits.
@@ -3686,13 +3686,13 @@ return to modules and, more generally, to abelian categories
   \xrightarrow{d_{i+1}} M_i \xrightarrow{d_i} M_{i-1}
   \xrightarrow{d_{i-1}} \cdots$ of $R$-modules is the $R$-module
   \[
-    H_i(M_\bullet) := \frac{\ker d_i}{\operatorname{im} d_{i+1}}.
+    H_i(M_\bullet) := \frac{\ker d_i}{\image d_{i+1}}.
   \]
 \end{defn}
 
 That is, $H_i(M_\bullet)$ is a module capturing the failure of
 exactness at $M_i$. Of course
-$H_i(M_\bullet) = 0 \iff \operatorname{im} d_{i+1} = \ker d_i \iff$
+$H_i(M_\bullet) = 0 \iff \image d_{i+1} = \ker d_i \iff$
 the complex $M_\bullet$ is exact at $M_i$: that is, the homology
 modules are a measure of the `failure of a complex from being exact'.
 \begin{exam}{}{}
@@ -3701,7 +3701,7 @@ modules are a measure of the `failure of a complex from being exact'.
   particular case in which $M_\bullet$ is the complex
   $0 \to M_1 \xrightarrow{\phi} M_0 \to 0$. Then
   $H_1(M_\bullet) \cong \ker\phi$ and
-  $H_0(M_\bullet) \cong \operatorname{coker}\phi$.
+  $H_0(M_\bullet) \cong \coker\phi$.
 \end{exam}
 I will end this very brief excursion into more abstract territories by
 indicating how a commutative diagram involving two short exact
@@ -3729,8 +3729,8 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
   With notation as above, there is an exact sequence
   \[
     0 \to \ker\lambda \to \ker\mu \to \ker\nu \xrightarrow{\delta}
-    \operatorname{coker}\lambda \to \operatorname{coker}\mu \to
-    \operatorname{coker}\nu \to 0.
+    \coker\lambda \to \coker\mu \to
+    \coker\nu \to 0.
   \]
 \end{lem}
 \begin{rem}{}{}
@@ -3765,8 +3765,8 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
     \end{tikzcd}\] The lemma will then state that there is `only' an
   exact sequence
   $\ker\lambda \to \ker\mu \to \ker\nu \xrightarrow{\delta}
-  \operatorname{coker}\lambda \to \operatorname{coker}\mu \to
-  \operatorname{coker}\nu$.
+  \coker\lambda \to \coker\mu \to
+  \coker\nu$.
 \end{rem}
 Proving the snake lemma is something that should not be done in
 public, and it is notoriously useless to write down the details of the
@@ -3794,19 +3794,19 @@ horizontally):
     & \ker\lambda \arrow[r] \arrow[d] & \ker\mu \arrow[r] \arrow[d] & \ker\nu \arrow[d] \arrow[dll, "\delta", rounded corners, to path={ -- ([xshift=2ex]\tikztostart.east) |- ([yshift=-0.5ex]\tikztotarget.north) -- (\tikztotarget)}] \\
     0 \arrow[r] & L_1 \arrow[r, "\alpha_1"] \arrow[d, "\lambda"'] & M_1 \arrow[r, "\beta_1"] \arrow[d, "\mu"'] & N_1 \arrow[r] \arrow[d, "\nu"'] & 0 \\
     0 \arrow[r] & L_0 \arrow[r, "\alpha_0"'] \arrow[d] & M_0 \arrow[r, "\beta_0"'] \arrow[d] & N_0 \arrow[r] \arrow[d] & 0 \\
-    & \operatorname{coker}\lambda \arrow[r] & \operatorname{coker}\mu
-    \arrow[r] & \operatorname{coker}\nu \arrow[r] & 0
+    & \coker\lambda \arrow[r] & \coker\mu
+    \arrow[r] & \coker\nu \arrow[r] & 0
   \end{tikzcd}\] By the way, I trust that the reader now sees why this
 lemma is called the snake lemma.  \emph{Definition of the connecting
   homomorphism $\delta$.} Let $a \in \ker\nu$. I claim that $a$ can be
 mapped through the diagram all the way to
-$\operatorname{coker}\lambda$: view $a$ as an element $b$ of $N_1$;
+$\coker\lambda$: view $a$ as an element $b$ of $N_1$;
 since $\beta_1$ is surjective, $\exists\, c \in M_1$ mapping to $b$;
 let $d = \mu(c)$ be the image of $c$ in $M_0$; by commutativity $d$
 maps to $\nu(b) = 0$ in $N_0$, so
-$d \in \ker\beta_0 = \operatorname{im}\alpha_0$; therefore
+$d \in \ker\beta_0 = \image\alpha_0$; therefore
 $\exists\, e \in L_0$ mapping to $d$; let
-$f \in \operatorname{coker}\lambda$ be the image of $e$. Set
+$f \in \coker\lambda$ be the image of $e$. Set
 $\delta(a) := f$.
 
 Is this well-defined? The choice of $c$ is not unique. Suppose $c'$
@@ -3815,7 +3815,7 @@ $\exists\, g \in L_1$ with $c' - c = \alpha_1(g)$. Since columns are
 complexes, $\lambda(g)$ maps to
 $\mu(c' - c) = \mu(\alpha_1(g)) = \alpha_0(\lambda(g))$, so changing
 $c$ to $c'$ modifies $e$ to $e + \lambda(g)$ and hence $f$ to
-$f + 0 = f$ (since $g$ dies in $\operatorname{coker}\lambda$). Thus
+$f + 0 = f$ (since $g$ dies in $\coker\lambda$). Thus
 $\delta$ is well-defined.
 
 This is a tiny part of the proof of the snake lemma, but it probably
@@ -3828,7 +3828,7 @@ kernels and cokernels is substantially less challenging than the
 definition of the connecting morphism $\delta$ described
 above. Exactness at most spots in the sequence is also reasonably
 straightforward; most of the work will go into proving exactness at
-$\ker\nu$ and $\operatorname{coker}\lambda$.
+$\ker\nu$ and $\coker\lambda$.
 
 Dear reader: don't shy away from trying this, for it is excellent,
 indispensable practice. Miss this opportunity and you will forever
@@ -3843,14 +3843,14 @@ become really straightforward once the lemma is settled. For example,
 \end{coro}
 
 \begin{proof}
-  Indeed, $\mu$ surjective $\implies$ $\operatorname{coker}\mu = 0$;
+  Indeed, $\mu$ surjective $\implies$ $\coker\mu = 0$;
   $\nu$ injective $\implies$ $\ker\nu = 0$
   (\cref{prop:rings:kernels-cokernels}). Feeding this information into
   the sequence of the snake lemma gives an exact sequence
   \[0 \to \ker\lambda \to \ker\mu \to 0 \to
-    \operatorname{coker}\lambda \to 0 \to \operatorname{coker}\nu \to
+    \coker\lambda \to 0 \to \coker\nu \to
     0.\] Exactness implies
-  $\operatorname{coker}\lambda = \operatorname{coker}\nu = 0$
+  $\coker\lambda = \coker\nu = 0$
   (Exercise~7.1); hence $\lambda$ and $\nu$ are surjective, with the
   stated consequences.
 \end{proof}
@@ -3871,7 +3871,7 @@ should experiment to his or her heart's content.
   Assume that the complex
   $\cdots \to 0 \to L \to M \xrightarrow{\phi} M' \to N \to 0 \to
   \cdots$ is exact. Show that, up to natural identifications,
-  $L = \ker\phi$ and $N = \operatorname{coker}\phi$.
+  $L = \ker\phi$ and $N = \coker\phi$.
 \end{exer}
 \begin{exer}{}{exer:rings:7.4}
   Construct short exact sequences of $\Z$-modules

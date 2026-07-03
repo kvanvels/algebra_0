@@ -38,9 +38,9 @@ from pathlib import Path
 # EDIT THIS: each tuple is (pattern, replacement, flags)
 # ---------------------------------------------------------------------------
 RULES = [
-    (r"\\operatorname\{(Hom|Obj|End|Aut|id|coker)\}", r"\\\1", 0),
+    (r"\\operatorname\{(Hom|Obj|End|Aut|Tor|id|coker)\}", r"\\\1", 0),
     (r"\\operatorname\{im\}", r"\\image", 0),
-    (r"\\mathrm\{(Aut|Ext)\}", r"\\\1", 0),
+    (r"\\mathrm\{(Aut|Ext|Tor|id)\}", r"\\\1", 0),
 
 ]
 # ---------------------------------------------------------------------------
