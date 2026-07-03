@@ -618,906 +618,857 @@ possibly infinite sets $A$, $B$. [II.5.10]
 
 \subsection{Matrices}
 \label{subsec:linalg:matrices}
-% As pointed out in \S{}1, Corollary 1.11 amounts to a classification
+As pointed out in \S{}1, Corollary~1.11 amounts to a classification of
+free modules over an integral domain: if $F$ is a free module, then there
+is a set $A$ (determined up to a bijection) such that $F \cong
+R^{\oplus A}$. The choice of such an isomorphism is precisely the same
+thing as the choice of a basis of $F$ (Lemma~1.5).
 
-% of free modules over an integral domain: if F is a free module, then there is a
-% set A (determined up to a bijection) such that F = \sim 
-%  R\oplus A . The choice of such an
-% isomorphism is precisely the same thing as the choice of a basis of F (Lemma
-% 1.5).
-% This is simultaneously good and bad news. The good news is that if F1 , F2 are
-% free, then it must be possible to `understand'6
-% HomR(F1 , F2)
-% entirely in terms of the corresponding sets A1 , A2 such that F1 = \sim 
-%  R\oplus A1 , F2 = \sim 
-%  R\oplus A2 .
-% That is, this set of morphisms in R-Mod may be identified with
-% HomR (R\oplus A1 , R\oplus A2 ).
-% The bad news is that this identification HomR(F1, F2 ) = \sim 
-%  HomR (R\oplus A1 , R\oplus A2 )
-% is not `canonical', because it depends on the chosen isomorphisms F1 \sim 
-%  = R\oplus A1 ,
-% 6 For notational simplicity I will denote Hom
-% R-Mod (M, N ) by HomR (M, N ); this is very com-
-% mon, and no confusion is likely.
-% F2 \sim 
-%  = R\oplus A2 , that is, on the choice of bases. We will therefore have to do
-%  some work
-% to deal with this ambiguity (in \S{}2.2).
-% The point of this subsection is to deal with the good news, that is, describe
-% HomR (R\oplus A1 , R\oplus A2 ). This can be done in a particularly convenient
-% way when the
-% free modules are finitely generated, the case we are going to analyze more
-% carefully.
-% Also recall (from \S{}III.5.2) that one of the good features of the category
-% R-Mod
-% is that the set of morphisms HomR (M, N ) between two R-modules is itself an
-% R-module, in a natural way. The task is then to describe as explicitly as
-% possible7
-% HomR (Rn , Rm )
-% as an R-module, for every choice of m, n \in  Z\geq 0.
-% This will be done by means of matrices with entries in R. I trust that the
-% reader is familiar with the general notion of an m \times  n matrix; I have
-% occasionally
-% used matrices in examples given in previous chapters, and they have showed up
-% in several exercises. An m \times  n matrix with entries in R is simply a choice
-% of mn
-% elements of R. It is common to arrange these elements as an array consisting of
-% m
-% rows and n columns:
-% (
-%  )
-% r11 r12 \dots  r1n
-% | |
-%  r21 r22 \dots  r2n |
-%  |
-% (rij )i=1,\cdot \cdot \cdot  j=1,\cdot \cdot \cdot ,m ,n
-%  = (
-%  | .
-%  .
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  .. . |
-%  )
-% rm1 rm2 \dots  rmn
-% with rij \in  R. For any given m, n the set Mm,n (R) of m \times  n matrices
-% with entries
-% in R is an abelian group under entrywise addition8
-% (aij ) + (bij ) := (aij + b ij )
-% (cf. Example II.1.5); this is in fact an R-module, under the action
-% r(aij ) := (raij )
-% for r \in  R. From this point of view, the set of m \times  n matrices is simply
-% a copy of
-% the R-module Rmn .
-% However, there are other interesting operations on these sets. If A = (aik ) is
-% an m \times  p matrix and B = (bkj ) is a p \times  n matrix, then one may
-% define the product
-% of A and B as
-% ?
-%  p
-% A \cdot  B = (aik ) \cdot  (bkj ) := (
-%  aik bkj );
-% k=1
-% this operation is (clearly) distributive with respect to addition and compatible
-% with
-% the R-module structure. It is just a tiny bit messier to check that it is
-% associative,
-% in the sense that if A, B, C are matrices of size, respectively, m \times  p, p
-% \times  q, and
-% q \times  n, then
-% (A \cdot  B) \cdot  C = A \cdot  (B \cdot  C).
-% 7 I am now writing Rn for what was denoted R\oplus n in previous chapters. This
-% is a slight abuse
-% of language, but it makes for easier typesetting.
-% 8Note that I will be dropping the extra subscripts giving the range of the
-% indices and will
-% write (rij ) rather than (rij )i=1,\cdot \cdot \cdot  ,m : these subscripts are
-% an eyesore, and the context usually
-% j=1,\cdot \cdot \cdot  ,n
-% makes the information redundant.
-% The reader should have no trouble reconstructing the proof of this fact (Exer-
-% cise 2.2).
-% In particular, we have a binary operation on the abelian group Mn (R) of square
-% n \times  n-matrices, and this operation is associative, distributive w.r.t. +,
-% and admits
-% the identity element
-%  (
-%  )
-% 1 0 \cdot \cdot \cdot  0
-% |0 |
-%  1 \dots  0|
-%  |
-% | ( .. . .. .
-%  . .
-%  . .. . |
-%  )
-% 0 0 \cdot \cdot \cdot  1
-% (the identity matrix, denoted In). That is, Mn (R) is a ring (Example III.1.6)
-% and
-% in fact an R-algebra (Exercise 2.3). Except in very special cases (such as n =
-% 1)
-% this ring is not commutative.
-% Matrices of type n \times  1 are called column n-vectors; matrices of type 1
-% \times  m
-% are called row m-vectors, for evident reasons. An element of a free R-module Rn
-% is nothing but the choice of n elements of R, and we can arrange these elements
-% into row or column vectors if we please; the standard choice is to represent
-% them
-% as column vectors:
-%  ( )
-% v1
-% |v2 |
-% | |
-% v = | . | \in  Rn .
-% ( .. )
-% vn
-% I will denote by ei the elements of the `standard basis' of Rn :
-% ( )
-%  ( )
-%  ( )
-% |0|
-%  |1|
-%  |0|
-% | |
-%  | |
-%  | |
-% e1 = | . | , e2 = | . | , . . . , en = | . | ,
-% ( .. )
-%  ( .. )
-%  ( .. )
-% so that
-%  (
-%  )
-% v1
-%  n
-% ?
-% v = | ( ... | ) =
-%  vj ej .
-% vn
-%  j=1
-% The elements vj \in  R are the `components' of v.
-% Interpreting elements of Rn as column vectors, we can act on Rn with an m \times
-% n
-% matrix, by left-multiplication: if A = (aij ) is an m \times  n matrix and v \in
-% Rn is a
-% column vector, the product is a column vector in Rm :
-% (
-%  ) ( ) (
-%  )
-% a11
-%  a12
-%  \cdot \cdot \cdot 
-%  a1n
-%  v1
-%  a11v1 + a12 v2 + \dots  + a1n vn
-% | |
-%  a21
-%  a22
-%  \cdot \cdot \cdot 
-%  a2n |
-%  | | |v2 | | |
-%  | a21v1 + a22 v2 + \dots  + a2n vn |
-%  |
-%  m
-% A \cdot  v = | ( ..
-%  .
-%  .
-%  ..
-%  ..
-%  .
-%  .. .
-%  | )
-%  \cdot  (
-%  | .. .
-%  | )
-%  = |
-%  (
-%  .
-%  ..
-%  | )
-%  \in  R .
-% am1
-%  am2
-%  \cdot \cdot \cdot 
-%  amn
-%  vn
-%  am1 v1 + am2 v2 + \dots  + amn vn
-% Lemma 2.1. For all m \times  n matrices A with entries in R:
-% \bullet  The function \phi  : Rn \to  Rm defined by \phi (v) = A \cdot  v is a homomorphism of
-% R-modules.
-% \bullet  Every R-module homomorphism Rn \to  Rm is determined in this way by a
-% unique m \times  n matrix.
-% Proof. The first point follows immediately from the elementary properties of ma-
-% trix multiplication recalled above: \forall r, s \in  R, \forall v, w \in  Rn
-% \phi (rv + sw) = A \cdot  (rv + sw) = rA \cdot  v + sA \cdot  w = r\phi (v) + s\phi (w)
-% as needed.
-% For the second point, let \phi  : Rn \to  Rm be a homomorphism of R-modules; let
-% aij be the i-th component of \phi (ej ), so that
-% (
-%  )
-% a1j
-% \phi (ej ) = |
-%  ( ... |
-%  ) .
-% amj
-% Then A = (aij ) is an m \times  n matrix, and \forall v \in  Rn with components
-% vj ,
-% (
-%  )
-%  (
-%  )
-% a11 v1 + a12 v2 + \dots  + a1nvn
-%  a1j v j
-% | |
-%  a21 v1 + a22 v2 + \dots  + a2nvn |
-%  | ?
-%  n | | a2j v j | |
-%  ?
-%  n
-% A \cdot  v = |
-%  (
-%  .
-%  ..
-%  | )
-%  =
-%  j=1
-%  | ( . .. | )
-%  =
-%  j=1
-%  vj \phi (ej )
-% am1 v1 + am2 v2 + \dots  + amn vn
-%  amj vj
-% ?
-%  n
-% = \phi (
-%  vj ej ) = \phi (v),
-% j=1
-% as needed. The homomorphism induced by a nonzero matrix is manifestly nontriv-
-% ial; this implies that the matrix A associated to a homomorphism \phi  is
-% uniquely
-% determined by \phi .
-%  ?
-% The reader should attempt to remember the recipe associating a matrix A to
-% a homomorphism \phi  as in the proof of Lemma 2.1: the j-th column of A is
-% simply
-% the column vector \phi (ej ). The collection of these vectors determines \phi
-% ---since a
-% homomorphism is determined by its action on a set of generators.
-% Lemma 2.1 yields the promised explicit description of HomR (Rn, Rm):
-% Corollary 2.2. The correspondence introduced in Lemma 2.1 gives an isomorphism
-% of R-modules
-% Mm,n (R) \sim 
-%  = HomR (Rn , Rm ).
-% Proof. The reader will check that the correspondence is a bijective homomorphism
-% of R-modules; this is enough, by Exercise III.5.12.
-%  ?
-% This is very good news, and it gets even better. Don't forget that R-Mod is a
-% category; that is, we can compose morphisms. Therefore, there is a function9
-% HomR (R p , Rm ) \times  HomR (Rn , Rp ) \to  HomR (Rn , Rm ),
-% 9 Here I am reversing the order of the Hom sets on the left w.r.t. the
-% convention used in
-% Definition I.3.1.
-% mapping (\phi , \psi ) to \phi  \circ  \psi ; on the other hand, the matrix
-% product gives a function
-% Mm,p (R) \times  Mp,n (R) \to  Mm,n (R),
-% mapping (A, B) to A \cdot  B. That is, we have a diagram
-% Mm,p (R) \times  Mp,n (R)
-%  / Mm,n (R)
-% \sim 
-%  \sim 
-% \sqcup 
-%  \sqcup 
-% Hom R (Rp, Rm ) \times  HomR (Rn , Rp )
-%  / HomR (Rn , Rm )
-% where the vertical maps are (induced by) the isomorphisms obtained in Corol-
-% lary 2.2.
-% Lemma 2.3. This diagram commutes. That is, the matrix corresponding to a
-% composition \phi  \circ  \psi  is the product of the matrices corresponding to
-% \phi  and \psi .
-% Proof. This follows immediately from the associativity of matrix multiplication:
-% for v \in  Rn and A \in  Mm,p (R), B \in  Mp,n (R),
-% A \cdot  (B \cdot  v) = (A \cdot  B) \cdot  v;
-% that is, the successive action of B and A is equivalent to the action of A \cdot
-% B.
-%  ?
-% Here is a summary of the situation. Given an integral domain R, we can
-% construct a `toy category' as follows: we let Z\geq 0 be the set of objects, and
-% we
-% define the set of morphisms Hom(n, m) to be the set of matrices Mm,n (R), with
-% composition given by the matrix product (cf. Exercise I.3.6). Then we have
-% verified
-% that this toy category is `essentially the same as' the category of finitely
-% generated
-% free R-modules and R-module homomorphisms10 .
-% For example, by virtue of Proposition 1.7, if R = k is a field, then R-Mod =
-% k-Vect consists exclusively of free k-modules. The toy category I just described
-% is
-% a faithful snapshot of the category of finite-dimensional k-vector spaces.
+This is simultaneously good and bad news. The good news is that if
+$F_1, F_2$ are free, then it must be possible to `understand'\footnote{For
+notational simplicity I will denote $\Hom_{R\text{-}\textsf{Mod}}(M,N)$ by
+$\Hom_R(M,N)$; this is very common, and no confusion is likely.}
+\[
+\Hom_R(F_1, F_2)
+\]
+entirely in terms of the corresponding sets $A_1, A_2$ such that
+$F_1 \cong R^{\oplus A_1}$, $F_2 \cong R^{\oplus A_2}$. That is, this set
+of morphisms in $R$-\textsf{Mod} may be identified with
+\[
+\Hom_R(R^{\oplus A_1}, R^{\oplus A_2}).
+\]
+The bad news is that this identification $\Hom_R(F_1, F_2) \cong
+\Hom_R(R^{\oplus A_1}, R^{\oplus A_2})$ is not `canonical', because it
+depends on the chosen isomorphisms $F_1 \cong R^{\oplus A_1}$,
+$F_2 \cong R^{\oplus A_2}$, that is, on the choice of bases. We will
+therefore have to do some work to deal with this ambiguity (in \S{}2.2).
+
+The point of this subsection is to deal with the good news, that is,
+describe $\Hom_R(R^{\oplus A_1}, R^{\oplus A_2})$. This can be done in a
+particularly convenient way when the free modules are finitely generated,
+the case we are going to analyze more carefully.
+Also recall (from \S{}III.5.2) that one of the good features of the
+category $R$-\textsf{Mod} is that the set of morphisms $\Hom_R(M,N)$
+between two $R$-modules is itself an $R$-module, in a natural way. The
+task is then to describe as explicitly as possible\footnote{I am now
+writing $R^n$ for what was denoted $R^{\oplus n}$ in previous chapters.
+This is a slight abuse of language, but it makes for easier
+typesetting.}
+\[
+\Hom_R(R^n, R^m)
+\]
+as an $R$-module, for every choice of $m, n \in \mathbb{Z}^{\geq 0}$.
+
+This will be done by means of \emph{matrices} with entries in $R$. I
+trust that the reader is familiar with the general notion of an
+$m \times n$ matrix; I have occasionally used matrices in examples given
+in previous chapters, and they have showed up in several exercises. An
+$m \times n$ matrix with entries in $R$ is simply a choice of $mn$
+elements of $R$. It is common to arrange these elements as an array
+consisting of $m$ rows and $n$ columns:
+\[
+(r_{ij})_{\substack{i=1,\dots,m \\ j=1,\dots,n}} =
+\begin{pmatrix}
+r_{11} & r_{12} & \dots & r_{1n} \\
+r_{21} & r_{22} & \dots & r_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+r_{m1} & r_{m2} & \dots & r_{mn}
+\end{pmatrix}
+\]
+with $r_{ij} \in R$. For any given $m, n$ the set $\mathcal{M}_{m,n}(R)$
+of $m \times n$ matrices with entries in $R$ is an abelian group under
+entrywise \emph{addition}\footnote{Note that I will be dropping the extra
+subscripts giving the range of the indices and will write $(r_{ij})$
+rather than $(r_{ij})_{\substack{i=1,\dots,m \\ j=1,\dots,n}}$: these
+subscripts are an eyesore, and the context usually makes the information
+redundant.}
+\[
+(a_{ij}) + (b_{ij}) := (a_{ij} + b_{ij})
+\]
+(cf.\ Example~II.1.5); this is in fact an $R$-module, under the action
+\[
+r(a_{ij}) := (r a_{ij})
+\]
+for $r \in R$. From this point of view, the set of $m \times n$ matrices
+is simply a copy of the $R$-module $R^{mn}$.
+However, there are other interesting operations on these sets. If
+$A = (a_{ik})$ is an $m \times p$ matrix and $B = (b_{kj})$ is a
+$p \times n$ matrix, then one may define the \emph{product} of $A$ and
+$B$ as
+\[
+A \cdot B = (a_{ik}) \cdot (b_{kj}) := \left( \sum_{k=1}^p a_{ik}
+b_{kj} \right);
+\]
+this operation is (clearly) distributive with respect to addition and
+compatible with the $R$-module structure. It is just a tiny bit messier
+to check that it is associative, in the sense that if $A, B, C$ are
+matrices of size, respectively, $m \times p$, $p \times q$, and
+$q \times n$, then
+\[
+(A \cdot B) \cdot C = A \cdot (B \cdot C).
+\]
+The reader should have no trouble reconstructing the proof of this fact
+(Exercise~2.2).
+
+In particular, we have a binary operation on the abelian group
+$\mathcal{M}_n(R)$ of square $n \times n$ matrices, and this operation is
+associative, distributive w.r.t.\ $+$, and admits the identity element
+\[
+\begin{pmatrix}
+1 & 0 & \dots & 0 \\
+0 & 1 & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \dots & 1
+\end{pmatrix}
+\]
+(the \emph{identity matrix}, denoted $I_n$). That is, $\mathcal{M}_n(R)$
+is a ring (Example~III.1.6) and in fact an $R$-algebra (Exercise~2.3).
+Except in very special cases (such as $n = 1$) this ring is not
+commutative.
+
+Matrices of type $n \times 1$ are called \emph{column $n$-vectors};
+matrices of type $1 \times m$ are called \emph{row $m$-vectors}, for
+evident reasons. An element of a free $R$-module $R^n$ is nothing but the
+choice of $n$ elements of $R$, and we can arrange these elements into row
+or column vectors if we please; the standard choice is to represent them
+as \emph{column} vectors:
+\[
+\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}
+\in R^n.
+\]
+I will denote by $\mathbf{e}_i$ the elements of the `standard basis' of
+$R^n$:
+\[
+\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad
+\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \quad
+\dots, \quad
+\mathbf{e}_n = \begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix},
+\]
+so that
+\[
+\mathbf{v} = \begin{pmatrix} v_1 \\ \vdots \\ v_n \end{pmatrix} =
+\sum_{j=1}^n v_j \mathbf{e}_j.
+\]
+The elements $v_j \in R$ are the `components' of $\mathbf{v}$.
+
+Interpreting elements of $R^n$ as column vectors, we can act on $R^n$
+with an $m \times n$ matrix, by left-multiplication: if $A = (a_{ij})$ is
+an $m \times n$ matrix and $\mathbf{v} \in R^n$ is a column vector, the
+product is a column vector in $R^m$:
+\[
+A \cdot \mathbf{v} =
+\begin{pmatrix}
+a_{11} & a_{12} & \dots & a_{1n} \\
+a_{21} & a_{22} & \dots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \dots & a_{mn}
+\end{pmatrix}
+\cdot
+\begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}
+=
+\begin{pmatrix}
+a_{11}v_1 + a_{12}v_2 + \dots + a_{1n}v_n \\
+a_{21}v_1 + a_{22}v_2 + \dots + a_{2n}v_n \\
+\vdots \\
+a_{m1}v_1 + a_{m2}v_2 + \dots + a_{mn}v_n
+\end{pmatrix}
+\in R^m.
+\]
+
+\begin{lem}{}{linalg:2.1}
+For all $m \times n$ matrices $A$ with entries in $R$:
+\begin{itemize}
+\item The function $\varphi : R^n \to R^m$ defined by
+$\varphi(\mathbf{v}) = A \cdot \mathbf{v}$ is a homomorphism of
+$R$-modules.
+\item Every $R$-module homomorphism $R^n \to R^m$ is determined in this
+way by a unique $m \times n$ matrix.
+\end{itemize}
+\end{lem}
+\begin{proof}
+The first point follows immediately from the elementary properties of
+matrix multiplication recalled above: $\forall r, s \in R$,
+$\forall \mathbf{v}, \mathbf{w} \in R^n$
+\[
+\varphi(r\mathbf{v} + s\mathbf{w}) = A \cdot (r\mathbf{v} + s\mathbf{w}) =
+rA \cdot \mathbf{v} + sA \cdot \mathbf{w} = r\varphi(\mathbf{v}) +
+s\varphi(\mathbf{w})
+\]
+as needed.
+
+For the second point, let $\varphi : R^n \to R^m$ be a homomorphism of
+$R$-modules; let $a_{ij}$ be the $i$-th component of $\varphi(\mathbf{e}_j)$,
+so that
+\[
+\varphi(\mathbf{e}_j) = \begin{pmatrix} a_{1j} \\ \vdots \\ a_{mj}
+\end{pmatrix}.
+\]
+Then $A = (a_{ij})$ is an $m \times n$ matrix, and
+$\forall \mathbf{v} \in R^n$ with components $v_j$,
+\[
+A \cdot \mathbf{v} =
+\begin{pmatrix}
+a_{11}v_1 + a_{12}v_2 + \dots + a_{1n}v_n \\
+a_{21}v_1 + a_{22}v_2 + \dots + a_{2n}v_n \\
+\vdots \\
+a_{m1}v_1 + a_{m2}v_2 + \dots + a_{mn}v_n
+\end{pmatrix}
+= \sum_{j=1}^n \begin{pmatrix} a_{1j}v_j \\ a_{2j}v_j \\ \vdots \\
+a_{mj}v_j \end{pmatrix}
+= \sum_{j=1}^n v_j \varphi(\mathbf{e}_j)
+= \varphi\left( \sum_{j=1}^n v_j \mathbf{e}_j \right) = \varphi(\mathbf{v}),
+\]
+as needed. The homomorphism induced by a nonzero matrix is manifestly
+nontrivial; this implies that the matrix $A$ associated to a homomorphism
+$\varphi$ is uniquely determined by $\varphi$.
+\end{proof}
+
+The reader should attempt to remember the recipe associating a matrix $A$
+to a homomorphism $\varphi$ as in the proof of Lemma~2.1: the $j$-th
+column of $A$ is simply the column vector $\varphi(\mathbf{e}_j)$. The
+collection of these vectors determines $\varphi$---since a
+homomorphism is determined by its action on a set of generators.
+
+Lemma~2.1 yields the promised explicit description of $\Hom_R(R^n, R^m)$:
+\begin{coro}{}{linalg:2.2}
+The correspondence introduced in Lemma~2.1 gives an isomorphism of
+$R$-modules
+\[
+\mathcal{M}_{m,n}(R) \cong \Hom_R(R^n, R^m).
+\]
+\end{coro}
+\begin{proof}
+The reader will check that the correspondence is a bijective homomorphism
+of $R$-modules; this is enough, by Exercise~III.5.12.
+\end{proof}
+
+This is very good news, and it gets even better. Don't forget that
+$R$-\textsf{Mod} is a category; that is, we can compose morphisms.
+Therefore, there is a function\footnote{Here I am reversing the order of
+the Hom sets on the left w.r.t.\ the convention used in
+Definition~I.3.1.}
+\[
+\Hom_R(R^p, R^m) \times \Hom_R(R^n, R^p) \to \Hom_R(R^n, R^m),
+\]
+mapping $(\varphi, \psi)$ to $\varphi \circ \psi$; on the other hand, the
+matrix product gives a function
+\[
+\mathcal{M}_{m,p}(R) \times \mathcal{M}_{p,n}(R) \to \mathcal{M}_{m,n}(R),
+\]
+mapping $(A, B)$ to $A \cdot B$. That is, we have a diagram
+\[
+\begin{tikzcd}
+\mathcal{M}_{m,p}(R) \times \mathcal{M}_{p,n}(R)
+\arrow[r] \arrow[d, "\sim"'] &
+\mathcal{M}_{m,n}(R) \arrow[d, "\sim"] \\
+\Hom_R(R^p, R^m) \times \Hom_R(R^n, R^p) \arrow[r] &
+\Hom_R(R^n, R^m)
+\end{tikzcd}
+\]
+where the vertical maps are (induced by) the isomorphisms obtained in
+Corollary~2.2.
+
+\begin{lem}{}{linalg:2.3}
+This diagram commutes. That is, the matrix corresponding to a composition
+$\varphi \circ \psi$ is the product of the matrices corresponding to
+$\varphi$ and $\psi$.
+\end{lem}
+\begin{proof}
+This follows immediately from the associativity of matrix multiplication:
+for $\mathbf{v} \in R^n$ and $A \in \mathcal{M}_{m,p}(R)$,
+$B \in \mathcal{M}_{p,n}(R)$,
+\[
+A \cdot (B \cdot \mathbf{v}) = (A \cdot B) \cdot \mathbf{v};
+\]
+that is, the successive action of $B$ and $A$ is equivalent to the action
+of $A \cdot B$.
+\end{proof}
+
+Here is a summary of the situation. Given an integral domain $R$, we can
+construct a `toy category' as follows: we let $\mathbb{Z}^{\geq 0}$ be
+the set of objects, and we define the set of morphisms $\Hom(n,m)$ to be
+the set of matrices $\mathcal{M}_{m,n}(R)$, with composition given by the
+matrix product (cf.\ Exercise~I.3.6). Then we have verified that this toy
+category is `essentially the same as' the category of finitely generated
+free $R$-modules and $R$-module homomorphisms\footnote{The reader should
+not take this statement too seriously: we have identified together all
+free modules isomorphic to a given one, which is a rather drastic
+operation. We will take a more formal look at this situation in
+Example~VIII.1.8.}.
+
+For example, by virtue of Proposition~1.7, if $R = k$ is a field, then
+$R$-\textsf{Mod} = $k$-\textsf{Vect} consists exclusively of free
+$k$-modules. The toy category I just described is a faithful snapshot of
+the category of finite-dimensional $k$-vector spaces.
 
 \subsection{Change of basis}
 \label{subsec:linalg:change-of-basis}
-% It is time to deal with the bad news.
+It is time to deal with the bad news.
 
-% Free modules are only defined up to isomorphism, as is any structure satisfying
-% a universal property. Writing a free module as a direct sum R\oplus A amounts to
-% making the choice of one specific realization. As I pointed out at the end of
-% \S{}1.2,
-% by Lemma 1.5 this choice is equivalent to the choice of a basis of the module.
-% The price to pay for representing homomorphisms of free modules by matrices
-% is that this correspondence relies on the choice of a basis: we say that it is
-% not
-% canonical. It is essential to be able to keep track of this choice. For finitely
-% generated
-% free modules, this also boils down to the action of a matrix, as we proceed to
-% see.
-% Let F be a free module, and choose two bases A, B for F ; assume that F is
-% finitely generated, so that A, B are finite sets, and further |A| = |B| (= rk F
-% ) by
-% 10 The reader should not take this statement too seriously: we have identified
-% together all
-% free modules isomorphic to a given one, which is a rather drastic operation. We
-% will take a more
-% formal look at this situation in Example VIII.1.8.
-% Proposition 1.9. The two bases correspond to two isomorphisms
-% R\oplus A
-%  \phi 
-%  / F,
-%  R \oplus B
-%  \psi 
-%  / F .
-% Then
-% R\oplus A
-%  \psi -1
-%  \circ \phi 
-%  / R\oplus B
-% is an isomorphism, which corresponds to a matrix as seen in Lemma 2.1; we may
-% call this matrix NA B . Explicitly, the j-th column of NA B is the image of the
-% j-th
-% element of A, viewed as a column vector in R\oplus B . That is, letting11
-% A = (a1 , . . . , ar ),
-%  B = (b1, . . . , br ),
-% we have NA B = (nij )i=1,\cdot \cdot \cdot  ,r , with
-% j=1,\cdot \cdot \cdot  ,r
-% ?
-%  r
-% \psi  -1 \circ  \phi (aj ) =
-%  nij bi .
-% i=1
-% This equality is written in R\oplus B ; in practice one views the basis vectors
-% aj , bi as
-% vectors of F and would therefore simply write
-% ?
-%  r
-% aj =
-%  nij bi ,
-% i=1
-% that is, the corresponding equality in F .
-% Definition 2.4. The matrix NA B is called the matrix of the change of basis.
-%  ?
-% Since it represents an isomorphism, the matrix of the change of basis is neces-
-% sarily an invertible matrix.
-% To my knowledge there is no established convention on the notation for this ma-
-% trix, and in any case I would find it futile to try to remember any such
-% convention.
-% Any choice of notation will lead to a pleasant `calculus': for example, the
-% definition
-% given above implies immediately NB A = (NA B )-1 and NB C NA B = NA C . In my
-% experi-
-% ence, any such manipulation is immediately clarified by writing isomorphisms out
-% explicitly, so no convention is necessary.
-% For example, let's work out the action of a change of basis on the matrix
-% representation of a homomorphism \alpha  : F \to  G of two free modules. The
-% diagram
-% taking care of the needed manipulations is
-% R\oplus A R\oplus C
-% B
-%  J
-%  J J J \phi 
-%  J
-%  J J
-%  %
-%  \alpha 
-%  y
-% t
-%  tt
-%  \rho 
-%  tt
-%  t
-%  t
-%  D
-% \nu A
-%  \sqcup  t t t
-%  \psi 
-%  t t
-%  t
-%  9 F
-%  / G \sigma 
-%  JJ
-%  J
-%  \sqcup 
-%  \mu  C
-% eJ
-%  JJ
-% R\oplus B
-%  R\oplus D
-% Let NA B be the matrix of \nu A
-%  B
-%  = \psi -1 \circ  \phi , as above, and let MC D be the matrix
-% for \mu C D
-%  = \sigma -1
-%  \circ  \rho .
-% 11 Ordering the elements of a basis is convenient, for example because it allows
-% us to talk
-% about the `j-th element' of the basis. Hence we have the `tuple' notation.
-% Choose the basis A for F and C for G. Then the matrix representing \alpha  will
-% be
-% the matrix P corresponding to
-% \rho -1 \circ  \alpha  \circ  \phi  : R \oplus A \to  R\oplus C .
-% If on the other hand we choose the basis B for F and D for G, then we represent
-% \alpha  by the matrix Q corresponding to
-% \sigma  -1 \circ  \alpha  \circ  \psi  : R\oplus B \to  R\oplus D .
-% Now,
-% \sigma  -1 \circ  \alpha  \circ  \psi  = (\mu D
-%  C \circ  \rho 
-% -1
-%  ) \circ  \alpha  \circ  (\phi  \circ  (\nu A
-%  B )-1
-% ) = \mu D
-%  C \circ  (\rho 
-% -1
-%  \circ  \alpha  \circ  \phi ) \circ  (\nu A
-%  B )-1
-%  ,
-% and by Lemma 2.3 this shows
-% Q = MC D \cdot  P \cdot  (NA B )-1 = MC D \cdot  P \cdot  NB A .
-% This is hardly surprising, of course: starting from a vector expressed as a
-% combina-
-% tion of b's, NB A converts it into a combination of a's; P acts on it by giving
-% its image
-% under \alpha  as a combination of c's; and MC D converts it into d's. That
-% accomplishes
-% Q's job, as it should.
-% Summarizing this discussion,
-% Proposition 2.5. Let \alpha  : F \to  G be a homomorphism of finitely generated
-% free
-% modules, and let P be a matrix representing it with respect to any choice of
-% bases
-% for F and G. Then the matrices representing \alpha  with respect to any other
-% choice of
-% bases are all and only the matrices of the form
-% M \cdot  P \cdot  N,
-% where M and N are invertible matrices.
-% Definition 2.6. Two matrices P, Q \in  Mm,n (R) are equivalent if they represent
-% the same homomorphism of free modules Rn \to  Rm up to a choice of basis.
-%  ?
-% This is manifestly an equivalence relation. Properly speaking, the `abstract'
-% homomorphism \alpha  : F \to  G is not represented by one matrix as much as by
-% the whole
-% equivalence class with respect to this relation. Proposition 2.5 gives a
-% computational
-% interpretation of equivalence of matrices: P and Q are equivalent if and only if
-% there
-% are invertible M and N such that Q = M P N .
+Free modules are only defined \emph{up to isomorphism}, as is any
+structure satisfying a universal property. Writing a free module as a
+direct sum $R^{\oplus A}$ amounts to making the choice of one specific
+realization. As I pointed out at the end of \S{}1.2, by Lemma~1.5 this
+choice is equivalent to the choice of a basis of the module.
+
+The price to pay for representing homomorphisms of free modules by
+matrices is that this correspondence relies on the choice of a basis: we
+say that it is \emph{not canonical}. It is essential to be able to keep
+track of this choice. For finitely generated
+free modules, this also boils down to the action of a matrix, as we
+proceed to see.
+
+Let $F$ be a free module, and choose two bases $A$, $B$ for $F$; assume
+that $F$ is finitely generated, so that $A$, $B$ are finite sets, and
+further $|A| = |B|$ ($= \operatorname{rk} F$) by \cref{linalg:1.9}. The
+two bases correspond to two isomorphisms
+\[
+R^{\oplus A} \xrightarrow{\varphi} F, \qquad R^{\oplus B}
+\xrightarrow{\psi} F.
+\]
+Then
+\[
+R^{\oplus A} \xrightarrow{\psi^{-1} \circ \varphi} R^{\oplus B}
+\]
+is an isomorphism, which corresponds to a matrix as seen in Lemma~2.1; we
+may call this matrix $N_A^B$. Explicitly, the $j$-th column of $N_A^B$ is
+the image of the $j$-th element of $A$, viewed as a column vector in
+$R^{\oplus B}$. That is, letting\footnote{Ordering the elements of a
+basis is convenient, for example because it allows us to talk about the
+`$j$-th element' of the basis. Hence we have the `tuple' notation.}
+\[
+A = (\mathbf{a}_1, \dots, \mathbf{a}_r), \qquad B = (\mathbf{b}_1,
+\dots, \mathbf{b}_r),
+\]
+we have $N_A^B = (n_{ij})_{\substack{i=1,\dots,r \\ j=1,\dots,r}}$, with
+\[
+\psi^{-1} \circ \varphi(\mathbf{a}_j) = \sum_{i=1}^r n_{ij} \mathbf{b}_i.
+\]
+This equality is written \emph{in $R^{\oplus B}$}; in practice one views
+the basis vectors $\mathbf{a}_j$, $\mathbf{b}_i$ as vectors \emph{of $F$}
+and would therefore simply write
+\[
+\mathbf{a}_j = \sum_{i=1}^r n_{ij} \mathbf{b}_i,
+\]
+that is, the corresponding equality in $F$.
+
+\begin{defn}{}{linalg:2.4}
+The matrix $N_A^B$ is called the \emph{matrix of the change of basis}.
+\end{defn}
+
+Since it represents an isomorphism, the matrix of the change of basis is
+necessarily an invertible matrix.
+
+To my knowledge there is no established convention on the notation for
+this matrix, and in any case I would find it futile to try to remember
+any such convention. Any choice of notation will lead to a pleasant
+`calculus': for example, the definition given above implies immediately
+$N_B^A = (N_A^B)^{-1}$ and $N_B^C N_A^B = N_A^C$. In my experience, any
+such manipulation is immediately clarified by writing isomorphisms out
+explicitly, so no convention is necessary.
+
+For example, let's work out the action of a change of basis on the
+matrix representation of a homomorphism $\alpha : F \to G$ of two free
+modules. The diagram taking care of the needed manipulations is
+\[
+\begin{tikzcd}
+R^{\oplus A} \arrow[dr, "\varphi"] \arrow[dd, bend right=60, "\nu_A^B"'] &
+& R^{\oplus C} \arrow[dl, "\rho"'] \arrow[dd, bend left=60, "\mu_C^D"] \\
+& F \arrow[r, "\alpha"] & G & \\
+R^{\oplus B} \arrow[ur, "\psi"'] & & R^{\oplus D} \arrow[ul, "\sigma"]
+\end{tikzcd}
+\]
+Let $N_A^B$ be the matrix of $\nu_A^B = \psi^{-1} \circ \varphi$, as
+above, and let $M_C^D$ be the matrix for $\mu_C^D = \sigma^{-1} \circ
+\rho$.
+Choose the basis $A$ for $F$ and $C$ for $G$. Then the matrix
+representing $\alpha$ will be the matrix $P$ corresponding to
+\[
+\rho^{-1} \circ \alpha \circ \varphi : R^{\oplus A} \to R^{\oplus C}.
+\]
+If on the other hand we choose the basis $B$ for $F$ and $D$ for $G$,
+then we represent $\alpha$ by the matrix $Q$ corresponding to
+\[
+\sigma^{-1} \circ \alpha \circ \psi : R^{\oplus B} \to R^{\oplus D}.
+\]
+Now,
+\[
+\sigma^{-1} \circ \alpha \circ \psi = (\mu_C^D \circ \rho^{-1}) \circ
+\alpha \circ (\varphi \circ (\nu_A^B)^{-1}) = \mu_C^D \circ (\rho^{-1}
+\circ \alpha \circ \varphi) \circ (\nu_A^B)^{-1},
+\]
+and by Lemma~2.3 this shows
+\[
+Q = M_C^D \cdot P \cdot (N_A^B)^{-1} = M_C^D \cdot P \cdot N_B^A.
+\]
+This is hardly surprising, of course: starting from a vector expressed
+as a combination of $\mathbf{b}$'s, $N_B^A$ converts it into a
+combination of $\mathbf{a}$'s; $P$ acts on it by giving its image under
+$\alpha$ as a combination of $\mathbf{c}$'s; and $M_C^D$ converts it
+into $\mathbf{d}$'s. That accomplishes $Q$'s job, as it should.
+
+Summarizing this discussion,
+\begin{prop}{}{linalg:2.5}
+Let $\alpha : F \to G$ be a homomorphism of finitely generated free
+modules, and let $P$ be a matrix representing it with respect to any
+choice of bases for $F$ and $G$. Then the matrices representing $\alpha$
+with respect to any other choice of bases are all and only the matrices
+of the form
+\[
+M \cdot P \cdot N,
+\]
+where $M$ and $N$ are invertible matrices.
+\end{prop}
+\begin{defn}{}{linalg:2.6}
+Two matrices $P, Q \in \mathcal{M}_{m,n}(R)$ are \emph{equivalent} if
+they represent the same homomorphism of free modules $R^n \to R^m$ up to
+a choice of basis.
+\end{defn}
+This is manifestly an equivalence relation. Properly speaking, the
+`abstract' homomorphism $\alpha : F \to G$ is not represented by one
+matrix as much as by the whole equivalence class with respect to this
+relation. Proposition~2.5 gives a computational interpretation of
+equivalence of matrices: $P$ and $Q$ are equivalent if and only if there
+are invertible $M$ and $N$ such that $Q = MPN$.
 
 \subsection{Elementary operations and Gaussian elimination}
 \label{subsec:linalg:elementary-operations-and-gaussian-elimination}
-% The idea is now to
+The idea is now to capitalize on Proposition~2.5, as follows: given a
+homomorphism $\alpha : F \to G$ between two free modules, find `special'
+bases in $F$ and $G$ so that the matrix of $\alpha$ takes a particularly
+convenient form. That is, look for a particularly convenient matrix in
+each equivalence class with respect to the relation introduced in
+Definition~2.6.
 
-% capitalize on Proposition 2.5, as follows: given a homomorphism \alpha  : F \to
-% G between
-% two free modules, find `special' bases in F and G so that the matrix of \alpha
-% takes a
-% particularly convenient form. That is, look for a particularly convenient matrix
-% in
-% each equivalence class with respect to the relation introduced in Definition
-% 2.6.
-% For this, we can start with random bases in F and G, representing \alpha  by a
-% matrix P and then (by Proposition 2.5) multiply P on the right and left by
-% invertible
-% matrices, in order to bring P into whatever form is best suited for our needs.
-% There is an even more concrete way to deal with equivalence computationally.
-% Consider the following three `elementary (row/column) operations' that can be
-% performed on a matrix P :
-% \bullet  switch two rows (or two columns) of P ;
-% \bullet  add to one row (resp., column) a multiple of another row (resp., column);
-% \bullet  multiply all entries in one row (or column) of P by a unit of R.
-% Proposition 2.7. Two matrices P, Q \in  Mm,n (R) are equivalent if Q may be
-% obtained from P by a sequence of elementary operations.
-% Proof. To see that elementary operations produce equivalent matrices, it
-% suffices
-% (by Proposition 2.5) to express them as multiplications on the left or right12
-% by
-% invertible matrices. Indeed, these operations may be performed by suitably
-% multi-
-% plying by the matrices obtained from the identity matrix by performing the same
-% operation. For example, multiplying on the left by
-% (
-%  )
-% 1 0 0 0
-% |0 0 0 1|
-% |
-%  |
-% (0 0 1 0)
-% 0 1 0 0
-% interchanges the second and fourth row of a 4 \times  n matrix; multiplying on
-% the right
-% by
-% (
-%  )
-% 1 0 c
-% (0 1 0)
-% 0 0 1
-% adds to the third column of a m \times  3 matrix the c-multiple of the first
-% column. The
-% diligent reader will formalize this discussion and prove that all these matrices
-% are
-% indeed invertible (Exercise 2.5).
-%  ?
-% The matrices corresponding to the elementary operations are called elementary
-% matrices. Linear algebra over arbitrary rings would be a great deal simpler if
-% Proposition 2.7 were an `if and only if' statement. This boils down to the
-% question
-% of whether every invertible matrix may be written as a product of elementary
-% matrices, that is, whether elementary matrices generate the `general linear
-% group'.
-% Definition 2.8. The n-th general linear group over the ring R, denoted GLn (R),
-% is the group of units in Mn (R), that is, the group of invertible n \times  n
-% matrices with
-% entries in R.
-%  ?
-% Brief mentions of this notion have occurred already; cf. Example II.1.5 and
-% several exercises in previous chapters.
-% The elementary matrices are elements of GLn (R); in fact, the inverse of an
-% elementary matrix is (of course) again an elementary matrix. The following
-% obser-
-% vation is surely known to the reader, in one form or another; in view of the
-% foregoing
-% considerations, it says that the relation introduced in Definition 2.6 is under
-% good
-% control over fields.
-% 12 Multiplying on the left acts on the rows of the matrix; multiplying on the
-% right acts on its
-% columns.
-% Proposition 2.9. Let R = k be a field, and let n \geq  0 be an integer. Then GLn
-% (k)
-% is generated by elementary matrices.
-% Thus, two matrices are equivalent over a field if and only if they are linked by
-% a sequence of elementary operations.
-% Proof. Let A = (aij ) be an n \times  n invertible matrix. In particular, some
-% entry in
-% the first column of A is nonzero; by performing a row switch if necessary, we
-% may
-% assume that a11 is nonzero. Multiplying the first row by a-1
-%  11 , we may assume that
-% a11 = 1:
-%  (
-%  )
-%  a12 . . . a1n
-% | a21 a22 . . . a1n |
-% |
-%  |
-% | ( ..
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  .. . | )
-%  .
-% an1 an2 . . . ann
-% Adding to the second row the (-a21 )-multiple of the first row clears the (2, 1)
-% entry.
-% After performing the analogous operation on all rows, we may assume that the
-% only
-% nonzero entry in the first column is the (1, 1) entry:
-% (
-%  )
-% 1 a12 . . . a1n
-% |0 a\setminus  22 . . . a\setminus  1n |
-% |
-%  |
-% | ( ..
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  .. . | )
-%  .
-% 0 a\setminus  n2
-%  ...
-%  a\setminus  nn
-% Similarly, adding to the second column the (-a12 )-multiple of the first column
-% clears the (1, 2) entry. Performing this operation on all columns reduces the
-% matrix
-% to the form
-%  (
-%  )
-% 1 0 ...
-%  ?
-%  ?
-% |0 a\setminus  22 . . . a\setminus  1n |
-%  1 0
-% |
-%  |
-% | ( ..
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  .. . | )
-%  =
-%  0 A\setminus 
-%  ,
-% 0 a\setminus  n2 . . . a\setminus  nn
-% where A\setminus  denotes a (clearly invertible) (n - 1) \times  (n - 1)
-% matrix13 .
-% Repeating the process on A\setminus  and on subsequent smaller matrices reduces
-% A to
-% the identity matrix In . In other words, In may be obtained from A by a sequence
-% of elementary operations:
-% In = M \cdot  A \cdot  N,
-% where M and N are products of elementary matrices. But then
-% A = M -1 \cdot  N -1
-% is itself a product of elementary matrices, yielding the statement.
-%  ?
-% Note that, with notation as in the preceding proof, A-1 = N \cdot  M ; thus, the
-% process explained in the proof may be used to compute the inverse of a matrix
-% (also
-% cf. Exercise 3.5).
-% When applied only to the rows of a matrix, the simplification of a matrix by
-% means of elementary operations is called Gaussian elimination. This corresponds
-% 13 The vertical and horizontal lines alert the reader to the fact that the
-% sectors of the matrix
-% are themselves matrices; this notation is called a block matrix.
-% to multiplying the given matrix on the left by a product of elementary matrices,
-% and it suffices in order to reduce any square invertible matrix to the identity
-% (Ex-
-% ercise 2.15).
-% I will sloppily call `Gaussian elimination' the more drastic process including
-% column operations as well as row operations; this is in line with our focus on
-% equivalence rather than `row-equivalence'. Applied to any rectangular matrix,
-% this
-% process yields the following:
-% Proposition 2.10. Over a field, every m \times  n matrix is equivalent to a
-% matrix of
-% the form
-%  ?
-%  ?
-% Ir 0
-% (where r \leq  min(m, n) and `0' stands for null matrices of appropriate sizes).
-% Different matrices of the type displayed in Proposition 2.10 are inequivalent
-% (for example by rank considerations; cf. \S{}3.3). Thus, Proposition 2.10
-% describes all
-% equivalence classes of matrices over a field and shows that for any given m, n
-% there
-% are in fact only finitely many such classes (over a field!).
+For this, we can start with random bases in $F$ and $G$, representing
+$\alpha$ by a matrix $P$ and then (by Proposition~2.5) multiply $P$ on
+the right and left by invertible matrices, in order to bring $P$ into
+whatever form is best suited for our needs.
+
+There is an even more concrete way to deal with equivalence
+computationally. Consider the following three `elementary (row/column)
+operations' that can be
+performed on a matrix $P$:
+\begin{itemize}
+\item switch two rows (or two columns) of $P$;
+\item add to one row (resp., column) a multiple of another row (resp.,
+column);
+\item multiply all entries in one row (or column) of $P$ by a unit of
+$R$.
+\end{itemize}
+\begin{prop}{}{linalg:2.7}
+Two matrices $P, Q \in \mathcal{M}_{m,n}(R)$ are equivalent if $Q$ may be
+obtained from $P$ by a sequence of elementary operations.
+\end{prop}
+\begin{proof}
+To see that elementary operations produce equivalent matrices, it
+suffices (by Proposition~2.5) to express them as multiplications on the
+left or right\footnote{Multiplying on the \emph{left} acts on the rows
+of the matrix; multiplying on the \emph{right} acts on its columns.} by
+invertible matrices. Indeed, these operations may be performed by
+suitably multiplying by the matrices obtained from the identity matrix
+by performing the same operation. For example, multiplying on the left
+by
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0
+\end{pmatrix}
+\]
+interchanges the second and fourth row of a $4 \times n$ matrix;
+multiplying on the right by
+\[
+\begin{pmatrix}
+1 & 0 & c \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\]
+adds to the third column of a $m \times 3$ matrix the $c$-multiple of
+the first column. The diligent reader will formalize this discussion
+and prove that all these matrices are indeed invertible
+(Exercise~2.5).
+\end{proof}
+
+The matrices corresponding to the elementary operations are called
+\emph{elementary matrices}. Linear algebra over arbitrary rings would be
+a great deal simpler if Proposition~2.7 were an `if and only if'
+statement. This boils down to the question of whether every invertible
+matrix may be written as a product of elementary matrices, that is,
+whether elementary matrices generate the `general linear group'.
+
+\begin{defn}{}{linalg:2.8}
+The $n$-th \emph{general linear group} over the ring $R$, denoted
+$\mathrm{GL}_n(R)$, is the group of units in $\mathcal{M}_n(R)$, that is, the
+group of invertible $n \times n$ matrices with entries in $R$.
+\end{defn}
+Brief mentions of this notion have occurred already; cf.\ Example~II.1.5
+and several exercises in previous chapters.
+
+The elementary matrices are elements of $\mathrm{GL}_n(R)$; in fact, the inverse
+of an elementary matrix is (of course) again an elementary matrix. The
+following observation is surely known to the reader, in one form or
+another; in view of the foregoing considerations, it says that the
+relation introduced in Definition~2.6 is under good control over fields.
+
+\begin{prop}{}{linalg:2.9}
+Let $R = k$ be a field, and let $n \geq 0$ be an integer. Then
+$\mathrm{GL}_n(k)$ is generated by elementary matrices.
+
+Thus, two matrices are equivalent over a field if and only if they are
+linked by a sequence of elementary operations.
+\end{prop}
+\begin{proof}
+Let $A = (a_{ij})$ be an $n \times n$ invertible matrix. In particular,
+some entry in the first column of $A$ is nonzero; by performing a row
+switch if necessary, we may assume that $a_{11}$ is nonzero. Multiplying
+the first row by $a_{11}^{-1}$, we may assume that $a_{11} = 1$:
+\[
+\begin{pmatrix}
+1 & a_{12} & \dots & a_{1n} \\
+a_{21} & a_{22} & \dots & a_{1n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \dots & a_{nn}
+\end{pmatrix}.
+\]
+Adding to the second row the $(-a_{21})$-multiple of the first row
+clears the $(2,1)$ entry. After performing the analogous operation on
+all rows, we may assume that the only nonzero entry in the first column
+is the $(1,1)$ entry:
+\[
+\begin{pmatrix}
+1 & a_{12} & \dots & a_{1n} \\
+0 & a'_{22} & \dots & a'_{1n} \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & a'_{n2} & \dots & a'_{nn}
+\end{pmatrix}.
+\]
+Similarly, adding to the second column the $(-a_{12})$-multiple of the
+first column clears the $(1,2)$ entry. Performing this operation on all
+columns reduces the matrix to the form
+\[
+\begin{pmatrix}
+1 & 0 & \dots & 0 \\
+0 & a'_{22} & \dots & a'_{1n} \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & a'_{n2} & \dots & a'_{nn}
+\end{pmatrix}
+=
+\left(
+\begin{array}{c|c}
+1 & 0 \\
+\hline
+0 & A'
+\end{array}
+\right),
+\]
+where $A'$ denotes a (clearly invertible) $(n-1) \times (n-1)$
+matrix\footnote{The vertical and horizontal lines alert the reader to
+the fact that the sectors of the matrix are themselves matrices; this
+notation is called a \emph{block matrix}.}.
+
+Repeating the process on $A'$ and on subsequent smaller matrices reduces
+$A$ to the identity matrix $I_n$. In other words, $I_n$ may be obtained
+from $A$ by a sequence of elementary operations:
+\[
+I_n = M \cdot A \cdot N,
+\]
+where $M$ and $N$ are products of elementary matrices. But then
+\[
+A = M^{-1} \cdot N^{-1}
+\]
+is itself a product of elementary matrices, yielding the statement.
+\end{proof}
+
+Note that, with notation as in the preceding proof, $A^{-1} = N \cdot M$;
+thus, the process explained in the proof may be used to compute the
+inverse of a matrix (also cf.\ Exercise~3.5).
+
+When applied only to the rows of a matrix, the simplification of a
+matrix by means of elementary operations is called \emph{Gaussian
+elimination}. This corresponds to multiplying the given matrix on the
+left by a product of elementary matrices, and it suffices in order to
+reduce any square invertible matrix to the identity (Exercise~2.15).
+
+I will sloppily call `Gaussian elimination' the more drastic process
+including column operations as well as row operations; this is in line
+with our focus on equivalence rather than `row-equivalence'. Applied to
+any rectangular matrix, this process yields the following:
+\begin{prop}{}{linalg:2.10}
+Over a field, every $m \times n$ matrix is equivalent to a matrix of the
+form
+\[
+\left(
+\begin{array}{c|c}
+I_r & 0 \\
+\hline
+0 & 0
+\end{array}
+\right)
+\]
+(where $r \leq \min(m,n)$ and `0' stands for null matrices of
+appropriate sizes).
+\end{prop}
+Different matrices of the type displayed in Proposition~2.10 are
+inequivalent (for example by rank considerations; cf.\ \S{}3.3). Thus,
+Proposition~2.10 describes all equivalence classes of matrices over a
+field and shows that for any given $m, n$ there are in fact only
+\emph{finitely many} such classes (over a field!).
 
 \subsection{Gaussian elimination over Euclidean domains}
 \label{subsec:linalg:gaussian-elimination-over-euclidean-domains}
-% With due care, Gauss-
+With due care, Gaussian elimination may be performed over every
+\emph{Euclidean domain}. A $2 \times 2$ example should suffice to
+illustrate the general case: let
+\[
+\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \mathcal{M}_2(R),
+\]
+for a Euclidean domain $R$, with Euclidean valuation $N$. After
+switching rows and/or columns if necessary, we may assume that $N(a)$ is
+the minimum of the valuations of all entries in the matrices. Division
+with remainder gives
+\[
+b = aq + r
+\]
+with $r = 0$ or $N(r) < N(a)$. Adding to the second column the
+$(-q)$-multiple of the first produces the matrix
+\[
+\begin{pmatrix} a & r \\ c & d - qc \end{pmatrix}.
+\]
+If $r \neq 0$, so that $N(r) < N(a)$, we begin again and shuffle rows
+and columns so that the $(1,1)$ entry has minimum valuation. This
+process may be repeated, but after a finite number of steps the $(1,2)$
+entry will have to vanish: because valuations are nonnegative integers
+and at each iteration the valuation of the $(1,1)$ entry decreases.
 
-% ian elimination may be performed over every Euclidean domain. A 2 \times  2
-% example
-% should suffice to illustrate the general case: let
-% a b
-% \in  M2 (R),
-% c d
-% for a Euclidean domain R, with Euclidean valuation N . After switching rows
-% and/or
-% columns if necessary, we may assume that N (a) is the minimum of the valuations
-% of all entries in the matrices. Division with remainder gives
-% b = aq + r
-% with r = 0 or N (r) < N (a). Adding to the second column the (-q)-multiple of
-% the
-% first produces the matrix
-% a
-%  r
-% .
-% c d - qc
-% If r = 0, so that N (r) < N (a), we begin again and shuffle rows and columns so
-% that
-% the (1, 1) entry has minimum valuation. This process may be repeated, but after
-% a
-% finite number of steps the (1, 2) entry will have to vanish: because valuations
-% are
-% nonnegative integers and at each iteration the valuation of the (1, 1) entry
-% decreases.
-% Trivial variations of the same procedure will clear the (2, 1) entry as well,
-% producing a matrix
-% e 0
-% .
-% 0 f
-% Now (this is the cleverest part) I claim that we may assume that e divides f in
-% R,
-% with no remainder. Indeed, otherwise we can add the second row to the first,
-% e f
-% ,
-% 0 f
-% and start all over with this new matrix. Again, the effect of all the operations
-% will
-% be to decrease the valuation of the (1, 1) entry, so after a final number of
-% steps we
-% must reach the condition e | f .
-% The reader will have some fun describing this process in the general case. The
-% end result is the following useful remark:
-% Proposition 2.11. Let R be a Euclidean domain, and let P \in  Mm,n(R). Then P
-% is equivalent to a matrix of the form14
-% (
-%  )
-% d1 \dots  0 0
-% | . .
-%  |
-% | |
-%  ..
-%  . . ... ... |
-%  |
-% |
-%  |
-% ( 0 \dots  dr 0 )
-%  \cdot \cdot \cdot 
-% with d1 | \dots  | dr .
-% This is called the Smith normal form of the matrix.
-% Proposition 2.11 suffices to prove a weak form of one of our main goals (a
-% classi-
-% fication theorem for finitely generated modules over PIDs) over Euclidean
-% domains;
-% this will hopefully be clear in a little while, but the reader can gain the
-% needed in-
-% sight right away by contemplating Proposition 2.11 vis-\`{a}-vis the
-% classification of
-% finite abelian groups (Exercise 2.19).
-% Remark 2.12. As a consequence of the preceding considerations and arguing as
-% in the proof of Proposition 2.9, we see that GLn (R) is generated by elementary
-% matrices if R is a Euclidean domain. The reader may think that some cleverness
-% in
-% handling Gaussian elimination may extend this to more general rings, but this
-% will
-% not go too far: there are examples of PIDs R for which GLn(R) is not generated
-% by elementary matrices.
-% On the other hand, some cleverness does manage to produce a Smith normal
-% form for any matrix with entries in a PID: the presence of a good gcd suffices
-% to
-% adapt the procedure sketched above (but one may need more than elementary row
-% and column operations). We will take a direct approach to this question in
-% \S{}5. ?
+Trivial variations of the same procedure will clear the $(2,1)$ entry as
+well, producing a matrix
+\[
+\begin{pmatrix} e & 0 \\ 0 & f \end{pmatrix}.
+\]
+Now (this is the cleverest part) I claim that we may assume that $e$
+divides $f$ in $R$, with no remainder. Indeed, otherwise we can add the
+second row to the first,
+\[
+\begin{pmatrix} e & f \\ 0 & f \end{pmatrix},
+\]
+and start all over with this new matrix. Again, the effect of all the
+operations will be to decrease the valuation of the $(1,1)$ entry, so
+after a final number of steps we must reach the condition $e \mid f$.
+
+The reader will have some fun describing this process in the general
+case. The end result is the following useful remark:
+\begin{prop}{}{linalg:2.11}
+Let $R$ be a Euclidean domain, and let $P \in \mathcal{M}_{m,n}(R)$.
+Then $P$ is equivalent to a matrix of the form\footnote{Here
+$r \leq \min(m,n)$, the bottom-right $0$ stands for a null
+$(m-r) \times (n-r)$ matrix, etc.}
+\[
+\left(
+\begin{array}{ccc|c}
+d_1 & \dots & 0 & 0 \\
+\vdots & \ddots & \vdots & \vdots \\
+0 & \dots & d_r & 0 \\
+\hline
+0 & \dots & 0 & 0
+\end{array}
+\right)
+\]
+with $d_1 \mid \dots \mid d_r$.
+\end{prop}
+This is called the \emph{Smith normal form} of the matrix.
+
+Proposition~2.11 suffices to prove a weak form of one of our main goals
+(a classification theorem for finitely generated modules over PIDs)
+over Euclidean domains; this will hopefully be clear in a little while,
+but the reader can gain the needed insight right away by contemplating
+Proposition~2.11 vis-\`{a}-vis the classification of finite abelian
+groups (Exercise~2.19).
+
+\begin{rem}{}{linalg:2.12}
+As a consequence of the preceding considerations and arguing as in the
+proof of Proposition~2.9, we see that $\mathrm{GL}_n(R)$ is generated by
+elementary matrices if $R$ is a Euclidean domain. The reader may think
+that some cleverness in handling Gaussian elimination may extend this to
+more general rings, but this will not go too far: there are examples of
+PIDs $R$ for which $\mathrm{GL}_n(R)$ is \emph{not} generated by
+elementary matrices.
+
+On the other hand, some cleverness \emph{does} manage to produce a Smith
+normal form for any matrix with entries in a PID: the presence of a good
+gcd suffices to adapt the procedure sketched above (but one may need
+more than elementary row and column operations). We will take a direct
+approach to this question in \S{}5.
+\end{rem}
 
 \subsection*{Exercises}
 
-% 2.1. Prove that the subset of M2 (R) consisting of matrices of the form
-% 1 0
-% r 1
-% is a group under matrix multiplication and is isomorphic to (R, +).
-% 2.2. ? Prove that matrix multiplication is associative. [\S{}2.1]
-% 14 Here r \leq  min(m, n), the bottom-right 0 stands for a null (m - r) \times
-% (n - r) matrix, etc.
-% 2.3. ? Prove that both Mn (R) and HomR (Rn , Rn ) are R-algebras in a natural
-% way
-% and the bijection HomR (Rn , Rn ) \sim 
-%  = Mn (R) of Corollary 2.2 is an isomorphism of
-% R-algebras. (Cf. Exercise III.5.9.) In particular, if the matrix M corresponds
-% to
-% the homomorphism \phi  : Rn \to  Rn , then M is invertible in Mn (R) if and only
-% if \phi
-% is an isomorphism. (Note that R is commutative by default.) [\S{}2.1, \S{}3.2,
-% \S{}6.1]
-% 2.4. Prove Corollary 2.2.
-% 2.5. ? Give a formal argument proving Proposition 2.7. [\S{}2.3]
-% 2.6. \lnot  A matrix with entries in a field is in row echelon form if
-% \bullet  its nonzero rows are all above the zero rows and
-% \bullet  the leftmost nonzero entry of each row is 1, and it is strictly to the right of the
-% leftmost nonzero entry of the row above it.
-% The matrix is further in reduced row echelon form if
-% \bullet  the leftmost nonzero entry of each row is the only nonzero entry in its column.
-% The leftmost nonzero entries in a matrix in row echelon form are called pivots.
-% Prove that any matrix with entries in a field can be brought into reduced
-% echelon form by a sequence of elementary operations on rows. (This is what is
-% more properly called Gaussian elimination.) [2.7, 2.9]
-% 2.7. \lnot  Let M be a matrix with entries in a field and in reduced row echelon
-% form
-% ?
-% (Exercise 2.6). Prove that if a row vector r is a linear combination
-%  ai ri of the
-% nonzero rows of M , then ai equals the component of r at the position
-% corresponding
-% to the pivot on the i-th row of M . Deduce that the nonzero rows of M are
-% linearly
-% independent. [2.9]
-% 2.8. \lnot  Two matrices M , N are row-equivalent if M = P N for an invertible
-% ma-
-% trix P . Prove that this is indeed an equivalence relation, and that two
-% matrices
-% with entries in a field are row-equivalent if and only if one may be obtained
-% from
-% the other by a sequence of elementary operations on rows. [2.9, 2.12]
-% 2.9. \lnot  Let k be a field, and consider row-equivalence (Exercise 2.8) on the
-% set of m\times
-% n matrices Mm,n (k). Prove that each equivalence class contains exactly one
-% matrix
-% in reduced row echelon form (Exercise 2.6). (Hint: To prove uniqueness, argue by
-% contradiction. Let M , N be different row-equivalent reduced row echelon
-% matrices;
-% assume that they have the minimum number of columns with this property. If the
-% leftmost column at which M and N differ is the k-th column, use the minimality
-% to prove that M , N may be assumed to be of the form
-% ?
-%  ?
-% ?
-%  ?
-% Ik-1 \ast 
-% or
-%  Ik-1 \ast  .
-%  \ast 
-% Use Exercise 2.7 to obtain a contradiction.)
-% The unique matrix in reduced row echelon form that is row-equivalent to a
-% given matrix M is called the reduced echelon form of M . [2.11]
-% 2.10. ? The row space of a matrix M is the span of its rows; the column space
-% of M is the span of its column. Prove that row-equivalent matrices have the same
-% row space and isomorphic column spaces. [2.12, \S{}3.3]
-% 2.11. Let k be a field and M \in  Mm,n (k). Prove that the dimension of the
-% space
-% spanned by the rows of M equals the number of nonzero rows in the reduced
-% echelon
-% form of M (cf. Exercise 2.9).
-% 2.12. \lnot  Let k be a field, and consider row-equivalence on Mm,n (k)
-% (Exercise 2.8).
-% By Exercise 2.10, row-equivalent matrices have the same row space. Prove that,
-% conversely, there is exactly one row-equivalence class in Mm,n (k) for each
-% subspace
-% of kn of dimension \leq  m. [2.13, 2.14]
-% 2.13. \lnot  The set of subspaces of given dimension in a fixed vector space is
-% called
-% a Grassmannian. In Exercise 2.12 you have constructed a bijection between the
-% Grassmannian of r-dimensional subspaces of k n and the set of reduced row
-% echelon
-% matrices with n columns and r nonzero rows.
-% For r = 1, the Grassmannian is called the projective space. For a vector space V
-% ,
-% the corresponding projective space PV is the set of `lines' (1-dimensional
-% subspaces)
-% in V . For V = kn , PV may be denoted Pn-1
-%  k
-%  , and the field k may be omitted if it is
-% clear from the context. Show that Pn-1
-%  k
-%  may
-%  be written as a union k n-1 \cup  k n-2 \cup 
-% \dots  \cup  k1
-%  \cup  k0
-%  , and describe each of these subsets `geometrically'.
-% Thus, P n-1 is the union of n `cells'15 , the largest one having dimension n - 1
-% (accounting for the choice of notation). Similarly, all Grassmannians may be
-% written
-% as unions of cells. These are called Schubert cells.
-% Prove that the Grassmannian of (n - 1)-dimensional subspaces of kn admits a
-% cell decomposition entirely analogous to that of Pn-1
-%  k
-%  . (This phenomenon will be
-% explained in Exercise VIII.5.17.) [VII.2.20, VIII.4.7, VIII.5.17]
-% 2.14. ? Show that the Grassmannian Grk (2, 4) of 2-dimensional subspaces of k4
-% is
-% the union of 6 Schubert cells: k4 \cup  k 3 \cup  k 2 \cup  k 2 \cup  k 1 \cup
-% k 0 . (Use Exercise 2.12; list
-% all the possible reduced echelon forms.) [VIII.4.8]
-% 2.15. ? Prove that a square matrix with entries in a field is invertible if and
-% only
-% if it is equivalent to the identity, if and only if it is row-equivalent to the
-% identity,
-% if and only if its reduced echelon form is the identity. [\S{}2.3, 3.5]
-% 2.16. Prove Proposition 2.10.
-% 2.17. Prove Proposition 2.11.
-% 2.18. Suppose \alpha  : Z3 \to  Z2 is represented by the matrix
-% -6 12 18
-% -15 36 54
-% with respect to the standard bases. Find bases of Z3 , Z2 with respect to which
-% \alpha
-% is given by a matrix of the form obtained in Proposition 2.11.
-% 15 Here, a `cell' is simply a subset endowed with a natural bijection with
-% k\setminus  for some ?.
+\begin{exer}{}{exer:linalg:2.1}
+Prove that the subset of $\mathcal{M}_2(R)$ consisting of matrices of
+the form
+\[
+\begin{pmatrix} 1 & 0 \\ r & 1 \end{pmatrix}
+\]
+is a group under matrix multiplication and is isomorphic to $(R,+)$.
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:2.2}
+Prove that matrix multiplication is associative. [$\S$2.1]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:2.3}
+Prove that both $\mathcal{M}_n(R)$ and $\Hom_R(R^n, R^n)$ are
+$R$-algebras in a natural way and the bijection $\Hom_R(R^n, R^n) \cong
+\mathcal{M}_n(R)$ of \cref{linalg:2.2} is an isomorphism of
+$R$-algebras. (Cf.\ Exercise~III.5.9.) In particular, if the matrix $M$
+corresponds to the homomorphism $\varphi : R^n \to R^n$, then $M$ is
+invertible in $\mathcal{M}_n(R)$ if and only if $\varphi$ is an
+isomorphism. (Note that $R$ is commutative by default.) [$\S$2.1,
+$\S$3.2, $\S$6.1]
+\end{exer}
+\begin{exer}{}{exer:linalg:2.4}
+Prove \cref{linalg:2.2}.
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:2.5}
+Give a formal argument proving \cref{linalg:2.7}. [$\S$2.3]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:2.6}
+A matrix with entries in a field is in \emph{row echelon form} if
+\begin{itemize}
+\item its nonzero rows are all above the zero rows and
+\item the leftmost nonzero entry of each row is $1$, and it is
+strictly to the right of the leftmost nonzero entry of the row above
+it.
+\end{itemize}
+The matrix is further in \emph{reduced} row echelon form if
+\begin{itemize}
+\item the leftmost nonzero entry of each row is the only nonzero entry
+in its column.
+\end{itemize}
+The leftmost nonzero entries in a matrix in row echelon form are called
+\emph{pivots}.
+
+Prove that any matrix with entries in a field can be brought into
+reduced echelon form by a sequence of elementary operations on rows.
+(This is what is more properly called Gaussian elimination.) [2.7, 2.9]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:2.7}
+Let $M$ be a matrix with entries in a field and in reduced row echelon
+form (Exercise~2.6). Prove that if a row vector $\mathbf{r}$ is a
+linear combination $\sum a_i \mathbf{r}_i$ of the nonzero rows of $M$,
+then $a_i$ equals the component of $\mathbf{r}$ at the position
+corresponding to the pivot on the $i$-th row of $M$. Deduce that the
+nonzero rows of $M$ are linearly independent. [2.9]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:2.8}
+Two matrices $M$, $N$ are \emph{row-equivalent} if $M = PN$ for an
+invertible matrix $P$. Prove that this is indeed an equivalence
+relation, and that two matrices with entries in a field are
+row-equivalent if and only if one may be obtained from the other by a
+sequence of elementary operations on rows. [2.9, 2.12]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:2.9}
+Let $k$ be a field, and consider row-equivalence (Exercise~2.8) on the
+set of $m \times n$ matrices $\mathcal{M}_{m,n}(k)$. Prove that each
+equivalence class contains exactly one matrix in reduced row echelon
+form (Exercise~2.6). (Hint: To prove uniqueness, argue by
+contradiction. Let $M$, $N$ be different row-equivalent reduced row
+echelon matrices; assume that they have the minimum number of columns
+with this property. If the leftmost column at which $M$ and $N$ differ
+is the $k$-th column, use the minimality to prove that $M$, $N$ may be
+assumed to be of the form
+\[
+\left(\begin{array}{c|c} I_{k-1} & * \\ \hline 0 & * \end{array}\right)
+\quad \text{or} \quad
+\left(\begin{array}{c|c} I_{k-1} & * \end{array}\right).
+\]
+Use Exercise~2.7 to obtain a contradiction.)
+
+The unique matrix in reduced row echelon form that is row-equivalent to
+a given matrix $M$ is called the \emph{reduced echelon form} of $M$.
+[2.11]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:2.10}
+The \emph{row space} of a matrix $M$ is the span of its rows; the
+\emph{column space} of $M$ is the span of its column. Prove that
+row-equivalent matrices have the same row space and isomorphic column
+spaces. [2.12, $\S$3.3]
+\end{exer}
+\begin{exer}{}{exer:linalg:2.11}
+Let $k$ be a field and $M \in \mathcal{M}_{m,n}(k)$. Prove that the
+dimension of the space spanned by the rows of $M$ equals the number of
+nonzero rows in the reduced echelon form of $M$ (cf.\ Exercise~2.9).
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:2.12}
+Let $k$ be a field, and consider row-equivalence on
+$\mathcal{M}_{m,n}(k)$ (Exercise~2.8). By Exercise~2.10,
+row-equivalent matrices have the same row space. Prove that,
+conversely, there is exactly one row-equivalence class in
+$\mathcal{M}_{m,n}(k)$ for each subspace of $k^n$ of dimension $\leq
+m$. [2.13, 2.14]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:2.13}
+The set of subspaces of given dimension in a fixed vector space is
+called a \emph{Grassmannian}. In Exercise~2.12 you have constructed a
+bijection between the Grassmannian of $r$-dimensional subspaces of
+$k^n$ and the set of reduced row echelon matrices with $n$ columns and
+$r$ nonzero rows.
+
+For $r = 1$, the Grassmannian is called the \emph{projective space}.
+For a vector space $V$, the corresponding projective space $\mathbb{P}V$
+is the set of `lines' (1-dimensional subspaces) in $V$. For $V = k^n$,
+$\mathbb{P}V$ may be denoted $\mathbb{P}_k^{n-1}$, and the field $k$ may
+be omitted if it is clear from the context. Show that
+$\mathbb{P}_k^{n-1}$ may be written as a union
+$k^{n-1} \cup k^{n-2} \cup \dots \cup k^1 \cup k^0$, and describe each
+of these subsets `geometrically'.
+
+Thus, $\mathbb{P}^{n-1}$ is the union of $n$ `cells'\footnote{Here, a
+`cell' is simply a subset endowed with a natural bijection with
+$k^\ell$ for some $\ell$.}, the largest one having dimension $n-1$
+(accounting for the choice of notation). Similarly, all Grassmannians
+may be written as unions of cells. These are called \emph{Schubert
+cells}.
+
+Prove that the Grassmannian of $(n-1)$-dimensional subspaces of $k^n$
+admits a cell decomposition entirely analogous to that of
+$\mathbb{P}_k^{n-1}$. (This phenomenon will be explained in
+Exercise~VIII.5.17.) [VII.2.20, VIII.4.7, VIII.5.17]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:2.14}
+Show that the Grassmannian $\operatorname{Gr}_k(2,4)$ of 2-dimensional
+subspaces of $k^4$ is the union of 6 Schubert cells:
+$k^4 \cup k^3 \cup k^2 \cup k^2 \cup k^1 \cup k^0$. (Use Exercise~2.12;
+list all the possible reduced echelon forms.) [VIII.4.8]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:2.15}
+Prove that a square matrix with entries in a field is invertible if and
+only if it is equivalent to the identity, if and only if it is
+row-equivalent to the identity, if and only if its reduced echelon form
+is the identity. [$\S$2.3, 3.5]
+\end{exer}
+\begin{exer}{}{exer:linalg:2.16}
+Prove \cref{linalg:2.10}.
+\end{exer}
+\begin{exer}{}{exer:linalg:2.17}
+Prove \cref{linalg:2.11}.
+\end{exer}
+\begin{exer}{}{exer:linalg:2.18}
+Suppose $\alpha : \mathbb{Z}^3 \to \mathbb{Z}^2$ is represented by the
+matrix
+\[
+\begin{pmatrix} -6 & 12 & 18 \\ -15 & 36 & 54 \end{pmatrix}
+\]
+with respect to the standard bases. Find bases of $\mathbb{Z}^3$,
+$\mathbb{Z}^2$ with respect to which $\alpha$ is given by a matrix of
+the form obtained in \cref{linalg:2.11}.
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:2.19}
+Prove \cref{coro:groups2:6.5} again as a corollary of
+\cref{linalg:2.11}. In fact, prove the more general fact that every
+finitely generated abelian group is a direct sum of cyclic groups.
+[$\S$II.6.3, $\S$IV.6.1, $\S$IV.6.3, $\S$2.4, $\S$4.1, $\S$4.3]
+\end{exer}
 
 \section{Homomorphisms of free modules, II}
 \label{sec:linalg:homomorphisms-of-free-modules-ii}
