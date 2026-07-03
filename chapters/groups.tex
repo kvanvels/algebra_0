@@ -27,19 +27,19 @@ defined already (in Example~I.4.6); but most mathematicians would find it
 ludicrous to introduce groups in this fashion, or they will at the very least
 politely express doubts on the pedagogical effectiveness of doing so. In order
 to redeem myself, I will parse this definition right away to show what it really
-says. If $*$ is the lone object of such a groupoid $\mathsf{G}$,
+says. If $*$ is the lone object of such a groupoid $\categ{G}$,
 \[
-  \Hom_{\mathsf{G}}(*,*) = \operatorname{Aut}_{\mathsf{G}}(*)
+  \Hom_{\categ{G}}(*,*) = \operatorname{Aut}_{\categ{G}}(*)
 \]
-(because $\mathsf{G}$ is a groupoid!), and this set carries all the information
-about $\mathsf{G}$. Call this set $G$. Then (by definition of category) there
+(because $\categ{G}$ is a groupoid!), and this set carries all the information
+about $\categ{G}$. Call this set $G$. Then (by definition of category) there
 is an associative operation on $G$, with an identity $1_*$, and (by definition
-of groupoid, which says that every morphism in $\mathsf{G}$ is an isomorphism)
+of groupoid, which says that every morphism in $\categ{G}$ is an isomorphism)
 every $g \in G$ has an inverse $g^{-1} \in G$.
 
 \emph{That is} what a group is:\footnote{From this perspective, Joke~1.1 is a
-little imprecise: the group is not the groupoid $\mathsf{G}$, but rather the
-set of isomorphisms of $\mathsf{G}$, endowed with the operation of composition
+little imprecise: the group is not the groupoid $\categ{G}$, but rather the
+set of isomorphisms of $\categ{G}$, endowed with the operation of composition
 of morphisms.} a set $G$ with a composition law satisfying a few key axioms,
 i.e., associativity, existence of identity, and existence of inverses.
 
@@ -50,7 +50,7 @@ Now for the official definition. Let $G$ be a nonempty set, endowed with a
 \[
   \bullet \colon G \times G \to G.
 \]
-Our notation will be $\bullet(g, h) =: g \bullet h$, or simply $gh$ if the name
+Our notation will be $\bullet(g, h) \df g \bullet h$, or simply $gh$ if the name
 of the operation can be understood. The careful reader may have expected that we
 should write $h \bullet g$, in the style of what we have done for categories,
 but this is what common conventions dictate.\footnote{Not without exceptions; see
@@ -80,7 +80,7 @@ group \emph{a} trivial group, since every singleton gives rise to one.
 
 \begin{exam}{}{}
 The reader should check carefully (cf.\ \Cref{exer:groups:1.2}) that
-$(\Z, +)$, $(\Q, +)$, $(\mathbb{R}, +)$, $(\mathbb{C}, +)$,
+$(\Z, +)$, $(\Q, +)$, $(\R, +)$, $(\C, +)$,
 and several variations using $\cdot$ (for example, the subset $\{+1, -1\}$ of
 $\Z$, with ordinary multiplication) all give examples of groups. While
 very interesting in themselves, these examples do not really capture at any
@@ -118,7 +118,7 @@ is its inverse?) Since, for example,
   \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix},
 \]
 this group is indeed not commutative. The group of invertible $n \times n$
-matrices with real entries is denoted $\mathrm{GL}_n(\mathbb{R})$.
+matrices with real entries is denoted $\mathrm{GL}_n(R)$.
 \end{exam}
 
 We will encounter more representative examples in \S{}2.
@@ -217,13 +217,13 @@ The proof for the other implication follows the same pattern.
 
 Examples of operations which do \emph{not} satisfy cancellation, and hence do
 not define groups, abound. For instance, the operation of ordinary
-multiplication does not make the set $\mathbb{R}$ of real numbers into a group:
+multiplication does not make the set $\R$ of real numbers into a group:
 indeed, $0$ `cannot be cancelled' since $1 \cdot 0 = 2 \cdot 0$ even if
 $1 \neq 2$. Of course, the problem here is that $0$ does not have an inverse in
-$\mathbb{R}$, with respect to multiplication. As it happens, this is the
+$\R$, with respect to multiplication. As it happens, this is the
 \emph{only} problem with this example: ordinary multiplication does make
 \[
-  \mathbb{R}^* := \mathbb{R} \setminus \{0\}
+  \R^* := \R \setminus \{0\}
 \]
 into a group, as the reader should check immediately.
 
@@ -409,9 +409,9 @@ object in some category. [$\S$2.1]
 \begin{exer}{\exerused}{exer:groups:sets-of-numbers}
 Consider the `sets of numbers' listed in $\S$1.1, and decide which are made
 into groups by conventional operations such as $+$ and $\cdot$. Even if the
-answer is negative (for example, $(\mathbb{R}, \cdot)$ is not a group), see if
+answer is negative (for example, $(\R, \cdot)$ is not a group), see if
 variations on the definition of these sets lead to groups (for example,
-$(\mathbb{R}^*, \cdot)$ is a group; cf.\ $\S$1.4). [$\S$1.2]
+$(\R^*, \cdot)$ is a group; cf.\ $\S$1.4). [$\S$1.2]
 \end{exer}
 \begin{exer}{}{exer:groups:inverse-product}
 Prove that $(gh)^{-1} = h^{-1}g^{-1}$ for all elements $g$, $h$ of a group $G$.
@@ -505,7 +505,7 @@ IV.6.15]
 \subsection{Symmetric groups}
 \label{subsec:groups:symmetric-groups}
 In $\S$I.4.1 we have already observed that every object $A$ of every category
-$\mathsf{C}$ determines a group, called $\operatorname{Aut}_{\mathsf{C}}(A)$,
+$\categ{C}$ determines a group, called $\operatorname{Aut}_{\categ{C}}(A)$,
 namely the group of automorphisms of $A$. In a somewhat artificial sense it is
 clear that every group arises in this fashion (cf.\ Exercise~1.1); this fact is
 true in more `meaningful' ways, which will become apparent when we discuss group
@@ -516,7 +516,7 @@ important examples:
 \begin{defn}{Symmetric group}{defn:groups:symmetric-group}
 Let $A$ be a set. The \textbf{symmetric group}, or \textbf{group of
 permutations} of $A$, denoted $S_A$, is the group
-$\operatorname{Aut}_{\mathsf{Set}}(A)$. The group of permutations of the set
+$\operatorname{Aut}_{\categ{Set}}(A)$. The group of permutations of the set
 $\{1, \ldots, n\}$ is denoted by $S_n$.
 \end{defn}
 The terminology is easily justified: the automorphisms of a set $A$ are the
@@ -532,7 +532,7 @@ universe.
 \pheader{Potentially confusing point:} The various conventions clash in the way
 the operation in $S_A$ should be written. From the `automorphism' point of
 view, elements of $S_A$ are functions and should be composed as such; thus, if
-$f, g \in S_A = \operatorname{Aut}_{\mathsf{Set}}(A)$, then the `product' of
+$f, g \in S_A = \operatorname{Aut}_{\categ{Set}}(A)$, then the `product' of
 $f$ and $g$ should be written $g \circ f$ and should act as follows:
 \[
   (\forall p \in A) : \quad g \circ f(p) = g(f(p)).
@@ -674,7 +674,7 @@ category, symmetries will naturally form groups.
 One context in which this notion may be visualized vividly is that of
 `geometric figures' such as polygons in the plane or polyhedra in space. The
 relevant category could be defined as follows: let the objects be subsets of an
-ordinary plane $\mathbb{R}^2$ and let morphisms between two subsets $A$, $B$
+ordinary plane $\R^2$ and let morphisms between two subsets $A$, $B$
 consist of the `rigid motions' of the plane (such as translations, rotations,
 or reflections about a line) which map $A$ to a subset of $B$. A rigorous
 treatment of these notions would be too distracting at this point, so I will
@@ -760,7 +760,7 @@ This is called \textbf{congruence modulo $n$}. We have encountered this relation
 already, for $n = 2$, in Example~I.1.3. It is very easy to check that it is an
 equivalence relation, for all $n$; the set of equivalence classes is often
 denoted by $\Z_n$, $\Z/(n)$, $\Z/n\Z$, or
-$\mathbb{F}_n$. We will opt for $\Z/n\Z$, which is not
+$\F_n$. We will opt for $\Z/n\Z$, which is not
 preempted by other notions\footnote{When $n = p$ is prime, $\Z_p$ is
 the official notation for `$p$-adic integers', which are a completely different
 concept; see Exercise~VIII.1.19.}. I will denote by $[a]_n$ the equivalence
@@ -1029,7 +1029,7 @@ of the elements will make them match. (Cf.\ Exercise~1.6.) [$\S$4.3]
 \section{The category Grp}
 \label{sec:groups:the-category-grp}
 
-Groups will be the objects of the category $\mathsf{Grp}$. In this section we
+Groups will be the objects of the category $\categ{Grp}$. In this section we
 define the morphisms in the category and deal with simple properties of these
 morphisms.
 
@@ -1099,7 +1099,7 @@ qualifier `group'.
 \label{subsec:groups:grp-definition}
 For $G$, $H$ groups\footnote{I am yielding to the usual abuse of language that
 lets us omit explicit mention of the operation.} we define
-$\Hom_{\mathsf{Grp}}(G, H)$ to be the set of group homomorphisms
+$\Hom_{\categ{Grp}}(G, H)$ to be the set of group homomorphisms
 $G \to H$.
 
 If $G$, $H$, $K$ are groups and $\varphi : G \to H$, $\psi : H \to K$ are two
@@ -1129,7 +1129,7 @@ $\psi$ is a homomorphism.
 
 Further, it is clear that composition is associative (because it is for
 set-functions) and that the identity function $\mathrm{id}_G : G \to G$ is a
-group homomorphism. Therefore, $\mathsf{Grp}$ is indeed a category.
+group homomorphism. Therefore, $\categ{Grp}$ is indeed a category.
 
 \subsection{Pause for reflection}
 \label{subsec:groups:pause-for-reflection}
@@ -1139,7 +1139,7 @@ function
 \[
   \iota_G : G \to G, \quad \iota_G(g) := g^{-1}.
 \]
-Shouldn't the definition of morphism in $\mathsf{Grp}$ keep track of this type
+Shouldn't the definition of morphism in $\categ{Grp}$ keep track of this type
 of data? The definition we have given only keeps track of the multiplication map
 $m_G$.
 
@@ -1180,23 +1180,23 @@ implying $\varphi(g^{-1}) = \varphi(g)^{-1}$ by cancellation.
 
 \subsection{Products et al.}
 \label{subsec:groups:products-et-al}
-The categories $\mathsf{Grp}$ and $\mathsf{Set}$ look rather alike at first:
+The categories $\categ{Grp}$ and $\categ{Set}$ look rather alike at first:
 given a group, we can `forget' the information of multiplication and we are left
 with a set; given a group homomorphism, we can forget that it preserves the
 multiplication and we are left with a set-function. A concise way to express
-this fact is that there is a `functor' $\mathsf{Grp} \to \mathsf{Set}$ (called
+this fact is that there is a `functor' $\categ{Grp} \to \categ{Set}$ (called
 in fact a `forgetful' functor); we will deal with functors more extensively much
 later on, starting in Chapter~VIII.
 However, there are important differences between these two categories. For
-example, recall that $\mathsf{Set}$ has a unique initial object (that is,
+example, recall that $\categ{Set}$ has a unique initial object (that is,
 $\emptyset$) and this is not the same as the final objects (that is, the
 singletons). Also recall that a trivial group is a group consisting of a single
 element (Example~1.3).
 
-\begin{prop}{Trivial groups are both initial and final in $\mathsf{Grp}$.}{prop:groups:trivial-zero-object}
+\begin{prop}{Trivial groups are both initial and final in $\categ{Grp}$.}{prop:groups:trivial-zero-object}
 \end{prop}
 
-This makes trivial groups `zero-objects' of the category $\mathsf{Grp}$.
+This makes trivial groups `zero-objects' of the category $\categ{Grp}$.
 
 \begin{proof}
 It should be clear that trivial groups are final: there is only one function
@@ -1208,7 +1208,7 @@ any group $G$, define $\varphi : T \to G$ by $\varphi(e) = e_G$. This is
 clearly a group homomorphism, and it is the only possible one since every group
 homomorphism must send the identity to the identity (Proposition~3.2).
 \end{proof}
-Here is a similarity: $\mathsf{Grp}$ has products; in fact, the product of two
+Here is a similarity: $\categ{Grp}$ has products; in fact, the product of two
 groups $G$, $H$ is supported on the product $G \times H$ of the underlying
 sets. To see this, we need to define a multiplication on $G \times H$; the
 catchword here is \textit{componentwise}: define the operation in $G \times H$
@@ -1230,7 +1230,7 @@ G & & H
 \]
 (defined as set-functions as in $\S$I.2.4) are group homomorphisms: again, this
 follows immediately from the definitions.
-\begin{prop}{With operation defined componentwise, $G \times H$ is a product in $\mathsf{Grp}$.}{prop:groups:direct-product-universal}
+\begin{prop}{With operation defined componentwise, $G \times H$ is a product in $\categ{Grp}$.}{prop:groups:direct-product-universal}
 \end{prop}
 \begin{proof}
 Recall ($\S$I.5.4) that this means that $G \times H$ satisfies the following
@@ -1245,7 +1245,7 @@ G & G \times H \arrow[l, "\pi_G"] \arrow[r, "\pi_H"'] & H
 \]
 commute. Now, a unique set-function $\varphi_G \times \varphi_H$ exists making
 the diagram commute, because the set $G \times H$ is a product of $G$ and $H$
-in $\mathsf{Set}$. So we only need to check that $\varphi_G \times \varphi_H$
+in $\categ{Set}$. So we only need to check that $\varphi_G \times \varphi_H$
 is a group homomorphism, and this is immediate: $\forall a, b \in A$,
 \begin{align*}
   (\varphi_G \times \varphi_H)(ab)
@@ -1255,52 +1255,52 @@ is a group homomorphism, and this is immediate: $\forall a, b \in A$,
     &= (\varphi_G \times \varphi_H)(a)\,(\varphi_G \times \varphi_H)(b). \qedhere
 \end{align*}
 \end{proof}
-What about coproducts? They do exist in $\mathsf{Grp}$, but their construction
+What about coproducts? They do exist in $\categ{Grp}$, but their construction
 requires handling presentations more proficiently than we do right now, and
 general coproducts of groups will not be used in the rest of the book; so the
 reader will have to deal with them on his or her own. For an important example,
 see Exercise~3.8; more will show up in Exercises~5.6 and~5.7, since free groups
 are themselves particular cases of coproducts. The reader will finally produce
 the coproduct of any two groups explicitly in Exercise~8.7. For now, just
-realize that the disjoint union, which works as a coproduct in $\mathsf{Set}$
-(Proposition~I.5.6), is not an option in $\mathsf{Grp}$: there is no
+realize that the disjoint union, which works as a coproduct in $\categ{Set}$
+(Proposition~I.5.6), is not an option in $\categ{Grp}$: there is no
 reasonable group structure on the disjoint union. The coproduct of $G$ and $H$
-in $\mathsf{Grp}$ is denoted $G * H$ and is called the \textbf{free product}
+in $\categ{Grp}$ is denoted $G * H$ and is called the \textbf{free product}
 of $G$ and $H$.
 
 \subsection{Abelian groups}
 \label{subsec:groups:abelian-groups}
-The category $\mathsf{Ab}$ whose objects are abelian groups, and whose
+The category $\categ{Ab}$ whose objects are abelian groups, and whose
 morphisms are group homomorphisms, will in a sense be more important for us
-than the category $\mathsf{Grp}$. In many ways, as we will see, $\mathsf{Ab}$
+than the category $\categ{Grp}$. In many ways, as we will see, $\categ{Ab}$
 is a `nicer' category\footnote{As we will see in due time (Proposition~III.5.3),
-$\mathsf{Ab}$ is one instance of a general class of categories of `modules over
-a commutative ring $R$' (for $R = \Z$). Unlike $\mathsf{Grp}$, these
+$\categ{Ab}$ is one instance of a general class of categories of `modules over
+a commutative ring $R$' (for $R = \Z$). Unlike $\categ{Grp}$, these
 categories are abelian, which makes them very well-behaved. We will learn two
-or three things about abelian categories in Chapter~IX.} than $\mathsf{Grp}$.
+or three things about abelian categories in Chapter~IX.} than $\categ{Grp}$.
 Again the trivial groups are both initial and final (that is, `zero') objects;
-products exist and coincide with products in $\mathsf{Grp}$. But here is a
-difference: unlike in $\mathsf{Grp}$, coproducts in $\mathsf{Ab}$ coincide
+products exist and coincide with products in $\categ{Grp}$. But here is a
+difference: unlike in $\categ{Grp}$, coproducts in $\categ{Ab}$ coincide
 with products. That is, if $G$ and $H$ are abelian groups, then the product
 $G \times H$ (with the two natural homomorphisms $G \to G \times H$, $H \to G
-\times H$) satisfies the universal property for coproducts in $\mathsf{Ab}$
+\times H$) satisfies the universal property for coproducts in $\categ{Ab}$
 (cf.\ Exercise~3.3). When working as a coproduct, the product $G \times H$ of
 two abelian groups is often called their \textbf{direct sum} and is denoted
 $G \oplus H$.
 
 There is a pretty subtlety here, which may highlight the power of the language:
 even if $G$ and $H$ are commutative, the product $G \times H$ does not
-(necessarily) satisfy the universal property for coproducts in $\mathsf{Grp}$,
-even if it does in $\mathsf{Ab}$. For an explicit example, see Exercise~3.6.
+(necessarily) satisfy the universal property for coproducts in $\categ{Grp}$,
+even if it does in $\categ{Ab}$. For an explicit example, see Exercise~3.6.
 
 \subsection*{Exercises}
 
 \begin{exer}{\exerused}{exer:groups:phi-x-phi}
-Let $\varphi : G \to H$ be a morphism in a category $\mathsf{C}$ with
+Let $\varphi : G \to H$ be a morphism in a category $\categ{C}$ with
 products. Explain why there is a unique morphism $(\varphi \times \varphi) :
 G \times G \to H \times H$ compatible in the evident way with the natural
-projections. (This morphism is defined explicitly for $\mathsf{C} =
-\mathsf{Set}$ in $\S$3.1.) [$\S$3.1, 3.2]
+projections. (This morphism is defined explicitly for $\categ{C} =
+\categ{Set}$ in $\S$3.1.) [$\S$3.1, 3.2]
 \end{exer}
 
 \begin{exer}{}{exer:groups:composition-products}
@@ -1315,7 +1315,7 @@ $H \times H$, $K \times K$ as in Exercise~3.1. Prove that
 
 \begin{exer}{\exerused}{exer:groups:ab-coproduct}
 Show that if $G$, $H$ are abelian groups, then $G \times H$ satisfies the
-universal property for coproducts in $\mathsf{Ab}$ (cf.\ $\S$I.5.5). [$\S$3.5,
+universal property for coproducts in $\categ{Ab}$ (cf.\ $\S$I.5.5). [$\S$3.5,
 3.6, $\S$III.6.1]
 \end{exer}
 
@@ -1331,8 +1331,8 @@ Prove that $\Q$ is not the direct product of two nontrivial groups.
 \begin{exer}{\exerused}{exer:groups:c2-c3-not-coproduct}
 Consider the product of the cyclic groups $C_2$, $C_3$ (cf.\ $\S$2.3):
 $C_2 \times C_3$. By Exercise~3.3, this group is a coproduct of $C_2$ and
-$C_3$ in $\mathsf{Ab}$. Show that it is not a coproduct of $C_2$ and $C_3$ in
-$\mathsf{Grp}$, as follows:
+$C_3$ in $\categ{Ab}$. Show that it is not a coproduct of $C_2$ and $C_3$ in
+$\categ{Grp}$, as follows:
 \begin{itemize}
   \item find injective homomorphisms $C_2 \to S_3$, $C_3 \to S_3$;
   \item arguing by contradiction, assume that $C_2 \times C_3$ is a coproduct
@@ -1345,7 +1345,7 @@ $\mathsf{Grp}$, as follows:
 
 \begin{exer}{}{exer:groups:surjective-free-product}
 Show that there is a surjective homomorphism $\Z * \Z \to C_2
-* C_3$. ($*$ denotes coproduct in $\mathsf{Grp}$; cf.\ $\S$3.4.) One can
+* C_3$. ($*$ denotes coproduct in $\categ{Grp}$; cf.\ $\S$3.4.) One can
 think of $\Z * \Z$ as a group with two generators $x$, $y$,
 subject to no relations whatsoever. (We will study a general version of such
 groups in $\S$5; see Exercise~5.6.)
@@ -1354,13 +1354,13 @@ groups in $\S$5; see Exercise~5.6.)
 \begin{exer}{\exerused}{exer:groups:c2-star-c3}
 Define a group $G$ with two generators $x$, $y$, subject (only) to the
 relations $x^2 = e_G$, $y^3 = e_G$. Prove that $G$ is a coproduct of $C_2$
-and $C_3$ in $\mathsf{Grp}$. (The reader will obtain an even more concrete
+and $C_3$ in $\categ{Grp}$. (The reader will obtain an even more concrete
 description for $C_2 * C_3$ in Exercise~9.14; it is called the modular group.)
 [$\S$3.4, 9.14]
 \end{exer}
 
 \begin{exer}{}{exer:groups:ab-fiber-coproduct}
-Show that fiber products and coproducts exist in $\mathsf{Ab}$. (Cf.\
+Show that fiber products and coproducts exist in $\categ{Ab}$. (Cf.\
 Exercise~I.5.12. For coproducts, you may have to wait until you know about
 quotients.)
 \end{exer}
@@ -1371,29 +1371,29 @@ quotients.)
 
 \subsection{Examples}
 \label{subsec:groups:examples}
-For any two groups $G$, $H$, the set $\Hom_{\mathsf{Grp}}(G,H)$
+For any two groups $G$, $H$, the set $\Hom_{\categ{Grp}}(G,H)$
 is certainly nonempty: at the very least we can define a homomorphism $G \to H$
 by sending every element of $G$ to the identity $e_H$ of $H$. Thus,
-$\Hom_{\mathsf{Grp}}(G,H)$ is a `pointed set'
+$\Hom_{\categ{Grp}}(G,H)$ is a `pointed set'
 (cf.\ Example~I.3.8).
 
-There is a purely categorical way to think about this: since $\mathsf{Grp}$
+There is a purely categorical way to think about this: since $\categ{Grp}$
 has zero-objects $\{*\}$ (recall that trivial groups are both initial and final
-in $\mathsf{Grp}$; cf.\ Proposition~3.3), there are unique morphisms
-$G \to \{*\}$, $\{*\} \to H$ in $\mathsf{Grp}$; their composition is the
-distinguished element of $\Hom_{\mathsf{Grp}}(G,H)$ mentioned
+in $\categ{Grp}$; cf.\ Proposition~3.3), there are unique morphisms
+$G \to \{*\}$, $\{*\} \to H$ in $\categ{Grp}$; their composition is the
+distinguished element of $\Hom_{\categ{Grp}}(G,H)$ mentioned
 above; we will call this element the \textbf{trivial morphism}.
 More `meaningful' examples can be constructed by considering the groups
 encountered in $\S$2: for instance, the function $D_6 \to S_3$ defined in
 $\S$2.2 is a homomorphism. Such examples will likely all be instances of the
 notion of group action. In general, an `action' of a group $G$ on an object $A$
-of a category $\mathsf{C}$ is a homomorphism
+of a category $\categ{C}$ is a homomorphism
 \[
-  G \to \operatorname{Aut}_{\mathsf{C}}(A);
+  G \to \operatorname{Aut}_{\categ{C}}(A);
 \]
 that is, a group $G$ `acts' on an object if the elements of $G$ determine
 isomorphisms of that object to itself, in a way compatible with compositions.
-If $\mathsf{C} = \mathsf{Set}$, this means that elements of $G$ determine
+If $\categ{C} = \categ{Set}$, this means that elements of $G$ determine
 specific permutations of the set $A$. For example, the symmetries of an
 equilateral triangle (that is, elements of $D_6$) determine permutations of the
 vertices of that triangle (that is, permutations of a set with three elements),
@@ -1454,7 +1454,7 @@ direct product. For instance, since $6 = 2 \cdot 3$, there is a homomorphism
 \end{align*}
 Note that this homomorphism is a bijection; as we will see in a moment
 ($\S$4.3), this makes it an isomorphism; in particular, $C_6$ is also a product
-of $C_2$ and $C_3$ in $\mathsf{Grp}$.
+of $C_2$ and $C_3$ in $\categ{Grp}$.
 One can concoct a homomorphism $\Z/n\Z \to \Z/m\Z$
 also if $n \mid m$: for example, the function $\Z/2\Z \to
 \Z/4\Z$ defined by $[0]_2 \mapsto [0]_4$, $[1]_2 \mapsto [2]_4$
@@ -1516,9 +1516,9 @@ isomorphisms, as we will see in a moment.
 \subsection{Isomorphisms}
 \label{subsec:groups:isomorphisms}
 An isomorphism of groups $\varphi : G \to H$ is (of course) an isomorphism in
-$\mathsf{Grp}$, that is, a group homomorphism admitting an inverse
+$\categ{Grp}$, that is, a group homomorphism admitting an inverse
 $\varphi^{-1} : H \to G$ which is also a group homomorphism. Taking our cue
-from $\mathsf{Set}$, if a homomorphism of groups is an isomorphism, then it
+from $\categ{Set}$, if a homomorphism of groups is an isomorphism, then it
 must in particular be a bijection between the underlying sets. Luckily, the
 converse also holds:
 
@@ -1528,7 +1528,7 @@ an isomorphism of groups if and only if it is a bijection.}{prop:groups:iso-iff-
 \begin{proof}
 One implication is immediate, as pointed out above. For the other implication,
 assume $\varphi : G \to H$ is a bijective group homomorphism. As a bijection,
-$\varphi$ has an inverse in $\mathsf{Set}$: $\varphi^{-1} : H \to G$; we simply
+$\varphi$ has an inverse in $\categ{Set}$: $\varphi^{-1} : H \to G$; we simply
 need to check that this is a group homomorphism. Let $h_1, h_2$ be elements of
 $H$, and let $g_1 = \varphi^{-1}(h_1)$, $g_2 = \varphi^{-1}(h_2)$ be the
 corresponding elements of $G$. Then
@@ -1554,14 +1554,14 @@ The function $\pi^6_2 \times \pi^6_3 : C_6 \to C_2 \times C_3$ studied
 \end{exam}
 
 \begin{defn}{Two groups $G$, $H$ are \textbf{isomorphic} if they are isomorphic
-in $\mathsf{Grp}$ in the sense of $\S$I.4.1, that is (by Proposition~4.3), if
+in $\categ{Grp}$ in the sense of $\S$I.4.1, that is (by Proposition~4.3), if
 there is a bijective group homomorphism $G \to H$.}{defn:groups:isomorphic}
 \end{defn}
 
 We have observed once and for all in $\S$I.4.1 that `isomorphic' is
 automatically an equivalence relation. We write $G \cong H$ if $G$ and $H$ are
 isomorphic. Automorphisms of a group $G$ are isomorphisms $G \to G$; these form
-a group $\operatorname{Aut}_{\mathsf{Grp}}(G)$ (cf.\ $\S$I.4.1), usually
+a group $\operatorname{Aut}_{\categ{Grp}}(G)$ (cf.\ $\S$I.4.1), usually
 denoted $\operatorname{Aut}(G)$.
 \begin{exam}{}{exam:groups:cyclic-formal-intro}
 We have introduced our template of cyclic groups in $\S$2.3. The notion of
@@ -1636,14 +1636,14 @@ given order (same exercise).
 
 \subsection{Homomorphisms of abelian groups}
 \label{subsec:groups:homomorphisms-of-abelian-groups}
-I have already mentioned that $\mathsf{Ab}$ is in some ways `better behaved'
-than $\mathsf{Grp}$, and I am ready to highlight another instance of this
-observation. As we have seen, $\Hom_{\mathsf{Grp}}(G,H)$ is a
-pointed set for any two groups $G$, $H$. In $\mathsf{Ab}$, we can say much
-more: $\Hom_{\mathsf{Ab}}(G,H)$ is a group (in fact, an abelian
+I have already mentioned that $\categ{Ab}$ is in some ways `better behaved'
+than $\categ{Grp}$, and I am ready to highlight another instance of this
+observation. As we have seen, $\Hom_{\categ{Grp}}(G,H)$ is a
+pointed set for any two groups $G$, $H$. In $\categ{Ab}$, we can say much
+more: $\Hom_{\categ{Ab}}(G,H)$ is a group (in fact, an abelian
 group) for any two abelian groups $G$, $H$.
 
-The operation in $\Hom_{\mathsf{Ab}}(G,H)$ is `inherited' from
+The operation in $\Hom_{\categ{Ab}}(G,H)$ is `inherited' from
 the operation in $H$: if $\varphi, \psi : G \to H$ are two group
 homomorphisms, let $\varphi + \psi$ be the function defined by
 \[ (\forall a \in G) \colon \quad (\varphi + \psi)(a) := \varphi(a) + \psi(a). \]
@@ -1657,7 +1657,7 @@ Is $\varphi + \psi$ a group homomorphism? Yes, because $\forall a, b \in G$
 Note that the equality $\overset{!}{=}$ uses crucially the fact that $H$ is
 commutative.
 
-With this operation, $\Hom_{\mathsf{Ab}}(G,H)$ is clearly a
+With this operation, $\Hom_{\categ{Ab}}(G,H)$ is clearly a
 group: the associativity of $+$ is inherited from that of the operation in
 $H$; the trivial homomorphism is the identity element, and the
 inverse\footnote{Unfortunate clash of terminology! I mean the `inverse' as
@@ -1665,9 +1665,9 @@ in `group inverse', not as a possible function $H \to G$.} of
 $\varphi : G \to H$ is defined (not surprisingly) by
 \[ (\forall a \in G) \colon \quad (-\varphi)(a) = -\varphi(a). \]
 In fact, note that these conclusions may be drawn as soon as $H$ is
-commutative: $\Hom_{\mathsf{Grp}}(G,H)$ is a group if $H$ is
+commutative: $\Hom_{\categ{Grp}}(G,H)$ is a group if $H$ is
 commutative (even if $G$ is not). In fact, if $H$ is a commutative group,
-then $H^A = \Hom_{\mathsf{Set}}(A,H)$ is a commutative group
+then $H^A = \Hom_{\categ{Set}}(A,H)$ is a commutative group
 for all sets $A$; we will come back to this group in $\S$5.4.
 
 \subsection*{Exercises}
@@ -1743,7 +1743,7 @@ $h \in G$. Therefore\dots.) [$\S$4.3, 4.15, 4.16, $\S$IV.6.3]
 \end{itemize}
 \end{exer}
 \begin{exer}{$\lnot$}{exer:groups:aut-c2xc2-iso-s3}
-Prove that $\operatorname{Aut}_{\mathsf{Grp}}(\Z/2\Z \times
+Prove that $\operatorname{Aut}_{\categ{Grp}}(\Z/2\Z \times
 \Z/2\Z) \cong S_3$. [IV.5.14]
 \end{exer}
 \begin{exer}{\exerused}{exer:groups:aut-cn-euler-phi}
@@ -1754,7 +1754,7 @@ the number of positive integers $r \leq n$ that are relatively prime to $n$.
 \end{exer}
 \begin{exer}{$\lnot$}{exer:groups:aut-z-aut-cp}
 Compute the group of automorphisms of $(\Z, +)$. Prove that if $p$ is
-prime, then $\operatorname{Aut}_{\mathsf{Grp}}(C_p) \cong C_{p-1}$. (Use
+prime, then $\operatorname{Aut}_{\categ{Grp}}(C_p) \cong C_{p-1}$. (Use
 Exercise~4.11.) [IV.5.12]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:groups:wilsons-theorem}
@@ -1844,8 +1844,8 @@ in which $\varphi$ is required to be a \emph{group homomorphism}.
 
 The reader will be reminded of the categories we considered in
 Example~I.3.7: the only difference here is that we are mixing objects and
-morphisms of one category (that is, $\mathsf{Grp}$) with objects and
-morphisms of \emph{another} (related) category (that is, $\mathsf{Set}$).
+morphisms of one category (that is, $\categ{Grp}$) with objects and
+morphisms of \emph{another} (related) category (that is, $\categ{Set}$).
 The fact that we are considering all possible functions $A \to G$ is a way
 to implement the fact that we have no \emph{a priori} group-theoretic
 information about $A$: we do not want to put any restriction on what may
@@ -2071,8 +2071,8 @@ The reader will surely encounter this group elsewhere: it is the
 
 \subsection{Free abelian groups}
 \label{subsec:groups:free-abelian-groups}
-We can pose in $\mathsf{Ab}$ the same question answered above for
-$\mathsf{Grp}$: that is, ask for the abelian group $F^{ab}(A)$ which most
+We can pose in $\categ{Ab}$ the same question answered above for
+$\categ{Grp}$: that is, ask for the abelian group $F^{ab}(A)$ which most
 efficiently contains the set $A$, provided that we do not have any
 additional information on the elements of $A$. Of course we \emph{do}
 know something about the elements of $A$ this time: they will have to
@@ -2083,7 +2083,7 @@ different answer in general.
 
 The formalization of the heuristic requirement is precisely the same
 universal property that gave us free groups, but (of course) stated in
-$\mathsf{Ab}$: $F^{ab}(A)$ is a \emph{free abelian group} on the set $A$
+$\categ{Ab}$: $F^{ab}(A)$ is a \emph{free abelian group} on the set $A$
 if there is a set-function $j : A \to F^{ab}(A)$ such that, for all
 \emph{abelian} groups $G$ and set-functions $f : A \to G$, \emph{there
 exists a unique} group homomorphism $\varphi : F^{ab}(A) \to G$ such that
@@ -2097,7 +2097,7 @@ the following diagram commutes:
 
 Again, Proposition~I.5.4 guarantees that $F^{ab}(A)$ is unique up to
 isomorphism, if it exists; but we have to prove it exists! This is in
-some way simpler than for $\mathsf{Grp}$, in the sense that $F^{ab}(A)$
+some way simpler than for $\categ{Grp}$, in the sense that $F^{ab}(A)$
 is easier to understand, at least for finite sets $A$.
 
 To fix ideas, I will first describe the answer for a finite set, say
@@ -2168,7 +2168,7 @@ universal property for coproducts; cf.\ Exercise~5.7.
 \end{rem}
 
 Now for the general case: let $A$ be any set. As we have seen,
-$H^A = \Hom_{\mathsf{Set}}(A,H)$ has a natural abelian
+$H^A = \Hom_{\categ{Set}}(A,H)$ has a natural abelian
 group structure if $H$ is an abelian group ($\S$4.4); elements of $H^A$
 are arbitrary set-functions $\alpha : A \to H$. We can define a subset
 $H^{\oplus A}$ of $H^A$ as follows:
@@ -2217,7 +2217,7 @@ Does the category $\mathscr{F}^A$ defined in $\S$5.2 have final objects?
 If so, what are they?
 \end{exer}
 \begin{exer}{}{exer:groups:e-t-not-initial}
-Since trivial groups $T$ are initial in $\mathsf{Grp}$, one may be led to
+Since trivial groups $T$ are initial in $\categ{Grp}$, one may be led to
 think that $(e,T)$ should be initial in $\mathscr{F}^A$, for every $A$:
 $e$ would be defined by sending every element of $A$ to the (only)
 element in $T$; and for any other group $G$, there is a unique
@@ -2246,7 +2246,7 @@ Verify explicitly that $H^{\oplus A}$ is a group.
 \begin{exer}{\exerused}{exer:groups:free-group-two-generators-coproduct}
 Prove that the group $F(\{x,y\})$ (visualized in Example~5.3) is a
 coproduct $\Z * \Z$ of $\Z$ by itself in the
-category $\mathsf{Grp}$. (Hint: With due care, the universal property for
+category $\categ{Grp}$. (Hint: With due care, the universal property for
 one turns into the universal property for the other.) [$\S$3.4, 3.7,
 5.7]
 \end{exer}
@@ -2710,9 +2710,9 @@ Contemplating subgroups of cyclic groups has pretty (and useful)
 I end this section with some categorical considerations.
 
 If $H$ is a subgroup of $G$, the inclusion $H \hookrightarrow G$ is an
-example of a \emph{monomorphism} in $\mathsf{Grp}$ in the `categorical'
+example of a \emph{monomorphism} in $\categ{Grp}$ in the `categorical'
 sense of $\S$I.4.2. In fact, it is easy to characterize all
-monomorphisms $\varphi \in \Hom_{\mathsf{Grp}}(G,G')$
+monomorphisms $\varphi \in \Hom_{\categ{Grp}}(G,G')$
 (where $G$, $G'$ are any groups):
 
 \begin{prop}{The following are equivalent:
@@ -2746,22 +2746,22 @@ that $\ker\varphi$ is trivial, that is, (b) holds.
 This shows that $\varphi$ is injective, as needed.
 
 (c) $\implies$ (a): If $\varphi$ is injective, then it satisfies the
-defining property for monomorphisms in $\mathsf{Set}$: that is, for any
+defining property for monomorphisms in $\categ{Set}$: that is, for any
 set $Z$ and any two set-functions $\alpha', \alpha'' : Z \to G$,
 \[
   \varphi \circ \alpha' = \varphi \circ \alpha'' \iff \alpha' = \alpha''.
 \]
 This must hold in particular if $Z$ has a group structure and
 $\alpha'$, $\alpha''$ are group homomorphisms, so $\varphi$ is a
-monomorphism in $\mathsf{Grp}$.
+monomorphism in $\categ{Grp}$.
 \end{proof}
 
 The equivalence (a) $\iff$ (c) may lead the reader to think that from
-the point of view of monomorphisms, $\mathsf{Grp}$ and $\mathsf{Set}$
+the point of view of monomorphisms, $\categ{Grp}$ and $\categ{Set}$
 are pretty much alike. This is not quite so: while it is true that
 homomorphisms with a left-inverse are necessarily monomorphisms, as in
-$\mathsf{Set}$ (cf.\ Exercise~6.15), the converse is not true in
-$\mathsf{Grp}$ (cf.\ Exercise~6.16).
+$\categ{Set}$ (cf.\ Exercise~6.15), the converse is not true in
+$\categ{Grp}$ (cf.\ Exercise~6.16).
 
 \subsection*{Exercises}
 
@@ -2894,11 +2894,11 @@ suitable applications of these operations reduce to the case in which
 $c=0$ or $d=0$. Prove directly that $m \in H$ in that case.) [7.5]
 \end{exer}
 \begin{exer}{}{exer:groups:s3-not-coproduct-of-cyclic}
-Since direct sums are coproducts in $\mathsf{Ab}$, the classification
+Since direct sums are coproducts in $\categ{Ab}$, the classification
 theorem for abelian groups mentioned in the text says that every
 finitely generated abelian group is a coproduct of cyclic groups in
-$\mathsf{Ab}$. The reader may be tempted to conjecture that every
-finitely generated group is a coproduct in $\mathsf{Grp}$. Show that
+$\categ{Ab}$. The reader may be tempted to conjecture that every
+finitely generated group is a coproduct in $\categ{Grp}$. Show that
 this is not the case, by proving that $S_3$ is not a coproduct of
 cyclic groups.
 \end{exer}
@@ -2953,7 +2953,7 @@ $\varphi : \Z/3\Z \to S_3$ given by
   \varphi([1]) = \begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}, \quad
   \varphi([2]) = \begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}
 \]
-is a monomorphism; show that it has no left-inverse in $\mathsf{Grp}$.
+is a monomorphism; show that it has no left-inverse in $\categ{Grp}$.
 (Knowing about normal subgroups will make this problem particularly
 easy.) [$\S$6.5]
 \end{exer}
@@ -3027,7 +3027,7 @@ $gN \subseteq Ng$) and $ng = gn''$ (so that $Ng \subseteq gN$).
 Recall that we have the notion of a quotient of a \emph{set} by an
 equivalence relation ($\S$I.1.5) and that this notion satisfies a
 universal property (clumsily stated in $\S$I.5.3). It is natural to
-investigate this notion in $\mathsf{Grp}$.
+investigate this notion in $\categ{Grp}$.
 
 We consider then an equivalence relation $\sim$ on (the set underlying)
 a group $G$; we seek a group $G/\!\sim$ and a group homomorphism
@@ -3113,7 +3113,7 @@ To prove that $G/\!\sim$ satisfies the universal property, assume
 is a group homomorphism such that
 $a \sim a' \implies \varphi(a) = \varphi(a')$. Since (cf.\ $\S$I.5.3)
 the \emph{set} $G/\!\sim$ satisfies the corresponding universal
-property in $\mathsf{Set}$, we know that there exists a unique
+property in $\categ{Set}$, we know that there exists a unique
 set-function
 \[
   \bar\varphi : G/\!\sim \to G',
@@ -3479,7 +3479,7 @@ coincide.}, `kernel' and `normal subgroup' are equivalent concepts.
 
 For example, every subgroup in an abelian group is the kernel of some
 homomorphism: yet another indication that life is simpler in
-$\mathsf{Ab}$ than in $\mathsf{Grp}$.
+$\categ{Ab}$ than in $\categ{Grp}$.
 
 \subsection*{Exercises}
 
@@ -3601,7 +3601,7 @@ The first observation comes from the canonical decomposition for
 set-functions, obtained in $\S$I.2.8: every set-function may be viewed
 as the composition of a surjective map, followed by a bijective map,
 followed by an injective map. We now know enough to state the
-corresponding (very useful) result in $\mathsf{Grp}$:
+corresponding (very useful) result in $\categ{Grp}$:
 
 \begin{thm}{Every group homomorphism $\varphi : G \to G'$ may be
 decomposed as follows, where the isomorphism $\bar\varphi$ in the
@@ -3809,7 +3809,7 @@ the generators, will establish (in a finite time) whether those two
 words represent the same element of $G$.}
 
 In any case, now that we know about presentations of groups, finding
-coproducts in $\mathsf{Grp}$ should be straightforward: see
+coproducts in $\categ{Grp}$ should be straightforward: see
 Exercise~8.7.
 
 There is a `mirror' statement analogous to the fact that all groups
@@ -4097,21 +4097,21 @@ The reader may expect that a mirror statement to
 Proposition~\ref{prop:groups:monomorphism-characterization} should
 hold for group \emph{epimorphisms}. This is almost true: a
 homomorphism $\varphi : G \to H$ is an epimorphism (in the category
-$\mathsf{Grp}$) if and only if it is surjective. However, while one
+$\categ{Grp}$) if and only if it is surjective. However, while one
 implication is easy, the proofs I know for
-epimorphism $\implies$ surjective in $\mathsf{Grp}$ are somewhat
+epimorphism $\implies$ surjective in $\categ{Grp}$ are somewhat
 cumbersome.
 
-The situation is leaner (as usual) in $\mathsf{Ab}$: there is in
-$\mathsf{Ab}$ a good notion of \emph{cokernel}; this is part of what
-makes $\mathsf{Ab}$ an `abelian category'.
+The situation is leaner (as usual) in $\categ{Ab}$: there is in
+$\categ{Ab}$ a good notion of \emph{cokernel}; this is part of what
+makes $\categ{Ab}$ an `abelian category'.
 
 As is often the case, the reader may now want to pause a moment and
 try to guess the right definition. Keeping in mind the universal
 property for kernels
 (Proposition~\ref{prop:groups:kernel-universal-property}), can the
 reader come up with the universal property defining `cokernels'? Can
-the reader prove that these exist in $\mathsf{Ab}$ and detect
+the reader prove that these exist in $\categ{Ab}$ and detect
 epimorphisms? Don't look ahead!
 
 Here is how the story goes. The universal property is (of course)
@@ -4132,7 +4132,7 @@ must factor (uniquely) through $\operatorname{coker}\varphi$:
   & \operatorname{coker}\varphi \arrow[ur, dashed, "\exists ! \bar\alpha"'] &
 \end{tikzcd}
 \]
-Cokernels exist in $\mathsf{Ab}$: because the image of $\varphi$ is a
+Cokernels exist in $\categ{Ab}$: because the image of $\varphi$ is a
 subgroup of $G'$, hence a normal subgroup of $G'$ since $G'$ is
 abelian; the condition that $\alpha \circ \varphi$ is trivial says that
 $\operatorname{im}\varphi \subseteq \ker\alpha$, and hence
@@ -4142,7 +4142,7 @@ $\operatorname{im}\varphi \subseteq \ker\alpha$, and hence
 satisfies the universal property, by
 Theorem~\ref{thm:groups:quotient-universal-property}.
 
-The `problem' in $\mathsf{Grp}$ is that $\operatorname{im}\varphi$ is
+The `problem' in $\categ{Grp}$ is that $\operatorname{im}\varphi$ is
 not guaranteed to be normal in $G'$; thus the situation is more
 complex.
 
@@ -4153,7 +4153,7 @@ cosets of $\operatorname{im}\varphi$.
 
 We can now state a true mirror of
 Proposition~\ref{prop:groups:monomorphism-characterization}, in
-$\mathsf{Ab}$:
+$\categ{Ab}$:
 
 \begin{prop}{Let $\varphi : G \to G'$ be a homomorphism of abelian
 groups. The following are equivalent:
@@ -4184,24 +4184,24 @@ is trivial, then $\operatorname{im}\varphi = G'$; hence $\varphi$ is
 surjective.
 
 (c) $\implies$ (a): If $\varphi$ is surjective, then it satisfies the
-universal property for epimorphisms in $\mathsf{Set}$: for any set $Z$
+universal property for epimorphisms in $\categ{Set}$: for any set $Z$
 and any two set-functions $\alpha', \alpha'' : G' \to Z$,
 \[
   \alpha' \circ \varphi = \alpha'' \circ \varphi \iff \alpha' = \alpha''.
 \]
 This must hold in particular if $Z$ is endowed with a group structure
 and $\alpha'$, $\alpha''$ are group homomorphisms, so $\varphi$ is an
-epimorphism in $\mathsf{Grp}$.
+epimorphism in $\categ{Grp}$.
 \end{proof}
 
-A cokernel may be defined in $\mathsf{Grp}$: the universal property for
+A cokernel may be defined in $\categ{Grp}$: the universal property for
 the cokernel of $\varphi : G \to G'$ is satisfied by $G'/N$, where $N$
 is the smallest\footnote{The intersection of any family of normal
 subgroups is normal, as the reader may readily check, so this subgroup
 exists.} normal subgroup of $G'$ containing $\operatorname{im}\varphi$
 (Exercise~8.22). \emph{But} Proposition~\ref{prop:groups:epimorphism-characterization}
 fails, because the implication (b) $\implies$ (c) does not hold: in
-$\mathsf{Grp}$ it is no longer true that only surjective homomorphisms
+$\categ{Grp}$ it is no longer true that only surjective homomorphisms
 have trivial cokernel (cf.\ Exercise~8.23).
 
 \subsection*{Exercises}
@@ -4261,7 +4261,7 @@ that $A$, $A'$ are disjoint. Prove that the group $G * G'$ presented by
   (A \cup A' \mid \mathscr{R} \cup \mathscr{R}')
 \]
 satisfies the universal property for the \emph{coproduct} of $G$ and
-$G'$ in $\mathsf{Grp}$. (Use the universal properties of both free
+$G'$ in $\categ{Grp}$. (Use the universal properties of both free
 groups and quotients to construct natural homomorphisms
 $G \to G * G'$, $G' \to G * G'$.) [$\S$3.4, $\S$8.2, 9.14]
 \end{exer}
@@ -4395,7 +4395,7 @@ left-cosets of $H \cap K$ in $H$. If $H$ and $K$ are finite, prove that
 Let $\varphi : G \to G'$ be a group homomorphism, and let $N$ be the
 smallest normal subgroup containing $\operatorname{im}\varphi$. Prove
 that $G'/N$ satisfies the universal property of
-$\operatorname{coker}\varphi$ in $\mathsf{Grp}$. [$\S$8.6]
+$\operatorname{coker}\varphi$ in $\categ{Grp}$. [$\S$8.6]
 \end{exer}
 \begin{exer}{\exerused}{exer:groups:cokernel-trivial-not-surjective}
 Consider the subgroup
@@ -4408,7 +4408,7 @@ is trivial, although $H \hookrightarrow S_3$ is not surjective.
 [$\S$8.6]
 \end{exer}
 \begin{exer}{\exerused}{exer:groups:epimorphisms-no-right-inverse}
-Show that epimorphisms in $\mathsf{Grp}$ do not necessarily have
+Show that epimorphisms in $\categ{Grp}$ do not necessarily have
 right-inverses. [$\S$I.4.2]
 \end{exer}
 \begin{exer}{}{exer:groups:g-mod-h-to-aut-h}
@@ -4424,14 +4424,14 @@ Exercise~7.10.)
 \subsection{Actions}
 \label{subsec:groups:actions}
 As mentioned in $\S$4.1, an \emph{action} of a group $G$ on an object
-$A$ of a category $\mathsf{C}$ is simply a homomorphism
+$A$ of a category $\categ{C}$ is simply a homomorphism
 \[
-  \sigma : G \to \operatorname{Aut}_{\mathsf{C}}(A).
+  \sigma : G \to \operatorname{Aut}_{\categ{C}}(A).
 \]
 The way to interpret this is that every element $g \in G$ determines a
 `transformation of $A$ into itself', i.e., an isomorphism of $A$ in
-$\mathsf{C}$, and this happens compatibly with the operation of $G$
-and composition in $\mathsf{C}$.
+$\categ{C}$, and this happens compatibly with the operation of $G$
+and composition in $\categ{C}$.
 
 In a rather strong sense, we really only care about groups because
 they act on things: knowing that $G$ acts on $A$ tells us something
@@ -4450,18 +4450,18 @@ the vertices of a square: then $\sigma$ would at least realize $D_8$
 as an explicit subgroup of $S_4$, which simplifies its analysis.
 
 \begin{defn}{Faithful action}{defn:groups:faithful-action}
-An action of a group $G$ on an object $A$ of a category $\mathsf{C}$
+An action of a group $G$ on an object $A$ of a category $\categ{C}$
 is \emph{faithful} (or \emph{effective}) if the corresponding
-$\sigma : G \to \operatorname{Aut}_{\mathsf{C}}(A)$ is injective.
+$\sigma : G \to \operatorname{Aut}_{\categ{C}}(A)$ is injective.
 \end{defn}
 
-The case $\mathsf{C} = \mathsf{Set}$ is already very rich, and we focus
+The case $\categ{C} = \categ{Set}$ is already very rich, and we focus
 on it in this chapter.
 
 \subsection{Actions on sets}
 \label{subsec:groups:actions-on-sets}
 Spelling out our definition of action in case $A$ is a set, so that
-$\operatorname{Aut}_{\mathsf{C}}(A)$ is the symmetric group $S_A$, we
+$\operatorname{Aut}_{\categ{C}}(A)$ is the symmetric group $S_A$, we
 get the following:
 
 \begin{defn}{Action on a set}{defn:groups:action-on-a-set}
@@ -4476,7 +4476,7 @@ such that $\rho(e_G, a) = a$ for all $a \in A$ and
 \end{defn}
 
 Indeed, given a function $\rho$ satisfying these conditions, we can
-define $\sigma : G \to \Hom_{\mathsf{Set}}(A,A)$ by
+define $\sigma : G \to \Hom_{\categ{Set}}(A,A)$ by
 $\sigma(g)(a) = \rho(g,a)$. (This defines $\sigma(g)$ as a set-function
 $A \to A$, as needed.) This function preserves the operation, because
 \[
@@ -4604,7 +4604,7 @@ understand transitive actions. This will be accomplished in a moment,
 by studying actions related to stabilizers.
 
 For any group $G$, sets endowed with a (left) $G$-action form in a
-natural way a category $G\text{-}\mathsf{Set}$: objects are pairs
+natural way a category $G\text{-}\categ{Set}$: objects are pairs
 $(\rho, A)$, where $\rho : G \times A \to A$ is an action (as in
 Definition~\ref{defn:groups:action-on-a-set}) and morphisms between
 two objects are set-functions which are compatible with the actions.
@@ -4612,7 +4612,7 @@ That is, a morphism
 \[
   (\rho, A) \to (\rho', A')
 \]
-in $G\text{-}\mathsf{Set}$ amounts to a set-function
+in $G\text{-}\categ{Set}$ amounts to a set-function
 $\varphi : A \to A'$ such that the diagram
 \[
 \begin{tikzcd}
@@ -4788,13 +4788,13 @@ the induced action of $G$ on $O$ is transitive.
 Prove that stabilizers are indeed subgroups.
 \end{exer}
 \begin{exer}{}{exer:groups:gset-is-category}
-For $G$ a group, verify that $G\text{-}\mathsf{Set}$ is indeed a
-category, and verify that the isomorphisms in $G\text{-}\mathsf{Set}$
+For $G$ a group, verify that $G\text{-}\categ{Set}$ is indeed a
+category, and verify that the isomorphisms in $G\text{-}\categ{Set}$
 are precisely the equivariant bijections.
 \end{exer}
 \begin{exer}{}{exer:groups:gset-products-coproducts}
-Prove that $G\text{-}\mathsf{Set}$ has products and coproducts and
-that every object of $G\text{-}\mathsf{Set}$ is a coproduct of objects
+Prove that $G\text{-}\categ{Set}$ has products and coproducts and
+that every object of $G\text{-}\categ{Set}$ is a coproduct of objects
 of the type $G/H = \{\text{left-cosets of } H\}$, where $H$ is a
 subgroup of $G$ and $G$ acts on $G/H$ by left-multiplication.
 \end{exer}
@@ -4831,7 +4831,7 @@ $[G:K] \leq n!$.) [IV.2.23]
 Prove `by hand' that for all subgroups $H$ of a group $G$ and
 $\forall g \in G$, $G/H$ and $G/(gHg^{-1})$ (endowed with the action
 of $G$ by left-multiplication) are isomorphic in
-$G\text{-}\mathsf{Set}$. [$\S$9.3]
+$G\text{-}\categ{Set}$. [$\S$9.3]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:groups:psl2z-coproduct-c2-c3}
 Prove that the modular group $\mathrm{PSL}_2(\Z)$ is
@@ -4887,7 +4887,7 @@ subgroup of a free group (on a finite set) is free. [$\S$6.4]
 \end{exer}
 \begin{exer}{\exerused}{exer:groups:autgset-g-is-g}
 Consider $G$ as a $G$-set, by acting with left-multiplication. Prove
-that $\operatorname{Aut}_{G\text{-}\mathsf{Set}}(G) \cong G$. [$\S$2.1]
+that $\operatorname{Aut}_{G\text{-}\categ{Set}}(G) \cong G$. [$\S$2.1]
 \end{exer}
 \begin{exer}{}{exer:groups:groupoid-from-action}
 Show how to construct a groupoid carrying the information of the
@@ -4902,7 +4902,7 @@ objects of the groupoid. What will be the morphisms?)
 \subsection{Categorical viewpoint}
 \label{subsec:groups:categorical-viewpoint}
 The definition of group (Definition~1.2) is firmly grounded on the
-category $\mathsf{Set}$: A group is a set $G$ endowed with a binary
+category $\categ{Set}$: A group is a set $G$ endowed with a binary
 operation\dots. However, we have noticed along the way (for example,
 in $\S$3) that what is really behind it is a pair of functions:
 \[
@@ -4918,19 +4918,19 @@ homomorphisms may be defined purely in terms of the commutativity of a
 diagram: cf.\ Definition~3.1.
 
 This point of view may be transferred easily to categories other than
-$\mathsf{Set}$, and the corresponding notions are very important in
+$\categ{Set}$, and the corresponding notions are very important in
 modern mathematics.
 
 \begin{defn}{Group object}{defn:groups:group-object}
-Let $\mathsf{C}$ be a category with (finite) products and with a
+Let $\categ{C}$ be a category with (finite) products and with a
 final object $\mathbf{1}$.
 
-A \emph{group object} in $\mathsf{C}$ consists of an object $G$ of
-$\mathsf{C}$ and of morphisms
+A \emph{group object} in $\categ{C}$ consists of an object $G$ of
+$\categ{C}$ and of morphisms
 \[
   m : G \times G \to G, \qquad e : \mathbf{1} \to G, \qquad \iota : G \to G
 \]
-in $\mathsf{C}$ such that the diagrams
+in $\categ{C}$ such that the diagrams
 \[
 \begin{tikzcd}
   (G \times G) \times G \arrow[r, "m \times \mathrm{id}_G"]
@@ -4984,7 +4984,7 @@ an isomorphism, as indicated.
 
 The reader will hopefully realize immediately (Exercise~10.2) that our
 original definition of groups given in $\S$1 is precisely equivalent
-to the definition of group object \emph{in} $\mathsf{Set}$: the
+to the definition of group object \emph{in} $\categ{Set}$: the
 commutativity of the given diagrams codifies associativity and the
 existence of two-sided identity and inverses.
 
@@ -5021,11 +5021,11 @@ same.)
 \end{exer}
 \begin{exer}{}{exer:groups:abelian-group-object-in-ab}
 Prove that every \emph{abelian} group has exactly one structure of
-group object \emph{in} the category $\mathsf{Ab}$.
+group object \emph{in} the category $\categ{Ab}$.
 \end{exer}
 \begin{exer}{}{exer:groups:group-object-in-grp}
-By the previous exercise, a group object in $\mathsf{Ab}$ is nothing
-other than an abelian group. What is a group object in $\mathsf{Grp}$?
+By the previous exercise, a group object in $\categ{Ab}$ is nothing
+other than an abelian group. What is a group object in $\categ{Grp}$?
 \end{exer}
 
 %%% Local Variables:
