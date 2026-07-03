@@ -7284,231 +7284,226 @@ we do in the remaining subsections.
 
 \subsection{Resolution by acyclic objects}
 \label{subsec:homol:resolution-by-acyclic-objects}
-% Let A be an abelian category with enough
 
-% projectives, and let F : A \to  B be an additive functor to another abelian
-% category.
-% At this point we know how to construct left-derived functors Li F : A \to  B of
-% F :
-% in two words, Li F (M ) is computed by applying F to a projective resolution of
-% M
-% and taking (co)homology of the resulting complex.
-% It follows in particular that Li F (P ) = 0 for i \geq  1 if P is projective
-% (cf. Exer-
-% cise 7.9): if P is projective, then \iota (P ):
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / P
-%  / 0
-%  / \cdot \cdot \cdot 
-% is a projective resolution of P , so L\bullet  F (P ) is the cohomology of
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / F (P )
-%  / 0
-%  / \cdot \cdot \cdot  ;
-% that is,
-% ?
-% F (P ),Li F (P ) =
-% 0,
-% i = 0,
-% i = 0.
-% This says that projective objects are `F -acyclic' with respect to left-derived
-% func-
-% tors:
-% Definition 8.1. Let F be an additive functor. An object M of A is F -acyclic
-% (w.r.t. left-derived functors) if Li F (M ) = 0 for i = 0.
-%  ?
-% An object M is F -acyclic with respect to right-derived functors if Ri F (M ) =
-% 0
-% for i = 0. In practice, this notion is really useful only for right-exact or
-% left-exact
-% functors; the first are derived on the left, and the second on the right (cf.
-% \S{}7.5), so
-% in context we can just talk about `F -acyclic' objects.
-% While projectives are acyclic for every right-exact functor, a given functor F
-% may admit other F -acyclic objects.
-% Example 8.2. Let R be a commutative ring. Recall (Definition VIII.2.13) that an
-% R-module M is flat if \otimes R M is exact, or equivalently (by the symmetry of
-% \otimes ) if
-% M \otimes R is exact. Flat modules are acyclic with respect to tensor products,
-% in a very
-% strong sense: if N is flat, then Tori (M, N ) = 0 for i = 0 and all M ; see
-% \S{}VIII.2.4 to
-% be reminded of why, or---better---prove it anew. Further, since (as we will
-% finally
-% prove in this section) Tor functors may be computed by resolving either
-% argument,
-% we also know that, `symmetrically', if M is flat, then Tori (M, N ) = 0 for all
-% i = 0
-% and all modules N . Thus, a flat module is F -acyclic for every functor F
-% defined
-% by \otimes R N , for all modules N .
-%  ?
-% Here is the punch line. In \S{}VIII.6.4 I had claimed that flat resolutions
-% could
-% be used in place of free or projective resolutions, in order to compute Tor. We
-% are
-% going to verify that F -acyclic resolutions suffice in order to compute Li F .
-% Theorem 8.3. Let F : A \to  B be a right-exact functor of abelian categories,
-% and
-% assume A has enough projectives. Let
-% -2
-%  -1
-% A\bullet  :
-%  \cdot \cdot \cdot 
-%  / A-2
-%  dA
-%  / A-1
-%  dA
-%  / A0
-%  / 0
-%  / \cdot \cdot \cdot 
-% be a resolution of an object M of A, such that every object Ai is F -acyclic.
-% Then
-% for all i
-% Li F (M ) \sim 
-%  = H -i (C(F )(A\bullet  )).
-% If the objects Ai are projective, the statement is the very definition of Li F .
-% The
-% theorem states that F -acyclic objects may be used in place of projective
-% objects
-% in the computation of Li F .
-% Proof. The first two cases follow from explicit computations. To begin with, the
-% sequence
-% A-1 -\to  A0 -\to  M -\to  0
-% is exact by assumption, and F is right-exact; thus
-% F (A-1 )
-%  / F (A0)
-%  / F (M )
-%  / 0
-% is exact, and it follows that
-% H 0(C(F )(A\bullet  )) \sim 
-%  = F (M ) \sim 
-%  = L0 F (M ).
-% Next, let K be the kernel of A0 \to  M ; so we have the short exact sequence
-% (*)
-%  / K
-%  / A0
-%  / M
-%  / 0 .
-% Applying Theorem 7.12 (and Proposition 7.13), we obtain a long exact sequence
-% ending with
-% L1 F (A0)
-%  / L1 F (M )
-%  / F (K)
-%  / F (A0 )
-%  / F (M )
-%  / 0 .
-% The leftmost term is 0 since A0 is F -acyclic. It follows that
-% L1 F (M ) \sim 
-%  = ker(F (K) \to  F (A0)) \sim 
-%  = H -1 (C(F )(A\bullet  )) :
-% for the second \sim 
-%  =, apply the result of (the straightforward) Exercise 8.1 to the exact
-% complex
-% \cdot \cdot \cdot 
-%  / A-1
-%  / A0
-%  / M
-%  / 0
-%  / \cdot \cdot \cdot  .
-% Finally, use induction on i. We have just verified that the theorem holds for
-% all
-% objects M and for i = 0, 1; given i > 1, assume the statement is known for all
-% objects of A and all indices < i. Truncating/shifting A\bullet  ,
-% \cdot \cdot \cdot 
-%  / A-3
-%  / A-2
-%  / A-1
-%  / 0
-%  / \cdot \cdot \cdot 
-% (so that A-1 is placed in degree 0), gives an F -acyclic resolution of K; by the
-% in-
-% duction hypothesis, Li-1 F (K) may be computed by applying C(F ) to this complex
-% and taking cohomology:
-% Li-1F (K) \sim 
-%  = H -i (C(F )(A\bullet  )).
-% On the other hand, the other terms in the long exact sequence obtained by
-% applying
-% Theorem 7.12 to (*) give
-% \cdot \cdot \cdot 
-%  / Li F (A0 )
-%  / Li F (M )
-%  / Li-1 F (K)
-%  / Li-1 F (A0)
-%  / \cdot \cdot \cdot  ;
-% since A0 is F -acyclic and i > 1, this shows that
-% Li F (M ) \sim 
-%  = Li-1F (K)
-% (also cf. Exercise 7.12) and concludes the proof.
-% Example 8.4. Let R be a commutative ring, and let
-% F\bullet  :
-%  \cdot \cdot \cdot 
-%  / F2
-%  / F1
-%  / F0
-% / 0
-% ?
-% be a resolution of an R-module M by flat R-modules. Then for every R-module N ,
-% TorR
-%  i (M, N ) \sim 
-%  = Hi(F\bullet  \otimes R N ).
-% Indeed, flat modules are acyclic with respect to \otimes  N (Example 8.2), so
-% this is now
-% a consequence of Theorem 8.3.
-%  ?
-% Theorem 8.3 raises an interesting possibility: since F -acyclic objects suffice
-% in
-% order to compute the derived functors of F (at least when F is right-exact), the
-% reader can imagine that there may be situations in which A does not have enough
-% projectives, and yet left-derived functors of a functor F may be defined because
-% A
-% has enough F -acyclic objects (in a suitable sense). This is indeed the case.
-% The
-% reader will run into such examples in more advanced treatments of the subject.
-% (See Exercise 8.14 for a typical situation.)
-% There is an alternative viewpoint on the question addressed by Theorem 8.3.
-% Let A\bullet  be an F -acyclic resolution of an object M , and let PM
-%  \bullet 
-%  be a projective
-% resolution. I will apply C(F ) and place the resulting complexes as sides of an
-% array:
-% \cdot \cdot \cdot 
-%  / F (A-2)
-%  / F (A-1 )
-%  / F (A0)
-%  / F (M )
-% O
-%  O
-%  O
-%  O
-% / O
-%  / O
-%  / O
-%  / F (P O M
-%  0 )
-% /O
-% /O
-% /O
-% / F (PM
-%  -1)
-% O/O
-% /O
-% /O
-% / F (PM
-%  -2)
-% O..
-% .
-% The result of Theorem 8.3 is that taking cohomology of the top row of this
-% diagram
-% gives the same result as taking cohomology of the rightmost column. Might there
-% not be a way to `interpolate' between these two cohomologies, by cleverly
-% filling in
-% the dotted portion of this diagram?
-% Double complexes may be used to this effect, as we will see in a moment.
+Let $\mathsf{A}$ be an abelian category with enough projectives, and
+let $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ be an additive functor
+to another abelian category. At this point we know how to construct
+left-derived functors $\mathsf{L}_i\mathscr{F} : \mathsf{A} \to
+\mathsf{B}$ of $\mathscr{F}$: in two words, $\mathsf{L}_i\mathscr{F}(M)$
+is computed by applying $\mathscr{F}$ to a projective resolution of
+$M$ and taking (co)homology of the resulting complex.
+
+It follows in particular that $\mathsf{L}_i\mathscr{F}(P) = 0$ for
+$i \ge 1$ if $P$ is projective (cf.\ Exercise~\ref{exer:homol:7.9}):
+if $P$ is projective, then $\iota(P)$:
+\[\begin{tikzcd}
+  \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & P \arrow[r] & 0
+  \arrow[r] & \dots
+\end{tikzcd}\]
+is a projective resolution of $P$, so $\mathsf{L}_\bullet\mathscr{F}(P)$
+is the cohomology of
+\[\begin{tikzcd}
+  \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & \mathscr{F}(P)
+  \arrow[r] & 0 \arrow[r] & \dots
+\end{tikzcd}\]
+that is,
+\[
+  \mathsf{L}_i\mathscr{F}(P) =
+  \begin{cases}
+    \mathscr{F}(P), & i = 0, \\
+    0, & i \ne 0.
+  \end{cases}
+\]
+This says that projective objects are `$\mathscr{F}$-acyclic' with
+respect to left-derived functors:
+
+\begin{defn}{}{defn:homol:8.1}
+  Let $\mathscr{F}$ be an additive functor. An object $M$ of
+  $\mathsf{A}$ is \emph{$\mathscr{F}$-acyclic} (w.r.t.\ left-derived
+  functors) if $\mathsf{L}_i\mathscr{F}(M) = 0$ for $i \ne 0$.
+\end{defn}
+
+An object $M$ is $\mathscr{F}$-acyclic with respect to right-derived
+functors if $\mathsf{R}^i\mathscr{F}(M) = 0$ for $i \ne 0$. In
+practice, this notion is really useful only for right-exact or
+left-exact functors; the first are derived on the left, and the
+second on the right (cf.\ \S{}7.5), so in context we can just talk
+about `$\mathscr{F}$-acyclic' objects.
+
+While projectives are acyclic for every right-exact functor, a given
+functor $\mathscr{F}$ may admit other $\mathscr{F}$-acyclic objects.
+
+\begin{exam}{}{exam:homol:8.2}
+  Let $R$ be a commutative ring. Recall (Definition~VIII.2.13) that
+  an $R$-module $M$ is \emph{flat} if $\_ \otimes_R M$ is exact, or
+  equivalently (by the symmetry of $\otimes$) if $M \otimes_R \_$ is
+  exact. Flat modules are acyclic with respect to tensor products,
+  in a very strong sense: if $N$ is flat, then
+  $\operatorname{Tor}_i(M, N) = 0$ for $i \ne 0$ and all $M$; see
+  \S{}VIII.2.4 to be reminded of why, or---better---prove it anew.
+  Further, since (as we will finally prove in this section) Tor
+  functors may be computed by resolving either argument, we also
+  know that, `symmetrically', if $M$ is flat, then
+  $\operatorname{Tor}_i(M, N) = 0$ for all $i \ne 0$ and all modules
+  $N$. Thus, a flat module is $\mathscr{F}$-acyclic for every
+  functor $\mathscr{F}$ defined by $\_ \otimes_R N$, for all modules
+  $N$.
+\end{exam}
+
+Here is the punch line. In \S{}VIII.6.4 I had claimed that flat
+resolutions could be used in place of free or projective
+resolutions, in order to compute Tor. We are going to verify that
+$\mathscr{F}$-acyclic resolutions suffice in order to compute
+$\mathsf{L}_i\mathscr{F}$.
+
+\begin{thm}{}{thm:homol:8.3}
+  Let $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ be a right-exact
+  functor of abelian categories, and assume $\mathsf{A}$ has enough
+  projectives. Let
+  \[\begin{tikzcd}
+    A^\bullet : & \dots \arrow[r] & A^{-2} \arrow[r, "d_A^{-2}"] &
+    A^{-1} \arrow[r, "d_A^{-1}"] & A^0 \arrow[r] & 0 \arrow[r] &
+    \dots
+  \end{tikzcd}\]
+  be a resolution of an object $M$ of $\mathsf{A}$, such that every
+  object $A^i$ is $\mathscr{F}$-acyclic. Then for all $i$
+  \[
+    \mathsf{L}_i\mathscr{F}(M) \cong H^{-i}(\mathsf{C}(\mathscr{F})(A^\bullet)).
+  \]
+  If the objects $A^i$ are projective, the statement is the very
+  definition of $\mathsf{L}_i\mathscr{F}$. The theorem states that
+  $\mathscr{F}$-acyclic objects may be used in place of projective
+  objects in the computation of $\mathsf{L}_i\mathscr{F}$.
+\end{thm}
+\begin{proof}
+  The first two cases follow from explicit computations. To begin
+  with, the sequence
+  \[\begin{tikzcd}
+    A^{-1} \arrow[r] & A^0 \arrow[r] & M \arrow[r] & 0
+  \end{tikzcd}\]
+  is exact by assumption, and $\mathscr{F}$ is right-exact; thus
+  \[\begin{tikzcd}
+    \mathscr{F}(A^{-1}) \arrow[r] & \mathscr{F}(A^0) \arrow[r] &
+    \mathscr{F}(M) \arrow[r] & 0
+  \end{tikzcd}\]
+  is exact, and it follows that
+  \[
+    H^0(\mathsf{C}(\mathscr{F})(A^\bullet)) \cong \mathscr{F}(M)
+    \cong \mathsf{L}_0\mathscr{F}(M).
+  \]
+  Next, let $K$ be the kernel of $A^0 \to M$; so we have the short
+  exact sequence
+  \[
+    (*) \qquad
+    \begin{tikzcd}
+      0 \arrow[r] & K \arrow[r] & A^0 \arrow[r] & M \arrow[r] & 0
+    \end{tikzcd}
+  \]
+  Applying Theorem~\ref{thm:homol:7.12} (and
+  Proposition~\ref{prop:homol:7.13}), we obtain a long exact
+  sequence ending with
+  \[\begin{tikzcd}
+    \mathsf{L}_1\mathscr{F}(A^0) \arrow[r] & \mathsf{L}_1\mathscr{F}(M)
+    \arrow[r] & \mathscr{F}(K) \arrow[r] & \mathscr{F}(A^0) \arrow[r]
+    & \mathscr{F}(M) \arrow[r] & 0
+  \end{tikzcd}\]
+  The leftmost term is $0$ since $A^0$ is $\mathscr{F}$-acyclic. It
+  follows that
+  \[
+    \mathsf{L}_1\mathscr{F}(M) \cong \ker(\mathscr{F}(K) \to
+    \mathscr{F}(A^0)) \cong H^{-1}(\mathsf{C}(\mathscr{F})(A^\bullet)):
+  \]
+  for the second $\cong$, apply the result of (the straightforward)
+  Exercise~8.1 to the exact complex
+  \[\begin{tikzcd}
+    \dots \arrow[r] & A^{-1} \arrow[r] & A^0 \arrow[r] & M \arrow[r]
+    & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  Finally, use induction on $i$. We have just verified that the
+  theorem holds for all objects $M$ and for $i = 0, 1$; given $i >
+  1$, assume the statement is known for all objects of $\mathsf{A}$
+  and all indices $< i$. Truncating/shifting $A^\bullet$,
+  \[\begin{tikzcd}
+    \dots \arrow[r] & A^{-3} \arrow[r] & A^{-2} \arrow[r] & A^{-1}
+    \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  (so that $A^{-1}$ is placed in degree $0$), gives an
+  $\mathscr{F}$-acyclic resolution of $K$; by the induction
+  hypothesis, $\mathsf{L}_{i-1}\mathscr{F}(K)$ may be computed by
+  applying $\mathsf{C}(\mathscr{F})$ to this complex and taking
+  cohomology:
+  \[
+    \mathsf{L}_{i-1}\mathscr{F}(K) \cong
+    H^{-i}(\mathsf{C}(\mathscr{F})(A^\bullet)).
+  \]
+  On the other hand, the other terms in the long exact sequence
+  obtained by applying Theorem~\ref{thm:homol:7.12} to $(*)$ give
+  \[\begin{tikzcd}
+    \dots \arrow[r] & \mathsf{L}_i\mathscr{F}(A^0) \arrow[r] &
+    \mathsf{L}_i\mathscr{F}(M) \arrow[r] &
+    \mathsf{L}_{i-1}\mathscr{F}(K) \arrow[r] &
+    \mathsf{L}_{i-1}\mathscr{F}(A^0) \arrow[r] & \dots
+  \end{tikzcd}\]
+  since $A^0$ is $\mathscr{F}$-acyclic and $i > 1$, this shows that
+  \[
+    \mathsf{L}_i\mathscr{F}(M) \cong \mathsf{L}_{i-1}\mathscr{F}(K)
+  \]
+  (also cf.\ Exercise~\ref{exer:homol:7.12}) and concludes the
+  proof.
+\end{proof}
+
+\begin{exam}{}{exam:homol:8.4}
+  Let $R$ be a commutative ring, and let
+  \[\begin{tikzcd}
+    F_\bullet : & \dots \arrow[r] & F_2 \arrow[r] & F_1 \arrow[r] &
+    F_0 \arrow[r] & 0
+  \end{tikzcd}\]
+  be a resolution of an $R$-module $M$ by flat $R$-modules. Then for
+  every $R$-module $N$,
+  \[
+    \operatorname{Tor}^R_i(M, N) \cong H_i(F_\bullet \otimes_R N).
+  \]
+  Indeed, flat modules are acyclic with respect to $\_ \otimes N$
+  (Example~\ref{exam:homol:8.2}), so this is now a consequence of
+  Theorem~\ref{thm:homol:8.3}.
+\end{exam}
+
+Theorem~\ref{thm:homol:8.3} raises an interesting possibility: since
+$\mathscr{F}$-acyclic objects suffice in order to compute the
+derived functors of $\mathscr{F}$ (at least when $\mathscr{F}$ is
+right-exact), the reader can imagine that there may be situations in
+which $\mathsf{A}$ does \emph{not} have enough projectives, and yet
+left-derived functors of a functor $\mathscr{F}$ may be defined
+because $\mathsf{A}$ has enough $\mathscr{F}$-acyclic objects (in a
+suitable sense). This is indeed the case. The reader will run into
+such examples in more advanced treatments of the subject. (See
+Exercise~8.14 for a typical situation.)
+
+There is an alternative viewpoint on the question addressed by
+Theorem~\ref{thm:homol:8.3}. Let $A^\bullet$ be an
+$\mathscr{F}$-acyclic resolution of an object $M$, and let
+$P_M^\bullet$ be a projective resolution. I will apply
+$\mathsf{C}(\mathscr{F})$ and place the resulting complexes as sides
+of an array:
+\[\begin{tikzcd}[column sep=small]
+  \dots \arrow[r] & \mathscr{F}(A^{-2}) \arrow[r] & \mathscr{F}(A^{-1})
+  \arrow[r] & \mathscr{F}(A^0) \arrow[r] & \mathscr{F}(M) \\
+  {} & & & & \mathscr{F}(P_M^0) \arrow[u] \\
+  {} & & & & \mathscr{F}(P_M^{-1}) \arrow[u] \\
+  {} & & & & \mathscr{F}(P_M^{-2}) \arrow[u] \\
+  & & & & \vdots \arrow[u]
+  \arrow[dotted, from=2-1, to=2-5]
+  \arrow[dotted, from=3-1, to=3-5]
+  \arrow[dotted, from=4-1, to=4-5]
+\end{tikzcd}\]
+The result of Theorem~\ref{thm:homol:8.3} is that taking cohomology
+of the top row of this diagram gives the same result as taking
+cohomology of the rightmost column. Might there not be a way to
+`interpolate' between these two cohomologies, by cleverly filling in
+the dotted portion of this diagram?
+
+\emph{Double complexes} may be used to this effect, as we will see
+in a moment.
 
 \subsection{Complexes of complexes}
 \label{subsec:homol:complexes-of-complexes}
