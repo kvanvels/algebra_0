@@ -7960,344 +7960,222 @@ the rows or the columns of the double complex are exact.
 
 \subsection{Total complexes and resolutions}
 \label{subsec:homol:total-complexes-and-resolutions}
-% Example 8.10 illustrates well the power
 
-% of results such as Theorem 8.9: the nuts-and-bolts-style arguments used in \S{}5
-% are
-% bypassed, and statements such as Corollary 5.12 are placed in a clarifying
-% context35 .
-% The same strategy will allow us to revisit the question examined in \S{}8.1,
-% letting a
-% double complex draw the conclusion of Theorem 8.3. We will then finally be able
-% to go back to the last remaining mystery concerning Tor and Ext, dealing with
-% why
-% we can compute these functors `by resolving either argument'. This will conclude
-% a large circle of ideas, begun in Chapter VIII.
-% These applications rely on one more remark concerning double complexes and
-% their simples. The heavy notation poses a substantial obstacle in appreciating
-% what
-% follows; the reader should take comfort in my assurance that notation is the
-% only
-% obstacle here---the constructions are actually straightforward.
-% We have studied in \S{}6.2 the problem of constructing complexes of projectives
-% \bullet (for example) that are quasi-isomorphic to a given complex N : Theorem 6.6 ac-
-% complishes this. I have called the corresponding quasi-isomorphism a
-% (projective)
-% \bullet  \leq 0 \leq 0resolution of N . Now that we are working in C (C (A)), this looks like an even
-% \bullet worse abuse of language: viewing a (bounded-above) complex N as an object of
-% \setminus  \leq 0 \bullet the abelian category A = C (A), a (bounded-above) resolution of N ought to be
-% \bullet ,\bullet  \leq 0 \setminus a complex M in C (A ) endowed with a quasi-isomorphism
-% \cdot \cdot \cdot 
-%  / M -2,\bullet 
-%  dh
-%  / M -1,\bullet 
-%  dh
-%  / M 0,\bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / N \bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% 35But I strongly believe in the pedagogic usefulness of first going through the
-% nuts and bolts!
-% \leq 0 \setminus  \bullet  \bullet ,\bullet in C (A ). In other words, a resolution of N should be a complex M whose
-% \leq 0 \setminus  \bullet cohomology (computed in C (A )) is concentrated in degree 0 and agrees with N .
-% We are going to verify that these two notions of `resolution' of a complex are
-% compatible (so no language abuse occurs after all): taking the total complex of
-% a
-% \bullet ,\bullet  \bullet  \bullet 
-% resolution M of N (in the `new' sense of the term) again gives a resolution of
-% N(in the `old' sense).
-% Before stating this more explicitly, consider more generally any cochain mor-
-% phism in36 C\leq 0 (C\leq 0 (A)) from M \bullet ,\bullet  to a complex (of
-% complexes) concentrated in
-% degree 0:
-% \cdot \cdot \cdot 
-%  / M -2,\bullet 
-%  dh
-%  / M -1,\bullet 
-%  dh
-%  / M 0,\bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% \alpha \bullet 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / N \bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% This means that \alpha \bullet  \circ  dh = 0, so we can fold this diagram into
-% a single complex of
-% complexes:
-% MN
-%  \bullet ,\bullet 
-%  :
-%  \cdot \cdot \cdot 
-%  / M -2,\bullet  -dh / M -1,\bullet  -dh / M 0,\bullet  \alpha 
-% \bullet 
-%  / N \bullet 
-%  / 0
-%  / \cdot \cdot \cdot  .
-% \bullet ,\bullet 
-%  \bullet ,\bullet That is, MN
-%  agrees with the complex obtained by shifting M by one step to
-% \bullet the left, with N inserted in degree 0. For now, I am making no assumptions on
-% \bullet ,\bullet the cohomology of M .
-% We want to compare the various total complexes that can be defined in this
-% situation. We can map the total complex of M \bullet ,\bullet  to N \bullet ,
-% 0 / 0
-% O
-%  O
-% M 0,0
-%  / N 0
-% u u u
-%  u u
-%  u
-%  u
-%  u : O
-%  O
-% u u
-%  u
-%  u
-%  u u
-%  u
-%  M u : -1,0
-%  O
-%  u u
-%  u
-%  \oplus  u
-%  u u
-%  u M u
-%  : 0,-1
-%  O
-%  / N -1
-%  O
-% w
-%  w
-%  w w
-%  w w
-%  w
-%  M w
-%  ; -2,0
-%  O
-%  r
-%  r
-%  r
-%  r r \oplus  r
-%  r r
-%  r
-%  M r
-%  9 -1,-1
-%  O
-%  r
-%  r
-%  r
-%  r r r
-%  \oplus  r r
-%  r
-%  r
-%  M
-%  9 0,-2
-%  O
-%  / N -2
-%  O
-% obtaining a morphism of cochain complexes37
-% T C(\alpha )\bullet  :
-%  T C(M \bullet ,\bullet )
-%  / N \bullet  .
-% (This morphism is of course just an instance of the evident functoriality of the
-% construction of the total complex.)
-% 36 Of course a parallel discussion can be carried out in C\geq 0 (C\geq 0 (A)),
-% and with other bound-
-% edness possibilities. This is left to the reader as usual.
-% 37 Note that, e.g., M -1,-1 \to  M 0,-1 \to  N -1 is the zero-morphism (because
-% \alpha \bullet  \circ  dh
-%  = 0).
-% The morphism from T C(M \bullet ,\bullet  ) to N \bullet  only sees M 0,\bullet
-% , so it clearly is a morphism of cochain
-% complexes.
-% Or, we can shift the M -part of this diagram and view the last display as the
-% \bullet ,\bullet 
-% construction of the total complex of MN
-%  :
-% x x
-%  x x
-%  x
-%  x
-%  x N < O
-% u u
-%  u u
-%  u u
-%  u
-%  u M : 0,0 O
-%  y y
-%  y \oplus  y
-%  y
-%  y
-%  y
-%  N
-%  < -1
-%  O
-% u u
-%  u u
-%  u
-%  u
-%  u M u
-%  : -1,0
-%  O
-%  u u
-%  u \oplus  u
-%  u
-%  u
-%  u M u
-%  : 0,-1
-%  O
-%  y y
-%  y \oplus  y
-%  y
-%  y
-%  y N
-%  < -2
-%  O
-% w
-%  w
-%  w w
-%  w w
-%  w
-%  M w ; -2,0
-%  O
-%  r
-%  r
-%  r
-%  r r \oplus  r
-%  r r
-%  M r
-%  r
-%  9 -1,-1
-%  O
-%  r
-%  r
-%  r
-%  r r r
-%  \oplus  r r
-%  r
-%  M
-%  r
-%  9 0,-2
-%  O
-%  u
-%  u
-%  u u
-%  u \oplus  u
-%  u
-%  u
-%  u
-%  N
-%  : -3
-%  O
-% This involves a sign change in the vertical differentials of the M -part, due to
-% the
-% shift.
-% Claim 8.11. The total complex of MN
-%  \bullet ,\bullet 
-%  is the mapping cone of T C(\alpha )\bullet  :
-% \bullet  \bullet T C(MN ) = M C(T C(\alpha )) .
-% Verifying this claim only amounts to chasing the definitions, so it can safely
-% be
-% left to the reader (Exercise 8.7). The following consequence compares the
-% different
-% notions of `resolution', as promised a moment ago.
-% \setminus Theorem 8.12. Let A be an abelian category, and denote by A the category
-% \leq 0 \bullet  \setminus C (A). Let N be an object of A , and let
-% (*)
-%  \cdot \cdot \cdot 
-%  / M -3,\bullet 
-%  / M -2,\bullet 
-%  / M -1,\bullet 
-%  / M 0,\bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% \leq 0 \setminus  \bullet be a complex in C (A ), with total complex T .
-% \bullet  Assume that (*) is a resolution of N \bullet  in C\leq  (A\setminus  ). Then T \bullet  is quasi-isomorphic
-% to N \bullet  in C\leq 0 (A) (that is, it is a resolution of N \bullet  in the
-% sense used in \S{}6.2
-% and following).
-% \bullet  Assume that the cohomology of each M i,\bullet  is concentrated in degree 0. Then T \bullet 
-% is quasi-isomorphic to the complex of cohomology objects induced by (*):
-% \cdot \cdot \cdot 
-%  / H 0 (M -3,\bullet  )
-%  / H 0 (M -2,\bullet  )
-%  / H 0 (M -1,\bullet  )
-%  / H 0 (M 0,\bullet  )
-%  / 0
-%  / \cdot \cdot \cdot  .
-% The statement of Theorem 8.12 extends that of Theorem 8.9; its proof is a
-% nearly immediate consequence of the latter. As I mentioned at the beginning of
-% \S{}8.3,
-% these statements are vastly generalized by the machinery of spectral sequences,
-% which provide a general framework for the computation of the cohomology of the
-% total complex of a double complex. We will recover Theorem 8.12 once we have
-% learned a bit about spectral sequences in \S{}9.3, but it is not hard (and it is
-% a good
-% exercise) to prove this statement by hand, as I proceed to do.
-% Proof. The second statement follows from the first, by flipping the
-% corresponding
-% double complex about the main diagonal.
-% \bullet ,\bullet 
-% The first statement follows from Theorem 8.9 and Claim 8.11. Indeed, let MN
-% be the exact complex
-% \cdot \cdot \cdot 
-%  / M -2,\bullet 
-%  / M -1,\bullet 
-%  / M 0,\bullet 
-%  / N \bullet 
-%  / 0
-%  / \cdot \cdot \cdot  ;
-% by Theorem 8.9, T C(MN )\bullet  is exact; by Claim 8.11 this is the mapping
-% cone of the
-% induced morphism T \bullet  \to  N \bullet  , and it follows (Corollary 4.2)
-% that this morphism is
-% a quasi-isomorphism, as needed.
-%  ?
-% To appreciate the usefulness of Theorem 8.12, again in the context of our (hard)
-% work in \S{}6, note that it provides us with a convenient bridge between
-% resolving
-% objects (see Lemma 6.3) and resolving complexes (as in Theorem 6.6). Indeed, by
-% Corollary 7.9 (which relies on the horseshoe lemma, therefore on resolving
-% individual
-% \bullet objects of A) every bounded-above complex N in an abelian category with enough
-% projectives may be viewed as the complex induced in H 0 from a complex
-% \cdot \cdot \cdot 
-%  / P -3,\bullet 
-%  / P -2,\bullet 
-%  / P -1,\bullet 
-%  / P 0,\bullet 
-%  / 0
-% i,\bullet  i \bullet ,\bullet where P is a projective resolution of N . The
-% total complex of P is then
-% \bullet a projective resolution of N , by the second statement in Theorem 8.12. This
-% reproduces the main content of Theorem 6.6, bypassing the nastiest details of
-% the
-% proof given in \S{}6.
-% As mentioned in Remark 7.10, double complexes of projectives (or, working
-% \geq 0in C , injectives) resolving a given complex (and satisfying the additional condition
-% explained in Remark 7.10) are called Cartan-Eilenberg resolutions. Their
-% systematic
-% use can simplify the material I presented in \S{}6 but at the price of dealing
-% early with
-% double complexes.
+Example~\ref{exam:homol:8.10} illustrates well the power of results
+such as Theorem~\ref{thm:homol:8.9}: the nuts-and-bolts-style
+arguments used in \S{}5 are bypassed, and statements such as
+Corollary~5.12 are placed in a clarifying context\footnote{But I
+strongly believe in the pedagogic usefulness of first going through
+the nuts and bolts!}. The same strategy will allow us to revisit the
+question examined in \S{}8.1, letting a double complex draw the
+conclusion of Theorem~\ref{thm:homol:8.3}. We will then finally be
+able to go back to the last remaining mystery concerning Tor and
+Ext, dealing with why we can compute these functors `by resolving
+either argument'. This will conclude a large circle of ideas, begun
+in Chapter VIII.
+
+These applications rely on one more remark concerning double
+complexes and their simples. The heavy notation poses a substantial
+obstacle in appreciating what follows; the reader should take
+comfort in my assurance that notation is the \emph{only} obstacle
+here---the constructions are actually straightforward.
+
+We have studied in \S{}6.2 the problem of constructing complexes of
+projectives (for example) that are quasi-isomorphic to a given
+complex $N^\bullet$: Theorem~6.6 accomplishes this. I have called
+the corresponding quasi-isomorphism a (projective) \emph{resolution}
+of $N^\bullet$. Now that we are working in
+$\mathsf{C}^{\le 0}(\mathsf{C}^{\le 0}(\mathsf{A}))$, this looks like
+an even worse abuse of language: viewing a (bounded-above) complex
+$N^\bullet$ as an object of the abelian category
+$\mathsf{A}' = \mathsf{C}^{\le 0}(\mathsf{A})$, a (bounded-above)
+\emph{resolution} of $N^\bullet$ ought to be a complex
+$M^{\bullet,\bullet}$ in $\mathsf{C}^{\le 0}(\mathsf{A}')$ endowed
+with a quasi-isomorphism
+\[\begin{tikzcd}
+  \dots \arrow[r] & M^{-2,\bullet} \arrow[r, "d_h"] \arrow[d] &
+  M^{-1,\bullet} \arrow[r, "d_h"] \arrow[d] & M^{0,\bullet} \arrow[r]
+  \arrow[d] & 0 \arrow[r] & \dots \\
+  \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & N^\bullet \arrow[r] &
+  0 \arrow[r] & \dots
+\end{tikzcd}\]
+in $\mathsf{C}^{\le 0}(\mathsf{A}')$. In other words, a resolution of
+$N^\bullet$ should be a complex $M^{\bullet,\bullet}$ whose
+cohomology (computed in $\mathsf{C}^{\le 0}(\mathsf{A}')$) is
+concentrated in degree $0$ and agrees with $N^\bullet$.
+
+We are going to verify that these two notions of `resolution' of a
+complex \emph{are} compatible (so no language abuse occurs after
+all): taking the total complex of a resolution $M^{\bullet,\bullet}$
+of $N^\bullet$ (in the `new' sense of the term) again gives a
+resolution of $N^\bullet$ (in the `old' sense).
+
+Before stating this more explicitly, consider more generally any
+cochain morphism in\footnote{Of course a parallel discussion can be
+carried out in $\mathsf{C}^{\ge 0}(\mathsf{C}^{\ge 0}(\mathsf{A}))$,
+and with other boundedness possibilities. This is left to the reader
+as usual.} $\mathsf{C}^{\le 0}(\mathsf{C}^{\le 0}(\mathsf{A}))$ from
+$M^{\bullet,\bullet}$ to a complex (of complexes) concentrated in
+degree $0$:
+\[\begin{tikzcd}
+  \dots \arrow[r] & M^{-2,\bullet} \arrow[r, "d_h"] \arrow[d] &
+  M^{-1,\bullet} \arrow[r, "d_h"] \arrow[d] & M^{0,\bullet} \arrow[r]
+  \arrow[d, "\alpha^\bullet"] & 0 \arrow[r] & \dots \\
+  \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & N^\bullet \arrow[r] &
+  0 \arrow[r] & \dots
+\end{tikzcd}\]
+This means that $\alpha^\bullet \circ d_h = 0$, so we can fold this
+diagram into a single complex of complexes:
+\[\begin{tikzcd}
+  M_N^{\bullet,\bullet} : & \dots \arrow[r] & M^{-2,\bullet}
+  \arrow[r, "-d_h"] & M^{-1,\bullet} \arrow[r, "-d_h"] & M^{0,\bullet}
+  \arrow[r, "\alpha^\bullet"] & N^\bullet \arrow[r] & 0 \arrow[r] &
+  \dots
+\end{tikzcd}\]
+That is, $M_N^{\bullet,\bullet}$ agrees with the complex obtained by
+shifting $M^{\bullet,\bullet}$ by one step to the left, with
+$N^\bullet$ inserted in degree $0$. For now, I am making no
+assumptions on the cohomology of $M^{\bullet,\bullet}$.
+
+We want to compare the various total complexes that can be defined
+in this situation. We can map the total complex of
+$M^{\bullet,\bullet}$ to $N^\bullet$,
+% TODO: diagram of the staircase mapping the total complex of
+% M^{\bullet,\bullet} to N^\bullet (source book page 673): antidiagonal
+% direct-sum groups M^{-k,0} \oplus M^{-k+1,-1} \oplus \dots \oplus
+% M^{0,-k} feeding upward (via vertical arrows within each column and
+% diagonal arrows between antidiagonals) into a right-hand column
+% 0, N^0, N^{-1}, N^{-2}, \dots; same staircase-with-direct-sum-
+% grouping motif as the "total complex along diagonals" diagram in
+% §8.2, here specialized to the morphism TC(\alpha)^\bullet defined
+% algebraically right below.
+obtaining a morphism of cochain complexes\footnote{Note that, e.g.,
+$M^{-1,-1} \to M^{0,-1} \to N^{-1}$ is the zero-morphism (because
+$\alpha^\bullet \circ d_h = 0$). The morphism from
+$TC(M^{\bullet,\bullet})$ to $N^\bullet$ only sees $M^{0,\bullet}$,
+so it clearly \emph{is} a morphism of cochain complexes.}
+\[
+  TC(\alpha)^\bullet : \quad TC(M^{\bullet,\bullet}) \longrightarrow
+  N^\bullet.
+\]
+(This morphism is of course just an instance of the evident
+functoriality of the construction of the total complex.)
+
+Or, we can shift the $M$-part of this diagram and view the last
+display as the construction of the total complex of
+$M_N^{\bullet,\bullet}$:
+% TODO: diagram of the staircase construction of the total complex
+% of M_N^{\bullet,\bullet} (source book page 674): same shape as the
+% previous staircase diagram, but with N^\bullet folded into each
+% antidiagonal direct sum (e.g. M^{-1,0} \oplus M^{0,-1} \oplus
+% N^{-2}) rather than appearing as a separate right-hand column,
+% reflecting the shift described in the surrounding prose; no
+% mathematical content beyond Definition~8.6 applied to
+% M_N^{\bullet,\bullet}.
+This involves a sign change in the vertical differentials of the
+$M$-part, due to the shift.
+
+\begin{prop}{}{prop:homol:8.11}
+  The total complex of $M_N^{\bullet,\bullet}$ is the mapping cone
+  of $TC(\alpha)^\bullet$:
+  \[
+    TC(M_N)^\bullet = MC(TC(\alpha))^\bullet.
+  \]
+\end{prop}
+
+Verifying this claim only amounts to chasing the definitions, so it
+can safely be left to the reader (Exercise~8.7). The following
+consequence compares the different notions of `resolution', as
+promised a moment ago.
+
+\begin{thm}{}{thm:homol:8.12}
+  Let $\mathsf{A}$ be an abelian category, and denote by
+  $\mathsf{A}'$ the category $\mathsf{C}^{\le 0}(\mathsf{A})$. Let
+  $N^\bullet$ be an object of $\mathsf{A}'$, and let
+  \[
+    (*) \qquad
+    \begin{tikzcd}
+      \dots \arrow[r] & M^{-3,\bullet} \arrow[r] & M^{-2,\bullet}
+      \arrow[r] & M^{-1,\bullet} \arrow[r] & M^{0,\bullet} \arrow[r]
+      & 0 \arrow[r] & \dots
+    \end{tikzcd}
+  \]
+  be a complex in $\mathsf{C}^{\le 0}(\mathsf{A}')$, with total
+  complex $T^\bullet$.
+  \begin{itemize}
+  \item Assume that $(*)$ is a resolution of $N^\bullet$ in
+    $\mathsf{C}^{\le}(\mathsf{A}')$. Then $T^\bullet$ is
+    quasi-isomorphic to $N^\bullet$ in $\mathsf{C}^{\le 0}(\mathsf{A})$
+    (that is, it is a resolution of $N^\bullet$ in the sense used in
+    \S{}6.2 and following).
+  \item Assume that the cohomology of each $M^{i,\bullet}$ is
+    concentrated in degree $0$. Then $T^\bullet$ is
+    quasi-isomorphic to the complex of cohomology objects induced by
+    $(*)$:
+    \[\begin{tikzcd}
+      \dots \arrow[r] & H^0(M^{-3,\bullet}) \arrow[r] &
+      H^0(M^{-2,\bullet}) \arrow[r] & H^0(M^{-1,\bullet}) \arrow[r] &
+      H^0(M^{0,\bullet}) \arrow[r] & 0 \arrow[r] & \dots
+    \end{tikzcd}\]
+  \end{itemize}
+\end{thm}
+
+The statement of Theorem~\ref{thm:homol:8.12} extends that of
+Theorem~\ref{thm:homol:8.9}; its proof is a nearly immediate
+consequence of the latter. As I mentioned at the beginning of
+\S{}8.3, these statements are vastly generalized by the machinery of
+\emph{spectral sequences}, which provide a general framework for the
+computation of the cohomology of the total complex of a double
+complex. We will recover Theorem~\ref{thm:homol:8.12} once we have
+learned a bit about spectral sequences in \S{}9.3, but it is not
+hard (and it is a good exercise) to prove this statement by hand, as
+I proceed to do.
+
+\begin{proof}
+  The second statement follows from the first, by flipping the
+  corresponding double complex about the main diagonal.
+
+  The first statement follows from Theorem~\ref{thm:homol:8.9} and
+  Proposition~\ref{prop:homol:8.11}. Indeed, let
+  $M_N^{\bullet,\bullet}$ be the exact complex
+  \[\begin{tikzcd}
+    \dots \arrow[r] & M^{-2,\bullet} \arrow[r] & M^{-1,\bullet}
+    \arrow[r] & M^{0,\bullet} \arrow[r] & N^\bullet \arrow[r] & 0
+    \arrow[r] & \dots
+  \end{tikzcd}\]
+  by Theorem~\ref{thm:homol:8.9}, $TC(M_N)^\bullet$ is exact; by
+  Proposition~\ref{prop:homol:8.11} this is the mapping cone of the
+  induced morphism $T^\bullet \to N^\bullet$, and it follows
+  (Corollary~4.2) that this morphism is a quasi-isomorphism, as
+  needed.
+\end{proof}
+
+To appreciate the usefulness of Theorem~\ref{thm:homol:8.12}, again
+in the context of our (hard) work in \S{}6, note that it provides us
+with a convenient bridge between resolving \emph{objects} (see
+Lemma~6.3) and resolving \emph{complexes} (as in Theorem~6.6).
+Indeed, by Corollary~7.9 (which relies on the horseshoe lemma,
+therefore on resolving individual objects of $\mathsf{A}$) every
+bounded-above complex $N^\bullet$ in an abelian category with enough
+projectives may be viewed as the complex induced in $H^0$ from a
+complex
+\[\begin{tikzcd}
+  \dots \arrow[r] & P^{-3,\bullet} \arrow[r] & P^{-2,\bullet}
+  \arrow[r] & P^{-1,\bullet} \arrow[r] & P^{0,\bullet} \arrow[r] & 0
+\end{tikzcd}\]
+where $P^{i,\bullet}$ is a projective resolution of $N^i$. The total
+complex of $P^{\bullet,\bullet}$ is then a projective resolution of
+$N^\bullet$, by the second statement in
+Theorem~\ref{thm:homol:8.12}. This reproduces the main content of
+Theorem~6.6, bypassing the nastiest details of the proof given in
+\S{}6.
+
+As mentioned in Remark~7.10, double complexes of projectives (or,
+working in $\mathsf{C}^{\ge 0}$, injectives) resolving a given
+complex (and satisfying the additional condition explained in
+Remark~7.10) are called \emph{Cartan-Eilenberg resolutions}. Their
+systematic use can simplify the material I presented in \S{}6 but at
+the price of dealing early with double complexes.
 
 \subsection{Acyclic resolutions again and balancing Tor and Ext}
 \label{subsec:homol:acyclic-resolutions-again-and-balancing-tor-and-ext}
