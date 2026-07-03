@@ -3957,8 +3957,8 @@ homotopic morphisms. It is time to define this category.
   complexes in $\mathsf{A}$ (that is, the same objects of
   $\mathsf{C}(\mathsf{A})$) and whose morphisms are
   \[
-    \operatorname{Hom}_{\mathsf{K}(\mathsf{A})}(L^\bullet, M^\bullet)
-    := \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(L^\bullet,
+    \Hom_{\mathsf{K}(\mathsf{A})}(L^\bullet, M^\bullet)
+    := \Hom_{\mathsf{C}(\mathsf{A})}(L^\bullet,
     M^\bullet)/\sim
   \]
   where $\sim$ is the homotopy relation.
@@ -3968,17 +3968,17 @@ Yes, but is this a category? Recall that the homotopy relation $\sim$
 respects composition (Exercise~4.6); in other words, the operation of
 composition
 \[
-  \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(L^\bullet, M^\bullet)
-  \times \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(M^\bullet,
+  \Hom_{\mathsf{C}(\mathsf{A})}(L^\bullet, M^\bullet)
+  \times \Hom_{\mathsf{C}(\mathsf{A})}(M^\bullet,
   N^\bullet) \longrightarrow
-  \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(L^\bullet, N^\bullet)
+  \Hom_{\mathsf{C}(\mathsf{A})}(L^\bullet, N^\bullet)
 \]
 does descend to an operation
 \[
-  \operatorname{Hom}_{\mathsf{K}(\mathsf{A})}(L^\bullet, M^\bullet)
-  \times \operatorname{Hom}_{\mathsf{K}(\mathsf{A})}(M^\bullet,
+  \Hom_{\mathsf{K}(\mathsf{A})}(L^\bullet, M^\bullet)
+  \times \Hom_{\mathsf{K}(\mathsf{A})}(M^\bullet,
   N^\bullet) \longrightarrow
-  \operatorname{Hom}_{\mathsf{K}(\mathsf{A})}(L^\bullet, N^\bullet).
+  \Hom_{\mathsf{K}(\mathsf{A})}(L^\bullet, N^\bullet).
 \]
 Checking the category axioms is routine and is left to the patient
 reader.
@@ -4070,90 +4070,88 @@ cohomology.
 
 \subsection{Complexes of projective and injective objects}
 \label{subsec:homol:complexes-of-projective-and-injective-objects}
-% We should now ask `how
 
-% far' K(A) may be from D(A). We have inverted all homotopy equivalences in K(A),
-% but not all quasi-isomorphisms are homotopy equivalences: keep Example 4.6 in
-% mind. If we want to think of K(A) as a first approximation to D(A), we should
-% focus on complexes for which there is essentially no distinction between quasi-
-% isomorphisms and homotopy equivalences.
-% It turns out that there are such complexes: those consisting of projective or
-% injective objects.
-% Recall (Definition VIII.6.1) that an R-module M is `projective' if the func-
-% tor HomR (M, ) is exact and it is `injective' if HomR ( , M ) is exact. We can
-% adopt
-% these definitions in any abelian category:
-% Definition 5.5. Let A be an abelian category. An object P of A is projective if
-% the
-% functor Hom A(P, ) is exact. An object Q is injective if the functor HomA ( , Q)
-% is
-% exact.
-%  ?
-% General remarks such as Lemma VIII.6.2 or the comments about splitting of
-% sequences at the end of \S{}VIII.6.1 hold in any abelian category, and a good
-% exercise
-% for the reader is to collect all such information and verify that it does hold
-% in this
-% new context.
-% Also note that, at this level of generality, the parts of the theory dealing
-% with
-% injective objects are a faithful mirror of the parts dealing with projective
-% objects.
-% This is of course not a coincidence: the opposite of an abelian category is
-% again
-% abelian (Exercise 1.10), and projectives in one become injectives in the other.
-% Thus,
-% it is really only necessary to prove statements for, say, projectives in
-% arbitrary
-% abelian categories: the corresponding statements for injectives will
-% automatically
-% follow.
-% This dual state of affairs should not be taken too far: projectives and
-% injectives
-% in a fixed abelian category may display very different features. For example,
-% the
-% characterizations worked out in \S{}VIII.6.2 and \S{}VIII.6.3 use the specific
-% properties of
-% the categories R-Mod, so they should not be expected to have a simple
-% counterpart
-% in arbitrary abelian categories.
-% I will denote by P, resp., I, the full subcategories of A determined by the pro-
-% jective, resp., injective, objects. Of course these are not abelian categories
-% in any
-% interesting case. Note that an abelian category may well have no nontrivial
-% projec-
-% tive or injective objects.
-% Example 5.6. The category of finite abelian groups is abelian (surprise,
-% surprise),
-% but contains no nontrivial projective or injective objects (Exercise 5.5).
-%  ?
-% Definition 5.7. An abelian category A has enough projectives if for every object
-% A
-% in A there exists a projective object P in A and an epimorphism P
-%  / / A . The
-% category has enough injectives if for every object A in A there is an injective
-% object Q
-% in A and a monomorphism A / / Q .
-%  ?
-% These definitions are not new to the reader, since we ran across them in
-% \S{}VIII.6:
-% in particular, we have already observed that, for every commutative ring R,
-% R-Mod
-% has enough projectives (this is not challenging: free modules and their direct
-% sum-
-% mands are projective, Proposition VIII.6.4) and enough injectives (this is
-% challeng-
-% ing; we verified it in Corollary VIII.6.12).
-% Example 5.6 shows that we should not expect an abelian category A to have
-% either property. An important case in which one can show that there are enough
-% injectives is the category of sheaves of abelian groups over a topological
-% space;
-% this is a key step in the definition of sheaf cohomology as a `derived functor'.
-% In
-% general, categories of sheaves do not have enough projectives. On the other
-% hand,
-% the category of finitely generated abelian groups has enough projectives but not
-% enough (indeed, no nontrivial) injectives. So it goes.
+We should now ask `how far' $\mathsf{K}(\mathsf{A})$ may be from
+$\mathsf{D}(\mathsf{A})$. We have inverted all homotopy equivalences
+in $\mathsf{K}(\mathsf{A})$, but not all quasi-isomorphisms are
+homotopy equivalences: keep Example~4.6 in mind. If we want to think
+of $\mathsf{K}(\mathsf{A})$ as a first approximation to
+$\mathsf{D}(\mathsf{A})$, we should focus on complexes for which
+there is essentially no distinction between quasi-isomorphisms and
+homotopy equivalences.
+
+It turns out that there are such complexes: those consisting of
+projective or injective objects. Recall (Definition~VIII.6.1) that an
+$R$-module $M$ is `projective' if the functor
+$\Hom_R(M, \_)$ is exact and it is `injective' if
+$\Hom_R(\_, M)$ is exact. We can adopt these definitions in any
+abelian category:
+
+\begin{defn}{}{defn:homol:5.5}
+  Let $\mathsf{A}$ be an abelian category. An object $P$ of
+  $\mathsf{A}$ is \emph{projective} if the functor
+  $\Hom_{\mathsf{A}}(P, \_)$ is exact. An object $Q$ is
+  \emph{injective} if the functor $\Hom_{\mathsf{A}}(\_, Q)$ is exact.
+\end{defn}
+
+General remarks such as Lemma~VIII.6.2 or the comments about
+splitting of sequences at the end of \S{}VIII.6.1 hold in any abelian
+category, and a good exercise for the reader is to collect all such
+information and verify that it does hold in this new context.
+
+Also note that, at this level of generality, the parts of the theory
+dealing with injective objects are a faithful mirror of the parts
+dealing with projective objects. This is of course not a coincidence:
+the opposite of an abelian category is again abelian
+(Exercise~1.10), and projectives in one become injectives in the
+other. Thus, it is really only necessary to prove statements for,
+say, projectives in arbitrary abelian categories: the corresponding
+statements for injectives will automatically follow.
+
+This dual state of affairs should not be taken too far: projectives
+and injectives in a fixed abelian category may display very different
+features. For example, the characterizations worked out in
+\S{}VIII.6.2 and \S{}VIII.6.3 use the specific properties of the
+categories $R\text{-Mod}$, so they should not be expected to have a
+simple counterpart in arbitrary abelian categories.
+
+I will denote by $\mathsf{P}$, resp., $\mathsf{I}$, the full
+subcategories of $\mathsf{A}$ determined by the projective, resp.,
+injective, objects. Of course these are not abelian categories in any
+interesting case. Note that an abelian category may well have no
+nontrivial projective or injective objects.
+
+\begin{exam}{}{exam:homol:5.6}
+  The category of finite abelian groups is abelian (surprise,
+  surprise), but contains no nontrivial projective or injective
+  objects (Exercise~5.5).
+\end{exam}
+
+\begin{defn}{}{defn:homol:5.7}
+  An abelian category $\mathsf{A}$ has \emph{enough projectives} if
+  for every object $A$ in $\mathsf{A}$ there exists a projective
+  object $P$ in $\mathsf{A}$ and an epimorphism $P \twoheadrightarrow
+  A$. The category has \emph{enough injectives} if for every object
+  $A$ in $\mathsf{A}$ there is an injective object $Q$ in $\mathsf{A}$
+  and a monomorphism $A \hookrightarrow Q$.
+\end{defn}
+
+These definitions are not new to the reader, since we ran across them
+in \S{}VIII.6: in particular, we have already observed that, for
+every commutative ring $R$, $R\text{-Mod}$ has enough projectives
+(this is not challenging: free modules and their direct summands are
+projective, Proposition~VIII.6.4) and enough injectives (this is
+challenging; we verified it in Corollary~VIII.6.12).
+
+Example~\ref{exam:homol:5.6} shows that we should not expect an
+abelian category $\mathsf{A}$ to have either property. An important
+case in which one can show that there are enough injectives is the
+category of sheaves of abelian groups over a topological space; this
+is a key step in the definition of sheaf cohomology as a `derived
+functor'. In general, categories of sheaves do not have enough
+projectives. On the other hand, the category of finitely generated
+abelian groups has enough projectives but not enough (indeed, no
+nontrivial) injectives. So it goes.
 
 \subsection{Homotopy equivalences vs. quasi-isomorphisms in K(A)}
 \label{subsec:homol:homotopy-equivalences-vs-quasi-isomorphisms-in-k-a}
