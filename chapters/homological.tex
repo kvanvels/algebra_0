@@ -7507,671 +7507,311 @@ in a moment.
 
 \subsection{Complexes of complexes}
 \label{subsec:homol:complexes-of-complexes}
-% I warned the reader as far back as \S{}3.2 that we
 
-% would examine complexes of complexes, that is, objects of C(C(A)), for an
-% abelian
-% category A. We have run across particular cases: the exact sequences of
-% complexes
-% leading to the long exact cohomology sequence (\S{}3.3) and the construction of
-% the
-% mapping cone (\S{}4.1). The latter case generalizes in a straightforward way, as
-% we
-% will see now.
-% Keeping with the tradition established earlier in the chapter, I will
-% concentrate
-% on the `bounded-above' case; the reader should have no difficulty reproducing
-% the
-% bounded-below version of what we will do and should be aware of the fact that
-% the
-% material can be developed to a large extent without boundedness conditions.
-% \leq 0 \leq 0An object of C (C (A)) is a complex
-% \cdot \cdot \cdot 
-% -3,\bullet 
-%  -2,\bullet 
-%  -1,\bullet 
-% / M -3,\bullet 
-%  dh
-%  / M -2,\bullet 
-%  dh
-%  / M -1,\bullet 
-%  dh
-%  / M 0,\bullet 
-% / 0
-%  / \cdot \cdot \cdot 
-% i,\bullet  \leq 0in which the object M in degree i is itself a complex in C (A).
-% The subscript h
-% stands, rather unimaginatively, for `horizontal'; we have di,\bullet 
-%  h \circ  dh
-%  i-1,\bullet 
-%  = 0. An ex-
-% ample that will motivate the next construction is the particular case in which
-% only
-% two objects are nonzero:
-% (*)
-%  \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / L\bullet 
-%  \alpha \bullet 
-%  / M \bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% (and we are considering the particular case in which L\bullet  , M \bullet  are
-% bounded above).
-% I will (arbitrarily) place M \bullet  in degree 0 and L\bullet  in degree -1. We
-% can view the
-% information carried by (*) as a commutative diagram:
-% ..
-%  ..
-%  ..
-%  ..
-% . O
-%  . O
-%  . O
-%  . O
-% di+1
-%  di+1
-% L
-%  M
-% \cdot \cdot \cdot 
-%  / 0
-%  O
-%  / Li+1 O
-%  \alpha 
-% i+1
-%  / M i+1
-%  O
-%  / 0
-%  O
-%  / \cdot \cdot \cdot 
-% diL
-%  diM
-% \cdot \cdot \cdot 
-%  / 0
-%  O
-%  / Li
-%  O
-%  \alpha 
-% i
-%  / M O
-%  i
-%  / 0
-%  O
-%  / \cdot \cdot \cdot 
-% i-1
-%  i-1
-% d dL
-%  M
-% \cdot \cdot \cdot 
-%  / 0
-%  O
-%  / Li-1 O
-%  \alpha 
-% i-1
-%  / M i-1
-%  O
-%  / 0
-%  O
-%  / \cdot \cdot \cdot 
-% ..
-%  ..
-%  ..
-%  ..
-% .
-%  .
-%  .
-%  .
-% The mapping cone M C(\alpha )\bullet  constructed in \S{}4.1 is obtained by
-% \bullet  shifting the complex in degree -i by i,
-% \bullet  direct-summing the rows and morphisms of the resulting diagram, collapsing
-% it to a single vertical complex:
-% ..
-%  ..
-%  ..
-%  ..
-% A . O
-%  -dL
-%  i+2
-%  B . O
-%  ~ \alpha 
-%  ~
-%  ~ i+2
-%  ~
-%  ~
-%  ~ ~
-%  ~
-%  ~ ? . O
-%  di+1
-%  M
-%  A . O
-% @ 0 O
-%  -dL
-%  i+1
-%  L A i+2
-%  O
-%  | \alpha i+1 |
-%  | |
-%  |
-%  |
-%  | M |
-%  = i+1
-%  O
-%  diM
-%  @ 0 O
-% @ 0 O
-%  -diL
-%  L A i+1
-%  O
-%  |
-%  |
-%  |
-%  \alpha  | i
-%  |
-%  |
-%  |
-%  |
-%  |
-%  M
-%  = O
-%  d i
-%  i-1
-%  M
-%  @ 0 O
-% A 0 ..
-%  O
-%  L
-%  B .. O
-%  i
-% ~ ~
-%  ~
-%  ~ ~
-%  ~ ~
-%  ~
-%  ~ M ~
-%  ? ..
-%  i-1
-%  O
-%  0 ..
-%  O
-% .
-%  .
-%  .
-%  .
-% A
-% @
-% @
-% A
-% ..
-%  ..
-% . O
-%  y y
-%  y y
-%  y
-%  y y
-%  y y
-%  y
-%  < . O
-% Li+2
-%  O
-%  x x
-%  x \oplus  x
-%  x
-%  x x
-%  x M x
-%  ; i+1
-%  O
-% Li+1
-%  O
-%  x x
-%  x
-%  x \oplus 
-%  x
-%  x x
-%  x
-%  x
-%  x ; M O
-%  i
-% L .. O i
-% y
-%  y
-%  y
-%  y y
-%  \oplus  y y
-%  y
-%  y y
-%  M y < ..
-%  i-1
-%  O
-% .
-%  .
-% Note that, due to the shift, the diagram on the left has become anti commutative
-% \bullet in the process. The extra signs are necessary in order that M C(\alpha ) be a complex.
-% Now we will apply the same procedure to the more general case
-% -3,\bullet 
-%  -2,\bullet 
-%  -1,\bullet 
-% \cdot \cdot \cdot 
-%  / M -3,\bullet 
-%  dh
-%  / M -2,\bullet 
-%  dh
-%  / M -1,\bullet 
-%  dh
-%  / M 0,\bullet 
-% This corresponds to the commutative diagram
-% / 0
-%  / \cdot \cdot \cdot  .
-% / M -3,0
-%  dh
-%  / M -2,0
-%  dh
-%  / M -1,0
-%  dh
-%  / M 0,0
-% O
-%  O
-%  O
-%  O
-% dv
-%  dv
-%  dv
-%  dv
-% / M -3,-1
-%  dh
-%  / M -2,-1
-%  dh
-%  / M -1,-1
-%  dh
-%  / M 0,-1
-% O
-%  O
-%  O
-%  O
-% dv
-%  dv
-%  dv
-%  dv
-% / M -3,-2
-%  dh
-%  / M -2,-2
-%  dh
-%  / M -1,-2
-%  dh
-%  / M 0,-2
-% O
-%  O
-%  O
-%  O
-% surrounded by 0 above and to the right (omitted here not to clutter the diagram;
-% the
-% upper indices of the differentials are sacrificed for the same reason); the
-% subscript v
-% -i,\bullet stands for `vertical'. As above, we shift M by i, with the effect of
-% changing
-% the sign of the differentials in the odd-shifted columns; I will let \delta v
-% denote d v on
-% even-degree columns and -dv on odd-degree columns. The resulting diagram is
-% anticommutative:
-% r r dh r
-%  r
-%  r r r
-%  r M \delta v
-%  9 0,0
-%  O
-% -1,0
-%  0,-1
-% q q dh q
-%  q
-%  q
-%  q
-%  q
-%  q
-%  M
-%  q
-%  8 O
-%  \delta 
-% v
-%  r r
-%  dh r
-%  r
-%  r r
-%  r
-%  M r \delta v
-%  9 O
-% -2,0
-%  -1,-1
-%  0,-2
-% r r dh r
-%  r r r r
-%  M
-%  r \delta v
-%  9 O
-%  q q dh q
-%  q q
-%  q q q
-%  M q 8 O
-%  \delta v
-%  r r dh r
-%  r r r r
-%  M
-%  r \delta v
-%  9 O
-% -3,0
-%  -2,-1
-%  -1,-2
-%  0,-3
-% q q q
-%  q q q
-%  q q
-%  q
-%  q
-%  M
-%  8 O
-%  p
-%  p
-%  p
-%  p p p
-%  p p
-%  p
-%  M p
-%  7 O
-%  o
-%  o
-%  o
-%  o o o
-%  o o
-%  o
-%  o
-%  M o
-%  7 O
-%  p
-%  p
-%  p
-%  p p p
-%  p p
-%  p
-%  p
-%  M
-%  7 O
-% Taking direct sums of the objects and morphisms on each row, as in the case of
-% the
-% mapping cone, determines a new complex, called the total complex T C(M )\bullet
-% of the
-% given complex of complexes.
-% Double complexes capture this construction:
-% Definition 8.5. A double (cochain) complex on an abelian category A is an array
-% of objects M i,j of A, i, j \in  Z, endowed with morphisms
-% di,j
-%  h : M
-%  i,j
-%  \to  M i+1,j ,
-%  \delta v i,j : M i,j \to  M i,j+1
-% such that
-% \{ i,j i-1,j
-% |
-%  | dh \circ  dh
-%  = 0,
-% \delta v i,j
-%  \circ  \delta v
-%  i,j-1
-%  = 0,
-% |
-%  \} i+1,j i,j
-%  i,j+1
-%  i,j
-% \delta v
-%  \circ  d
-% h + dh
-%  \circ  \delta v = 0.
-%  ?
-% i,\bullet  \bullet ,jThat is, the columns M and the rows M both form complexes,
-% and the
-% whole diagram anti commutes. Dropping the position specification, the conditions
-% defining a double complex are summarized in the easier-to-parse prescription
-% \{
-% |
-%  | dh \circ  dh = 0,
-% \delta v \circ  \delta v = 0,
-% |
-%  \}
-% \delta v \circ  dh + dh \circ  \delta v = 0.
-% Double complexes, with or without appropriate boundedness conditions (such as
-% requiring M i,j = 0 for i > 0, j > 0, as in the case considered above), form a
-% category in an evident way. It is equally evident that this category is
-% equivalent
-% to the correspondingly bounded category of complexes of complexes: every object
-% \leq 0 \leq 0 i,jof C (C (A)) determines a double complex by setting \delta v = (-1)i di,j
-%  v , as above.
-% Changing the signs of odd rows rather than columns leads to an isomorphic double
-% complex, Exercise 8.4; in fact, other choices may be convenient depending on the
-% situation.
-% From this viewpoint, the total complex T C(M )\bullet  (also called the simple
-% of the
-% \bullet ,\bullet double complex M ) is obtained by direct-summing objects and morphisms of the
-% double complex along diagonals:
-% \cdot \cdot \cdot 
-%  / M -2,0
-%  O
-%  dh
-%  / M -1,0
-%  O
-%  dh
-%  / M 0,0
-%  O
-% \delta v
-%  \delta v
-%  \delta v
-% \cdot \cdot \cdot 
-%  / M -2,-1 O
-%  dh
-%  / M -1,-1 O
-%  dh
-%  / M 0,-1
-%  O
-% \delta v
-%  \delta v
-%  \delta v
-% \cdot \cdot \cdot 
-%  / M -2,-2
-%  O
-%  dh
-%  / M -1,-2
-%  O
-%  dh
-%  / M 0,-2
-%  O
-% \delta v
-%  \delta v
-%  \delta v
-% \cdot \cdot \cdot 
-%  / M -2,-3 O
-%  dh
-%  / M -1,-3 O
-%  dh
-%  / M 0,-3
-%  O
-% ..
-%  ..
-%  ..
-% .
-%  .
-%  .
-% 0,0
-% M O
-% -1
-% dtot
-% M -1,0 \oplus  O M 0,-1
-% -2
-% dtot
-% M -2,0 \oplus  M -1,-1
-%  O
-%  \oplus  M 0,-2
-% -3
-% dtot
-% M -3,0 \oplus  M -2,-1 \oplus  O M -1,-2 \oplus  M 0,-3
-% ..
-% .
-% \bullet 
-%  \bullet ,\bullet 
-% Definition 8.6. The k
-%  total
-%  " complex i,j T C(M ) of a double complex M
-%  is defined
-% by setting T C(M ) := M , with differentials (written stenographically)
-% i+j=kd tot = dh + \delta v .
-%  ?
-% Claim 8.7. (T C(M )\bullet  , d\bullet  tot ) is indeed a complex.
-% Proof. The question is whether the composition of two consecutive differentials
-% vanishes, as it should. Insisting with our shorthand,
-% dtot \circ  dtot = (dh + \delta v ) \circ (dh + \delta v ) = dh \circ  dh + dh
-% \circ  \delta v + \delta v \circ  dh + \delta  v \circ  \delta v = 0.
-% The reader will formalize this computation (Exercise 8.3).
-%  ?
-% \bullet It is clear from the definition that T C(M ) agrees with the mapping cone,
-% when M \bullet ,\bullet  is concentrated in degrees -1 and 0.
-% The total complex is defined even without any boundedness hypothesis, but
-% then one has to choose whether to use direct sums or direct products as objects
-% of
-% the complex. Since only bounded complexes will be needed in the applications we
-% will see, I will happily leave such complications aside and limit the discussion
-% to
-% the bounded case.
-% Example 8.8. Operations such as HomA or \otimes  determine double complexes. For
-% a
-% `first quadrant' example, let L\bullet  , resp., M \bullet  , be a complex in
-% C\leq 0 (A), resp. C\geq 0 (A):
-% \cdot \cdot \cdot 
-%  / L-2
-%  / L-1
-%  / L0
-%  / 0
-%  / \cdot \cdot \cdot 
-% \cdot \cdot \cdot 
-%  / 0
-%  / M 0
-%  / M 1
-%  / M 2
-%  / \cdot \cdot \cdot  .
-% \geq 0 \geq 0We can consider the complex in C (C ):
-% \cdot \cdot \cdot 
-%  / 0
-%  / HomA(L\bullet , M 0)
-%  / HomA (L\bullet  , M 1 )
-%  / HomA (L\bullet  , M 2 )
-%  / \cdot \cdot \cdot  ,
-% that is, in `grid' form (and omitting zeros to the left and below):
-% ..
-%  ..
-%  ..
-% . O
-%  . O
-%  . O
-% -2 0HomA (L O
-%  , M )
-% / HomA (L-2, M 1 )
-% O
-% /-2 2HomA (L O
-%  , M )
-% / \cdot \cdot \cdot 
-% -1 0HomA (L O
-%  , M )
-% / HomA (L-1, M 1 )
-% O
-% /-1 2HomA (L O
-%  , M )
-% / \cdot \cdot \cdot 
-% HomA(L0, M 0 )
-%  / HomA (L0 , M 1 )
-%  / HomA (L0 , M 2)
-%  / \cdot \cdot \cdot 
-% We could also consider the complex of complexes
-% \cdot \cdot \cdot 
-%  / 0
-%  / HomA (L0, M \bullet  )
-%  / HomA (L-1 , M \bullet )
-%  / HomA (L-2 , M \bullet  )
-%  / \cdot \cdot \cdot 
-% and this would lead to the grid obtained by flipping the previous one about the
-% main diagonal. The two corresponding total complexes are then clearly isomor-
-% phic (Exercise 8.4), and by a slight abuse of language they can both be denoted
-% T C(HomA (L, M ))\bullet  . The degree-i piece of this total complex, i.e.,
-% HomA (L-i , M 0 ) \oplus  HomA (L-i+1 , M 1 ) \oplus  \dots  \oplus  HomA (L0 ,
-% M i ),
-% parametrizes degree-preserving morphisms from objects of L\bullet  to objects of
-% M [i]\bullet  .
-% These are not cochain morphisms L\bullet  \to  M [i]\bullet  , since the
-% corresponding diagrams
-% \cdot \cdot \cdot 
-%  / 0
-%  O
-%  / M [i]-i
-%  O
-%  / M [i]-i+1
-%  O
-%  / \cdot \cdot \cdot 
-%  / M [i]0
-%  O
-%  / M [i]1
-%  O
-%  / \cdot \cdot \cdot 
-% \cdot \cdot \cdot 
-%  / L-i-1
-%  / L-i
-%  / L-i+1
-%  / \cdot \cdot \cdot 
-%  / L0
-%  / 0
-%  / \cdot \cdot \cdot 
-% do not satisfy any commutativity hypothesis. The reader will verify (Exercise
-% 8.5)
-% that, with suitable positions:
-% \bullet  the kernel of di tot consists of morphisms of cochain complexes L\bullet  \to  M [i]\bullet  ;
-% \bullet  the image of dtot
-%  i-1
-%  consists of morphisms that are homotopy equivalent to 0;
-% and hence
-% \bullet  the cohomology of T C(HomA (L, M ))\bullet  parametrizes morphisms in the homo-
-% topy category.
-% For (a trivial) example, T C(Hom A(L, M ))0 = HomA(L0 , M 0 ), and d0tot (\alpha
-% ) = 0
-% means that the images \alpha  \circ  d-1
-%  L\bullet  in HomA (L
-% -1
-% , M 0 ) and d0 M \bullet  \circ  \alpha  in HomA (L0 , M 1)
-% both vanish:
-% -1
-% / L-1
-%  dL\bullet 
-%  / L0
-%  / 0
-%  /
-% A
-%  @
-% A
-%  @
-% A
-%  @
-%  A \alpha 
-%  @
-% \sqcup 
-%  A \sqcup 
-%  @ ? \sqcup 
-% / 0
-%  / M 0
-%  / M 1
-%  /
-% 0dM \bullet 
-% This is precisely the condition needed for \alpha  to define a morphism of
-% cochain com-
-% plexes L\bullet  \to  M \bullet  . It follows that in this situation H 0 (T
-% C(HomA (L, M ))\bullet  ) is simply
-% HomC(A) (L\bullet  , M \bullet  ) = HomK(A) (L\bullet  , M \bullet ) (there are
-% no nontrivial homotopies in this
-% case).
-% The identification of the i-th cohomology of the total complex with the Hom-set
-% HomK(A) (L\bullet  , M [i]\bullet  ) requires care with the signs34 .
-%  ?
+I warned the reader as far back as \S{}3.2 that we would examine
+complexes \emph{of complexes}, that is, objects of
+$\mathsf{C}(\mathsf{C}(\mathsf{A}))$, for an abelian category
+$\mathsf{A}$. We have run across particular cases: the exact
+sequences of complexes leading to the long exact cohomology sequence
+(\S{}3.3) and the construction of the mapping cone (\S{}4.1). The
+latter case generalizes in a straightforward way, as we will see
+now.
+
+Keeping with the tradition established earlier in the chapter, I
+will concentrate on the `bounded-above' case; the reader should have
+no difficulty reproducing the bounded-below version of what we will
+do and should be aware of the fact that the material can be
+developed to a large extent without boundedness conditions.
+
+An object of $\mathsf{C}^{\le 0}(\mathsf{C}^{\le 0}(\mathsf{A}))$ is
+a complex
+\[\begin{tikzcd}
+  \dots \arrow[r] & M^{-3,\bullet} \arrow[r, "d_h^{-3,\bullet}"] &
+  M^{-2,\bullet} \arrow[r, "d_h^{-2,\bullet}"] & M^{-1,\bullet}
+  \arrow[r, "d_h^{-1,\bullet}"] & M^{0,\bullet} \arrow[r] & 0
+  \arrow[r] & \dots
+\end{tikzcd}\]
+in which the object $M^{i,\bullet}$ in degree $i$ is itself a
+complex in $\mathsf{C}^{\le 0}(\mathsf{A})$. The subscript $h$
+stands, rather unimaginatively, for `horizontal'; we have
+$d_h^{i,\bullet} \circ d_h^{i-1,\bullet} = 0$. An example that will
+motivate the next construction is the particular case in which only
+two objects are nonzero:
+\[
+  (*) \qquad
+  \begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & L^\bullet \arrow[r,
+    "\alpha^\bullet"] & M^\bullet \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}
+\]
+(and we are considering the particular case in which $L^\bullet$,
+$M^\bullet$ are bounded above). I will (arbitrarily) place
+$M^\bullet$ in degree $0$ and $L^\bullet$ in degree $-1$. We can
+view the information carried by $(*)$ as a commutative diagram:
+\[\begin{tikzcd}
+  & \vdots \arrow[d, "d_L^{i+1}"] & & \vdots \arrow[d, "d_M^{i+1}"] & \\
+  \dots \arrow[r] & 0 \arrow[r] & L^{i+1} \arrow[r, "\alpha^{i+1}"]
+  \arrow[d, "d_L^i"'] & M^{i+1} \arrow[r] \arrow[d, "d_M^i"'] & 0
+  \arrow[r] & \dots \\
+  \dots \arrow[r] & 0 \arrow[r] & L^i \arrow[r, "\alpha^i"] \arrow[d,
+  "d_L^{i-1}"'] & M^i \arrow[r] \arrow[d, "d_M^{i-1}"'] & 0 \arrow[r]
+  & \dots \\
+  \dots \arrow[r] & 0 \arrow[r] & L^{i-1} \arrow[r, "\alpha^{i-1}"]
+  \arrow[d] & M^{i-1} \arrow[r] \arrow[d] & 0 \arrow[r] & \dots \\
+  & & \vdots & \vdots &
+\end{tikzcd}\]
+
+The mapping cone $MC(\alpha)^\bullet$ constructed in \S{}4.1 is
+obtained by
+\begin{itemize}
+\item shifting the complex in degree $-i$ by $i$,
+\item direct-summing the rows and morphisms of the resulting
+  diagram, collapsing it to a single vertical complex:
+\end{itemize}
+% TODO: diagram of the shifted, anticommutative version of the
+% ladder diagram above (source page 666), showing the columns
+% collapsed row-by-row into direct sums L^i \oplus M^{i-1}, with
+% diagonal arrows \alpha^{i+1}, d_{M^\bullet}^i and dotted diagonal
+% arrows illustrating the direct-summing step; purely a pedagogical
+% picture of the mapping-cone construction already defined
+% algebraically in \S{}4.1, no new mathematical content beyond what
+% the surrounding prose states.
+
+Note that, due to the shift, the diagram on the left has become
+\emph{anti}commutative in the process. The extra signs are necessary
+in order that $MC(\alpha)^\bullet$ be a complex.
+
+Now we will apply the same procedure to the more general case
+\[\begin{tikzcd}
+  \dots \arrow[r] & M^{-3,\bullet} \arrow[r, "d_h^{-3,\bullet}"] &
+  M^{-2,\bullet} \arrow[r, "d_h^{-2,\bullet}"] & M^{-1,\bullet}
+  \arrow[r, "d_h^{-1,\bullet}"] & M^{0,\bullet} \arrow[r] & 0
+  \arrow[r] & \dots
+\end{tikzcd}\]
+This corresponds to the commutative diagram
+\[\begin{tikzcd}
+  \dots & M^{-3,0} \arrow[r, "d_h"] \arrow[d, "d_v"'] & M^{-2,0}
+  \arrow[r, "d_h"] \arrow[d, "d_v"'] & M^{-1,0} \arrow[r, "d_h"]
+  \arrow[d, "d_v"'] & M^{0,0} \arrow[d, "d_v"'] \\
+  \dots & M^{-3,-1} \arrow[r, "d_h"] \arrow[d, "d_v"'] & M^{-2,-1}
+  \arrow[r, "d_h"] \arrow[d, "d_v"'] & M^{-1,-1} \arrow[r, "d_h"]
+  \arrow[d, "d_v"'] & M^{0,-1} \arrow[d, "d_v"'] \\
+  \dots & M^{-3,-2} \arrow[r, "d_h"] \arrow[d] & M^{-2,-2} \arrow[r,
+  "d_h"] \arrow[d] & M^{-1,-2} \arrow[r, "d_h"] \arrow[d] & M^{0,-2}
+  \arrow[d] \\
+  \dots & \vdots & \vdots & \vdots & \vdots
+\end{tikzcd}\]
+surrounded by $0$ above and to the right (omitted here not to
+clutter the diagram; the upper indices of the differentials are
+sacrificed for the same reason); the subscript $v$ stands for
+`vertical'. As above, we shift $M^{-i,\bullet}$ by $i$, with the
+effect of changing the sign of the differentials in the odd-shifted
+columns; I will let $\delta_v$ denote $d_v$ on even-degree columns
+and $-d_v$ on odd-degree columns. The resulting diagram is
+anticommutative:
+% TODO: diagram of the staggered (anticommutative) version of the
+% grid diagram above (source page 667), with columns offset
+% vertically in a staircase arrangement to visually convey the
+% degree shift, labeled with alternating d_h/\delta_v arrows; a
+% pedagogical restaging of the preceding grid, no new mathematical
+% content beyond the sign convention already stated in the
+% surrounding prose.
+
+Taking direct sums of the objects and morphisms on each row, as in
+the case of the mapping cone, determines a new complex, called the
+\emph{total complex} $TC(M)^\bullet$ of the given complex of
+complexes.
+
+\emph{Double complexes} capture this construction:
+
+\begin{defn}{}{defn:homol:8.5}
+  A \emph{double (cochain) complex} on an abelian category
+  $\mathsf{A}$ is an array of objects $M^{i,j}$ of $\mathsf{A}$, $i,
+  j \in \Z$, endowed with morphisms
+  \[
+    d_h^{i,j} : M^{i,j} \to M^{i+1,j}, \qquad \delta_v^{i,j} :
+    M^{i,j} \to M^{i,j+1}
+  \]
+  such that
+  \[
+    \begin{cases}
+      d_h^{i,j} \circ d_h^{i-1,j} = 0, \\
+      \delta_v^{i,j} \circ \delta_v^{i,j-1} = 0, \\
+      \delta_v^{i+1,j} \circ d_h^{i,j} + d_h^{i,j+1} \circ
+      \delta_v^{i,j} = 0.
+    \end{cases}
+  \]
+\end{defn}
+
+That is, the columns $M^{i,\bullet}$ and the rows $M^{\bullet,j}$
+both form complexes, and the whole diagram \emph{anticommutes}.
+Dropping the position specification, the conditions defining a
+double complex are summarized in the easier-to-parse prescription
+\[
+  \begin{cases}
+    d_h \circ d_h = 0, \\
+    \delta_v \circ \delta_v = 0, \\
+    \delta_v \circ d_h + d_h \circ \delta_v = 0.
+  \end{cases}
+\]
+
+Double complexes, with or without appropriate boundedness conditions
+(such as requiring $M^{i,j} = 0$ for $i > 0$, $j > 0$, as in the
+case considered above), form a category in an evident way. It is
+equally evident that this category is equivalent to the
+correspondingly bounded category of complexes of complexes: every
+object of $\mathsf{C}^{\le 0}(\mathsf{C}^{\le 0}(\mathsf{A}))$
+determines a double complex by setting $\delta_v^{i,j} =
+(-1)^i d_v^{i,j}$, as above. Changing the signs of odd \emph{rows}
+rather than columns leads to an isomorphic double complex,
+Exercise~8.4; in fact, other choices may be convenient depending on
+the situation.
+
+From this viewpoint, the total complex $TC(M)^\bullet$ (also called
+the \emph{simple} of the double complex $M^{\bullet,\bullet}$) is
+obtained by direct-summing objects and morphisms of the double
+complex along diagonals:
+% TODO: diagram of the total-complex-along-diagonals construction
+% (source page 668): the staggered grid of M^{i,j} terms shown
+% alongside a right-hand column of direct sums (e.g. M^{-2,0} \oplus
+% M^{-1,-1} \oplus M^{0,-2}) with dotted diagonal lines grouping the
+% terms on each antidiagonal i+j=k into the corresponding
+% TC(M)^k; purely illustrates Definition~8.6 below, no separate
+% mathematical content.
+
+\begin{defn}{}{defn:homol:8.6}
+  The \emph{total complex} $TC(M)^\bullet$ of a double complex
+  $M^{\bullet,\bullet}$ is defined by setting $TC(M)^k :=
+  \bigoplus_{i+j=k} M^{i,j}$, with differentials (written
+  stenographically) $d_{tot} = d_h + \delta_v$.
+\end{defn}
+
+\begin{prop}{}{prop:homol:8.7}
+  $(TC(M)^\bullet, d_{tot}^\bullet)$ is indeed a complex.
+\end{prop}
+\begin{proof}
+  The question is whether the composition of two consecutive
+  differentials vanishes, as it should. Insisting with our
+  shorthand,
+  \[
+    d_{tot} \circ d_{tot} = (d_h + \delta_v) \circ (d_h + \delta_v)
+    = d_h \circ d_h + d_h \circ \delta_v + \delta_v \circ d_h +
+    \delta_v \circ \delta_v = 0.
+  \]
+  The reader will formalize this computation (Exercise~8.3).
+\end{proof}
+
+It is clear from the definition that $TC(M)^\bullet$ agrees with the
+mapping cone, when $M^{\bullet,\bullet}$ is concentrated in degrees
+$-1$ and $0$.
+
+The total complex is defined even without any boundedness
+hypothesis, but then one has to choose whether to use direct
+\emph{sums} or direct \emph{products} as objects of the complex.
+Since only bounded complexes will be needed in the applications we
+will see, I will happily leave such complications aside and limit
+the discussion to the bounded case.
+
+\begin{exam}{}{exam:homol:8.8}
+  Operations such as $\Hom_{\mathsf{A}}$ or $\otimes$ determine
+  double complexes. For a `first quadrant' example, let $L^\bullet$,
+  resp., $M^\bullet$, be a complex in $\mathsf{C}^{\le 0}(\mathsf{A})$,
+  resp.\ $\mathsf{C}^{\ge 0}(\mathsf{A})$:
+  \[\begin{tikzcd}
+    \dots \arrow[r] & L^{-2} \arrow[r] & L^{-1} \arrow[r] & L^0
+    \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  \[\begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & M^0 \arrow[r] & M^1 \arrow[r] &
+    M^2 \arrow[r] & \dots
+  \end{tikzcd}\]
+  We can consider the complex in $\mathsf{C}^{\ge 0}(\mathsf{C}^{\ge 0})$:
+  \[\begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & \Hom_{\mathsf{A}}(L^\bullet, M^0)
+    \arrow[r] & \Hom_{\mathsf{A}}(L^\bullet, M^1) \arrow[r] &
+    \Hom_{\mathsf{A}}(L^\bullet, M^2) \arrow[r] & \dots
+  \end{tikzcd}\]
+  that is, in `grid' form (and omitting zeros to the left and
+  below):
+  \[\begin{tikzcd}
+    \vdots \arrow[d] & \vdots \arrow[d] & \vdots \arrow[d] & \\
+    \Hom_{\mathsf{A}}(L^{-2}, M^0) \arrow[r] & \Hom_{\mathsf{A}}(L^{-2},
+    M^1) \arrow[r] & \Hom_{\mathsf{A}}(L^{-2}, M^2) \arrow[r] & \dots \\
+    \Hom_{\mathsf{A}}(L^{-1}, M^0) \arrow[r] \arrow[u] &
+    \Hom_{\mathsf{A}}(L^{-1}, M^1) \arrow[r] \arrow[u] &
+    \Hom_{\mathsf{A}}(L^{-1}, M^2) \arrow[r] \arrow[u] & \dots \\
+    \Hom_{\mathsf{A}}(L^0, M^0) \arrow[r] \arrow[u] &
+    \Hom_{\mathsf{A}}(L^0, M^1) \arrow[r] \arrow[u] &
+    \Hom_{\mathsf{A}}(L^0, M^2) \arrow[r] \arrow[u] & \dots
+  \end{tikzcd}\]
+
+  We could also consider the complex of complexes
+  \[\begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & \Hom_{\mathsf{A}}(L^0, M^\bullet)
+    \arrow[r] & \Hom_{\mathsf{A}}(L^{-1}, M^\bullet) \arrow[r] &
+    \Hom_{\mathsf{A}}(L^{-2}, M^\bullet) \arrow[r] & \dots
+  \end{tikzcd}\]
+  and this would lead to the grid obtained by flipping the previous
+  one about the main diagonal. The two corresponding total complexes
+  are then clearly isomorphic (Exercise~8.4), and by a slight abuse
+  of language they can both be denoted $TC(\Hom_{\mathsf{A}}(L,
+  M))^\bullet$. The degree-$i$ piece of this total complex, i.e.,
+  \[
+    \Hom_{\mathsf{A}}(L^{-i}, M^0) \oplus \Hom_{\mathsf{A}}(L^{-i+1},
+    M^1) \oplus \dots \oplus \Hom_{\mathsf{A}}(L^0, M^i),
+  \]
+  parametrizes degree-preserving morphisms from objects of
+  $L^\bullet$ to objects of $M[i]^\bullet$. These are not cochain
+  morphisms $L^\bullet \to M[i]^\bullet$, since the corresponding
+  diagrams
+  \[\begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & M[i]^{-i} \arrow[r] &
+    M[i]^{-i+1} \arrow[r] & \dots \arrow[r] & M[i]^0 \arrow[r] &
+    \dots \\
+    \dots \arrow[r] & L^{-i-1} \arrow[r] \arrow[u] & L^{-i} \arrow[r]
+    & L^{-i+1} \arrow[r] & \dots \arrow[r] & L^0 \arrow[r] & 0
+    \arrow[r] & \dots
+  \end{tikzcd}\]
+  do not satisfy any commutativity hypothesis. The reader will
+  verify (Exercise~8.5) that, with suitable positions:
+  \begin{itemize}
+  \item the kernel of $d_{tot}^i$ consists of morphisms of cochain
+    complexes $L^\bullet \to M[i]^\bullet$;
+  \item the image of $d_{tot}^{i-1}$ consists of morphisms that are
+    homotopy equivalent to $0$; and hence
+  \item the cohomology of $TC(\Hom_{\mathsf{A}}(L, M))^\bullet$
+    parametrizes morphisms in the homotopy category.
+  \end{itemize}
+  For a (trivial) example, $TC(\Hom_{\mathsf{A}}(L,M))^0 =
+  \Hom_{\mathsf{A}}(L^0, M^0)$, and $d_{tot}^0(\alpha) = 0$ means
+  that the images $\alpha \circ d_{L^\bullet}^{-1}$ in
+  $\Hom_{\mathsf{A}}(L^{-1}, M^0)$ and $d_{M^\bullet}^0 \circ \alpha$
+  in $\Hom_{\mathsf{A}}(L^0, M^1)$ both vanish:
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & L^{-1} \arrow[r, "d_{L^\bullet}^{-1}"]
+    & L^0 \arrow[r] \arrow[d, "\alpha"]
+    \arrow[from=1-2, to=2-3, dashed, "0"'] \arrow[from=1-3, to=2-4,
+    dashed, "0"] & 0 \arrow[r] & \dots \\
+    \dots \arrow[r] & 0 \arrow[r] & M^0 \arrow[r,
+    "d_{M^\bullet}^0"] & M^1 \arrow[r] & \dots
+  \end{tikzcd}\]
+  This is precisely the condition needed for $\alpha$ to define a
+  morphism of cochain complexes $L^\bullet \to M^\bullet$. It
+  follows that in this situation $H^0(TC(\Hom_{\mathsf{A}}(L,
+  M))^\bullet)$ is simply $\Hom_{\mathsf{C}(\mathsf{A})}(L^\bullet,
+  M^\bullet) = \Hom_{\mathsf{K}(\mathsf{A})}(L^\bullet, M^\bullet)$
+  (there are no nontrivial homotopies in this case).
+
+  The identification of the $i$-th cohomology of the total complex
+  with the Hom-set $\Hom_{\mathsf{K}(\mathsf{A})}(L^\bullet,
+  M[i]^\bullet)$ requires care with the signs\footnote{A clever way
+  out of the sign quagmire in this computation is to choose another
+  way to get a double complex out of $\Hom_{\mathsf{A}}(L^\bullet,
+  M^\bullet)$. For example, replacing the vertical differentials
+  $d_v^{i,j}$ by $(-1)^{i+j+1}d_v^{i,j}$ still makes the array
+  anticommutative as needed and irons out annoying sign mismatches
+  elsewhere.}.
+\end{exam}
 
 \subsection{Exactness of the total complex}
 \label{subsec:homol:exactness-of-the-total-complex}
