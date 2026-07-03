@@ -6352,261 +6352,217 @@ preserves as much exactness as is allowed by the context.
 We should also note that once short exact sequences are lifted, we
 can in fact lift every complex; this will be needed later. Here is
 the precise statement:
-% Corollary 7.9. Let
-% M \bullet  :
-%  \cdot \cdot \cdot 
-%  / M -3
-%  / M -2
-%  / M -1
-%  / M 0
-%  / 0
-% be a complex in an abelian category A with enough projectives. Then there is a
-% complex of complexes:
-% PM
-%  \bullet 
-%  \bullet  :
-%  \cdot \cdot \cdot 
-%  / PM
-%  \bullet  -3
-%  / PM
-%  \bullet  -2
-%  / PM
-%  \bullet  -1
-%  / PM
-%  \bullet  0
-%  / 0
-% \bullet 
-%  i
-%  \bullet 
-% such that each PM
-%  i is a projective resolution of M and inducing M
-%  in cohomology.
-% \bullet 
-%  \bullet 
-% If M is exact, then PM \bullet  may be chosen to be exact.
-% \bullet Proof. Break up M into short exact sequences
-%  / K i
-%  / M i
-%  / I i+1
-%  / 0
-% together with exact sequences
-%  / I i
-%  / K i
-%  / H i
-%  / 0
-% where K i is the kernel of M i \to  M i+1, I i+1 is its image, and H i is the
-% cohomology
-% at M i. Choose arbitrary projective resolutions PI i , PH i of I i and H i , for
-% all i.
-% Then the horseshoe lemma (Lemma 7.8) yields projective resolutions of K i and
-% short exact sequences
-%  / P \bullet  i
-%  / P \bullet  i
-%  / P \bullet  i
-%  / 0 ,
-% I
-%  K
-%  H
-% with evident notation, and then the horseshoe lemma again and the previous se-
-% quences give projective resolutions PM i of M i and short exact sequences
-%  / P \bullet  i
-%  / P \bullet  i
-%  / P \bullet  i+1
-%  / 0 .
-% K
-%  M
-%  I
-% \bullet 
-% The PM
-%  i can now be assembled into a sequence, by using differentials obtained by
-% the compositions
-% PM
-%  \bullet 
-%  i \to  PI \bullet 
-%  i+1 \to  PK \bullet 
-%  i+1 \to  PM \bullet 
-%  i+1 .
-% \bullet 
-%  \bullet 
-% It is clear that one obtains a complex and that PK
-%  i , resp., PI i+1 , are the kernel,
-% resp., the image, of PM \bullet 
-%  i \to  PM \bullet 
-%  i+1 (Exercise 1.21). The statements follow. (If M \bullet 
-% is exact, then I i = K i, and the construction gives PI \bullet  i = PK
-%  \bullet 
-%  i , so that PM \bullet 
-%  \bullet  is
-% exact.)
-%  ?
-% \bullet 
-% Remark 7.10. The proof of Corollary 7.9 shows that the resolution PM
-%  \bullet  , i.e.,
-% \cdot \cdot \cdot 
-%  d-4 /
-%  PM
-%  \bullet 
-%  -3
-%  d-3
-%  / PM
-%  \bullet  -2
-%  d-2
-%  / PM
-%  \bullet  -1
-%  d-1
-%  / PM
-%  \bullet  0
-%  / 0 ,
-% can in fact be chosen so that im di , ker di , and the cohomology ker di / im
-% di-1 are
-% \bullet all projective resolutions of the corresponding objects from M . This is useful in
-% some applications. Resolutions satisfying this property are called
-% Cartan-Eilenberg
-% (or `fully projective') resolutions.
-%  ?
-% Coming back to the issue at hand, we are one step away from the promised
-% long exact sequence of derived functors. The last ingredient is the following:
-% Lemma 7.11. Let A be an abelian category, and let
-% (*)
-%  / L\bullet 
-%  / M \bullet 
-%  / P \bullet 
-%  / 0
-% be an exact sequence of complexes in A, where P i is projective for all i. Let F
-% :
-% A \to  B be any additive functor of abelian categories. Then the sequence
-% obtained
-% by applying F to (*),
-%  / F (L\bullet  )
-%  / F (M \bullet  )
-%  / F (P \bullet )
-%  / 0 ,
-% is exact.
-% Note that we are not asking F to be exact in any sense.
-% Proof. Since P i is projective, the sequence
-%  / Li
-%  / M i
-%  / P i
-%  / 0
-% splits (see the end of \S{}VIII.6.1). It follows that
-%  / F (Li)
-%  / F (M i )
-%  / F (P i )
-%  / 0
-% is (split and) exact for all i (Exercise 5.11). Exactness of a sequence of
-% complexes
-% is determined by exactness at each degree, so this proves the statement.
-%  ?
-% Now the long exact sequence of left-derived functors is an immediate conse-
-% quence of the long exact cohomology sequence.
-% Theorem 7.12. Let F : A \to  B be an additive functor of abelian categories, and
-% assume A has enough projectives. Every exact sequence
-%  / L
-%  / M
-%  / N
-%  / 0
-% in A induces a long exact sequence
-% \cdot \cdot \cdot 
-%  / L2 F (L)
-%  / L2 F (M )
-%  / L2 F (N )
-% ED
-%  BC
+\begin{coro}{}{coro:homol:7.9}
+  Let
+  \[\begin{tikzcd}[column sep=large]
+    M^\bullet: & \dots \arrow[r] & M^{-3} \arrow[r] & M^{-2}
+      \arrow[r] & M^{-1} \arrow[r] & M^0 \arrow[r] & 0
+  \end{tikzcd}\]
+  be a complex in an abelian category $\mathsf{A}$ with enough
+  projectives. Then there is a complex of complexes:
+  \[\begin{tikzcd}[column sep=large]
+    P_{M^\bullet}^\bullet: & \dots \arrow[r] & P_{M^\bullet}^{-3}
+      \arrow[r] & P_{M^\bullet}^{-2} \arrow[r] & P_{M^\bullet}^{-1}
+      \arrow[r] & P_{M^\bullet}^0 \arrow[r] & 0
+  \end{tikzcd}\]
+  such that each $P_{M^\bullet}^i$ is a projective resolution of
+  $M^i$ and inducing $M^\bullet$ in cohomology.
+
+  If $M^\bullet$ is exact, then $P_{M^\bullet}^\bullet$ may be chosen
+  to be exact.
+\end{coro}
+\begin{proof}
+  Break up $M^\bullet$ into short exact sequences
+  \[\begin{tikzcd}
+    0 \arrow[r] & K^i \arrow[r] & M^i \arrow[r] & I^{i+1} \arrow[r] & 0
+  \end{tikzcd}\]
+  together with exact sequences
+  \[\begin{tikzcd}
+    0 \arrow[r] & I^i \arrow[r] & K^i \arrow[r] & H^i \arrow[r] & 0
+  \end{tikzcd}\]
+  where $K^i$ is the kernel of $M^i \to M^{i+1}$, $I^{i+1}$ is its
+  image, and $H^i$ is the cohomology at $M^i$. Choose arbitrary
+  projective resolutions $P_{I^i}$, $P_{H^i}$ of $I^i$ and $H^i$, for
+  all $i$. Then the horseshoe lemma (Lemma~\ref{lem:homol:7.8})
+  yields projective resolutions of $K^i$ and short exact sequences
+  \[\begin{tikzcd}
+    0 \arrow[r] & P_{I^i}^\bullet \arrow[r] & P_{K^i}^\bullet
+    \arrow[r] & P_{H^i}^\bullet \arrow[r] & 0,
+  \end{tikzcd}\]
+  with evident notation, and then the horseshoe lemma again and the
+  previous sequences give projective resolutions $P_{M^i}$ of $M^i$
+  and short exact sequences
+  \[\begin{tikzcd}
+    0 \arrow[r] & P_{K^i}^\bullet \arrow[r] & P_{M^i}^\bullet
+    \arrow[r] & P_{I^{i+1}}^\bullet \arrow[r] & 0.
+  \end{tikzcd}\]
+  The $P_{M^i}^\bullet$ can now be assembled into a sequence, by
+  using differentials obtained by the compositions
+  \[
+    P_{M^i}^\bullet \to P_{I^{i+1}}^\bullet \to P_{K^{i+1}}^\bullet
+    \to P_{M^{i+1}}^\bullet.
+  \]
+  It is clear that one obtains a complex and that $P_{K^{i+1}}^\bullet$,
+  resp., $P_{I^{i+1}}^\bullet$, are the kernel, resp., the image, of
+  $P_{M^i}^\bullet \to P_{M^{i+1}}^\bullet$ (Exercise~1.21). The
+  statements follow. (If $M^\bullet$ is exact, then $I^i = K^i$, and
+  the construction gives $P_{I^i}^\bullet = P_{K^i}^\bullet$, so that
+  $P_{M^\bullet}^\bullet$ is exact.)
+\end{proof}
+
+\begin{rem}{}{rem:homol:7.10}
+  The proof of Corollary~\ref{coro:homol:7.9} shows that the
+  resolution $P_{M^\bullet}^\bullet$, i.e.,
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r, "d^{-4}"] & P_{M^\bullet}^{-3} \arrow[r, "d^{-3}"]
+      & P_{M^\bullet}^{-2} \arrow[r, "d^{-2}"] & P_{M^\bullet}^{-1}
+      \arrow[r, "d^{-1}"] & P_{M^\bullet}^0 \arrow[r] & 0,
+  \end{tikzcd}\]
+  can in fact be chosen so that $\operatorname{im} d^i$, $\ker d^i$,
+  and the cohomology $\ker d^i / \operatorname{im} d^{i-1}$ are all
+  projective resolutions of the corresponding objects from
+  $M^\bullet$. This is useful in some applications. Resolutions
+  satisfying this property are called \emph{Cartan-Eilenberg} (or
+  `fully projective') \emph{resolutions}.
+\end{rem}
+
+Coming back to the issue at hand, we are one step away from the
+promised long exact sequence of derived functors. The last
+ingredient is the following:
+
+\begin{lem}{}{lem:homol:7.11}
+  Let $\mathsf{A}$ be an abelian category, and let
+  \[\begin{tikzcd}
+    0 \arrow[r] & L^\bullet \arrow[r] & M^\bullet \arrow[r] &
+    P^\bullet \arrow[r] & 0
+  \end{tikzcd} \tag{$*$}\]
+  be an exact sequence of complexes in $\mathsf{A}$, where $P^i$ is
+  projective for all $i$. Let $\mathscr{F} : \mathsf{A} \to \mathsf{B}$
+  be any additive functor of abelian categories. Then the sequence
+  obtained by applying $\mathscr{F}$ to $(*)$,
+  \[\begin{tikzcd}
+    0 \arrow[r] & \mathscr{F}(L^\bullet) \arrow[r] &
+    \mathscr{F}(M^\bullet) \arrow[r] & \mathscr{F}(P^\bullet)
+    \arrow[r] & 0,
+  \end{tikzcd}\]
+  is exact.
+\end{lem}
+
+Note that we are not asking $\mathscr{F}$ to be exact in any sense.
+
+\begin{proof}
+  Since $P^i$ is projective, the sequence
+  \[\begin{tikzcd}
+    0 \arrow[r] & L^i \arrow[r] & M^i \arrow[r] & P^i \arrow[r] & 0
+  \end{tikzcd}\]
+  splits (see the end of \S{}VIII.6.1). It follows that
+  \[\begin{tikzcd}
+    0 \arrow[r] & \mathscr{F}(L^i) \arrow[r] & \mathscr{F}(M^i)
+    \arrow[r] & \mathscr{F}(P^i) \arrow[r] & 0
+  \end{tikzcd}\]
+  is (split and) exact for all $i$ (Exercise~5.11). Exactness of a
+  sequence of complexes is determined by exactness at each degree, so
+  this proves the statement.
+\end{proof}
+
+Now the long exact sequence of left-derived functors is an immediate
+consequence of the long exact cohomology sequence.
+
+\begin{thm}{}{thm:homol:7.12}
+  Let $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ be an additive functor
+  of abelian categories, and assume $\mathsf{A}$ has enough
+  projectives. Every exact sequence
+  \[\begin{tikzcd}
+    0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0
+  \end{tikzcd}\]
+  in $\mathsf{A}$ induces a long exact sequence
+  \[
+    \dots \to \mathsf{L}_2\mathscr{F}(L) \to \mathsf{L}_2\mathscr{F}(M)
+    \to \mathsf{L}_2\mathscr{F}(N) \xrightarrow{\delta_2}
+    \mathsf{L}_1\mathscr{F}(L) \to \mathsf{L}_1\mathscr{F}(M) \to
+    \mathsf{L}_1\mathscr{F}(N) \xrightarrow{\delta_1}
+    \mathsf{L}_0\mathscr{F}(L) \to \mathsf{L}_0\mathscr{F}(M) \to
+    \mathsf{L}_0\mathscr{F}(N) \to 0
+  \]
 % ^^^^^^^^^^^^^^^^ \delta 2
 %  ^^^^^^^^^^^^^^^^^
 % @A
-%  GF
-% / L1 F (L)
-%  / L1 F (M )
-%  / L1 F (N )
-% ED
-%  BC
-% ^^^^^^^^^^^^^^^^ \delta 1
-%  ^^^^^^^^^^^^^^^^^
-% GF
-%  @A
-% / L0 F (L)
-%  / L0 F (M )
-%  / L0 F (N )
-% in B. Further, this assignment is covariantly functorial.
-% / 0
-% The last sentence means that a morphism of short exact sequences will induce
-% a morphism of the corresponding long exact sequences, compatibly with composi-
-% tions. I will leave the diagram chases necessary to prove this to the reader
-% (Exer-
-% cise 7.7).
-% Proof. By Lemma 7.8, the given exact sequence is induced by an exact sequence
-% of projective resolutions
-%  / P \bullet 
-%  / P \bullet 
-%  / P \bullet 
-%  / 0 .
-% L
-%  M
-%  N
-% By Lemma 7.11, the corresponding sequence
-%  / F (PL
-%  \bullet  )
-%  / F (PM
-%  \bullet  )
-%  / F (PN
-%  \bullet  )
-%  / 0
-% in C(B) is exact. As the cohomology objects of these complexes are precisely the
-% left-derived functors of F , the long exact cohomology sequence determined by
-% this
-% sequence (by Theorem 3.5) gives a long exact sequence as stated.
-%  ?
-% Once more in the style of \S{}3.4, Theorem 7.12 tells us that the triangle
-% \iota (L)
-% +1 ? ?
-%  ?
-%  ?
-%  ?
-%  ? C 8 8 8
-%  8 8
-%  8 8
-%  ?
-% \iota (N ) o
-%  \iota (M )
-% induces a triangle33
-% L\bullet F (L)
-% -1 } } }
-%  }
-%  } \delta 
-%  }
-%  } >
-%  A A
-%  A A
-%  A A
-%  A A
-% L\bullet  F (N ) o
-%  L\bullet  F (M )
-% \leq 0The vertices of this triangle are complexes in C (B).
-% 33 The indexing is potentially confusing: the lower \bullet  indicates
-% `homological' indexing, which
-% is opposite to the degree of the corresponding cochain complexes. So LiF (N )
-% corresponds to
-% degree -i, which is sent by the northeast arrow to cohomological degree -i + 1,
-% corresponding
-% to Li-1 F (L), as it should.
-% A completely similar situation occurs for right-derived functors: if A has
-% enough
-% injectives, an exact sequence as above induces a triangle
-% R\bullet  F (L)
-% } +1 } }
-%  }
-%  }
-%  \delta 
-%  } }
-%  } >
-%  B B
-%  B B
-%  B B
-%  B B
-% R\bullet  F (N ) o
-%  R\bullet  F (M )
-% \geq 0where now the vertices are complexes in C (B).
+  in $\mathsf{B}$. Further, this assignment is covariantly
+  functorial.
+\end{thm}
+
+The last sentence means that a morphism of short exact sequences will
+induce a morphism of the corresponding long exact sequences,
+compatibly with compositions. I will leave the diagram chases
+necessary to prove this to the reader (Exercise~7.7).
+
+\begin{proof}
+  By Lemma~\ref{lem:homol:7.8}, the given exact sequence is induced
+  by an exact sequence of projective resolutions
+  \[\begin{tikzcd}
+    0 \arrow[r] & P_L^\bullet \arrow[r] & P_M^\bullet \arrow[r] &
+    P_N^\bullet \arrow[r] & 0.
+  \end{tikzcd}\]
+  By Lemma~\ref{lem:homol:7.11}, the corresponding sequence
+  \[\begin{tikzcd}
+    0 \arrow[r] & \mathscr{F}(P_L^\bullet) \arrow[r] &
+    \mathscr{F}(P_M^\bullet) \arrow[r] & \mathscr{F}(P_N^\bullet)
+    \arrow[r] & 0
+  \end{tikzcd}\]
+  in $\mathsf{C}(\mathsf{B})$ is exact. As the cohomology objects of
+  these complexes are precisely the left-derived functors of
+  $\mathscr{F}$, the long exact cohomology sequence determined by
+  this sequence (by Theorem~3.5) gives a long exact sequence as
+  stated.
+\end{proof}
+
+Once more in the style of \S{}3.4, Theorem~\ref{thm:homol:7.12} tells
+us that the triangle
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$\iota(L)$};
+    \node (N) at (0,0) {$\iota(N)$};
+    \node (M) at (2,0) {$\iota(M)$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+induces a triangle\footnote{The indexing is potentially confusing:
+the lower $\bullet$ indicates `homological' indexing, which is
+opposite to the degree of the corresponding cochain complexes. So
+$\mathsf{L}_i\mathscr{F}(N)$ corresponds to degree $-i$, which is
+sent by the northeast arrow to cohomological degree $-i+1$,
+corresponding to $\mathsf{L}_{i-1}\mathscr{F}(L)$, as it should.}
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$\mathsf{L}_\bullet\mathscr{F}(L)$};
+    \node (N) at (0,0) {$\mathsf{L}_\bullet\mathscr{F}(N)$};
+    \node (M) at (2,0) {$\mathsf{L}_\bullet\mathscr{F}(M)$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left]
+      {$\shortstack{$-1$ \\ $\delta$}$};
+  \end{tikzpicture}
+\]
+The vertices of this triangle are complexes in $\mathsf{C}^{\le 0}
+(\mathsf{B})$.
+
+A completely similar situation occurs for right-derived functors: if
+$\mathsf{A}$ has enough injectives, an exact sequence as above
+induces a triangle
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$\mathsf{R}^\bullet\mathscr{F}(L)$};
+    \node (N) at (0,0) {$\mathsf{R}^\bullet\mathscr{F}(N)$};
+    \node (M) at (2,0) {$\mathsf{R}^\bullet\mathscr{F}(M)$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left]
+      {$\shortstack{$+1$ \\ $\delta$}$};
+  \end{tikzpicture}
+\]
+where now the vertices are complexes in $\mathsf{C}^{\ge 0}(\mathsf{B})$.
 
 \subsection{Relating F , Li F , RiF}
 \label{subsec:homol:relating-f-li-f-rif}
