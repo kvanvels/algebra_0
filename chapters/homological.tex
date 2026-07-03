@@ -3838,2081 +3838,1817 @@ category, in \S{}6.
 
 \subsection{Homotopic maps are identified in the derived category}
 \label{subsec:homol:homotopic-maps-are-identified-in-the-derived-category}
-% To see that
 
-% this `homotopic category' is a necessary stop on the way from C(A) to D(A), go
-% back
-% to our higher-brow considerations at the end of \S{}4.2. Again consider any
-% additive
-% functor
-% F : C(A) -\to  D
-% transforming quasi-isomorphisms into isomorphisms. The simplest such functor is
-% cohomology; the universal one is the functor from C(A) to the mystifying derived
-% category D(A). We have verified in Proposition 4.10 that homotopic maps induce
-% the same morphism in cohomology. Might this not be the case for any functor F
-% as above? It is!
-% Lemma 5.1. Let F : C(A) -\to  D be an additive functor such that F (\rho \bullet
-% ) is an
-% isomorphism in D for all quasi-isomorphisms \rho \bullet  in C(A).
-% Let \alpha \bullet  , \beta \bullet  : L\bullet  \to  M \bullet  be homotopic
-% morphisms in C(A). Then F (\alpha \bullet  ) = F (\beta  \bullet )
-% in D.
-% Proof. Equivalently (as F is additive), we verify that if \alpha \bullet  \sim
-% 0, then F (\alpha \bullet  ) = 0.
-% By Lemma 4.7, it suffices to show that \alpha \bullet  factors through an exact
-% complex.
-% This exact complex is the mapping cone M C(idL\bullet  )\bullet  of the identity
-% idL\bullet  : L\bullet  \to
-% \bullet 
-% L . Recall (\S{}4.1) that
-% M C(idL\bullet  )i = Li+1 \oplus  Li,
-% with differential defined by
-% diM C(idL\bullet  ) (a, b) = (-di+1
-%  L\bullet  (a), a + dL\bullet  i
-%  (b)).
-% Since the identity is trivially a quasi-isomorphism, M C(idL\bullet  ) is an
-% exact complex
-% (Corollary 4.2). The morphism
-% Li \to  M C(idL\bullet  )i ,
-%  b ?\to  (0, b)
-% always commutes with differentials, so it defines a morphism of complexes
-% L\bullet  \to
-% M C(idL\bullet  )\bullet  . By contrast, a morphism
-% M C(idL\bullet  ) \bullet  \to  M \bullet 
-% is not always available. Under our hypothesis, however, there is a homotopy
-% \alpha \bullet  \sim  0,
-% that is, morphisms
-% hi : Li \to  M i-1
-% i
-%  i-1
-%  i
-%  i+1
-%  i
-% such that \alpha  = dM \bullet  \circ  h + h
-%  \circ  dL\bullet  . Define morphisms
-% \pi i : M C(idL\bullet  )i \to  M i
-%  by
-%  (a, b) ?\to  hi+1 (a) + \alpha i (b).
-% It is clear that the composition
-% Li \to  M C(idL\bullet  )i \to  M i
-% is \alpha i . All we have to check now is that the collection \pi  i defines a
-% morphism of
-% complexes: this will show that \alpha \bullet  factors through the exact complex
-% M C(idL\bullet  )\bullet  ,
-% hence that F (\alpha \bullet  ) = 0 (by Lemma 4.7), concluding the proof of this
-% lemma. That
-% is, we have to verify that
-% (*)
-%  dM
-%  i-1
-%  \bullet  \circ  \pi 
-% i-1
-%  = \pi  i \circ  di-1
-%  M C(idL\bullet  )\bullet 
-% for all i. The left-hand side of (*) acts as follows:
-% (a, b) ?\to  hi(a) + \alpha i-1 (b) ?\to  di-1
-%  M \bullet  (hi
-%  (a) + \alpha 
-% i-1
-% (b)).
-% The right-hand side acts as
-% (a, b) ?\to  (-diL\bullet  (a), a + di-1
-%  L\bullet  (b)) ?\to  -h
-% i+1(dL\bullet  i
-%  (a)) + \alpha  i (a + di-1
-%  L\bullet  (b)).
-% Thus the needed equality is
-% dM
-%  i-1 \bullet  (hi
-%  (a)) + dM i-1
-%  \bullet  (\alpha 
-% i-1
-%  (b)) = -hi+1 (diL\bullet  (a)) + \alpha i (a) + \alpha i(di-1
-%  L\bullet  (b))
-% or, equivalently,
-% (dM
-%  i-1
-%  \bullet  \circ  hi
-%  + h
-% i+1
-%  \circ  dL\bullet  i
-%  - \alpha i
-%  )(a) = (\alpha i
-%  \circ  dL\bullet  i-1
-%  - dM i-1
-%  \bullet  \circ  \alpha 
-% i-1
-% )(b)
-% \forall a \in  Li+1 , \forall b \in  Li . But both sides are 0: the right-hand side because \alpha \bullet  is a
-% morphism of complexes and the left-hand side because h is a homotopy \alpha
-% \bullet  \sim  0. ?
-% Lemma 5.1 tells us that every functor transforming quasi-isomorphisms into
-% isomorphisms must factor through the category obtained from C(A) by identifying
-% together homotopic morphisms. It is time to define this category.
+To see that this `homotopic category' is a necessary stop on the way
+from $\mathsf{C}(\mathsf{A})$ to $\mathsf{D}(\mathsf{A})$, go back to
+our higher-brow considerations at the end of \S{}4.2. Again consider
+any additive functor
+\[
+  \mathscr{F} : \mathsf{C}(\mathsf{A}) \longrightarrow \mathsf{D}
+\]
+transforming quasi-isomorphisms into isomorphisms. The simplest such
+functor is cohomology; the universal one is the functor from
+$\mathsf{C}(\mathsf{A})$ to the mystifying derived category
+$\mathsf{D}(\mathsf{A})$. We have verified in Proposition~4.10 that
+homotopic maps induce the same morphism in cohomology. Might this not
+be the case for any functor $\mathscr{F}$ as above? It is!
+
+\begin{lem}{}{lem:homol:5.1}
+  Let $\mathscr{F} : \mathsf{C}(\mathsf{A}) \longrightarrow
+  \mathsf{D}$ be an additive functor such that
+  $\mathscr{F}(\rho^\bullet)$ is an isomorphism in $\mathsf{D}$ for
+  all quasi-isomorphisms $\rho^\bullet$ in $\mathsf{C}(\mathsf{A})$.
+  Let $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$ be
+  homotopic morphisms in $\mathsf{C}(\mathsf{A})$. Then
+  $\mathscr{F}(\alpha^\bullet) = \mathscr{F}(\beta^\bullet)$ in
+  $\mathsf{D}$.
+\end{lem}
+\begin{proof}
+    Equivalently (as $\mathscr{F}$ is additive), we verify that if
+    $\alpha^\bullet \sim 0$, then $\mathscr{F}(\alpha^\bullet) = 0$.
+
+    By Lemma~4.7, it suffices to show that $\alpha^\bullet$ factors
+    through an exact complex. This exact complex is the mapping cone
+    $MC(\operatorname{id}_{L^\bullet})^\bullet$ of the identity
+    $\operatorname{id}_{L^\bullet} : L^\bullet \to L^\bullet$. Recall
+    (\S{}4.1) that
+    \[
+      MC(\operatorname{id}_{L^\bullet})^i = L^{i+1} \oplus L^i,
+    \]
+    with differential defined by
+    \[
+      d^i_{MC(\operatorname{id}_{L^\bullet})}(a, b) =
+      \bigl(-d^{i+1}_{L^\bullet}(a),\; a + d^i_{L^\bullet}(b)\bigr).
+    \]
+    Since the identity is trivially a quasi-isomorphism,
+    $MC(\operatorname{id}_{L^\bullet})$ is an exact complex
+    (Corollary~4.2). The morphism
+    \[
+      L^i \to MC(\operatorname{id}_{L^\bullet})^i, \qquad
+      b \mapsto (0, b)
+    \]
+    always commutes with differentials, so it defines a morphism of
+    complexes $L^\bullet \to MC(\operatorname{id}_{L^\bullet})^\bullet$.
+    By contrast, a morphism
+    $MC(\operatorname{id}_{L^\bullet})^\bullet \to M^\bullet$ is not
+    always available. Under our hypothesis, however, there is a
+    homotopy $\alpha^\bullet \sim 0$, that is, morphisms
+    $h^i : L^i \to M^{i-1}$ such that $\alpha^i = d^{i-1}_{M^\bullet}
+    \circ h^i + h^{i+1} \circ d^i_{L^\bullet}$. Define morphisms
+    \[
+      \pi^i : MC(\operatorname{id}_{L^\bullet})^i \to M^i \qquad
+      \text{by} \qquad (a, b) \mapsto h^{i+1}(a) + \alpha^i(b).
+    \]
+    It is clear that the composition
+    $L^i \to MC(\operatorname{id}_{L^\bullet})^i \to M^i$ is
+    $\alpha^i$. All we have to check now is that the collection
+    $\pi^i$ defines a morphism of complexes: this will show that
+    $\alpha^\bullet$ factors through the exact complex
+    $MC(\operatorname{id}_{L^\bullet})^\bullet$, hence that
+    $\mathscr{F}(\alpha^\bullet) = 0$ (by Lemma~4.7), concluding the
+    proof of this lemma. That is, we have to verify that
+    \[
+      d^{i-1}_{M^\bullet} \circ \pi^{i-1} = \pi^i \circ
+      d^{i-1}_{MC(\operatorname{id}_{L^\bullet})^\bullet} \tag{$*$}
+    \]
+    for all $i$. The left-hand side of $(*)$ acts as follows:
+    \[
+      (a, b) \mapsto h^i(a) + \alpha^{i-1}(b) \mapsto
+      d^{i-1}_{M^\bullet}\bigl(h^i(a) + \alpha^{i-1}(b)\bigr).
+    \]
+    The right-hand side acts as
+    \[
+      (a, b) \mapsto \bigl(-d^i_{L^\bullet}(a),\; a +
+      d^{i-1}_{L^\bullet}(b)\bigr) \mapsto
+      -h^{i+1}\bigl(d^i_{L^\bullet}(a)\bigr) + \alpha^i\bigl(a +
+      d^{i-1}_{L^\bullet}(b)\bigr).
+    \]
+    Thus the needed equality is
+    \[
+      d^{i-1}_{M^\bullet}(h^i(a)) + d^{i-1}_{M^\bullet}
+      (\alpha^{i-1}(b)) = -h^{i+1}(d^i_{L^\bullet}(a)) + \alpha^i(a)
+      + \alpha^i(d^{i-1}_{L^\bullet}(b))
+    \]
+    or, equivalently,
+    \[
+      \bigl(d^{i-1}_{M^\bullet} \circ h^i + h^{i+1} \circ
+      d^i_{L^\bullet} - \alpha^i\bigr)(a) = \bigl(\alpha^i \circ
+      d^{i-1}_{L^\bullet} - d^{i-1}_{M^\bullet} \circ
+      \alpha^{i-1}\bigr)(b)
+    \]
+    for all $a \in L^{i+1}$, $b \in L^i$. But both sides are $0$: the
+    right-hand side because $\alpha^\bullet$ is a morphism of
+    complexes and the left-hand side because $h$ is a homotopy
+    $\alpha^\bullet \sim 0$.
+  \end{proof}
+
+Lemma~\ref{lem:homol:5.1} tells us that every functor transforming
+quasi-isomorphisms into isomorphisms must factor through the category
+obtained from $\mathsf{C}(\mathsf{A})$ by identifying together
+homotopic morphisms. It is time to define this category.
 
 \subsection{Definition of the homotopic category of complexes}
 \label{subsec:homol:definition-of-the-homotopic-category-of-complexes}
 
-% Definition 5.2. Let A be an abelian category. The homotopy category K(A) of
-% cochain complexes in A is the category whose objects are the cochain complexes
-% in A (that is, the same objects of C(A)) and whose morphisms are
-% Hom K(A) (L\bullet  , M \bullet  ) := Hom C(A) (L\bullet  , M \bullet )/ \sim 
-% where \sim  is the homotopy relation.
-%  ?
-% Yes, but is this a category? Recall that the homotopy relation \sim  respects
-% composition (Exercise 4.6); in other words, the operation of composition
-% HomC(A) (L\bullet  , M \bullet ) \times  HomC(A) (M \bullet  , N \bullet  ) -\to
-% HomC(A)(L\bullet , N \bullet  )
-% doesdescend to an operation
-% HomK(A) (L\bullet  , M \bullet  ) \times  HomK(A) (M \bullet  , N \bullet  )-\to
-% HomK(A) (L\bullet  , N \bullet  ).
-% Checking the category axioms is routine and is left to the patient reader.
-% Bounded variations K- (A), K+ (A), etc., are obtained likewise from C- (A),
-% C+
-%  (A), etc. The considerations which follow will apply to all these versions. The
-% further variations K- (P), resp., K+ (I), in which the complexes will be
-% required
-% to consist of projective, resp., injective, objects from A (cf. \S{}5.3) will
-% also play a
-% crucially important role.
-% As to the general structure underlying the homotopic category,
-% Lemma 5.3. Let A be an abelian category. Then the homotopic category K(A) of
-% complexes is an additive category.
-% Proof. Exercise 5.1.
-%  ?
-% However, note that, in general, the homotopic category is not abelian. Indeed,
-% homotopic maps do not have the same kernel or cokernel in general, so defining
-% these notions becomes problematic. As I already mentioned in \S{}3.4, K(A) is a
-% triangulated category; the `distinguished triangles' are the triangles arising
-% from
-% the cones of morphisms, as in \S{}4.1. (I will briefly describe the situation in
-% \S{}9.2.)
-% The main motivation for the introduction of the homotopic category is that
-% homotopy equivalences become isomorphisms in K(A). More precisely, by definition
-% there is a functor
-% C(A) -\to  K(A),
-% mapping every object to `itself' and every morphism to its homotopy class. Ho-
-% motopy equivalences in C(A) become isomorphisms in K(A) because the relation
-% \alpha  \bullet  \circ  \beta  \bullet  \sim  id in C(A) becomes \alpha \bullet  \circ  \beta  \bullet  = id in K(A). The homotopic category is
-% obtained from C(A) by making all homotopy equivalences invertible on the nose.
-% We can then reinterpret Lemma 5.1 as the following `factorization' result:
-% Proposition 5.4. Let F : C(A) -\to  D be an additive functor such that F (\rho
-% \bullet )
-% is an isomorphism in D for all quasi-isomorphisms \rho \bullet  in C(A). Then F
-% factors
-% uniquely through K(A):
-% C(A)
-%  F
-%  / D
-% \sqcup  | | | |
-%  |
-%  \exists !
-%  |
-%  | |
-%  =
-% K(A)
-% Proof. Exercise 5.2.
-%  ?
-% In particular, there must be a unique functor from K(A) to the subtler derived
-% category D(A). The situation is of course analogous for all bounded versions of
-% these objects: the natural functors from the appropriately bounded complexes to
-% the corresponding derived categories factor uniquely through the corresponding
-% homotopic categories:
-% C- (A)
-%  C+(A)
-% \sqcup 
-%  \sqcup 
-% K- (A)
-%  K+ (A)
-% \sqcup 
-%  \sqcup 
-% D- (A)
-%  D+ (A)
-% A particular case of Proposition 5.4 is the fact that the cohomology functor on
-% C(A)
-% (resp., C -(A), C+(A)) descends to a functor on K(A) (resp., K- (A), K+ (A)).
-% This
-% fact also follows directly from Proposition 4.10: homotopic maps induce the same
-% morphism in cohomology.
+\begin{defn}{}{defn:homol:5.2}
+  Let $\mathsf{A}$ be an abelian category. The \emph{homotopy
+  category} $\mathsf{K}(\mathsf{A})$ of cochain complexes in
+  $\mathsf{A}$ is the category whose objects are the cochain
+  complexes in $\mathsf{A}$ (that is, the same objects of
+  $\mathsf{C}(\mathsf{A})$) and whose morphisms are
+  \[
+    \Hom_{\mathsf{K}(\mathsf{A})}(L^\bullet, M^\bullet)
+    := \Hom_{\mathsf{C}(\mathsf{A})}(L^\bullet,
+    M^\bullet)/\sim
+  \]
+  where $\sim$ is the homotopy relation.
+\end{defn}
+
+Yes, but is this a category? Recall that the homotopy relation $\sim$
+respects composition (Exercise~4.6); in other words, the operation of
+composition
+\[
+  \Hom_{\mathsf{C}(\mathsf{A})}(L^\bullet, M^\bullet)
+  \times \Hom_{\mathsf{C}(\mathsf{A})}(M^\bullet,
+  N^\bullet) \longrightarrow
+  \Hom_{\mathsf{C}(\mathsf{A})}(L^\bullet, N^\bullet)
+\]
+does descend to an operation
+\[
+  \Hom_{\mathsf{K}(\mathsf{A})}(L^\bullet, M^\bullet)
+  \times \Hom_{\mathsf{K}(\mathsf{A})}(M^\bullet,
+  N^\bullet) \longrightarrow
+  \Hom_{\mathsf{K}(\mathsf{A})}(L^\bullet, N^\bullet).
+\]
+Checking the category axioms is routine and is left to the patient
+reader.
+
+Bounded variations $\mathsf{K}^-(\mathsf{A})$,
+$\mathsf{K}^+(\mathsf{A})$, etc., are obtained likewise from
+$\mathsf{C}^-(\mathsf{A})$, $\mathsf{C}^+(\mathsf{A})$, etc. The
+considerations which follow will apply to all these versions. The
+further variations $\mathsf{K}^-(\mathsf{P})$, resp.,
+$\mathsf{K}^+(\mathsf{I})$, in which the complexes will be required
+to consist of projective, resp., injective, objects from $\mathsf{A}$
+(cf. \S{}5.3) will also play a crucially important role.
+
+As to the general structure underlying the homotopic category,
+
+\begin{lem}{}{lem:homol:5.3}
+  Let $\mathsf{A}$ be an abelian category. Then the homotopic
+  category $\mathsf{K}(\mathsf{A})$ of complexes is an additive
+  category.
+\end{lem}
+\begin{proof}
+  Exercise~5.1.
+\end{proof}
+
+However, note that, in general, the homotopic category is \emph{not}
+abelian. Indeed, homotopic maps do not have the same kernel or
+cokernel in general, so defining these notions becomes problematic.
+As I already mentioned in \S{}3.4, $\mathsf{K}(\mathsf{A})$ is a
+\emph{triangulated} category; the `distinguished triangles' are the
+triangles arising from the cones of morphisms, as in \S{}4.1. (I will
+briefly describe the situation in \S{}9.2.)
+
+The main motivation for the introduction of the homotopic category is
+that homotopy equivalences become isomorphisms in
+$\mathsf{K}(\mathsf{A})$. More precisely, by definition there is a
+functor
+\[
+  \mathsf{C}(\mathsf{A}) \longrightarrow \mathsf{K}(\mathsf{A}),
+\]
+mapping every object to `itself' and every morphism to its homotopy
+class. Homotopy equivalences in $\mathsf{C}(\mathsf{A})$ become
+isomorphisms in $\mathsf{K}(\mathsf{A})$ because the relation
+$\alpha^\bullet \circ \beta^\bullet \sim \operatorname{id}$ in
+$\mathsf{C}(\mathsf{A})$ becomes $\alpha^\bullet \circ \beta^\bullet =
+\operatorname{id}$ in $\mathsf{K}(\mathsf{A})$. The homotopic category
+is obtained from $\mathsf{C}(\mathsf{A})$ by making all homotopy
+equivalences invertible on the nose.
+
+We can then reinterpret Lemma~\ref{lem:homol:5.1} as the following
+`factorization' result:
+
+\begin{prop}{}{prop:homol:5.4}
+  Let $\mathscr{F} : \mathsf{C}(\mathsf{A}) \longrightarrow
+  \mathsf{D}$ be an additive functor such that
+  $\mathscr{F}(\rho^\bullet)$ is an isomorphism in $\mathsf{D}$ for
+  all quasi-isomorphisms $\rho^\bullet$ in $\mathsf{C}(\mathsf{A})$.
+  Then $\mathscr{F}$ factors uniquely through $\mathsf{K}(\mathsf{A})$:
+  \[\begin{tikzcd}
+    \mathsf{C}(\mathsf{A}) \arrow[r, "\mathscr{F}"] \arrow[d]
+      & \mathsf{D} \\
+    \mathsf{K}(\mathsf{A}) \arrow[ur, dashed, "\exists!"']
+  \end{tikzcd}\]
+\end{prop}
+\begin{proof}
+  Exercise~5.2.
+\end{proof}
+
+In particular, there must be a unique functor from
+$\mathsf{K}(\mathsf{A})$ to the subtler derived category
+$\mathsf{D}(\mathsf{A})$. The situation is of course analogous for
+all bounded versions of these objects: the natural functors from the
+appropriately bounded complexes to the corresponding derived
+categories factor uniquely through the corresponding homotopic
+categories:
+\[\begin{tikzcd}[column sep=large]
+  \mathsf{C}^-(\mathsf{A}) \arrow[d] & \mathsf{C}^+(\mathsf{A})
+    \arrow[d] \\
+  \mathsf{K}^-(\mathsf{A}) \arrow[d] & \mathsf{K}^+(\mathsf{A})
+    \arrow[d] \\
+  \mathsf{D}^-(\mathsf{A}) & \mathsf{D}^+(\mathsf{A})
+\end{tikzcd}\]
+A particular case of Proposition~\ref{prop:homol:5.4} is the fact
+that the cohomology functor on $\mathsf{C}(\mathsf{A})$ (resp.,
+$\mathsf{C}^-(\mathsf{A})$, $\mathsf{C}^+(\mathsf{A})$) descends to a
+functor on $\mathsf{K}(\mathsf{A})$ (resp., $\mathsf{K}^-(\mathsf{A})$,
+$\mathsf{K}^+(\mathsf{A})$). This fact also follows directly from
+Proposition~4.10: homotopic maps induce the same morphism in
+cohomology.
 
 \subsection{Complexes of projective and injective objects}
 \label{subsec:homol:complexes-of-projective-and-injective-objects}
-% We should now ask `how
 
-% far' K(A) may be from D(A). We have inverted all homotopy equivalences in K(A),
-% but not all quasi-isomorphisms are homotopy equivalences: keep Example 4.6 in
-% mind. If we want to think of K(A) as a first approximation to D(A), we should
-% focus on complexes for which there is essentially no distinction between quasi-
-% isomorphisms and homotopy equivalences.
-% It turns out that there are such complexes: those consisting of projective or
-% injective objects.
-% Recall (Definition VIII.6.1) that an R-module M is `projective' if the func-
-% tor HomR (M, ) is exact and it is `injective' if HomR ( , M ) is exact. We can
-% adopt
-% these definitions in any abelian category:
-% Definition 5.5. Let A be an abelian category. An object P of A is projective if
-% the
-% functor Hom A(P, ) is exact. An object Q is injective if the functor HomA ( , Q)
-% is
-% exact.
-%  ?
-% General remarks such as Lemma VIII.6.2 or the comments about splitting of
-% sequences at the end of \S{}VIII.6.1 hold in any abelian category, and a good
-% exercise
-% for the reader is to collect all such information and verify that it does hold
-% in this
-% new context.
-% Also note that, at this level of generality, the parts of the theory dealing
-% with
-% injective objects are a faithful mirror of the parts dealing with projective
-% objects.
-% This is of course not a coincidence: the opposite of an abelian category is
-% again
-% abelian (Exercise 1.10), and projectives in one become injectives in the other.
-% Thus,
-% it is really only necessary to prove statements for, say, projectives in
-% arbitrary
-% abelian categories: the corresponding statements for injectives will
-% automatically
-% follow.
-% This dual state of affairs should not be taken too far: projectives and
-% injectives
-% in a fixed abelian category may display very different features. For example,
-% the
-% characterizations worked out in \S{}VIII.6.2 and \S{}VIII.6.3 use the specific
-% properties of
-% the categories R-Mod, so they should not be expected to have a simple
-% counterpart
-% in arbitrary abelian categories.
-% I will denote by P, resp., I, the full subcategories of A determined by the pro-
-% jective, resp., injective, objects. Of course these are not abelian categories
-% in any
-% interesting case. Note that an abelian category may well have no nontrivial
-% projec-
-% tive or injective objects.
-% Example 5.6. The category of finite abelian groups is abelian (surprise,
-% surprise),
-% but contains no nontrivial projective or injective objects (Exercise 5.5).
-%  ?
-% Definition 5.7. An abelian category A has enough projectives if for every object
-% A
-% in A there exists a projective object P in A and an epimorphism P
-%  / / A . The
-% category has enough injectives if for every object A in A there is an injective
-% object Q
-% in A and a monomorphism A / / Q .
-%  ?
-% These definitions are not new to the reader, since we ran across them in
-% \S{}VIII.6:
-% in particular, we have already observed that, for every commutative ring R,
-% R-Mod
-% has enough projectives (this is not challenging: free modules and their direct
-% sum-
-% mands are projective, Proposition VIII.6.4) and enough injectives (this is
-% challeng-
-% ing; we verified it in Corollary VIII.6.12).
-% Example 5.6 shows that we should not expect an abelian category A to have
-% either property. An important case in which one can show that there are enough
-% injectives is the category of sheaves of abelian groups over a topological
-% space;
-% this is a key step in the definition of sheaf cohomology as a `derived functor'.
-% In
-% general, categories of sheaves do not have enough projectives. On the other
-% hand,
-% the category of finitely generated abelian groups has enough projectives but not
-% enough (indeed, no nontrivial) injectives. So it goes.
+We should now ask `how far' $\mathsf{K}(\mathsf{A})$ may be from
+$\mathsf{D}(\mathsf{A})$. We have inverted all homotopy equivalences
+in $\mathsf{K}(\mathsf{A})$, but not all quasi-isomorphisms are
+homotopy equivalences: keep Example~4.6 in mind. If we want to think
+of $\mathsf{K}(\mathsf{A})$ as a first approximation to
+$\mathsf{D}(\mathsf{A})$, we should focus on complexes for which
+there is essentially no distinction between quasi-isomorphisms and
+homotopy equivalences.
+
+It turns out that there are such complexes: those consisting of
+projective or injective objects. Recall (Definition~VIII.6.1) that an
+$R$-module $M$ is `projective' if the functor
+$\Hom_R(M, \_)$ is exact and it is `injective' if
+$\Hom_R(\_, M)$ is exact. We can adopt these definitions in any
+abelian category:
+
+\begin{defn}{}{defn:homol:5.5}
+  Let $\mathsf{A}$ be an abelian category. An object $P$ of
+  $\mathsf{A}$ is \emph{projective} if the functor
+  $\Hom_{\mathsf{A}}(P, \_)$ is exact. An object $Q$ is
+  \emph{injective} if the functor $\Hom_{\mathsf{A}}(\_, Q)$ is exact.
+\end{defn}
+
+General remarks such as Lemma~VIII.6.2 or the comments about
+splitting of sequences at the end of \S{}VIII.6.1 hold in any abelian
+category, and a good exercise for the reader is to collect all such
+information and verify that it does hold in this new context.
+
+Also note that, at this level of generality, the parts of the theory
+dealing with injective objects are a faithful mirror of the parts
+dealing with projective objects. This is of course not a coincidence:
+the opposite of an abelian category is again abelian
+(Exercise~1.10), and projectives in one become injectives in the
+other. Thus, it is really only necessary to prove statements for,
+say, projectives in arbitrary abelian categories: the corresponding
+statements for injectives will automatically follow.
+
+This dual state of affairs should not be taken too far: projectives
+and injectives in a fixed abelian category may display very different
+features. For example, the characterizations worked out in
+\S{}VIII.6.2 and \S{}VIII.6.3 use the specific properties of the
+categories $R\text{-Mod}$, so they should not be expected to have a
+simple counterpart in arbitrary abelian categories.
+
+I will denote by $\mathsf{P}$, resp., $\mathsf{I}$, the full
+subcategories of $\mathsf{A}$ determined by the projective, resp.,
+injective, objects. Of course these are not abelian categories in any
+interesting case. Note that an abelian category may well have no
+nontrivial projective or injective objects.
+
+\begin{exam}{}{exam:homol:5.6}
+  The category of finite abelian groups is abelian (surprise,
+  surprise), but contains no nontrivial projective or injective
+  objects (Exercise~5.5).
+\end{exam}
+
+\begin{defn}{}{defn:homol:5.7}
+  An abelian category $\mathsf{A}$ has \emph{enough projectives} if
+  for every object $A$ in $\mathsf{A}$ there exists a projective
+  object $P$ in $\mathsf{A}$ and an epimorphism $P \twoheadrightarrow
+  A$. The category has \emph{enough injectives} if for every object
+  $A$ in $\mathsf{A}$ there is an injective object $Q$ in $\mathsf{A}$
+  and a monomorphism $A \hookrightarrow Q$.
+\end{defn}
+
+These definitions are not new to the reader, since we ran across them
+in \S{}VIII.6: in particular, we have already observed that, for
+every commutative ring $R$, $R\text{-Mod}$ has enough projectives
+(this is not challenging: free modules and their direct summands are
+projective, Proposition~VIII.6.4) and enough injectives (this is
+challenging; we verified it in Corollary~VIII.6.12).
+
+Example~\ref{exam:homol:5.6} shows that we should not expect an
+abelian category $\mathsf{A}$ to have either property. An important
+case in which one can show that there are enough injectives is the
+category of sheaves of abelian groups over a topological space; this
+is a key step in the definition of sheaf cohomology as a `derived
+functor'. In general, categories of sheaves do not have enough
+projectives. On the other hand, the category of finitely generated
+abelian groups has enough projectives but not enough (indeed, no
+nontrivial) injectives. So it goes.
 
 \subsection{Homotopy equivalences vs. quasi-isomorphisms in K(A)}
 \label{subsec:homol:homotopy-equivalences-vs-quasi-isomorphisms-in-k-a}
-% As I already
 
-% mentioned, we will be interested in certain subcategories of K(A) determined by
-% complexes of projective or injective objects of A.
-% -Definition 5.8. I will denote by K (P) the full subcategory of K(A) consisting
-% of
-% bounded-above complexes of projective objects of A, and I will denote by K+ (I)
-% the
-% full subcategory of K(A) consisting of bounded-below complexes of injective
-% objects
-% of A.
-%  ?
-% The main result of the rest of this section is the following:
-% Theorem 5.9. Let A be an abelian category, and let \alpha \bullet  : P0 \bullet
-% \to  P1 \bullet  , resp., \alpha \bullet  :
-% Q\bullet  0 \to  Q\bullet  1 , be a quasi-isomorphism between bounded-above
-% complexes of projectives,
-% resp., bounded-below complexes of injectives, in A. Then \alpha \bullet  is a
-% homotopy equiva-
-% lence.
-% Corollary 5.10. In K- (P) and K+ (I), (homotopy classes of ) quasi-isomorphisms
-% are isomorphisms.
-% That is, all quasi-isomorphisms between bounded complexes of projectives or
-% injectives are `already' inverted in K- (P), K+ (I). Thus, these categories are
-% very
-% close to the corresponding derived categories. In fact, we will see that if A
-% has
-% - -enough projectives, then K (P) `suffices' to describe D (A) (in a sense that
-% will
-% be made more precise); similarly, K+ (I) acts as a concrete realization of D+(A)
-% if
-% A has enough injectives.
-% The proof of Theorem 5.9 will require a few preliminaries, which further clarify
-% the role played by complexes of projective and injective objects with regard to
-% homotopies.
-% \bullet A complicated way of saying that a complex N in C(A) is exact is to assert
-% that the identity map idN \bullet  and the trivial map 0 induce the same
-% morphism in co-
-% homology, as they would if they were homotopic to each other. It is however easy
-% to
-% construct examples of exact complexes for which the identity is not homotopic to
-% 0.
-% As the reader will verify (Exercise 5.11), this has to do with whether the
-% complex
-% \bullet splits or not; in general, a complex N is said to be `split exact' if idN \bullet  is homo-
-% topic to 0. Keeping in mind that projective or injective objects `cause'
-% sequences
-% to split, it may not be too surprising that for bounded exact complexes
-% consisting
-% of projective or injective objects the identity does turn out to be homotopic to
-% 0.
-% To verify this, we study special conditions that ensure that morphisms are
-% homotopic to 0.
-% \bullet Lemma 5.11. Let P be a complex of projective objects of an abelian category A
-% such that P i = 0 for i > 0, and let L\bullet  be a complex in C(A) such that H
-% i (L\bullet  ) = 0
-% for i < 0.
-% Let \alpha \bullet  : P \bullet  \to  L\bullet  be a morphism inducing the
-% zero-morphism in cohomology.
-% Then \alpha \bullet  is homotopic to 0.
-% The reader will provide the `injective' version of this statement, dealing with
-% morphisms from a complex which is exact in positive degree to a complex of
-% injec-
-% tives Q\bullet  with Qi = 0 for i < 0.
-% Proof. We have to construct morphisms hi : P i \to  Li-1 :
-% -2
-%  -1
-% \cdot \cdot \cdot 
-%  / P -2
-%  dP \bullet 
-%  / P -1
-%  dP \bullet 
-%  / P 0
-%  / 0
-%  / \cdot \cdot \cdot 
-% {
-%  {
-%  z
-%  z
-%  {
-%  {
-%  }
-%  }
-%  }
-%  }
-% }{{
-%  {{
-%  h-2 {
-%  {
-%  {
-%  {{
-%  \alpha 
-% -2
-%  \sqcup  |zz h-1 zz
-%  z
-%  d z
-%  -2 L
-% \bullet 
-%  zz
-%  \alpha 
-% -1
-%  \sqcup  }{{ {{
-%  h0 {
-%  d {
-%  L
-%  -1 \bullet 
-%  {{
-% \alpha 
-%  \sqcup  ~}}
-%  h1 }}
-%  =0 }
-%  }
-%  }}
-%  }}
-%  \sqcup  ~}}
-%  h2=0 }}
-%  }
-%  }}
-%  }
-%  }}
-% {{{ zzz {{{
-% \cdot \cdot \cdot 
-%  / L-2
-%  / L-1
-%  / L0
-%  / L1
-%  / \cdot \cdot \cdot 
-% such that
-% (*)
-%  \alpha i = di-1
-%  L\bullet  \circ  hi
-%  + h
-% i+1
-%  \circ  dP i
-%  \bullet  .
-% Of course hi = 0 necessarily for i > 0. For i = 0, use the fact that the
-% morphism
-% induced by \alpha \bullet  on cohomology is 0; this says that \alpha 0 factors
-% through the image
-% of d-1
-% :
-% L\bullet P 0
-% \alpha 0
-% d-1
-%  \sqcup 
-% L-1
-%  L\bullet 
-%  / im d-1 L
-% \bullet 
-%  / 0
-% Since P 0 is projective, there exists a morphism h0 : P 0 \to  L-1 such that
-% \alpha 0 =
-% -1
-% d L\bullet  \circ  h , as needed.
-% To define hi-1 for i \leq  0, proceed inductively and assume that hi and hi+1
-% satisfying (*) have already been constructed. Note that by (*) (and the fact
-% that
-% \bullet P is a complex)
-% dL
-%  i-1
-%  \bullet  \circ  hi
-%  \circ  dP i-1
-%  \bullet  = (\alpha  i
-%  - h
-% i+1
-%  \circ  dP i
-%  \bullet  ) \circ  dP i-1
-%  \bullet  = \alpha  i
-%  \circ  dP i-1
-%  \bullet  - h
-% i+1
-%  \circ  0 = \alpha i
-%  \circ  dP i-1
-%  \bullet  :
-% di-1
-%  P \bullet 
-%  di
-%  P \bullet 
-% P i-1
-%  / P i
-%  / P i+1
-% {
-%  {
-%  {
-%  {
-% h i
-%  {
-%  {{
-%  h
-% i+1
-%  {
-%  {
-%  {{
-% {
-%  {
-%  {{
-%  {{
-%  \alpha i
-%  {
-%  {
-%  {{
-% }{{ di-1
-%  L\bullet 
-%  \sqcup  }{{{
-% L
-% i-1
-%  / Li
-% Therefore
-% di-1
-%  L\bullet  \circ (\alpha 
-% i-1
-%  - hi \circ  dP
-%  i-1
-%  \bullet  ) = dL\bullet  i-1
-%  \circ  \alpha 
-% i-1
-%  - \alpha i \circ  di-1
-%  P \bullet  = 0,
-% since \alpha  \bullet  is a morphism of cochain complexes. This tells us that
-% \alpha i-1 - hi \circ  di-1
-%  P \bullet 
-% factors through ker di-1
-%  L
-% \bullet 
-%  .
-%  Since
-%  L
-% \bullet 
-%  is
-%  exact
-%  at
-%  L
-% i-1
-%  for
-%  i
-%  \leq 
-%  0,
-%  ker
-%  d
-% i-1
-%  L
-% \bullet 
-%  =
-%  im
-%  d
-% i-2
-%  L\bullet  .
-% Therefore, we again have a factorization
-% P i-1
-% \alpha i-1 -hi \circ  di-1
-%  P \bullet 
-% di-2
-%  \sqcup 
-% Li-2
-%  L\bullet 
-%  / im di-2
-%  L\bullet 
-%  / 0
-% Now P i-1 is projective; therefore there exists hi-1 : P i-1 \to  Li-2 such that
-% \alpha i-1 - hi \circ  di-1
-%  P \bullet  = dL\bullet  i-2
-%  \circ  h
-% i-1
-%  ,
-% which is precisely what we need for the induction step.
-%  ?
-% \bullet 
-% Corollary 5.12. Let P be a bounded-above cochain complex of projectives of an
-% abelian category A, and let L\bullet  be an exact complex in C(A).
-% Then every morphism of complexes P \bullet  \to  L\bullet  is homotopic to 0.
-% This follows immediately from (a harmless shift of) Lemma 5.11, since every
-% morphism to an exact complex has no choice but to induce the zero-morphism in
-% cohomology.
-% The `injective' version of Corollary 5.12 is that morphisms from an exact com-
-% plex L\bullet  to a bounded-below complex Q\bullet  of injectives are
-% necessarily homotopy
-% equivalent to 0.
-% Note that in all these considerations the complexes P \bullet  , Q\bullet  are
-% required to
-% live in the `bounded' versions C- (P), C +(I): all objects should vanish in
-% degree
-% sufficiently high or low. This furnishes the `start' of the inductive
-% construction of
-% the homotopy in the proof of Lemma 5.11. It is an essentially inescapable
-% feature
-% of the theory.
-% Corollary 5.13. Let P \bullet  (resp., Q\bullet  ) be a bounded-above exact
-% complex of projec-
-% tives (resp., a bounded-below exact complex of injectives). Then P \bullet
-% (resp., Q\bullet  ) is
-% homotopy equivalent to the zero-complex.
-% Proof. Exercise 5.12.
-%  ?
-% Corollary 5.13 is the first manifestation of the principle captured more fully
-% by Theorem 5.9: we have just verified that, for suitably bounded complexes of
-% projectives or injectives, `quasi-isomorphic to 0' is the same as `homotopy
-% equivalent
-% to 0'.
-% Another consequence of Lemma 5.11 is the following remark, showing that
-% quasi-isomorphisms are `non-zero-divisors' up to homotopy, with respect to mor-
-% phisms from complexes of projectives. This will be useful in the next section,
-% for
-% example to show that certain lifts are uniquely defined up to homotopy.
-% Lemma 5.14. Let A be an abelian category, and let \rho \bullet  : L\bullet  \to
-% M \bullet  be a quasi-
-% \bullet isomorphism in C(A). Let P be a bounded-above complex of projectives, and let
-% \alpha  \bullet  : P \bullet  \to  L\bullet  be a morphism of cochain complexes such that the composition
-% P \bullet 
-%  \alpha \bullet 
-%  / L\bullet 
-%  \rho \bullet 
-%  / M \bullet 
-% q-iso.
-% is homotopic to the zero-morphism. Then \alpha \bullet  \sim  0.
-% Proof. Let hi : P i \to  M i-1 define a homotopy between \rho \bullet  \circ
-% \alpha \bullet  and 0, so that
-% -\rho i \circ  \alpha i = dM
-%  i-1
-%  \bullet  \circ  hi
-%  + h
-% i+1
-%  \circ  dP i
-%  \bullet  . Consider the mapping cone M C(\rho )\bullet 
-%  of \rho \bullet 
-%  (\S{}4.1),
-% and define morphisms
-% \beta i = (\alpha i , hi ) : P i \to  Li \oplus  M i-1 = M C(\rho )i-1 :
-% \cdot \cdot \cdot 
-%  / P i-1
-%  di-1
-%  P \bullet 
-%  / P i
-%  diP \bullet 
-%  / P i+1
-%  / \cdot \cdot \cdot 
-% \beta  i-1
-%  \beta i
-%  \beta  i+1
-% \sqcup 
-%  -di-2 M C(\rho )\bullet 
-%  \sqcup 
-%  -di-1 M C(\rho )\bullet 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / Li-1 \oplus  M i-2 / Li \oplus  M i-1 / Li+1 \oplus  M i
-%  / \cdot \cdot \cdot 
-% I claim that these give a morphism of cochain complexes P \bullet  \to  M C(\rho
-% )[-1]\bullet  . In-
-% deed24,
-% \beta i+1 \circ  diP \bullet  = (\alpha  i+1 \circ  diP \bullet  , hi+1 \circ  diP \bullet  ) and
-% -dM
-%  i-1
-%  C(\rho ) \circ  \beta  i
-%  = (dL\bullet  i
-%  \circ  \alpha i
-% , -\rho i
-%  \circ  \alpha i
-%  - dM i-1
-%  \bullet  \circ  hi
-%  );
-% 24 It is time to review how the differential of the mapping cone was defined in
-% \S{}4.1. The
-% negative sign will now come in very handy.
-% these are equal, by definition of hi and since \alpha \bullet  is a morphism of
-% complexes.
-% Now, \rho \bullet  is a quasi-isomorphism by hypothesis. Therefore M C(\rho
-% )\bullet  is an exact
-% \bullet complex (Corollary 4.2). Applying Corollary 5.12, it follows that \beta  is homotopic
-% to zero. But \alpha \bullet  is the composition
-% \bullet 
-% P \bullet 
-%  \beta  / M C(\rho )[-1]\bullet  = L\bullet  \oplus  M [-1]\bullet 
-%  / L\bullet  ,
-% so (Exercise 4.6, part (i)) the fact that \beta  \bullet  \sim  0 implies that
-% \alpha \bullet  \sim  0, concluding the
-% proof.
-%  ?
-% Example 5.15. To see that \alpha \bullet  may not be zero on the nose even if
-% \rho \bullet  \circ  \alpha \bullet  = 0,
-% look back again at Example 4.6:
-% P \bullet  :
-%  \cdot \cdot \cdot 
-%  / 0
-%  / Z
-%  id
-%  / Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% \alpha \bullet 
-%  id
-%  \cdot 2
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% L\bullet  :
-%  \cdot \cdot \cdot 
-%  / 0
-%  / Z
-%  \cdot 2
-%  / Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% \rho \bullet 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% M \bullet  :
-%  \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / 2Z
-%  Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% Here \rho \bullet  is a quasi-isomorphism, and \rho \bullet  \circ  \alpha
-% \bullet  = 0. According to Lemma 5.14, the
-% (nonzero) morphism \alpha \bullet  is homotopic to 0. (Indeed, a homotopy is
-% immediately
-% visible. What is it?)
-%  ?
+As I already mentioned, we will be interested in certain
+subcategories of $\mathsf{K}(\mathsf{A})$ determined by complexes of
+projective or injective objects of $\mathsf{A}$.
+
+\begin{defn}{}{defn:homol:5.8}
+  I will denote by $\mathsf{K}^-(\mathsf{P})$ the full subcategory of
+  $\mathsf{K}(\mathsf{A})$ consisting of bounded-above complexes of
+  projective objects of $\mathsf{A}$, and I will denote by
+  $\mathsf{K}^+(\mathsf{I})$ the full subcategory of
+  $\mathsf{K}(\mathsf{A})$ consisting of bounded-below complexes of
+  injective objects of $\mathsf{A}$.
+\end{defn}
+
+The main result of the rest of this section is the following:
+
+\begin{thm}{}{thm:homol:5.9}
+  Let $\mathsf{A}$ be an abelian category, and let $\alpha^\bullet :
+  P_0^\bullet \to P_1^\bullet$, resp., $\alpha^\bullet : Q_0^\bullet
+  \to Q_1^\bullet$, be a quasi-isomorphism between bounded-above
+  complexes of projectives, resp., bounded-below complexes of
+  injectives, in $\mathsf{A}$. Then $\alpha^\bullet$ is a homotopy
+  equivalence.
+\end{thm}
+
+\begin{coro}{}{coro:homol:5.10}
+  In $\mathsf{K}^-(\mathsf{P})$ and $\mathsf{K}^+(\mathsf{I})$,
+  (homotopy classes of) quasi-isomorphisms are isomorphisms.
+\end{coro}
+
+That is, all quasi-isomorphisms between bounded complexes of
+projectives or injectives are `already' inverted in
+$\mathsf{K}^-(\mathsf{P})$, $\mathsf{K}^+(\mathsf{I})$. Thus, these
+categories are very close to the corresponding derived categories.
+In fact, we will see that if $\mathsf{A}$ has enough projectives,
+then $\mathsf{K}^-(\mathsf{P})$ `suffices' to describe
+$\mathsf{D}^-(\mathsf{A})$ (in a sense that will be made more
+precise); similarly, $\mathsf{K}^+(\mathsf{I})$ acts as a concrete
+realization of $\mathsf{D}^+(\mathsf{A})$ if $\mathsf{A}$ has enough
+injectives.
+
+The proof of Theorem~\ref{thm:homol:5.9} will require a few
+preliminaries, which further clarify the role played by complexes of
+projective and injective objects with regard to homotopies.
+
+A complicated way of saying that a complex $N^\bullet$ in
+$\mathsf{C}(\mathsf{A})$ is exact is to assert that the identity map
+$\operatorname{id}_{N^\bullet}$ and the trivial map $0$ induce the
+same morphism in cohomology, as they would if they were homotopic to
+each other. It is however easy to construct examples of exact
+complexes for which the identity is \emph{not} homotopic to $0$. As
+the reader will verify (Exercise~5.11), this has to do with whether
+the complex splits or not; in general, a complex $N^\bullet$ is said
+to be `split exact' if $\operatorname{id}_{N^\bullet}$ is homotopic
+to $0$. Keeping in mind that projective or injective objects `cause'
+sequences to split, it may not be too surprising that for bounded
+exact complexes consisting of projective or injective objects the
+identity does turn out to be homotopic to $0$.
+
+To verify this, we study special conditions that ensure that
+morphisms are homotopic to $0$.
+\begin{lem}{}{lem:homol:5.11}
+  Let $P^\bullet$ be a complex of projective objects of an abelian
+  category $\mathsf{A}$ such that $P^i = 0$ for $i > 0$, and let
+  $L^\bullet$ be a complex in $\mathsf{C}(\mathsf{A})$ such that
+  $H^i(L^\bullet) = 0$ for $i < 0$.
+
+  Let $\alpha^\bullet : P^\bullet \to L^\bullet$ be a morphism
+  inducing the zero-morphism in cohomology.
+
+  Then $\alpha^\bullet$ is homotopic to $0$.
+\end{lem}
+
+The reader will provide the `injective' version of this statement,
+dealing with morphisms from a complex which is exact in positive
+degree to a complex of injectives $Q^\bullet$ with $Q^i = 0$ for
+$i < 0$.
+
+\begin{proof}
+  We have to construct morphisms $h^i : P^i \to L^{i-1}$:
+  % TODO: diagram of the "staircase" of the complexes P^\bullet
+  % (nonzero only in degrees \le 0, dotted continuation to the left)
+  % and L^\bullet (dotted continuation in both directions), with the
+  % morphisms h^{i}: P^i \to L^{i-1} and \alpha^i: P^i \to L^i drawn
+  % as overlapping diagonal arrows forming a zigzag between the two
+  % rows, illustrating the homotopy relation (*) below; h^1 = h^2 = 0
+  % since P^1 = P^2 = 0.
+  such that
+  \[
+    \alpha^i = d^{i-1}_{L^\bullet} \circ h^i + h^{i+1} \circ
+    d^i_{P^\bullet}. \tag{$*$}
+  \]
+  Of course $h^i = 0$ necessarily for $i > 0$. For $i = 0$, use the
+  fact that the morphism induced by $\alpha^\bullet$ on cohomology is
+  $0$; this says that $\alpha^0$ factors through the image of
+  $d^{-1}_{L^\bullet}$:
+  \[\begin{tikzcd}
+    & P^0 \arrow[d, "\alpha^0"] \\
+    L^{-1} \arrow[r, "d_{L^\bullet}^{-1}"'] &
+    \operatorname{im} d_{L^\bullet}^{-1} \arrow[r] & 0
+  \end{tikzcd}\]
+  Since $P^0$ is projective, there exists a morphism
+  $h^0 : P^0 \to L^{-1}$ such that $\alpha^0 = d^{-1}_{L^\bullet}
+  \circ h^0$, as needed.
+
+  To define $h^{i-1}$ for $i \le 0$, proceed inductively and assume
+  that $h^i$ and $h^{i+1}$ satisfying $(*)$ have already been
+  constructed. Note that by $(*)$ (and the fact that $P^\bullet$ is a
+  complex)
+  \[
+    d^{i-1}_{L^\bullet} \circ h^i \circ d^{i-1}_{P^\bullet} =
+    \bigl(\alpha^i - h^{i+1} \circ d^i_{P^\bullet}\bigr) \circ
+    d^{i-1}_{P^\bullet} = \alpha^i \circ d^{i-1}_{P^\bullet} -
+    h^{i+1} \circ 0 = \alpha^i \circ d^{i-1}_{P^\bullet}.
+  \]
+  Therefore
+  \[
+    d^{i-1}_{L^\bullet} \circ \bigl(\alpha^{i-1} - h^i \circ
+    d^{i-1}_{P^\bullet}\bigr) = d^{i-1}_{L^\bullet} \circ
+    \alpha^{i-1} - \alpha^i \circ d^{i-1}_{P^\bullet} = 0,
+  \]
+  since $\alpha^\bullet$ is a morphism of cochain complexes. This
+  tells us that $\alpha^{i-1} - h^i \circ d^{i-1}_{P^\bullet}$
+  factors through $\ker d^{i-1}_{L^\bullet}$. Since $L^\bullet$ is
+  exact at $L^{i-1}$ for $i \le 0$, $\ker d^{i-1}_{L^\bullet} =
+  \operatorname{im} d^{i-2}_{L^\bullet}$. Therefore, we again have a
+  factorization
+  \[\begin{tikzcd}
+    & P^{i-1} \arrow[d, "\alpha^{i-1} - h^i \circ
+      d_{P^\bullet}^{i-1}"] \\
+    L^{i-2} \arrow[r, "d_{L^\bullet}^{i-2}"'] &
+    \operatorname{im} d_{L^\bullet}^{i-2} \arrow[r] & 0
+  \end{tikzcd}\]
+  Now $P^{i-1}$ is projective; therefore there exists
+  $h^{i-1} : P^{i-1} \to L^{i-2}$ such that $\alpha^{i-1} - h^i \circ
+  d^{i-1}_{P^\bullet} = d^{i-2}_{L^\bullet} \circ h^{i-1}$, which is
+  precisely what we need for the induction step.
+\end{proof}
+\begin{coro}{}{coro:homol:5.12}
+  Let $P^\bullet$ be a bounded-above cochain complex of projectives
+  of an abelian category $\mathsf{A}$, and let $L^\bullet$ be an
+  exact complex in $\mathsf{C}(\mathsf{A})$.
+
+  Then every morphism of complexes $P^\bullet \to L^\bullet$ is
+  homotopic to $0$.
+\end{coro}
+
+This follows immediately from (a harmless shift of)
+Lemma~\ref{lem:homol:5.11}, since every morphism to an exact complex
+has no choice but to induce the zero-morphism in cohomology.
+
+The `injective' version of Corollary~\ref{coro:homol:5.12} is that
+morphisms from an exact complex $L^\bullet$ to a bounded-below
+complex $Q^\bullet$ of injectives are necessarily homotopy equivalent
+to $0$.
+
+Note that in all these considerations the complexes $P^\bullet$,
+$Q^\bullet$ are required to live in the `bounded' versions
+$\mathsf{C}^-(\mathsf{P})$, $\mathsf{C}^+(\mathsf{I})$: all objects
+should vanish in degree sufficiently high or low. This furnishes the
+`start' of the inductive construction of the homotopy in the proof of
+Lemma~\ref{lem:homol:5.11}. It is an essentially inescapable feature
+of the theory.
+
+\begin{coro}{}{coro:homol:5.13}
+  Let $P^\bullet$ (resp., $Q^\bullet$) be a bounded-above exact
+  complex of projectives (resp., a bounded-below exact complex of
+  injectives). Then $P^\bullet$ (resp., $Q^\bullet$) is homotopy
+  equivalent to the zero-complex.
+\end{coro}
+\begin{proof}
+  Exercise~5.12.
+\end{proof}
+
+Corollary~\ref{coro:homol:5.13} is the first manifestation of the
+principle captured more fully by Theorem~\ref{thm:homol:5.9}: we
+have just verified that, for suitably bounded complexes of
+projectives or injectives, `quasi-isomorphic to $0$' is the same as
+`homotopy equivalent to $0$'.
+
+Another consequence of Lemma~\ref{lem:homol:5.11} is the following
+remark, showing that quasi-isomorphisms are `non-zero-divisors' up to
+homotopy, with respect to morphisms from complexes of projectives.
+This will be useful in the next section, for example to show that
+certain lifts are uniquely defined up to homotopy.
+
+\begin{lem}{}{lem:homol:5.14}
+  Let $\mathsf{A}$ be an abelian category, and let $\rho^\bullet :
+  L^\bullet \to M^\bullet$ be a quasi-isomorphism in
+  $\mathsf{C}(\mathsf{A})$. Let $P^\bullet$ be a bounded-above complex
+  of projectives, and let $\alpha^\bullet : P^\bullet \to L^\bullet$
+  be a morphism of cochain complexes such that the composition
+  \[\begin{tikzcd}
+    P^\bullet \arrow[r, "\alpha^\bullet"] &
+    L^\bullet \arrow[r, "\rho^\bullet", "\text{q-iso.}"'] & M^\bullet
+  \end{tikzcd}\]
+  is homotopic to the zero-morphism. Then $\alpha^\bullet \sim 0$.
+\end{lem}
+\begin{proof}
+  Let $h^i : P^i \to M^{i-1}$ define a homotopy between $\rho^\bullet
+  \circ \alpha^\bullet$ and $0$, so that $-\rho^i \circ \alpha^i =
+  d^{i-1}_{M^\bullet} \circ h^i + h^{i+1} \circ d^i_{P^\bullet}$.
+  Consider the mapping cone $MC(\rho)^\bullet$ of $\rho^\bullet$
+  (\S{}4.1), and define morphisms
+  \[
+    \beta^i = (\alpha^i, h^i) : P^i \to L^i \oplus M^{i-1} =
+    MC(\rho)^{i-1}:
+  \]
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & P^{i-1} \arrow[r, "d_{P^\bullet}^{i-1}"]
+      \arrow[d, "\beta^{i-1}"] &
+      P^i \arrow[r, "d_{P^\bullet}^i"] \arrow[d, "\beta^i"] &
+      P^{i+1} \arrow[r] \arrow[d, "\beta^{i+1}"] & \dots \\
+    \dots \arrow[r] & L^{i-1} \oplus M^{i-2}
+      \arrow[r, "-d_{MC(\rho)}^{i-2}"'] &
+      L^i \oplus M^{i-1} \arrow[r, "-d_{MC(\rho)}^{i-1}"'] &
+      L^{i+1} \oplus M^i \arrow[r] & \dots
+  \end{tikzcd}\]
+  I claim that these give a morphism of cochain complexes $P^\bullet
+  \to MC(\rho)[-1]^\bullet$. Indeed\footnote{It is time to review how
+  the differential of the mapping cone was defined in \S{}4.1. The
+  negative sign will now come in very handy.},
+  \[
+    \beta^{i+1} \circ d^i_{P^\bullet} = \bigl(\alpha^{i+1} \circ
+    d^i_{P^\bullet},\; h^{i+1} \circ d^i_{P^\bullet}\bigr)
+    \quad \text{and} \quad
+    -d^{i-1}_{MC(\rho)} \circ \beta^i = \bigl(d^i_{L^\bullet} \circ
+    \alpha^i,\; -\rho^i \circ \alpha^i - d^{i-1}_{M^\bullet} \circ
+    h^i\bigr);
+  \]
+  these are equal, by definition of $h^i$ and since $\alpha^\bullet$
+  is a morphism of complexes.
+
+  Now, $\rho^\bullet$ is a quasi-isomorphism by hypothesis. Therefore
+  $MC(\rho)^\bullet$ is an exact complex (Corollary~4.2). Applying
+  Corollary~\ref{coro:homol:5.12}, it follows that $\beta^\bullet$ is
+  homotopic to zero. But $\alpha^\bullet$ is the composition
+  \[\begin{tikzcd}
+    P^\bullet \arrow[r, "\beta^\bullet"] &
+    MC(\rho)[-1]^\bullet = L^\bullet \oplus M[-1]^\bullet
+    \arrow[r] & L^\bullet,
+  \end{tikzcd}\]
+  so (Exercise~4.6, part (i)) the fact that $\beta^\bullet \sim 0$
+  implies that $\alpha^\bullet \sim 0$, concluding the proof.
+\end{proof}
+
+\begin{exam}{}{exam:homol:5.15}
+  To see that $\alpha^\bullet$ may not be zero on the nose even if
+  $\rho^\bullet \circ \alpha^\bullet = 0$, look back again at
+  Example~4.6:
+  \[\begin{tikzcd}[column sep=small]
+    P^\bullet: & \dots \arrow[r] & 0 \arrow[r] \arrow[d] &
+      \Z \arrow[r, "\mathrm{id}"] \arrow[d, "\mathrm{id}"'] &
+      \Z \arrow[r] \arrow[d, "\cdot 2"'] &
+      0 \arrow[r] \arrow[d] & \dots \\
+    L^\bullet: & \dots \arrow[r] & 0 \arrow[r] \arrow[d] &
+      \Z \arrow[r, "\cdot 2"] \arrow[d] &
+      \Z \arrow[r] \arrow[d, "\pi"] &
+      0 \arrow[r] \arrow[d] & \dots \\
+    M^\bullet: & \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] &
+      \dfrac{\Z}{2\Z} \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  Here $\rho^\bullet$ (the map $L^\bullet \to M^\bullet$, which is
+  $\pi$ in the nonzero degree) is a quasi-isomorphism, and
+  $\rho^\bullet \circ \alpha^\bullet = 0$. According to
+  Lemma~\ref{lem:homol:5.14}, the (nonzero) morphism $\alpha^\bullet$
+  is homotopic to $0$. (Indeed, a homotopy is immediately visible.
+  What is it?)
+\end{exam}
 
 \subsection{Proof of Theorem 5.9}
 \label{subsec:homol:proof-of-theorem-5-9}
-% Theorem 5.9 will follow from a more general obser-
 
-% vation: a quasi-isomorphism to a complex of projectives, resp., from a complex
-% of
-% injectives25, has a right, resp., left, homotopy inverse.
-% Proposition 5.16. Let A be an abelian category, and let L\bullet  be a complex
-% in C(A).
-% Let P \bullet  in C-(P) be a bounded-above complex of projectives, and let
-% \alpha \bullet  : L\bullet  \to  P \bullet
-% be a quasi-isomorphism. Then there exists a morphism of complexes \beta  \bullet
-% : P \bullet  \to  L\bullet
-% such that \alpha \bullet  \circ  \beta  \bullet  is homotopic to idP \bullet  .
-% (For the injective version, if Q\bullet  is a bounded-below complex of
-% injectives and
-% \alpha  \bullet 
-%  : Q\bullet  \to  L\bullet  is a quasi-isomorphism, then there exists a morphism
-%  \beta  \bullet  : L\bullet  \to  Q\bullet
-% such that \beta  \bullet  \circ  \alpha \bullet  \sim  idQ\bullet  .)
-% Proof. Since \alpha \bullet  : L\bullet  \to  P \bullet  is a quasi-isomorphism,
-% the mapping cone M C(\alpha )\bullet
-% of \alpha  is an exact complex (Corollary 4.2). Let \rho \bullet  be the
-% morphism of complexes
-% \rho \bullet  = (0, idP \bullet  ) : P \bullet  \to  L[1]\bullet  \oplus  P \bullet  = M C(\alpha )\bullet  .
-% Since M C(\alpha )\bullet  is exact, \rho \bullet  is homotopic to zero by
-% Corollary 5.12. Therefore, there
-% exist morphisms
-% \hat{h}i : P i \to  M C(\alpha )i-1 = Li \oplus  P i-1
-% such that
-% (*)
-%  \rho i = dM
-%  i-1
-%  C(\alpha )\bullet  \circ  \hat{h}i
-%  + \hat{h}
-% i+1
-%  \circ  dP i
-%  \bullet  :
-% 25 That is, going `the wrong way': projectives like being the sources of
-% morphisms, and
-% injectives like to be targets.
-% di-1
-%  P \bullet 
-%  di
-%  P \bullet 
-% \cdot \cdot \cdot 
-%  / P i-1
-%  / P i
-%  / P i+1
-%  / \cdot \cdot \cdot 
-% {xx
-%  x
-%  x
-%  xx xx x
-%  \rho 
-%  x
-%  i-1
-%  x
-%  x
-%  \sqcup  i-1
-%  yrr
-%  r
-%  rr
-%  \hat{h}ir
-%  rr
-%  r
-%  r
-%  r
-%  r
-%  \rho i
-%  \sqcup 
-%  i
-%  q
-%  \hat{h}i+1 q
-%  qq
-%  qqq
-%  q
-%  q
-%  \rho i+1
-%  q
-%  q
-%  \sqcup  i+1
-%  v
-%  vv
-%  vv
-%  v
-%  v
-%  vv
-% xqq
-%  zvv
-% \cdot \cdot \cdot 
-%  / Li \oplus  P / Li+1 \oplus  P / Li+2 \oplus  P / \cdot \cdot \cdot 
-% i-1
-%  i
-% dM C(\alpha )\bullet 
-%  dMC(\alpha )\bullet 
-% Now we unravel what this says. Write \hat{h}i out in components:
-% \hat{h}i = (\beta i , hi )
-% with \beta  i : P i \to  Li and hi : P i \to  P i-1 . I claim that
-% (i) the collection {\beta  i } is a morphism of cochain complexes: \beta  i+1
-% \circ  diP \bullet  = diL\bullet  \circ  \beta  i
-% for all i and
-% (ii) the morphisms hi give a homotopy \alpha \bullet  \circ  \beta \bullet  \sim
-% idP \bullet  .
-% Indeed, the left-hand side of (*) is
-% \rho i = (0, idP i );
-% the right-hand side is
-% dM
-%  i-1
-%  C(\alpha )\bullet  \circ (\beta  i
-% , hi
-%  ) + (\beta 
-%  i+1
-%  , hi+1) \circ  diP \bullet 
-% = (-diL\bullet  \circ  \beta  i , \alpha i \circ  \beta  i + d i-1
-%  P \bullet  \circ  hi
-%  ) + (\beta 
-%  i+1
-%  \circ  dP i
-%  \bullet  , h
-% i+1
-%  \circ  dP i
-%  \bullet  ).
-% It follows that (*) amounts to
-% ?\beta 
-%  i+1 \circ  dP i
-%  \bullet  - dL\bullet  i
-%  \circ  \beta  i
-%  = 0,
-% idP i - \alpha i \circ  \beta  i = di-1
-%  P \bullet  \circ  hi
-%  + h
-%  i+1
-%  \circ  d i
-%  P \bullet  ,
-% that is, precisely (i) and (ii).
-% The morphism of complexes \beta \bullet  : P \bullet  \to  L\bullet  is the
-% needed homotopy right-inverse
-% of \alpha \bullet 
-% .
-%  ?
-% Taking L\bullet  to be a suitably bounded complex of projectives or injectives
-% finally
-% establishes Theorem 5.9:
-% Proof of Theorem 5.9. We will give the argument for projectives.
-% By Proposition 5.16, since P1 \bullet  is in C- (P) and \alpha \bullet  : P0
-% \bullet  \to  P1 \bullet  is a quasi-
-% isomorphism, there exists a morphism of complexes \beta  \bullet  : P1 \bullet
-% \to  P0 \bullet  such that
-% \alpha \bullet  \circ  \beta  \bullet  \sim  idP1 \bullet  .
-% This implies that H \bullet  (\alpha \bullet  ) \circ  H \bullet  (\beta \bullet
-% ) = id (Proposition 4.10). Since H \bullet  (\alpha \bullet  ) is invert-
-% \bullet  \bullet  \bullet  \bullet  -ible, so is H (\beta  ): therefore, \beta  is a quasi-isomorphism. Now P0 is also in C (P);
-% hence by Proposition 5.16 there exists a morphism of complexes \alpha  \bullet
-% \setminus  : P0 \bullet  \to  P1 \bullet
-% such that \beta  \bullet  \circ  \alpha \bullet  \setminus  \sim  idP0 \bullet
-% . Since
-% \alpha \bullet  \setminus  \sim  (\alpha \bullet  \circ  \beta  \bullet  ) \circ  \alpha \bullet  \setminus  = \alpha  \bullet  \circ (\beta \bullet  \circ  \alpha \bullet \setminus  ) \sim  \alpha \bullet  ,
-% (Exercise 4.6), it follows that \beta \bullet  \circ  \alpha \bullet  \sim  idP0
-% \bullet  . Thus \alpha \bullet  is a homotopy equivalence,
-% as stated.
-%  ?
+Theorem~\ref{thm:homol:5.9} will follow from a more general
+observation: a quasi-isomorphism \emph{to} a complex of projectives,
+resp., \emph{from} a complex of injectives\footnote{That is, going
+`the wrong way': projectives like being the sources of morphisms,
+and injectives like to be targets.}, has a \emph{right}, resp.,
+\emph{left}, homotopy inverse.
+
+\begin{prop}{}{prop:homol:5.16}
+  Let $\mathsf{A}$ be an abelian category, and let $L^\bullet$ be a
+  complex in $\mathsf{C}(\mathsf{A})$. Let $P^\bullet$ in
+  $\mathsf{C}^-(\mathsf{P})$ be a bounded-above complex of
+  projectives, and let $\alpha^\bullet : L^\bullet \to P^\bullet$ be
+  a quasi-isomorphism. Then there exists a morphism of complexes
+  $\beta^\bullet : P^\bullet \to L^\bullet$ such that $\alpha^\bullet
+  \circ \beta^\bullet$ is homotopic to $\operatorname{id}_{P^\bullet}$.
+
+  (For the injective version, if $Q^\bullet$ is a bounded-below
+  complex of injectives and $\alpha^\bullet : Q^\bullet \to L^\bullet$
+  is a quasi-isomorphism, then there exists a morphism $\beta^\bullet
+  : L^\bullet \to Q^\bullet$ such that $\beta^\bullet \circ
+  \alpha^\bullet \sim \operatorname{id}_{Q^\bullet}$.)
+\end{prop}
+\begin{proof}
+  Since $\alpha^\bullet : L^\bullet \to P^\bullet$ is a
+  quasi-isomorphism, the mapping cone $MC(\alpha)^\bullet$ of
+  $\alpha$ is an exact complex (Corollary~4.2). Let $\rho^\bullet$ be
+  the morphism of complexes
+  \[
+    \rho^\bullet = (0, \operatorname{id}_{P^\bullet}) : P^\bullet \to
+    L[1]^\bullet \oplus P^\bullet = MC(\alpha)^\bullet.
+  \]
+  Since $MC(\alpha)^\bullet$ is exact, $\rho^\bullet$ is homotopic to
+  zero by Corollary~\ref{coro:homol:5.12}. Therefore, there exist
+  morphisms
+  \[
+    \hat h^i : P^i \to MC(\alpha)^{i-1} = L^i \oplus P^{i-1}
+  \]
+  such that
+  % TODO: diagram of the "zigzag" homotopy picture witnessing (*)
+  % below -- top row P^{i-1} -> P^i -> P^{i+1}, bottom row
+  % L^i \oplus P^{i-1} -> L^{i+1} \oplus P^i -> L^{i+2} \oplus P^{i+1},
+  % with straight vertical arrows \rho^{i-1}, \rho^i, \rho^{i+1} and
+  % diagonal arrows \hat{h}^i, \hat{h}^{i+1} connecting each P^i to
+  % the bottom-row object one step to the left, in the style of the
+  % non-commutative homotopy "lozenge" diagram of \S{}4.3
+  \[
+    \rho^i = d^{i-1}_{MC(\alpha)^\bullet} \circ \hat h^i + \hat
+    h^{i+1} \circ d^i_{P^\bullet}. \tag{$*$}
+  \]
+  Now we unravel what this says. Write $\hat h^i$ out in components:
+  \[
+    \hat h^i = (\beta^i, h^i)
+  \]
+  with $\beta^i : P^i \to L^i$ and $h^i : P^i \to P^{i-1}$. I claim
+  that
+  \begin{enumerate}[label=(\roman*)]
+  \item the collection $\{\beta^i\}$ is a morphism of cochain
+    complexes: $\beta^{i+1} \circ d^i_{P^\bullet} = d^i_{L^\bullet}
+    \circ \beta^i$ for all $i$ and
+  \item the morphisms $h^i$ give a homotopy $\alpha^\bullet \circ
+    \beta^\bullet \sim \operatorname{id}_{P^\bullet}$.
+  \end{enumerate}
+  Indeed, the left-hand side of $(*)$ is
+  \[
+    \rho^i = (0, \operatorname{id}_{P^i});
+  \]
+  the right-hand side is
+  \begin{align*}
+    d^{i-1}_{MC(\alpha)^\bullet} \circ (\beta^i, h^i) +
+    (\beta^{i+1}, h^{i+1}) \circ d^i_{P^\bullet}
+    &= \bigl(-d^i_{L^\bullet} \circ \beta^i,\; \alpha^i \circ
+    \beta^i + d^{i-1}_{P^\bullet} \circ h^i\bigr) \\
+    &\quad + \bigl(\beta^{i+1} \circ d^i_{P^\bullet},\; h^{i+1}
+    \circ d^i_{P^\bullet}\bigr).
+  \end{align*}
+  It follows that $(*)$ amounts to
+  \[
+    \begin{cases}
+      \beta^{i+1} \circ d^i_{P^\bullet} - d^i_{L^\bullet} \circ
+      \beta^i = 0, \\
+      \operatorname{id}_{P^i} - \alpha^i \circ \beta^i =
+      d^{i-1}_{P^\bullet} \circ h^i + h^{i+1} \circ d^i_{P^\bullet},
+    \end{cases}
+  \]
+  that is, precisely (i) and (ii).
+
+  The morphism of complexes $\beta^\bullet : P^\bullet \to L^\bullet$
+  is the needed homotopy right-inverse of $\alpha^\bullet$.
+\end{proof}
+
+Taking $L^\bullet$ to be a suitably bounded complex of projectives or
+injectives finally establishes Theorem~\ref{thm:homol:5.9}:
+
+\begin{proof}[Proof of \cref{thm:homol:5.9}]
+  We will give the argument for projectives.
+
+  By Proposition~\ref{prop:homol:5.16}, since $P_1^\bullet$ is in
+  $\mathsf{C}^-(\mathsf{P})$ and $\alpha^\bullet : P_0^\bullet \to
+  P_1^\bullet$ is a quasi-isomorphism, there exists a morphism of
+  complexes $\beta^\bullet : P_1^\bullet \to P_0^\bullet$ such that
+  \[
+    \alpha^\bullet \circ \beta^\bullet \sim
+    \operatorname{id}_{P_1^\bullet}.
+  \]
+  This implies that $H^\bullet(\alpha^\bullet) \circ
+  H^\bullet(\beta^\bullet) = \operatorname{id}$
+  (Proposition~4.10). Since $H^\bullet(\alpha^\bullet)$ is
+  invertible, so is $H^\bullet(\beta^\bullet)$: therefore,
+  $\beta^\bullet$ is a quasi-isomorphism. Now $P_0^\bullet$ is also
+  in $\mathsf{C}^-(\mathsf{P})$; hence by
+  Proposition~\ref{prop:homol:5.16} there exists a morphism of
+  complexes $\alpha^{\bullet\prime} : P_0^\bullet \to P_1^\bullet$
+  such that $\beta^\bullet \circ \alpha^{\bullet\prime} \sim
+  \operatorname{id}_{P_0^\bullet}$. Since
+  \[
+    \alpha^{\bullet\prime} \sim (\alpha^\bullet \circ \beta^\bullet)
+    \circ \alpha^{\bullet\prime} = \alpha^\bullet \circ (\beta^\bullet
+    \circ \alpha^{\bullet\prime}) \sim \alpha^\bullet,
+  \]
+  (Exercise~4.6), it follows that $\beta^\bullet \circ \alpha^\bullet
+  \sim \operatorname{id}_{P_0^\bullet}$. Thus $\alpha^\bullet$ is a
+  homotopy equivalence, as stated.
+\end{proof}
 
 \subsection*{Exercises}
 
-% 5.1. ? Prove that the homotopic categories K(A), K-(A), K+ (A) of an abelian
-% category A are additive. [\S{}5.2]
-% 5.2. ? Prove Proposition 5.4. [\S{}5.2]
-% 5.3. Provide a reasonable definition of `projective' and `injective' objects in
-% any
-% category, and prove that, according to your definition, every set is both
-% projective
-% and injective in Set.
-% 5.4. ? Upgrade Exercises VIII.6.4 and VIII.6.15 to objects of any abelian
-% category.
-% [5.9, 6.3, \S{}7.4]
-% 5.5. ? Let F be a nontrivial finite abelian group. Prove that there are exact
-% sequences of finite abelian groups
-% 0 \to  A1 \to  A2 \to  F \to  0,
-%  0 \to  F \to  B1 \to  B2 \to  0
-% which do not split.
-% Deduce that the category of finite abelian groups has no nontrivial projective
-% or injective objects. [\S{}5.3]
-% 5.6. ? Let A, B be abelian categories, and let F : A \to  B, G : B \to  A be
-% additive
-% functors. Assume that F is left-adjoint to G and that G preserves epimorphisms.
-% Prove that if P is a projective object in A, then F (P ) is a projective object
-% in B.
-% Formulate an analogous result for injective objects. [5.8, \S{}7.1]
-% 5.7. \lnot  Let A be an abelian category, and let C be a small category. Assume
-% that
-% A contains all products indexed by any set26 ; for example, R-Mod satisfies this
-% condition for every ring R. For an object A of A and a set S, denote by AS the
-% product of A indexed by S. Note that any set-map S \to  T determines a morphism
-% AT \to  AS in A.
-% For any object X of C, we will define a functor X
-%  / : A \to  AC; a much more
-% simple-minded functor X : AC
-%  \to  A was defined in Exercise 1.11.
-% For every object A of A, X
-%  / (A) must be an object of AC , that is, a functor
-% C \to  A. The value of this functor at the object Y of C is prescribed to be
-% X
-%  / (A)Y := AHomC (Y,X).
-% Every morphism Y \to  Z in C determines a function HomC (Z, X) \to  HomC (Y, X),
-% and this defines a morphism X
-%  / (A)Y \to  X
-%  / (A)Z.
-% \bullet  Prove that this prescription defines X
-%  / (A) as a functor C \to  A.
-% \bullet  Prove that X
-%  / is a functor A \to  AC
-%  , with the evident action on morphisms.
-% \bullet  Prove that X
-%  / is right-adjoint to X .
-% 26Recall that `infinite' products may be defined as limits; see Example
-% VIII.1.10.
-% (Hint: You have to identify HomAC (F , X
-%  / (A)) with Hom A(F (X), A). Given a
-% natural transformation \alpha  : F \to  X /
-%  (A), evaluate at X and extract the identity
-% component to obtain a morphism F (X) \to  A. Then show that this one piece of
-% information determines the whole natural transformation.) [5.8, 5.9]
-% 5.8. \lnot  As in Exercise 5.7, let C be a small category and let A be an
-% abelian cate-
-% gory containing all products indexed by sets. Prove that the functor X
-%  / preserves
-% injectives for all objects X of C: if Q is an injective object of A, then X
-%  / (Q) is
-% C
-% injective in A . (Hint: Exercise 5.6.) [5.9]
-% 5.9. \lnot  Let C be a small category, and let A be an abelian category
-% containing all
-% products indexed by sets. Assume that A has enough injectives. Let F : C \to  A
-% be
-% a functor. For every object X of C, let QX be an injective object of A admitting
-% a
-% monomorphism F (X) / / QX .
-% ?
-% \bullet  With notation as in Exercise 5.7, let Q := X\in Obj(C) X
-%  / (QX ) (prove that this
-% product exists in AC ).
-% \bullet  Prove that Q is injective in AC . (Exercises 5.4 and 5.8.)
-% \bullet  Define a morphism F \to  Q, and prove it is a monomorphism. (Use adjunction.)
-% Therefore, we can conclude that AC has enough injectives if A is an abelian
-% category
-% with enough injectives and A is closed with respect to products indexed by sets.
-% Prove that if A is an abelian category with enough projectives and A is closed
-% with respect to coproducts indexed by sets, then AC has enough projectives.
-% (Hint:
-% (AC )op \sim 
-%  = (Aop )(Cop
-% ).) [5.10]
-% 5.10. Prove that the category of presheaves of abelian groups on a topological
-% space has enough injectives and enough projectives27 . (Use Exercise 5.9.)
-% \bullet 5.11. ? Let N be the complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / K
-%  / M
-%  / N
-%  / 0
-%  / \cdot \cdot \cdot  .
-% \bullet Prove that N is exact and splits (in a sense analogous to the one given for modules
-% in \S{}III.7.2) if and only if idN \bullet  is homotopic to 0 (cf. Proposition
-% III.7.5). Deduce
-% that every additive functor sends split exact sequences to split exact
-% sequences.
-% \bullet More generally, let N be any complex. Prove that idN \bullet  is homotopic to 0
-% (that is, N \bullet  is `split exact' as defined in \S{}5.4) if and only if N
-% \bullet  is isomorphic to a
-% complex of the form
-% \cdot \cdot \cdot 
-%  d-3 /
-%  M -2 \oplus  M -1
-%  d-2 /
-%  M -1 \oplus  M 0
-%  d-1 /
-%  M 0 \oplus  M 1
-%  d0
-%  / M 1 \oplus  M 2
-%  d1
-%  / \cdot \cdot \cdot 
-% where di is 0 on the M i factor, and (idM i+1 , 0) on the M i+1 factor.
-% [\S{}5.4, 6.3, \S{}7.4]
-% 5.12. ? Prove that every exact, bounded-above complex of projectives is homotopy
-% equivalent to zero. Prove that every exact, bounded-below complex of injectives
-% is
-% homotopy equivalent to zero. [\S{}5.4]
-% 27 The category of sheaves of abelian groups on a topological space also has
-% enough injectives,
-% but in general it does not have enough projectives.
-% 5.13. Let A be an abelian category, and let \alpha \bullet  : L\bullet  \to  M
-% \bullet  be a quasi-isomorphism
-% in C(A). Assume that \beta  \bullet  is a homotopy one-sided inverse of \alpha
-% \bullet . Prove that \beta \bullet  is
-% also a quasi-isomorphism.
-% 5.14. \lnot  Let P0 \bullet , P1 \bullet  be bounded-above complexes of
-% projective objects in an abelian
-% category A. (You may assume A has enough projectives, if that helps.) Let
-% L\bullet  be
-% a (not necessarily bounded) complex in C(A).
-% \bullet  Assume that there are quasi-isomorphisms
-% q-iso.
-%  L\bullet >
-%  > > > q-iso.
-%  >
-%  ?
-% \bullet 
-%  \bullet 
-% P0 P1\bullet  \bullet Prove that P0 and P1 are homotopy equivalent.
-% \bullet  Assume that there are quasi-isomorphisms
-% \bullet 
-%  \bullet 
-% q-iso. P0 > >
-%  > >
-%  ?
-%  q-iso.
-%  P1L\bullet 
-% \bullet  \bullet Prove that P0 and P1 are homotopy equivalent. (This may turn out to be
-% challenging. If so, wait until you have covered \S{}6, in particular Theorem
-% 6.6.)
-% [6.5]
+\begin{exer}{\exerused{}}{exer:homol:5.1}
+  Prove that the homotopic categories $\mathsf{K}(\mathsf{A})$,
+  $\mathsf{K}^-(\mathsf{A})$, $\mathsf{K}^+(\mathsf{A})$ of an
+  abelian category $\mathsf{A}$ are additive. [\S{}5.2]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:5.2}
+  Prove Proposition~5.4. [\S{}5.2]
+\end{exer}
+\begin{exer}{}{exer:homol:5.3}
+  Provide a reasonable definition of `projective' and `injective'
+  objects in any category, and prove that, according to your
+  definition, every set is both projective and injective in
+  $\categ{Set}$.
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:5.4}
+  Upgrade Exercises~VIII.6.4 and VIII.6.15 to objects of any abelian
+  category. [5.9, 6.3, \S{}7.4]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:5.5}
+  Let $F$ be a nontrivial finite abelian group. Prove that there are
+  exact sequences of finite abelian groups
+  \[
+    0 \to A_1 \to A_2 \to F \to 0, \qquad 0 \to F \to B_1 \to B_2 \to 0
+  \]
+  which do \emph{not} split.
+
+  Deduce that the category of finite abelian groups has no
+  nontrivial projective or injective objects. [\S{}5.3]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:5.6}
+  Let $\mathsf{A}$, $\mathsf{B}$ be abelian categories, and let
+  $\mathscr{F} : \mathsf{A} \to \mathsf{B}$, $\mathscr{G} : \mathsf{B}
+  \to \mathsf{A}$ be additive functors. Assume that $\mathscr{F}$ is
+  left-adjoint to $\mathscr{G}$ and that $\mathscr{G}$ preserves
+  epimorphisms. Prove that if $P$ is a projective object in
+  $\mathsf{A}$, then $\mathscr{F}(P)$ is a projective object in
+  $\mathsf{B}$. Formulate an analogous result for injective objects.
+  [5.8, \S{}7.1]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:5.7}
+  Let $\mathsf{A}$ be an abelian category, and let $\mathsf{C}$ be a
+  small category. Assume that $\mathsf{A}$ contains all products
+  indexed by any set\footnote{Recall that `infinite' products may be
+  defined as limits; see Example~VIII.1.10.}; for example,
+  $R\text{-Mod}$ satisfies this condition for every ring $R$. For an
+  object $A$ of $\mathsf{A}$ and a set $S$, denote by $A^S$ the
+  product of $A$ indexed by $S$. Note that any set-map $S \to T$
+  determines a morphism $A^T \to A^S$ in $\mathsf{A}$.
+
+  For any object $X$ of $\mathsf{C}$, we will define a functor
+  $\widehat{\mathscr{X}} : \mathsf{A} \to \mathsf{A}^{\mathsf{C}}$; a
+  much more simple-minded functor $\mathscr{X} : \mathsf{A}^{\mathsf{C}}
+  \to \mathsf{A}$ was defined in Exercise~1.11.
+
+  For every object $A$ of $\mathsf{A}$, $\widehat{\mathscr{X}}(A)$
+  must be an object of $\mathsf{A}^{\mathsf{C}}$, that is, a functor
+  $\mathsf{C} \to \mathsf{A}$. The value of this functor at the
+  object $Y$ of $\mathsf{C}$ is prescribed to be
+  \[
+    \widehat{\mathscr{X}}(A)_Y := A^{\Hom_{\mathsf{C}}(Y,X)}.
+  \]
+  Every morphism $Y \to Z$ in $\mathsf{C}$ determines a function
+  $\Hom_{\mathsf{C}}(Z,X) \to \Hom_{\mathsf{C}}(Y,X)$, and this
+  defines a morphism $\widehat{\mathscr{X}}(A)_Y \to
+  \widehat{\mathscr{X}}(A)_Z$.
+  \begin{itemize}
+  \item Prove that this prescription defines $\widehat{\mathscr{X}}(A)$
+    as a functor $\mathsf{C} \to \mathsf{A}$.
+  \item Prove that $\widehat{\mathscr{X}}$ is a functor $\mathsf{A}
+    \to \mathsf{A}^{\mathsf{C}}$, with the evident action on
+    morphisms.
+  \item Prove that $\widehat{\mathscr{X}}$ is right-adjoint to
+    $\mathscr{X}$.
+  \end{itemize}
+  (Hint: You have to identify
+  $\Hom_{\mathsf{A}^{\mathsf{C}}}(\mathscr{F}, \widehat{\mathscr{X}}(A))$
+  with $\Hom_{\mathsf{A}}(\mathscr{F}(X), A)$. Given a natural
+  transformation $\alpha : \mathscr{F} \to \widehat{\mathscr{X}}(A)$,
+  evaluate at $X$ and extract the identity component to obtain a
+  morphism $\mathscr{F}(X) \to A$. Then show that this one piece of
+  information determines the whole natural transformation.) [5.8, 5.9]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:5.8}
+  As in Exercise~5.7, let $\mathsf{C}$ be a small category and let
+  $\mathsf{A}$ be an abelian category containing all products indexed
+  by sets. Prove that the functor $\widehat{\mathscr{X}}$ preserves
+  injectives for all objects $X$ of $\mathsf{C}$: if $Q$ is an
+  injective object of $\mathsf{A}$, then $\widehat{\mathscr{X}}(Q)$
+  is injective in $\mathsf{A}^{\mathsf{C}}$. (Hint: Exercise~5.6.)
+  [5.9]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:5.9}
+  Let $\mathsf{C}$ be a small category, and let $\mathsf{A}$ be an
+  abelian category containing all products indexed by sets. Assume
+  that $\mathsf{A}$ has enough injectives. Let $\mathscr{F} :
+  \mathsf{C} \to \mathsf{A}$ be a functor. For every object $X$ of
+  $\mathsf{C}$, let $Q_X$ be an injective object of $\mathsf{A}$
+  admitting a monomorphism $\mathscr{F}(X) \hookrightarrow Q_X$.
+  \begin{itemize}
+  \item With notation as in Exercise~5.7, let $\mathscr{Q} :=
+    \prod_{X \in \operatorname{Obj}(\mathsf{C})}
+    \widehat{\mathscr{X}}(Q_X)$ (prove that this product exists in
+    $\mathsf{A}^{\mathsf{C}}$).
+  \item Prove that $\mathscr{Q}$ is injective in
+    $\mathsf{A}^{\mathsf{C}}$. (Exercises 5.4 and 5.8.)
+  \item Define a morphism $\mathscr{F} \to \mathscr{Q}$, and prove it
+    is a monomorphism. (Use adjunction.)
+  \end{itemize}
+  Therefore, we can conclude that $\mathsf{A}^{\mathsf{C}}$ has
+  enough injectives if $\mathsf{A}$ is an abelian category with
+  enough injectives and $\mathsf{A}$ is closed with respect to
+  products indexed by sets.
+
+  Prove that if $\mathsf{A}$ is an abelian category with enough
+  \emph{projectives} and $\mathsf{A}$ is closed with respect to
+  \emph{co}products indexed by sets, then $\mathsf{A}^{\mathsf{C}}$
+  has enough projectives. (Hint: $(\mathsf{A}^{\mathsf{C}})^{op}
+  \cong (\mathsf{A}^{op})^{(\mathsf{C}^{op})}$.) [5.10]
+\end{exer}
+\begin{exer}{}{exer:homol:5.10}
+  Prove that the category of presheaves of abelian groups on a
+  topological space has enough injectives and enough
+  projectives\footnote{The category of \emph{sheaves} of abelian
+  groups on a topological space also has enough injectives, but in
+  general it does not have enough projectives.}. (Use
+  Exercise~5.9.)
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:5.11}
+  Let $N^\bullet$ be the complex
+  \[\begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & K \arrow[r] & M \arrow[r] &
+    N \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  Prove that $N^\bullet$ is exact and splits (in a sense analogous to
+  the one given for modules in \S{}III.7.2) if and only if
+  $\operatorname{id}_{N^\bullet}$ is homotopic to $0$ (cf.
+  Proposition~III.7.5). Deduce that every additive functor sends
+  split exact sequences to split exact sequences.
+
+  More generally, let $N^\bullet$ be any complex. Prove that
+  $\operatorname{id}_{N^\bullet}$ is homotopic to $0$ (that is,
+  $N^\bullet$ is `split exact' as defined in \S{}5.4) if and only if
+  $N^\bullet$ is isomorphic to a complex of the form
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r, "d^{-3}"] & M^{-2} \oplus M^{-1}
+      \arrow[r, "d^{-2}"] & M^{-1} \oplus M^0 \arrow[r, "d^{-1}"] &
+      M^0 \oplus M^1 \arrow[r, "d^0"] & M^1 \oplus M^2
+      \arrow[r, "d^1"] & \dots
+  \end{tikzcd}\]
+  where $d^i$ is $0$ on the $M^i$ factor, and
+  $(\operatorname{id}_{M^{i+1}}, 0)$ on the $M^{i+1}$ factor.
+  [\S{}5.4, 6.3, \S{}7.4]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:5.12}
+  Prove that every exact, bounded-above complex of projectives is
+  homotopy equivalent to zero. Prove that every exact, bounded-below
+  complex of injectives is homotopy equivalent to zero. [\S{}5.4]
+\end{exer}
+\begin{exer}{}{exer:homol:5.13}
+  Let $\mathsf{A}$ be an abelian category, and let $\alpha^\bullet :
+  L^\bullet \to M^\bullet$ be a quasi-isomorphism in
+  $\mathsf{C}(\mathsf{A})$. Assume that $\beta^\bullet$ is a homotopy
+  one-sided inverse of $\alpha^\bullet$. Prove that $\beta^\bullet$
+  is also a quasi-isomorphism.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:5.14}
+  Let $P_0^\bullet$, $P_1^\bullet$ be bounded-above complexes of
+  projective objects in an abelian category $\mathsf{A}$. (You may
+  assume $\mathsf{A}$ has enough projectives, if that helps.) Let
+  $L^\bullet$ be a (not necessarily bounded) complex in
+  $\mathsf{C}(\mathsf{A})$.
+  \begin{itemize}
+  \item Assume that there are quasi-isomorphisms
+    \[\begin{tikzcd}
+      & L^\bullet \arrow[dl, "\text{q-iso.}"'] \arrow[dr, "\text{q-iso.}"] & \\
+      P_0^\bullet & & P_1^\bullet
+    \end{tikzcd}\]
+    Prove that $P_0^\bullet$ and $P_1^\bullet$ are homotopy
+    equivalent.
+  \item Assume that there are quasi-isomorphisms
+    \[\begin{tikzcd}
+      P_0^\bullet \arrow[dr, "\text{q-iso.}"'] & &
+        P_1^\bullet \arrow[dl, "\text{q-iso.}"] \\
+      & L^\bullet &
+    \end{tikzcd}\]
+    Prove that $P_0^\bullet$ and $P_1^\bullet$ are homotopy
+    equivalent. (This may turn out to be challenging. If so, wait
+    until you have covered \S{}6, in particular Theorem~6.6.)
+  \end{itemize}
+  [6.5]
+\end{exer}
 
 \section{Projective and injective resolutions and the derived category}
 \label{sec:homol:projective-and-injective-resolutions-and-the-derived-category}
 
-% Theorem 5.9 is very good news. It tells us that if we are willing and able to
-% change
-% our viewpoint and adopt bounded complexes of projectives or injectives as our
-% natural environment, then we will have an excellent handle on the subtle notion
-% of quasi-isomorphism: because quasi-isomorphisms become homotopy equivalences
-% in that environment and homotopy equivalences are better behaved than arbitrary
-% quasi-isomorphisms. For example, homotopy equivalence of complexes is manifestly
-% an equivalence relation (Exercise 4.4), while quasi-isomorphism is not (see the
-% dis-
-% cussion following Example 4.6). Further, homotopy equivalences are preserved by
-% every additive functor (Theorem 4.14), while general quasi-isomorphisms are not
-% (Exercise 4.15).
-% The question is therefore how to switch to a homotopic environment and adopt
-% complexes of projectives or injectives as our primary object of study, while
-% keeping
-% intact the essential information carried by the objects of A or even the
-% complexes
-% in C(A).
-% This can be done if A has enough projectives or enough injectives; in this
-% situation, we will be able to produce an adequate description of the derived
-% category
-% (\S{}6.3).
+Theorem~\ref{thm:homol:5.9} is very good news. It tells us that if we
+are willing and able to change our viewpoint and adopt bounded
+complexes of projectives or injectives as our natural environment,
+then we will have an excellent handle on the subtle notion of
+quasi-isomorphism: because quasi-isomorphisms become homotopy
+equivalences in that environment and homotopy equivalences are
+better behaved than arbitrary quasi-isomorphisms. For example,
+homotopy equivalence of complexes is manifestly an equivalence
+relation (Exercise~4.4), while quasi-isomorphism is not (see the
+discussion following Example~4.6). Further, homotopy equivalences
+are preserved by every additive functor (Theorem~4.14), while
+general quasi-isomorphisms are not (Exercise~4.15).
+
+The question is therefore how to switch to a homotopic environment
+and adopt complexes of projectives or injectives as our primary
+object of study, while keeping intact the essential information
+carried by the objects of $\mathsf{A}$ or even the complexes in
+$\mathsf{C}(\mathsf{A})$.
+
+This can be done if $\mathsf{A}$ has enough projectives or enough
+injectives; in this situation, we will be able to produce an
+adequate description of the derived category (\S{}6.3).
 
 \subsection{Recovering A}
 \label{subsec:homol:recovering-a}
-% Recall once more that a `copy' of an abelian category A is
 
-% available within C(A), by associating with every object A in A the complex \iota
-% (A)
-% having A in degree 0 and 0 elsewhere. Composing with the functor C(A) \to  K(A)
-% realizes A as a full subcategory of K(A) (Exercise 6.1). We will look for `more
-% interesting' copies of A in the homotopic category.
-% Let us begin by recalling (and sharpening) our definition of
-% projective/injective
-% resolutions of an object A.
-% Definition 6.1. Let A be an object of an abelian category A.
-% A projective resolution of A is a quasi-isomorphism P \bullet  \to  \iota (A),
-% where P \bullet  is a
-% \leq 0complex in C (P).
-% An injective resolution of A is a quasi-isomorphism \iota (A) \to  Q\bullet  ,
-% where Q\bullet  is a
-% complex in C\geq 0 (I).
-%  ?
-% By common abuse of language, I will often refer to P \bullet  or Q\bullet  as
-% the resolution,
-% leaving the quasi-isomorphism understood.
-% Remark 6.2. The terminology is potentially confusing, since it hints that the
-% resolutions themselves may be projective/injective as objects of the abelian
-% cate-
-% gory C(A), or of its bounded variations. This is not the case (Exercise 6.3).
-%  ?
-% Projective or injective resolutions need not exist: as I pointed out (Exam-
-% ple 5.6), an abelian category may have no nontrivial projective or injective
-% objects.
-% It is however clear that such resolutions exist if the category has enough
-% projec-
-% tives/injectives: if A has enough projectives, then given any object A of A
-% there
-% is a projective P 0 with an epimorphism \pi  : P 0 \to  A; and then a projective
-% P -1
-% with an epimorphism d-1 : P -1 \to  ker \pi ; and then a projective P -2 with an
-% epimorphism d-2 : P -2 \to  ker d-1 ; and so on. Letting diP \bullet  be the
-% composition
-% P i / ker di+1 / / P i+1 gives
-% d-2
-%  P \bullet 
-%  d-1
-%  P \bullet 
-% \cdot \cdot \cdot 
-%  / P -2
-%  / P -1
-%  / P 0
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% a projective resolution of A. Just as clearly, if A has enough injectives, then
-% every
-% object A has an injective resolution.
-% Now consider the category of homotopy classes of quasi-isomorphisms with tar-
-% get \iota (A) (cf. Remark 4.5): this is a `homotopic category of resolutions' of
-% A. I claim
-% that projective resolutions, if they exist, are initial in this category.
-% (Analogously,
-% injective resolutions are final in the homotopic category of quasi-isomorphism
-% with
-% source \iota (A).)
-% As the reader knows, this means that projective resolutions are supposed to
-% map uniquely (in K(A)) to every resolution of A. The following key lemma proves
-% this and more:
-% \bullet Lemma 6.3. Let A be an object of an abelian category A. Let M be a resolution
-% \bullet  \leq 0of A, and let P be any complex in C (P). Let
-% \phi  : H 0 (P \bullet  ) \to  H 0 (M \bullet  ) = A
-% be an arbitrary morphism. Then
-% \bullet  there exist morphisms of complexes \alpha \bullet  : P \bullet  \to  M \bullet  inducing \phi  at the level
-% of H 0 ;
-% \bullet  different morphisms satisfying the previous requirement are necessarily homo-
-% topy equivalent.
-% Of course an analogous statement holds for complexes Q\bullet  in C\geq 0 (I),
-% giving
-% morphisms of cochain complexes M \bullet  \to  Q\bullet  inducing a given
-% morphism in H 0.
-% Proof. We have to define \alpha i : P i \to  M i for all i. Since \alpha i = 0
-% necessarily for i > 0,
-% \bullet we may as well replace M with its truncated version (cf. Exercise 3.1) and then
-% \bullet extend both P and this complex as follows:
-% -2
-%  -1
-% \cdot \cdot \cdot 
-%  / P -2
-%  dP \bullet 
-%  / P -1
-%  dP \bullet 
-%  / P 0
-%  \pi 
-%  / H 0(P \bullet  )
-%  / 0
-% \alpha -2
-%  \alpha -1
-%  \alpha 0
-%  \phi 
-% \sqcup 
-%  d-2
-%  M \bullet 
-%  \sqcup 
-%  d-1
-%  M \bullet 
-%  \sqcup 
-%  \mu 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / M -2
-%  / M -1
-%  / ker d0 M
-%  \bullet 
-%  / H 0 (M \bullet  ) = A
-%  / 0
-% Note that the bottom complex is then exact. The morphism \phi  is given to us,
-% and
-% the task is to define the dotted lifts \alpha i , i \leq  0, so as to obtain a
-% morphism of
-% complexes.
-% Now, P 0 is projective and maps to A by \phi  \circ  \pi ; this guarantees the
-% existence of
-% a lifting \alpha 0 of \phi . (The map P 0 \to  M 0 to the degree-0 term of the
-% original complex
-% is obtained by following with ker d0 M \bullet  / / M 0 .) Next, note that
-% \mu  \circ  \alpha 0 \circ  d-1
-%  P \bullet  = \phi  \circ  \pi  \circ  dP -1
-%  \bullet  = 0;
-% therefore, \alpha 0 \circ  d P -1
-%  \bullet  factors through ker \mu . Since the bottom complex is exact, ker \mu  =
-% -1
-% im dM
-%  \bullet 
-%  .
-%  Therefore,
-%  we have the diagram
-% -1
-% P0 -1
-% \alpha  \circ  dP \bullet 
-% d-1
-%  M \bullet 
-%  \sqcup 
-% M -1
-%  / im d-1 M
-%  \bullet 
-%  / 0
-% and a lift \alpha -1 then exists since P -1 is projective.
-% The construction of the other \alpha -i, i > 1, proceeds inductively in
-% precisely the
-% same way, using at each step the fact that the bottom complex is exact.
-% This proves the existence of \alpha \bullet  : P \bullet  \to  M \bullet  . Its
-% uniqueness up to homotopy
-% follows immediately from Lemma 5.11.
-%  ?
-% Summarizing, if A contains enough projectives, then every object A of A ad-
-% mits a projective resolution, and further this is initial among all resolutions
-% with
-% target \iota (A). If A has enough injectives, then every object A of A admits an
-% injective
-% resolution, and this is final among all resolutions with source \iota (A).
-% Recall that initial, resp., final, objects of a category are always unique up to
-% isomorphism (Proposition I.5.4). Here, this says the following:
-% Proposition 6.4. Any two projective (resp., injective) resolutions of an object
-% A
-% of an abelian category A are homotopy equivalent.
-% (This is also a direct consequence of Lemma 6.3.)
-% The moral I extract from these considerations is that if an abelian category A
-% has enough (say) projectives, then we can associate with each object A of A an
-% \leq 0object of K (P), determined up to homotopy. This can in fact be done functorially,
-% in the sense that morphisms in A can be lifted to morphisms of corresponding
-% projective resolutions:
-% \bullet Proposition 6.5. Let A0 , A1 be objects of an abelian category A, and let Pi be
-% a projective resolution of Ai, i = 0, 1. Then every morphism \phi  : A0 \to  A1
-% in A is
-% induced by a morphism \alpha \bullet  : P0 \bullet  \to  P1 \bullet  , uniquely
-% determined up to homotopy.
-% Of course an analogous statement holds for injective resolutions.
-% Proof. By hypothesis, \phi  is a morphism H 0 (P0 \bullet  ) \to  H 0 (P1
-% \bullet  ). The complex P0 \bullet
-% consists of projectives, and P1 \bullet  is a resolution of A1 ; therefore a
-% lift \alpha \bullet  exists and
-% is unique up to homotopy, as an immediate consequence of Lemma 6.3.
-%  ?
-% The assignment provided by Proposition 6.5 is clearly covariant. The bottom
-% line is that the part of A consisting of objects with (say) projective
-% resolutions
-% -is equivalent to a full subcategory of K (P). Dear reader, please formalize
-% this
-% assertion, for it is a key point (Exercise 6.2). If A has enough projectives,
-% this gives
-% -the promised `copy' of A within K (P).
-% Of course the situation is entirely analogous concerning the subcategory of A
-% consisting of objects admitting an injective resolution and K+ (I).
+Recall once more that a `copy' of an abelian category $\mathsf{A}$ is
+available within $\mathsf{C}(\mathsf{A})$, by associating with every
+object $A$ in $\mathsf{A}$ the complex $\iota(A)$ having $A$ in
+degree $0$ and $0$ elsewhere. Composing with the functor
+$\mathsf{C}(\mathsf{A}) \to \mathsf{K}(\mathsf{A})$ realizes
+$\mathsf{A}$ as a full subcategory of $\mathsf{K}(\mathsf{A})$
+(Exercise~6.1). We will look for `more interesting' copies of
+$\mathsf{A}$ in the homotopic category.
+
+Let us begin by recalling (and sharpening) our definition of
+projective/injective resolutions of an object $A$.
+
+\begin{defn}{}{defn:homol:6.1}
+  Let $A$ be an object of an abelian category $\mathsf{A}$.
+
+  A \emph{projective resolution} of $A$ is a quasi-isomorphism
+  $P^\bullet \to \iota(A)$, where $P^\bullet$ is a complex in
+  $\mathsf{C}^{\le 0}(\mathsf{P})$.
+
+  An \emph{injective resolution} of $A$ is a quasi-isomorphism
+  $\iota(A) \to Q^\bullet$, where $Q^\bullet$ is a complex in
+  $\mathsf{C}^{\ge 0}(\mathsf{I})$.
+\end{defn}
+
+By common abuse of language, I will often refer to $P^\bullet$ or
+$Q^\bullet$ as \emph{the} resolution, leaving the quasi-isomorphism
+understood.
+
+\begin{rem}{}{rem:homol:6.2}
+  The terminology is potentially confusing, since it hints that the
+  resolutions themselves may be projective/injective as objects of
+  the abelian category $\mathsf{C}(\mathsf{A})$, or of its bounded
+  variations. This is not the case (Exercise~6.3).
+\end{rem}
+
+Projective or injective resolutions need not exist: as I pointed out
+(Example~5.6), an abelian category may have no nontrivial projective
+or injective objects. It is however clear that such resolutions
+exist \emph{if} the category has enough projectives/injectives: if
+$\mathsf{A}$ has enough projectives, then given any object $A$ of
+$\mathsf{A}$ there is a projective $P^0$ with an epimorphism $\pi :
+P^0 \to A$; and then a projective $P^{-1}$ with an epimorphism $d^{-1}
+: P^{-1} \to \ker\pi$; and then a projective $P^{-2}$ with an
+epimorphism $d^{-2} : P^{-2} \to \ker d^{-1}$; and so on. Letting
+$d^i_{P^\bullet}$ be the composition $P^i \twoheadrightarrow \ker
+d^{i+1} \hookrightarrow P^{i+1}$ gives
+\[\begin{tikzcd}[column sep=large]
+  \dots \arrow[r] & P^{-2} \arrow[r, "d_{P^\bullet}^{-2}"] &
+    P^{-1} \arrow[r, "d_{P^\bullet}^{-1}"] & P^0 \arrow[r] &
+    0 \arrow[r] & \dots,
+\end{tikzcd}\]
+a projective resolution of $A$. Just as clearly, if $\mathsf{A}$ has
+enough injectives, then every object $A$ has an injective resolution.
+
+Now consider the category of homotopy classes of quasi-isomorphisms
+with target $\iota(A)$ (cf. Remark~4.5): this is a `homotopic
+category of resolutions' of $A$. I claim that projective
+resolutions, if they exist, are \emph{initial} in this category.
+(Analogously, injective resolutions are \emph{final} in the
+homotopic category of quasi-isomorphism with source $\iota(A)$.)
+
+As the reader knows, this means that projective resolutions are
+supposed to map uniquely (in $\mathsf{K}(\mathsf{A})$) to every
+resolution of $A$. The following key lemma proves this and more:
+
+\begin{lem}{}{lem:homol:6.3}
+  Let $A$ be an object of an abelian category $\mathsf{A}$. Let
+  $M^\bullet$ be a resolution of $A$, and let $P^\bullet$ be any
+  complex in $\mathsf{C}^{\le 0}(\mathsf{P})$. Let
+  \[
+    \varphi : H^0(P^\bullet) \to H^0(M^\bullet) = A
+  \]
+  be an arbitrary morphism. Then
+  \begin{itemize}
+  \item there exist morphisms of complexes $\alpha^\bullet : P^\bullet
+    \to M^\bullet$ inducing $\varphi$ at the level of $H^0$;
+  \item different morphisms satisfying the previous requirement are
+    necessarily homotopy equivalent.
+  \end{itemize}
+  Of course an analogous statement holds for complexes $Q^\bullet$ in
+  $\mathsf{C}^{\ge 0}(\mathsf{I})$, giving morphisms of cochain
+  complexes $M^\bullet \to Q^\bullet$ inducing a given morphism in
+  $H^0$.
+\end{lem}
+\begin{proof}
+  We have to define $\alpha^i : P^i \to M^i$ for all $i$. Since
+  $\alpha^i = 0$ necessarily for $i > 0$, we may as well replace
+  $M^\bullet$ with its truncated version (cf. Exercise~3.1) and then
+  extend both $P^\bullet$ and this complex as follows:
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & P^{-2} \arrow[r, "d_{P^\bullet}^{-2}"]
+      \arrow[d, dashed, "\alpha^{-2}"] &
+      P^{-1} \arrow[r, "d_{P^\bullet}^{-1}"]
+      \arrow[d, dashed, "\alpha^{-1}"] &
+      P^0 \arrow[r, "\pi"] \arrow[d, dashed, "\alpha^0"] &
+      H^0(P^\bullet) \arrow[r] \arrow[d, "\varphi"] & 0 \\
+    \dots \arrow[r] & M^{-2} \arrow[r, "d_{M^\bullet}^{-2}"'] &
+      M^{-1} \arrow[r, "d_{M^\bullet}^{-1}"'] &
+      \ker d^0_{M^\bullet} \arrow[r, "\mu"'] &
+      H^0(M^\bullet) = A \arrow[r] & 0
+  \end{tikzcd}\]
+  Note that the bottom complex is then exact. The morphism $\varphi$
+  is given to us, and the task is to define the dashed lifts
+  $\alpha^i$, $i \le 0$, so as to obtain a morphism of complexes.
+
+  Now, $P^0$ is projective and maps to $A$ by $\varphi \circ \pi$;
+  this guarantees the existence of a lifting $\alpha^0$ of $\varphi$.
+  (The map $P^0 \to M^0$ to the degree-$0$ term of the original
+  complex is obtained by following with $\ker d^0_{M^\bullet}
+  \hookrightarrow M^0$.) Next, note that
+  \[
+    \mu \circ \alpha^0 \circ d^{-1}_{P^\bullet} = \varphi \circ \pi
+    \circ d^{-1}_{P^\bullet} = 0;
+  \]
+  therefore, $\alpha^0 \circ d^{-1}_{P^\bullet}$ factors through
+  $\ker\mu$. Since the bottom complex is exact, $\ker\mu =
+  \operatorname{im} d^{-1}_{M^\bullet}$. Therefore, we have the
+  diagram
+  \[\begin{tikzcd}
+    & P^{-1} \arrow[d, "\alpha^0 \circ d_{P^\bullet}^{-1}"] \\
+    M^{-1} \arrow[r, "d_{M^\bullet}^{-1}"'] &
+    \operatorname{im} d_{M^\bullet}^{-1} \arrow[r] & 0
+  \end{tikzcd}\]
+  and a lift $\alpha^{-1}$ then exists since $P^{-1}$ is projective.
+
+  The construction of the other $\alpha^{-i}$, $i > 1$, proceeds
+  inductively in precisely the same way, using at each step the fact
+  that the bottom complex is exact.
+
+  This proves the existence of $\alpha^\bullet : P^\bullet \to
+  M^\bullet$. Its uniqueness up to homotopy follows immediately from
+  Lemma~\ref{lem:homol:5.11}.
+\end{proof}
+
+Summarizing, if $\mathsf{A}$ contains enough projectives, then every
+object $A$ of $\mathsf{A}$ admits a projective resolution, and
+further this is initial among all resolutions with target $\iota(A)$.
+If $\mathsf{A}$ has enough injectives, then every object $A$ of
+$\mathsf{A}$ admits an injective resolution, and this is final among
+all resolutions with source $\iota(A)$.
+
+Recall that initial, resp., final, objects of a category are always
+unique up to isomorphism (Proposition~I.5.4). Here, this says the
+following:
+
+\begin{prop}{}{prop:homol:6.4}
+  Any two projective (resp., injective) resolutions of an object $A$
+  of an abelian category $\mathsf{A}$ are homotopy equivalent.
+\end{prop}
+
+(This is also a direct consequence of Lemma~\ref{lem:homol:6.3}.)
+
+The moral I extract from these considerations is that if an abelian
+category $\mathsf{A}$ has enough (say) projectives, then we can
+associate with each object $A$ of $\mathsf{A}$ an object of
+$\mathsf{K}^{\le 0}(\mathsf{P})$, determined up to homotopy. This can
+in fact be done functorially, in the sense that morphisms in
+$\mathsf{A}$ can be lifted to morphisms of corresponding projective
+resolutions:
+
+\begin{prop}{}{prop:homol:6.5}
+  Let $A_0$, $A_1$ be objects of an abelian category $\mathsf{A}$,
+  and let $P_i^\bullet$ be a projective resolution of $A_i$, $i =
+  0, 1$. Then every morphism $\varphi : A_0 \to A_1$ in $\mathsf{A}$
+  is induced by a morphism $\alpha^\bullet : P_0^\bullet \to
+  P_1^\bullet$, uniquely determined up to homotopy.
+
+  Of course an analogous statement holds for injective resolutions.
+\end{prop}
+\begin{proof}
+  By hypothesis, $\varphi$ is a morphism $H^0(P_0^\bullet) \to
+  H^0(P_1^\bullet)$. The complex $P_0^\bullet$ consists of
+  projectives, and $P_1^\bullet$ is a resolution of $A_1$; therefore
+  a lift $\alpha^\bullet$ exists and is unique up to homotopy, as an
+  immediate consequence of Lemma~\ref{lem:homol:6.3}.
+\end{proof}
+
+The assignment provided by Proposition~\ref{prop:homol:6.5} is
+clearly covariant. The bottom line is that the part of $\mathsf{A}$
+consisting of objects with (say) projective resolutions is
+equivalent to a full subcategory of $\mathsf{K}^-(\mathsf{P})$. Dear
+reader, please formalize this assertion, for it is a key point
+(Exercise~6.2). If $\mathsf{A}$ has enough projectives, this gives
+the promised `copy' of $\mathsf{A}$ within $\mathsf{K}^-(\mathsf{P})$.
+
+Of course the situation is entirely analogous concerning the
+subcategory of $\mathsf{A}$ consisting of objects admitting an
+injective resolution and $\mathsf{K}^+(\mathsf{I})$.
 
 \subsection{From objects to complexes}
 \label{subsec:homol:from-objects-to-complexes}
-% Suppose that an abelian category A has
 
-% enough projectives. At this point we hopefully agree (Exercise 6.2) that the ho-
-% -motopic category K (P) contains a full subcategory which is equivalent to A:
-% the
-% (homotopy) category of projective resolutions of objects of A. While a priori
-% each
-% object of A corresponds to many projective resolutions, these are all homotopy
-% -equivalent to one another (by Proposition 6.4), hence isomorphic in K (P); mor-
-% phisms in A correspond precisely to homotopy classes of morphisms between pro-
-% -jective resolutions (by Proposition 6.5), hence to morphisms in K (P).
-% -In practice, this says that we can use this subcategory of K (P) as a replace-
-% ment for the original abelian category A. We are very close to achieving our
-% goal of
-% identifying the `essential nature' of cohomology: since homotopy equivalent com-
-% plexes have the same cohomology (by Theorem 4.14) and additive functors preserve
-% -homotopy equivalence, objects of K (P) are ideal carriers of cohomology
-% invariants:
-% while applying an additive functor to objects of A in general destroys
-% cohomolog-
-% -ical information, applying `the same functor' to a corresponding object in K
-% (P)
-% preserves that information.
-% We will follow this lead in the next section; the functors Tori and Exti encoun-
-% tered in Chapter VIII will arise precisely in this fashion and will stand as our
-% poster
-% examples of derived functors.
-% Of course, exactly the same situation will occur if A has enough injectives, in
-% which case the appropriate replacement for A is found in K+ (I). I will say a
-% word
-% about the general situation when projectives or injectives are not available, in
-% \S{}9.1.
-% The reader should now wonder whether the categories K- (P), K+ (I) may in fact
-% be used to extract cohomological information for any (bounded) complex, not just
-% for resolutions of a given object of A. As observed in \S{}4.2, resolutions (in
-% C- (A)
-% or C+ (A)) are just special cases of quasi-isomorphisms; the natural question is
-% -whether every (suitably bounded) complex has a `quasi-isomorphic copy' in K (P)
-% or K+ (I), again uniquely defined up to isomorphism in the homotopy category
-% (that
-% is, up to homotopy equivalence in C(A)).
-% This is indeed the case.
-% Theorem 6.6. Assume the abelian category A has enough projectives, and let
-% L\bullet  be
-% - \bullet 
-% a complex in C (A). Then there exists a bounded-above complex of projectives
-% Pand a quasi-isomorphism P \bullet  \to  L\bullet  , and P \bullet  is uniquely
-% defined up to homotopy
-% equivalence. Further, every morphism \alpha  \bullet  of complexes in C-(A)
-% lifts to a morphism
-% of the corresponding projective resolutions in K- (P), also uniquely determined
-% (up
-% to homotopy).
-% The lift obtained in the last part of this statement exists in the homotopy
-% category: any representative in C-(P) will be a `homotopy lift' of \alpha
-% \bullet  , in the sense
-% that the relevant diagram will only be guaranteed to commute up to homotopy.
-% I will call a complex P \bullet  as in the statement a `projective resolution of
-% L\bullet  ';
-% this is a slight abuse of language, since it forgets the specific
-% quasi-isomorphism
-% P \bullet  \to  L\bullet  .
-% As always, there is a mirror statement to Theorem 6.6 for injectives, which I
-% will leave to the reader to formulate precisely. It is a particularly good
-% exercise for
-% the reader to construct a stand-alone proof for the injective case.
-% Proof. The proof of this result is admittedly rather technical, as it involves
-% many
-% of the tools that we have developed.
-% Construction of P \bullet  . We may assume that L\bullet  is in C\leq 0 (A),
-% -2
-%  -1
-% \cdot \cdot \cdot 
-%  / L-2
-%  dL\bullet 
-%  / L-1
-%  dL\bullet 
-%  / L0
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% and we are seeking a complex P \bullet  in C\leq 0 (P) and a quasi-isomorphism
-% \lambda \bullet  : P \bullet  \to  L\bullet  :
-% -2
-%  -1
-% \cdot \cdot \cdot 
-%  / P -2
-%  dP \bullet 
-%  / P -1
-%  dP \bullet 
-%  / P 0
-%  / 0
-%  / \cdot \cdot \cdot 
-% \lambda -2
-%  \lambda -1
-%  \lambda 0
-%  \lambda 1
-% \sqcup 
-%  d-2
-%  L\bullet 
-%  \sqcup 
-%  d-1
-%  L\bullet 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / L-2
-%  / L
-% -1
-%  / L0
-%  / 0
-%  / \cdot \cdot \cdot 
-% \bullet The construction will give us a little more: we will obtain a projective P and
-% an epi morphism \lambda \bullet  : P \bullet  \to  L\bullet  and moreover such
-% that each induced morphism
-% \hat{\lambda }i : ker diP \bullet  \to  ker diL\bullet  is also an epimorphism.
-% For i > 0, necessarily \lambda i = 0. Arguing inductively, we may assume we have
-% already constructed a suitable \lambda i+1 and use it to construct \lambda i .
-% Here is the diagram
-% summarizing this inductive step:
-% diP \bullet 
-% P i G
-%  G G
-%  G G
-%  G \lambda 
-%  /G
-%  / i
-%  G Li G
-%  G G
-%  \times 
-%  G G
-%  ker G G G di+1
-%  \# \#
-%  L\bullet 
-%  \sqcup 
-%  ker di+1
-%  P \bullet 
-%  \pi 
-%  / ker di+1
-%  \sqcup 
-%  P
-%  \hat{\lambda }i+1
-%  \bullet 
-%  /
-%  +/
-%  P i+1
-% Li
-%  i
-%  / ker di+1
-%  L
-% \bullet 
-% dL\bullet 
-% Here, diL\bullet  restricts the target of diL\bullet  . The square is a
-% pull-back (cf. Examples 1.11
-% and 2.2). The morphism \hat{\lambda }i+1 on the right is an epimorphism by
-% induction, and it
-% follows that the morphism on the left is also an epimorphism, by Lemma 2.3. A
-% projective object P i with an epimorphism to the fibered product exists because
-% A
-% has enough projectives; the composition \lambda i : P i \to  Li is then also an
-% epimorphism,
-% as claimed. Since the square is a pull-back, the kernel of \pi  maps
-% isomorphically
-% i
-% to the kernel of dL
-% \bullet  (Exercise 1.16); it follows easily that the new induced map
-% \hat{\lambda }i
-%  : ker dP i
-%  \bullet  \to  ker diL\bullet  is an epimorphism, concluding the inductive step and the
-% construction of the complex P \bullet  and of the morphism \lambda \bullet  .
-% To see that the morphism induced in cohomology by \lambda \bullet  is an
-% isomorphism,
-% look again at the pull-back diagram and note that H i+1 (P \bullet  ), resp., H
-% i+1 (L\bullet  ), may
-% be realized as the cokernel of \pi , resp., dL
-% \bullet  i
-%  . Since \hat{\lambda }
-% i+1
-%  is an epimorphism, so is the
-% morphism
-% (diL\bullet  , -\hat{\lambda }i+1 ) : Li \oplus  ker di+1
-%  P \bullet  -\to  ker dL\bullet  i+1
-%  .
-% As the diagram is a pull-back, this implies (as observed in Example 2.2) that it
-% is
-% a push-out as well, and (Exercise 1.16 again) it follows that the induced
-% morphism
-% coker \pi  \to  coker diL\bullet  is an isomorphism. As noted, this is nothing
-% but
-% H i+1 (\lambda \bullet  )
-%  :
-%  H i+1 (P \bullet  ) -\to  H i+1 (L\bullet  ),
-% so we are done.
-% \bullet 
-%  \leq 0Uniqueness up to homotopy. It suffices to compare an arbitrary P in C (P)
-% mapping to L\bullet  with the complex P \bullet  constructed in the first part
-% of the proof.
-% Working on the same diagram used above,
-% P \exists \tilde{\lambda } S' i i ''
-%  N ''
-% '
-%  N
-%  '
-% ''
-% N N i ? N
-%  ?
-%  N
-%  v
-%  ?
-%  /N v / N v Li v
-%  N v N \setminus  v
-%  N \times 
-%  v
-%  N
-%  |
-%  v
-%  ker N v
-%  <
-% N v
-%  N v
-%  d & & : i+1
-%  L\bullet 
-%  L
-%  \sqcup 
-%  i
-%  ker di+1
-%  P \bullet 
-%  // ker ker > di+1
-%  di+1
-%  \sqcup 
-%  L\bullet 
-%  P
-%  \bullet 
-%  /
-% /
-%  \tilde{\lambda }i+1
-%  i+1
-%  ? ?
-%  ?
-%  ?
-%  / ? / P Li+1
-%  ?
-%  ? ?
-%  C
-%  i+1
-%  \sqcup 
-% ''''
-% ''P
-%  / PI claim that the morphism \lambda \bullet 
-%  :P \bullet 
-%  \to  L\bullet  lifts to a morphism \tilde{\lambda }\bullet  :P \bullet 
-%  \to  P \bullet  . Indeed,
-% both complexes are 0 in degree ? 0; thus, for i ? 0, P i
-%  \to  P i is necessarily
-% the zero-morphism. Arguing inductively once more, we assume the lift has been
-% constructed in all degrees > i, and we construct it in degree i.
-% The composition P i
-%  \to  P
-%  i+1
-%  \to  P i+1 \to  P i+2 agrees with the composition
-% P i
-%  \to  P
-%  i+1
-%  \to  P
-%  i+2
-%  \to  P i+2
-%  , so it is the zero-morphism. Therefore this composition
-% factors through ker di+1
-%  P \bullet  : this gives the dotted morphism in the diagram. By the
-% universal property of fibered products, we obtain the dashed morphism. Since P i
-% maps epimorphically to Li \times ker di+1
-%  L
-% \bullet 
-%  ker di+1
-%  P \bullet  , the needed lift \tilde{\lambda }i
-%  : P i
-%  \to  P i
-%  exists as
-% i
-% P is projective. The `outer' diagram is commutative by construction; hence the
-% collection \tilde{\lambda }i gives a morphism of cochain complexes
-% \tilde{\lambda }\bullet  . Note that so far we have
-% \bullet 
-% not used the hypothesis that \lambda  is a quasi-isomorphism.
-% -We now have the following commutative diagram in C (A):
-% \bullet 
-% \bullet 
-%  |
-%  \tilde{\lambda } | \bullet 
-%  |
-%  |
-%  | |
-%  |
-%  | P =
-%  \sqcup \sqcup 
-%  \lambda \bullet 
-% P
-%  / L\bullet 
-% \bullet 
-% \lambda 
-% Both \lambda \bullet  and \lambda \bullet 
-%  are quasi-isomorphisms; therefore so is \tilde{\lambda }\bullet  . Theorem 5.9
-%  implies
-% then that \tilde{\lambda }\bullet  is a homotopy equivalence, as needed.
-% Lifting morphisms. Let \alpha \bullet  : L\bullet 
-%  \to  L\bullet  be any morphism in C- (A). The argu-
-% ment we have just given shows that if P \bullet 
-%  is in C- (P) and L \bullet  is in C- (A), then every
-% morphism P \bullet 
-%  \to  L\bullet  lifts to a morphism P \bullet 
-%  \to  P \bullet  , where P \bullet  is the complex con-
-% structed in the first part of the proof. In fact, we have now established that
-% there
-% exists a homotopy lift28 to any complex P \bullet  mapping quasi-isomorphically
-% to L\bullet  ,
-% since every such complex is homotopy equivalent to the one constructed earlier.
-% \bullet 
-% Applying this observation to any complex P
-%  mapping quasi-isomorphically
-% \bullet 
-%  \bullet to L lifts \alpha  as needed.
-% Finally, assume that both \alpha 0 \bullet  , \alpha 1 \bullet  lift \alpha
-% \bullet  homotopically:
-% \alpha \bullet 
-% P
-%  \bullet 
-%  // P \bullet 
-% \alpha \bullet 
-% q-iso.
-%  \lambda \bullet  q-iso.
-% \sqcup 
-%  \bullet 
-%  \alpha 
-% \bullet 
-%  \sqcup 
-% L
-%  / L\bullet 
-% This means that \lambda \bullet  \circ (\alpha 1 \bullet  - \alpha 0 \bullet  )
-% is homotopic to 0:
-% P
-%  \bullet 
-%  \alpha \bullet 
-%  1 -\alpha 0
-%  \bullet 
-%  / P \bullet 
-%  q-iso.
-%  5/ L\bullet 
-% \sim 0
-% It follows that \alpha 1 \bullet  - \alpha 0 \bullet  \sim  0, by Lemma 5.14,
-% and this concludes the proof.
-%  ?
-% 28 That is, the corresponding diagram will commute up to homotopy.
-%  In general, a lift
-% in C- (P) may not exist; cf. Exercise 6.10.
+Suppose that an abelian category $\mathsf{A}$ has enough projectives.
+At this point we hopefully agree (Exercise~6.2) that the homotopic
+category $\mathsf{K}^-(\mathsf{P})$ contains a full subcategory which
+is equivalent to $\mathsf{A}$: the (homotopy) category of projective
+resolutions of objects of $\mathsf{A}$. While a priori each object of
+$\mathsf{A}$ corresponds to many projective resolutions, these are
+all homotopy equivalent to one another (by
+Proposition~\ref{prop:homol:6.4}), hence isomorphic in
+$\mathsf{K}^-(\mathsf{P})$; morphisms in $\mathsf{A}$ correspond
+precisely to homotopy classes of morphisms between projective
+resolutions (by Proposition~\ref{prop:homol:6.5}), hence to morphisms
+in $\mathsf{K}^-(\mathsf{P})$.
+
+In practice, this says that we can use this subcategory of
+$\mathsf{K}^-(\mathsf{P})$ as a replacement for the original abelian
+category $\mathsf{A}$. We are very close to achieving our goal of
+identifying the `essential nature' of cohomology: since homotopy
+equivalent complexes have the same cohomology (by Theorem~4.14) and
+additive functors preserve homotopy equivalence, objects of
+$\mathsf{K}^-(\mathsf{P})$ are ideal carriers of cohomology
+invariants: while applying an additive functor to objects of
+$\mathsf{A}$ in general destroys cohomological information, applying
+`the same functor' to a corresponding object in
+$\mathsf{K}^-(\mathsf{P})$ preserves that information.
+
+We will follow this lead in the next section; the functors
+$\operatorname{Tor}_i$ and $\operatorname{Ext}^i$ encountered in
+Chapter~VIII will arise precisely in this fashion and will stand as
+our poster examples of derived functors.
+
+Of course, exactly the same situation will occur if $\mathsf{A}$ has
+enough injectives, in which case the appropriate replacement for
+$\mathsf{A}$ is found in $\mathsf{K}^+(\mathsf{I})$. I will say a
+word about the general situation when projectives or injectives are
+not available, in \S{}9.1.
+
+The reader should now wonder whether the categories
+$\mathsf{K}^-(\mathsf{P})$, $\mathsf{K}^+(\mathsf{I})$ may in fact be
+used to extract cohomological information for \emph{any} (bounded)
+complex, not just for resolutions of a given object of $\mathsf{A}$.
+As observed in \S{}4.2, resolutions (in $\mathsf{C}^-(\mathsf{A})$ or
+$\mathsf{C}^+(\mathsf{A})$) are just special cases of
+quasi-isomorphisms; the natural question is whether every (suitably
+bounded) complex has a `quasi-isomorphic copy' in
+$\mathsf{K}^-(\mathsf{P})$ or $\mathsf{K}^+(\mathsf{I})$, again
+uniquely defined up to isomorphism in the homotopy category (that is,
+up to homotopy equivalence in $\mathsf{C}(\mathsf{A})$).
+
+This is indeed the case.
+
+\begin{thm}{}{thm:homol:6.6}
+  Assume the abelian category $\mathsf{A}$ has enough projectives,
+  and let $L^\bullet$ be a complex in $\mathsf{C}^-(\mathsf{A})$.
+  Then there exists a bounded-above complex of projectives $P^\bullet$
+  and a quasi-isomorphism $P^\bullet \to L^\bullet$, and $P^\bullet$
+  is uniquely defined up to homotopy equivalence. Further, every
+  morphism $\alpha^\bullet$ of complexes in $\mathsf{C}^-(\mathsf{A})$
+  lifts to a morphism of the corresponding projective resolutions in
+  $\mathsf{K}^-(\mathsf{P})$, also uniquely determined (up to
+  homotopy).
+\end{thm}
+
+The lift obtained in the last part of this statement exists in the
+homotopy category: any representative in $\mathsf{C}^-(\mathsf{P})$
+will be a `homotopy lift' of $\alpha^\bullet$, in the sense that the
+relevant diagram will only be guaranteed to commute up to homotopy.
+
+I will call a complex $P^\bullet$ as in the statement a `projective
+resolution of $L^\bullet$'; this is a slight abuse of language, since
+it forgets the specific quasi-isomorphism $P^\bullet \to L^\bullet$.
+
+As always, there is a mirror statement to Theorem~\ref{thm:homol:6.6}
+for injectives, which I will leave to the reader to formulate
+precisely. It is a particularly good exercise for the reader to
+construct a stand-alone proof for the injective case.
+
+\begin{proof}
+  The proof of this result is admittedly rather technical, as it
+  involves many of the tools that we have developed.
+
+  \emph{Construction of $P^\bullet$.} We may assume that $L^\bullet$
+  is in $\mathsf{C}^{\le 0}(\mathsf{A})$,
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & L^{-2} \arrow[r, "d_{L^\bullet}^{-2}"] &
+      L^{-1} \arrow[r, "d_{L^\bullet}^{-1}"] & L^0 \arrow[r] &
+      0 \arrow[r] & \dots,
+  \end{tikzcd}\]
+  and we are seeking a complex $P^\bullet$ in
+  $\mathsf{C}^{\le 0}(\mathsf{P})$ and a quasi-isomorphism $\lambda^\bullet
+  : P^\bullet \to L^\bullet$:
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & P^{-2} \arrow[r, "d_{P^\bullet}^{-2}"]
+      \arrow[d, "\lambda^{-2}"] &
+      P^{-1} \arrow[r, "d_{P^\bullet}^{-1}"] \arrow[d, "\lambda^{-1}"] &
+      P^0 \arrow[r] \arrow[d, "\lambda^0"] &
+      0 \arrow[r] \arrow[d, "\lambda^1"] & \dots \\
+    \dots \arrow[r] & L^{-2} \arrow[r, "d_{L^\bullet}^{-2}"'] &
+      L^{-1} \arrow[r, "d_{L^\bullet}^{-1}"'] & L^0 \arrow[r] &
+      0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  The construction will give us a little more: we will obtain a
+  projective $P^\bullet$ and an \emph{epi}morphism $\lambda^\bullet :
+  P^\bullet \to L^\bullet$ and moreover such that each induced
+  morphism $\hat\lambda^i : \ker d^i_{P^\bullet} \to \ker
+  d^i_{L^\bullet}$ is also an epimorphism.
+
+  For $i > 0$, necessarily $\lambda^i = 0$. Arguing inductively, we
+  may assume we have already constructed a suitable $\lambda^{i+1}$
+  and use it to construct $\lambda^i$. Here is the diagram
+  summarizing this inductive step:
+  \[\begin{tikzcd}[column sep=large]
+    P^i \arrow[r, twoheadrightarrow]
+      \arrow[rrr, "d_{P^\bullet}^i", bend left=15]
+      \arrow[dr, "\lambda^i"'] &
+      L^i \times_{\ker d_{L^\bullet}^{i+1}} \ker d_{P^\bullet}^{i+1}
+      \arrow[r, "\pi"] \arrow[d] &
+      \ker d_{P^\bullet}^{i+1} \arrow[r, hook]
+      \arrow[d, "\hat\lambda^{i+1}"] & P^{i+1} \\
+    & L^i \arrow[r, "d_{L^\bullet}^i"'] &
+      \ker d_{L^\bullet}^{i+1} &
+  \end{tikzcd}\]
+  Here, $d^i_{L^\bullet}$ restricts the target of $d^i_{L^\bullet}$.
+  The square is a pull-back (cf. Examples~1.11 and 2.2). The
+  morphism $\hat\lambda^{i+1}$ on the right is an epimorphism by
+  induction, and it follows that the morphism on the left is also an
+  epimorphism, by Lemma~2.3. A projective object $P^i$ with an
+  epimorphism to the fibered product exists because $\mathsf{A}$ has
+  enough projectives; the composition $\lambda^i : P^i \to L^i$ is
+  then also an epimorphism, as claimed. Since the square is a
+  pull-back, the kernel of $\pi$ maps isomorphically to the kernel of
+  $d^i_{L^\bullet}$ (Exercise~1.16); it follows easily that the new
+  induced map $\hat\lambda^i : \ker d^i_{P^\bullet} \to \ker
+  d^i_{L^\bullet}$ is an epimorphism, concluding the inductive step
+  and the construction of the complex $P^\bullet$ and of the
+  morphism $\lambda^\bullet$.
+
+  To see that the morphism induced in cohomology by $\lambda^\bullet$
+  is an isomorphism, look again at the pull-back diagram and note
+  that $H^{i+1}(P^\bullet)$, resp., $H^{i+1}(L^\bullet)$, may be
+  realized as the cokernel of $\pi$, resp., $d^i_{L^\bullet}$. Since
+  $\hat\lambda^{i+1}$ is an epimorphism, so is the morphism
+  \[
+    \bigl(d^i_{L^\bullet},\, -\hat\lambda^{i+1}\bigr) : L^i \oplus
+    \ker d^{i+1}_{P^\bullet} \longrightarrow \ker d^{i+1}_{L^\bullet}.
+  \]
+  As the diagram is a pull-back, this implies (as observed in
+  Example~2.2) that it is a push-out as well, and (Exercise~1.16
+  again) it follows that the induced morphism $\operatorname{coker}\pi
+  \to \operatorname{coker} d^i_{L^\bullet}$ is an isomorphism. As
+  noted, this is nothing but
+  \[
+    H^{i+1}(\lambda^\bullet) : H^{i+1}(P^\bullet) \longrightarrow
+    H^{i+1}(L^\bullet),
+  \]
+  so we are done.
+  \emph{Uniqueness up to homotopy.} It suffices to compare an
+  arbitrary $\overline{P}^\bullet$ in $\mathsf{C}^{\le
+  0}(\mathsf{P})$ mapping to $L^\bullet$ with the complex $P^\bullet$
+  constructed in the first part of the proof. Working on the same
+  diagram used above,
+  % TODO: diagram of the inductive construction of the lift
+  % \tilde\lambda^\bullet: \overline{P}^\bullet \to P^\bullet -- the
+  % same pull-back square P^i \twoheadrightarrow L^i
+  % \times_{\ker d_L^{i+1}} \ker d_P^{i+1} \to \ker d_P^{i+1}
+  % \hookrightarrow P^{i+1} as above, with \overline{P}^i and
+  % \overline{P}^{i+1} added below (connected by a curved arrow along
+  % the bottom), a dotted arrow \overline{P}^i \to \ker d_P^{i+1}
+  % (the map obtained by factoring the zero composition
+  % \overline{P}^i \to \overline{P}^{i+1} \to P^{i+1} \to P^{i+2}
+  % through \ker d_P^{i+1}), and the resulting dashed arrow
+  % \exists \tilde\lambda^i: \overline{P}^i \to P^i obtained from the
+  % universal property of the fibered product
+  I claim that the morphism $\overline\lambda^\bullet : \overline
+  P^\bullet \to L^\bullet$ lifts to a morphism $\tilde\lambda^\bullet
+  : \overline P^\bullet \to P^\bullet$. Indeed, both complexes are
+  $0$ in degree $\gg 0$; thus, for $i \gg 0$, $\overline P^i \to P^i$
+  is necessarily the zero-morphism. Arguing inductively once more, we
+  assume the lift has been constructed in all degrees $> i$, and we
+  construct it in degree $i$.
+
+  The composition $\overline P^i \to \overline P^{i+1} \to P^{i+1}
+  \to P^{i+2}$ agrees with the composition $\overline P^i \to
+  \overline P^{i+1} \to \overline P^{i+2} \to P^{i+2}$, so it is the
+  zero-morphism. Therefore this composition factors through $\ker
+  d^{i+1}_{P^\bullet}$: this gives the dotted morphism in the
+  diagram. By the universal property of fibered products, we obtain
+  the dashed morphism. Since $P^i$ maps epimorphically to $L^i
+  \times_{\ker d^{i+1}_{L^\bullet}} \ker d^{i+1}_{P^\bullet}$, the
+  needed lift $\tilde\lambda^i : \overline P^i \to P^i$ exists as
+  $\overline P^i$ is projective. The `outer' diagram is commutative
+  by construction; hence the collection $\tilde\lambda^i$ gives a
+  morphism of cochain complexes $\tilde\lambda^\bullet$. Note that so
+  far we have not used the hypothesis that $\overline\lambda^\bullet$
+  is a quasi-isomorphism.
+
+  We now have the following commutative diagram in
+  $\mathsf{C}^-(\mathsf{A})$:
+  \[\begin{tikzcd}
+    & P^\bullet \arrow[d, "\lambda^\bullet"] \\
+    \overline P^\bullet \arrow[ur, "\tilde\lambda^\bullet"]
+      \arrow[r, "\overline\lambda^\bullet"'] & L^\bullet
+  \end{tikzcd}\]
+  Both $\lambda^\bullet$ and $\overline\lambda^\bullet$ are
+  quasi-isomorphisms; therefore so is $\tilde\lambda^\bullet$.
+  Theorem~\ref{thm:homol:5.9} implies then that $\tilde\lambda^\bullet$
+  is a homotopy equivalence, as needed.
+
+  \emph{Lifting morphisms.} Let $\alpha^\bullet : \overline L^\bullet
+  \to L^\bullet$ be any morphism in $\mathsf{C}^-(\mathsf{A})$. The
+  argument we have just given shows that if $\overline P^\bullet$ is
+  in $\mathsf{C}^-(\mathsf{P})$ and $\overline L^\bullet$ is in
+  $\mathsf{C}^-(\mathsf{A})$, then every morphism $\overline P^\bullet
+  \to L^\bullet$ lifts to a morphism $\overline P^\bullet \to
+  P^\bullet$, where $P^\bullet$ is the complex constructed in the
+  first part of the proof. In fact, we have now established that
+  there exists a homotopy lift\footnote{That is, the corresponding
+  diagram will commute up to homotopy. In general, a lift in
+  $\mathsf{C}^-(\mathsf{P})$ may not exist; cf. Exercise~6.10.} to any
+  complex $P^\bullet$ mapping quasi-isomorphically to $L^\bullet$,
+  since every such complex is homotopy equivalent to the one
+  constructed earlier.
+
+  Applying this observation to any complex $\overline P^\bullet$
+  mapping quasi-isomorphically to $\overline L^\bullet$ lifts
+  $\alpha^\bullet$ as needed.
+
+  Finally, assume that both $\alpha_0^\bullet$, $\alpha_1^\bullet$
+  lift $\alpha^\bullet$ homotopically:
+  \[\begin{tikzcd}
+    \overline P^\bullet \arrow[r, "\alpha_1^\bullet", shift left]
+      \arrow[r, "\alpha_0^\bullet"', shift right]
+      \arrow[d, "\text{q-iso.}"'] &
+      P^\bullet \arrow[d, "\lambda^\bullet", "\text{q-iso.}"'] \\
+    \overline L^\bullet \arrow[r, "\alpha^\bullet"'] & L^\bullet
+  \end{tikzcd}\]
+  This means that $\lambda^\bullet \circ (\alpha_1^\bullet -
+  \alpha_0^\bullet)$ is homotopic to $0$:
+  \[\begin{tikzcd}
+    \overline P^\bullet \arrow[r, "\alpha_1^\bullet - \alpha_0^\bullet"]
+      \arrow[rr, "\sim\, 0"', bend right=20] &
+      P^\bullet \arrow[r, "\text{q-iso.}"] & L^\bullet
+  \end{tikzcd}\]
+  It follows that $\alpha_1^\bullet - \alpha_0^\bullet \sim 0$, by
+  Lemma~\ref{lem:homol:5.14}, and this concludes the proof.
+\end{proof}
 
 \subsection{Poor man's derived category}
 \label{subsec:homol:poor-man-s-derived-category}
-% We are now in a position to close a relatively
 
-% large circle of ideas. I claim that if the abelian category A has enough
-% projectives,
-% resp., injectives, then K- (P), resp., K+ (I), is a solution `up to
-% isomorphisms' of the
-% universal problem presented in \S{}4.2. The precise statement is the following.
-% By Proposition 5.4, the functor C(A) \to  D(A) factors through the homotopic
-% category; this of course holds for the bounded versions of these categories as
-% well.
-% Thus, we have functors K- (A) \to  D-(A) and K+ (A) \to  D+ (A). By restriction,
-% we
-% obtain functors
-% K-(P) \to  D-(A),
-%  K+ (I) \to  D+ (A).
-% Theorem 6.7. Let A be an abelian category with enough projectives. Then the
-% functor K- (P) \to  D- (A) is an equivalence of categories.
-% If A has enough injectives, then the functor K+ (I) \to  D+ (A) is an
-% equivalence
-% of categories.
-% Theorem 6.7 is proven in full detail in any more complete treatment of homo-
-% logical algebra. Since we have not actually constructed D- (A), we cannot really
-% prove this statement here; but we now know enough to appreciate why Theorem 6.7
-% should be true, in the sense that K- (P), K+(I) satisfy the expected universal
-% prop-
-% erties. I will deal with the projective side of the story, since the injective
-% side
-% mirrors it faithfully.
-% Assume that A has enough projectives. Define a functor P : C- (A) \to 
-% K-
-%  (P) by associating with every bounded-above complex L\bullet  any projective
-%  res-
-% olution P(L\bullet  ) of L\bullet  (which exists by Theorem 6.6) and with every
-% morphism
-% \alpha  \bullet  : L\bullet  \to  M \bullet  in C- (A) the morphism P(\alpha \bullet  ) in K- (P) lifting \alpha \bullet  .
-% The morphism P(\alpha \bullet  ) is the homotopy class of a homotopy lift of
-% \alpha \bullet  ; we have
-% proved that any two such lifts are homotopy equivalent. It also follows that P
-% is
-% indeed a functor: for example, if \alpha \bullet  : L\bullet  \to  M \bullet
-% and \beta  \bullet  : M \bullet  \to  N \bullet  are morphisms
-% in C- (A), then both P(\beta \bullet  ) \circ  P(\alpha  \bullet  ) and P(\beta
-% \bullet  \circ  \alpha \bullet  ) are classes of homotopy lifts
-% of \beta  \bullet  \circ  \alpha \bullet  ; therefore P(\beta  \bullet  ) \circ
-% P(\alpha \bullet  ) = P(\beta  \bullet  \circ  \alpha \bullet  ) by uniqueness,
-% as needed.
-% Note that there is a very large element of arbitrariness in the choice of P: I
-% am not prescribing any particular recipe for choosing a projective resolution
-% rather
-% than another. But all such resolutions are homotopically equivalent, as proven
-% in
-% Theorem 6.6; therefore different choices would only move the resolutions in
-% their
-% -isomorphism class in K (P).
-% Remark 6.8. There is an efficient way to clarify (and defuse) this
-% arbitrariness.
-% Suppose P, P \setminus  are two choices for the resolution functor C- (A) \to
-% K- (P). Thus,
-% we have chosen two projective resolutions P(L\bullet  ), P \setminus  (L\bullet
-% ) for each object L\bullet
-% in C-(A). By Theorem 6.6, there is a homotopy equivalence between P(L\bullet  )
-% and P \setminus  (L\bullet  ), that is, an isomorphism \rho L\bullet  :
-% P(L\bullet  ) \to  P \setminus  (L\bullet  ) in K-(P); this
-% isomorphism is unique (since it lifts the identity on L\bullet  and lifts are
-% unique up to
-% homotopy). Further, for every morphism of cochain complexes \alpha \bullet  :
-% L\bullet  0 \to  L\bullet  1 , the
-% diagram
-% P(L\bullet  0 )
-%  P(\alpha \bullet  )
-%  / P(L\bullet  1 )
-% \rho L\bullet 
-%  ?
-%  ? \rho L\bullet 
-% \sqcup 
-%  P ? (\alpha \bullet  )
-%  \sqcup 
-% P \setminus  (L\bullet  0 )
-%  / P \setminus  (L\bullet  1 )
-% commutes: this is again by the uniqueness of lifts up to homotopy, since \rho
-% L\bullet  1 \circ  P(\alpha \bullet  )
-% and P \setminus  (\alpha \bullet ) \circ  \rho L\bullet  0 both correspond to
-% lifts of \alpha \bullet  to P(L\bullet  0 ) \to  P \setminus (L\bullet  1 ).
-% This says that there is a unique natural isomorphism 29 between any two choices
-% P, P \setminus  of functors of projective resolutions. In a categorical context,
-% this is essen-
-% tially as good as uniqueness. Thus the arbitrariness in the choice of P is less
-% dramatic than it may seem at first.
-%  ?
-% Choose any functor P as above. I claim that P : C- (A) \to  K- (P) is
-% essentially
-% -a solution to the universal problem defining the derived category D (A). Here
-% is a
-% more precise statement:
-% Theorem 6.9. With notation as above, we have the following.
-% \bullet  If \rho \bullet  is a quasi-isomorphism in C- (A), then P(\rho \bullet  ) is an isomorphism in K- (P).
-% \bullet  Let F : C- (A) -\to  D be an additive functor such that F (\rho \bullet  ) is an iso-
-% morphism for every quasi-isomorphism \rho \bullet  . Then there exists a functor
-% 0 F
-%  :
-% K-(P) \to  D, such that the diagram
-% C-(A)
-%  F
-%  / D
-% P
-%  \sqcup  { { { {
-%  {
-%  F {
-%  ?
-%  {
-%  { {
-%  =
-% -K (P)
-% commutes up to natural isomorphism. (That is, there is a natural transfor-
-% mation \nu  : 0 F
-%  \circ  P ; F such that
-% \nu L\bullet  : 0 F
-%  \circ  P(L\bullet  ) -\to 
-%  \sim 
-%  F (L\bullet  )
-% is an isomorphism for every complex L\bullet  in C- (A).) The functor F
-%  0 is unique
-% up to natural isomorphism.
-% The fact that the diagram does not commute on the nose should not be too
-% disturbing. It corresponds to the fact (stated in Theorem 6.7) that there is
-% `only'
-% - -an equivalence of categories between K (P) and D (A), not a hard and fast
-% `iso-
-% morphism'. As I already pointed out in \S{}VIII.1.3, this is what should be
-% expected
-% in a categorical context.
-% 29 `Natural transformations' were rapidly defined in \S{}VIII.1.5, Definition
-% VIII.1.15. They are
-% the most sensible notion of a morphism between functors. A natural isomorphism
+We are now in a position to close a relatively large circle of ideas.
+I claim that if the abelian category $\mathsf{A}$ has enough
+projectives, resp., injectives, then $\mathsf{K}^-(\mathsf{P})$,
+resp., $\mathsf{K}^+(\mathsf{I})$, is a solution `up to isomorphisms'
+of the universal problem presented in \S{}4.2. The precise statement
+is the following.
+
+By Proposition~5.4, the functor $\mathsf{C}(\mathsf{A}) \to
+\mathsf{D}(\mathsf{A})$ factors through the homotopic category; this
+of course holds for the bounded versions of these categories as
+well. Thus, we have functors $\mathsf{K}^-(\mathsf{A}) \to
+\mathsf{D}^-(\mathsf{A})$ and $\mathsf{K}^+(\mathsf{A}) \to
+\mathsf{D}^+(\mathsf{A})$. By restriction, we obtain functors
+\[
+  \mathsf{K}^-(\mathsf{P}) \to \mathsf{D}^-(\mathsf{A}), \qquad
+  \mathsf{K}^+(\mathsf{I}) \to \mathsf{D}^+(\mathsf{A}).
+\]
+
+\begin{thm}{}{thm:homol:6.7}
+  Let $\mathsf{A}$ be an abelian category with enough projectives.
+  Then the functor $\mathsf{K}^-(\mathsf{P}) \to \mathsf{D}^-(\mathsf{A})$
+  is an equivalence of categories.
+
+  If $\mathsf{A}$ has enough injectives, then the functor
+  $\mathsf{K}^+(\mathsf{I}) \to \mathsf{D}^+(\mathsf{A})$ is an
+  equivalence of categories.
+\end{thm}
+
+Theorem~\ref{thm:homol:6.7} is proven in full detail in any more
+complete treatment of homological algebra. Since we have not
+actually constructed $\mathsf{D}^-(\mathsf{A})$, we cannot really
+prove this statement here; but we now know enough to appreciate why
+Theorem~\ref{thm:homol:6.7} should be true, in the sense that
+$\mathsf{K}^-(\mathsf{P})$, $\mathsf{K}^+(\mathsf{I})$ satisfy the
+expected universal properties. I will deal with the projective side
+of the story, since the injective side mirrors it faithfully.
+
+Assume that $\mathsf{A}$ has enough projectives. Define a functor
+$\mathscr{P} : \mathsf{C}^-(\mathsf{A}) \to \mathsf{K}^-(\mathsf{P})$
+by associating with every bounded-above complex $L^\bullet$ any
+projective resolution $\mathscr{P}(L^\bullet)$ of $L^\bullet$ (which
+exists by Theorem~\ref{thm:homol:6.6}) and with every morphism
+$\alpha^\bullet : L^\bullet \to M^\bullet$ in $\mathsf{C}^-(\mathsf{A})$
+the morphism $\mathscr{P}(\alpha^\bullet)$ in $\mathsf{K}^-(\mathsf{P})$
+lifting $\alpha^\bullet$.
+
+The morphism $\mathscr{P}(\alpha^\bullet)$ is the homotopy class of a
+homotopy lift of $\alpha^\bullet$; we have proved that any two such
+lifts are homotopy equivalent. It also follows that $\mathscr{P}$ is
+indeed a functor: for example, if $\alpha^\bullet : L^\bullet \to
+M^\bullet$ and $\beta^\bullet : M^\bullet \to N^\bullet$ are
+morphisms in $\mathsf{C}^-(\mathsf{A})$, then both
+$\mathscr{P}(\beta^\bullet) \circ \mathscr{P}(\alpha^\bullet)$ and
+$\mathscr{P}(\beta^\bullet \circ \alpha^\bullet)$ are classes of
+homotopy lifts of $\beta^\bullet \circ \alpha^\bullet$; therefore
+$\mathscr{P}(\beta^\bullet) \circ \mathscr{P}(\alpha^\bullet) =
+\mathscr{P}(\beta^\bullet \circ \alpha^\bullet)$ by uniqueness, as
+needed.
+
+Note that there is a very large element of arbitrariness in the
+choice of $\mathscr{P}$: I am not prescribing any particular recipe
+for choosing a projective resolution rather than another. But all
+such resolutions are homotopically equivalent, as proven in
+Theorem~\ref{thm:homol:6.6}; therefore different choices would only
+move the resolutions in their isomorphism class in
+$\mathsf{K}^-(\mathsf{P})$.
+
+\begin{rem}{}{rem:homol:6.8}
+  There is an efficient way to clarify (and defuse) this
+  arbitrariness. Suppose $\mathscr{P}$, $\mathscr{P}'$ are two
+  choices for the resolution functor $\mathsf{C}^-(\mathsf{A}) \to
+  \mathsf{K}^-(\mathsf{P})$. Thus, we have chosen two projective
+  resolutions $\mathscr{P}(L^\bullet)$, $\mathscr{P}'(L^\bullet)$ for
+  each object $L^\bullet$ in $\mathsf{C}^-(\mathsf{A})$. By
+  Theorem~\ref{thm:homol:6.6}, there is a homotopy equivalence
+  between $\mathscr{P}(L^\bullet)$ and $\mathscr{P}'(L^\bullet)$,
+  that is, an isomorphism $\rho_{L^\bullet} : \mathscr{P}(L^\bullet)
+  \to \mathscr{P}'(L^\bullet)$ in $\mathsf{K}^-(\mathsf{P})$; this
+  isomorphism is unique (since it lifts the identity on $L^\bullet$
+  and lifts are unique up to homotopy). Further, for every morphism
+  of cochain complexes $\alpha^\bullet : L_0^\bullet \to L_1^\bullet$,
+  the diagram
+  \[\begin{tikzcd}[column sep=large]
+    \mathscr{P}(L_0^\bullet) \arrow[r, "\mathscr{P}(\alpha^\bullet)"]
+      \arrow[d, "\rho_{L_0^\bullet}"'] &
+      \mathscr{P}(L_1^\bullet) \arrow[d, "\rho_{L_1^\bullet}"] \\
+    \mathscr{P}'(L_0^\bullet) \arrow[r, "\mathscr{P}'(\alpha^\bullet)"'] &
+      \mathscr{P}'(L_1^\bullet)
+  \end{tikzcd}\]
+  commutes: this is again by the uniqueness of lifts up to homotopy,
+  since $\rho_{L_1^\bullet} \circ \mathscr{P}(\alpha^\bullet)$ and
+  $\mathscr{P}'(\alpha^\bullet) \circ \rho_{L_0^\bullet}$ both
+  correspond to lifts of $\alpha^\bullet$ to $\mathscr{P}(L_0^\bullet)
+  \to \mathscr{P}'(L_1^\bullet)$.
+
+  This says that there is a unique natural
+  isomorphism\footnote{`Natural transformations' were rapidly
+  defined in \S{}VIII.1.5, Definition~VIII.1.15. They are the most
+  sensible notion of a morphism between functors. A natural
+  \emph{isomorphism} is a natural transformation that is an
+  isomorphism on each object.} between any two choices $\mathscr{P}$,
+  $\mathscr{P}'$ of functors of projective resolutions. In a
+  categorical context, this is essentially as good as uniqueness.
+  Thus the arbitrariness in the choice of $\mathscr{P}$ is less
+  dramatic than it may seem at first.
+\end{rem}
+
+Choose any functor $\mathscr{P}$ as above. I claim that $\mathscr{P}
+: \mathsf{C}^-(\mathsf{A}) \to \mathsf{K}^-(\mathsf{P})$ is
+essentially a solution to the universal problem defining the derived
+category $\mathsf{D}^-(\mathsf{A})$. Here is a more precise
+statement:
+\begin{thm}{}{thm:homol:6.9}
+  With notation as above, we have the following.
+  \begin{itemize}
+  \item If $\rho^\bullet$ is a quasi-isomorphism in
+    $\mathsf{C}^-(\mathsf{A})$, then $\mathscr{P}(\rho^\bullet)$ is
+    an isomorphism in $\mathsf{K}^-(\mathsf{P})$.
+  \item Let $\mathscr{F} : \mathsf{C}^-(\mathsf{A}) \to \mathsf{D}$
+    be an additive functor such that $\mathscr{F}(\rho^\bullet)$ is
+    an isomorphism for every quasi-isomorphism $\rho^\bullet$. Then
+    there exists a functor $\widetilde{\mathscr{F}} : \mathsf{K}^-(
+    \mathsf{P}) \to \mathsf{D}$, such that the diagram
+    \[\begin{tikzcd}
+      \mathsf{C}^-(\mathsf{A}) \arrow[r, "\mathscr{F}"]
+        \arrow[d, "\mathscr{P}"'] & \mathsf{D} \\
+      \mathsf{K}^-(\mathsf{P}) \arrow[ur, dashed, "\widetilde{\mathscr{F}}"']
+    \end{tikzcd}\]
+    commutes up to natural isomorphism. (That is, there is a natural
+    transformation $\nu : \widetilde{\mathscr{F}} \circ \mathscr{P}
+    \rightsquigarrow \mathscr{F}$ such that
+    \[
+      \nu_{L^\bullet} : \widetilde{\mathscr{F}} \circ \mathscr{P}
+      (L^\bullet) \xrightarrow{\ \sim\ } \mathscr{F}(L^\bullet)
+    \]
+    is an isomorphism for every complex $L^\bullet$ in
+    $\mathsf{C}^-(\mathsf{A})$.) The functor $\widetilde{\mathscr{F}}$
+    is unique up to natural isomorphism.
+  \end{itemize}
+\end{thm}
+
+The fact that the diagram does not commute on the nose should not be
+too disturbing. It corresponds to the fact (stated in
+Theorem~\ref{thm:homol:6.7}) that there is `only' an equivalence of
+categories between $\mathsf{K}^-(\mathsf{P})$ and
+$\mathsf{D}^-(\mathsf{A})$, not a hard and fast `isomorphism'. As I
+already pointed out in \S{}VIII.1.3, this is what should be expected
+in a categorical context.
 % is a natural
 % transformation that is an isomorphism on each object.
-% Proof. For the first point, let \rho \bullet  : L\bullet  \to  M \bullet  be any
-% morphism in C- (A). By
-% Theorem 6.6, \rho \bullet  lifts to a morphism of resolutions: we have a diagram
-% P(L\bullet  )
-% ?\bullet 
-% \rho / P(M \bullet  )
-% \mu L\bullet 
-% \sqcup 
-% L\bullet 
-% \bullet 
-% \rho 
-% \mu M \bullet 
-% \sqcup 
-% / M \bullet 
-% which commutes up to homotopy; here \mu L\bullet  , \mu M \bullet  are
-% quasi-isomorphisms, and P(\rho \bullet )
-% is the homotopy class of \rho \setminus  \bullet  . If \rho \bullet  is a
-% quasi-isomorphism, then so is \rho \setminus  \bullet  (since the
-% diagram commutes up to homotopy; hence it commutes after taking cohomology);
-% it follows that P(\rho  \bullet  ) is an isomorphism in this case, by Corollary
-% 5.10.
-% To prove the factorization property, define F
-%  0 : K- (P) \to  D by setting
-% 0(P F
-%  \bullet ) := F (P \bullet )
-% for any bounded-above complex P \bullet  of projectives, and define 0 F
-%  of a morphism
-% in K-
-%  (P) to be F (\alpha \bullet 
-%  ), for any representative \alpha \bullet 
-%  of that morphism.
-% The fact that the action of 0 F
-%  on morphisms is well-defined is precisely the
-% content of Lemma 5.1: homotopic morphisms have the same image in D. It is
-% immediate that 0 F
-%  is a functor, and we have to check the statement about commu-
-% tativity up to isomorphism of the diagram and the uniqueness of 0 F
-%  up to natural
-% isomorphism.
-% Then let L\bullet  be a complex in C-(A). By construction there is a
-% quasi-isomorphism
-% \mu L\bullet  : P(L\bullet  ) \to  L\bullet  . Since F maps quasi-isomorphisms to isomorphisms, the in-
-% duced morphism
-% \nu L\bullet  : 0(P(L\bullet  F
-%  )) = F (P(L\bullet  )) -\to  F (L\bullet )
-% is an isomorphism. We just have to verify that the isomorphisms \nu L\bullet
-% define a
-% natural transformation: that is, that for all morphisms \alpha \bullet  :
-% L\bullet  \to  M \bullet  in C- (A) the
-% diagram
-% F
-%  ? (P(\alpha \bullet  ))
-% 0(P(L\bullet  F
-%  ))
-%  / F
-%  0(P(M \bullet  ))
-% \nu L\bullet 
-%  \nu M \bullet 
-% \sqcup 
-%  F (\alpha \bullet 
-%  )
-%  \sqcup 
-% F (L\bullet )
-%  / F (M \bullet  )
-% commutes. This diagram (in D) is obtained by applying F to the diagram (in the
-% category C(A))
-% P(L\bullet  )
-%  \alpha ? \bullet 
-%  / P(M \bullet  )
-% \mu L\bullet 
-%  \mu M \bullet 
-% \sqcup 
-%  \bullet 
-%  \sqcup 
-% L\bullet 
-%  \alpha 
-%  / M \bullet 
-% where \alpha  \setminus  \bullet 
-%  is a homotopy lift of \alpha \bullet  . This diagram commutes up to homotopy,
-%  so
-% the previous one commutes on the nose, again by Lemma 5.1.
-% To see that 0 F
-%  is unique up to isomorphism, let F : K- (P) \to  D be another
-% functor satisfying the same property. Thus there is a natural isomorphism \nu  :
-% F \circ  P ; F . For P \bullet  a complex in K- (P), consider the composition
-% \rho P \bullet  :
-% F (P \bullet )
-%  \sim 
-%  / F (P(P \bullet  ))
-%  \sim 
-%  / F (P \bullet  ) = F
-%  0 (P \bullet  )
-% F (\mu P \bullet  )-1
-%  \nu P \bullet 
-% (keep in mind that since \mu P \bullet  : P(P \bullet  ) \to  P \bullet  is a
-% quasi-isomorphism, F (\mu P \bullet  ) is
-% invertible in D). The reader will verify (Exercise 6.12) that this defines \rho
-% : F \to  0
-%  F
-% as a natural isomorphism, concluding the proof.
-%  ?
-% If A has enough injectives, we can define a functor Q : C+ (A) \to  K+ (I) by
-% choosing an injective resolution for every bounded-below complex. The situation
-% concerning this functor is precisely analogous to the situation just reviewed
-% for the
-% functor P, modulo reversing arrows as appropriate.
-% Summary. If an abelian category A has enough projectives (resp., enough in-
-% jectives), then the homotopic category K - (P) (resp., K+ (I)) works as a
-% replacement
-% of the derived category D-(A) (resp., D+ (A)). As I have argued earlier, viewing
-% a complex in these categories is the most natural way to extract the maximum
-% amount of `cohomological' information from the complex. The category A itself
-% (or
-% a category equivalent to A) sits as a full subcategory of these categories.
-% To reiterate the key point, there is a clear advantage in stopping short of
-% taking
-% cohomology. Resolving a complex L\bullet  by a complex P \bullet  of (say)
-% projectives, thanks
-% to Theorem 6.6, gives us an entity which certainly captures the cohomological
-% information of L\bullet  but that can still be manipulated with the entire range
-% of tools
-% \bullet available in dealing with complexes. For example, we can apply to P any additive
-% functor and still obtain a complex whose cohomology only depends on the original
-% complex L\bullet  (by Theorem 4.14). The cohomology of L\bullet  is only one
-% example of the
-% cohomological invariants that may be extracted from L\bullet  ; viewing L\bullet
-% in the derived
-% category gives direct access to all these invariants.
-% We will capitalize on these considerations in the next section.
+\begin{proof}
+  For the first point, let $\rho^\bullet : L^\bullet \to M^\bullet$
+  be any morphism in $\mathsf{C}^-(\mathsf{A})$. By
+  Theorem~\ref{thm:homol:6.6}, $\rho^\bullet$ lifts to a morphism of
+  resolutions: we have a diagram
+  \[\begin{tikzcd}[column sep=large]
+    \mathscr{P}(L^\bullet) \arrow[r, "\rho'^\bullet"]
+      \arrow[d, "\mu_{L^\bullet}"'] & \mathscr{P}(M^\bullet)
+      \arrow[d, "\mu_{M^\bullet}"] \\
+    L^\bullet \arrow[r, "\rho^\bullet"'] & M^\bullet
+  \end{tikzcd}\]
+  which commutes up to homotopy; here $\mu_{L^\bullet}$,
+  $\mu_{M^\bullet}$ are quasi-isomorphisms, and
+  $\mathscr{P}(\rho^\bullet)$ is the homotopy class of $\rho'^\bullet$.
+  If $\rho^\bullet$ is a quasi-isomorphism, then so is $\rho'^\bullet$
+  (since the diagram commutes up to homotopy; hence it commutes
+  after taking cohomology); it follows that $\mathscr{P}(\rho^\bullet)$
+  is an isomorphism in this case, by Corollary~5.10.
+
+  To prove the factorization property, define $\widetilde{\mathscr{F}}
+  : \mathsf{K}^-(\mathsf{P}) \to \mathsf{D}$ by setting
+  \[
+    \widetilde{\mathscr{F}}(P^\bullet) := \mathscr{F}(P^\bullet)
+  \]
+  for any bounded-above complex $P^\bullet$ of projectives, and
+  define $\widetilde{\mathscr{F}}$ of a morphism in
+  $\mathsf{K}^-(\mathsf{P})$ to be $\mathscr{F}(\alpha^\bullet)$, for
+  any representative $\alpha^\bullet$ of that morphism.
+
+  The fact that the action of $\widetilde{\mathscr{F}}$ on morphisms
+  is well-defined is precisely the content of
+  Lemma~\ref{lem:homol:5.1}: homotopic morphisms have the same image
+  in $\mathsf{D}$. It is immediate that $\widetilde{\mathscr{F}}$ is
+  a functor, and we have to check the statement about commutativity
+  up to isomorphism of the diagram and the uniqueness of
+  $\widetilde{\mathscr{F}}$ up to natural isomorphism.
+
+  Then let $L^\bullet$ be a complex in $\mathsf{C}^-(\mathsf{A})$. By
+  construction there is a quasi-isomorphism $\mu_{L^\bullet} :
+  \mathscr{P}(L^\bullet) \to L^\bullet$. Since $\mathscr{F}$ maps
+  quasi-isomorphisms to isomorphisms, the induced morphism
+  \[
+    \nu_{L^\bullet} : \widetilde{\mathscr{F}}(\mathscr{P}(L^\bullet))
+    = \mathscr{F}(\mathscr{P}(L^\bullet)) \longrightarrow
+    \mathscr{F}(L^\bullet)
+  \]
+  is an isomorphism. We just have to verify that the isomorphisms
+  $\nu_{L^\bullet}$ define a natural transformation: that is, that
+  for all morphisms $\alpha^\bullet : L^\bullet \to M^\bullet$ in
+  $\mathsf{C}^-(\mathsf{A})$ the diagram
+  \[\begin{tikzcd}[column sep=large]
+    \widetilde{\mathscr{F}}(\mathscr{P}(L^\bullet))
+      \arrow[r, "\widetilde{\mathscr{F}}(\mathscr{P}(\alpha^\bullet))"]
+      \arrow[d, "\nu_{L^\bullet}"'] &
+      \widetilde{\mathscr{F}}(\mathscr{P}(M^\bullet))
+      \arrow[d, "\nu_{M^\bullet}"] \\
+    \mathscr{F}(L^\bullet) \arrow[r, "\mathscr{F}(\alpha^\bullet)"'] &
+      \mathscr{F}(M^\bullet)
+  \end{tikzcd}\]
+  commutes. This diagram (in $\mathsf{D}$) is obtained by applying
+  $\mathscr{F}$ to the diagram (in the category $\mathsf{C}(\mathsf{A})$)
+  \[\begin{tikzcd}[column sep=large]
+    \mathscr{P}(L^\bullet) \arrow[r, "\alpha'^\bullet"]
+      \arrow[d, "\mu_{L^\bullet}"'] & \mathscr{P}(M^\bullet)
+      \arrow[d, "\mu_{M^\bullet}"] \\
+    L^\bullet \arrow[r, "\alpha^\bullet"'] & M^\bullet
+  \end{tikzcd}\]
+  where $\alpha'^\bullet$ is a homotopy lift of $\alpha^\bullet$.
+  This diagram commutes up to homotopy, so the previous one commutes
+  on the nose, again by Lemma~\ref{lem:homol:5.1}.
+
+  To see that $\widetilde{\mathscr{F}}$ is unique up to isomorphism,
+  let $F : \mathsf{K}^-(\mathsf{P}) \to \mathsf{D}$ be another functor
+  satisfying the same property. Thus there is a natural isomorphism
+  $\nu : F \circ \mathscr{P} \rightsquigarrow \mathscr{F}$. For
+  $P^\bullet$ a complex in $\mathsf{K}^-(\mathsf{P})$, consider the
+  composition
+  \[\begin{tikzcd}[column sep=large]
+    \rho_{P^\bullet} : \mathscr{F}(P^\bullet)
+      \arrow[r, "\mathscr{F}(\mu_{P^\bullet})^{-1}", "\sim"'] &
+      \mathscr{F}(\mathscr{P}(P^\bullet))
+      \arrow[r, "\nu_{P^\bullet}", "\sim"'] &
+      F(P^\bullet) = \widetilde{\mathscr{F}}(P^\bullet)
+  \end{tikzcd}\]
+  (keep in mind that since $\mu_{P^\bullet} : \mathscr{P}(P^\bullet)
+  \to P^\bullet$ is a quasi-isomorphism, $\mathscr{F}(\mu_{P^\bullet})$
+  is invertible in $\mathsf{D}$). The reader will verify
+  (Exercise~6.12) that this defines $\rho : \mathscr{F} \to
+  \widetilde{\mathscr{F}}$ as a natural isomorphism, concluding the
+  proof.
+\end{proof}
+
+If $\mathsf{A}$ has enough injectives, we can define a functor
+$\mathscr{Q} : \mathsf{C}^+(\mathsf{A}) \to \mathsf{K}^+(\mathsf{I})$
+by choosing an injective resolution for every bounded-below complex.
+The situation concerning this functor is precisely analogous to the
+situation just reviewed for the functor $\mathscr{P}$, modulo
+reversing arrows as appropriate.
+
+\emph{Summary.} If an abelian category $\mathsf{A}$ has enough
+projectives (resp., enough injectives), then the homotopic category
+$\mathsf{K}^-(\mathsf{P})$ (resp., $\mathsf{K}^+(\mathsf{I})$) works
+as a replacement of the derived category $\mathsf{D}^-(\mathsf{A})$
+(resp., $\mathsf{D}^+(\mathsf{A})$). As I have argued earlier,
+viewing a complex in these categories is the most natural way to
+extract the maximum amount of `cohomological' information from the
+complex. The category $\mathsf{A}$ itself (or a category equivalent
+to $\mathsf{A}$) sits as a full subcategory of these categories.
+
+To reiterate the key point, there is a clear advantage in stopping
+short of taking cohomology. Resolving a complex $L^\bullet$ by a
+complex $P^\bullet$ of (say) projectives, thanks to
+Theorem~\ref{thm:homol:6.6}, gives us an entity which certainly
+captures the cohomological information of $L^\bullet$ but that can
+still be manipulated with the entire range of tools available in
+dealing with complexes. For example, we can apply to $P^\bullet$ any
+additive functor and still obtain a complex whose cohomology only
+depends on the original complex $L^\bullet$ (by Theorem~4.14). The
+cohomology of $L^\bullet$ is only one example of the cohomological
+invariants that may be extracted from $L^\bullet$; viewing $L^\bullet$
+in the derived category gives direct access to all these invariants.
+
+We will capitalize on these considerations in the next section.
 
 \subsection*{Exercises}
 
-% 6.1. ? Prove that the full subcategory of K(A) consisting of complexes
-% concentrated
-% in degree 0 is a copy of the abelian category A. [\S{}6.1]
-% 6.2. ? Assuming that A has enough projectives, prove that the full subcategory
-% \^{A}
-% -of K (P) consisting of complexes with cohomology concentrated in degree 0 is
-% equivalent to A. (Prove that H 0 is fully faithful on this subcategory.)
-% [\S{}6.1, \S{}6.2,
-% 6.13, \S{}7.1]
-% \bullet 6.3. ? Let A be an abelian category, and let P be a complex that is projective as
-% an object of C(A).
-% \bullet  Prove that each P i is projective in A.
-% \bullet  Prove that there is a morphism of complexes P \bullet  \to  M C(idP \bullet  )[-1], such that
-% for each i the corresponding morphism P i \to  P i \oplus  P i-1 is of the form
-% (id, hi ).
-% \bullet  Prove that the collection hi gives a homotopy between idP \bullet  and 0.
-% \bullet  Conclude that P \bullet  is a split exact complex of projectives.
-% (For example, the complex \dots  \to  0 \to  Z \to  \cdot 2
-%  Z \to  0 \to  \dots  is not projective in C(Ab).)
-% \bullet  Conversely, prove that if P \bullet  is a split exact complex of projectives, then P \bullet 
-% is projective in C(A). (Hint: Use Exercises 5.11 and 5.4 to reduce to the case
-% \sim 
-% \dots  \to  0 \to  P \to  P \to  0 \to  \dots  .)
-% \bullet  If P \bullet  is a bounded-above complex of projectives, prove that P \bullet  is projective as
-% an object of C(A) if and only if it is exact.
-% [\S{}6.1]
-% 6.4. ? Let A be an abelian category with enough projectives, and let P : C-(A)
-% \to
-% -K (P) be a functor choosing a projective resolution for every bounded-above
-% com-
-% plex, as in \S{}6.3. Prove that P induces a functor K- (A) \to  K- (P), which I
-% will also
-% denote by P. (Use Lemma 5.14.) Next, let I be the embedding K- (P) \to  K- (A).
-% Prove that P \circ  I is naturally isomorphic to the identity functor and that
-% there is
-% a natural transformation (not an isomorphism in general) I \circ  P ; idK- (A) .
-% [\S{}7.1,
-% \S{}7.2]
-% 6.5. (Cf. Exercise 5.14.) Let A be an abelian category with enough projectives,
-% and suppose there is a chain of quasi-isomorphisms
-% P q-iso. \bullet 
-%  ?\setminus \setminus 
-%  \setminus \setminus 
-%  \setminus \setminus 
-%  \setminus 
-%  L\bullet  1
-%  ; ;
-%  ; ;q-iso. ; ;
-%  ; ? L\bullet  2
-%  ?
-%  ?
-%  ??
-%  ?
-%  \cdot \cdot \cdot 
-%  \cdot \cdot \cdot 
-%  .
-%  ..
-%  ; ;
-%  ; ;
-%  ; ; ; Ln-1
-%  ;
-%  ? \bullet 
-%  q-iso. ?~~
-%  ~
-%  ~~~
-%  ~ L\bullet  n
-%  < < < < <
-%  q-iso.
-%  < ?
-%  P
-%  \bullet 
-% \setminus ??
-% - \bullet  \bullet 
-%  - \bullet  \bullet 
-% in C (A), with P and P in C (P). Prove that P and P are homotopy equiva-
-% lent.
-% Formulate and prove a statement in which the morphisms point to (rather than
-% from) L\bullet  1 , L\bullet  3 , . . . , L\bullet  n .
-% 6.6. Let A be an abelian category, and assume for simplicity that A has enough
-% projectives. Let \mu \bullet  : M \bullet  \to  N \bullet  be a morphism in C-
-% (A). Prove that \mu \bullet  induces
-% the zero-morphism in D- (A) if and only if there exists a quasi-isomorphism
-% \lambda \bullet  :
-% L\bullet  \to  M \bullet  in C- (A) such that \mu \bullet  \circ  \lambda
-% \bullet  is homotopic to zero.
-% 6.7. For any integer m > 1, view the short exact sequence
-%  / Z
-%  \cdot m
-%  / Z
-%  / Z/mZ
-%  / 0
-% as a complex in C(Ab). Prove that the identity morphism on this complex is not
-% ho-
-% motopic to zero, but it induces the zero-morphism in the derived category D-
-% (Ab).
-% 6.8. For any integer m > 1, view the short exact sequence
-%  / Z
-%  \cdot m
-%  / Z
-%  / Z/mZ
-%  / 0
-% as a complex in C(Ab). Find explicitly a projective resolution of this complex
-% produced by the argument at the beginning of the proof of Theorem 6.6.
-% 6.9. \lnot  Show that the morphism induced in D- (Ab) by the cochain map
-%  / Z
-%  \cdot 2
-%  / Z
-%  / 0
-% \cdot 2
-% \sqcup 
-%  \sqcup 
-%  / Z
-%  / Z/3Z
-%  / 0
-% is the zero-morphism, while the morphism induced by
-%  / Z
-%  \cdot 2
-%  / Z
-%  / 0
-% id
-%  \cdot 2
-% \sqcup 
-%  \sqcup 
-%  / Z
-%  / Z/3Z
-%  / 0
-% is not the zero-morphism. Note that both morphisms induce 0 in cohomology.
-% Thus, nonzero morphisms in the derived category may induce the zero-morphism
-% in cohomology. (This is another indication that the derived category carries
-% more
-% information than `just' cohomology.) [6.10, 6.11]
-% 6.10. ? Consider the second morphism given in Exercise 6.9, together with a pro-
-% jective resolution of the bottom complex:
-% 0 eKK
-% KK
-% KK
-% w
-%  ? w
-%  w ;
-%  0 eKK
-%  KK
-%  KK
-% 0 `B
-%  BB
-%  BB
-%  Z \cdot 2
-%  w
-%  aC
-%  CC
-%  CC
-%  w
-%  w 0w \cdot 2
-%  dII
-%  u
-%  II
-%  u
-%  I / u
-%  Z/3Z
-%  u \sqcup  u
-%  u dI
-%  III
-%  ? u
-%  u I :
-%  Z \sqcup 
-%  \cdot 3
-%  `B
-%  BB
-%  BB
-% Z eKK
-%  id
-%  / Z
-%  aDD
-% KKK K
-%  DD
-% Prove that a `true' lift as indicated by the dashed arrows does not exist but
-% that
-% one exists up to homotopy (as prescribed by Theorem 6.6). [\S{}6.2]
-% 6.11. Let R be an integral domain, and let r be a nonzero, nonunit element of R.
-% -Construct a nonzero morphism in D (R-Mod) between the complexes
-% \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / R/(r)
-%  / 0
-%  / \cdot \cdot \cdot 
-% \cdot \cdot \cdot 
-%  / 0
-%  / R
-%  / 0
-%  / 0
-%  / \cdot \cdot \cdot 
-% matching degrees as indicated. (This will be particularly easy if you have
-% worked
-% out Exercise 6.9).
-% 6.12. ? Complete the proof that the functor F
-%  0 in Theorem 6.9 is unique up to
-% natural isomorphism. [\S{}6.3]
+\begin{exer}{\exerused{}}{exer:homol:6.1}
+  Prove that the full subcategory of $\mathsf{K}(\mathsf{A})$
+  consisting of complexes concentrated in degree $0$ is a copy of
+  the abelian category $\mathsf{A}$. [\S{}6.1]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:6.2}
+  Assuming that $\mathsf{A}$ has enough projectives, prove that the
+  full subcategory $\widehat{\mathsf{A}}$ of $\mathsf{K}^-(\mathsf{P})$
+  consisting of complexes with cohomology concentrated in degree $0$
+  is equivalent to $\mathsf{A}$. (Prove that $H^0$ is fully faithful
+  on this subcategory.) [\S{}6.1, \S{}6.2, 6.13, \S{}7.1]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:6.3}
+  Let $\mathsf{A}$ be an abelian category, and let $P^\bullet$ be a
+  complex that is projective as an object of $\mathsf{C}(\mathsf{A})$.
+  \begin{itemize}
+  \item Prove that each $P^i$ is projective in $\mathsf{A}$.
+  \item Prove that there is a morphism of complexes $P^\bullet \to
+    MC(\operatorname{id}_{P^\bullet})[-1]$, such that for each $i$
+    the corresponding morphism $P^i \to P^i \oplus P^{i-1}$ is of the
+    form $(\operatorname{id}, h^i)$.
+  \item Prove that the collection $h^i$ gives a homotopy between
+    $\operatorname{id}_{P^\bullet}$ and $0$.
+  \item Conclude that $P^\bullet$ is a split exact complex of
+    projectives.
+  \end{itemize}
+  (For example, the complex $\dots \to 0 \to \Z \xrightarrow{\cdot 2}
+  \Z \to 0 \to \dots$ is not projective in $\mathsf{C}(\categ{Ab})$.)
+  \begin{itemize}
+  \item Conversely, prove that if $P^\bullet$ is a split exact
+    complex of projectives, then $P^\bullet$ is projective in
+    $\mathsf{C}(\mathsf{A})$. (Hint: Use Exercises~5.11 and 5.4 to
+    reduce to the case $\dots \to 0 \to P
+    \xrightarrow{\sim} P \to 0 \to \dots$.)
+  \item If $P^\bullet$ is a bounded-above complex of projectives,
+    prove that $P^\bullet$ is projective as an object of
+    $\mathsf{C}(\mathsf{A})$ if and only if it is exact.
+  \end{itemize}
+  [\S{}6.1]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:6.4}
+  Let $\mathsf{A}$ be an abelian category with enough projectives,
+  and let $\mathscr{P} : \mathsf{C}^-(\mathsf{A}) \to
+  \mathsf{K}^-(\mathsf{P})$ be a functor choosing a projective
+  resolution for every bounded-above complex, as in \S{}6.3. Prove
+  that $\mathscr{P}$ induces a functor $\mathsf{K}^-(\mathsf{A}) \to
+  \mathsf{K}^-(\mathsf{P})$, which I will also denote by $\mathscr{P}$.
+  (Use Lemma~5.14.) Next, let $\mathscr{I}$ be the embedding
+  $\mathsf{K}^-(\mathsf{P}) \to \mathsf{K}^-(\mathsf{A})$. Prove that
+  $\mathscr{P} \circ \mathscr{I}$ is naturally \emph{isomorphic} to
+  the identity functor and that there is a natural
+  \emph{transformation} (not an isomorphism in general) $\mathscr{I}
+  \circ \mathscr{P} \rightsquigarrow \operatorname{id}_{\mathsf{K}^-
+  (\mathsf{A})}$. [\S{}7.1, \S{}7.2]
+\end{exer}
+\begin{exer}{}{exer:homol:6.5}
+  (Cf. Exercise~5.14.) Let $\mathsf{A}$ be an abelian category with
+  enough projectives, and suppose there is a chain of
+  quasi-isomorphisms
+  \[\begin{tikzcd}[column sep=small]
+    & L_1^\bullet \arrow[to=2-1, "\text{q-iso.}"']
+      \arrow[to=2-2, "\text{q-iso.}"] & & \dots & &
+      L_n^\bullet \arrow[to=2-6, "\text{q-iso.}"']
+      \arrow[to=2-8, "\text{q-iso.}"] & \\
+    P^\bullet & L_2^\bullet & & \dots & & L_{n-1}^\bullet & &
+      \overline P^\bullet
+  \end{tikzcd}\]
+  in $\mathsf{C}^-(\mathsf{A})$, with $P^\bullet$ and $\overline
+  P^\bullet$ in $\mathsf{C}^-(\mathsf{P})$. Prove that $P^\bullet$
+  and $\overline P^\bullet$ are homotopy equivalent.
+
+  Formulate and prove a statement in which the morphisms point
+  \emph{to} (rather than \emph{from}) $L_1^\bullet$, $L_3^\bullet$,
+  \dots, $L_n^\bullet$.
+\end{exer}
+\begin{exer}{}{exer:homol:6.6}
+  Let $\mathsf{A}$ be an abelian category, and assume for simplicity
+  that $\mathsf{A}$ has enough projectives. Let $\mu^\bullet :
+  M^\bullet \to N^\bullet$ be a morphism in $\mathsf{C}^-(\mathsf{A})$.
+  Prove that $\mu^\bullet$ induces the zero-morphism in
+  $\mathsf{D}^-(\mathsf{A})$ if and only if there exists a
+  quasi-isomorphism $\lambda^\bullet : L^\bullet \to M^\bullet$ in
+  $\mathsf{C}^-(\mathsf{A})$ such that $\mu^\bullet \circ
+  \lambda^\bullet$ is homotopic to zero.
+\end{exer}
+\begin{exer}{}{exer:homol:6.7}
+  For any integer $m > 1$, view the short exact sequence
+  \[\begin{tikzcd}
+    0 \arrow[r] & \Z \arrow[r, "\cdot m"] & \Z \arrow[r] &
+    \Z/m\Z \arrow[r] & 0
+  \end{tikzcd}\]
+  as a complex in $\mathsf{C}(\categ{Ab})$. Prove that the identity
+  morphism on this complex is not homotopic to zero, but it induces
+  the zero-morphism in the derived category $\mathsf{D}^-(\categ{Ab})$.
+\end{exer}
+\begin{exer}{}{exer:homol:6.8}
+  For any integer $m > 1$, view the short exact sequence
+  \[\begin{tikzcd}
+    0 \arrow[r] & \Z \arrow[r, "\cdot m"] & \Z \arrow[r] &
+    \Z/m\Z \arrow[r] & 0
+  \end{tikzcd}\]
+  as a complex in $\mathsf{C}(\categ{Ab})$. Find explicitly a
+  projective resolution of this complex produced by the argument at
+  the beginning of the proof of Theorem~6.6.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:homol:6.9}
+  Show that the morphism induced in $\mathsf{D}^-(\categ{Ab})$ by the
+  cochain map
+  \[\begin{tikzcd}
+    0 \arrow[r] & \Z \arrow[r, "\cdot 2"] \arrow[d, "\cdot 2"'] &
+      \Z \arrow[r] \arrow[d] & 0 \\
+    0 \arrow[r] & \Z \arrow[r] & \Z/3\Z \arrow[r] & 0
+  \end{tikzcd}\]
+  is the zero-morphism, while the morphism induced by
+  \[\begin{tikzcd}
+    0 \arrow[r] & \Z \arrow[r, "\cdot 2"] \arrow[d, "\mathrm{id}"'] &
+      \Z \arrow[r] \arrow[d, "\cdot 2"] & 0 \\
+    0 \arrow[r] & \Z \arrow[r] & \Z/3\Z \arrow[r] & 0
+  \end{tikzcd}\]
+  is not the zero-morphism. Note that both morphisms induce $0$ in
+  cohomology. Thus, nonzero morphisms in the derived category may
+  induce the zero-morphism in cohomology. (This is another
+  indication that the derived category carries more information than
+  `just' cohomology.) [6.10, 6.11]
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:6.10}
+  Consider the second morphism given in Exercise~6.9, together with a
+  projective resolution of the bottom complex:
+  % TODO: diagram of the projective-resolution "lift" attempt --
+  % the bottom row is the complex 0 -> Z --id--> Z -> Z/3Z -> 0 from
+  % the second morphism of Exercise 6.9, and above it a bounded-above
+  % complex of projectives (0, Z, Z\oplus Z, with differentials
+  % including \cdot 2, \cdot 3) is sketched, connected to the bottom
+  % row by a mix of solid arrows and dashed "?" arrows questioning
+  % whether a genuine (on-the-nose) lift of the identity/quasi-iso
+  % exists at each spot
+  Prove that a `true' lift as indicated by the dashed arrows does not
+  exist but that one exists up to homotopy (as prescribed by
+  Theorem~6.6). [\S{}6.2]
+\end{exer}
+\begin{exer}{}{exer:homol:6.11}
+  Let $R$ be an integral domain, and let $r$ be a nonzero, nonunit
+  element of $R$. Construct a nonzero morphism in
+  $\mathsf{D}^-(R\text{-Mod})$ between the complexes
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] & R/(r) \arrow[r] &
+      0 \arrow[r] & \dots \\
+    \dots \arrow[r] & 0 \arrow[r] & R \arrow[r] & 0 \arrow[r] &
+      0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  matching degrees as indicated. (This will be particularly easy if
+  you have worked out Exercise~6.9).
+\end{exer}
+\begin{exer}{\exerused{}}{exer:homol:6.12}
+  Complete the proof that the functor $\widetilde{\mathscr{F}}$ in
+  Theorem~6.9 is unique up to natural isomorphism. [\S{}6.3]
+\end{exer}
 
 \section{Derived functors}
 \label{sec:homol:derived-functors}
