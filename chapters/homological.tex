@@ -6754,266 +6754,241 @@ expect to learn anything new from an exact functor by deriving it.
 
 \subsection{Example: A little group cohomology}
 \label{subsec:homol:example-a-little-group-cohomology}
-% In the beginning of this chapter
 
-% I pointed out that the general strategy informing the development of homological
-% algebra has numerous applications and I mentioned group and sheaf cohomology
-% as examples. Here are a few words on group cohomology (sheaf cohomology would
-% take us too far).
-% How do we extract `cohomological invariants' from a group G? Consider the
-% category G-Mod of abelian groups endowed with a left-G-action, equivalently, the
-% category of left-Z[G]-modules, where Z[G] is the group ring briefly encountered
-% in \S{}III.1.4. Objects of G-Mod may be called G-modules.
-% For a G-module M , M G denotes the set of elements that are fixed under the
-% action of G: these are reasonably called the invariants of the action. Note that
-% M G is an abelian group carrying a trivial action of G; it is clear that setting
-% M \to  M G defines a covariant functor \cdot G : G-Mod \to  Ab. Both G-Mod and
-% Ab
-% are abelian categories, and it takes a moment to realize that \cdot G is a
-% left-exact
-% functor: the reader should either check this directly or do Exercise 7.16 and
-% then
-% remember Claim VIII.1.19. The reader should in fact contemplate why this functor
-% is not right-exact: if G acts trivially on a coset [m] of a quotient M/L, there
-% is no
-% reason a priori why G should act trivially on a representative m.
-% We would have drawn this conclusion without difficulty before delving into ho-
-% mological algebra. Homological algebra tells us how to address this type of
-% situation
-% and `quantify' precisely the failure of exactness, by means of an appropriate
-% derived
-% functor.
-% The i-th right-derived functor of \cdot G is denoted H i(G, ). Therefore, H 0
-% (G, M ) =
-% M G
-% , and for every short exact sequence of G-modules
-%  / L
-%  / M
-%  / N
-%  / 0
-% we obtain (from Theorem 7.12) a long exact sequence of abelian groups:
-%  / LG
-%  / M G
-%  / N G
-%  / H 1 (G, L)
-%  / H 1 (G, M )
-%  / \cdot \cdot \cdot  .
-% Note that M G = HomZ[G] (Z, M ), where Z is given the trivial module structure.
-% Thus, H i (G, M ) = Exti Z[G](Z, M ); as we know already (and as will finally be
-% verified
-% in \S{}8), this can be computed by an injective resolution of M or by a
-% projective
-% resolution of Z.
-% Example 7.14. Take G = Z. Then Z[G] is the ring Z[x, x-1 ] of Laurent polyno-
-% mials. As Z[x, x-1 ]/(1 - x) = \sim 
-%  Z, with the trivial action (check this!), the complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / Z[x, x-1 ]
-%  \cdot (1-x)
-%  / Z[x, x-1 ]
-%  / 0
-%  / \cdot \cdot \cdot 
-% is a free, hence projective, resolution of Z, endowed with the trivial Z-action.
-% Ap-
-% \bullet plying the (contravariant) Hom Z[x,x-1 ] ( , M ), we see that H (Z, M ) is computed
-% by the cohomology of
-% \cdot \cdot \cdot 
-%  / 0
-%  / M
-%  \cdot (1-x)
-%  / M
-%  / 0
-%  / \cdot \cdot \cdot  .
-% `Multiplication by x' on M is nothing but the action of the generator of G = Z.
-% 0 \cdot (1-x)
-% We conclude that H (Z, M ) = ker(M -\to  M ) = M Z (as we knew already),
-% 1 M
-% H (Z, M ) =
-%  ,
-% (1 - x)M
-% and H i (Z, M ) = 0 for all i < 0 and i \geq  2.
-%  ?
-% Example 7.15 (Finite cyclic groups). Let G = Cm be a cyclic group of order m;
-% then Z[G] \sim 
-%  = Z[x]/(xm - 1). Again it is not difficult to produce a projective
-% resolution of Z (with trivial action) in the category of Z[Cm ]-modules: letting
-% N = 1 + x + \dots  + xm-1 = (1 - xm )/(1 - x), the reader will verify that the
-% complex
-% \cdot \cdot \cdot 
-%  \cdot N /
-%  Z[Cm ]
-%  \cdot (1-x)
-%  / Z[Cm ]
-%  \cdot N
-%  / Z[Cm ] \cdot (1-x) / Z[Cm ]
-%  / 0
-%  / \cdot \cdot \cdot 
-% has cohomology \sim 
-%  = Z, concentrated in degree 0 (i.e., on the last nonzero term).
-% Applying HomZ[Cm ]( , M ), we get the complex
-% \cdot \cdot \cdot 
-%  / 0
-%  / M
-%  \cdot (1-x)
-%  / M
-%  \cdot N
-%  / M
-%  \cdot (1-x)
-%  / M
-%  \cdot N
-%  / \cdot \cdot \cdot 
-% and deduce that H i(M, Cm ) = 0 for i < 0, H 0 (Cm , M ) = M Cm , and for all i
-% > 0
-% 2i+1
-%  ker(M \to  \cdot N
-%  M )
-% H
-%  (Cm , M ) \sim 
-%  =
-%  ,
-% (1 - x)M
-% H 2i (Cm , M ) \sim 
-%  =
-%  M Cm
-%  .
-%  ?
-% N \cdot  M
-% There is a standard free resolution of Z over a group ring Z[G], which leads to
-% a concrete description of group cohomology. For a finite group G, of order m,
-% the
-% beginning of this resolution goes as follows. Consider the complex
-% (\dagger )
-%  \cdot \cdot \cdot 
-%  / Z[G]m2
-%  d-2
-%  / Z[G]m d
-% -1
-%  / Z[G]
-%  d0
-%  / Z
-%  / 0
-%  / \cdot \cdot \cdot  .
-% Here, a basis of Z[G]mk
-%  over Z[G] consists of k-tuples [g1 , . . . , gk ] of elements of G.
-% The morphisms in (\dagger ) are defined by setting
-% d-1 ([g]) = 1 \cdot  g - 1 \cdot  eG \in  Z[G],
-% d-2 ([g1 , g2]) = g1 [g2] - [g1g2] + [g1],
-% on the bases
-%  and extending
-%  by Z[G]-linearity, and d0 sends every g \in  G to 1, so
-%  ? ?
-% that d ( g\in G ag g) =
-%  ag . (Needless to say, d-k may be defined for all k.) The
-% reader will check that (\dagger ) is exact (Exercise 7.17), at least for the
-% part relevant to
-% the discussion that follows. Therefore,
-% \cdot \cdot \cdot 
-%  / Z[G]m2
-%  d-2
-%  / Z[G]m d
-% -1
-%  / Z[G]
-%  / 0
-%  / \cdot \cdot \cdot 
-% is (the beginning of) a free Z[G]-resolution of Z (endowed with the trivial
-% G-action),
-% and group cohomology can be computed as the cohomology of the complex obtained
-% by applying HomZ[G] ( , M ) to this resolution:
-%  / HomZ[G] (Z[G], M )
-%  / HomZ[G] (Z[G]m , M )
-%  / HomZ[G] (Z[G]m2 , M )
-%  / \cdot \cdot \cdot  .
-% Here, HomZ[G] (Z[G]mk
-%  , M ) = \sim 
-%  M mk
-%  may be identified with the abelian group of
-% functions Gk \to  M , since every Z[G]-linear map Z[G]mk
-%  \to  M is determined by
-% its action on a basis. Denote this abelian group by C k (G, M ): this is the
-% group of
-% k-cochains of G with values in M .
-% We can now summarize what we have found as follows:
-% Proposition 7.16. Let G be a finite group, and let M be a G-module. Then the
-% group cohomology H i (G, M ) is the cohomology of the cochain complex
-% induced by (\dagger ).
-% / C 0 (G, M )
-%  d0 G
-%  / C 1(G, M )
-%  d1 G
-%  / C 2 (G, M ) d2
-%  G
-% / \cdot \cdot \cdot 
-% Tracing definitions, we see that for a \in  C 0(G, M ) = M and \alpha  : G \to
-% M
-% in C 1 (G, M ),
-% d0 G(a)(g) = ga - a,
-% d1 G (\alpha )(g1 , g2) = g1 \alpha (g2) - \alpha (g1g2) + \alpha (g1 ).
-% Example 7.17. Let G be the Galois group of a finite Galois extension k \subseteq
-% F . Then
-% \ast  \ast G acts on the multiplicative group F of F , and we can view F as a G-module.
-% 1 \ast Claim 7.18. H (G, F ) = 0.
-% Indeed, with notation as above we have H 1(G, F \ast  ) = \sim 
-%  ker d1 G/ im d G, 0 and we
-% can compute this quotient explicitly. Let \alpha  \in  C 1
-%  (G, F \ast 
-%  ); denote by \alpha g the image
-% of g in F \ast  by \alpha . The `cocycle condition' \alpha  \in  ker d1 G
-% translates into
-% \alpha gh = \alpha g \cdot  g(\alpha  h )
-% \ast for all g, h in G. (I am now writing the operation in F multiplicatively and viewing
-% elements of G as automorphisms of F .)
-% The elements h \in  G are pairwise distinct as automorphisms of F , so by Exer-
-% cise VII.6.14 they must be linearly independent. Therefore, there exists a
-% \gamma  \in  F
-% such that
-% ?
-% \beta  :=
-%  \alpha h \cdot  h(\gamma ) = 0.
-% h\in G
-% Thus \beta  \in  F \ast 
-% , and for all g \in  G
-% ?
-%  !
-%  ?
-%  -1 -1g(\beta ) =
-%  g(\alpha h ) \cdot  (gh)(\gamma ) =
-%  \alpha g \alpha gh \cdot  (gh)(\gamma ) = \alpha g \beta 
-% h\in G
-%  h\in G
-% !
-% where the equality marked = holds by the cocycle condition. That is, we have
-% found that there exists a \beta  \in  F \ast  such that
-% \beta 
-% \alpha g =
-% g(\beta )
-% for all g \in  G. But this says precisely that \alpha  is in the image of d0 G ,
-% proving that
-% ker d1 G / im d0 G = 0, as claimed.
-% Claim 7.18 is significant: it goes under the name of Hilbert's theorem 90, be-
-% cause in the case in which G is the Galois group of a finite cyclic extension,
-% it
-% recovers precisely the classical result with this name. The reader had the
-% opportu-
-% nity to prove this particular case in Exercise VII.6.16 and now will enjoy the
-% chance
-% to verify that indeed Claim 7.18 implies Hilbert's result (Exercise 7.18).
-%  ?
-% Group cohomology is a useful tool in algebraic number theory, algebraic topol-
-% ogy, and other fields, and so is the companion `group homology' H\bullet  (G, M
-% ), defined
-% analogously by the left-derived functors of the functor \cdot G associating with
-% every
-% G-module M the module
-% M
-% MG :=
-% ?gm - m?g\in G
-% (just as the elements of M G are called invariants, elements of MG are called
-% coin-
-% variants of the action). For example, in Example 7.14 we verified that H 1 (Z, M
-% ) =
-% MZ = H0 (Z, M ). The reader should now have no difficulty computing simple ex-
-% amples, such as the homology H\bullet  (Z, M ) (Exercise 7.19).
+In the beginning of this chapter I pointed out that the general
+strategy informing the development of homological algebra has
+numerous applications and I mentioned group and sheaf cohomology as
+examples. Here are a few words on group cohomology (sheaf cohomology
+would take us too far).
+
+How do we extract `cohomological invariants' from a group $G$?
+Consider the category $G\text{-}\mathsf{Mod}$ of abelian groups
+endowed with a left-$G$-action, equivalently, the category of
+left-$\Z[G]$-modules, where $\Z[G]$ is the group ring briefly
+encountered in \S{}III.1.4. Objects of $G\text{-}\mathsf{Mod}$ may be
+called $G$-modules.
+
+For a $G$-module $M$, $M^G$ denotes the set of elements that are
+fixed under the action of $G$: these are reasonably called the
+\emph{invariants} of the action. Note that $M^G$ is an abelian group
+carrying a trivial action of $G$; it is clear that setting $M \to
+M^G$ defines a covariant functor $\cdot^G : G\text{-}\mathsf{Mod}
+\to \categ{Ab}$. Both $G\text{-}\mathsf{Mod}$ and $\categ{Ab}$ are
+abelian categories, and it takes a moment to realize that $\cdot^G$
+is a left-exact functor: the reader should either check this
+directly or do Exercise~7.16 and then remember Claim~VIII.1.19. The
+reader should in fact contemplate why this functor is not
+right-exact: if $G$ acts trivially on a coset $[m]$ of a quotient
+$M/L$, there is no reason \emph{a priori} why $G$ should act
+trivially on a representative $m$.
+
+We would have drawn this conclusion without difficulty before
+delving into homological algebra. Homological algebra tells us how
+to address this type of situation and `quantify' precisely the
+failure of exactness, by means of an appropriate derived functor.
+
+The $i$-th right-derived functor of $\cdot^G$ is denoted
+$H^i(G, \_)$. Therefore, $H^0(G, M) = M^G$, and for every short
+exact sequence of $G$-modules
+\[\begin{tikzcd}
+  0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0
+\end{tikzcd}\]
+we obtain (from Theorem~\ref{thm:homol:7.12}) a long exact sequence
+of abelian groups:
+\[\begin{tikzcd}
+  0 \arrow[r] & L^G \arrow[r] & M^G \arrow[r] & N^G \arrow[r] &
+  H^1(G, L) \arrow[r] & H^1(G, M) \arrow[r] & \dots
+\end{tikzcd}\]
+Note that $M^G = \Hom_{\Z[G]}(\Z, M)$, where $\Z$ is given the
+trivial module structure. Thus, $H^i(G, M) =
+\operatorname{Ext}^i_{\Z[G]}(\Z, M)$; as we know already (and as
+will finally be verified in \S{}8), this can be computed by an
+injective resolution of $M$ or by a projective resolution of $\Z$.
+\begin{exam}{}{exam:homol:7.14}
+  Take $G = \Z$. Then $\Z[G]$ is the ring $\Z[x,x^{-1}]$ of Laurent
+  polynomials. As $\Z[x,x^{-1}]/(1-x) \cong \Z$, with the trivial
+  action (check this!), the complex
+  \[\begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & \Z[x,x^{-1}] \arrow[r, "\cdot(1-x)"]
+    & \Z[x,x^{-1}] \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  is a free, hence projective, resolution of $\Z$, endowed with the
+  trivial $\Z$-action. Applying the (contravariant)
+  $\Hom_{\Z[x,x^{-1}]}(\_, M)$, we see that $H^\bullet(\Z, M)$ is
+  computed by the cohomology of
+  \[\begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & M \arrow[r, "\cdot(1-x)"] & M
+    \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  `Multiplication by $x$' on $M$ is nothing but the action of the
+  generator of $G = \Z$. We conclude that
+  \[
+    H^0(\Z, M) = \ker\bigl(M \xrightarrow{\cdot(1-x)} M\bigr) = M^{\Z}
+  \]
+  (as we knew already),
+  \[
+    H^1(\Z, M) = \frac{M}{(1-x)M},
+  \]
+  and $H^i(\Z, M) = 0$ for all $i < 0$ and $i \ge 2$.
+\end{exam}
+
+\begin{exam}{Finite cyclic groups}{exam:homol:7.15}
+  Let $G = C_m$ be a cyclic group of order $m$; then $\Z[G] \cong
+  \Z[x]/(x^m - 1)$. Again it is not difficult to produce a
+  projective resolution of $\Z$ (with trivial action) in the
+  category of $\Z[C_m]$-modules: letting $N = 1 + x + \dots +
+  x^{m-1} = (1 - x^m)/(1 - x)$, the reader will verify that the
+  complex
+  \[\begin{tikzcd}
+    \dots \arrow[r, "\cdot N"] & \Z[C_m] \arrow[r, "\cdot(1-x)"] &
+    \Z[C_m] \arrow[r, "\cdot N"] & \Z[C_m] \arrow[r, "\cdot(1-x)"] &
+    \Z[C_m] \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  has cohomology $\cong \Z$, concentrated in degree $0$ (i.e., on
+  the last nonzero term). Applying $\Hom_{\Z[C_m]}(\_, M)$, we get
+  the complex
+  \[\begin{tikzcd}
+    \dots \arrow[r] & 0 \arrow[r] & M \arrow[r, "\cdot(1-x)"] & M
+    \arrow[r, "\cdot N"] & M \arrow[r, "\cdot(1-x)"] & M \arrow[r,
+    "\cdot N"] & \dots
+  \end{tikzcd}\]
+  and deduce that $H^i(C_m, M) = 0$ for $i < 0$, $H^0(C_m, M) =
+  M^{C_m}$, and for all $i > 0$
+  \[
+    H^{2i+1}(C_m, M) \cong \frac{\ker\bigl(M \xrightarrow{\cdot N}
+    M\bigr)}{(1-x)M},
+  \]
+  \[
+    H^{2i}(C_m, M) \cong \frac{M^{C_m}}{N \cdot M}.
+  \]
+\end{exam}
+There is a standard free resolution of $\Z$ over a group ring
+$\Z[G]$, which leads to a concrete description of group cohomology.
+For a finite group $G$, of order $m$, the beginning of this
+resolution goes as follows. Consider the complex
+\[\begin{tikzcd}[column sep=large]
+  (\dagger) & \dots \arrow[r] & \Z[G]^{m^2} \arrow[r, "d^{-2}"] &
+  \Z[G]^m \arrow[r, "d^{-1}"] & \Z[G] \arrow[r, "d^0"] & \Z \arrow[r]
+  & 0 \arrow[r] & \dots
+\end{tikzcd}\]
+Here, a basis of $\Z[G]^{m^k}$ over $\Z[G]$ consists of $k$-tuples
+$[g_1, \dots, g_k]$ of elements of $G$. The morphisms in $(\dagger)$
+are defined by setting
+\[
+  d^{-1}([g]) = 1 \cdot g - 1 \cdot e_G \in \Z[G], \qquad
+  d^{-2}([g_1, g_2]) = g_1[g_2] - [g_1g_2] + [g_1],
+\]
+on the bases and extending by $\Z[G]$-linearity, and $d^0$ sends
+every $g \in G$ to $1$, so that $d^0\bigl(\sum_{g \in G} a_g g\bigr)
+= \sum_{g \in G} a_g$. (Needless to say, $d^{-k}$ may be defined for
+all $k$.) The reader will check that $(\dagger)$ is exact
+(Exercise~7.17), at least for the part relevant to the discussion
+that follows. Therefore,
+\[\begin{tikzcd}[column sep=large]
+  \dots \arrow[r] & \Z[G]^{m^2} \arrow[r, "d^{-2}"] & \Z[G]^m
+  \arrow[r, "d^{-1}"] & \Z[G] \arrow[r] & 0 \arrow[r] & \dots
+\end{tikzcd}\]
+is (the beginning of) a free $\Z[G]$-resolution of $\Z$ (endowed
+with the trivial $G$-action), and group cohomology can be computed
+as the cohomology of the complex obtained by applying
+$\Hom_{\Z[G]}(\_, M)$ to this resolution:
+\[\begin{tikzcd}[column sep=large]
+  0 \arrow[r] & \Hom_{\Z[G]}(\Z[G], M) \arrow[r] &
+  \Hom_{\Z[G]}(\Z[G]^m, M) \arrow[r] &
+  \Hom_{\Z[G]}(\Z[G]^{m^2}, M) \arrow[r] & \dots
+\end{tikzcd}\]
+Here, $\Hom_{\Z[G]}(\Z[G]^{m^k}, M) \cong M^{m^k}$ may be identified
+with the abelian group of functions $G^k \to M$, since every
+$\Z[G]$-linear map $\Z[G]^{m^k} \to M$ is determined by its action
+on a basis. Denote this abelian group by $C^k(G, M)$: this is the
+group of $k$-cochains of $G$ with values in $M$.
+
+We can now summarize what we have found as follows:
+
+\begin{prop}{}{prop:homol:7.16}
+  Let $G$ be a finite group, and let $M$ be a $G$-module. Then the
+  group cohomology $H^i(G, M)$ is the cohomology of the cochain
+  complex induced by $(\dagger)$:
+  \[\begin{tikzcd}
+    0 \arrow[r] & C^0(G, M) \arrow[r, "d_G^0"] & C^1(G, M) \arrow[r,
+    "d_G^1"] & C^2(G, M) \arrow[r, "d_G^2"] & \dots
+  \end{tikzcd}\]
+\end{prop}
+
+Tracing definitions, we see that for $a \in C^0(G, M) = M$ and
+$\alpha : G \to M$ in $C^1(G, M)$,
+\[
+  d_G^0(a)(g) = ga - a, \qquad
+  d_G^1(\alpha)(g_1, g_2) = g_1\alpha(g_2) - \alpha(g_1g_2) +
+  \alpha(g_1).
+\]
+\begin{exam}{}{exam:homol:7.17}
+  Let $G$ be the Galois group of a finite Galois extension $k
+  \subseteq F$. Then $G$ acts on the multiplicative group $F^*$ of
+  $F$, and we can view $F^*$ as a $G$-module.
+\end{exam}
+
+\begin{prop}{Hilbert's theorem 90}{prop:homol:7.18}
+  $H^1(G, F^*) = 0$.
+\end{prop}
+
+Indeed, with notation as above we have $H^1(G, F^*) \cong \ker
+d_G^1 / \operatorname{im} d_G^0$, and we can compute this quotient
+explicitly. Let $\alpha \in C^1(G, F^*)$; denote by $\alpha_g$ the
+image of $g$ in $F^*$ by $\alpha$. The `cocycle condition' $\alpha
+\in \ker d_G^1$ translates into
+\[
+  \alpha_{gh} = \alpha_g \cdot g(\alpha_h)
+\]
+for all $g, h$ in $G$. (I am now writing the operation in $F^*$
+multiplicatively and viewing elements of $G$ as automorphisms of
+$F$.)
+
+The elements $h \in G$ are pairwise distinct as automorphisms of
+$F$, so by Exercise~VII.6.14 they must be linearly independent.
+Therefore, there exists a $\gamma \in F$ such that
+\[
+  \beta := \sum_{h \in G} \alpha_h \cdot h(\gamma) \ne 0.
+\]
+Thus $\beta \in F^*$, and for all $g \in G$
+\[
+  g(\beta) = \sum_{h \in G} g(\alpha_h) \cdot (gh)(\gamma)
+  \overset{!}{=} \sum_{h \in G} \alpha_g^{-1} \alpha_{gh} \cdot
+  (gh)(\gamma) = \alpha_g^{-1} \beta
+\]
+where the equality marked $\overset{!}{=}$ holds by the cocycle
+condition. That is, we have found that there exists a $\beta \in
+F^*$ such that
+\[
+  \alpha_g = \frac{\beta}{g(\beta)}
+\]
+for all $g \in G$. But this says precisely that $\alpha$ is in the
+image of $d_G^0$, proving that $\ker d_G^1 / \operatorname{im} d_G^0
+= 0$, as claimed.
+
+Claim~\ref{prop:homol:7.18} is significant: it goes under the name
+of \emph{Hilbert's theorem 90}, because in the case in which $G$ is
+the Galois group of a finite cyclic extension, it recovers precisely
+the classical result with this name. The reader had the opportunity
+to prove this particular case in Exercise~VII.6.16 and now will
+enjoy the chance to verify that indeed
+Claim~\ref{prop:homol:7.18} implies Hilbert's result
+(Exercise~7.18).
+
+Group cohomology is a useful tool in algebraic number theory,
+algebraic topology, and other fields, and so is the companion `group
+homology' $H_\bullet(G, M)$, defined analogously by the left-derived
+functors of the functor $\cdot_G$ associating with every $G$-module
+$M$ the module
+\[
+  M_G := \frac{M}{\langle gm - m \rangle_{g \in G}}
+\]
+(just as the elements of $M^G$ are called invariants, elements of
+$M_G$ are called \emph{coinvariants} of the action). For example, in
+Example~\ref{exam:homol:7.14} we verified that $H^1(\Z, M) = M_{\Z}
+= H_0(\Z, M)$. The reader should now have no difficulty computing
+simple examples, such as the homology $H_\bullet(\Z, M)$
+(Exercise~7.19).
 
 \subsection*{Exercises}
 
