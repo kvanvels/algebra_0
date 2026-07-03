@@ -1,7 +1,7 @@
 XELATEX = xelatex -file-line-error -interaction=nonstopmode
 MASTER  = master
 
-.PHONY: pdf quick clean chktex
+.PHONY: pdf quick check clean chktex
 
 pdf: $(MASTER).pdf
 
@@ -13,6 +13,9 @@ $(MASTER).pdf: $(MASTER).tex $(wildcard *.tex) $(wildcard chapters/*.tex)
 
 quick:
 	$(XELATEX) $(MASTER)
+
+check:
+	$(XELATEX) -draftmode $(MASTER)
 
 # -n9:  suppress mismatched bracket warning — half-open intervals are correct.
 # -n11: suppress "use \cdots" — \dots from amsmath chooses automatically.
