@@ -8179,209 +8179,157 @@ the price of dealing early with double complexes.
 
 \subsection{Acyclic resolutions again and balancing Tor and Ext}
 \label{subsec:homol:acyclic-resolutions-again-and-balancing-tor-and-ext}
-% Finally we go
 
-% back to the last mysteries remaining concerning Tor and Ext. As a warm-up (and
-% another illustration of the power of double complexes), go back to the question
-% we
-% studied in \S{}8.1: we ended that subsection by lining up the complexes obtained
-% by
-% applying an additive functor F to an F -acyclic resolution A\bullet  of an
-% object M and
-% to a projective resolution of the same object, as sides of an array. Corollary
-% 7.9
-% tells us how to fill the rest of the array: start from
-% (*)
-%  \cdot \cdot \cdot 
-%  / A-2
-%  / A-1
-%  / A0
-%  / M
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% which is exact by hypothesis; using Corollary 7.9, view (*) as the complex
-% induced
-% in H 0 by an exact complex
-% (**)
-%  \cdot \cdot \cdot 
-%  / P -2,\bullet 
-%  / P -1,\bullet 
-%  / P 0,\bullet 
-%  / PM
-%  \bullet 
-%  / 0
-%  / \cdot \cdot \cdot 
-% where P i,\bullet  is a projective resolution of Ai and PM
-%  \bullet 
-%  is a projective resolution of M .
-% Since (**) is exact, the rows of the double complex corresponding to (**) are
-% pro-
-% jective resolutions of the projective objects PM
-%  i
-%  . Now apply F :
-% \cdot \cdot \cdot 
-%  / F (A-2 )
-%  / F (A-1 )
-%  / F (A0 )
-%  / F (M )
-% O
-%  O
-%  O
-%  O
-% _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _?
-% / F (P -2,0 )
-%  / F (P -1,0)
-%  / F (P 0,0)
-%  ? / F (PM
-%  0 )
-% O
-%  O
-%  O
-%  ?
-%  O?
-% ?
-% / F (P -2,-1 )
-%  / F (P -1,-1)
-%  / F (P 0,-1 )
-%  ? / F (PM -1
-% )
-% O
-%  O
-%  O
-%  O?
-% ?
-% / F (P -2,-2 )
-%  / F (P -2,-1)
-%  / F (P -2,0 )
-%  ? / F (PM
-%  -2)
-% O
-%  O
-%  O
-%  ?
-%  O?
-% ?
-%  ..
-% .
-% Since each PM
-%  i
-%  is projective and each Ai is F -acyclic, every row and every column
-% of the part of this diagram within the dashed lines is exact. Therefore we can
-% apply
-% Theorem 8.12 to the complex
-% f (P \bullet ,\bullet  ) :
-%  \cdot \cdot \cdot 
-%  / F (P -2,\bullet  )
-%  / F (P -1,\bullet  )
-%  / F (P 0,\bullet  )
-%  / 0
-%  / \cdot \cdot \cdot 
-% and discover that the total complex T C(F (P ))\bullet  is quasi-isomorphic to
-% both com-
-% plexes C(F )(A\bullet ) and C(F )(P \bullet 
-%  ). It follows that
-% M
-% H i (C(F )(A\bullet  )) \sim 
-%  = H i (C(F )(PM
-%  \bullet  )) \sim 
-%  = Li F (M ),
-% which was the conclusion of Theorem 8.3.
-% This example illustrates the general strategy of other applications of double
-% complexes: the cohomologies of two complexes are shown to be isomorphic by
-% showing that there is an exact double complex interpolating between them. This
-% strategy finally justifies the claims that Tor and Ext functors can be computed
-% by
-% resolving either one of their arguments.
-% \bullet 
-% Theorem 8.13. Let M, N be modules over a commutative ring R, and let PM
-%  ,
-% \bullet 
-% resp., PN , be projective resolutions of M , resp., N . Then
-% H i (PM
-%  \bullet  \otimes R N ) \sim 
-%  = H i (M \otimes R PN
-%  \bullet  ) (\sim 
-%  = TorR i
-%  (M, N )).
-% The first term was our official definition of Tor, as originally given in
-% \S{}VIII.2.4
-% (where we used free resolutions); see also Example 7.6. Theorem 8.13 makes good
-% on our old promise (also made in \S{}VIII.2.4) to show that the Tor functors
-% could be
-% computed by resolving the second factor rather than the first.
-% Proof. Apply Theorem 8.12 to the complex
-% (*)
-%  \cdot \cdot \cdot 
-%  / PM
-%  -2 \otimes R PN
-%  \bullet 
-%  / PM
-%  -1 \otimes R PN
-%  \bullet 
-%  / PM
-%  -0 \otimes R PN
-%  \bullet 
-%  / 0
-%  / \cdot \cdot \cdot  .
-% jSince each PN is projective, the cohomology of this complex is concentrated in
-% degree 0 and equals M \otimes R PN \bullet  . It follows that
-% T C(PM
-%  \bullet 
-%  \otimes R PN \bullet  )\bullet 
-%  is quasi-isomorphic to M \otimes R PN \bullet  ,
+Finally we go back to the last mysteries remaining concerning Tor
+and Ext. As a warm-up (and another illustration of the power of
+double complexes), go back to the question we studied in \S{}8.1: we
+ended that subsection by lining up the complexes obtained by
+applying an additive functor $\mathscr{F}$ to an
+$\mathscr{F}$-acyclic resolution $A^\bullet$ of an object $M$ and to
+a projective resolution of the same object, as sides of an array.
+Corollary~7.9 tells us how to fill the rest of the array: start from
+\[
+  (*) \qquad
+  \begin{tikzcd}
+    \dots \arrow[r] & A^{-2} \arrow[r] & A^{-1} \arrow[r] & A^0
+    \arrow[r] & M \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}
+\]
+which is exact by hypothesis; using Corollary~7.9, view $(*)$ as the
+complex induced in $H^0$ by an exact complex
+\[
+  (**) \qquad
+  \begin{tikzcd}
+    \dots \arrow[r] & P^{-2,\bullet} \arrow[r] & P^{-1,\bullet}
+    \arrow[r] & P^{0,\bullet} \arrow[r] & P_M^\bullet \arrow[r] & 0
+    \arrow[r] & \dots
+  \end{tikzcd}
+\]
+where $P^{i,\bullet}$ is a projective resolution of $A^i$ and
+$P_M^\bullet$ is a projective resolution of $M$.
+
+Since $(**)$ is exact, the rows of the double complex corresponding
+to $(**)$ are projective resolutions of the projective objects
+$P_M^i$. Now apply $\mathscr{F}$:
+\[\begin{tikzcd}[column sep=small]
+  \dots \arrow[r] & \mathscr{F}(A^{-2}) \arrow[r] & \mathscr{F}(A^{-1})
+  \arrow[r] & \mathscr{F}(A^0) \arrow[r] & \mathscr{F}(M) \\
+  \dots \arrow[r] & \mathscr{F}(P^{-2,0}) \arrow[r] \arrow[u] &
+  \mathscr{F}(P^{-1,0}) \arrow[r] \arrow[u] & \mathscr{F}(P^{0,0})
+  \arrow[r] \arrow[u] & \mathscr{F}(P_M^0) \arrow[u] \\
+  \dots \arrow[r] & \mathscr{F}(P^{-2,-1}) \arrow[r] \arrow[u] &
+  \mathscr{F}(P^{-1,-1}) \arrow[r] \arrow[u] & \mathscr{F}(P^{0,-1})
+  \arrow[r] \arrow[u] & \mathscr{F}(P_M^{-1}) \arrow[u] \\
+  \dots \arrow[r] & \mathscr{F}(P^{-2,-2}) \arrow[r] \arrow[u] &
+  \mathscr{F}(P^{-1,-2}) \arrow[r] \arrow[u] & \mathscr{F}(P^{0,-2})
+  \arrow[r] \arrow[u] & \mathscr{F}(P_M^{-2}) \arrow[u] \\
+  & \vdots \arrow[u] & \vdots \arrow[u] & \vdots \arrow[u] & \vdots
+  \arrow[u]
+\end{tikzcd}\]
+Since each $P_M^i$ is projective and each $A^i$ is
+$\mathscr{F}$-acyclic, every row and every column of (the lower
+part of) this diagram is exact. Therefore we can apply
+Theorem~\ref{thm:homol:8.12} to the complex
+\[\begin{tikzcd}
+  \mathscr{F}(P^{\bullet,\bullet}) : & \dots \arrow[r] &
+  \mathscr{F}(P^{-2,\bullet}) \arrow[r] & \mathscr{F}(P^{-1,\bullet})
+  \arrow[r] & \mathscr{F}(P^{0,\bullet}) \arrow[r] & 0 \arrow[r] &
+  \dots
+\end{tikzcd}\]
+and discover that the total complex $TC(\mathscr{F}(P))^\bullet$ is
+quasi-isomorphic to \emph{both} complexes
+$\mathsf{C}(\mathscr{F})(A^\bullet)$ and
+$\mathsf{C}(\mathscr{F})(P_M^\bullet)$. It follows that
+\[
+  H^i(\mathsf{C}(\mathscr{F})(A^\bullet)) \cong
+  H^i(\mathsf{C}(\mathscr{F})(P_M^\bullet)) \cong
+  \mathsf{L}_i\mathscr{F}(M),
+\]
+which was the conclusion of Theorem~\ref{thm:homol:8.3}.
+
+This example illustrates the general strategy of other applications
+of double complexes: the cohomologies of two complexes are shown to
+be isomorphic by showing that there is an exact double complex
+interpolating between them. This strategy finally justifies the
+claims that Tor and Ext functors can be computed by resolving either
+one of their arguments.
+
+\begin{thm}{}{thm:homol:8.13}
+  Let $M, N$ be modules over a commutative ring $R$, and let
+  $P_M^\bullet$, resp., $P_N^\bullet$, be projective resolutions of
+  $M$, resp., $N$. Then
+  \[
+    H^i(P_M^\bullet \otimes_R N) \cong H^i(M \otimes_R P_N^\bullet)
+    \quad (\cong \operatorname{Tor}^R_i(M, N)).
+  \]
+\end{thm}
+
+The first term was our official definition of Tor, as originally
+given in \S{}VIII.2.4 (where we used free resolutions); see also
+Example~7.6. Theorem~\ref{thm:homol:8.13} makes good on our old
+promise (also made in \S{}VIII.2.4) to show that the Tor functors
+could be computed by resolving the second factor rather than the
+first.
+
+\begin{proof}
+  Apply Theorem~\ref{thm:homol:8.12} to the complex
+  \[
+    (*) \qquad
+    \begin{tikzcd}
+      \dots \arrow[r] & P_M^{-2} \otimes_R P_N^\bullet \arrow[r] &
+      P_M^{-1} \otimes_R P_N^\bullet \arrow[r] & P_M^0 \otimes_R
+      P_N^\bullet \arrow[r] & 0 \arrow[r] & \dots
+    \end{tikzcd}
+  \]
+  Since each $P_N^j$ is projective, the cohomology of this complex
+  is concentrated in degree $0$ and equals $M \otimes_R P_N^\bullet$.
+  It follows that
+  \[
+    TC(P_M^\bullet \otimes_R P_N^\bullet)^\bullet \text{ is
+    quasi-isomorphic to } M \otimes_R P_N^\bullet,
+  \]
+  by the first statement in Theorem~\ref{thm:homol:8.12}. On the
+  other hand, since each $P_M^i$ is projective, the complex $P_M^i
+  \otimes_R P_N^\bullet$ is a resolution of $P_M^i \otimes N$; that
+  is, the cohomology of each $P_M^i \otimes_R P_N^\bullet$ is
+  concentrated in degree $0$ and equals $P_M^i \otimes_R N$. Thus,
+  the complex $(*)$ induces the complex $P_M^\bullet \otimes_R N$ in
+  $H^0$, and
+  \[
+    TC(P_M^\bullet \otimes_R P_N^\bullet)^\bullet \text{ is
+    quasi-isomorphic to } P_M^\bullet \otimes N,
+  \]
+  by the second statement in Theorem~\ref{thm:homol:8.12}. The
+  result follows.
+\end{proof}
+
+\begin{thm}{}{thm:homol:8.14}
+  Let $M, N$ be modules over a commutative ring $R$, and let
+  $P_M^\bullet$, resp., $Q_N^\bullet$, be a projective resolution of
+  $M$, resp., an injective resolution of $N$. Then
+  \[
+    H^i(\Hom_R(P_M^\bullet, N)) \cong H^i(\Hom_R(M, Q_N^\bullet))
+    \quad (\cong \operatorname{Ext}^i_R(M, N)).
+  \]
+\end{thm}
+
+The proof of Theorem~\ref{thm:homol:8.14} is left to the reader
+(Exercise~8.9): Example~\ref{exam:homol:8.8} and the strategy
+extensively discussed above will hopefully make this a very easy
+task.
+
+This statement completes the verification of all claims concerning
+Tor and Ext made in Chapter~VIII, in the sense that the extent to
+which we have developed the general theory of homological algebra
+makes those seemingly magical claims now essentially \emph{evident}.
+Hopefully, the same will apply to other encounters the reader may
+have with simple applications of homological algebra.
+
+In any case, this seems a fitting place to end the main body of this
+last chapter. In \S{}9 we will give a brief look at material that
+really lies beyond the scope of these notes.
 
 \subsection*{Exercises}
-
-% by the first statement in Theorem 8.12. On the other hand, since each PM
-%  i
-%  is
-% projective, the complex PM i
-%  \otimes R PN \bullet 
-%  is a resolution of PM i
-%  \otimes N ; that is, the cohomology
-% of each PM
-%  i
-%  \otimes R PN \bullet  is concentrated in degree 0 and equals PM
-%  i
-%  \otimes R N . Thus, the
-% complex (*) induces the complex PM \bullet 
-%  \otimes R N in H 0
-% , and
-% T C(PM
-%  \bullet 
-%  \otimes R PN \bullet  )\bullet 
-%  is quasi-isomorphic to PM
-%  \bullet 
-%  \otimes  N,
-% by the second statement in Theorem 8.12. The result follows.
-%  ?
-% \bullet 
-% Theorem 8.14. Let M, N be modules over a commutative ring R, and let PM
-%  ,
-% resp., Q\bullet  N , be a projective resolution of M , resp., an injective
-% resolution of N .
-% Then
-% H i (HomR(PM
-%  \bullet 
-%  , N )) \sim 
-%  = H i(HomR (M, Q\bullet  N )) (\sim 
-%  = ExtiR (M, N )).
-% The proof of Theorem 8.14 is left to the reader (Exercise 8.9): Example 8.8
-% and the strategy extensively discussed above will hopefully make this a very
-% easy
-% task.
-% This statement completes the verification of all claims concerning Tor and Ext
-% made in Chapter VIII, in the sense that the extent to which we have developed
-% the
-% general theory of homological algebra makes those seemingly magical claims now
-% essentially evident. Hopefully, the same will apply to other encounters the
-% reader
-% may have with simple applications of homological algebra.
-% In any case, this seems a fitting place to end the main body of this last
-% chapter.
-% In \S{}9 we will give a brief look at material that really lies beyond the scope
-% of these
-% notes.
 % 8.1. ? Let A, B be abelian categories, let A\bullet  be an exact complex in
 % C(A), and
 % let F be a right-exact functor A \to  B. Let K i be the kernel of diA . Prove
