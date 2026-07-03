@@ -9849,124 +9849,50 @@ labeled as follows:
 %  F
 %  F
 %  F
-% grv 2
-%  (T )0
-%  grv 3
-%  (T )1
-%  grv 4
-%  (T )2
-%  grv 5
-%  (T )3
-%  \cdot \cdot \cdot 
-% O L
-%  O L
-%  O L
-%  O H
-% L
-%  L
-%  L
-%  H
-% L
-%  L
-%  L
-%  H
-%  H
-% grv 1
-%  (T )0
-%  grv 2
-%  (T )1
-%  grv 3
-%  (T )2
-%  grv 4
-%  (T )3
-%  \cdot \cdot \cdot 
-% O L
-%  O L
-%  O L
-%  O H
-% L
-%  L
-%  L
-%  H
-% L
-%  L
-%  L
-%  H
-%  H
-% grv 0
-%  (T )0
-%  grv 1
-%  (T )1
-%  grv 2
-%  (T )2
-%  grv 3
-%  (T )3
-%  \cdot \cdot \cdot 
-% with dashes connecting pieces with the same degree in gr\bullet  v (T ).
-% \bullet  \bullet The filtration on T also determines a filtration on the cohomology of T : we
-% can take H \bullet  (T \bullet  )m to be the image in H \bullet  (T \bullet ) of
-% H \bullet  (Tm
-%  \bullet 
-%  ). Thus, we also have
-% a graded object grv H \bullet 
-%  (T \bullet 
-%  ). The relation between H \bullet 
-%  (grv \bullet 
-%  (T )) and grv H \bullet (T \bullet  ) is
-% subtle: this relation is what spectral sequences will help us understand.
-% "
-%  "
-% The monomorphisms Tm+1
-%  \bullet 
-%  \subseteq  Tm
-%  \bullet 
-%  define a monomorphism m Tm
-%  \bullet 
-%  \to  m Tm
-%  \bullet 
-%  ,
-% \bullet 
-% of which grv (T ) is the cokernel: we have an exact sequence
-% " "(\dagger )
-%  / m
-%  Tm
-%  \bullet 
-%  / m
-%  Tm
-%  \bullet 
-%  / gr\bullet  v (T )
-%  / 0 .
-% As we know since \S{}3.3, this determines an exact triangle (couple!)
-% "
-% \bullet  \bullet 
-% H (
-%  Tm )
-% \gamma  u u
-%  u u
-%  +1 u
-%  u
-%  u
-%  u u
-%  :
-%  m J J J
-%  J J \alpha 
-%  J J
-%  J J
-%  $ "
-% H \bullet 
-% (grv \bullet 
-%  (T )) o
-%  H \bullet  ( m Tm
-%  \bullet 
-%  )
-% \beta 
-% Note that \alpha  decreases the filtration degree by 1, leaving the cohomology
-% degree k
-% unchanged; \beta  leaves both unchanged; and \gamma  increases both by 1. This
-% is particularly
-% clear if one draws a small slice of the sequence (\dagger ), sufficient to see
-% the connecting
-% morphism in action on a piece of given filtration and cohomology degrees:
+\[\begin{tikzcd}[column sep=small]
+  \vdots & \vdots & \vdots & \vdots & \\
+  \operatorname{gr}^2_v(T)_0 \arrow[r,dashed] & \operatorname{gr}^3_v(T)_1 \arrow[r,dashed] & \operatorname{gr}^4_v(T)_2 \arrow[r,dashed] & \operatorname{gr}^5_v(T)_3 & \cdots \\
+  \operatorname{gr}^1_v(T)_0 \arrow[u] \arrow[r,dashed] & \operatorname{gr}^2_v(T)_1 \arrow[u] \arrow[r,dashed] & \operatorname{gr}^3_v(T)_2 \arrow[u] \arrow[r,dashed] & \operatorname{gr}^4_v(T)_3 \arrow[u] & \cdots \\
+  \operatorname{gr}^0_v(T)_0 \arrow[u] \arrow[r,dashed] & \operatorname{gr}^1_v(T)_1 \arrow[u] \arrow[r,dashed] & \operatorname{gr}^2_v(T)_2 \arrow[u] \arrow[r,dashed] & \operatorname{gr}^3_v(T)_3 \arrow[u] & \cdots
+\end{tikzcd}\]
+with dashes connecting pieces with the same degree in
+$\operatorname{gr}^\bullet_v(T)$.
+
+The filtration on $T^\bullet$ also determines a filtration on the
+cohomology of $T^\bullet$: we can take $H^\bullet(T^\bullet)_m$ to be
+the image in $H^\bullet(T^\bullet)$ of $H^\bullet(T_m^\bullet)$.
+Thus, we also have a graded object $\operatorname{gr}_v
+H^\bullet(T^\bullet)$. \emph{The relation between
+$H^\bullet(\operatorname{gr}_v^\bullet(T))$ and $\operatorname{gr}_v
+H^\bullet(T^\bullet)$ is subtle: this relation is what spectral
+sequences will help us understand.}
+
+The monomorphisms $T_{m+1}^\bullet \subseteq T_m^\bullet$ define a
+monomorphism $\bigoplus_m T_m^\bullet \to \bigoplus_m T_m^\bullet$,
+of which $\operatorname{gr}_v^\bullet(T)$ is the cokernel: we have an
+exact sequence
+\[
+  (\dagger) \qquad 0 \longrightarrow \bigoplus_m T_m^\bullet
+  \longrightarrow \bigoplus_m T_m^\bullet \longrightarrow
+  \operatorname{gr}_v^\bullet(T) \longrightarrow 0 \, .
+\]
+As we know since \S{}3.3, this determines an exact triangle (couple!)
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (A) at (1,1.3) {$H^\bullet(\bigoplus_m T_m^\bullet)$};
+    \node (E) at (0,0) {$H^\bullet(\operatorname{gr}_v^\bullet(T))$};
+    \node (A2) at (3,0) {$H^\bullet(\bigoplus_m T_m^\bullet)$};
+    \draw[->] (A) -- (A2) node[midway, right] {$\alpha$};
+    \draw[->] (A2) -- (E) node[midway, below] {$\beta$};
+    \draw[->] (E) -- (A) node[midway, left] {$\substack{+1\\\gamma}$};
+  \end{tikzpicture}
+\]
+Note that $\alpha$ decreases the filtration degree by $1$, leaving
+the cohomology degree $k$ unchanged; $\beta$ leaves both unchanged;
+and $\gamma$ increases both by $1$. This is particularly clear if
+one draws a small slice of the sequence $(\dagger)$, sufficient to
+see the connecting morphism in action on a piece of given filtration
+and cohomology degrees:
 %  / Tm+1 k+1
 %  O
 %  iS S
