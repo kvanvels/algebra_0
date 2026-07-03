@@ -38,7 +38,7 @@ from pathlib import Path
 # EDIT THIS: each tuple is (pattern, replacement, flags)
 # ---------------------------------------------------------------------------
 RULES = [
-     (r"\\operatorname{End}", r"\\End", 0),
+     (r"\\operatorname{", r"\\End", 0),
 
 ]
 # ---------------------------------------------------------------------------
