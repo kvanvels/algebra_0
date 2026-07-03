@@ -9516,89 +9516,85 @@ in $\mathsf{K}(\mathsf{A})$ (for any choice of $\gamma^\bullet$):
 indeed, $N^\bullet$ need not\footnote{Why? Construct an example
 showing this.} be homotopically equivalent to $MC(\alpha)^\bullet$.
 But such triangles \emph{do} exist in $\mathsf{D}(\mathsf{A})$!
-% In fact, we are now well-equipped to make (better) sense of the mysterious
-% remarks at the end of \S{}3.4. The `special triangles'
-% \bullet +1
-%  L E 4
-%  4?
-% N \bullet  o
-%  M \bullet 
-% arising as in \S{}3.4 from a short exact sequence
-%  / L\bullet 
-%  \alpha \bullet 
-%  / M \bullet 
-%  \beta  \bullet 
-%  / N \bullet 
-%  / 0
-% are not distinguished in K(A), and in general no replacement for the
-% zero-morphism
-% will fix this problem. On the other hand, the reader can now verify (Exercise
-% 9.5)
-% that there is a quasi-isomorphism M C(\alpha )\bullet  \to  N \bullet  : this
-% can be shown by computing
-% 38Why? Construct an example showing this.
-% explicitly another mapping cone and applying Corollary 4.2. Thus, in the derived
-% category the standard distinguished triangle
-% \bullet 
-% +1 ?
-%  ?
-%  ? ?
-%  ? ?
-%  ?
-%  @L
-%  3 3
-%  3 3 3 3 \alpha 
-%  3\bullet 
-% ?
-% M C(\alpha )
-% \bullet  o
-%  M \bullet 
-% \bullet 
-% \beta 
-% is isomorphic to a triangle
-% \bullet +1
-%  L E 4
-% 4 4 \alpha 
-% \bullet 
-% \gamma  \bullet 
-%  4 4 4?
-% N \bullet  o M \bullet 
-% \bullet \beta 
-% which is therefore distinguished in D(A) (cf. Exercise 9.6). Applying the
-% cohomology
-% functor to this triangle directly gives the exact triangle
-% H \bullet  (L\bullet  )
-% +1 ? ?
-%  ?
-%  ?
-%  ? ?
-%  ? ?
-%  @ @
-%  @ @
-%  @ @
-%  @ ?
-% H \bullet  (N \bullet ) o
-%  H \bullet  (M \bullet  )
-% expressing the long exact cohomology sequence as in \S{}3.4, without having to
-% single
-% out the +1 morphism for special consideration. In retrospect, the zero-morphism
-% I
-% insisted on using when folding `special' triangles in \S{}3.4 turns out to be an
-% artifact:
-% placing the triangle in the derived category shows that there is a more informed
-% choice for this morphism. This choice is not available in C(A) and is not even
-% in K(A), but it is available in D(A) and leads transparently to the long exact
-% sequence in cohomology.
-% If F : A \to  B is a functor between abelian categories, the induced functor
-% K(F ) : K(A) \to  K(B) is a functor of triangulated categories, and so are the
-% bounded
-% variations K\pm  (F ) : K\pm  (A) \to  K\pm  (B). The derived functors LF , RF :
-% D\pm  (A) \to
-% D\pm  (B) encountered in \S{}7.2 are also functors of triangulated categories.
-% This fact
-% is responsible for the good properties of derived functors, such as the long
-% exact
-% sequences studied in \S{}7.4.
+In fact, we are now well-equipped to make (better) sense of the
+mysterious remarks at the end of \S{}3.4. The `special triangles'
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$L^\bullet$};
+    \node (N) at (0,0) {$N^\bullet$};
+    \node (M) at (2,0) {$M^\bullet$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left] {$\substack{+1\\0}$};
+  \end{tikzpicture}
+\]
+arising as in \S{}3.4 from a short exact sequence
+\[
+  0 \longrightarrow L^\bullet \xrightarrow{\alpha^\bullet} M^\bullet
+  \xrightarrow{\beta^\bullet} N^\bullet \longrightarrow 0
+\]
+are not distinguished in $\mathsf{K}(\mathsf{A})$, and in general no
+replacement for the zero-morphism will fix this problem. On the
+other hand, the reader can now verify
+(Exercise~\ref{exer:homol:9.5}) that there is a quasi-isomorphism
+$MC(\alpha)^\bullet \to N^\bullet$: this can be shown by computing
+explicitly another mapping cone and applying
+Corollary~\ref{homol:4.2}. Thus, in the derived category the
+standard distinguished triangle
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$L^\bullet$};
+    \node (MC) at (0,0) {$MC(\alpha)^\bullet$};
+    \node (M) at (2.3,0) {$M^\bullet$};
+    \draw[->] (L) -- (M) node[midway, right] {$\alpha^\bullet$};
+    \draw[->] (M) -- (MC) node[midway, below] {$\beta^\bullet$};
+    \draw[->] (MC) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+is isomorphic to a triangle
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$L^\bullet$};
+    \node (N) at (0,0) {$N^\bullet$};
+    \node (M) at (2,0) {$M^\bullet$};
+    \draw[->] (L) -- (M) node[midway, right] {$\alpha^\bullet$};
+    \draw[->] (M) -- (N) node[midway, below] {$\beta^\bullet$};
+    \draw[->] (N) -- (L) node[midway, left] {$\substack{+1\\\gamma^\bullet}$};
+  \end{tikzpicture}
+\]
+which is therefore distinguished in $\mathsf{D}(\mathsf{A})$ (cf.\
+Exercise~\ref{exer:homol:9.6}). Applying the cohomology functor to
+this triangle directly gives the exact triangle
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$H^\bullet(L^\bullet)$};
+    \node (N) at (0,0) {$H^\bullet(N^\bullet)$};
+    \node (M) at (2,0) {$H^\bullet(M^\bullet)$};
+    \draw[->] (L) -- (M);
+    \draw[->] (M) -- (N);
+    \draw[->] (N) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+expressing the long exact cohomology sequence as in \S{}3.4, without
+having to single out the $+1$ morphism for special consideration. In
+retrospect, the zero-morphism I insisted on using when folding
+`special' triangles in \S{}3.4 turns out to be an artifact: placing
+the triangle in the derived category shows that there is a more
+informed choice for this morphism. This choice is not available in
+$\mathsf{C}(\mathsf{A})$ and is not even in $\mathsf{K}(\mathsf{A})$,
+but it \emph{is} available in $\mathsf{D}(\mathsf{A})$ and leads
+transparently to the long exact sequence in cohomology.
+
+If $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ is a functor between
+abelian categories, the induced functor $\mathsf{K}(\mathscr{F}) :
+\mathsf{K}(\mathsf{A}) \to \mathsf{K}(\mathsf{B})$ is a functor of
+triangulated categories, and so are the bounded variations
+$\mathsf{K}^\pm(\mathscr{F}) : \mathsf{K}^\pm(\mathsf{A}) \to
+\mathsf{K}^\pm(\mathsf{B})$. The derived functors $\mathsf{L}\mathscr{F},
+\mathsf{R}\mathscr{F} : \mathsf{D}^\pm(\mathsf{A}) \to \mathsf{D}^\pm(\mathsf{B})$
+encountered in \S{}7.2 are also functors of triangulated categories.
+This fact is responsible for the good properties of derived
+functors, such as the long exact sequences studied in \S{}7.4.
 
 \subsection{Spectral sequences}
 \label{subsec:homol:spectral-sequences}
