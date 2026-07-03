@@ -4293,163 +4293,137 @@ $i < 0$.
   d^{i-1}_{P^\bullet} = d^{i-2}_{L^\bullet} \circ h^{i-1}$, which is
   precisely what we need for the induction step.
 \end{proof}
-% Corollary 5.12. Let P be a bounded-above cochain complex of projectives of an
-% abelian category A, and let L\bullet  be an exact complex in C(A).
-% Then every morphism of complexes P \bullet  \to  L\bullet  is homotopic to 0.
-% This follows immediately from (a harmless shift of) Lemma 5.11, since every
-% morphism to an exact complex has no choice but to induce the zero-morphism in
-% cohomology.
-% The `injective' version of Corollary 5.12 is that morphisms from an exact com-
-% plex L\bullet  to a bounded-below complex Q\bullet  of injectives are
-% necessarily homotopy
-% equivalent to 0.
-% Note that in all these considerations the complexes P \bullet  , Q\bullet  are
-% required to
-% live in the `bounded' versions C- (P), C +(I): all objects should vanish in
-% degree
-% sufficiently high or low. This furnishes the `start' of the inductive
-% construction of
-% the homotopy in the proof of Lemma 5.11. It is an essentially inescapable
-% feature
-% of the theory.
-% Corollary 5.13. Let P \bullet  (resp., Q\bullet  ) be a bounded-above exact
-% complex of projec-
-% tives (resp., a bounded-below exact complex of injectives). Then P \bullet
-% (resp., Q\bullet  ) is
-% homotopy equivalent to the zero-complex.
-% Proof. Exercise 5.12.
-%  ?
-% Corollary 5.13 is the first manifestation of the principle captured more fully
-% by Theorem 5.9: we have just verified that, for suitably bounded complexes of
-% projectives or injectives, `quasi-isomorphic to 0' is the same as `homotopy
-% equivalent
-% to 0'.
-% Another consequence of Lemma 5.11 is the following remark, showing that
-% quasi-isomorphisms are `non-zero-divisors' up to homotopy, with respect to mor-
-% phisms from complexes of projectives. This will be useful in the next section,
-% for
-% example to show that certain lifts are uniquely defined up to homotopy.
-% Lemma 5.14. Let A be an abelian category, and let \rho \bullet  : L\bullet  \to
-% M \bullet  be a quasi-
-% \bullet isomorphism in C(A). Let P be a bounded-above complex of projectives, and let
-% \alpha  \bullet  : P \bullet  \to  L\bullet  be a morphism of cochain complexes such that the composition
-% P \bullet 
-%  \alpha \bullet 
-%  / L\bullet 
-%  \rho \bullet 
-%  / M \bullet 
-% q-iso.
-% is homotopic to the zero-morphism. Then \alpha \bullet  \sim  0.
-% Proof. Let hi : P i \to  M i-1 define a homotopy between \rho \bullet  \circ
-% \alpha \bullet  and 0, so that
-% -\rho i \circ  \alpha i = dM
-%  i-1
-%  \bullet  \circ  hi
-%  + h
-% i+1
-%  \circ  dP i
-%  \bullet  . Consider the mapping cone M C(\rho )\bullet 
-%  of \rho \bullet 
-%  (\S{}4.1),
-% and define morphisms
-% \beta i = (\alpha i , hi ) : P i \to  Li \oplus  M i-1 = M C(\rho )i-1 :
-% \cdot \cdot \cdot 
-%  / P i-1
-%  di-1
-%  P \bullet 
-%  / P i
-%  diP \bullet 
-%  / P i+1
-%  / \cdot \cdot \cdot 
-% \beta  i-1
-%  \beta i
-%  \beta  i+1
-% \sqcup 
-%  -di-2 M C(\rho )\bullet 
-%  \sqcup 
-%  -di-1 M C(\rho )\bullet 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / Li-1 \oplus  M i-2 / Li \oplus  M i-1 / Li+1 \oplus  M i
-%  / \cdot \cdot \cdot 
-% I claim that these give a morphism of cochain complexes P \bullet  \to  M C(\rho
-% )[-1]\bullet  . In-
-% deed24,
-% \beta i+1 \circ  diP \bullet  = (\alpha  i+1 \circ  diP \bullet  , hi+1 \circ  diP \bullet  ) and
-% -dM
-%  i-1
-%  C(\rho ) \circ  \beta  i
-%  = (dL\bullet  i
-%  \circ  \alpha i
-% , -\rho i
-%  \circ  \alpha i
-%  - dM i-1
-%  \bullet  \circ  hi
-%  );
-% 24 It is time to review how the differential of the mapping cone was defined in
-% \S{}4.1. The
-% negative sign will now come in very handy.
-% these are equal, by definition of hi and since \alpha \bullet  is a morphism of
-% complexes.
-% Now, \rho \bullet  is a quasi-isomorphism by hypothesis. Therefore M C(\rho
-% )\bullet  is an exact
-% \bullet complex (Corollary 4.2). Applying Corollary 5.12, it follows that \beta  is homotopic
-% to zero. But \alpha \bullet  is the composition
-% \bullet 
-% P \bullet 
-%  \beta  / M C(\rho )[-1]\bullet  = L\bullet  \oplus  M [-1]\bullet 
-%  / L\bullet  ,
-% so (Exercise 4.6, part (i)) the fact that \beta  \bullet  \sim  0 implies that
-% \alpha \bullet  \sim  0, concluding the
-% proof.
-%  ?
-% Example 5.15. To see that \alpha \bullet  may not be zero on the nose even if
-% \rho \bullet  \circ  \alpha \bullet  = 0,
-% look back again at Example 4.6:
-% P \bullet  :
-%  \cdot \cdot \cdot 
-%  / 0
-%  / Z
-%  id
-%  / Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% \alpha \bullet 
-%  id
-%  \cdot 2
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% L\bullet  :
-%  \cdot \cdot \cdot 
-%  / 0
-%  / Z
-%  \cdot 2
-%  / Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% \rho \bullet 
-% \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-%  \sqcup 
-% M \bullet  :
-%  \cdot \cdot \cdot 
-%  / 0
-%  / 0
-%  / 2Z
-%  Z
-%  / 0
-%  / \cdot \cdot \cdot 
-% Here \rho \bullet  is a quasi-isomorphism, and \rho \bullet  \circ  \alpha
-% \bullet  = 0. According to Lemma 5.14, the
-% (nonzero) morphism \alpha \bullet  is homotopic to 0. (Indeed, a homotopy is
-% immediately
-% visible. What is it?)
-%  ?
+\begin{coro}{}{coro:homol:5.12}
+  Let $P^\bullet$ be a bounded-above cochain complex of projectives
+  of an abelian category $\mathsf{A}$, and let $L^\bullet$ be an
+  exact complex in $\mathsf{C}(\mathsf{A})$.
+
+  Then every morphism of complexes $P^\bullet \to L^\bullet$ is
+  homotopic to $0$.
+\end{coro}
+
+This follows immediately from (a harmless shift of)
+Lemma~\ref{lem:homol:5.11}, since every morphism to an exact complex
+has no choice but to induce the zero-morphism in cohomology.
+
+The `injective' version of Corollary~\ref{coro:homol:5.12} is that
+morphisms from an exact complex $L^\bullet$ to a bounded-below
+complex $Q^\bullet$ of injectives are necessarily homotopy equivalent
+to $0$.
+
+Note that in all these considerations the complexes $P^\bullet$,
+$Q^\bullet$ are required to live in the `bounded' versions
+$\mathsf{C}^-(\mathsf{P})$, $\mathsf{C}^+(\mathsf{I})$: all objects
+should vanish in degree sufficiently high or low. This furnishes the
+`start' of the inductive construction of the homotopy in the proof of
+Lemma~\ref{lem:homol:5.11}. It is an essentially inescapable feature
+of the theory.
+
+\begin{coro}{}{coro:homol:5.13}
+  Let $P^\bullet$ (resp., $Q^\bullet$) be a bounded-above exact
+  complex of projectives (resp., a bounded-below exact complex of
+  injectives). Then $P^\bullet$ (resp., $Q^\bullet$) is homotopy
+  equivalent to the zero-complex.
+\end{coro}
+\begin{proof}
+  Exercise~5.12.
+\end{proof}
+
+Corollary~\ref{coro:homol:5.13} is the first manifestation of the
+principle captured more fully by Theorem~\ref{thm:homol:5.9}: we
+have just verified that, for suitably bounded complexes of
+projectives or injectives, `quasi-isomorphic to $0$' is the same as
+`homotopy equivalent to $0$'.
+
+Another consequence of Lemma~\ref{lem:homol:5.11} is the following
+remark, showing that quasi-isomorphisms are `non-zero-divisors' up to
+homotopy, with respect to morphisms from complexes of projectives.
+This will be useful in the next section, for example to show that
+certain lifts are uniquely defined up to homotopy.
+
+\begin{lem}{}{lem:homol:5.14}
+  Let $\mathsf{A}$ be an abelian category, and let $\rho^\bullet :
+  L^\bullet \to M^\bullet$ be a quasi-isomorphism in
+  $\mathsf{C}(\mathsf{A})$. Let $P^\bullet$ be a bounded-above complex
+  of projectives, and let $\alpha^\bullet : P^\bullet \to L^\bullet$
+  be a morphism of cochain complexes such that the composition
+  \[\begin{tikzcd}
+    P^\bullet \arrow[r, "\alpha^\bullet"] &
+    L^\bullet \arrow[r, "\rho^\bullet", "\text{q-iso.}"'] & M^\bullet
+  \end{tikzcd}\]
+  is homotopic to the zero-morphism. Then $\alpha^\bullet \sim 0$.
+\end{lem}
+\begin{proof}
+  Let $h^i : P^i \to M^{i-1}$ define a homotopy between $\rho^\bullet
+  \circ \alpha^\bullet$ and $0$, so that $-\rho^i \circ \alpha^i =
+  d^{i-1}_{M^\bullet} \circ h^i + h^{i+1} \circ d^i_{P^\bullet}$.
+  Consider the mapping cone $MC(\rho)^\bullet$ of $\rho^\bullet$
+  (\S{}4.1), and define morphisms
+  \[
+    \beta^i = (\alpha^i, h^i) : P^i \to L^i \oplus M^{i-1} =
+    MC(\rho)^{i-1}:
+  \]
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & P^{i-1} \arrow[r, "d_{P^\bullet}^{i-1}"]
+      \arrow[d, "\beta^{i-1}"] &
+      P^i \arrow[r, "d_{P^\bullet}^i"] \arrow[d, "\beta^i"] &
+      P^{i+1} \arrow[r] \arrow[d, "\beta^{i+1}"] & \dots \\
+    \dots \arrow[r] & L^{i-1} \oplus M^{i-2}
+      \arrow[r, "-d_{MC(\rho)}^{i-2}"'] &
+      L^i \oplus M^{i-1} \arrow[r, "-d_{MC(\rho)}^{i-1}"'] &
+      L^{i+1} \oplus M^i \arrow[r] & \dots
+  \end{tikzcd}\]
+  I claim that these give a morphism of cochain complexes $P^\bullet
+  \to MC(\rho)[-1]^\bullet$. Indeed\footnote{It is time to review how
+  the differential of the mapping cone was defined in \S{}4.1. The
+  negative sign will now come in very handy.},
+  \[
+    \beta^{i+1} \circ d^i_{P^\bullet} = \bigl(\alpha^{i+1} \circ
+    d^i_{P^\bullet},\; h^{i+1} \circ d^i_{P^\bullet}\bigr)
+    \quad \text{and} \quad
+    -d^{i-1}_{MC(\rho)} \circ \beta^i = \bigl(d^i_{L^\bullet} \circ
+    \alpha^i,\; -\rho^i \circ \alpha^i - d^{i-1}_{M^\bullet} \circ
+    h^i\bigr);
+  \]
+  these are equal, by definition of $h^i$ and since $\alpha^\bullet$
+  is a morphism of complexes.
+
+  Now, $\rho^\bullet$ is a quasi-isomorphism by hypothesis. Therefore
+  $MC(\rho)^\bullet$ is an exact complex (Corollary~4.2). Applying
+  Corollary~\ref{coro:homol:5.12}, it follows that $\beta^\bullet$ is
+  homotopic to zero. But $\alpha^\bullet$ is the composition
+  \[\begin{tikzcd}
+    P^\bullet \arrow[r, "\beta^\bullet"] &
+    MC(\rho)[-1]^\bullet = L^\bullet \oplus M[-1]^\bullet
+    \arrow[r] & L^\bullet,
+  \end{tikzcd}\]
+  so (Exercise~4.6, part (i)) the fact that $\beta^\bullet \sim 0$
+  implies that $\alpha^\bullet \sim 0$, concluding the proof.
+\end{proof}
+
+\begin{exam}{}{exam:homol:5.15}
+  To see that $\alpha^\bullet$ may not be zero on the nose even if
+  $\rho^\bullet \circ \alpha^\bullet = 0$, look back again at
+  Example~4.6:
+  \[\begin{tikzcd}[column sep=small]
+    P^\bullet: & \dots \arrow[r] & 0 \arrow[r] \arrow[d] &
+      \Z \arrow[r, "\mathrm{id}"] \arrow[d, "\mathrm{id}"'] &
+      \Z \arrow[r] \arrow[d, "\cdot 2"'] &
+      0 \arrow[r] \arrow[d] & \dots \\
+    L^\bullet: & \dots \arrow[r] & 0 \arrow[r] \arrow[d] &
+      \Z \arrow[r, "\cdot 2"] \arrow[d] &
+      \Z \arrow[r] \arrow[d, "\pi"] &
+      0 \arrow[r] \arrow[d] & \dots \\
+    M^\bullet: & \dots \arrow[r] & 0 \arrow[r] & 0 \arrow[r] &
+      \dfrac{\Z}{2\Z} \arrow[r] & 0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  Here $\rho^\bullet$ (the map $L^\bullet \to M^\bullet$, which is
+  $\pi$ in the nonzero degree) is a quasi-isomorphism, and
+  $\rho^\bullet \circ \alpha^\bullet = 0$. According to
+  Lemma~\ref{lem:homol:5.14}, the (nonzero) morphism $\alpha^\bullet$
+  is homotopic to $0$. (Indeed, a homotopy is immediately visible.
+  What is it?)
+\end{exam}
 
 \subsection{Proof of Theorem 5.9}
 \label{subsec:homol:proof-of-theorem-5-9}
