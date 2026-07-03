@@ -9458,67 +9458,64 @@ equivalent to $L[1]^\bullet$; the rotation
   \end{tikzpicture}
 \]
 is distinguished as required, as the reader should check.
-% Applying the cohomology functor to a distinguished triangle in K(A) yields an
-% exact triangle: indeed, as we have just seen, we may assume that the triangle is
-% (*)
-% (up to isomorphism in K(A)), and taking cohomology gives the exact triangle
-% \bullet  \bullet H (M )
-% +1 ? ?
-%  ?
-%  ?
-%  ? ?
-%  ? A
-%  B B
-%  B B
-%  B B
-%  B B
-% H \bullet 
-%  (L[1]\bullet  )
-%  o
-%  H \bullet 
-%  (M C(\alpha )\bullet  )
-% obtained in Proposition 4.1. In general, a cohomological functor on a
-% triangulated
-% category is an additive functor to an abelian category, mapping distinguished
-% trian-
-% gles to exact triangles and hence inducing long exact sequences. Thus,
-% cohomology
-% is a cohomological functor on K(A); this will not surprise the reader. The
-% functors
-% Hom(A, ) and Hom( , A) (to Ab) are cohomological functors on every triangulated
-% category, for every object A.
-% The derived category D(A) and its bounded versions are triangulated categories,
-% with distinguished triangles described as above---that is, isomorphic (in D(A))
-% to
-% the basic triangles determined by mapping cones. The natural functor K(A) \to
-% D(A)
-% is a functor of triangulated categories, in the sense that it preserves the
-% translation
-% functor and it sends distinguished triangles to distinguished triangles.
-% Isomorphism in the derived category is a less stringent notion than in the ho-
-% motopic category, so there are `more' distinguished triangles in D(A) than in
-% K(A).
-% For example, if
-%  / L\bullet 
-%  \alpha \bullet 
-%  / M \bullet 
-%  \beta  \bullet 
-%  / N \bullet 
-%  / 0
-% is a short exact sequence, as above, there is in general no distinguished
-% triangle
-% \bullet +1
-%  L E 4
-%  4 4 \alpha 
-% \bullet 
-% \gamma 
-%  \bullet 
-%  4 44 ?
-% N \bullet  o M \bullet 
-% \bullet \beta 
-% in K(A) (for any choice of \gamma  \bullet ): indeed, N \bullet  need not38 be
-% homotopically equivalent
-% \bullet to M C(\alpha ) . But such triangles do exist in D(A)!
+\emph{Applying the cohomology functor to a distinguished triangle in
+$\mathsf{K}(\mathsf{A})$ yields an exact triangle}: indeed, as we
+have just seen, we may assume that the triangle is $(*)$ (up to
+isomorphism in $\mathsf{K}(\mathsf{A})$), and taking cohomology gives
+the exact triangle
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (M) at (1,1.3) {$H^\bullet(M^\bullet)$};
+    \node (L1) at (0,0) {$H^\bullet(L[1]^\bullet)$};
+    \node (MC) at (2.6,0) {$H^\bullet(MC(\alpha)^\bullet)$};
+    \draw[->] (M) -- (MC);
+    \draw[->] (MC) -- (L1);
+    \draw[->] (L1) -- (M) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+obtained in Proposition~\ref{homol:4.1}. In general, a
+\emph{cohomological functor} on a triangulated category is an
+additive functor to an abelian category, mapping distinguished
+triangles to exact triangles and hence inducing long exact
+sequences. Thus, cohomology is a cohomological functor on
+$\mathsf{K}(\mathsf{A})$; this will not surprise the reader. The
+functors $\operatorname{Hom}(A,\_)$ and $\operatorname{Hom}(\_,A)$
+(to $\mathsf{Ab}$) are cohomological functors on every triangulated
+category, for every object $A$.
+
+The derived category $\mathsf{D}(\mathsf{A})$ and its bounded
+versions are triangulated categories, with distinguished triangles
+described as above---that is, isomorphic (in $\mathsf{D}(\mathsf{A})$)
+to the basic triangles determined by mapping cones. The natural
+functor $\mathsf{K}(\mathsf{A}) \to \mathsf{D}(\mathsf{A})$ is a
+functor of triangulated categories, in the sense that it preserves
+the translation functor and it sends distinguished triangles to
+distinguished triangles.
+
+Isomorphism in the derived category is a less stringent notion than
+in the homotopic category, so there are `more' distinguished
+triangles in $\mathsf{D}(\mathsf{A})$ than in $\mathsf{K}(\mathsf{A})$.
+For example, if
+\[
+  0 \longrightarrow L^\bullet \xrightarrow{\alpha^\bullet} M^\bullet
+  \xrightarrow{\beta^\bullet} N^\bullet \longrightarrow 0
+\]
+is a short exact sequence, as above, there is in general no
+distinguished triangle
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$L^\bullet$};
+    \node (N) at (0,0) {$N^\bullet$};
+    \node (M) at (2,0) {$M^\bullet$};
+    \draw[->] (L) -- (M) node[midway, right] {$\alpha^\bullet$};
+    \draw[->] (M) -- (N) node[midway, below] {$\beta^\bullet$};
+    \draw[->] (N) -- (L) node[midway, left] {$\substack{+1\\\gamma^\bullet}$};
+  \end{tikzpicture}
+\]
+in $\mathsf{K}(\mathsf{A})$ (for any choice of $\gamma^\bullet$):
+indeed, $N^\bullet$ need not\footnote{Why? Construct an example
+showing this.} be homotopically equivalent to $MC(\alpha)^\bullet$.
+But such triangles \emph{do} exist in $\mathsf{D}(\mathsf{A})$!
 % In fact, we are now well-equipped to make (better) sense of the mysterious
 % remarks at the end of \S{}3.4. The `special triangles'
 % \bullet +1
