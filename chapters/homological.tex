@@ -9382,85 +9382,82 @@ is distinguished. There is more, including an infamous
 \emph{octahedral axiom} (so named since a popular way to state it
 invokes an octahedral diagram). The reader will have no difficulties
 locating this information in the literature.
-% The category K(A) is triangulated: the translation functor is the basic shift of
-% a complex, and distinguished triangles are those isomorphic to
-% L\bullet 
-% +1 ?
-%  ?
-%  ? ?
-%  ?
-%  ?
-%  ? @ 3 3 3
-%  3 3\alpha \bullet 
-%  3 3
-%  ?
-% M C(\alpha )
-% \bullet  o
-%  M \bullet 
-% That is, the `third vertex' of a triangle with an assigned side \alpha \bullet
-% : L\bullet  \to  M \bullet  is the
-% mapping cone of \alpha \bullet  , and the unlabeled sides are the natural
-% cochain morphisms
-% M \bullet  \to  M C(\alpha )\bullet , M C(\alpha )\bullet  \to  L[1]\bullet
-% studied in \S{}4.1.
-% It would be problematic to make the same choice in C(A), since while
-% D 0 4+1
-%  4 4
-% ?
-% L\bullet  o
-%  L\bullet 
-% idL\bullet 
-% would be distinguished as needed, since L\bullet  is the mapping cone of the
-% zero-morphism
-% 0 \to  L\bullet  , the rotation of this triangle, i.e.,
-% \bullet 
-% +1
-%  L D 7 7
-%  7 7 7 7
-%  idL\bullet 
-%  7?
-% 0 o
-%  L\bullet 
-% would not seem to be, since the mapping cone of the identity is not 0. But the
-% mapping cone of the identity is homotopically equivalent to 0 (Exercise 9.3), so
-% the
-% rotated triangle is indeed distinguished in K(A), as it should be, according to
-% the
-% axioms. More generally, it is easy to see (Exercise 9.4) that if \alpha \bullet
-% : L\bullet  \to  M \bullet  is a
-% cochain morphism, so that we have a distinguished triangle,
-% L\bullet 
-% +1 ? ?
-%  ? ?
-%  ?
-%  ?
-%  ? @ 3 3 3
-%  3 3\alpha \bullet 
-%  3 3
-%  ?
-% M C(\alpha )
-% \bullet  o
-%  M \bullet 
-% \bullet 
-% \beta 
-% then the mapping cone of \beta  \bullet  is in fact homotopy equivalent to
-% L[1]\bullet  ; the rotation
-% \bullet (*)
-%  -\alpha \bullet  ?
-%  +1 ?
-%  ? ?
-%  ?
-%  ?
-%  ? M C
-%  >
-%  > > > > \beta 
-%  > >
-%  \bullet 
-%  ?
-% L[1]
-% \bullet  o
-%  M C(\alpha )\bullet 
-% is distinguished as required, as the reader should check.
+The category $\mathsf{K}(\mathsf{A})$ is triangulated: the
+translation functor is the basic shift of a complex, and
+distinguished triangles are those isomorphic to
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$L^\bullet$};
+    \node (MC) at (0,0) {$MC(\alpha)^\bullet$};
+    \node (M) at (2.3,0) {$M^\bullet$};
+    \draw[->] (L) -- (M) node[midway, right] {$\alpha^\bullet$};
+    \draw[->] (M) -- (MC);
+    \draw[->] (MC) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+That is, the `third vertex' of a triangle with an assigned side
+$\alpha^\bullet : L^\bullet \to M^\bullet$ is the mapping cone of
+$\alpha^\bullet$, and the unlabeled sides are the natural cochain
+morphisms $M^\bullet \to MC(\alpha)^\bullet$, $MC(\alpha)^\bullet \to
+L[1]^\bullet$ studied in \S{}4.1.
+
+It would be problematic to make the same choice in $\mathsf{C}(\mathsf{A})$,
+since while
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (T) at (1,1.3) {$0$};
+    \node (Z) at (0,0) {$L^\bullet$};
+    \node (B) at (2,0) {$L^\bullet$};
+    \draw[->] (T) -- (B);
+    \draw[->] (B) -- (Z) node[midway, below] {$\operatorname{id}_{L^\bullet}$};
+    \draw[->] (Z) -- (T) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+would be distinguished as needed, since $L^\bullet$ is the mapping
+cone of the zero-morphism $0 \to L^\bullet$, the rotation of this
+triangle, i.e.,
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$L^\bullet$};
+    \node (Z) at (0,0) {$0$};
+    \node (B) at (2,0) {$L^\bullet$};
+    \draw[->] (L) -- (B) node[midway, right] {$\operatorname{id}_{L^\bullet}$};
+    \draw[->] (B) -- (Z);
+    \draw[->] (Z) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+would not seem to be, since the mapping cone of the identity is not
+$0$. But the mapping cone of the identity is \emph{homotopically
+equivalent} to $0$ (Exercise~\ref{exer:homol:9.3}), so the rotated
+triangle is indeed distinguished in $\mathsf{K}(\mathsf{A})$, as it
+should be, according to the axioms. More generally, it is easy to
+see (Exercise~\ref{exer:homol:9.4}) that if $\alpha^\bullet : L^\bullet
+\to M^\bullet$ is a cochain morphism, so that we have a distinguished
+triangle,
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (L) at (1,1.3) {$L^\bullet$};
+    \node (MC) at (0,0) {$MC(\alpha)^\bullet$};
+    \node (M) at (2.3,0) {$M^\bullet$};
+    \draw[->] (L) -- (M) node[midway, right] {$\alpha^\bullet$};
+    \draw[->] (M) -- (MC) node[midway, below] {$\beta^\bullet$};
+    \draw[->] (MC) -- (L) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+then the mapping cone of $\beta^\bullet$ is in fact homotopy
+equivalent to $L[1]^\bullet$; the rotation
+\[
+  (*) \qquad
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (M) at (1,1.3) {$M^\bullet$};
+    \node (L1) at (0,0) {$L[1]^\bullet$};
+    \node (MC) at (2.3,0) {$MC(\alpha)^\bullet$};
+    \draw[->] (M) -- (MC) node[midway, right] {$\beta^\bullet$};
+    \draw[->] (MC) -- (L1);
+    \draw[->] (L1) -- (M) node[midway, left] {$\substack{+1\\-\alpha^\bullet}$};
+  \end{tikzpicture}
+\]
+is distinguished as required, as the reader should check.
 % Applying the cohomology functor to a distinguished triangle in K(A) yields an
 % exact triangle: indeed, as we have just seen, we may assume that the triangle is
 % (*)
