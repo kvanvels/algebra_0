@@ -9,8 +9,8 @@ which is little more than a system of notation and terminology
 enabling us to express precisely mathematical definitions, statements,
 and their proofs.
 
-Familiarity with this language is essential in approaching a
-subject such as algebra, and indeed the reader is assumed to have been
+Familiarity with this language is essential in approaching a subject
+such as algebra, and indeed the reader is assumed to have been
 previously exposed to it.  In this chapter we first review some of the
 language of naive set theory, mainly in order to establish the
 notation we will use in the rest of the book. We will then get a small
@@ -62,23 +62,23 @@ to `list' them as one may `list' the integers.
 It is often better to adopt definitions that express the elements of a
 set as elements $s$ of some larger (and already known) set $S$
 satisfying some property $P$.  One may then write
-$A = \{s \in S \mid s\ \mathrm{satisfies}\ P\}$
-($\in$ means element of\dots) and
-this is in general precise and unambiguous\footnote{But note that
-  there exist pathologies such as \name{Russell}'s paradox, showing that even
-  this style of definitions can lead to nonsense. All is well so long
-  as $S$ is indeed known to be a set to begin with.}.
+$A = \{s \in S \mid s\ \mathrm{satisfies}\ P\}$ ($\in$ means element
+of\dots) and this is in general precise and unambiguous\footnote{But
+  note that there exist pathologies such as \name{Russell}'s paradox,
+  showing that even this style of definitions can lead to
+  nonsense. All is well so long as $S$ is indeed known to be a set to
+  begin with.}.
 
-We will
-occasionally encounter a variation on the notion of set, called
-`multiset'.  A multiset is a set in which the elements are allowed to
-appear `with multiplicity': that is, a notion for which $\{2, 2\}$ would
-be distinct from $\{2\}$. The correct way to define a multiset is by
-means of functions, which we will encounter soon (see CHECKExample
-2.2).  A few famous sets are
+We will occasionally encounter a variation on the notion of set,
+called `multiset'.  A multiset is a set in which the elements are
+allowed to appear `with multiplicity': that is, a notion for which
+$\{2, 2\}$ would be distinct from $\{2\}$. The correct way to define a
+multiset is by means of functions, which we will encounter soon (see
+CHECKExample 2.2).  A few famous sets are
 \begin{itemize}
 \item $\emptyset$ : the empty set, containing no elements;
-\item $\N$: the set of natural numbers (that is, nonnegative integers);
+\item $\N$: the set of natural numbers (that is, nonnegative
+  integers);
 \item $\Z$: the set of integers;
 \item $\Q$: the set of rational numbers;
 \item $\R$: the set of real numbers;
@@ -88,20 +88,21 @@ Also, the term \emph{singleton} is used to refer to any set consisting
 of precisely one element. Thus ${1}$, ${2}$, ${3}$ are different sets,
 but they are all singletons.
 
-Here are a few useful symbols (called
-quantifiers):
+Here are a few useful symbols (called quantifiers):
 \begin{itemize}
-\item $\exists$  means \emph{there exists}\ldots (the existential quantifier);
-\item  $\forall$  means \emph{for all}\ldots (the universal quantifier).
+\item $\exists$ means \emph{there exists}\ldots (the existential
+  quantifier);
+\item $\forall$ means \emph{for all}\ldots (the universal quantifier).
 \end{itemize}
 Also, $\exists !$ is used to mean there exists a unique\ldots
 
 For example, the set of even integers may be written as
 \[E = \{a \in Z | (\exists n \in Z) a = 2n\}:\] in words, ``all
-integers $a$ such that there exists an integer $n$ for which $a =
-2n$''. In this case we could replace $\exists$ by $\exists !$ without
-changing the set---but that has to do with properties of $\field{Z}$, not with
-mathematical syntax. Also, it is common to adopt the shorthand
+integers $a$ such that there exists an integer $n$ for which
+$a = 2n$''. In this case we could replace $\exists$ by $\exists !$
+without changing the set---but that has to do with properties of
+$\field{Z}$, not with mathematical syntax. Also, it is common to adopt
+the shorthand
 \[E = \{2n | n \in \Z\},\] in which the existential quantifier is
 understood.  Being able to parse such strings of symbols effortlessly,
 and being able to write them out fluently, is extremely important. The
@@ -109,12 +110,12 @@ reader of this book is assumed to have already acquired this skill.
 
 Note that the \emph{order} in which things are written may make a big
 difference. For example, the statement
-\[(\forall a \in  \Z) (\exists b \in  \Z)\quad b = 2a\]
-is true: it says that the result of doubling an arbitrary integer yields an
-integer; but
-\[(\exists b \in \Z) (\forall a \in \Z)\quad b = 2a\] is false: it says that
-there exists a fixed integer $b$ which is `simultaneously' twice as
-much as every integer---there is no such thing.
+\[(\forall a \in \Z) (\exists b \in \Z)\quad b = 2a\] is true: it says
+that the result of doubling an arbitrary integer yields an integer;
+but
+\[(\exists b \in \Z) (\forall a \in \Z)\quad b = 2a\] is false: it
+says that there exists a fixed integer $b$ which is `simultaneously'
+twice as much as every integer---there is no such thing.
 
 Note also that writing simply
 \[b = 2a\] by itself does not convey enough information, unless the
@@ -129,13 +130,13 @@ same elements. We say that a set $S$ is a subset of a set $T$ if every
 element of $S$ is an element of $T$ , in symbols, $S \subseteq T$.  By
 convention, $S \subset T$ means the same thing: that is (unlike $<$
 vs. $\leq$ ), it does not exclude the possibility that $S$ and $T$ may
-be equal. To avoid any confusion, I will consistently use $\subseteq$ in
-this book. One adopts $S \subsetneq T$ to mean that $S$ is `properly'
-contained in $T$ : that is, $S \subseteq T$ and $S \ne T$.
+be equal. To avoid any confusion, I will consistently use $\subseteq$
+in this book. One adopts $S \subsetneq T$ to mean that $S$ is
+`properly' contained in $T$ : that is, $S \subseteq T$ and $S \ne T$.
 
 We can think of `inclusion of sets' in terms of logic: $S \subseteq T$
-means that $s \in S \Rightarrow s \in T$ (the quantifier $\forall s$ is
-understood); that is, `if $s$ is an element of $S$, then $s$ is an
+means that $s \in S \Rightarrow s \in T$ (the quantifier $\forall s$
+is understood); that is, `if $s$ is an element of $S$, then $s$ is an
 element of $T$'; that is, all elements of $S$ are elements of $T$;
 that is, $S \subseteq T$ as promised.
 
@@ -143,48 +144,43 @@ Note that for all sets $S$, $\emptyset \subseteq S$ and
 $S \subseteq S$.  If $S \subseteq T$ and $T \subseteq S$, then
 $S = T$.  The symbol $|S|$ denotes the number of elements of $S$, if
 this number is finite; otherwise, one writes $|S| = \infty$. If $S$
-and $T$ are finite, then $S \subseteq T \Rightarrow |S| \leq |T |$.  The
-subsets of a set $S$ form a set, called the power set, or the set of
-parts of $S$. For example, the power set of the empty set $\emptyset$
-consists of one element: $\emptyset$. The power set of $S$ is denoted
-$\mathcal{P}(S)$; a popular alternative is $2^S$, and indeed
-$|P(S)| = 2^{|S|}$ if $S$ is finite (cf. CHECKExercise 2.11).
+and $T$ are finite, then $S \subseteq T \Rightarrow |S| \leq |T |$.
+The subsets of a set $S$ form a set, called the power set, or the set
+of parts of $S$. For example, the power set of the empty set
+$\emptyset$ consists of one element: $\emptyset$. The power set of $S$
+is denoted $\mathcal{P}(S)$; a popular alternative is $2^S$, and
+indeed $|P(S)| = 2^{|S|}$ if $S$ is finite (cf. CHECKExercise 2.11).
 
 \subsection{Operations between sets}
 \label{subsec:prelims:operations-between-sets}
-Once we have a few sets to play with, we can
-obtain more by applying certain standard operations. Here are a few:
+Once we have a few sets to play with, we can obtain more by applying
+certain standard operations. Here are a few:
 \begin{itemize}
 \item $\cup$ : the union;
 \item $\cap$ : the intersection;
 \item $\setminus$ : the difference;
 \item $\amalg$ : the disjoint union;
-\item $\times$ : the (Cartesian) product; 
-\item  and the important notion of `quotient by an equivalence relation'.
+\item $\times$ : the (Cartesian) product;
+\item and the important notion of `quotient by an equivalence
+  relation'.
 \end{itemize}
 
-Most of these operations should be familiar to the reader: for example,
-$\{1, 2, 4\} \cup  \{3, 4, 5\} = \{1, 2, 3, 4, 5\}$
-while
-$\{1, 2, 4\} \setminus  \{3, 4, 5\} = \{1, 2\}$.
-TODO: Venn Diagrams
-% In terms of \name{Venn} diagrams of infamous `new math' memory:
-% S
-%  T
-% S \cup  T
-%  S \cap  T
-%  S \setminus  T
-% (the solid black contour indicates the set included in the operation).
-Several of these operations may be written out in a transparent way in terms
-of logic: thus, for example,
+Most of these operations should be familiar to the reader: for
+example, $\{1, 2, 4\} \cup \{3, 4, 5\} = \{1, 2, 3, 4, 5\}$ while
+$\{1, 2, 4\} \setminus \{3, 4, 5\} = \{1, 2\}$.  TODO: Venn Diagrams
+% In terms of \name{Venn} diagrams of infamous `new math' memory: S T
+% S \cup T S \cap T S \setminus T (the solid black contour indicates
+% the set included in the operation).
+Several of these operations may be written out in a transparent way in
+terms of logic: thus, for example,
 \[
-  s \in  S \cap  T \iff  (s \in  S\ \mathrm{and\ } s \in  T ).
+  s \in S \cap T \iff (s \in S\ \mathrm{and\ } s \in T ).
 \]
 
 
 
-Two sets $S$ and $T$ are disjoint if $S \cap T = \emptyset$, that is, if
-no element is `simultaneously' in both of them.
+Two sets $S$ and $T$ are disjoint if $S \cap T = \emptyset$, that is,
+if no element is `simultaneously' in both of them.
 
 The \emph{complement} of a subset $T$ in a set $S$ is the difference
 set $S \setminus T$ consisting of all elements of $S$ which are not
@@ -232,69 +228,68 @@ $S$ and $T$:
 \]
 Thus, if $S = \{1, 2, 3\}$ and $T = \{3, 4\}$, then
 $S \times T = \{(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)\}$.
-For a more sophisticated example, $\R \times \R$ is the set of pairs of real
-numbers, which (as we learn in calculus) is a good way to represent a plane.
-The set $\Z \times \Z$ could be represented by considering the points in this
-plane that happen to have integer coordinates. Incidentally, it is common to
-denote these sets $\R^2$, $\Z^2$; and similarly, the product $A \times A$ of
-a set by itself is often denoted $A^2$.
+For a more sophisticated example, $\R \times \R$ is the set of pairs
+of real numbers, which (as we learn in calculus) is a good way to
+represent a plane.  The set $\Z \times \Z$ could be represented by
+considering the points in this plane that happen to have integer
+coordinates. Incidentally, it is common to denote these sets $\R^2$,
+$\Z^2$; and similarly, the product $A \times A$ of a set by itself is
+often denoted $A^2$.
 
 If $S$ and $T$ are finite sets, clearly $|S \times T| = |S||T|$.
 
-Also note that we can use products to obtain explicit `copies' of sets as
-needed for the disjoint union: for example, we could let
-$S' = \{0\} \times S$, $T' = \{1\} \times T$, guaranteeing that $S'$ and
-$T'$ are disjoint (why?); and there is an evident way to `identify' $S$ and
-$S'$, $T$ and $T'$. Again, making this precise requires a little more
-vocabulary.
-The operations $\cup$, $\cap$, $\amalg$, $\times$ extend to operations on
-whole `families' of sets: for example, if $S_1, \dots, S_n$ are sets, we
-write
+Also note that we can use products to obtain explicit `copies' of sets
+as needed for the disjoint union: for example, we could let
+$S' = \{0\} \times S$, $T' = \{1\} \times T$, guaranteeing that $S'$
+and $T'$ are disjoint (why?); and there is an evident way to
+`identify' $S$ and $S'$, $T$ and $T'$. Again, making this precise
+requires a little more vocabulary.  The operations $\cup$, $\cap$,
+$\amalg$, $\times$ extend to operations on whole `families' of sets:
+for example, if $S_1, \dots, S_n$ are sets, we write
 \[
   \bigcap_{i=1}^{n} S_i = S_1 \cap S_2 \cap \dots \cap S_n
 \]
 for the set whose elements are those elements which are simultaneously
 elements of all sets $S_1, \dots, S_n$; and similarly for the other
-operations. But note that while it is clear from the definitions that, for
-example,
+operations. But note that while it is clear from the definitions that,
+for example,
 \[
-  S_1 \cup S_2 \cup S_3
-  = (S_1 \cup S_2) \cup S_3
-  = S_1 \cup (S_2 \cup S_3),
+  S_1 \cup S_2 \cup S_3 = (S_1 \cup S_2) \cup S_3 = S_1 \cup (S_2 \cup
+  S_3),
 \]
 it is not so clear in what sense the sets
 \[
-  S_1 \times S_2 \times S_3, \quad
-  (S_1 \times S_2) \times S_3, \quad
+  S_1 \times S_2 \times S_3, \quad (S_1 \times S_2) \times S_3, \quad
   S_1 \times (S_2 \times S_3)
 \]
-should be `identified' (where we can define the leftmost set as the set of
-`ordered triples' of elements of $S_1$, $S_2$, $S_3$, by analogy with the
-definition for two sets). In fact, again, we can really make sense of such
-statements only after we acquire the language of functions. However, all such
-statements do turn out to be true, as the reader probably expects; by virtue
-of this fortunate circumstance, we can be somewhat cavalier and gloss over
-such subtleties.
-More generally, if $\mathcal{S}$ is a set of sets, we may consider sets
+should be `identified' (where we can define the leftmost set as the
+set of `ordered triples' of elements of $S_1$, $S_2$, $S_3$, by
+analogy with the definition for two sets). In fact, again, we can
+really make sense of such statements only after we acquire the
+language of functions. However, all such statements do turn out to be
+true, as the reader probably expects; by virtue of this fortunate
+circumstance, we can be somewhat cavalier and gloss over such
+subtleties.  More generally, if $\mathcal{S}$ is a set of sets, we may
+consider sets
 \[
-  \bigcup_{S \in \mathcal{S}} S, \quad
-  \bigcap_{S \in \mathcal{S}} S, \quad
-  \coprod_{S \in \mathcal{S}} S, \quad
-  \prod_{S \in \mathcal{S}} S
+  \bigcup_{S \in \mathcal{S}} S, \quad \bigcap_{S \in \mathcal{S}} S,
+  \quad \coprod_{S \in \mathcal{S}} S, \quad \prod_{S \in \mathcal{S}}
+  S
 \]
 for the union, intersection, disjoint union, product of all sets in
-$\mathcal{S}$. There are important subtleties concerning these definitions:
-for example, if all $S \in \mathcal{S}$ are nonempty, does it follow that
-$\prod_{S \in \mathcal{S}} S$ is nonempty? The reader probably thinks so,
-but (if $\mathcal{S}$ is infinite) this is a rather thorny issue, amounting
-to the axiom of choice.
+$\mathcal{S}$. There are important subtleties concerning these
+definitions: for example, if all $S \in \mathcal{S}$ are nonempty,
+does it follow that $\prod_{S \in \mathcal{S}} S$ is nonempty? The
+reader probably thinks so, but (if $\mathcal{S}$ is infinite) this is
+a rather thorny issue, amounting to the axiom of choice.
 
-By and large, such subtleties do not affect the material in this course; we
-will partly come to terms with them in due
-time\footnote{The reader will have to employ the axiom of choice in some
-exercises every now and then, even before we come back to these issues, but
-this will probably happen below the awareness level, and so it should.},
-when they become more relevant to the issues at hand (cf.~\S{}V.3).
+By and large, such subtleties do not affect the material in this
+course; we will partly come to terms with them in due
+time\footnote{The reader will have to employ the axiom of choice in
+  some exercises every now and then, even before we come back to these
+  issues, but this will probably happen below the awareness level, and
+  so it should.}, when they become more relevant to the issues at hand
+(cf.~\S{}V.3).
 
 \subsection{Equivalence relations, partitions, quotients}
 \label{subsec:prelims:equivalence-relations}
@@ -317,84 +312,85 @@ by $R$' and write
   a \mathrel{R} b.
 \]
 Often we use fancier symbols for relations, such as $<$, $\leq$, $=$,
-$\sim$, \dots.
-The prototype of a well-behaved relation is `=', which corresponds to the
-`diagonal'
+$\sim$, \dots.  The prototype of a well-behaved relation is `=', which
+corresponds to the `diagonal'
 \[
-  \{(a, b) \in S \times S \mid a = b\}
-  = \{(a, a) \mid a \in S\}
+  \{(a, b) \in S \times S \mid a = b\} = \{(a, a) \mid a \in S\}
   \subseteq S \times S.
 \]
-Three properties of this very special relation turn out to be particularly
-important: if $\sim$ denotes for a moment the relation $=$ of equality,
-then $\sim$ satisfies
+Three properties of this very special relation turn out to be
+particularly important: if $\sim$ denotes for a moment the relation
+$=$ of equality, then $\sim$ satisfies
 \begin{itemize}
 \item reflexivity: $(\forall a \in S)\; a \sim a$;
-\item symmetry: $(\forall a \in S)\; (\forall b \in S)\; a \sim b
-  \Rightarrow b \sim a$;
-\item transitivity: $(\forall a \in S)\; (\forall b \in S)\;
-  (\forall c \in S),\; (a \sim b \text{ and } b \sim c)
-  \Rightarrow a \sim c$.
+\item symmetry:
+  $(\forall a \in S)\; (\forall b \in S)\; a \sim b \Rightarrow b \sim
+  a$;
+\item transitivity:
+  $(\forall a \in S)\; (\forall b \in S)\; (\forall c \in S),\; (a
+  \sim b \text{ and } b \sim c) \Rightarrow a \sim c$.
 \end{itemize}
-That is, every $a$ is equal to itself; if $a$ is equal to $b$, then $b$
-is equal to $a$; etc.
+That is, every $a$ is equal to itself; if $a$ is equal to $b$, then
+$b$ is equal to $a$; etc.
 \begin{defn}{Equivalence relation}{def:prelims:equivalence-relation}
-An \emph{equivalence relation} on a set $S$ is any relation $\sim$
-satisfying these three properties.
+  An \emph{equivalence relation} on a set $S$ is any relation $\sim$
+  satisfying these three properties.
 \end{defn}
 
-In terms of the corresponding subset $R$ of $S \times S$, `reflexivity'
-says that the diagonal is contained in $R$; `symmetry' says that $R$ is
-unchanged if flipped about the diagonal (that is, if every $(a, b)$ is
-interchanged with $(b, a)$); while unfortunately `transitivity' does not
-have a similarly nice pictorial translation.
+In terms of the corresponding subset $R$ of $S \times S$,
+`reflexivity' says that the diagonal is contained in $R$; `symmetry'
+says that $R$ is unchanged if flipped about the diagonal (that is, if
+every $(a, b)$ is interchanged with $(b, a)$); while unfortunately
+`transitivity' does not have a similarly nice pictorial translation.
 
-The datum of an equivalence relation on $S$ turns out to be equivalent to
-a type of information which looks a little different at first, that is, a
-partition of $S$. A partition of $S$ is a family of disjoint nonempty
-subsets of $S$, whose union is $S$: for example,
+The datum of an equivalence relation on $S$ turns out to be equivalent
+to a type of information which looks a little different at first, that
+is, a partition of $S$. A partition of $S$ is a family of disjoint
+nonempty subsets of $S$, whose union is $S$: for example,
 \[\mathcal{P} = \{\{1, 4, 7\}, \{2, 5, 8\}, \{3, 6\}, \{9\}\}\]
 is a partition of the set $\{1, 2, 3, 4, 5, 6, 7, 8, 9\}$.
 
-Here is how to get a partition of $S$ from a relation $\sim$ on $S$: for
-every element $a \in S$, the equivalence class of $a$ (w.r.t.\ $\sim$) is
-the subset of $S$ defined by
-\[ [a]_\sim \df \{b \in S \mid b \sim a\};\]
-then the equivalence classes form a partition $P_\sim$ of $S$ (Exercise 1.2).
+Here is how to get a partition of $S$ from a relation $\sim$ on $S$:
+for every element $a \in S$, the equivalence class of $a$ (w.r.t.\
+$\sim$) is the subset of $S$ defined by
+\[ [a]_\sim \df \{b \in S \mid b \sim a\};\] then the equivalence
+classes form a partition $P_\sim$ of $S$ (Exercise 1.2).
 
-Conversely (Exercise 1.3) every partition $P$ is the partition corresponding in
-this fashion to an equivalence relation. Therefore, the notions of `equivalence
-relation on $S$' and `partition of $S$' are really equivalent.
+Conversely (Exercise 1.3) every partition $P$ is the partition
+corresponding in this fashion to an equivalence relation. Therefore,
+the notions of `equivalence relation on $S$' and `partition of $S$'
+are really equivalent.
 
 Now we can view $P_\sim$ as a set (whose elements are the equivalence
-classes with respect to $\sim$). This is the quotient operation mentioned
-in \cref{subsec:prelims:operations-between-sets}.
+classes with respect to $\sim$). This is the quotient operation
+mentioned in \cref{subsec:prelims:operations-between-sets}.
 
 \begin{defn}{Quotient of set}{def:prelims:quotient-set}
-The \emph{quotient} of the set $S$ with respect to the equivalence
-relation $\sim$ is the set
-\[\quot{S}{\sim} \df P_\sim\]
-of equivalence classes of elements of $S$ with respect to $\sim$.
+  The \emph{quotient} of the set $S$ with respect to the equivalence
+  relation $\sim$ is the set
+  \[\quot{S}{\sim} \df P_\sim\]
+  of equivalence classes of elements of $S$ with respect to $\sim$.
 \end{defn}
 
 \begin{exam}{}{}
   Take $S = \Z$, and let $\sim$ be the relation defined by
-  \[a \sim b \iff a - b \text{ is even.} \] Then $\quot{\Z}{\sim}$ consists of
-  two equivalence classes: $\quot{\Z}{\sim} = \{[0]_\sim, [1]_\sim\}$.
-  Indeed, every integer $b$ is either even (and hence $b-0$ is even,
-  so $b \sim 0$, and $b \in [0]_\sim$) or odd (and hence $b-1$ is
-  even, so $b \sim 1$, and $b \in [1]_\sim$). This is of course the
-  starting point of modular arithmetic, which we will cover in due
-  detail later on (\S{}II.2.3).
+  \[a \sim b \iff a - b \text{ is even.} \] Then $\quot{\Z}{\sim}$
+  consists of two equivalence classes:
+  $\quot{\Z}{\sim} = \{[0]_\sim, [1]_\sim\}$.  Indeed, every integer
+  $b$ is either even (and hence $b-0$ is even, so $b \sim 0$, and
+  $b \in [0]_\sim$) or odd (and hence $b-1$ is even, so $b \sim 1$,
+  and $b \in [1]_\sim$). This is of course the starting point of
+  modular arithmetic, which we will cover in due detail later on
+  (\S{}II.2.3).
 \end{exam}
 
 One way to think about this operation is that the equivalence relation
 `becomes equality in the quotient': that is, two elements of the
-quotient $\quot{S}{\sim}$ are equal if and only if the corresponding elements
-in $S$ are related by $\sim$. In other words, taking a quotient is a
-way to turn any equivalence relation into an equality. This
-observation will be further formalized in `categorical terms' in a
-short while (\S{}5.3).
+quotient $\quot{S}{\sim}$ are equal if and only if the corresponding
+elements in $S$ are related by $\sim$. In other words, taking a
+quotient is a way to turn any equivalence relation into an
+equality. This observation will be further formalized in `categorical
+terms' in a short while (\S{}5.3).
 
 \subsection*{Exercises}
 
@@ -404,7 +400,7 @@ exercises. These referring exercises and sections are listed in
 brackets following the current exercise; see the introduction for
 further clarifications, if necessary.
 \begin{exer}{}{}
-Locate a discussion of Russell's paradox, and understand it.
+  Locate a discussion of Russell's paradox, and understand it.
 \end{exer}{}{}
 \begin{exer}{}{} Prove that if $\sim$ is an equivalence relation on a
   set $S$, then the corresponding family $P_\sim$ defined in
@@ -418,24 +414,23 @@ Locate a discussion of Russell's paradox, and understand it.
   partition. [\S{}1.5]
 \end{exer}
 \begin{exer}{}{}
-  How many different equivalence relations may be defined on the set $\{1, 2,
-   3\}$?
+  How many different equivalence relations may be defined on the set
+  $\{1, 2, 3\}$?
 \end{exer}
 \begin{exer}{}{}
-  Give an example of a relation that is reflexive and symmetric but not
-  transitive.
-  What happens if you attempt to use this relation to define a partition on the
-   set?
-  Hint: Thinking about the second question will help you answer the first one.
+  Give an example of a relation that is reflexive and symmetric but
+  not transitive.  What happens if you attempt to use this relation to
+  define a partition on the set?  Hint: Thinking about the second
+  question will help you answer the first one.
 \end{exer}
 \begin{exer}{}{}
   Define a relation $\sim$ on the set $\R$ of real numbers by setting
-$a \sim b \iff b-a \in \Z$. Prove that this is an equivalence
-relation, and find a `compelling' description for
-$\quot{\R}{\sim}$. Do the same for the relation $\approx$ on the plane
-$\R \times \R$ defined by declaring $(a_1, a_2) \approx (b_1 , b_2)
-\iff b_1 - a_1 \in \Z \text{ and } b_2 - a_2 \in \Z$.  [\S{}II.8.1,
-II.8.10]
+  $a \sim b \iff b-a \in \Z$. Prove that this is an equivalence
+  relation, and find a `compelling' description for
+  $\quot{\R}{\sim}$. Do the same for the relation $\approx$ on the
+  plane $\R \times \R$ defined by declaring
+  $(a_1, a_2) \approx (b_1 , b_2) \iff b_1 - a_1 \in \Z \text{ and }
+  b_2 - a_2 \in \Z$.  [\S{}II.8.1, II.8.10]
 \end{exer}
 
 \section{Functions between sets}
@@ -550,17 +545,18 @@ functions, then so is the operation $g \circ f$ defined by
   \label{eq:comp-def}
   (\forall a \in A)\quad (g \circ f)(a) := g(f(a)) :
 \end{equation}
-that is, we use $f$ to go from $A$ to $B$, then apply $g$ to reach $C$.
-Graphically we may draw pictures such as
+that is, we use $f$ to go from $A$ to $B$, then apply $g$ to reach
+$C$.  Graphically we may draw pictures such as
 \[
-\begin{tikzcd}
-  A \arrow[r, "f"] \arrow[rr, bend right, "g \circ f"'] & B \arrow[r, "g"] & C
-\end{tikzcd}
-\qquad
-\begin{tikzcd}
-  A \arrow[r,"f"] \arrow[rd,"g \circ f"'] & B \arrow[d,"g"]\\
-  & C
-\end{tikzcd}
+  \begin{tikzcd}
+    A \arrow[r, "f"] \arrow[rr, bend right, "g \circ f"'] & B
+    \arrow[r, "g"] & C
+  \end{tikzcd}
+  \qquad
+  \begin{tikzcd}
+    A \arrow[r,"f"] \arrow[rd,"g \circ f"'] & B \arrow[d,"g"]\\
+    & C
+  \end{tikzcd}
 \]
 Such graphical representations of collections of (for example) sets
 connected by functions are called \emph{diagrams}. We will draw many
@@ -578,21 +574,21 @@ and $h : C \to D$ are functions, then
 $h \circ (g \circ f) = (h \circ g) \circ f$. Graphically, the diagram
 \[
   \begin{tikzcd}
-    A \arrow[r,"f"] \arrow[rr,bend right, "g\circ f" description]
-    & B \arrow[r,"g"] \arrow[rr,bend left, "h\circ g" description]
-    & C \arrow[r,"h"]
-    & D
+    A \arrow[r,"f"] \arrow[rr,bend right, "g\circ f" description] & B
+    \arrow[r,"g"] \arrow[rr,bend left, "h\circ g" description] & C
+    \arrow[r,"h"] & D
   \end{tikzcd}
 \]
-commutes. This important observation should be completely evident from the
-definition of composition.
+commutes. This important observation should be completely evident from
+the definition of composition.
 
 The identity function is very special with respect to compositions: if
 $f : A \to B$ is any function, then $\id_B \circ f = f$ and
 $f \circ \id_A = f$. Graphically, the diagrams
 \[
   \begin{tikzcd}
-    A \arrow[r,"f"] \arrow[rr,bend right,"f"']& B \arrow[r,"\id_B"] & B
+    A \arrow[r,"f"] \arrow[rr,bend right,"f"']& B \arrow[r,"\id_B"] &
+    B
   \end{tikzcd}
   \qquad
   \begin{tikzcd}
@@ -770,63 +766,59 @@ nicely with the notation of `inverse' mentioned above.
 
 \subsection{Monomorphisms and epimorphisms}
 \label{subsec:prelims:functions:monomorphisms-and-epimorphisms}
-There is yet another way to express injectivity and surjectivity, which
-appears at first more complicated than what
-we have seen so far but which is in fact even more basic.
+There is yet another way to express injectivity and surjectivity,
+which appears at first more complicated than what we have seen so far
+but which is in fact even more basic.
 
-A function $f : A \to  B$ is a monomorphism (or monic) if the following holds:
-for all sets $Z$ and all functions $\alpha', \alpha'' Z \to  A$
-\[f \circ  \alpha' = f \circ  \alpha''  \Rightarrow
-  \alpha'  = \alpha''.\]
+A function $f : A \to B$ is a monomorphism (or monic) if the following
+holds: for all sets $Z$ and all functions $\alpha', \alpha'' Z \to A$
+\[f \circ \alpha' = f \circ \alpha'' \Rightarrow \alpha' = \alpha''.\]
 \begin{prop}{}{prop:old-2.3}
   A function is injective if and only if it is a monomorphism.
 \end{prop}
 \begin{proof}
- ( $\Rightarrow$  ) By Proposition 2.1 \Cref{XX}, if a function $f : A \to  B$ is
-injective, then it
-has a left-inverse $g : B \to  A$. Now assume that $\alpha'  ,\alpha''$  are arbitrary functions from
-another set $Z$ to $A$ and that
-\[f \circ  \alpha'  = f \circ  \alpha'' ;\]
-compose on the left by $g$, and use associativity of composition:
-\[(g \circ  f ) \circ  \alpha'  = g \circ  (f \circ  \alpha')
-= g \circ  (f \circ  \alpha''  ) = (g \circ  f ) \circ  \alpha'' ;\] since $g$ is a left-inverse of $f$ , this says
-\[\id_A \circ  \alpha'  = \id_A \circ  \alpha'',\]
-and therefore
-\[\alpha'  = \alpha'',\]
-as needed to conclude that $f$ is a monomorphism.
+  ( $\Rightarrow$ ) By Proposition 2.1 \Cref{XX}, if a function
+  $f : A \to B$ is injective, then it has a left-inverse
+  $g : B \to A$. Now assume that $\alpha' ,\alpha''$ are arbitrary
+  functions from another set $Z$ to $A$ and that
+  \[f \circ \alpha' = f \circ \alpha'' ;\] compose on the left by $g$,
+  and use associativity of composition:
+  \[(g \circ f ) \circ \alpha' = g \circ (f \circ \alpha') = g \circ
+    (f \circ \alpha'' ) = (g \circ f ) \circ \alpha'' ;\] since $g$ is
+  a left-inverse of $f$ , this says
+  \[\id_A \circ \alpha' = \id_A \circ \alpha'',\]
+  and therefore
+  \[\alpha' = \alpha'',\]
+  as needed to conclude that $f$ is a monomorphism.
 
-( $\Leftarrow$ ) Now assume that $f$ is a monomorphism. This says something about
-arbitrary sets $Z$ and arbitrary functions $Z \to  A$; we are going to use a
-microscopic
-portion of this information, choosing $Z$ to be any singleton ${p}$. Then assigning
-functions $\alpha' , \alpha'' : Z \to  A$ amounts to
-choosing to which elements $a' = \alpha ' (p)$,
-$a''  = \alpha''(p)$ we should send the
-single element $p$ of $Z$. For this particular choice
-of $Z$, the property defining monomorphisms, $f \circ  \alpha'  = f \circ
-\alpha''  \Rightarrow  \alpha '  = \alpha'$
+  ( $\Leftarrow$ ) Now assume that $f$ is a monomorphism. This says
+  something about arbitrary sets $Z$ and arbitrary functions
+  $Z \to A$; we are going to use a microscopic portion of this
+  information, choosing $Z$ to be any singleton ${p}$. Then assigning
+  functions $\alpha' , \alpha'' : Z \to A$ amounts to choosing to
+  which elements $a' = \alpha ' (p)$, $a'' = \alpha''(p)$ we should
+  send the single element $p$ of $Z$. For this particular choice of
+  $Z$, the property defining monomorphisms,
+  $f \circ \alpha' = f \circ \alpha'' \Rightarrow \alpha ' = \alpha'$
   , becomes
-\[f \circ  \alpha'(p) = f \circ  \alpha'' (p)
-\Rightarrow  \alpha'  = \alpha'',\]
-that is,
-$f (a') = f (a'') \Rightarrow  \alpha'  =
-\alpha''$.
+  \[f \circ \alpha'(p) = f \circ \alpha'' (p) \Rightarrow \alpha' =
+    \alpha'',\] that is,
+  $f (a') = f (a'') \Rightarrow \alpha' = \alpha''$.
 
-Now two functions from $Z = {p}$ to $A$ are equal if and only if they send $p$ to the
-same element, so this says
-\[f (a') = f (a'') \Rightarrow  a'  = a''  .\]
-This has to be true for all $\alpha', \alpha''$,
-that is, for all choices of distinct $a', a''$  in $A$.
-In
-other words, $f$ has to be injective, as was to be shown.
+  Now two functions from $Z = {p}$ to $A$ are equal if and only if
+  they send $p$ to the same element, so this says
+  \[f (a') = f (a'') \Rightarrow a' = a'' .\] This has to be true for
+  all $\alpha', \alpha''$, that is, for all choices of distinct
+  $a', a''$ in $A$.  In other words, $f$ has to be injective, as was
+  to be shown.
 \end{proof}
 The reader should now expect that there be a definition in the style
 of the one given for monomorphisms and which will turn out to be
 equivalent to `surjective'.  This is the case: such a notion is called
 epimorphism. Finding it, and proving the equivalence with the ordinary
-definition of `surjective', is left to the reader\footnote{This is a particularly important exercise, and I recommend that the reader
-write out all
-the gory details carefully.} (Exercise 2.5).
+definition of `surjective', is left to the reader\footnote{This is a
+  particularly important exercise, and I recommend that the reader
+  write out all the gory details carefully.} (Exercise 2.5).
 
 
 \subsection{Basic examples}
@@ -835,7 +827,8 @@ The basic operations on sets provided us with several important
 examples of injective and surjective functions.
 
 \begin{exam}{}{}
-  Let $A$, $B$ be sets. Then there are natural \emph{projections} $\pi_A$, $\pi_B$:
+  Let $A$, $B$ be sets. Then there are natural \emph{projections}
+  $\pi_A$, $\pi_B$:
   \[
     \begin{tikzcd}
       & A \times B \arrow[dl, "\pi_A"'] \arrow[dr, "\pi_B"] & \\
@@ -843,219 +836,239 @@ examples of injective and surjective functions.
     \end{tikzcd}
   \]
   defined by
-  \[ \pi_A((a,b)) := a, \quad \pi_B((a,b)) := b \]
-  for all $(a,b) \in A \times B$. Both of these maps are (clearly) surjective.
+  \[ \pi_A((a,b)) := a, \quad \pi_B((a,b)) := b \] for all
+  $(a,b) \in A \times B$. Both of these maps are (clearly) surjective.
 \end{exam}
 
 \begin{exam}{}{}
-  Similarly, there are natural injections from $A$ and $B$ to the disjoint union:
+  Similarly, there are natural injections from $A$ and $B$ to the
+  disjoint union:
   \[
     \begin{tikzcd}
       A \arrow[dr, hook] & & B \arrow[dl, hook'] \\
       & A \amalg B &
     \end{tikzcd}
   \]
-  obtained by sending $a \in A$ (resp., $b \in B$) to the corresponding element in
-  the isomorphic copy $A'$ of $A$ (resp., $B'$ of $B$) in $A \amalg B$.
+  obtained by sending $a \in A$ (resp., $b \in B$) to the
+  corresponding element in the isomorphic copy $A'$ of $A$ (resp.,
+  $B'$ of $B$) in $A \amalg B$.
 \end{exam}
 
 \begin{exam}{}{}
-  If $\sim$ is an equivalence relation on a set $A$, there is a (clearly
-  surjective) canonical projection
-  \[ A \twoheadrightarrow A/{\sim} \]
-  obtained by sending every $a \in A$ to its equivalence class $[a]_\sim$.
+  If $\sim$ is an equivalence relation on a set $A$, there is a
+  (clearly surjective) canonical projection
+  \[ A \twoheadrightarrow A/{\sim} \] obtained by sending every
+  $a \in A$ to its equivalence class $[a]_\sim$.
 \end{exam}
 
 \subsection{Canonical decomposition}
 \label{subsec:prelims:canonical-decomposition}
-The reason why we focus our attention on injective and surjective maps is that
-they provide the basic `bricks' out of which any function may be constructed.
+The reason why we focus our attention on injective and surjective maps
+is that they provide the basic `bricks' out of which any function may
+be constructed.
 
-To see this, we observe that every function $f : A \to B$ determines an
-equivalence relation $\sim$ on $A$ as follows: for all $a', a'' \in A$,
-\[ a' \sim a'' \iff f(a') = f(a''). \]
-(The reader should check that this is indeed an equivalence relation.)
+To see this, we observe that every function $f : A \to B$ determines
+an equivalence relation $\sim$ on $A$ as follows: for all
+$a', a'' \in A$,
+\[ a' \sim a'' \iff f(a') = f(a''). \] (The reader should check that
+this is indeed an equivalence relation.)
 
 \begin{thm}{}{thm:canonical-decomposition}
-  Let $f : A \to B$ be any function, and define $\sim$ as above. Then $f$
-  decomposes as follows:
+  Let $f : A \to B$ be any function, and define $\sim$ as above. Then
+  $f$ decomposes as follows:
   \[
     \begin{tikzcd}
       A \arrow[r, two heads] \arrow[rrr, bend left=20, "f"] &
-      (A/{\sim}) \arrow[r, "\tilde{f}", "\sim"'] &
-      \image f \arrow[r, hook] &
-      B
+      (A/{\sim}) \arrow[r, "\tilde{f}", "\sim"'] & \image f \arrow[r,
+      hook] & B
     \end{tikzcd}
   \]
-  where the first function is the canonical projection $A \to A/{\sim}$ (as in
-  Example~2.6), the third function is the inclusion $\image f \subseteq B$, and
-  the bijection $\tilde{f}$ in the middle is defined by
-  \[ \tilde{f}([a]_\sim) := f(a) \]
-  for all $a \in A$.
+  where the first function is the canonical projection
+  $A \to A/{\sim}$ (as in Example~2.6), the third function is the
+  inclusion $\image f \subseteq B$, and the bijection $\tilde{f}$ in
+  the middle is defined by
+  \[ \tilde{f}([a]_\sim) := f(a) \] for all $a \in A$.
 \end{thm}
 
-The formula defining $\tilde{f}$ shows immediately that the diagram commutes; so
-all we have to verify in order to prove this theorem is that
+The formula defining $\tilde{f}$ shows immediately that the diagram
+commutes; so all we have to verify in order to prove this theorem is
+that
 \begin{itemize}
 \item that formula does define a function;
 \item that function is in fact a bijection.
 \end{itemize}
-The first item is an instance of a class of verifications of the utmost
-importance. The formula given for $\tilde{f}$ has a colossal built-in ambiguity:
-the same element in $A/{\sim}$ may be the equivalence class of many elements of
-$A$; applying the formula for $\tilde{f}$ requires choosing one of these elements
-and applying $f$ to it. We have to prove that the result of this operation is
+The first item is an instance of a class of verifications of the
+utmost importance. The formula given for $\tilde{f}$ has a colossal
+built-in ambiguity: the same element in $A/{\sim}$ may be the
+equivalence class of many elements of $A$; applying the formula for
+$\tilde{f}$ requires choosing one of these elements and applying $f$
+to it. We have to prove that the result of this operation is
 independent from this choice: that is, that all possible choices of
 representatives for that equivalence class lead to the same result.
 
-We encode this type of situation by saying that we have to verify that $\tilde{f}$
-is \emph{well-defined}. We will often have to check that the operations we
-consider are well-defined, in contexts very similar to the one epitomized here.
+We encode this type of situation by saying that we have to verify that
+$\tilde{f}$ is \emph{well-defined}. We will often have to check that
+the operations we consider are well-defined, in contexts very similar
+to the one epitomized here.
 
 \begin{proof}
-  Spelling out the first item discussed above, we have to verify that, for all
-  $a', a''$ in $A$,
-  \[ [a']_\sim = [a'']_\sim \Rightarrow f(a') = f(a''). \]
-  Now $[a']_\sim = [a'']_\sim$ means that $a' \sim a''$, and the definition of
-  $\sim$ has been engineered precisely so that this would mean $f(a') = f(a'')$
-  as required here. So $\tilde{f}$ is indeed well-defined.
+  Spelling out the first item discussed above, we have to verify that,
+  for all $a', a''$ in $A$,
+  \[ [a']_\sim = [a'']_\sim \Rightarrow f(a') = f(a''). \] Now
+  $[a']_\sim = [a'']_\sim$ means that $a' \sim a''$, and the
+  definition of $\sim$ has been engineered precisely so that this
+  would mean $f(a') = f(a'')$ as required here. So $\tilde{f}$ is
+  indeed well-defined.
 
-  To verify the second item, that $\tilde{f} : A/{\sim} \to \image f$ is a
-  bijection, we check explicitly that $\tilde{f}$ is injective and surjective.
+  To verify the second item, that $\tilde{f} : A/{\sim} \to \image f$
+  is a bijection, we check explicitly that $\tilde{f}$ is injective
+  and surjective.
 
-  \emph{Injective:} If $\tilde{f}([a']_\sim) = \tilde{f}([a'']_\sim)$, then
-  $f(a') = f(a'')$ by definition of $\tilde{f}$; hence $a' \sim a''$ by
-  definition of $\sim$, and then $[a']_\sim = [a'']_\sim$. Therefore
-  \[ \tilde{f}([a']_\sim) = \tilde{f}([a'']_\sim) \Rightarrow [a']_\sim = [a'']_\sim, \]
-  proving injectivity.
+  \emph{Injective:} If $\tilde{f}([a']_\sim) = \tilde{f}([a'']_\sim)$,
+  then $f(a') = f(a'')$ by definition of $\tilde{f}$; hence
+  $a' \sim a''$ by definition of $\sim$, and then
+  $[a']_\sim = [a'']_\sim$. Therefore
+  \[ \tilde{f}([a']_\sim) = \tilde{f}([a'']_\sim) \Rightarrow
+    [a']_\sim = [a'']_\sim, \] proving injectivity.
 
-  \emph{Surjective:} Given any $b \in \image f$, there is an element $a \in A$
-  such that $f(a) = b$. Then
-  \[ \tilde{f}([a]_\sim) = f(a) = b \]
-  by definition of $\tilde{f}$. Since $b$ was arbitrary in $\image f$, this shows
-  that $\tilde{f}$ is surjective, as needed.
+  \emph{Surjective:} Given any $b \in \image f$, there is an element
+  $a \in A$ such that $f(a) = b$. Then
+  \[ \tilde{f}([a]_\sim) = f(a) = b \] by definition of
+  $\tilde{f}$. Since $b$ was arbitrary in $\image f$, this shows that
+  $\tilde{f}$ is surjective, as needed.
 \end{proof}
 
-\Cref{thm:canonical-decomposition} shows that every function is the composition
-of a surjection, followed by an isomorphism, followed by an injection. While its
-proof is trivial, this is a result of some importance, since it is the prototype
-of a situation that will occur several times in this book. It will resurface every
-now and then, with names such as `the first isomorphism theorem'.
+\Cref{thm:canonical-decomposition} shows that every function is the
+composition of a surjection, followed by an isomorphism, followed by
+an injection. While its proof is trivial, this is a result of some
+importance, since it is the prototype of a situation that will occur
+several times in this book. It will resurface every now and then, with
+names such as `the first isomorphism theorem'.
 
 \subsection{Clarification}
 \label{subsec:prelims:clarification}
 
-Finally, we can begin to clarify one comment about disjoint unions, products,
-and quotients, made in \S{}1.4. Our definition of $A \amalg B$ was the
-(conventional) union of two disjoint sets $A'$, $B'$ isomorphic to $A$, $B$,
-respectively. It is easy to provide a way to effectively produce such isomorphic
-copies (as we did in \S{}1.4); but it is in fact a little too easy---many other
-choices are possible, and one does not look any better than any other. It is in
-fact more sensible not to make a fixed choice once and for all and simply accept
-the fact that all of them produce acceptable candidates for $A \amalg B$. From
-this egalitarian standpoint, the result of the operation $A \amalg B$ is not
-`well-defined' as a set in the sense specified above. However, it is easy to see
-(Exercise~2.9) that $A \amalg B$ is well-defined up to isomorphism: that is,
-that any two choices for the copies $A'$, $B'$ lead to isomorphic candidates for
+Finally, we can begin to clarify one comment about disjoint unions,
+products, and quotients, made in \S{}1.4. Our definition of
+$A \amalg B$ was the (conventional) union of two disjoint sets $A'$,
+$B'$ isomorphic to $A$, $B$, respectively. It is easy to provide a way
+to effectively produce such isomorphic copies (as we did in \S{}1.4);
+but it is in fact a little too easy---many other choices are possible,
+and one does not look any better than any other. It is in fact more
+sensible not to make a fixed choice once and for all and simply accept
+the fact that all of them produce acceptable candidates for
+$A \amalg B$. From this egalitarian standpoint, the result of the
+operation $A \amalg B$ is not `well-defined' as a set in the sense
+specified above. However, it is easy to see (Exercise~2.9) that
+$A \amalg B$ is well-defined up to isomorphism: that is, that any two
+choices for the copies $A'$, $B'$ lead to isomorphic candidates for
 $A \amalg B$. The same considerations apply to products and quotients.
 
-The main feature of sets obtained by taking disjoint unions, products, or
-quotients is not really `what elements they contain' but rather `their
-relationship with all other sets'. This will be (even) clearer when we revisit
-these operations and others\footnote{The reader should also be aware that there
-  are important variations on the operations we have seen so far---particularly
-  important are the \emph{fibered} flavors of products and disjoint unions.} in
-the context of categories.
+The main feature of sets obtained by taking disjoint unions, products,
+or quotients is not really `what elements they contain' but rather
+`their relationship with all other sets'. This will be (even) clearer
+when we revisit these operations and others\footnote{The reader should
+  also be aware that there are important variations on the operations
+  we have seen so far---particularly important are the \emph{fibered}
+  flavors of products and disjoint unions.} in the context of
+categories.
 
 \subsection*{Exercises}
 
 \begin{exer}{}{}
-  \exerused How many different bijections are there between a set $S$ with $n$
-  elements and itself? [\S{}II.2.1]
+  \exerused How many different bijections are there between a set $S$
+  with $n$ elements and itself? [\S{}II.2.1]
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused Prove statement~(2) in \Cref{prop:inv-inj-sur}. You may assume that
-  given a family of disjoint nonempty subsets of a set, there is a way to choose
-  one element in each member of the family.\footnote{This (reasonable) statement
-    is the \emph{axiom of choice}; cf.\ \S{}V.3.} [\S{}2.5, V.3.3]
+  \exerused Prove statement~(2) in \Cref{prop:inv-inj-sur}. You may
+  assume that given a family of disjoint nonempty subsets of a set,
+  there is a way to choose one element in each member of the
+  family.\footnote{This (reasonable) statement is the \emph{axiom of
+      choice}; cf.\ \S{}V.3.} [\S{}2.5, V.3.3]
 \end{exer}
 
 \begin{exer}{}{}
-  Prove that the inverse of a bijection is a bijection and that the composition of
-  two bijections is a bijection.
+  Prove that the inverse of a bijection is a bijection and that the
+  composition of two bijections is a bijection.
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused Prove that `isomorphism' is an equivalence relation (on any set of
-  sets). [\S{}4.1]
+  \exerused Prove that `isomorphism' is an equivalence relation (on
+  any set of sets). [\S{}4.1]
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused Formulate a notion of \emph{epimorphism}, in the style of the notion
-  of monomorphism seen in \S{}2.6, and prove a result analogous to
-  \Cref{prop:old-2.3}, for epimorphisms and surjections. [\S{}2.6, \S{}4.2]
+  \exerused Formulate a notion of \emph{epimorphism}, in the style of
+  the notion of monomorphism seen in \S{}2.6, and prove a result
+  analogous to \Cref{prop:old-2.3}, for epimorphisms and
+  surjections. [\S{}2.6, \S{}4.2]
 \end{exer}
 
 \begin{exer}{}{}
-  With notation as in Example~2.4, explain how any function $f : A \to B$
-  determines a section of $\pi_A$.
+  With notation as in Example~2.4, explain how any function
+  $f : A \to B$ determines a section of $\pi_A$.
 \end{exer}
 
 \begin{exer}{}{}
-  Let $f : A \to B$ be any function. Prove that the graph $\Gamma_f$ of $f$ is
-  isomorphic to $A$.
+  Let $f : A \to B$ be any function. Prove that the graph $\Gamma_f$
+  of $f$ is isomorphic to $A$.
 \end{exer}
 
 \begin{exer}{}{}
-  Describe as explicitly as you can all terms in the canonical decomposition
-  (cf.\ \S{}2.8) of the function $\R \to \C$ defined by $r \mapsto e^{2\pi i r}$.
-  (This exercise matches one assigned previously. Which one?)
+  Describe as explicitly as you can all terms in the canonical
+  decomposition (cf.\ \S{}2.8) of the function $\R \to \C$ defined by
+  $r \mapsto e^{2\pi i r}$.  (This exercise matches one assigned
+  previously. Which one?)
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused Show that if $A' \cong A''$ and $B' \cong B''$, and further
-  $A' \cap B' = \emptyset$ and $A'' \cap B'' = \emptyset$, then
-  $A' \cup B' \cong A'' \cup B''$. Conclude that the operation $A \amalg B$ (as
-  described in \S{}1.4) is well-defined up to isomorphism (cf.\ \S{}2.9).
-  [\S{}2.9, 5.7]
+  \exerused Show that if $A' \cong A''$ and $B' \cong B''$, and
+  further $A' \cap B' = \emptyset$ and $A'' \cap B'' = \emptyset$,
+  then $A' \cup B' \cong A'' \cup B''$. Conclude that the operation
+  $A \amalg B$ (as described in \S{}1.4) is well-defined up to
+  isomorphism (cf.\ \S{}2.9).  [\S{}2.9, 5.7]
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused Show that if $A$ and $B$ are finite sets, then $|B^A| = |B|^{|A|}$.
-  [\S{}2.1, 2.11, \S{}II.4.1]
+  \exerused Show that if $A$ and $B$ are finite sets, then
+  $|B^A| = |B|^{|A|}$.  [\S{}2.1, 2.11, \S{}II.4.1]
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused In view of Exercise~2.10, it is not unreasonable to use $2^A$ to
-  denote the set of functions from an arbitrary set $A$ to a set with 2 elements
-  (say $\{0,1\}$). Prove that there is a bijection between $2^A$ and the power
-  set of $A$ (cf.\ \S{}1.2). [\S{}1.2, III.2.3]
+  \exerused In view of Exercise~2.10, it is not unreasonable to use
+  $2^A$ to denote the set of functions from an arbitrary set $A$ to a
+  set with 2 elements (say $\{0,1\}$). Prove that there is a bijection
+  between $2^A$ and the power set of $A$ (cf.\ \S{}1.2). [\S{}1.2,
+  III.2.3]
 \end{exer}
 
 \section{Categories}
 \label{sec:prelims:categories}
 
-The language of categories is affectionately known as \emph{abstract nonsense},
-so named by \name{Norman Steenrod}. This term is essentially accurate and not
-necessarily derogatory: categories refer to nonsense in the sense that they are
-all about the `structure', and not about the `meaning', of what they represent.
-The emphasis is less on how you run into a specific set you are looking at and
-more on how that set may sit in relationship with all other sets. Worse (or
-better) still, the emphasis is less on studying sets, and functions between sets,
-than on studying `things, and things that go from things to things' without
-necessarily being explicit about what these things are: they may be sets, or
-groups, or rings, or vector spaces, or modules, or other objects that are so
-exotic that the reader has no right whatsoever to know about them (yet).
+The language of categories is affectionately known as \emph{abstract
+  nonsense}, so named by \name{Norman Steenrod}. This term is
+essentially accurate and not necessarily derogatory: categories refer
+to nonsense in the sense that they are all about the `structure', and
+not about the `meaning', of what they represent.  The emphasis is less
+on how you run into a specific set you are looking at and more on how
+that set may sit in relationship with all other sets. Worse (or
+better) still, the emphasis is less on studying sets, and functions
+between sets, than on studying `things, and things that go from things
+to things' without necessarily being explicit about what these things
+are: they may be sets, or groups, or rings, or vector spaces, or
+modules, or other objects that are so exotic that the reader has no
+right whatsoever to know about them (yet).
 
-`Categories' will intuitively look like sets at first, and in multiple ways.
-Categories may make you think of sets, in that they are `collections of objects',
-and further there will be notions of `functions from categories to categories'
-(called \emph{functors}\footnote{However, we will not consider functors until
-  later chapters: our first formal encounter with functors will be in Chapter
-  VIII.}). At the same time, every category may make you think of the collection
-of all sets, since there will be analogs of `functions' among the things it
-contains.
+`Categories' will intuitively look like sets at first, and in multiple
+ways.  Categories may make you think of sets, in that they are
+`collections of objects', and further there will be notions of
+`functions from categories to categories' (called
+\emph{functors}\footnote{However, we will not consider functors until
+  later chapters: our first formal encounter with functors will be in
+  Chapter VIII.}). At the same time, every category may make you think
+of the collection of all sets, since there will be analogs of
+`functions' among the things it contains.
 
 \subsection{Definition}
 \label{subsec:prelims:categories:definition}
@@ -1092,8 +1105,8 @@ these examples.
 \begin{defn}{}{defn:category}
   A \emph{category} $\categ{C}$ consists of
   \begin{itemize}
-  \item a class $\Obj(\categ{C})$ of \emph{objects} of
-    the category; and
+  \item a class $\Obj(\categ{C})$ of \emph{objects} of the category;
+    and
   \item for every two objects $A$, $B$ of $\categ{C}$, a set
     $\Hom_{\categ{C}}(A, B)$ of \emph{morphisms},
   \end{itemize}
@@ -1104,57 +1117,51 @@ As a prototype to keep in mind, think of the objects as `sets' and of
 morphisms as `functions'. This one example should make the defining
 properties of morphisms look natural and easy to remember:
 \begin{itemize}
-\item For every object $A$ of $\categ{C}$, there exists (at least)
-  one morphism $1_A \in \Hom_{\categ{C}}(A, A)$, the
-  `identity' on $A$.
+\item For every object $A$ of $\categ{C}$, there exists (at least) one
+  morphism $1_A \in \Hom_{\categ{C}}(A, A)$, the `identity' on $A$.
 \item One can compose morphisms: two morphisms
-  $f \in \Hom_{\categ{C}}(A, B)$ and
-  $g \in \Hom_{\categ{C}}(B, C)$ determine a morphism
-  $gf \in \Hom_{\categ{C}}(A, C)$. That is, for every
-  triple of objects $A$, $B$, $C$ of $\categ{C}$ there is a function
-  (of sets)
-  \[ \Hom_{\categ{C}}(A, B) \times
-    \Hom_{\categ{C}}(B, C) \to
-    \Hom_{\categ{C}}(A, C), \] and the image of the
-  pair $(f, g)$ is denoted $gf$.
+  $f \in \Hom_{\categ{C}}(A, B)$ and $g \in \Hom_{\categ{C}}(B, C)$
+  determine a morphism $gf \in \Hom_{\categ{C}}(A, C)$. That is, for
+  every triple of objects $A$, $B$, $C$ of $\categ{C}$ there is a
+  function (of sets)
+  \[ \Hom_{\categ{C}}(A, B) \times \Hom_{\categ{C}}(B, C) \to
+    \Hom_{\categ{C}}(A, C), \] and the image of the pair $(f, g)$ is
+  denoted $gf$.
 \item This `composition law' is associative: if
-  $f \in \Hom_{\categ{C}}(A, B)$,
-  $g \in \Hom_{\categ{C}}(B, C)$, and
+  $f \in \Hom_{\categ{C}}(A, B)$, $g \in \Hom_{\categ{C}}(B, C)$, and
   $h \in \Hom_{\categ{C}}(C, D)$, then $(hg)f = h(gf)$.
 \item The identity morphisms are identities with respect to
-  composition: that is, for all
-  $f \in \Hom_{\categ{C}}(A, B)$ we have
+  composition: that is, for all $f \in \Hom_{\categ{C}}(A, B)$ we have
   \[ f 1_A = f, \qquad 1_B f = f. \]
 \end{itemize}
 
 This is really a mouthful, but again, to remember all this, just think
 of functions of sets. One further requirement is that the sets
-$\Hom_{\categ{C}}(A, B)$ and
-$\Hom_{\categ{C}}(C, D)$ be disjoint unless $A = C$,
-$B = D$; this is something you do not usually think about, but again
-it holds for ordinary set-functions.\footnote{I will often use the
-  term `set-function' to emphasize that we are dealing with a function
-  in the context of sets.} That is, if two functions are one and the
-same, then necessarily they have the same source and the same target:
-source and target are part of the datum of a set-function.
+$\Hom_{\categ{C}}(A, B)$ and $\Hom_{\categ{C}}(C, D)$ be disjoint
+unless $A = C$, $B = D$; this is something you do not usually think
+about, but again it holds for ordinary set-functions.\footnote{I will
+  often use the term `set-function' to emphasize that we are dealing
+  with a function in the context of sets.} That is, if two functions
+are one and the same, then necessarily they have the same source and
+the same target: source and target are part of the datum of a
+set-function.
 
 A morphism of an object $A$ of a category $\categ{C}$ to itself is
-called an \emph{endomorphism}; $\Hom_{\categ{C}}(A, A)$
-is denoted $\End_{\categ{C}}(A)$. One of the axioms of
-a category tells us that this is a `pointed' set, as
-$1_A \in \End_{\categ{C}}(A)$.  The reader should note
-that composition defines an `operation' on
+called an \emph{endomorphism}; $\Hom_{\categ{C}}(A, A)$ is denoted
+$\End_{\categ{C}}(A)$. One of the axioms of a category tells us that
+this is a `pointed' set, as $1_A \in \End_{\categ{C}}(A)$.  The reader
+should note that composition defines an `operation' on
 $\End_{\categ{C}}(A)$: if $f$, $g$ are elements of
 $\End_{\categ{C}}(A)$, so is their composition $gf$.
 
-Writing `$f \in \Hom_{\categ{C}}(A, B)$' gets tiresome
-in the long run. If the category is understood, one may safely drop
-the index $\categ{C}$, or even use arrows as we do with
-set-functions: $f : A \to B$.  This also allows us to draw
-\emph{diagrams} of morphisms in any category; a diagram is said to
-`commute' (or to be a `commutative' diagram) if all ways to traverse
-it lead to the same results of composing morphisms along the way, just
-as explained for diagrams of functions of sets in \S{}2.3.
+Writing `$f \in \Hom_{\categ{C}}(A, B)$' gets tiresome in the long
+run. If the category is understood, one may safely drop the index
+$\categ{C}$, or even use arrows as we do with set-functions:
+$f : A \to B$.  This also allows us to draw \emph{diagrams} of
+morphisms in any category; a diagram is said to `commute' (or to be a
+`commutative' diagram) if all ways to traverse it lead to the same
+results of composing morphisms along the way, just as explained for
+diagrams of functions of sets in \S{}2.3.
 
 In fact, I will now feel free to use diagrams as possible objects of
 categories.  The official definition of a diagram in this context
@@ -1165,167 +1172,183 @@ representation of a diagram are of course irrelevant.
 
 \subsection{Examples}
 \label{subsec:prelims:examples}
-The reader should note that 90\% of the definition of the notion of category
-goes into explaining the properties of its morphisms; it is fair to say that the
-morphisms are the important constituents of a category. Nevertheless, it is
-psychologically irresistible to think of a category in terms of its objects: for
-example, one talks about the `category of sets'. The point is that usually the
-kind of `morphisms' one may consider are (psychologically at least) determined
-by the objects: if one is talking about sets, what can one possibly mean for
-`morphism' other than a function of sets? In other situations (cf.\ Example~3.5
-below or Exercise~3.9) it is a little less clear what the morphisms should be,
-and looking for the `right' notion may be an interesting project.
+The reader should note that 90\% of the definition of the notion of
+category goes into explaining the properties of its morphisms; it is
+fair to say that the morphisms are the important constituents of a
+category. Nevertheless, it is psychologically irresistible to think of
+a category in terms of its objects: for example, one talks about the
+`category of sets'. The point is that usually the kind of `morphisms'
+one may consider are (psychologically at least) determined by the
+objects: if one is talking about sets, what can one possibly mean for
+`morphism' other than a function of sets? In other situations (cf.\
+Example~3.5 below or Exercise~3.9) it is a little less clear what the
+morphisms should be, and looking for the `right' notion may be an
+interesting project.
 \begin{exam}{}{}
-  It is hopefully crystal clear by now that sets (as objects), together with
-  set-functions (as morphisms), form a category; if not, the reader must stop
-  here and go no further until this assertion sheds any residual
-  mystery.\footnote{I will give the reader such prompts every now and then: at
-    key times, it is more useful to take stock of what one knows than blindly
-    march forward hoping for the best. A difficulty at this time signals the need
-    to reread the previous material carefully. If the mystery persists, that's
-    what office hours are there for. But typically you should be able to find
-    your way out on your own, based on the information I have given you, and you
-    will most likely learn more this way. You should give it your best try before
-    seeking professional help.}
+  It is hopefully crystal clear by now that sets (as objects),
+  together with set-functions (as morphisms), form a category; if not,
+  the reader must stop here and go no further until this assertion
+  sheds any residual mystery.\footnote{I will give the reader such
+    prompts every now and then: at key times, it is more useful to
+    take stock of what one knows than blindly march forward hoping for
+    the best. A difficulty at this time signals the need to reread the
+    previous material carefully. If the mystery persists, that's what
+    office hours are there for. But typically you should be able to
+    find your way out on your own, based on the information I have
+    given you, and you will most likely learn more this way. You
+    should give it your best try before seeking professional help.}
 
-  There is no universally accepted, official notation for this important
-  category. It is customary to write the word `Set' or `Sets', with some fancy
-  decoration for emphasis. For example, in the literature one may encounter
-  $\mathbf{Set}$, $\underline{\mathbf{Sets}}$, $\mathfrak{Set}$, $(Sets)$, and
-  many amusing variations on these themes. We will use `sans-serif' fonts to
-  denote categories; thus, $\categ{Set}$ will denote the category of sets. Thus
+  There is no universally accepted, official notation for this
+  important category. It is customary to write the word `Set' or
+  `Sets', with some fancy decoration for emphasis. For example, in the
+  literature one may encounter $\mathbf{Set}$,
+  $\underline{\mathbf{Sets}}$, $\mathfrak{Set}$, $(Sets)$, and many
+  amusing variations on these themes. We will use `sans-serif' fonts
+  to denote categories; thus, $\categ{Set}$ will denote the category
+  of sets. Thus
   \begin{itemize}
   \item $\Obj(\categ{Set}) = $ the class of all sets;
-  \item for $A$, $B$ in $\Obj(\categ{Set})$ (that is, for $A$,
-    $B$ sets) $\Hom_{\categ{Set}}(A, B) = B^A$.
+  \item for $A$, $B$ in $\Obj(\categ{Set})$ (that is, for $A$, $B$
+    sets) $\Hom_{\categ{Set}}(A, B) = B^A$.
   \end{itemize}
-  Note that the presence of the operations recalled in \S{}\S{}1.3--1.5 is not
-  part of the definition of category: these operations highlight interesting
-  features of $\categ{Set}$, which may or may not be shared by other
-  categories. We will soon come back to some of these operations and understand
-  more precisely what they say about $\categ{Set}$.
+  Note that the presence of the operations recalled in
+  \S{}\S{}1.3--1.5 is not part of the definition of category: these
+  operations highlight interesting features of $\categ{Set}$, which
+  may or may not be shared by other categories. We will soon come back
+  to some of these operations and understand more precisely what they
+  say about $\categ{Set}$.
 \end{exam}
 \begin{exam}{}{}
-  Here is a completely different example. Suppose $S$ is a set and $\sim$ is a
-  relation on $S$ satisfying the reflexive and transitive properties. Then we can
-  encode this data into a category:
+  Here is a completely different example. Suppose $S$ is a set and
+  $\sim$ is a relation on $S$ satisfying the reflexive and transitive
+  properties. Then we can encode this data into a category:
   \begin{itemize}
   \item \emph{objects}: the elements of $S$;
-  \item \emph{morphisms}: if $a$, $b$ are objects (that is, if $a, b \in S$),
-    then let $\Hom(a, b)$ be the set consisting of the element
-    $(a, b) \in S \times S$ if $a \sim b$, and let $\Hom(a, b) =
-    \emptyset$ otherwise.
+  \item \emph{morphisms}: if $a$, $b$ are objects (that is, if
+    $a, b \in S$), then let $\Hom(a, b)$ be the set consisting of the
+    element $(a, b) \in S \times S$ if $a \sim b$, and let
+    $\Hom(a, b) = \emptyset$ otherwise.
   \end{itemize}
-  Note that (unlike in $\categ{Set}$) there are very few morphisms: at most one
-  for any pair of objects, and no morphisms at all between `unrelated' objects.
+  Note that (unlike in $\categ{Set}$) there are very few morphisms: at
+  most one for any pair of objects, and no morphisms at all between
+  `unrelated' objects.
 
-  We have to define `composition of morphisms' and verify that the conditions
-  specified in \S{}3.1 are satisfied. First of all, do we have `identities'? If
-  $a$ is an object (that is, if $a \in S$), we need to find an element
-  $1_a \in \Hom(a, a)$. This is precisely why we are assuming that
-  $\sim$ is reflexive: this tells us that $\forall a$, $a \sim a$; that is,
-  $\Hom(a, a)$ consists of the single element $(a, a)$. So we have
-  no choice: we must let
-  \[ 1_a = (a, a) \in \Hom(a, a). \]
-  As for composition, let $a$, $b$, $c$ be objects (that is, elements of $S$)
-  and $f \in \Hom(a, b)$, $g \in \Hom(b, c)$; we
-  have to define a corresponding morphism $gf \in \Hom(a, c)$.
-  Now, $f \in \Hom(a, b)$ tells us that $\Hom(a, b)$
-  is nonempty, and according to the definition of morphisms in this category that
-  means $a \sim b$, and $f$ is in fact the element $(a, b)$ of $S \times S$.
-  Similarly, $g \in \Hom(b, c)$ tells us $b \sim c$ and $g =
-  (b, c)$. Now
-  \[ a \sim b \text{ and } b \sim c \Rightarrow a \sim c \]
-  since we are assuming that $\sim$ is transitive. This tells us that
-  $\Hom(a, c)$ consists of the single element $(a, c)$. Thus we
-  again have no choice: we must let
-  \[ gf := (a, c) \in \Hom(a, c). \]
-  Is this operation associative? If $f \in \Hom(a, b)$, $g \in
-  \Hom(b, c)$, and $h \in \Hom(c, d)$, then
-  necessarily $f = (a,b)$, $g = (b,c)$, $h = (c,d)$, and
-  $gf = (a,c)$, $hg = (b,d)$, and hence $h(gf) = (a,d) = (hg)f$,
-  proving associativity. The reader will have no difficulties checking that $1_a$
-  is an identity with respect to this composition, as needed (Exercise~3.3).
+  We have to define `composition of morphisms' and verify that the
+  conditions specified in \S{}3.1 are satisfied. First of all, do we
+  have `identities'? If $a$ is an object (that is, if $a \in S$), we
+  need to find an element $1_a \in \Hom(a, a)$. This is precisely why
+  we are assuming that $\sim$ is reflexive: this tells us that
+  $\forall a$, $a \sim a$; that is, $\Hom(a, a)$ consists of the
+  single element $(a, a)$. So we have no choice: we must let
+  \[ 1_a = (a, a) \in \Hom(a, a). \] As for composition, let $a$, $b$,
+  $c$ be objects (that is, elements of $S$) and $f \in \Hom(a, b)$,
+  $g \in \Hom(b, c)$; we have to define a corresponding morphism
+  $gf \in \Hom(a, c)$.  Now, $f \in \Hom(a, b)$ tells us that
+  $\Hom(a, b)$ is nonempty, and according to the definition of
+  morphisms in this category that means $a \sim b$, and $f$ is in fact
+  the element $(a, b)$ of $S \times S$.  Similarly, $g \in \Hom(b, c)$
+  tells us $b \sim c$ and $g = (b, c)$. Now
+  \[ a \sim b \text{ and } b \sim c \Rightarrow a \sim c \] since we
+  are assuming that $\sim$ is transitive. This tells us that
+  $\Hom(a, c)$ consists of the single element $(a, c)$. Thus we again
+  have no choice: we must let
+  \[ gf := (a, c) \in \Hom(a, c). \] Is this operation associative? If
+  $f \in \Hom(a, b)$, $g \in \Hom(b, c)$, and $h \in \Hom(c, d)$, then
+  necessarily $f = (a,b)$, $g = (b,c)$, $h = (c,d)$, and $gf = (a,c)$,
+  $hg = (b,d)$, and hence $h(gf) = (a,d) = (hg)f$, proving
+  associativity. The reader will have no difficulties checking that
+  $1_a$ is an identity with respect to this composition, as needed
+  (Exercise~3.3).
 
-  The most trivial instance of this construction is the category obtained from a
-  set $S$ taken with the equivalence relation `$=$'; that is, the only morphisms
-  are the identity morphisms. These categories are called \emph{discrete}.
+  The most trivial instance of this construction is the category
+  obtained from a set $S$ taken with the equivalence relation `$=$';
+  that is, the only morphisms are the identity morphisms. These
+  categories are called \emph{discrete}.
 
-  As another example, consider the category corresponding to endowing $\Z$ with
-  the relation $\leq$. For example,
+  As another example, consider the category corresponding to endowing
+  $\Z$ with the relation $\leq$. For example,
   \[
     \begin{tikzcd}
       2 \arrow[r] & 3 \arrow[r] \arrow[d, "1_3"'] & 5 \arrow[r] & 7 \\
       & 3 \arrow[urr] \arrow[r] & 4 \arrow[ur] &
     \end{tikzcd}
   \]
-  is a (randomly chosen) commutative diagram in this category. It would still be
-  a (commutative) diagram in this category if we reversed the vertical arrow
-  $3 \to 3$ or if we added an arrow from $3$ to $4$, while we are not allowed to
-  draw an arrow from $4$ to $3$, since $4 \not\leq 3$.
+  is a (randomly chosen) commutative diagram in this category. It
+  would still be a (commutative) diagram in this category if we
+  reversed the vertical arrow $3 \to 3$ or if we added an arrow from
+  $3$ to $4$, while we are not allowed to draw an arrow from $4$ to
+  $3$, since $4 \not\leq 3$.
 
-  These categories are very special---for example, every diagram drawn in them is
-  necessarily commutative, and this is very far from being the case in, e.g.,
-  $\categ{Set}$. Also note that these categories are all small.
+  These categories are very special---for example, every diagram drawn
+  in them is necessarily commutative, and this is very far from being
+  the case in, e.g., $\categ{Set}$. Also note that these categories
+  are all small.
 \end{exam}
 \begin{exam}{}{}
-  Here is another\footnote{Actually, this is again an instance of the categories
-    considered in Example~3.3. Do you see why? (Exercise~3.5.)} example of a
-  small category. Let $S$ again be a set. Define a category $\hat{\categ{S}}$
-  by setting
+  Here is another\footnote{Actually, this is again an instance of the
+    categories considered in Example~3.3. Do you see why?
+    (Exercise~3.5.)} example of a small category. Let $S$ again be a
+  set. Define a category $\hat{\categ{S}}$ by setting
   \begin{itemize}
-  \item $\Obj(\hat{\categ{S}}) = \mathscr{P}(S)$, the power set
-    of $S$ (cf.\ \S{}1.2 and Exercise~2.11);
-  \item for $A$, $B$ objects of $\hat{\categ{S}}$ (that is, $A \subseteq S$
-    and $B \subseteq S$) let $\Hom_{\hat{\categ{S}}}(A, B)$ be
-    the pair $(A, B)$ if $A \subseteq B$, and let
+  \item $\Obj(\hat{\categ{S}}) = \mathscr{P}(S)$, the power set of $S$
+    (cf.\ \S{}1.2 and Exercise~2.11);
+  \item for $A$, $B$ objects of $\hat{\categ{S}}$ (that is,
+    $A \subseteq S$ and $B \subseteq S$) let
+    $\Hom_{\hat{\categ{S}}}(A, B)$ be the pair $(A, B)$ if
+    $A \subseteq B$, and let
     $\Hom_{\hat{\categ{S}}}(A, B) = \emptyset$ otherwise.
   \end{itemize}
-  The identity $1_A$ consists of the pair $(A, A)$ (which is one, and in fact
-  the only one, morphism from $A$ to $A$, since $A \subseteq A$). Composition is
-  obtained by stringing inclusions: if there are morphisms $A \to B$, $B \to C$
-  in $\hat{\categ{S}}$, then $A \subseteq B$ and $B \subseteq C$; hence $A
-  \subseteq C$ and there is a morphism $A \to C$. Checking the axioms specified
-  in \S{}3.1 should be routine (make sure this is the case!).
+  The identity $1_A$ consists of the pair $(A, A)$ (which is one, and
+  in fact the only one, morphism from $A$ to $A$, since
+  $A \subseteq A$). Composition is obtained by stringing inclusions:
+  if there are morphisms $A \to B$, $B \to C$ in $\hat{\categ{S}}$,
+  then $A \subseteq B$ and $B \subseteq C$; hence $A \subseteq C$ and
+  there is a morphism $A \to C$. Checking the axioms specified in
+  \S{}3.1 should be routine (make sure this is the case!).
 
-  Examples in this style (but employing more sophisticated structures, such as
-  the family of open subsets of a topological space) are hugely important in
-  well-established fields such as algebraic geometry.
+  Examples in this style (but employing more sophisticated structures,
+  such as the family of open subsets of a topological space) are
+  hugely important in well-established fields such as algebraic
+  geometry.
 \end{exam}
 \begin{exam}{}{}
-  The next example is very abstract, but thinking about it will make you rather
-  comfortable with everything we have seen so far; and it is a very common
-  construction, variations of which will abound in the course.
+  The next example is very abstract, but thinking about it will make
+  you rather comfortable with everything we have seen so far; and it
+  is a very common construction, variations of which will abound in
+  the course.
 
-  Let $\categ{C}$ be a category, and let $A$ be an object of $\categ{C}$. We
-  are going to define a category $\categ{C}_A$ whose objects are certain
-  morphisms in $\categ{C}$ and whose morphisms are certain diagrams of
-  $\categ{C}$ (surprise!).
+  Let $\categ{C}$ be a category, and let $A$ be an object of
+  $\categ{C}$. We are going to define a category $\categ{C}_A$ whose
+  objects are certain morphisms in $\categ{C}$ and whose morphisms are
+  certain diagrams of $\categ{C}$ (surprise!).
   \begin{itemize}
   \item $\Obj(\categ{C}_A) = $ all morphisms from any object of
-    $\categ{C}$ to $A$; thus, an object of $\categ{C}_A$ is a morphism $f \in
-    \Hom_{\categ{C}}(Z, A)$ for some object $Z$ of $\categ{C}$.
-    Pictorially, an object of $\categ{C}_A$ is an arrow $Z \xrightarrow{f} A$
-    in $\categ{C}$; these are often drawn `top-down', as in
+    $\categ{C}$ to $A$; thus, an object of $\categ{C}_A$ is a morphism
+    $f \in \Hom_{\categ{C}}(Z, A)$ for some object $Z$ of $\categ{C}$.
+    Pictorially, an object of $\categ{C}_A$ is an arrow
+    $Z \xrightarrow{f} A$ in $\categ{C}$; these are often drawn
+    `top-down', as in
     \[
       \begin{tikzcd} Z \arrow[d, "f"] \\ A \end{tikzcd}
     \]
   \end{itemize}
-  What are morphisms in $\categ{C}_A$ going to be? There really is only one
-  sensible way to assign morphisms to a category with objects as above. The brave
-  reader will want to stop reading here and continue only after having come up
-  with the definition independently. There will be many similar examples lurking
-  behind constructions we will encounter in this book, and ideally speaking, they
-  should appear completely natural when the time comes. A bit of effort devoted
-  now to understanding this prototype situation will have ample reward in the
-  future. Spoiler follows, so put these notes away now and jot down the
-  definition of morphism in $\categ{C}_A$.
+  What are morphisms in $\categ{C}_A$ going to be? There really is
+  only one sensible way to assign morphisms to a category with objects
+  as above. The brave reader will want to stop reading here and
+  continue only after having come up with the definition
+  independently. There will be many similar examples lurking behind
+  constructions we will encounter in this book, and ideally speaking,
+  they should appear completely natural when the time comes. A bit of
+  effort devoted now to understanding this prototype situation will
+  have ample reward in the future. Spoiler follows, so put these notes
+  away now and jot down the definition of morphism in $\categ{C}_A$.
 
   Welcome back.
   \begin{itemize}
-  \item Let $f_1$, $f_2$ be objects of $\categ{C}_A$, that is, two arrows
-    $Z_1 \xrightarrow{f_1} A$ and $Z_2 \xrightarrow{f_2} A$ in $\categ{C}$.
-    Morphisms $f_1 \to f_2$ are defined to be commutative diagrams
+  \item Let $f_1$, $f_2$ be objects of $\categ{C}_A$, that is, two
+    arrows $Z_1 \xrightarrow{f_1} A$ and $Z_2 \xrightarrow{f_2} A$ in
+    $\categ{C}$.  Morphisms $f_1 \to f_2$ are defined to be
+    commutative diagrams
     \[
       \begin{tikzcd}
         Z_1 \arrow[rr, "\sigma"] \arrow[dr, "f_1"'] & & Z_2 \arrow[dl, "f_2"] \\
@@ -1334,13 +1357,15 @@ and looking for the `right' notion may be an interesting project.
     \]
     in the `ambient' category $\categ{C}$.
   \end{itemize}
-  That is, morphisms $f_1 \to f_2$ correspond precisely to those morphisms
-  $\sigma : Z_1 \to Z_2$ in $\categ{C}$ such that $f_1 = f_2 \sigma$.
+  That is, morphisms $f_1 \to f_2$ correspond precisely to those
+  morphisms $\sigma : Z_1 \to Z_2$ in $\categ{C}$ such that
+  $f_1 = f_2 \sigma$.
 
-  Once you understand what morphisms have to be, checking that they satisfy the
-  axioms spelled out in \S{}3.1 is straightforward. The identities are inherited
-  from the identities in $\categ{C}$: for $f : Z \to A$ in $\categ{C}_A$, the
-  identity $1_f$ corresponds to the diagram
+  Once you understand what morphisms have to be, checking that they
+  satisfy the axioms spelled out in \S{}3.1 is straightforward. The
+  identities are inherited from the identities in $\categ{C}$: for
+  $f : Z \to A$ in $\categ{C}_A$, the identity $1_f$ corresponds to
+  the diagram
   \[
     \begin{tikzcd}
       Z \arrow[rr, "1_Z"] \arrow[dr, "f"'] & & Z \arrow[dl, "f"] \\
@@ -1348,147 +1373,163 @@ and looking for the `right' notion may be an interesting project.
     \end{tikzcd}
   \]
   which commutes by virtue of the fact that $\categ{C}$ is a category.
-  Composition is also a subproduct of composition in $\categ{C}$. Two morphisms
-  $f_1 \to f_2 \to f_3$ in $\categ{C}_A$ correspond to putting two commutative
-  diagrams side-by-side:
+  Composition is also a subproduct of composition in $\categ{C}$. Two
+  morphisms $f_1 \to f_2 \to f_3$ in $\categ{C}_A$ correspond to
+  putting two commutative diagrams side-by-side:
   \[
     \begin{tikzcd}
-      Z_1 \arrow[r, "\sigma"] \arrow[dr, "f_1"'] &
-      Z_2 \arrow[r, "\tau"] \arrow[d, "f_2"' description] &
+      Z_1 \arrow[r, "\sigma"] \arrow[dr, "f_1"'] & Z_2 \arrow[r,
+      "\tau"] \arrow[d, "f_2"' description] &
       Z_3 \arrow[dl, "f_3"] \\
       & A &
     \end{tikzcd}
   \]
-  and then it follows (again because $\categ{C}$ is a category!) that the
-  diagram obtained by removing the central arrow, i.e.,
+  and then it follows (again because $\categ{C}$ is a category!) that
+  the diagram obtained by removing the central arrow, i.e.,
   \[
     \begin{tikzcd}
       Z_1 \arrow[rr, "\tau\sigma"] \arrow[dr, "f_1"'] & & Z_3 \arrow[dl, "f_3"] \\
       & A &
     \end{tikzcd}
   \]
-  also commutes. Check all this(!), and verify that composition in $\categ{C}_A$
-  is associative (again, this follows immediately from the fact that composition
-  is associative in $\categ{C}$).
+  also commutes. Check all this(!), and verify that composition in
+  $\categ{C}_A$ is associative (again, this follows immediately from
+  the fact that composition is associative in $\categ{C}$).
 
-  Categories constructed in this fashion are called \emph{slice categories} in
-  the literature; they are particular cases of \emph{comma categories}.
+  Categories constructed in this fashion are called \emph{slice
+    categories} in the literature; they are particular cases of
+  \emph{comma categories}.
 \end{exam}
 \begin{exam}{}{}
-  For the sake of concreteness, let's apply the construction given in Example~3.5
-  to the category constructed in Example~3.3, say for $S = \Z$ and $\sim$ the
-  relation $\leq$. Call $\categ{C}$ this category, and choose an object $A$ of
-  $\categ{C}$---that is, an integer, for example, $A = 3$. Then the objects of
-  $\categ{C}_A$ are morphisms in $\categ{C}$ with target $3$, that is, pairs
-  $(n, 3) \in \Z \times \Z$ with $n \leq 3$. There is a morphism $(m, 3) \to
-  (n, 3)$ if and only if $m \leq n$. In this case $\categ{C}_A$ may be
-  harmlessly identified with the `subcategory' of integers $\leq 3$, with `the
-  same' morphisms as in $\categ{C}$.
-\end{exam}
-
-\begin{exam}{}{}
-  An entirely similar example to the one explored in Example~3.5 may be obtained
-  by considering morphisms in a category $\categ{C}$ \emph{from} a fixed object
-  $A$ to all objects in $\categ{C}$, again with morphisms defined by suitable
-  commutative diagrams. This leads to \emph{coslice categories}. The reader
-  should provide details of this construction (Exercise~3.7).
+  For the sake of concreteness, let's apply the construction given in
+  Example~3.5 to the category constructed in Example~3.3, say for
+  $S = \Z$ and $\sim$ the relation $\leq$. Call $\categ{C}$ this
+  category, and choose an object $A$ of $\categ{C}$---that is, an
+  integer, for example, $A = 3$. Then the objects of $\categ{C}_A$ are
+  morphisms in $\categ{C}$ with target $3$, that is, pairs
+  $(n, 3) \in \Z \times \Z$ with $n \leq 3$. There is a morphism
+  $(m, 3) \to (n, 3)$ if and only if $m \leq n$. In this case
+  $\categ{C}_A$ may be harmlessly identified with the `subcategory' of
+  integers $\leq 3$, with `the same' morphisms as in $\categ{C}$.
 \end{exam}
 
 \begin{exam}{}{}
-  As a `concrete' instance of a category as in Example~3.7, let $\categ{C} =
-  \categ{Set}$ and $A = $ a fixed singleton $\{*\}$. Call the resulting category
-  $\categ{Set}^*$.
+  An entirely similar example to the one explored in Example~3.5 may
+  be obtained by considering morphisms in a category $\categ{C}$
+  \emph{from} a fixed object $A$ to all objects in $\categ{C}$, again
+  with morphisms defined by suitable commutative diagrams. This leads
+  to \emph{coslice categories}. The reader should provide details of
+  this construction (Exercise~3.7).
+\end{exam}
+
+\begin{exam}{}{}
+  As a `concrete' instance of a category as in Example~3.7, let
+  $\categ{C} = \categ{Set}$ and $A = $ a fixed singleton $\{*\}$. Call
+  the resulting category $\categ{Set}^*$.
 
   An object in $\categ{Set}^*$ is then a morphism $f : \{*\} \to S$ in
   $\categ{Set}$, where $S$ is any set. The information of an object in
-  $\categ{Set}^*$ consists therefore of the choice of a nonempty set $S$ and of
-  an element $s \in S$---that is, the element $f(*)$: this element determines,
-  and is determined by, $f$.
+  $\categ{Set}^*$ consists therefore of the choice of a nonempty set
+  $S$ and of an element $s \in S$---that is, the element $f(*)$: this
+  element determines, and is determined by, $f$.
 
-  Thus, we may denote objects of $\categ{Set}^*$ as pairs $(S, s)$, where $S$
-  is any set and $s \in S$ is any element of $S$. A morphism between two such
-  objects, $(S, s) \to (T, t)$, corresponds then (check this!) to a set-function
-  $\sigma : S \to T$ such that $\sigma(s) = t$.
+  Thus, we may denote objects of $\categ{Set}^*$ as pairs $(S, s)$,
+  where $S$ is any set and $s \in S$ is any element of $S$. A morphism
+  between two such objects, $(S, s) \to (T, t)$, corresponds then
+  (check this!) to a set-function $\sigma : S \to T$ such that
+  $\sigma(s) = t$.
 
-  Objects of $\categ{Set}^*$ are called \emph{pointed sets}. Many of the
-  structures we will study in this book will be pointed sets. For example (as we
-  will see) a `group' is a set $G$ with, among other requirements, a
-  distinguished element $e_G$ (its `identity'); `group homomorphisms' will be
-  functions which, among other properties, send identities to identities; thus,
-  they are morphisms of pointed sets in the sense considered above.
+  Objects of $\categ{Set}^*$ are called \emph{pointed sets}. Many of
+  the structures we will study in this book will be pointed sets. For
+  example (as we will see) a `group' is a set $G$ with, among other
+  requirements, a distinguished element $e_G$ (its `identity'); `group
+  homomorphisms' will be functions which, among other properties, send
+  identities to identities; thus, they are morphisms of pointed sets
+  in the sense considered above.
 \end{exam}
 
 \begin{exam}{}{}
-  It is useful to contemplate a few more `abstract' examples in the style of
-  Examples~3.5 and~3.7. These will be essential ingredients in the promised
-  revisitation of some of the operations mentioned in \S{}1.3. Their definition
-  will appear disappointedly simple-minded to the reader who has mastered
-  Examples~3.5 and~3.7.
+  It is useful to contemplate a few more `abstract' examples in the
+  style of Examples~3.5 and~3.7. These will be essential ingredients
+  in the promised revisitation of some of the operations mentioned in
+  \S{}1.3. Their definition will appear disappointedly simple-minded
+  to the reader who has mastered Examples~3.5 and~3.7.
 
-  This time we start from a given category $\categ{C}$ and \emph{two} objects
-  $A$, $B$ of $\categ{C}$. We can define a new category $\categ{C}_{A,B}$ by
-  essentially the same procedure that we used in order to define $\categ{C}_A$:
+  This time we start from a given category $\categ{C}$ and \emph{two}
+  objects $A$, $B$ of $\categ{C}$. We can define a new category
+  $\categ{C}_{A,B}$ by essentially the same procedure that we used in
+  order to define $\categ{C}_A$:
   \begin{itemize}
   \item $\Obj(\categ{C}_{A,B})$ = diagrams
-    % TODO: commutative diagram with Z mapping to both A and B (two-legged span)
-    $Z \xrightarrow{f} A$ and $Z \xrightarrow{g} B$ in $\categ{C}$; and
+    % TODO: commutative diagram with Z mapping to both A and B
+    % (two-legged span)
+    $Z \xrightarrow{f} A$ and $Z \xrightarrow{g} B$ in $\categ{C}$;
+    and
   \item morphisms from $(f_1 : Z_1 \to A,\, g_1 : Z_1 \to B)$ to
-    $(f_2 : Z_2 \to A,\, g_2 : Z_2 \to B)$ are those morphisms $\sigma : Z_1
-    \to Z_2$ in $\categ{C}$ making both diagrams commute simultaneously:
-    $f_1 = f_2 \sigma$ and $g_1 = g_2 \sigma$.
+    $(f_2 : Z_2 \to A,\, g_2 : Z_2 \to B)$ are those morphisms
+    $\sigma : Z_1 \to Z_2$ in $\categ{C}$ making both diagrams commute
+    simultaneously: $f_1 = f_2 \sigma$ and $g_1 = g_2 \sigma$.
   \end{itemize}
-  I will leave to the reader the task of formalizing this rough description. This
-  example is really nothing more than a mixture of $\categ{C}_A$ and
-  $\categ{C}_B$, where the two structures interact because of the stringent
-  requirement that the same $\sigma$ must make both sides of the diagram commute
-  simultaneously.
+  I will leave to the reader the task of formalizing this rough
+  description. This example is really nothing more than a mixture of
+  $\categ{C}_A$ and $\categ{C}_B$, where the two structures interact
+  because of the stringent requirement that the same $\sigma$ must
+  make both sides of the diagram commute simultaneously.
 
-  Flipping most of the arrows gives an analogous variation of Example~3.7,
-  producing a category which we may\footnote{There does not seem to be an
-    established notation for these commonplace categories.} denote
-  $\categ{C}^{A,B}$; details are left to the reader.
+  Flipping most of the arrows gives an analogous variation of
+  Example~3.7, producing a category which we may\footnote{There does
+    not seem to be an established notation for these commonplace
+    categories.} denote $\categ{C}^{A,B}$; details are left to the
+  reader.
 \end{exam}
 
 \begin{exam}{}{}
-  As a final variation on these examples, we conclude by considering the
-  \emph{fibered} version of $\categ{C}_{A,B}$ (and $\categ{C}^{A,B}$). Take
-  this as a test to see if you have really understood $\categ{C}_{A,B}$---experts
-  would tell you that this looks fairly sophisticated for students just learning
-  categories, so don't get disheartened if it does not flow too well at first
-  (but pat yourself on the shoulder if it does!). Start with a given category
-  $\categ{C}$, and this time choose two fixed morphisms $\alpha : A \to C$,
-  $\beta : B \to C$ in $\categ{C}$, with the same target $C$. We can then
-  consider a category $\categ{C}_{\alpha, \beta}$ as follows:
+  As a final variation on these examples, we conclude by considering
+  the \emph{fibered} version of $\categ{C}_{A,B}$ (and
+  $\categ{C}^{A,B}$). Take this as a test to see if you have really
+  understood $\categ{C}_{A,B}$---experts would tell you that this
+  looks fairly sophisticated for students just learning categories, so
+  don't get disheartened if it does not flow too well at first (but
+  pat yourself on the shoulder if it does!). Start with a given
+  category $\categ{C}$, and this time choose two fixed morphisms
+  $\alpha : A \to C$, $\beta : B \to C$ in $\categ{C}$, with the same
+  target $C$. We can then consider a category
+  $\categ{C}_{\alpha, \beta}$ as follows:
   \begin{itemize}
   \item $\Obj(\categ{C}_{\alpha,\beta})$ = commutative diagrams
-    % TODO: diagram with Z mapping to A and B, composed with α and β to a common C
-    in $\categ{C}$: pairs $(f : Z \to A,\, g : Z \to B)$ such that $\alpha f =
-    \beta g$; and
-  \item morphisms correspond to morphisms $\sigma : Z_1 \to Z_2$ making the
-    evident diagram commute.
+    % TODO: diagram with Z mapping to A and B, composed with α and β
+    % to a common C
+    in $\categ{C}$: pairs $(f : Z \to A,\, g : Z \to B)$ such that
+    $\alpha f = \beta g$; and
+  \item morphisms correspond to morphisms $\sigma : Z_1 \to Z_2$
+    making the evident diagram commute.
   \end{itemize}
-  A solid understanding of Example~3.9 will make this example look just as tame;
-  at this point the reader should have no difficulties formalizing it (that is,
-  explaining how composition works, what identities are, etc.).
+  A solid understanding of Example~3.9 will make this example look
+  just as tame; at this point the reader should have no difficulties
+  formalizing it (that is, explaining how composition works, what
+  identities are, etc.).
 
   Also left to the reader is the construction of the `mirror' example
-  $\categ{C}^{\alpha,\beta}$, starting from two morphisms $\alpha : C \to A$,
-  $\beta : C \to B$ with common source.
+  $\categ{C}^{\alpha,\beta}$, starting from two morphisms
+  $\alpha : C \to A$, $\beta : C \to B$ with common source.
 \end{exam}
 
 \subsection*{Exercises}
 
 \begin{exer}{}{}
-  \exerused Let $\categ{C}$ be a category. Consider a structure $\categ{C}^{\mathrm{op}}$ with
+  \exerused Let $\categ{C}$ be a category. Consider a structure
+  $\categ{C}^{\mathrm{op}}$ with
   \begin{itemize}
   \item $\Obj(\categ{C}^{\mathrm{op}}) := \Obj(\categ{C})$;
-  \item for $A$, $B$ objects of $\categ{C}^{\mathrm{op}}$ (hence objects of $\categ{C}$),
+  \item for $A$, $B$ objects of $\categ{C}^{\mathrm{op}}$ (hence
+    objects of $\categ{C}$),
     $\Hom_{\categ{C}^{\mathrm{op}}}(A, B) := \Hom_{\categ{C}}(B, A)$.
   \end{itemize}
-  Show how to make this into a category (that is, define composition of morphisms
-  in $\categ{C}^{\mathrm{op}}$ and verify the properties listed in \S{}3.1). Intuitively,
-  the `opposite' category $\categ{C}^{\mathrm{op}}$ is simply obtained by `reversing all
-  the arrows' in $\categ{C}$. [5.1, \S{}VIII.1.1, \S{}IX.1.2, IX.1.10]
+  Show how to make this into a category (that is, define composition
+  of morphisms in $\categ{C}^{\mathrm{op}}$ and verify the properties
+  listed in \S{}3.1). Intuitively, the `opposite' category
+  $\categ{C}^{\mathrm{op}}$ is simply obtained by `reversing all the
+  arrows' in $\categ{C}$. [5.1, \S{}VIII.1.1, \S{}IX.1.2, IX.1.10]
 \end{exer}
 
 \begin{exer}{}{}
@@ -1496,494 +1537,535 @@ and looking for the `right' notion may be an interesting project.
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused Formulate precisely what it means to say that $1_a$ is an identity
-  with respect to composition in Example~3.3, and prove this assertion. [\S{}3.2]
+  \exerused Formulate precisely what it means to say that $1_a$ is an
+  identity with respect to composition in Example~3.3, and prove this
+  assertion. [\S{}3.2]
 \end{exer}
 
 \begin{exer}{}{}
-  Can we define a category in the style of Example~3.3 using the relation $<$ on
-  the set $\Z$?
+  Can we define a category in the style of Example~3.3 using the
+  relation $<$ on the set $\Z$?
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused Explain in what sense Example~3.4 is an instance of the categories
-  considered in Example~3.3. [\S{}3.2]
+  \exerused Explain in what sense Example~3.4 is an instance of the
+  categories considered in Example~3.3. [\S{}3.2]
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused (Assuming some familiarity with linear algebra.) Define a category
-  $\categ{V}$ by taking $\Obj(\categ{V}) = \N$ and letting
-  $\Hom_{\categ{V}}(n, m) = $ the set of $m \times n$ matrices
-  with real entries, for all $n, m \in \N$. (I will leave the reader the task of
-  making sense of a matrix with 0 rows or columns.) Use product of matrices to
-  define composition. Does this category `feel' familiar? [\S{}VI.2.1,
-  \S{}VIII.1.3]
+  \exerused (Assuming some familiarity with linear algebra.) Define a
+  category $\categ{V}$ by taking $\Obj(\categ{V}) = \N$ and letting
+  $\Hom_{\categ{V}}(n, m) = $ the set of $m \times n$ matrices with
+  real entries, for all $n, m \in \N$. (I will leave the reader the
+  task of making sense of a matrix with 0 rows or columns.) Use
+  product of matrices to define composition. Does this category `feel'
+  familiar? [\S{}VI.2.1, \S{}VIII.1.3]
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused Define carefully objects and morphisms in Example~3.7, and draw the
-  diagram corresponding to composition. [\S{}3.2]
+  \exerused Define carefully objects and morphisms in Example~3.7, and
+  draw the diagram corresponding to composition. [\S{}3.2]
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused A \emph{subcategory} $\categ{C}'$ of a category $\categ{C}$
-  consists of a collection of objects of $\categ{C}$ with sets of morphisms
-  $\Hom_{\categ{C}'}(A, B) \subseteq \Hom_{\categ{C}}(A, B)$
-  for all objects $A$, $B$ in $\Obj(\categ{C}')$, such that
-  identities and compositions in $\categ{C}$ make $\categ{C}'$ into a
-  category. A subcategory $\categ{C}'$ is \emph{full} if
-  $\Hom_{\categ{C}'}(A, B) = \Hom_{\categ{C}}(A, B)$
-  for all $A$, $B$ in $\Obj(\categ{C}')$. Construct a category of
-  infinite sets and explain how it may be viewed as a full subcategory of
+  \exerused A \emph{subcategory} $\categ{C}'$ of a category
+  $\categ{C}$ consists of a collection of objects of $\categ{C}$ with
+  sets of morphisms
+  $\Hom_{\categ{C}'}(A, B) \subseteq \Hom_{\categ{C}}(A, B)$ for all
+  objects $A$, $B$ in $\Obj(\categ{C}')$, such that identities and
+  compositions in $\categ{C}$ make $\categ{C}'$ into a category. A
+  subcategory $\categ{C}'$ is \emph{full} if
+  $\Hom_{\categ{C}'}(A, B) = \Hom_{\categ{C}}(A, B)$ for all $A$, $B$
+  in $\Obj(\categ{C}')$. Construct a category of infinite sets and
+  explain how it may be viewed as a full subcategory of
   $\categ{Set}$. [4.4, \S{}VI.1.1, \S{}VIII.1.3]
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused An alternative to the notion of multiset introduced in \S{}2.2 is
-  obtained by considering sets endowed with equivalence relations; equivalent
-  elements are taken to be multiple instances of elements `of the same kind'.
-  Define a notion of morphism between such enhanced sets, obtaining a category
-  $\categ{MSet}$ containing (a `copy' of) $\categ{Set}$ as a full subcategory.
-  (There may be more than one reasonable way to do this! This is intentionally an
-  open-ended exercise.) Which objects in $\categ{MSet}$ determine ordinary
-  multisets as defined in \S{}2.2 and how? Spell out what a morphism of multisets
-  would be from this point of view. (There are several natural notions of
-  morphisms of multisets. Try to define morphisms in $\categ{MSet}$ so that the
-  notion you obtain for ordinary multisets captures your intuitive understanding
-  of these objects.) [\S{}2.2, \S{}3.2, 4.5]
+  \exerused An alternative to the notion of multiset introduced in
+  \S{}2.2 is obtained by considering sets endowed with equivalence
+  relations; equivalent elements are taken to be multiple instances of
+  elements `of the same kind'.  Define a notion of morphism between
+  such enhanced sets, obtaining a category $\categ{MSet}$ containing
+  (a `copy' of) $\categ{Set}$ as a full subcategory.  (There may be
+  more than one reasonable way to do this! This is intentionally an
+  open-ended exercise.) Which objects in $\categ{MSet}$ determine
+  ordinary multisets as defined in \S{}2.2 and how? Spell out what a
+  morphism of multisets would be from this point of view. (There are
+  several natural notions of morphisms of multisets. Try to define
+  morphisms in $\categ{MSet}$ so that the notion you obtain for
+  ordinary multisets captures your intuitive understanding of these
+  objects.) [\S{}2.2, \S{}3.2, 4.5]
 \end{exer}
 
 \begin{exer}{}{}
-  Since the objects of a category $\categ{C}$ are not (necessarily interpreted
-  as) sets, it is not clear how to make sense of a notion of `subobject' in
-  general. In some situations it does make sense to talk about subobjects, and
-  the subobjects of any given object $A$ in $\categ{C}$ are in one-to-one
-  correspondence with the morphisms $A \to \Omega$ for a fixed, special object
-  $\Omega$ of $\categ{C}$, called a \emph{subobject classifier}. Show that
-  $\categ{Set}$ has a subobject classifier.
+  Since the objects of a category $\categ{C}$ are not (necessarily
+  interpreted as) sets, it is not clear how to make sense of a notion
+  of `subobject' in general. In some situations it does make sense to
+  talk about subobjects, and the subobjects of any given object $A$ in
+  $\categ{C}$ are in one-to-one correspondence with the morphisms
+  $A \to \Omega$ for a fixed, special object $\Omega$ of $\categ{C}$,
+  called a \emph{subobject classifier}. Show that $\categ{Set}$ has a
+  subobject classifier.
 \end{exer}
 
 \begin{exer}{}{}
-  \exerused Draw the relevant diagrams and define composition and identities for
-  the category $\categ{C}^{A,B}$ mentioned in Example~3.9. Do the same for the
-  category $\categ{C}^{\alpha,\beta}$ mentioned in Example~3.10.
-  [\S{}5.5, 5.12]
+  \exerused Draw the relevant diagrams and define composition and
+  identities for the category $\categ{C}^{A,B}$ mentioned in
+  Example~3.9. Do the same for the category $\categ{C}^{\alpha,\beta}$
+  mentioned in Example~3.10.  [\S{}5.5, 5.12]
 \end{exer}
 
 \section{Morphisms}
 \label{sec:prelims:morphisms}
 
-Just as in $\categ{Set}$ we highlight certain types of functions (injective,
-surjective, bijective), it is useful to try to do the same for morphisms in an
-arbitrary category. The reader should note that defining qualities of morphisms
-by their actions on `elements' is not an option in the general setting, because
-objects of an arbitrary category do not (in general) have `elements'.
+Just as in $\categ{Set}$ we highlight certain types of functions
+(injective, surjective, bijective), it is useful to try to do the same
+for morphisms in an arbitrary category. The reader should note that
+defining qualities of morphisms by their actions on `elements' is not
+an option in the general setting, because objects of an arbitrary
+category do not (in general) have `elements'.
 
-This is why we spent some time analyzing injectivity, etc., from different
-viewpoints in \S{}\S{}2.4--2.6. It turns out that the other viewpoints on these
-notions do transfer nicely into the categorical setting.
+This is why we spent some time analyzing injectivity, etc., from
+different viewpoints in \S{}\S{}2.4--2.6. It turns out that the other
+viewpoints on these notions do transfer nicely into the categorical
+setting.
 
 \subsection{Isomorphisms}
 \label{subsec:prelims:isomorphisms}
 Let $\categ{C}$ be a category.
 
 \begin{defn}{Isomorphism}{defn:prelims:isomorphism}
-A morphism $f \in \Hom_{\categ{C}}(A,B)$ is an
-\textbf{isomorphism} if it has a (two-sided) inverse under composition: that
-is, if $\exists\, g \in \Hom_{\categ{C}}(B,A)$ such that
-\[
-  g \circ f = 1_A, \qquad f \circ g = 1_B.
-\]
+  A morphism $f \in \Hom_{\categ{C}}(A,B)$ is an \textbf{isomorphism}
+  if it has a (two-sided) inverse under composition: that is, if
+  $\exists\, g \in \Hom_{\categ{C}}(B,A)$ such that
+  \[
+    g \circ f = 1_A, \qquad f \circ g = 1_B.
+  \]
 \end{defn}
 
-Recall that in \S{}2.5 the inverse of a bijection of sets $f$ was defined
-`elementwise'; in particular, there was no ambiguity in its definition, and we
-introduced the notation $f^{-1}$ for this function. By contrast, the `inverse'
-$g$ produced in \Cref{defn:prelims:isomorphism} does not appear to have this
-uniqueness explicitly built into its definition. Luckily, its defining property
-does guarantee its uniqueness, but this requires a verification:
+Recall that in \S{}2.5 the inverse of a bijection of sets $f$ was
+defined `elementwise'; in particular, there was no ambiguity in its
+definition, and we introduced the notation $f^{-1}$ for this
+function. By contrast, the `inverse' $g$ produced in
+\Cref{defn:prelims:isomorphism} does not appear to have this
+uniqueness explicitly built into its definition. Luckily, its defining
+property does guarantee its uniqueness, but this requires a
+verification:
 
 \begin{prop}{}{prop:prelims:iso-unique-inverse}
   The inverse of an isomorphism is unique.
 \end{prop}
 \begin{proof}
-We have to verify that if both $g_1$ and $g_2 \colon B \to A$ act as inverses
-of a given isomorphism $f \colon A \to B$, then $g_1 = g_2$. The standard
-trick for this kind of verification is to compose $f$ on the left by one of the
-morphisms, and on the right by the other; then apply associativity. The whole
-argument can be compressed into one line:\footnote{Associativity of composition
-implies that parentheses may be shuffled at will in longer expressions, as done
-here (cf.\ \Cref{exer:4.1}).}
-\[
-  g_1 = g_1 \circ 1_B = g_1 \circ (f \circ g_2) = (g_1 \circ f) \circ g_2
-      = 1_A \circ g_2 = g_2,
-\]
-as needed.
+  We have to verify that if both $g_1$ and $g_2 \colon B \to A$ act as
+  inverses of a given isomorphism $f \colon A \to B$, then
+  $g_1 = g_2$. The standard trick for this kind of verification is to
+  compose $f$ on the left by one of the morphisms, and on the right by
+  the other; then apply associativity. The whole argument can be
+  compressed into one line:\footnote{Associativity of composition
+    implies that parentheses may be shuffled at will in longer
+    expressions, as done here (cf.\ \Cref{exer:4.1}).}
+  \[
+    g_1 = g_1 \circ 1_B = g_1 \circ (f \circ g_2) = (g_1 \circ f)
+    \circ g_2 = 1_A \circ g_2 = g_2,
+  \]
+  as needed.
 \end{proof}
 
 Note that the argument really proves that if $f$ is a morphism with a
-left-inverse $g_1$ and a right-inverse $g_2$, then necessarily $f$ is an
-isomorphism, $g_1 = g_2$, and this morphism is the (unique) inverse of $f$.
-Look back at Corollary~2.2. Since the inverse of $f$ is uniquely determined by
-$f$, there is no ambiguity in denoting it by $f^{-1}$.
+left-inverse $g_1$ and a right-inverse $g_2$, then necessarily $f$ is
+an isomorphism, $g_1 = g_2$, and this morphism is the (unique) inverse
+of $f$.  Look back at Corollary~2.2. Since the inverse of $f$ is
+uniquely determined by $f$, there is no ambiguity in denoting it by
+$f^{-1}$.
 
 \begin{prop}{}{prop:prelims:iso-props}
-With notation as above:
-\begin{itemize}
+  With notation as above:
+  \begin{itemize}
   \item Each identity $1_A$ is an isomorphism and is its own inverse.
   \item If $f$ is an isomorphism, then $f^{-1}$ is an isomorphism and
-        $(f^{-1})^{-1} = f$.
+    $(f^{-1})^{-1} = f$.
   \item If $f \in \Hom_{\categ{C}}(A,B)$ and
-        $g \in \Hom_{\categ{C}}(B,C)$ are isomorphisms, then
-        $g \circ f$ is an isomorphism and $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
-\end{itemize}
+    $g \in \Hom_{\categ{C}}(B,C)$ are isomorphisms, then $g \circ f$
+    is an isomorphism and $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
+  \end{itemize}
 \end{prop}
 \begin{proof}
-These all `prove themselves'. For example, it is immediate to verify that
-$f^{-1} \circ g^{-1}$ is a left-inverse of $g \circ f$: indeed,
-\[
-  (f^{-1} \circ g^{-1}) \circ (g \circ f)
-    = f^{-1} \circ \bigl((g^{-1} \circ g) \circ f\bigr)
-    = f^{-1} \circ (1_B \circ f)
+  These all `prove themselves'. For example, it is immediate to verify
+  that $f^{-1} \circ g^{-1}$ is a left-inverse of $g \circ f$: indeed,
+  \[
+    (f^{-1} \circ g^{-1}) \circ (g \circ f) = f^{-1} \circ
+    \bigl((g^{-1} \circ g) \circ f\bigr) = f^{-1} \circ (1_B \circ f)
     = f^{-1} \circ f = 1_A.
-\]
-The verification that $f^{-1} \circ g^{-1}$ is also a right-inverse of
-$g \circ f$ is analogous.
+  \]
+  The verification that $f^{-1} \circ g^{-1}$ is also a right-inverse
+  of $g \circ f$ is analogous.
 \end{proof}
 
 Note that taking the inverse reverses the order of composition:
 $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
 
-Two objects $A$, $B$ of a category are \textbf{isomorphic} if there is an
-isomorphism $f \colon A \to B$. An immediate corollary of
+Two objects $A$, $B$ of a category are \textbf{isomorphic} if there is
+an isomorphism $f \colon A \to B$. An immediate corollary of
 \Cref{prop:prelims:iso-props} is that `isomorphic' is an equivalence
-relation.\footnote{The reader should have checked this in \Cref{exer:2.4}, for
-$\categ{Set}$; the same proof will work in any category.} If two objects $A$,
-$B$ are isomorphic, one writes $A \cong B$.
+relation.\footnote{The reader should have checked this in
+  \Cref{exer:2.4}, for $\categ{Set}$; the same proof will work in any
+  category.} If two objects $A$, $B$ are isomorphic, one writes
+$A \cong B$.
 
 \begin{exam}{}{}
-Of course, the isomorphisms in the category $\categ{Set}$ are precisely the
-bijections; this was observed at the beginning of \S{}2.5.
+  Of course, the isomorphisms in the category $\categ{Set}$ are
+  precisely the bijections; this was observed at the beginning of
+  \S{}2.5.
 \end{exam}
 
 \begin{exam}{}{}
-As noted in \Cref{prop:prelims:iso-props}, identities are isomorphisms. They
-may be the only isomorphisms in a category: for example, this is the case in
-the category $\categ{C}$ obtained from the relation $\leq$ on $\Z$,
-as in \Cref{exam:prelims:category-leq}. Indeed, for $a$, $b$ objects of
-$\categ{C}$ (that is, $a, b \in \Z$), there is a morphism
-$f \colon a \to b$ and a morphism $g \colon b \to a$ only if $a \leq b$ and
-$b \leq a$, that is, if $a = b$. So an isomorphism in $\categ{C}$ necessarily
-acts from an object $a$ to itself; but in $\categ{C}$ there is only one such
-morphism, that is, $1_a$.
+  As noted in \Cref{prop:prelims:iso-props}, identities are
+  isomorphisms. They may be the only isomorphisms in a category: for
+  example, this is the case in the category $\categ{C}$ obtained from
+  the relation $\leq$ on $\Z$, as in
+  \Cref{exam:prelims:category-leq}. Indeed, for $a$, $b$ objects of
+  $\categ{C}$ (that is, $a, b \in \Z$), there is a morphism
+  $f \colon a \to b$ and a morphism $g \colon b \to a$ only if
+  $a \leq b$ and $b \leq a$, that is, if $a = b$. So an isomorphism in
+  $\categ{C}$ necessarily acts from an object $a$ to itself; but in
+  $\categ{C}$ there is only one such morphism, that is, $1_a$.
 \end{exam}
 
 \begin{exam}{}{}
-On the other hand, there are categories in which every morphism is an
-isomorphism; such categories are called \textbf{groupoids}. The reader
-`already knows' many examples of groupoids; cf.\ \Cref{exer:4.2}.
+  On the other hand, there are categories in which every morphism is
+  an isomorphism; such categories are called \textbf{groupoids}. The
+  reader `already knows' many examples of groupoids; cf.\
+  \Cref{exer:4.2}.
 \end{exam}
 
-An \textbf{automorphism} of an object $A$ of a category $\categ{C}$ is an
-isomorphism from $A$ to itself. The set of automorphisms of $A$ is denoted
-$\Aut_{\categ{C}}(A)$; it is a subset of
-$\End_{\categ{C}}(A)$. By \Cref{prop:prelims:iso-props},
-composition confers on $\Aut_{\categ{C}}(A)$ a remarkable
-structure:
+An \textbf{automorphism} of an object $A$ of a category $\categ{C}$ is
+an isomorphism from $A$ to itself. The set of automorphisms of $A$ is
+denoted $\Aut_{\categ{C}}(A)$; it is a subset of
+$\End_{\categ{C}}(A)$. By \Cref{prop:prelims:iso-props}, composition
+confers on $\Aut_{\categ{C}}(A)$ a remarkable structure:
 \begin{itemize}
-  \item the composition of two elements $f, g \in \Aut_{\categ{C}}(A)$
-        is an element $g \circ f \in \Aut_{\categ{C}}(A)$;
-  \item composition is associative;
-  \item $\Aut_{\categ{C}}(A)$ contains the element $1_A$, which
-        is an identity for composition (that is,
-        $f \circ 1_A = 1_A \circ f = f$);
-  \item every element $f \in \Aut_{\categ{C}}(A)$ has an inverse
-        $f^{-1} \in \Aut_{\categ{C}}(A)$.
+\item the composition of two elements $f, g \in \Aut_{\categ{C}}(A)$
+  is an element $g \circ f \in \Aut_{\categ{C}}(A)$;
+\item composition is associative;
+\item $\Aut_{\categ{C}}(A)$ contains the element $1_A$, which is an
+  identity for composition (that is, $f \circ 1_A = 1_A \circ f = f$);
+\item every element $f \in \Aut_{\categ{C}}(A)$ has an inverse
+  $f^{-1} \in \Aut_{\categ{C}}(A)$.
 \end{itemize}
-In other words, $\Aut_{\categ{C}}(A)$ is a group, for all
-objects $A$ of all categories $\categ{C}$. We will soon devote all our
-attention to groups!
+In other words, $\Aut_{\categ{C}}(A)$ is a group, for all objects $A$
+of all categories $\categ{C}$. We will soon devote all our attention
+to groups!
 
 \subsection{Monomorphisms and epimorphisms}
 \label{subsec:prelims:morphisms:monomorphisms-and-epimorphisms}
-As pointed out above, we do not have the option of defining for morphisms of an
-arbitrary category a notion such as `injective' in the same way as we do for
-set-functions in \S{}2.4: that definition requires a notion of `element', and
-in general no such notion is available for objects of a category. But nothing
-prevents us from defining monomorphisms as we did in \S{}2.6, in an arbitrary
-category:
+As pointed out above, we do not have the option of defining for
+morphisms of an arbitrary category a notion such as `injective' in the
+same way as we do for set-functions in \S{}2.4: that definition
+requires a notion of `element', and in general no such notion is
+available for objects of a category. But nothing prevents us from
+defining monomorphisms as we did in \S{}2.6, in an arbitrary category:
 
 \begin{defn}{Monomorphism}{defn:prelims:monomorphism}
-Let $\categ{C}$ be a category. A morphism $f \in \Hom_{\categ{C}}(A,B)$
-is a \textbf{monomorphism} if the following holds: for all objects $Z$ of
-$\categ{C}$ and all morphisms $\alpha', \alpha'' \in
-\Hom_{\categ{C}}(Z,A)$,
-\[
-  f \circ \alpha' = f \circ \alpha'' \Rightarrow \alpha' = \alpha''.
-\]
+  Let $\categ{C}$ be a category. A morphism
+  $f \in \Hom_{\categ{C}}(A,B)$ is a \textbf{monomorphism} if the
+  following holds: for all objects $Z$ of $\categ{C}$ and all
+  morphisms $\alpha', \alpha'' \in \Hom_{\categ{C}}(Z,A)$,
+  \[
+    f \circ \alpha' = f \circ \alpha'' \Rightarrow \alpha' = \alpha''.
+  \]
 \end{defn}
 
 Similarly, epimorphisms are defined as follows:
 
 \begin{defn}{Epimorphism}{defn:prelims:epimorphism}
-Let $\categ{C}$ be a category. A morphism $f \in \Hom_{\categ{C}}(A,B)$
-is an \textbf{epimorphism} if the following holds: for all objects $Z$ of
-$\categ{C}$ and all morphisms $\beta', \beta'' \in
-\Hom_{\categ{C}}(B,Z)$,
-\[
-  \beta' \circ f = \beta'' \circ f \Rightarrow \beta' = \beta''.
-\]
+  Let $\categ{C}$ be a category. A morphism
+  $f \in \Hom_{\categ{C}}(A,B)$ is an \textbf{epimorphism} if the
+  following holds: for all objects $Z$ of $\categ{C}$ and all
+  morphisms $\beta', \beta'' \in \Hom_{\categ{C}}(B,Z)$,
+  \[
+    \beta' \circ f = \beta'' \circ f \Rightarrow \beta' = \beta''.
+  \]
 \end{defn}
 
 \begin{exam}{}{}
-As proven in Proposition~2.3, in the category $\categ{Set}$ the monomorphisms
-are precisely the injective functions. The reader should have by now checked
-that, likewise, in $\categ{Set}$ the epimorphisms are precisely the surjective
-functions (cf.\ \Cref{exer:2.5}). Thus, while the definitions given in \S{}2.6
-may have looked counterintuitive at first, they work as natural `categorical
-counterparts' of the ordinary notions of injective/surjective functions.
+  As proven in Proposition~2.3, in the category $\categ{Set}$ the
+  monomorphisms are precisely the injective functions. The reader
+  should have by now checked that, likewise, in $\categ{Set}$ the
+  epimorphisms are precisely the surjective functions (cf.\
+  \Cref{exer:2.5}). Thus, while the definitions given in \S{}2.6 may
+  have looked counterintuitive at first, they work as natural
+  `categorical counterparts' of the ordinary notions of
+  injective/surjective functions.
 \end{exam}
 
 \begin{exam}{}{}
-In the categories of \Cref{exam:prelims:category-leq}, every morphism is both
-a monomorphism and an epimorphism. Indeed, recall that there is at most one
-morphism between any two objects in these categories; hence the conditions
-defining monomorphisms and epimorphisms are vacuous.
+  In the categories of \Cref{exam:prelims:category-leq}, every
+  morphism is both a monomorphism and an epimorphism. Indeed, recall
+  that there is at most one morphism between any two objects in these
+  categories; hence the conditions defining monomorphisms and
+  epimorphisms are vacuous.
 \end{exam}
 
-Contemplating the previous example reveals a few unexpected twists in these
-definitions, which defy our intuition as set-theorists. For instance, in
-$\categ{Set}$, a function is an isomorphism if and only if it is both injective
-and surjective, hence if and only if it is both a monomorphism and an
-epimorphism. But in the category defined by $\leq$ on $\Z$, every
-morphism is both a monomorphism and an epimorphism, while the only isomorphisms
-are the identities (\Cref{exam:prelims:category-leq}). Thus this property is a
-special feature of $\categ{Set}$, and we should not expect it to hold
-automatically in every category; it will not hold in the category $\categ{Ring}$
-of rings. It will hold in every abelian category (of which $\categ{Set}$ is
-not an example!), but that is a story for a very distant future.
+Contemplating the previous example reveals a few unexpected twists in
+these definitions, which defy our intuition as set-theorists. For
+instance, in $\categ{Set}$, a function is an isomorphism if and only
+if it is both injective and surjective, hence if and only if it is
+both a monomorphism and an epimorphism. But in the category defined by
+$\leq$ on $\Z$, every morphism is both a monomorphism and an
+epimorphism, while the only isomorphisms are the identities
+(\Cref{exam:prelims:category-leq}). Thus this property is a special
+feature of $\categ{Set}$, and we should not expect it to hold
+automatically in every category; it will not hold in the category
+$\categ{Ring}$ of rings. It will hold in every abelian category (of
+which $\categ{Set}$ is not an example!), but that is a story for a
+very distant future.
 
-Similarly, in $\categ{Set}$ a function is an epimorphism, that is, surjective,
-if and only if it has a right-inverse (Proposition~2.1); this may fail in
-general, even in respectable categories such as the category $\categ{Grp}$ of
-groups.
+Similarly, in $\categ{Set}$ a function is an epimorphism, that is,
+surjective, if and only if it has a right-inverse (Proposition~2.1);
+this may fail in general, even in respectable categories such as the
+category $\categ{Grp}$ of groups.
 
 \subsection*{Exercises}
 
 \begin{exer}{\exerused}{exer:4.1}
-Composition is defined for two morphisms. If more than two morphisms are given,
-e.g.,
-\[
-  A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D \xrightarrow{i} E,
-\]
-then one may compose them in several ways, for example: $(i \circ h) \circ
-(g \circ f)$, $(i \circ (h \circ g)) \circ f$, $i \circ ((h \circ g) \circ f)$,
-etc., so that at every step one is only composing two morphisms. Prove that the
-result of any such nested composition is independent of the placement of the
-parentheses.
+  Composition is defined for two morphisms. If more than two morphisms
+  are given, e.g.,
+  \[
+    A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D
+    \xrightarrow{i} E,
+  \]
+  then one may compose them in several ways, for example:
+  $(i \circ h) \circ (g \circ f)$, $(i \circ (h \circ g)) \circ f$,
+  $i \circ ((h \circ g) \circ f)$, etc., so that at every step one is
+  only composing two morphisms. Prove that the result of any such
+  nested composition is independent of the placement of the
+  parentheses.
 
 \begin{hint}
-Use induction on $n$ to show that any such choice for $f_n \circ f_{n-1} \circ
-\cdots \circ f_1$ equals $((\cdots((f_n \circ f_{n-1}) \circ f_{n-2}) \circ
-\cdots) \circ f_1)$. Carefully working out the case $n = 5$ is helpful.
-\end{hint}
-[\S{}4.1, \S{}II.1.3]
+  Use induction on $n$ to show that any such choice for
+  $f_n \circ f_{n-1} \circ \cdots \circ f_1$ equals
+  $((\cdots((f_n \circ f_{n-1}) \circ f_{n-2}) \circ \cdots) \circ
+  f_1)$. Carefully working out the case $n = 5$ is helpful.
+\end{hint} [\S{}4.1, \S{}II.1.3]
 \end{exer}
 
 \begin{exer}{\exerused}{exer:4.2}
-In \Cref{exam:prelims:category-leq} we have seen how to construct a category
-from a set endowed with a relation, provided this latter is reflexive and
-transitive. For what types of relations is the corresponding category a groupoid
-(cf.\ \Cref{exam:prelims:groupoids})? [\S{}4.1]
+  In \Cref{exam:prelims:category-leq} we have seen how to construct a
+  category from a set endowed with a relation, provided this latter is
+  reflexive and transitive. For what types of relations is the
+  corresponding category a groupoid (cf.\
+  \Cref{exam:prelims:groupoids})? [\S{}4.1]
 \end{exer}
 
 \begin{exer}{}{exer:4.3}
-Let $A$, $B$ be objects of a category $\categ{C}$, and let
-$f \in \Hom_{\categ{C}}(A,B)$ be a morphism.
-\begin{itemize}
-  \item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
-  \item Show that the converse does not hold, by giving an explicit example of a
-        category and an epimorphism without a right-inverse.
-\end{itemize}
+  Let $A$, $B$ be objects of a category $\categ{C}$, and let
+  $f \in \Hom_{\categ{C}}(A,B)$ be a morphism.
+  \begin{itemize}
+  \item Prove that if $f$ has a right-inverse, then $f$ is an
+    epimorphism.
+  \item Show that the converse does not hold, by giving an explicit
+    example of a category and an epimorphism without a right-inverse.
+  \end{itemize}
 \end{exer}
 
 \begin{exer}{}{exer:4.4}
-Prove that the composition of two monomorphisms is a monomorphism. Deduce that
-one can define a subcategory $\categ{C}_{\mathrm{mono}}$ of a category
-$\categ{C}$ by taking the same objects as in $\categ{C}$ and defining
-$\Hom_{\categ{C}_{\mathrm{mono}}}(A,B)$ to be the subset of
-$\Hom_{\categ{C}}(A,B)$ consisting of monomorphisms, for all
-objects $A$, $B$. (Cf.\ \Cref{exer:3.8}; of course, in general
-$\categ{C}_{\mathrm{mono}}$ is not full in $\categ{C}$.) Do the same for
-epimorphisms. Can you define a subcategory $\categ{C}_{\mathrm{nonmono}}$ of
-$\categ{C}$ by restricting to morphisms that are \emph{not} monomorphisms?
+  Prove that the composition of two monomorphisms is a
+  monomorphism. Deduce that one can define a subcategory
+  $\categ{C}_{\mathrm{mono}}$ of a category $\categ{C}$ by taking the
+  same objects as in $\categ{C}$ and defining
+  $\Hom_{\categ{C}_{\mathrm{mono}}}(A,B)$ to be the subset of
+  $\Hom_{\categ{C}}(A,B)$ consisting of monomorphisms, for all objects
+  $A$, $B$. (Cf.\ \Cref{exer:3.8}; of course, in general
+  $\categ{C}_{\mathrm{mono}}$ is not full in $\categ{C}$.) Do the same
+  for epimorphisms. Can you define a subcategory
+  $\categ{C}_{\mathrm{nonmono}}$ of $\categ{C}$ by restricting to
+  morphisms that are \emph{not} monomorphisms?
 \end{exer}
 
 \begin{exer}{}{exer:4.5}
-Give a concrete description of monomorphisms and epimorphisms in the category
-$\categ{MSet}$ you constructed in \Cref{exer:3.9}. (Your answer will depend
-on the notion of morphism you defined in that exercise!)
+  Give a concrete description of monomorphisms and epimorphisms in the
+  category $\categ{MSet}$ you constructed in \Cref{exer:3.9}. (Your
+  answer will depend on the notion of morphism you defined in that
+  exercise!)
 \end{exer}
 
 \section{Universal properties}
 \label{sec:prelims:universal-properties}
 
-The `abstract' examples in \S{}3 may have left the reader with the impression
-that one can produce at will a large number of minute variations of the same
-basic ideas, without really breaking any new ground. This may be fun in itself,
-but \emph{why} do we really want to explore this territory?
-Categories offer a rich unifying language, giving us a bird's eye view of many
-constructions in algebra (and other fields). In this course, this will be most
-apparent in the steady appearance of constructions satisfying suitable
-\emph{universal properties}. For instance, we will see in a moment that products
-and disjoint unions (as reviewed in \S{}1.3 and following) are characterized by
-certain universal properties having to do with the categories $\categ{C}_{A,B}$
-and $\categ{C}^{A,B}$ considered in Example~3.9.
-Many of the concepts introduced in this course will have an explicit description
-(such as the definition of product of sets given in \S{}1.4) and an accompanying
-description in terms of a universal property (such as the one we will see in
-\S{}5.4). The `explicit' description may be very useful in concrete computations
-or arguments, but as a rule it is the universal property that clarifies the true
-nature of the construction. In some cases (such as for the disjoint union) the
-explicit description may turn out to depend on a seemingly arbitrary choice,
-while the universal property will have no element of arbitrariness. In fact,
-viewing the construction in terms of its corresponding universal property
-clarifies why one can only expect it to be defined `up to isomorphism'.
-Also, deeper relationships become apparent when the constructions are viewed in
-terms of their universal properties. For example, we will see that products of
-sets and disjoint unions of sets are really `mirror' constructions (in the sense
-that reversing arrows transforms the universal property for one into that for the
-other). This is not so clear (to this writer, anyway) from the explicit
-descriptions in \S{}1.4.
+The `abstract' examples in \S{}3 may have left the reader with the
+impression that one can produce at will a large number of minute
+variations of the same basic ideas, without really breaking any new
+ground. This may be fun in itself, but \emph{why} do we really want to
+explore this territory?  Categories offer a rich unifying language,
+giving us a bird's eye view of many constructions in algebra (and
+other fields). In this course, this will be most apparent in the
+steady appearance of constructions satisfying suitable \emph{universal
+  properties}. For instance, we will see in a moment that products and
+disjoint unions (as reviewed in \S{}1.3 and following) are
+characterized by certain universal properties having to do with the
+categories $\categ{C}_{A,B}$ and $\categ{C}^{A,B}$ considered in
+Example~3.9.  Many of the concepts introduced in this course will have
+an explicit description (such as the definition of product of sets
+given in \S{}1.4) and an accompanying description in terms of a
+universal property (such as the one we will see in \S{}5.4). The
+`explicit' description may be very useful in concrete computations or
+arguments, but as a rule it is the universal property that clarifies
+the true nature of the construction. In some cases (such as for the
+disjoint union) the explicit description may turn out to depend on a
+seemingly arbitrary choice, while the universal property will have no
+element of arbitrariness. In fact, viewing the construction in terms
+of its corresponding universal property clarifies why one can only
+expect it to be defined `up to isomorphism'.  Also, deeper
+relationships become apparent when the constructions are viewed in
+terms of their universal properties. For example, we will see that
+products of sets and disjoint unions of sets are really `mirror'
+constructions (in the sense that reversing arrows transforms the
+universal property for one into that for the other). This is not so
+clear (to this writer, anyway) from the explicit descriptions in
+\S{}1.4.
 
 \subsection{Initial and final objects}
 \label{subsec:prelims:initial-and-final-objects}
 
 \begin{defn}{Initial and final objects}{defn:prelims:initial-final}
-Let $\categ{C}$ be a category. We say that an object $I$ of $\categ{C}$ is
-\textbf{initial} in $\categ{C}$ if for every object $A$ of $\categ{C}$ there
-exists exactly one morphism $I \to A$ in $\categ{C}$:
-\[
-  \forall A \in \Obj(\categ{C}) \colon \quad
-  \Hom_{\categ{C}}(I,A) \text{ is a singleton.}
-\]
-We say that an object $F$ of $\categ{C}$ is \textbf{final} in $\categ{C}$ if
-for every object $A$ of $\categ{C}$ there exists exactly one morphism
-$A \to F$ in $\categ{C}$:
-\[
-  \forall A \in \Obj(\categ{C}) \colon \quad
-  \Hom_{\categ{C}}(A,F) \text{ is a singleton.}
-\]
+  Let $\categ{C}$ be a category. We say that an object $I$ of
+  $\categ{C}$ is \textbf{initial} in $\categ{C}$ if for every object
+  $A$ of $\categ{C}$ there exists exactly one morphism $I \to A$ in
+  $\categ{C}$:
+  \[
+    \forall A \in \Obj(\categ{C}) \colon \quad \Hom_{\categ{C}}(I,A)
+    \text{ is a singleton.}
+  \]
+  We say that an object $F$ of $\categ{C}$ is \textbf{final} in
+  $\categ{C}$ if for every object $A$ of $\categ{C}$ there exists
+  exactly one morphism $A \to F$ in $\categ{C}$:
+  \[
+    \forall A \in \Obj(\categ{C}) \colon \quad \Hom_{\categ{C}}(A,F)
+    \text{ is a singleton.}
+  \]
 \end{defn}
 
-One may use \emph{terminal} to denote either possibility, but in general I would
-advise the reader to be explicit about which `end' of $\categ{C}$ one is
-considering.
+One may use \emph{terminal} to denote either possibility, but in
+general I would advise the reader to be explicit about which `end' of
+$\categ{C}$ one is considering.
 
-A category need not have initial or final objects, as the following example
-shows.
+A category need not have initial or final objects, as the following
+example shows.
 \begin{exam}{}{}
-The category obtained by endowing $\Z$ with the relation $\leq$ (see
-Example~3.3) has no initial or final object. Indeed, an initial object in this
-category would be an integer $i$ such that $i \leq a$ for all integers $a$;
-there is no such integer. Similarly, a final object would be an integer $f$
-larger than every integer, and there is no such thing.
+  The category obtained by endowing $\Z$ with the relation $\leq$ (see
+  Example~3.3) has no initial or final object. Indeed, an initial
+  object in this category would be an integer $i$ such that $i \leq a$
+  for all integers $a$; there is no such integer. Similarly, a final
+  object would be an integer $f$ larger than every integer, and there
+  is no such thing.
 
-By contrast, the category considered in Example~3.6 \emph{does} have a final
-object, namely the pair $(3,3)$; it still has no initial object.
+  By contrast, the category considered in Example~3.6 \emph{does} have
+  a final object, namely the pair $(3,3)$; it still has no initial
+  object.
 \end{exam}
-Also, initial and final objects, when they exist, may or may not be unique:
+Also, initial and final objects, when they exist, may or may not be
+unique:
 
 \begin{exam}{}{}
-In $\categ{Set}$, the empty set $\emptyset$ is initial (the `empty graph'
-defines the unique function from $\emptyset$ to any given object!), and clearly
-it is the unique set that fits this requirement (\Cref{exer:5.2}).
+  In $\categ{Set}$, the empty set $\emptyset$ is initial (the `empty
+  graph' defines the unique function from $\emptyset$ to any given
+  object!), and clearly it is the unique set that fits this
+  requirement (\Cref{exer:5.2}).
 
-$\categ{Set}$ also has final objects: for every set $A$, there is a unique
-function from $A$ to a singleton $\{p\}$ (that is, the `constant' function).
-Every singleton is final in $\categ{Set}$; thus, final objects are not unique
-in this category.
+  $\categ{Set}$ also has final objects: for every set $A$, there is a
+  unique function from $A$ to a singleton $\{p\}$ (that is, the
+  `constant' function).  Every singleton is final in $\categ{Set}$;
+  thus, final objects are not unique in this category.
 \end{exam}
-However, I claim that if initial/final objects exist, then they are unique
-\emph{up to a unique isomorphism}. I will invoke this fact frequently, so here
-is its official statement and its (immediate) proof:
+However, I claim that if initial/final objects exist, then they are
+unique \emph{up to a unique isomorphism}. I will invoke this fact
+frequently, so here is its official statement and its (immediate)
+proof:
 
 \begin{prop}{}{prop:prelims:initial-final-unique}
-Let $\categ{C}$ be a category.
-\begin{itemize}
+  Let $\categ{C}$ be a category.
+  \begin{itemize}
   \item If $I_1$, $I_2$ are both initial objects in $\categ{C}$, then
-        $I_1 \cong I_2$.
+    $I_1 \cong I_2$.
   \item If $F_1$, $F_2$ are both final objects in $\categ{C}$, then
-        $F_1 \cong F_2$.
-\end{itemize}
-Further, these isomorphisms are uniquely determined.
+    $F_1 \cong F_2$.
+  \end{itemize}
+  Further, these isomorphisms are uniquely determined.
 \end{prop}
 \begin{proof}
-Recall that (by definition of category!) for every object $A$ of $\categ{C}$
-there is at least one element in $\Hom_{\categ{C}}(A,A)$, namely
-the identity $1_A$. If $I$ is initial, then there is a unique morphism
-$I \to I$, which therefore must be the identity $1_I$.
+  Recall that (by definition of category!) for every object $A$ of
+  $\categ{C}$ there is at least one element in
+  $\Hom_{\categ{C}}(A,A)$, namely the identity $1_A$. If $I$ is
+  initial, then there is a unique morphism $I \to I$, which therefore
+  must be the identity $1_I$.
 
-Now assume $I_1$ and $I_2$ are both initial in $\categ{C}$. Since $I_1$ is
-initial, there is a unique morphism $f \colon I_1 \to I_2$ in $\categ{C}$; we
-have to show that $f$ is an isomorphism. Since $I_2$ is initial, there is a
-unique morphism $g \colon I_2 \to I_1$ in $\categ{C}$. Consider
-$g \circ f \colon I_1 \to I_1$; as observed, necessarily
-\[
-  g \circ f = 1_{I_1}
-\]
-since $I_1$ is initial. By the same token $f \circ g = 1_{I_2}$ since $I_2$ is
-initial. This proves that $f \colon I_1 \to I_2$ is an isomorphism, as needed.
-The proof for final objects is entirely analogous (\Cref{exer:5.3}).
+  Now assume $I_1$ and $I_2$ are both initial in $\categ{C}$. Since
+  $I_1$ is initial, there is a unique morphism $f \colon I_1 \to I_2$
+  in $\categ{C}$; we have to show that $f$ is an isomorphism. Since
+  $I_2$ is initial, there is a unique morphism $g \colon I_2 \to I_1$
+  in $\categ{C}$. Consider $g \circ f \colon I_1 \to I_1$; as
+  observed, necessarily
+  \[
+    g \circ f = 1_{I_1}
+  \]
+  since $I_1$ is initial. By the same token $f \circ g = 1_{I_2}$
+  since $I_2$ is initial. This proves that $f \colon I_1 \to I_2$ is
+  an isomorphism, as needed.  The proof for final objects is entirely
+  analogous (\Cref{exer:5.3}).
 \end{proof}
 
-\Cref{prop:prelims:initial-final-unique} ``explains'' why, while not unique, the
-final objects in $\categ{Set}$ are all isomorphic: no singleton is more
-`special' than any other singleton; this is the typical situation. There may be
-psychological reasons why one initial or final object looks more compelling than
-others (for example, the singleton $\{\emptyset\} = 2^\emptyset$ may look to
-some like the most `natural' choice among all singletons), but this plays no
-role in how these objects sit in their category.
+\Cref{prop:prelims:initial-final-unique} ``explains'' why, while not
+unique, the final objects in $\categ{Set}$ are all isomorphic: no
+singleton is more `special' than any other singleton; this is the
+typical situation. There may be psychological reasons why one initial
+or final object looks more compelling than others (for example, the
+singleton $\{\emptyset\} = 2^\emptyset$ may look to some like the most
+`natural' choice among all singletons), but this plays no role in how
+these objects sit in their category.
 
 \subsection{Universal properties}
 \label{subsec:prelims:universal-properties}
-The most natural context in which to introduce \emph{universal properties}
-requires a good familiarity with the language of functors, which we will only
-introduce at a later stage (cf.\ \S{}VIII.1.1). For the purpose of the examples
-we will run across in (most of) this book, the following `working definition'
-should suffice.
-We say that a construction \emph{satisfies a universal property} (or `is the
-solution to a universal problem') when it may be viewed as a terminal object of
-a category. The category depends on the context and is usually explained `in
-words' (and often without even mentioning the word \emph{category}).
-In particularly simple cases this may take the form of a statement such as
-\emph{$\emptyset$ is universal with respect to the property of mapping to sets};
-this is synonymous with the assertion that $\emptyset$ is initial in the
-category $\categ{Set}$.
-More often, the situation is more complex. Since being initial/final amounts to
-the existence and uniqueness of certain morphisms, the `explanation' of a
-universal property may follow the pattern, ``object $X$ is universal with
-respect to the following property: for any $Y$ such that\ldots, there exists a
-unique morphism $Y \to X$ such that\ldots''
-The not-so-naive reader will recognize that this explanation hides the
-definition of an accessory category and the statement that $X$ is terminal
-(probably final in this case) in this new category. It is useful to learn how
-to translate such wordy explanations into what they really mean. Also, the
-reader should keep in mind that it is not uncommon to sweep under the rug part
-of the essential information about the solution to a universal problem (usually
-some key morphism): this information is presumably implicit in any given set-up.
-This will be apparent from the examples that follow.
+The most natural context in which to introduce \emph{universal
+  properties} requires a good familiarity with the language of
+functors, which we will only introduce at a later stage (cf.\
+\S{}VIII.1.1). For the purpose of the examples we will run across in
+(most of) this book, the following `working definition' should
+suffice.  We say that a construction \emph{satisfies a universal
+  property} (or `is the solution to a universal problem') when it may
+be viewed as a terminal object of a category. The category depends on
+the context and is usually explained `in words' (and often without
+even mentioning the word \emph{category}).  In particularly simple
+cases this may take the form of a statement such as \emph{$\emptyset$
+  is universal with respect to the property of mapping to sets}; this
+is synonymous with the assertion that $\emptyset$ is initial in the
+category $\categ{Set}$.  More often, the situation is more
+complex. Since being initial/final amounts to the existence and
+uniqueness of certain morphisms, the `explanation' of a universal
+property may follow the pattern, ``object $X$ is universal with
+respect to the following property: for any $Y$ such that\ldots, there
+exists a unique morphism $Y \to X$ such that\ldots'' The not-so-naive
+reader will recognize that this explanation hides the definition of an
+accessory category and the statement that $X$ is terminal (probably
+final in this case) in this new category. It is useful to learn how to
+translate such wordy explanations into what they really mean. Also,
+the reader should keep in mind that it is not uncommon to sweep under
+the rug part of the essential information about the solution to a
+universal problem (usually some key morphism): this information is
+presumably implicit in any given set-up.  This will be apparent from
+the examples that follow.
 
 \subsection{Quotients}
 \label{subsec:prelims:quotients}
-Let $\sim$ be an equivalence relation defined on a set $A$. Let's parse the
-assertion:
+Let $\sim$ be an equivalence relation defined on a set $A$. Let's
+parse the assertion:
 \begin{quote}
-``The quotient $A/{\sim}$ is universal with respect to the property of mapping
-$A$ to a set in such a way that equivalent elements have the same image.''
+  ``The quotient $A/{\sim}$ is universal with respect to the property
+  of mapping $A$ to a set in such a way that equivalent elements have
+  the same image.''
 \end{quote}
-What can this possibly mean, and is it true?
-The assertion is talking about functions
+What can this possibly mean, and is it true?  The assertion is talking
+about functions
 \[
   A \xrightarrow{\varphi} Z
 \]
@@ -1991,328 +2073,358 @@ with $Z$ any set, satisfying the property
 \[
   a' \sim a'' \Rightarrow \varphi(a') = \varphi(a'').
 \]
-These morphisms are objects of a category (very similar to the category defined
-in Example~3.7); for convenience, let's denote such an object by $(\varphi, Z)$.
-The only reasonable way to define morphisms $(\varphi_1, Z_1) \to (\varphi_2, Z_2)$
-is as commutative diagrams
+These morphisms are objects of a category (very similar to the
+category defined in Example~3.7); for convenience, let's denote such
+an object by $(\varphi, Z)$.  The only reasonable way to define
+morphisms $(\varphi_1, Z_1) \to (\varphi_2, Z_2)$ is as commutative
+diagrams
 \[
-\begin{tikzcd}
-  Z_1 \arrow[rr, "\sigma"] & & Z_2 \\
-  & A \arrow[ul, "\varphi_1"] \arrow[ur, "\varphi_2"'] &
-\end{tikzcd}
+  \begin{tikzcd}
+    Z_1 \arrow[rr, "\sigma"] & & Z_2 \\
+    & A \arrow[ul, "\varphi_1"] \arrow[ur, "\varphi_2"'] &
+  \end{tikzcd}
 \]
 This is the same definition considered in Example~3.7.
 
 Does this category have initial objects?
 \begin{prop}{}{prop:prelims:quotient-universal}
-Denoting by $\pi$ the `canonical projection' defined in Example~2.6, the pair
-$(\pi, A/{\sim})$ is an initial object of this category.
+  Denoting by $\pi$ the `canonical projection' defined in Example~2.6,
+  the pair $(\pi, A/{\sim})$ is an initial object of this category.
 \end{prop}
 
-This is what our writer meant by the mysterious assertion copied above. Once
-this is understood, it is very easy to prove that the assertion is indeed
-correct.
+This is what our writer meant by the mysterious assertion copied
+above. Once this is understood, it is very easy to prove that the
+assertion is indeed correct.
 
 \begin{proof}
-Consider any $(\varphi, Z)$ as above. We have to prove that there exists a
-unique morphism $(\pi, A/{\sim}) \to (\varphi, Z)$, that is, a unique
-commutative diagram
-\[
-\begin{tikzcd}
-  A/{\sim} \arrow[rr, "\overline{\varphi}"] & & Z \\
-  & A \arrow[ul, "\pi"] \arrow[ur, "\varphi"'] &
-\end{tikzcd}
-\]
-that is, a unique function $\overline{\varphi}$ making this diagram commute.
+  Consider any $(\varphi, Z)$ as above. We have to prove that there
+  exists a unique morphism $(\pi, A/{\sim}) \to (\varphi, Z)$, that
+  is, a unique commutative diagram
+  \[
+    \begin{tikzcd}
+      A/{\sim} \arrow[rr, "\overline{\varphi}"] & & Z \\
+      & A \arrow[ul, "\pi"] \arrow[ur, "\varphi"'] &
+    \end{tikzcd}
+  \]
+  that is, a unique function $\overline{\varphi}$ making this diagram
+  commute.
 
-Let $[a]_\sim$ be an arbitrary element of $A/{\sim}$. If the diagram is indeed
-going to commute, then necessarily
-\[
-  \overline{\varphi}([a]_\sim) = \varphi(a);
-\]
-this tells us that $\overline{\varphi}$ is indeed unique, if it exists at
-all---that is, if this prescription does define a function $A/{\sim} \to Z$.
+  Let $[a]_\sim$ be an arbitrary element of $A/{\sim}$. If the diagram
+  is indeed going to commute, then necessarily
+  \[
+    \overline{\varphi}([a]_\sim) = \varphi(a);
+  \]
+  this tells us that $\overline{\varphi}$ is indeed unique, if it
+  exists at all---that is, if this prescription does define a function
+  $A/{\sim} \to Z$.
 
-Hence, all we have to check is that $\overline{\varphi}$ is well-defined, that
-is, that if $[a_1]_\sim = [a_2]_\sim$, then $\varphi(a_1) = \varphi(a_2)$;
-and indeed
-\[
-  [a_1]_\sim = [a_2]_\sim \Rightarrow a_1 \sim a_2 \Rightarrow \varphi(a_1) = \varphi(a_2).
-\]
-This is precisely the condition that morphisms in our category satisfy.
+  Hence, all we have to check is that $\overline{\varphi}$ is
+  well-defined, that is, that if $[a_1]_\sim = [a_2]_\sim$, then
+  $\varphi(a_1) = \varphi(a_2)$; and indeed
+  \[ [a_1]_\sim = [a_2]_\sim \Rightarrow a_1 \sim a_2 \Rightarrow
+    \varphi(a_1) = \varphi(a_2).
+  \]
+  This is precisely the condition that morphisms in our category
+  satisfy.
 \end{proof}
-Note the several levels of sloppiness in the assertion considered above: it
-does not tell us very explicitly what category to consider; it does not tell us
-that we should especially pay attention to initial objects in this category.
-Worst of all, the solution to the universal problem is not really $A/{\sim}$,
-but rather \emph{the morphism} $\pi \colon A \to A/{\sim}$.
+Note the several levels of sloppiness in the assertion considered
+above: it does not tell us very explicitly what category to consider;
+it does not tell us that we should especially pay attention to initial
+objects in this category.  Worst of all, the solution to the universal
+problem is not really $A/{\sim}$, but rather \emph{the morphism}
+$\pi \colon A \to A/{\sim}$.
 
-The reader should practice the skill of translating loose assertions such as the
-one given above into precise statements; it is not at all uncommon to run into
-examples at the same level of `abuse of language' as this one.
+The reader should practice the skill of translating loose assertions
+such as the one given above into precise statements; it is not at all
+uncommon to run into examples at the same level of `abuse of language'
+as this one.
 
-The reason why we get away with writing such assertions is that the context
-really allows the experienced reader to parse them effectively, and they are
-substantially more concise than their spelled-out version. After all, there is
-in general no conceivable choice for a morphism $A \to A/{\sim}$ other than the
-canonical projection; hence, neglecting to mention it is forgivable. Also, the
-final object in the category considered above is supremely uninteresting (what
-is it? cf.\ \Cref{exer:5.5}), so surely we must have meant the initial one.
-What do we learn by viewing quotients in terms of their universal property? For
-example, suppose $\sim$ is the equivalence relation defined starting from a
-function $f \colon A \to B$, as in \S{}2.8. Then the reader will realize easily
-that $\image f$ also satisfies the universal property given above for $A/{\sim}$;
-therefore (by \Cref{prop:prelims:initial-final-unique}) $\image f$ and $A/{\sim}$
-must be isomorphic. This is precisely the content of Theorem~2.7; thus, the
-universal property sheds some light on the `canonical decomposition' studied in
-\S{}2.8.
+The reason why we get away with writing such assertions is that the
+context really allows the experienced reader to parse them
+effectively, and they are substantially more concise than their
+spelled-out version. After all, there is in general no conceivable
+choice for a morphism $A \to A/{\sim}$ other than the canonical
+projection; hence, neglecting to mention it is forgivable. Also, the
+final object in the category considered above is supremely
+uninteresting (what is it? cf.\ \Cref{exer:5.5}), so surely we must
+have meant the initial one.  What do we learn by viewing quotients in
+terms of their universal property? For example, suppose $\sim$ is the
+equivalence relation defined starting from a function
+$f \colon A \to B$, as in \S{}2.8. Then the reader will realize easily
+that $\image f$ also satisfies the universal property given above for
+$A/{\sim}$; therefore (by \Cref{prop:prelims:initial-final-unique})
+$\image f$ and $A/{\sim}$ must be isomorphic. This is precisely the
+content of Theorem~2.7; thus, the universal property sheds some light
+on the `canonical decomposition' studied in \S{}2.8.
 
 \subsection{Products}
 \label{subsec:prelims:products}
-It is also a very good exercise to stare at a familiar construction and try to
-see the universal property which may be behind it. I will now encourage you,
-dear reader, to contemplate the notion of the product of two sets given in
-\S{}1.4 and to see if the universal property it satisfies jumps out at you.
-Spoiler follows, so this is a good time to stop reading these notes and to try
-on your own.
-Here is the universal property. Let $A$, $B$ be sets, and consider the product
+It is also a very good exercise to stare at a familiar construction
+and try to see the universal property which may be behind it. I will
+now encourage you, dear reader, to contemplate the notion of the
+product of two sets given in \S{}1.4 and to see if the universal
+property it satisfies jumps out at you.  Spoiler follows, so this is a
+good time to stop reading these notes and to try on your own.  Here is
+the universal property. Let $A$, $B$ be sets, and consider the product
 $A \times B$, with the two natural projections:
 \[
-\begin{tikzcd}[column sep=small]
-  & A \times B \arrow[dl, "\pi_A"'] \arrow[dr, "\pi_B"] & \\
-  A & & B
-\end{tikzcd}
+  \begin{tikzcd}[column sep=small]
+    & A \times B \arrow[dl, "\pi_A"'] \arrow[dr, "\pi_B"] & \\
+    A & & B
+  \end{tikzcd}
 \]
 (see Example~2.4). Then for every set $Z$ and morphisms
 \[
-\begin{tikzcd}[column sep=small]
-  & Z \arrow[dl, "f_A"'] \arrow[dr, "f_B"] & \\
-  A & & B
-\end{tikzcd}
+  \begin{tikzcd}[column sep=small]
+    & Z \arrow[dl, "f_A"'] \arrow[dr, "f_B"] & \\
+    A & & B
+  \end{tikzcd}
 \]
-there exists a unique morphism $\sigma \colon Z \to A \times B$ such that the
-diagram
+there exists a unique morphism $\sigma \colon Z \to A \times B$ such
+that the diagram
 \[
-\begin{tikzcd}
-  & Z \arrow[d, "\sigma"] \arrow[ddl, "f_A"'] \arrow[ddr, "f_B"] & \\
-  & A \times B \arrow[dl, "\pi_A"] \arrow[dr, "\pi_B"'] & \\
-  A & & B
-\end{tikzcd}
+  \begin{tikzcd}
+    & Z \arrow[d, "\sigma"] \arrow[ddl, "f_A"'] \arrow[ddr, "f_B"] & \\
+    & A \times B \arrow[dl, "\pi_A"] \arrow[dr, "\pi_B"'] & \\
+    A & & B
+  \end{tikzcd}
 \]
-commutes. In this situation, $\sigma$ is usually denoted $f_A \times f_B$.
+commutes. In this situation, $\sigma$ is usually denoted
+$f_A \times f_B$.
 
 \begin{proof}
-Define $\forall z \in Z$:
-\[
-  \sigma(z) = (f_A(z), f_B(z)).
-\]
-This function\footnote{Note that there is no `well-definedness' issue this
-time.} manifestly makes the diagram commute: $\forall z \in Z$,
-\[
-  \pi_A \sigma(z) = \pi_A(f_A(z), f_B(z)) = f_A(z),
-\]
-showing that $\pi_A \circ \sigma = f_A$ and similarly $\pi_B \circ \sigma =
-f_B$. Further, the definition is forced by the commutativity of the diagram;
-so $\sigma$ is unique, as claimed.
+  Define $\forall z \in Z$:
+  \[
+    \sigma(z) = (f_A(z), f_B(z)).
+  \]
+  This function\footnote{Note that there is no `well-definedness'
+    issue this time.} manifestly makes the diagram commute:
+  $\forall z \in Z$,
+  \[
+    \pi_A \sigma(z) = \pi_A(f_A(z), f_B(z)) = f_A(z),
+  \]
+  showing that $\pi_A \circ \sigma = f_A$ and similarly
+  $\pi_B \circ \sigma = f_B$. Further, the definition is forced by the
+  commutativity of the diagram; so $\sigma$ is unique, as claimed.
 \end{proof}
-In other words, products of sets (or, more precisely, products of sets together
-with the information of their natural projections to the factors) are final
-objects in the category $\categ{C}_{A,B}$ considered in Example~3.9, for
-$\categ{C} = \categ{Set}$.
-What is the advantage of viewing products this way? The main advantage is that
-the universal property may be stated in \emph{any} category, while the
-definition of products given in \S{}1.4 only makes sense in $\categ{Set}$ (and
-possibly in other categories where one has a notion of `elements'). We say that
-a category $\categ{C}$ \emph{has (finite) products}, or is a category `with
-(finite) products', if for all objects $A$, $B$ in $\categ{C}$ the category
-$\categ{C}_{A,B}$ considered in Example~3.9 has final objects. Such a final
-object consists of the data of an object of $\categ{C}$, usually denoted
-$A \times B$, and of two morphisms $A \times B \to A$, $A \times B \to B$.
-Note that a `product' from this perspective does not need to `look like a
-product'. Consider our recurring example of the category obtained from $\leq$
-on $\Z$, as in Example~3.3. Does this category have products? Objects
-of this category are simply integers $a, b \in \Z$; call $a \times b$
-for a moment the `categorical' product of $a$ and $b$. The universal property
-written out above becomes, in this case: for all $z \in \Z$ such that
+In other words, products of sets (or, more precisely, products of sets
+together with the information of their natural projections to the
+factors) are final objects in the category $\categ{C}_{A,B}$
+considered in Example~3.9, for $\categ{C} = \categ{Set}$.  What is the
+advantage of viewing products this way? The main advantage is that the
+universal property may be stated in \emph{any} category, while the
+definition of products given in \S{}1.4 only makes sense in
+$\categ{Set}$ (and possibly in other categories where one has a notion
+of `elements'). We say that a category $\categ{C}$ \emph{has (finite)
+  products}, or is a category `with (finite) products', if for all
+objects $A$, $B$ in $\categ{C}$ the category $\categ{C}_{A,B}$
+considered in Example~3.9 has final objects. Such a final object
+consists of the data of an object of $\categ{C}$, usually denoted
+$A \times B$, and of two morphisms $A \times B \to A$,
+$A \times B \to B$.  Note that a `product' from this perspective does
+not need to `look like a product'. Consider our recurring example of
+the category obtained from $\leq$ on $\Z$, as in Example~3.3. Does
+this category have products? Objects of this category are simply
+integers $a, b \in \Z$; call $a \times b$ for a moment the
+`categorical' product of $a$ and $b$. The universal property written
+out above becomes, in this case: for all $z \in \Z$ such that
 $z \leq a$ and $z \leq b$, we have $z \leq a \times b$.
 
-This universal problem does have a solution $\forall a, b$: it is conventionally
-not called $a \times b$, but rather $\min(a, b)$. It is immediate to see that
-$\min(a, b)$ satisfies the property. Thus this category has products, and in
-fact we see that the product in this category amounts to the familiar operation
-of taking the minimum of two integers.
+This universal problem does have a solution $\forall a, b$: it is
+conventionally not called $a \times b$, but rather $\min(a, b)$. It is
+immediate to see that $\min(a, b)$ satisfies the property. Thus this
+category has products, and in fact we see that the product in this
+category amounts to the familiar operation of taking the minimum of
+two integers.
 
-Thus there is an unexpected connection between `the Cartesian product of two
-sets' and `the minimum of two integers': both are examples of products, taken in
-different categories; they both satisfy `the same' universal property, in
-different contexts.
+Thus there is an unexpected connection between `the Cartesian product
+of two sets' and `the minimum of two integers': both are examples of
+products, taken in different categories; they both satisfy `the same'
+universal property, in different contexts.
 
 \subsection{Coproducts}
 \label{subsec:prelims:coproducts}
-The prefix \emph{co-} usually indicates that one is `reversing all arrows'.
-Just as products are final objects in the categories $\categ{C}_{A,B}$ obtained
-by considering morphisms in $\categ{C}$ with common source, whose targets are
-$A$ and $B$, coproducts will be initial objects in the
-categories\footnote{These categories were also considered in Example~3.9;
-cf.\ \Cref{exer:3.11}.} $\categ{C}^{A,B}$ of morphisms with common target,
-whose sources are $A$ and $B$. Dear reader, look away and spell this universal
-property out before we do.
+The prefix \emph{co-} usually indicates that one is `reversing all
+arrows'.  Just as products are final objects in the categories
+$\categ{C}_{A,B}$ obtained by considering morphisms in $\categ{C}$
+with common source, whose targets are $A$ and $B$, coproducts will be
+initial objects in the categories\footnote{These categories were also
+  considered in Example~3.9; cf.\ \Cref{exer:3.11}.} $\categ{C}^{A,B}$
+of morphisms with common target, whose sources are $A$ and $B$. Dear
+reader, look away and spell this universal property out before we do.
 Here it is. Let $A$, $B$ be objects of a category $\categ{C}$. A
 \textbf{coproduct} $A \amalg B$ of $A$ and $B$ will be an object of
 $\categ{C}$, endowed with two morphisms $i_A \colon A \to A \amalg B$,
-$i_B \colon B \to A \amalg B$ and satisfying the following universal property:
-for all objects $Z$ and morphisms
+$i_B \colon B \to A \amalg B$ and satisfying the following universal
+property: for all objects $Z$ and morphisms
 \[
-\begin{tikzcd}[column sep=small]
-  A \arrow[dr, "f_A"] & & B \arrow[dl, "f_B"'] \\
-  & Z &
-\end{tikzcd}
+  \begin{tikzcd}[column sep=small]
+    A \arrow[dr, "f_A"] & & B \arrow[dl, "f_B"'] \\
+    & Z &
+  \end{tikzcd}
 \]
-there exists a unique morphism $\sigma \colon A \amalg B \to Z$ such that the
-diagram
+there exists a unique morphism $\sigma \colon A \amalg B \to Z$ such
+that the diagram
 \[
-\begin{tikzcd}
-  A \arrow[dr, "i_A"'] \arrow[ddr, "f_A"'] & & B \arrow[dl, "i_B"] \arrow[ddl, "f_B"] \\
-  & A \amalg B \arrow[d, "\sigma"] & \\
-  & Z &
-\end{tikzcd}
+  \begin{tikzcd}
+    A \arrow[dr, "i_A"'] \arrow[ddr, "f_A"'] & & B \arrow[dl, "i_B"] \arrow[ddl, "f_B"] \\
+    & A \amalg B \arrow[d, "\sigma"] & \\
+    & Z &
+  \end{tikzcd}
 \]
-commutes. The symmetry with the universal property of products is hopefully
-completely apparent. We say that a category $\categ{C}$ \emph{has coproducts}
-if this universal problem has a solution for all pairs of objects $A$ and $B$.
-Is the reader familiar with any coproduct? Yes!
+commutes. The symmetry with the universal property of products is
+hopefully completely apparent. We say that a category $\categ{C}$
+\emph{has coproducts} if this universal problem has a solution for all
+pairs of objects $A$ and $B$.  Is the reader familiar with any
+coproduct? Yes!
 
 \begin{prop}{}{prop:prelims:disjoint-union-coproduct}
   The disjoint union is a coproduct in $\categ{Set}$.
 \end{prop}
 \begin{proof}
-Recall (\S{}1.4) that the disjoint union $A \amalg B$ is defined as the union
-of two disjoint isomorphic copies $A'$, $B'$ of $A$, $B$, respectively; for
-example, we may let $A' = \{0\} \times A$, $B' = \{1\} \times B$. The
-functions $i_A$, $i_B$ are defined by
-\[
-  i_A(a) = (0, a), \qquad i_B(b) = (1, b),
-\]
-where we view these elements as elements of $(\{0\} \times A) \cup (\{1\} \times B)$.
+  Recall (\S{}1.4) that the disjoint union $A \amalg B$ is defined as
+  the union of two disjoint isomorphic copies $A'$, $B'$ of $A$, $B$,
+  respectively; for example, we may let $A' = \{0\} \times A$,
+  $B' = \{1\} \times B$. The functions $i_A$, $i_B$ are defined by
+  \[
+    i_A(a) = (0, a), \qquad i_B(b) = (1, b),
+  \]
+  where we view these elements as elements of
+  $(\{0\} \times A) \cup (\{1\} \times B)$.
 
-Now let $f_A \colon A \to Z$, $f_B \colon B \to Z$ be arbitrary morphisms to a
-common target. Define
-\[
-  \sigma \colon A \amalg B = (\{0\} \times A) \cup (\{1\} \times B) \to Z
-\]
-by
-\[
-  \sigma(c) = \begin{cases} f_A(a) & \text{if } c = (0,a) \in \{0\} \times A, \\
-                             f_B(b) & \text{if } c = (1,b) \in \{1\} \times B. \end{cases}
-\]
-This definition makes the relevant diagram commute and is in fact forced upon us
-by this commutativity, proving that $\sigma$ exists and is unique.
+  Now let $f_A \colon A \to Z$, $f_B \colon B \to Z$ be arbitrary
+  morphisms to a common target. Define
+  \[
+    \sigma \colon A \amalg B = (\{0\} \times A) \cup (\{1\} \times B)
+    \to Z
+  \]
+  by
+  \[
+    \sigma(c) = \begin{cases} f_A(a) & \text{if } c = (0,a) \in \{0\} \times A, \\
+      f_B(b) & \text{if } c = (1,b) \in \{1\} \times B. \end{cases}
+  \]
+  This definition makes the relevant diagram commute and is in fact
+  forced upon us by this commutativity, proving that $\sigma$ exists
+  and is unique.
 \end{proof}
-This observation tells us that the category $\categ{Set}$ has coproducts and
-further sheds considerable light on the mysteries of disjoint unions. For
-example, there was an element of arbitrariness in our choice of `a' disjoint
-union, although different choices led to isomorphic notions. Now we see why:
-terminal objects of a category are not unique in general, although they are
-unique up to isomorphism (\Cref{prop:prelims:initial-final-unique}); there is
-not a `most beautiful' disjoint union of two sets just as there is not a `most
+This observation tells us that the category $\categ{Set}$ has
+coproducts and further sheds considerable light on the mysteries of
+disjoint unions. For example, there was an element of arbitrariness in
+our choice of `a' disjoint union, although different choices led to
+isomorphic notions. Now we see why: terminal objects of a category are
+not unique in general, although they are unique up to isomorphism
+(\Cref{prop:prelims:initial-final-unique}); there is not a `most
+beautiful' disjoint union of two sets just as there is not a `most
 beautiful' singleton in $\categ{Set}$ (cf.\ \S{}5.1).
 
-Also, an unexpected `symmetry' between products and disjoint unions becomes
-suddenly apparent from the point of view of universal properties.
+Also, an unexpected `symmetry' between products and disjoint unions
+becomes suddenly apparent from the point of view of universal
+properties.
 
-The reader is invited to contemplate the notion of coproduct in the other
-categories we have encountered. For example (and probably not surprisingly at
-this point) the category obtained from $\leq$ on $\Z$ does have
-coproducts: the coproduct of two objects (i.e., integers) $a$, $b$ is simply
-the maximum of $a$ and $b$.
+The reader is invited to contemplate the notion of coproduct in the
+other categories we have encountered. For example (and probably not
+surprisingly at this point) the category obtained from $\leq$ on $\Z$
+does have coproducts: the coproduct of two objects (i.e., integers)
+$a$, $b$ is simply the maximum of $a$ and $b$.
 
 \subsection*{Exercises}
 
 \begin{exer}{}{exer:5.1}
-Prove that a final object in a category $\categ{C}$ is initial in the opposite
-category $\categ{C}^{op}$ (cf.\ \Cref{exer:3.1}).
+  Prove that a final object in a category $\categ{C}$ is initial in
+  the opposite category $\categ{C}^{op}$ (cf.\ \Cref{exer:3.1}).
 \end{exer}
 
 \begin{exer}{\exerused}{exer:5.2}
-Prove that $\emptyset$ is the unique initial object in $\categ{Set}$. [\S{}5.1]
+  Prove that $\emptyset$ is the unique initial object in
+  $\categ{Set}$. [\S{}5.1]
 \end{exer}
 
 \begin{exer}{\exerused}{exer:5.3}
-Prove that final objects are unique up to isomorphism. [\S{}5.1]
+  Prove that final objects are unique up to isomorphism. [\S{}5.1]
 \end{exer}
 
 \begin{exer}{}{exer:5.4}
-What are initial and final objects in the category of `pointed sets'
-(Example~3.8)? Are they unique?
+  What are initial and final objects in the category of `pointed sets'
+  (Example~3.8)? Are they unique?
 \end{exer}
 
 \begin{exer}{\exerused}{exer:5.5}
-What are the final objects in the category considered in \S{}5.3? [\S{}5.3]
+  What are the final objects in the category considered in \S{}5.3?
+  [\S{}5.3]
 \end{exer}
 
 \begin{exer}{\exerused}{exer:5.6}
-Consider the category corresponding to endowing (as in Example~3.3) the set
-$\Z^+$ of positive integers with the divisibility relation. Thus there
-is exactly one morphism $d \to m$ in this category if and only if $d$ divides
-$m$ without remainder; there is no morphism between $d$ and $m$ otherwise. Show
-that this category has products and coproducts. What are their `conventional'
-names? [\S{}VII.5.1]
+  Consider the category corresponding to endowing (as in Example~3.3)
+  the set $\Z^+$ of positive integers with the divisibility
+  relation. Thus there is exactly one morphism $d \to m$ in this
+  category if and only if $d$ divides $m$ without remainder; there is
+  no morphism between $d$ and $m$ otherwise. Show that this category
+  has products and coproducts. What are their `conventional' names?
+  [\S{}VII.5.1]
 \end{exer}
 
 \begin{exer}{}{exer:5.7}
-Redo \Cref{exer:2.9}, this time using \Cref{prop:prelims:initial-final-unique}.
+  Redo \Cref{exer:2.9}, this time using
+  \Cref{prop:prelims:initial-final-unique}.
 \end{exer}
 
 \begin{exer}{}{exer:5.8}
-Show that in every category $\categ{C}$ the products $A \times B$ and
-$B \times A$ are isomorphic, if they exist.
-\begin{hint}
-Observe that they both satisfy the universal property for the product of $A$ and
-$B$; then use \Cref{prop:prelims:initial-final-unique}.
-\end{hint}
+  Show that in every category $\categ{C}$ the products $A \times B$
+  and $B \times A$ are isomorphic, if they exist.
+  \begin{hint}
+    Observe that they both satisfy the universal property for the
+    product of $A$ and $B$; then use
+    \Cref{prop:prelims:initial-final-unique}.
+  \end{hint}
 \end{exer}
 
 \begin{exer}{}{exer:5.9}
-Let $\categ{C}$ be a category with products. Find a reasonable candidate for
-the universal property that the product $A \times B \times C$ of three objects
-of $\categ{C}$ ought to satisfy, and prove that both $(A \times B) \times C$
-and $A \times (B \times C)$ satisfy this universal property. Deduce that
-$(A \times B) \times C$ and $A \times (B \times C)$ are necessarily isomorphic.
+  Let $\categ{C}$ be a category with products. Find a reasonable
+  candidate for the universal property that the product
+  $A \times B \times C$ of three objects of $\categ{C}$ ought to
+  satisfy, and prove that both $(A \times B) \times C$ and
+  $A \times (B \times C)$ satisfy this universal property. Deduce that
+  $(A \times B) \times C$ and $A \times (B \times C)$ are necessarily
+  isomorphic.
 \end{exer}
 
 \begin{exer}{}{exer:5.10}
-Push the envelope a little further still, and define products and coproducts for
-families (i.e., indexed sets) of objects of a category. Do these exist in
-$\categ{Set}$? It is common to denote the product $A \times \cdots \times A$
-($n$ times) by $A^n$.
+  Push the envelope a little further still, and define products and
+  coproducts for families (i.e., indexed sets) of objects of a
+  category. Do these exist in $\categ{Set}$? It is common to denote
+  the product $A \times \cdots \times A$ ($n$ times) by $A^n$.
 \end{exer}
 
 \begin{exer}{}{exer:5.11}
-Let $A$, resp.\ $B$ be a set, endowed with an equivalence relation $\sim_A$,
-resp.\ $\sim_B$. Define a relation $\sim$ on $A \times B$ by setting
-\[
-  (a_1, b_1) \sim (a_2, b_2) \iff a_1 \sim_A a_2 \text{ and } b_1 \sim_B b_2.
-\]
-(This is immediately seen to be an equivalence relation.)
-\begin{itemize}
-  \item Use the universal property for quotients (\S{}5.3) to establish that
-        there are functions $(A \times B)/{\sim} \to A/{\sim_A}$,
-        $(A \times B)/{\sim} \to B/{\sim_B}$.
-  \item Prove that $(A \times B)/{\sim}$, with these two functions, satisfies
-        the universal property for the product of $A/{\sim_A}$ and $B/{\sim_B}$.
+  Let $A$, resp.\ $B$ be a set, endowed with an equivalence relation
+  $\sim_A$, resp.\ $\sim_B$. Define a relation $\sim$ on $A \times B$
+  by setting
+  \[
+    (a_1, b_1) \sim (a_2, b_2) \iff a_1 \sim_A a_2 \text{ and } b_1
+    \sim_B b_2.
+  \]
+  (This is immediately seen to be an equivalence relation.)
+  \begin{itemize}
+  \item Use the universal property for quotients (\S{}5.3) to
+    establish that there are functions
+    $(A \times B)/{\sim} \to A/{\sim_A}$,
+    $(A \times B)/{\sim} \to B/{\sim_B}$.
+  \item Prove that $(A \times B)/{\sim}$, with these two functions,
+    satisfies the universal property for the product of $A/{\sim_A}$
+    and $B/{\sim_B}$.
   \item Conclude (without further work) that
-        $(A \times B)/{\sim} \cong (A/{\sim_A}) \times (B/{\sim_B})$.
-\end{itemize}
+    $(A \times B)/{\sim} \cong (A/{\sim_A}) \times (B/{\sim_B})$.
+  \end{itemize}
 \end{exer}
 
 \begin{exer}{\lnot}{exer:5.12}
-Define the notions of fibered products and fibered coproducts, as terminal
-objects of the categories $\categ{C}_{\alpha,\beta}$,
-$\categ{C}^{\alpha,\beta}$ considered in Example~3.10 (cf.\ also
-\Cref{exer:3.11}), by stating carefully the corresponding universal properties.
-As it happens, $\categ{Set}$ has both fibered products and coproducts. Define
-these objects `concretely', in terms of naive set theory.
-[II.3.9, III.6.10, III.6.11]
+  Define the notions of fibered products and fibered coproducts, as
+  terminal objects of the categories $\categ{C}_{\alpha,\beta}$,
+  $\categ{C}^{\alpha,\beta}$ considered in Example~3.10 (cf.\ also
+  \Cref{exer:3.11}), by stating carefully the corresponding universal
+  properties.  As it happens, $\categ{Set}$ has both fibered products
+  and coproducts. Define these objects `concretely', in terms of naive
+  set theory.  [II.3.9, III.6.10, III.6.11]
 \end{exer}
 
 %%% Local Variables:
