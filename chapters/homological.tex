@@ -4749,219 +4749,220 @@ injectives finally establishes Theorem~\ref{thm:homol:5.9}:
 \section{Projective and injective resolutions and the derived category}
 \label{sec:homol:projective-and-injective-resolutions-and-the-derived-category}
 
-% Theorem 5.9 is very good news. It tells us that if we are willing and able to
-% change
-% our viewpoint and adopt bounded complexes of projectives or injectives as our
-% natural environment, then we will have an excellent handle on the subtle notion
-% of quasi-isomorphism: because quasi-isomorphisms become homotopy equivalences
-% in that environment and homotopy equivalences are better behaved than arbitrary
-% quasi-isomorphisms. For example, homotopy equivalence of complexes is manifestly
-% an equivalence relation (Exercise 4.4), while quasi-isomorphism is not (see the
-% dis-
-% cussion following Example 4.6). Further, homotopy equivalences are preserved by
-% every additive functor (Theorem 4.14), while general quasi-isomorphisms are not
-% (Exercise 4.15).
-% The question is therefore how to switch to a homotopic environment and adopt
-% complexes of projectives or injectives as our primary object of study, while
-% keeping
-% intact the essential information carried by the objects of A or even the
-% complexes
-% in C(A).
-% This can be done if A has enough projectives or enough injectives; in this
-% situation, we will be able to produce an adequate description of the derived
-% category
-% (\S{}6.3).
+Theorem~\ref{thm:homol:5.9} is very good news. It tells us that if we
+are willing and able to change our viewpoint and adopt bounded
+complexes of projectives or injectives as our natural environment,
+then we will have an excellent handle on the subtle notion of
+quasi-isomorphism: because quasi-isomorphisms become homotopy
+equivalences in that environment and homotopy equivalences are
+better behaved than arbitrary quasi-isomorphisms. For example,
+homotopy equivalence of complexes is manifestly an equivalence
+relation (Exercise~4.4), while quasi-isomorphism is not (see the
+discussion following Example~4.6). Further, homotopy equivalences
+are preserved by every additive functor (Theorem~4.14), while
+general quasi-isomorphisms are not (Exercise~4.15).
+
+The question is therefore how to switch to a homotopic environment
+and adopt complexes of projectives or injectives as our primary
+object of study, while keeping intact the essential information
+carried by the objects of $\mathsf{A}$ or even the complexes in
+$\mathsf{C}(\mathsf{A})$.
+
+This can be done if $\mathsf{A}$ has enough projectives or enough
+injectives; in this situation, we will be able to produce an
+adequate description of the derived category (\S{}6.3).
 
 \subsection{Recovering A}
 \label{subsec:homol:recovering-a}
-% Recall once more that a `copy' of an abelian category A is
 
-% available within C(A), by associating with every object A in A the complex \iota
-% (A)
-% having A in degree 0 and 0 elsewhere. Composing with the functor C(A) \to  K(A)
-% realizes A as a full subcategory of K(A) (Exercise 6.1). We will look for `more
-% interesting' copies of A in the homotopic category.
-% Let us begin by recalling (and sharpening) our definition of
-% projective/injective
-% resolutions of an object A.
-% Definition 6.1. Let A be an object of an abelian category A.
-% A projective resolution of A is a quasi-isomorphism P \bullet  \to  \iota (A),
-% where P \bullet  is a
-% \leq 0complex in C (P).
-% An injective resolution of A is a quasi-isomorphism \iota (A) \to  Q\bullet  ,
-% where Q\bullet  is a
-% complex in C\geq 0 (I).
-%  ?
-% By common abuse of language, I will often refer to P \bullet  or Q\bullet  as
-% the resolution,
-% leaving the quasi-isomorphism understood.
-% Remark 6.2. The terminology is potentially confusing, since it hints that the
-% resolutions themselves may be projective/injective as objects of the abelian
-% cate-
-% gory C(A), or of its bounded variations. This is not the case (Exercise 6.3).
-%  ?
-% Projective or injective resolutions need not exist: as I pointed out (Exam-
-% ple 5.6), an abelian category may have no nontrivial projective or injective
-% objects.
-% It is however clear that such resolutions exist if the category has enough
-% projec-
-% tives/injectives: if A has enough projectives, then given any object A of A
-% there
-% is a projective P 0 with an epimorphism \pi  : P 0 \to  A; and then a projective
-% P -1
-% with an epimorphism d-1 : P -1 \to  ker \pi ; and then a projective P -2 with an
-% epimorphism d-2 : P -2 \to  ker d-1 ; and so on. Letting diP \bullet  be the
-% composition
-% P i / ker di+1 / / P i+1 gives
-% d-2
-%  P \bullet 
-%  d-1
-%  P \bullet 
-% \cdot \cdot \cdot 
-%  / P -2
-%  / P -1
-%  / P 0
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% a projective resolution of A. Just as clearly, if A has enough injectives, then
-% every
-% object A has an injective resolution.
-% Now consider the category of homotopy classes of quasi-isomorphisms with tar-
-% get \iota (A) (cf. Remark 4.5): this is a `homotopic category of resolutions' of
-% A. I claim
-% that projective resolutions, if they exist, are initial in this category.
-% (Analogously,
-% injective resolutions are final in the homotopic category of quasi-isomorphism
-% with
-% source \iota (A).)
-% As the reader knows, this means that projective resolutions are supposed to
-% map uniquely (in K(A)) to every resolution of A. The following key lemma proves
-% this and more:
-% \bullet Lemma 6.3. Let A be an object of an abelian category A. Let M be a resolution
-% \bullet  \leq 0of A, and let P be any complex in C (P). Let
-% \phi  : H 0 (P \bullet  ) \to  H 0 (M \bullet  ) = A
-% be an arbitrary morphism. Then
-% \bullet  there exist morphisms of complexes \alpha \bullet  : P \bullet  \to  M \bullet  inducing \phi  at the level
-% of H 0 ;
-% \bullet  different morphisms satisfying the previous requirement are necessarily homo-
-% topy equivalent.
-% Of course an analogous statement holds for complexes Q\bullet  in C\geq 0 (I),
-% giving
-% morphisms of cochain complexes M \bullet  \to  Q\bullet  inducing a given
-% morphism in H 0.
-% Proof. We have to define \alpha i : P i \to  M i for all i. Since \alpha i = 0
-% necessarily for i > 0,
-% \bullet we may as well replace M with its truncated version (cf. Exercise 3.1) and then
-% \bullet extend both P and this complex as follows:
-% -2
-%  -1
-% \cdot \cdot \cdot 
-%  / P -2
-%  dP \bullet 
-%  / P -1
-%  dP \bullet 
-%  / P 0
-%  \pi 
-%  / H 0(P \bullet  )
-%  / 0
-% \alpha -2
-%  \alpha -1
-%  \alpha 0
-%  \phi 
-% \sqcup 
-%  d-2
-%  M \bullet 
-%  \sqcup 
-%  d-1
-%  M \bullet 
-%  \sqcup 
-%  \mu 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / M -2
-%  / M -1
-%  / ker d0 M
-%  \bullet 
-%  / H 0 (M \bullet  ) = A
-%  / 0
-% Note that the bottom complex is then exact. The morphism \phi  is given to us,
-% and
-% the task is to define the dotted lifts \alpha i , i \leq  0, so as to obtain a
-% morphism of
-% complexes.
-% Now, P 0 is projective and maps to A by \phi  \circ  \pi ; this guarantees the
-% existence of
-% a lifting \alpha 0 of \phi . (The map P 0 \to  M 0 to the degree-0 term of the
-% original complex
-% is obtained by following with ker d0 M \bullet  / / M 0 .) Next, note that
-% \mu  \circ  \alpha 0 \circ  d-1
-%  P \bullet  = \phi  \circ  \pi  \circ  dP -1
-%  \bullet  = 0;
-% therefore, \alpha 0 \circ  d P -1
-%  \bullet  factors through ker \mu . Since the bottom complex is exact, ker \mu  =
-% -1
-% im dM
-%  \bullet 
-%  .
-%  Therefore,
-%  we have the diagram
-% -1
-% P0 -1
-% \alpha  \circ  dP \bullet 
-% d-1
-%  M \bullet 
-%  \sqcup 
-% M -1
-%  / im d-1 M
-%  \bullet 
-%  / 0
-% and a lift \alpha -1 then exists since P -1 is projective.
-% The construction of the other \alpha -i, i > 1, proceeds inductively in
-% precisely the
-% same way, using at each step the fact that the bottom complex is exact.
-% This proves the existence of \alpha \bullet  : P \bullet  \to  M \bullet  . Its
-% uniqueness up to homotopy
-% follows immediately from Lemma 5.11.
-%  ?
-% Summarizing, if A contains enough projectives, then every object A of A ad-
-% mits a projective resolution, and further this is initial among all resolutions
-% with
-% target \iota (A). If A has enough injectives, then every object A of A admits an
-% injective
-% resolution, and this is final among all resolutions with source \iota (A).
-% Recall that initial, resp., final, objects of a category are always unique up to
-% isomorphism (Proposition I.5.4). Here, this says the following:
-% Proposition 6.4. Any two projective (resp., injective) resolutions of an object
-% A
-% of an abelian category A are homotopy equivalent.
-% (This is also a direct consequence of Lemma 6.3.)
-% The moral I extract from these considerations is that if an abelian category A
-% has enough (say) projectives, then we can associate with each object A of A an
-% \leq 0object of K (P), determined up to homotopy. This can in fact be done functorially,
-% in the sense that morphisms in A can be lifted to morphisms of corresponding
-% projective resolutions:
-% \bullet Proposition 6.5. Let A0 , A1 be objects of an abelian category A, and let Pi be
-% a projective resolution of Ai, i = 0, 1. Then every morphism \phi  : A0 \to  A1
-% in A is
-% induced by a morphism \alpha \bullet  : P0 \bullet  \to  P1 \bullet  , uniquely
-% determined up to homotopy.
-% Of course an analogous statement holds for injective resolutions.
-% Proof. By hypothesis, \phi  is a morphism H 0 (P0 \bullet  ) \to  H 0 (P1
-% \bullet  ). The complex P0 \bullet
-% consists of projectives, and P1 \bullet  is a resolution of A1 ; therefore a
-% lift \alpha \bullet  exists and
-% is unique up to homotopy, as an immediate consequence of Lemma 6.3.
-%  ?
-% The assignment provided by Proposition 6.5 is clearly covariant. The bottom
-% line is that the part of A consisting of objects with (say) projective
-% resolutions
-% -is equivalent to a full subcategory of K (P). Dear reader, please formalize
-% this
-% assertion, for it is a key point (Exercise 6.2). If A has enough projectives,
-% this gives
-% -the promised `copy' of A within K (P).
-% Of course the situation is entirely analogous concerning the subcategory of A
-% consisting of objects admitting an injective resolution and K+ (I).
+Recall once more that a `copy' of an abelian category $\mathsf{A}$ is
+available within $\mathsf{C}(\mathsf{A})$, by associating with every
+object $A$ in $\mathsf{A}$ the complex $\iota(A)$ having $A$ in
+degree $0$ and $0$ elsewhere. Composing with the functor
+$\mathsf{C}(\mathsf{A}) \to \mathsf{K}(\mathsf{A})$ realizes
+$\mathsf{A}$ as a full subcategory of $\mathsf{K}(\mathsf{A})$
+(Exercise~6.1). We will look for `more interesting' copies of
+$\mathsf{A}$ in the homotopic category.
+
+Let us begin by recalling (and sharpening) our definition of
+projective/injective resolutions of an object $A$.
+
+\begin{defn}{}{defn:homol:6.1}
+  Let $A$ be an object of an abelian category $\mathsf{A}$.
+
+  A \emph{projective resolution} of $A$ is a quasi-isomorphism
+  $P^\bullet \to \iota(A)$, where $P^\bullet$ is a complex in
+  $\mathsf{C}^{\le 0}(\mathsf{P})$.
+
+  An \emph{injective resolution} of $A$ is a quasi-isomorphism
+  $\iota(A) \to Q^\bullet$, where $Q^\bullet$ is a complex in
+  $\mathsf{C}^{\ge 0}(\mathsf{I})$.
+\end{defn}
+
+By common abuse of language, I will often refer to $P^\bullet$ or
+$Q^\bullet$ as \emph{the} resolution, leaving the quasi-isomorphism
+understood.
+
+\begin{rem}{}{rem:homol:6.2}
+  The terminology is potentially confusing, since it hints that the
+  resolutions themselves may be projective/injective as objects of
+  the abelian category $\mathsf{C}(\mathsf{A})$, or of its bounded
+  variations. This is not the case (Exercise~6.3).
+\end{rem}
+
+Projective or injective resolutions need not exist: as I pointed out
+(Example~5.6), an abelian category may have no nontrivial projective
+or injective objects. It is however clear that such resolutions
+exist \emph{if} the category has enough projectives/injectives: if
+$\mathsf{A}$ has enough projectives, then given any object $A$ of
+$\mathsf{A}$ there is a projective $P^0$ with an epimorphism $\pi :
+P^0 \to A$; and then a projective $P^{-1}$ with an epimorphism $d^{-1}
+: P^{-1} \to \ker\pi$; and then a projective $P^{-2}$ with an
+epimorphism $d^{-2} : P^{-2} \to \ker d^{-1}$; and so on. Letting
+$d^i_{P^\bullet}$ be the composition $P^i \twoheadrightarrow \ker
+d^{i+1} \hookrightarrow P^{i+1}$ gives
+\[\begin{tikzcd}[column sep=large]
+  \dots \arrow[r] & P^{-2} \arrow[r, "d_{P^\bullet}^{-2}"] &
+    P^{-1} \arrow[r, "d_{P^\bullet}^{-1}"] & P^0 \arrow[r] &
+    0 \arrow[r] & \dots,
+\end{tikzcd}\]
+a projective resolution of $A$. Just as clearly, if $\mathsf{A}$ has
+enough injectives, then every object $A$ has an injective resolution.
+
+Now consider the category of homotopy classes of quasi-isomorphisms
+with target $\iota(A)$ (cf. Remark~4.5): this is a `homotopic
+category of resolutions' of $A$. I claim that projective
+resolutions, if they exist, are \emph{initial} in this category.
+(Analogously, injective resolutions are \emph{final} in the
+homotopic category of quasi-isomorphism with source $\iota(A)$.)
+
+As the reader knows, this means that projective resolutions are
+supposed to map uniquely (in $\mathsf{K}(\mathsf{A})$) to every
+resolution of $A$. The following key lemma proves this and more:
+
+\begin{lem}{}{lem:homol:6.3}
+  Let $A$ be an object of an abelian category $\mathsf{A}$. Let
+  $M^\bullet$ be a resolution of $A$, and let $P^\bullet$ be any
+  complex in $\mathsf{C}^{\le 0}(\mathsf{P})$. Let
+  \[
+    \varphi : H^0(P^\bullet) \to H^0(M^\bullet) = A
+  \]
+  be an arbitrary morphism. Then
+  \begin{itemize}
+  \item there exist morphisms of complexes $\alpha^\bullet : P^\bullet
+    \to M^\bullet$ inducing $\varphi$ at the level of $H^0$;
+  \item different morphisms satisfying the previous requirement are
+    necessarily homotopy equivalent.
+  \end{itemize}
+  Of course an analogous statement holds for complexes $Q^\bullet$ in
+  $\mathsf{C}^{\ge 0}(\mathsf{I})$, giving morphisms of cochain
+  complexes $M^\bullet \to Q^\bullet$ inducing a given morphism in
+  $H^0$.
+\end{lem}
+\begin{proof}
+  We have to define $\alpha^i : P^i \to M^i$ for all $i$. Since
+  $\alpha^i = 0$ necessarily for $i > 0$, we may as well replace
+  $M^\bullet$ with its truncated version (cf. Exercise~3.1) and then
+  extend both $P^\bullet$ and this complex as follows:
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & P^{-2} \arrow[r, "d_{P^\bullet}^{-2}"]
+      \arrow[d, dashed, "\alpha^{-2}"] &
+      P^{-1} \arrow[r, "d_{P^\bullet}^{-1}"]
+      \arrow[d, dashed, "\alpha^{-1}"] &
+      P^0 \arrow[r, "\pi"] \arrow[d, dashed, "\alpha^0"] &
+      H^0(P^\bullet) \arrow[r] \arrow[d, "\varphi"] & 0 \\
+    \dots \arrow[r] & M^{-2} \arrow[r, "d_{M^\bullet}^{-2}"'] &
+      M^{-1} \arrow[r, "d_{M^\bullet}^{-1}"'] &
+      \ker d^0_{M^\bullet} \arrow[r, "\mu"'] &
+      H^0(M^\bullet) = A \arrow[r] & 0
+  \end{tikzcd}\]
+  Note that the bottom complex is then exact. The morphism $\varphi$
+  is given to us, and the task is to define the dashed lifts
+  $\alpha^i$, $i \le 0$, so as to obtain a morphism of complexes.
+
+  Now, $P^0$ is projective and maps to $A$ by $\varphi \circ \pi$;
+  this guarantees the existence of a lifting $\alpha^0$ of $\varphi$.
+  (The map $P^0 \to M^0$ to the degree-$0$ term of the original
+  complex is obtained by following with $\ker d^0_{M^\bullet}
+  \hookrightarrow M^0$.) Next, note that
+  \[
+    \mu \circ \alpha^0 \circ d^{-1}_{P^\bullet} = \varphi \circ \pi
+    \circ d^{-1}_{P^\bullet} = 0;
+  \]
+  therefore, $\alpha^0 \circ d^{-1}_{P^\bullet}$ factors through
+  $\ker\mu$. Since the bottom complex is exact, $\ker\mu =
+  \operatorname{im} d^{-1}_{M^\bullet}$. Therefore, we have the
+  diagram
+  \[\begin{tikzcd}
+    & P^{-1} \arrow[d, "\alpha^0 \circ d_{P^\bullet}^{-1}"] \\
+    M^{-1} \arrow[r, "d_{M^\bullet}^{-1}"'] &
+    \operatorname{im} d_{M^\bullet}^{-1} \arrow[r] & 0
+  \end{tikzcd}\]
+  and a lift $\alpha^{-1}$ then exists since $P^{-1}$ is projective.
+
+  The construction of the other $\alpha^{-i}$, $i > 1$, proceeds
+  inductively in precisely the same way, using at each step the fact
+  that the bottom complex is exact.
+
+  This proves the existence of $\alpha^\bullet : P^\bullet \to
+  M^\bullet$. Its uniqueness up to homotopy follows immediately from
+  Lemma~\ref{lem:homol:5.11}.
+\end{proof}
+
+Summarizing, if $\mathsf{A}$ contains enough projectives, then every
+object $A$ of $\mathsf{A}$ admits a projective resolution, and
+further this is initial among all resolutions with target $\iota(A)$.
+If $\mathsf{A}$ has enough injectives, then every object $A$ of
+$\mathsf{A}$ admits an injective resolution, and this is final among
+all resolutions with source $\iota(A)$.
+
+Recall that initial, resp., final, objects of a category are always
+unique up to isomorphism (Proposition~I.5.4). Here, this says the
+following:
+
+\begin{prop}{}{prop:homol:6.4}
+  Any two projective (resp., injective) resolutions of an object $A$
+  of an abelian category $\mathsf{A}$ are homotopy equivalent.
+\end{prop}
+
+(This is also a direct consequence of Lemma~\ref{lem:homol:6.3}.)
+
+The moral I extract from these considerations is that if an abelian
+category $\mathsf{A}$ has enough (say) projectives, then we can
+associate with each object $A$ of $\mathsf{A}$ an object of
+$\mathsf{K}^{\le 0}(\mathsf{P})$, determined up to homotopy. This can
+in fact be done functorially, in the sense that morphisms in
+$\mathsf{A}$ can be lifted to morphisms of corresponding projective
+resolutions:
+
+\begin{prop}{}{prop:homol:6.5}
+  Let $A_0$, $A_1$ be objects of an abelian category $\mathsf{A}$,
+  and let $P_i^\bullet$ be a projective resolution of $A_i$, $i =
+  0, 1$. Then every morphism $\varphi : A_0 \to A_1$ in $\mathsf{A}$
+  is induced by a morphism $\alpha^\bullet : P_0^\bullet \to
+  P_1^\bullet$, uniquely determined up to homotopy.
+
+  Of course an analogous statement holds for injective resolutions.
+\end{prop}
+\begin{proof}
+  By hypothesis, $\varphi$ is a morphism $H^0(P_0^\bullet) \to
+  H^0(P_1^\bullet)$. The complex $P_0^\bullet$ consists of
+  projectives, and $P_1^\bullet$ is a resolution of $A_1$; therefore
+  a lift $\alpha^\bullet$ exists and is unique up to homotopy, as an
+  immediate consequence of Lemma~\ref{lem:homol:6.3}.
+\end{proof}
+
+The assignment provided by Proposition~\ref{prop:homol:6.5} is
+clearly covariant. The bottom line is that the part of $\mathsf{A}$
+consisting of objects with (say) projective resolutions is
+equivalent to a full subcategory of $\mathsf{K}^-(\mathsf{P})$. Dear
+reader, please formalize this assertion, for it is a key point
+(Exercise~6.2). If $\mathsf{A}$ has enough projectives, this gives
+the promised `copy' of $\mathsf{A}$ within $\mathsf{K}^-(\mathsf{P})$.
+
+Of course the situation is entirely analogous concerning the
+subcategory of $\mathsf{A}$ consisting of objects admitting an
+injective resolution and $\mathsf{K}^+(\mathsf{I})$.
 
 \subsection{From objects to complexes}
 \label{subsec:homol:from-objects-to-complexes}
