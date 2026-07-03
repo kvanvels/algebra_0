@@ -3838,202 +3838,235 @@ category, in \S{}6.
 
 \subsection{Homotopic maps are identified in the derived category}
 \label{subsec:homol:homotopic-maps-are-identified-in-the-derived-category}
-% To see that
 
-% this `homotopic category' is a necessary stop on the way from C(A) to D(A), go
-% back
-% to our higher-brow considerations at the end of \S{}4.2. Again consider any
-% additive
-% functor
-% F : C(A) -\to  D
-% transforming quasi-isomorphisms into isomorphisms. The simplest such functor is
-% cohomology; the universal one is the functor from C(A) to the mystifying derived
-% category D(A). We have verified in Proposition 4.10 that homotopic maps induce
-% the same morphism in cohomology. Might this not be the case for any functor F
-% as above? It is!
-% Lemma 5.1. Let F : C(A) -\to  D be an additive functor such that F (\rho \bullet
-% ) is an
-% isomorphism in D for all quasi-isomorphisms \rho \bullet  in C(A).
-% Let \alpha \bullet  , \beta \bullet  : L\bullet  \to  M \bullet  be homotopic
-% morphisms in C(A). Then F (\alpha \bullet  ) = F (\beta  \bullet )
-% in D.
-% Proof. Equivalently (as F is additive), we verify that if \alpha \bullet  \sim
-% 0, then F (\alpha \bullet  ) = 0.
-% By Lemma 4.7, it suffices to show that \alpha \bullet  factors through an exact
-% complex.
-% This exact complex is the mapping cone M C(idL\bullet  )\bullet  of the identity
-% idL\bullet  : L\bullet  \to
-% \bullet 
-% L . Recall (\S{}4.1) that
-% M C(idL\bullet  )i = Li+1 \oplus  Li,
-% with differential defined by
-% diM C(idL\bullet  ) (a, b) = (-di+1
-%  L\bullet  (a), a + dL\bullet  i
-%  (b)).
-% Since the identity is trivially a quasi-isomorphism, M C(idL\bullet  ) is an
-% exact complex
-% (Corollary 4.2). The morphism
-% Li \to  M C(idL\bullet  )i ,
-%  b ?\to  (0, b)
-% always commutes with differentials, so it defines a morphism of complexes
-% L\bullet  \to
-% M C(idL\bullet  )\bullet  . By contrast, a morphism
-% M C(idL\bullet  ) \bullet  \to  M \bullet 
-% is not always available. Under our hypothesis, however, there is a homotopy
-% \alpha \bullet  \sim  0,
-% that is, morphisms
-% hi : Li \to  M i-1
-% i
-%  i-1
-%  i
-%  i+1
-%  i
-% such that \alpha  = dM \bullet  \circ  h + h
-%  \circ  dL\bullet  . Define morphisms
-% \pi i : M C(idL\bullet  )i \to  M i
-%  by
-%  (a, b) ?\to  hi+1 (a) + \alpha i (b).
-% It is clear that the composition
-% Li \to  M C(idL\bullet  )i \to  M i
-% is \alpha i . All we have to check now is that the collection \pi  i defines a
-% morphism of
-% complexes: this will show that \alpha \bullet  factors through the exact complex
-% M C(idL\bullet  )\bullet  ,
-% hence that F (\alpha \bullet  ) = 0 (by Lemma 4.7), concluding the proof of this
-% lemma. That
-% is, we have to verify that
-% (*)
-%  dM
-%  i-1
-%  \bullet  \circ  \pi 
-% i-1
-%  = \pi  i \circ  di-1
-%  M C(idL\bullet  )\bullet 
-% for all i. The left-hand side of (*) acts as follows:
-% (a, b) ?\to  hi(a) + \alpha i-1 (b) ?\to  di-1
-%  M \bullet  (hi
-%  (a) + \alpha 
-% i-1
-% (b)).
-% The right-hand side acts as
-% (a, b) ?\to  (-diL\bullet  (a), a + di-1
-%  L\bullet  (b)) ?\to  -h
-% i+1(dL\bullet  i
-%  (a)) + \alpha  i (a + di-1
-%  L\bullet  (b)).
-% Thus the needed equality is
-% dM
-%  i-1 \bullet  (hi
-%  (a)) + dM i-1
-%  \bullet  (\alpha 
-% i-1
-%  (b)) = -hi+1 (diL\bullet  (a)) + \alpha i (a) + \alpha i(di-1
-%  L\bullet  (b))
-% or, equivalently,
-% (dM
-%  i-1
-%  \bullet  \circ  hi
-%  + h
-% i+1
-%  \circ  dL\bullet  i
-%  - \alpha i
-%  )(a) = (\alpha i
-%  \circ  dL\bullet  i-1
-%  - dM i-1
-%  \bullet  \circ  \alpha 
-% i-1
-% )(b)
-% \forall a \in  Li+1 , \forall b \in  Li . But both sides are 0: the right-hand side because \alpha \bullet  is a
-% morphism of complexes and the left-hand side because h is a homotopy \alpha
-% \bullet  \sim  0. ?
-% Lemma 5.1 tells us that every functor transforming quasi-isomorphisms into
-% isomorphisms must factor through the category obtained from C(A) by identifying
-% together homotopic morphisms. It is time to define this category.
+To see that this `homotopic category' is a necessary stop on the way
+from $\mathsf{C}(\mathsf{A})$ to $\mathsf{D}(\mathsf{A})$, go back to
+our higher-brow considerations at the end of \S{}4.2. Again consider
+any additive functor
+\[
+  \mathscr{F} : \mathsf{C}(\mathsf{A}) \longrightarrow \mathsf{D}
+\]
+transforming quasi-isomorphisms into isomorphisms. The simplest such
+functor is cohomology; the universal one is the functor from
+$\mathsf{C}(\mathsf{A})$ to the mystifying derived category
+$\mathsf{D}(\mathsf{A})$. We have verified in Proposition~4.10 that
+homotopic maps induce the same morphism in cohomology. Might this not
+be the case for any functor $\mathscr{F}$ as above? It is!
+
+\begin{lem}{}{lem:homol:5.1}
+  Let $\mathscr{F} : \mathsf{C}(\mathsf{A}) \longrightarrow
+  \mathsf{D}$ be an additive functor such that
+  $\mathscr{F}(\rho^\bullet)$ is an isomorphism in $\mathsf{D}$ for
+  all quasi-isomorphisms $\rho^\bullet$ in $\mathsf{C}(\mathsf{A})$.
+  Let $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$ be
+  homotopic morphisms in $\mathsf{C}(\mathsf{A})$. Then
+  $\mathscr{F}(\alpha^\bullet) = \mathscr{F}(\beta^\bullet)$ in
+  $\mathsf{D}$.
+\end{lem}
+\begin{proof}
+    Equivalently (as $\mathscr{F}$ is additive), we verify that if
+    $\alpha^\bullet \sim 0$, then $\mathscr{F}(\alpha^\bullet) = 0$.
+
+    By Lemma~4.7, it suffices to show that $\alpha^\bullet$ factors
+    through an exact complex. This exact complex is the mapping cone
+    $MC(\operatorname{id}_{L^\bullet})^\bullet$ of the identity
+    $\operatorname{id}_{L^\bullet} : L^\bullet \to L^\bullet$. Recall
+    (\S{}4.1) that
+    \[
+      MC(\operatorname{id}_{L^\bullet})^i = L^{i+1} \oplus L^i,
+    \]
+    with differential defined by
+    \[
+      d^i_{MC(\operatorname{id}_{L^\bullet})}(a, b) =
+      \bigl(-d^{i+1}_{L^\bullet}(a),\; a + d^i_{L^\bullet}(b)\bigr).
+    \]
+    Since the identity is trivially a quasi-isomorphism,
+    $MC(\operatorname{id}_{L^\bullet})$ is an exact complex
+    (Corollary~4.2). The morphism
+    \[
+      L^i \to MC(\operatorname{id}_{L^\bullet})^i, \qquad
+      b \mapsto (0, b)
+    \]
+    always commutes with differentials, so it defines a morphism of
+    complexes $L^\bullet \to MC(\operatorname{id}_{L^\bullet})^\bullet$.
+    By contrast, a morphism
+    $MC(\operatorname{id}_{L^\bullet})^\bullet \to M^\bullet$ is not
+    always available. Under our hypothesis, however, there is a
+    homotopy $\alpha^\bullet \sim 0$, that is, morphisms
+    $h^i : L^i \to M^{i-1}$ such that $\alpha^i = d^{i-1}_{M^\bullet}
+    \circ h^i + h^{i+1} \circ d^i_{L^\bullet}$. Define morphisms
+    \[
+      \pi^i : MC(\operatorname{id}_{L^\bullet})^i \to M^i \qquad
+      \text{by} \qquad (a, b) \mapsto h^{i+1}(a) + \alpha^i(b).
+    \]
+    It is clear that the composition
+    $L^i \to MC(\operatorname{id}_{L^\bullet})^i \to M^i$ is
+    $\alpha^i$. All we have to check now is that the collection
+    $\pi^i$ defines a morphism of complexes: this will show that
+    $\alpha^\bullet$ factors through the exact complex
+    $MC(\operatorname{id}_{L^\bullet})^\bullet$, hence that
+    $\mathscr{F}(\alpha^\bullet) = 0$ (by Lemma~4.7), concluding the
+    proof of this lemma. That is, we have to verify that
+    \[
+      d^{i-1}_{M^\bullet} \circ \pi^{i-1} = \pi^i \circ
+      d^{i-1}_{MC(\operatorname{id}_{L^\bullet})^\bullet} \tag{$*$}
+    \]
+    for all $i$. The left-hand side of $(*)$ acts as follows:
+    \[
+      (a, b) \mapsto h^i(a) + \alpha^{i-1}(b) \mapsto
+      d^{i-1}_{M^\bullet}\bigl(h^i(a) + \alpha^{i-1}(b)\bigr).
+    \]
+    The right-hand side acts as
+    \[
+      (a, b) \mapsto \bigl(-d^i_{L^\bullet}(a),\; a +
+      d^{i-1}_{L^\bullet}(b)\bigr) \mapsto
+      -h^{i+1}\bigl(d^i_{L^\bullet}(a)\bigr) + \alpha^i\bigl(a +
+      d^{i-1}_{L^\bullet}(b)\bigr).
+    \]
+    Thus the needed equality is
+    \[
+      d^{i-1}_{M^\bullet}(h^i(a)) + d^{i-1}_{M^\bullet}
+      (\alpha^{i-1}(b)) = -h^{i+1}(d^i_{L^\bullet}(a)) + \alpha^i(a)
+      + \alpha^i(d^{i-1}_{L^\bullet}(b))
+    \]
+    or, equivalently,
+    \[
+      \bigl(d^{i-1}_{M^\bullet} \circ h^i + h^{i+1} \circ
+      d^i_{L^\bullet} - \alpha^i\bigr)(a) = \bigl(\alpha^i \circ
+      d^{i-1}_{L^\bullet} - d^{i-1}_{M^\bullet} \circ
+      \alpha^{i-1}\bigr)(b)
+    \]
+    for all $a \in L^{i+1}$, $b \in L^i$. But both sides are $0$: the
+    right-hand side because $\alpha^\bullet$ is a morphism of
+    complexes and the left-hand side because $h$ is a homotopy
+    $\alpha^\bullet \sim 0$.
+  \end{proof}
+
+Lemma~\ref{lem:homol:5.1} tells us that every functor transforming
+quasi-isomorphisms into isomorphisms must factor through the category
+obtained from $\mathsf{C}(\mathsf{A})$ by identifying together
+homotopic morphisms. It is time to define this category.
 
 \subsection{Definition of the homotopic category of complexes}
 \label{subsec:homol:definition-of-the-homotopic-category-of-complexes}
 
-% Definition 5.2. Let A be an abelian category. The homotopy category K(A) of
-% cochain complexes in A is the category whose objects are the cochain complexes
-% in A (that is, the same objects of C(A)) and whose morphisms are
-% Hom K(A) (L\bullet  , M \bullet  ) := Hom C(A) (L\bullet  , M \bullet )/ \sim 
-% where \sim  is the homotopy relation.
-%  ?
-% Yes, but is this a category? Recall that the homotopy relation \sim  respects
-% composition (Exercise 4.6); in other words, the operation of composition
-% HomC(A) (L\bullet  , M \bullet ) \times  HomC(A) (M \bullet  , N \bullet  ) -\to
-% HomC(A)(L\bullet , N \bullet  )
-% doesdescend to an operation
-% HomK(A) (L\bullet  , M \bullet  ) \times  HomK(A) (M \bullet  , N \bullet  )-\to
-% HomK(A) (L\bullet  , N \bullet  ).
-% Checking the category axioms is routine and is left to the patient reader.
-% Bounded variations K- (A), K+ (A), etc., are obtained likewise from C- (A),
-% C+
-%  (A), etc. The considerations which follow will apply to all these versions. The
-% further variations K- (P), resp., K+ (I), in which the complexes will be
-% required
-% to consist of projective, resp., injective, objects from A (cf. \S{}5.3) will
-% also play a
-% crucially important role.
-% As to the general structure underlying the homotopic category,
-% Lemma 5.3. Let A be an abelian category. Then the homotopic category K(A) of
-% complexes is an additive category.
-% Proof. Exercise 5.1.
-%  ?
-% However, note that, in general, the homotopic category is not abelian. Indeed,
-% homotopic maps do not have the same kernel or cokernel in general, so defining
-% these notions becomes problematic. As I already mentioned in \S{}3.4, K(A) is a
-% triangulated category; the `distinguished triangles' are the triangles arising
-% from
-% the cones of morphisms, as in \S{}4.1. (I will briefly describe the situation in
-% \S{}9.2.)
-% The main motivation for the introduction of the homotopic category is that
-% homotopy equivalences become isomorphisms in K(A). More precisely, by definition
-% there is a functor
-% C(A) -\to  K(A),
-% mapping every object to `itself' and every morphism to its homotopy class. Ho-
-% motopy equivalences in C(A) become isomorphisms in K(A) because the relation
-% \alpha  \bullet  \circ  \beta  \bullet  \sim  id in C(A) becomes \alpha \bullet  \circ  \beta  \bullet  = id in K(A). The homotopic category is
-% obtained from C(A) by making all homotopy equivalences invertible on the nose.
-% We can then reinterpret Lemma 5.1 as the following `factorization' result:
-% Proposition 5.4. Let F : C(A) -\to  D be an additive functor such that F (\rho
-% \bullet )
-% is an isomorphism in D for all quasi-isomorphisms \rho \bullet  in C(A). Then F
-% factors
-% uniquely through K(A):
-% C(A)
-%  F
-%  / D
-% \sqcup  | | | |
-%  |
-%  \exists !
-%  |
-%  | |
-%  =
-% K(A)
-% Proof. Exercise 5.2.
-%  ?
-% In particular, there must be a unique functor from K(A) to the subtler derived
-% category D(A). The situation is of course analogous for all bounded versions of
-% these objects: the natural functors from the appropriately bounded complexes to
-% the corresponding derived categories factor uniquely through the corresponding
-% homotopic categories:
-% C- (A)
-%  C+(A)
-% \sqcup 
-%  \sqcup 
-% K- (A)
-%  K+ (A)
-% \sqcup 
-%  \sqcup 
-% D- (A)
-%  D+ (A)
-% A particular case of Proposition 5.4 is the fact that the cohomology functor on
-% C(A)
-% (resp., C -(A), C+(A)) descends to a functor on K(A) (resp., K- (A), K+ (A)).
-% This
-% fact also follows directly from Proposition 4.10: homotopic maps induce the same
-% morphism in cohomology.
+\begin{defn}{}{defn:homol:5.2}
+  Let $\mathsf{A}$ be an abelian category. The \emph{homotopy
+  category} $\mathsf{K}(\mathsf{A})$ of cochain complexes in
+  $\mathsf{A}$ is the category whose objects are the cochain
+  complexes in $\mathsf{A}$ (that is, the same objects of
+  $\mathsf{C}(\mathsf{A})$) and whose morphisms are
+  \[
+    \operatorname{Hom}_{\mathsf{K}(\mathsf{A})}(L^\bullet, M^\bullet)
+    := \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(L^\bullet,
+    M^\bullet)/\sim
+  \]
+  where $\sim$ is the homotopy relation.
+\end{defn}
+
+Yes, but is this a category? Recall that the homotopy relation $\sim$
+respects composition (Exercise~4.6); in other words, the operation of
+composition
+\[
+  \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(L^\bullet, M^\bullet)
+  \times \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(M^\bullet,
+  N^\bullet) \longrightarrow
+  \operatorname{Hom}_{\mathsf{C}(\mathsf{A})}(L^\bullet, N^\bullet)
+\]
+does descend to an operation
+\[
+  \operatorname{Hom}_{\mathsf{K}(\mathsf{A})}(L^\bullet, M^\bullet)
+  \times \operatorname{Hom}_{\mathsf{K}(\mathsf{A})}(M^\bullet,
+  N^\bullet) \longrightarrow
+  \operatorname{Hom}_{\mathsf{K}(\mathsf{A})}(L^\bullet, N^\bullet).
+\]
+Checking the category axioms is routine and is left to the patient
+reader.
+
+Bounded variations $\mathsf{K}^-(\mathsf{A})$,
+$\mathsf{K}^+(\mathsf{A})$, etc., are obtained likewise from
+$\mathsf{C}^-(\mathsf{A})$, $\mathsf{C}^+(\mathsf{A})$, etc. The
+considerations which follow will apply to all these versions. The
+further variations $\mathsf{K}^-(\mathsf{P})$, resp.,
+$\mathsf{K}^+(\mathsf{I})$, in which the complexes will be required
+to consist of projective, resp., injective, objects from $\mathsf{A}$
+(cf. \S{}5.3) will also play a crucially important role.
+
+As to the general structure underlying the homotopic category,
+
+\begin{lem}{}{lem:homol:5.3}
+  Let $\mathsf{A}$ be an abelian category. Then the homotopic
+  category $\mathsf{K}(\mathsf{A})$ of complexes is an additive
+  category.
+\end{lem}
+\begin{proof}
+  Exercise~5.1.
+\end{proof}
+
+However, note that, in general, the homotopic category is \emph{not}
+abelian. Indeed, homotopic maps do not have the same kernel or
+cokernel in general, so defining these notions becomes problematic.
+As I already mentioned in \S{}3.4, $\mathsf{K}(\mathsf{A})$ is a
+\emph{triangulated} category; the `distinguished triangles' are the
+triangles arising from the cones of morphisms, as in \S{}4.1. (I will
+briefly describe the situation in \S{}9.2.)
+
+The main motivation for the introduction of the homotopic category is
+that homotopy equivalences become isomorphisms in
+$\mathsf{K}(\mathsf{A})$. More precisely, by definition there is a
+functor
+\[
+  \mathsf{C}(\mathsf{A}) \longrightarrow \mathsf{K}(\mathsf{A}),
+\]
+mapping every object to `itself' and every morphism to its homotopy
+class. Homotopy equivalences in $\mathsf{C}(\mathsf{A})$ become
+isomorphisms in $\mathsf{K}(\mathsf{A})$ because the relation
+$\alpha^\bullet \circ \beta^\bullet \sim \operatorname{id}$ in
+$\mathsf{C}(\mathsf{A})$ becomes $\alpha^\bullet \circ \beta^\bullet =
+\operatorname{id}$ in $\mathsf{K}(\mathsf{A})$. The homotopic category
+is obtained from $\mathsf{C}(\mathsf{A})$ by making all homotopy
+equivalences invertible on the nose.
+
+We can then reinterpret Lemma~\ref{lem:homol:5.1} as the following
+`factorization' result:
+
+\begin{prop}{}{prop:homol:5.4}
+  Let $\mathscr{F} : \mathsf{C}(\mathsf{A}) \longrightarrow
+  \mathsf{D}$ be an additive functor such that
+  $\mathscr{F}(\rho^\bullet)$ is an isomorphism in $\mathsf{D}$ for
+  all quasi-isomorphisms $\rho^\bullet$ in $\mathsf{C}(\mathsf{A})$.
+  Then $\mathscr{F}$ factors uniquely through $\mathsf{K}(\mathsf{A})$:
+  \[\begin{tikzcd}
+    \mathsf{C}(\mathsf{A}) \arrow[r, "\mathscr{F}"] \arrow[d]
+      & \mathsf{D} \\
+    \mathsf{K}(\mathsf{A}) \arrow[ur, dashed, "\exists!"']
+  \end{tikzcd}\]
+\end{prop}
+\begin{proof}
+  Exercise~5.2.
+\end{proof}
+
+In particular, there must be a unique functor from
+$\mathsf{K}(\mathsf{A})$ to the subtler derived category
+$\mathsf{D}(\mathsf{A})$. The situation is of course analogous for
+all bounded versions of these objects: the natural functors from the
+appropriately bounded complexes to the corresponding derived
+categories factor uniquely through the corresponding homotopic
+categories:
+\[\begin{tikzcd}[column sep=large]
+  \mathsf{C}^-(\mathsf{A}) \arrow[d] & \mathsf{C}^+(\mathsf{A})
+    \arrow[d] \\
+  \mathsf{K}^-(\mathsf{A}) \arrow[d] & \mathsf{K}^+(\mathsf{A})
+    \arrow[d] \\
+  \mathsf{D}^-(\mathsf{A}) & \mathsf{D}^+(\mathsf{A})
+\end{tikzcd}\]
+A particular case of Proposition~\ref{prop:homol:5.4} is the fact
+that the cohomology functor on $\mathsf{C}(\mathsf{A})$ (resp.,
+$\mathsf{C}^-(\mathsf{A})$, $\mathsf{C}^+(\mathsf{A})$) descends to a
+functor on $\mathsf{K}(\mathsf{A})$ (resp., $\mathsf{K}^-(\mathsf{A})$,
+$\mathsf{K}^+(\mathsf{A})$). This fact also follows directly from
+Proposition~4.10: homotopic maps induce the same morphism in
+cohomology.
 
 \subsection{Complexes of projective and injective objects}
 \label{subsec:homol:complexes-of-projective-and-injective-objects}
