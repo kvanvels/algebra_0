@@ -4631,378 +4631,369 @@ eigenvalues for a real symmetric matrix are orthogonal.) [7.20]
 \subsection{Linear transformations of free modules; actions of polynomial rings}
 \label{subsec:linalg:linear-transformations-of-free-modules-actions-of-polynomial-rings}
 I have promised to use Theorem~5.6 to better understand the similarity
-relation
-% and to obtain special forms for square matrices with entries in a field. I am
-% now
-% ready to make good on my promise.
-% The questions the reader should be anxiously asking are, where is the PID?
-% Where is the finitely generated module? Why would a classification theorem for
-% these things have anything to tell us about matrices? Once these questions are
-% answered, everything else will follow easily. In a sense, this is the one issue
-% that I
-% keep in my mind concerning all these considerations: once I remember how to get
-% an interesting module out of a linear transformation of vector spaces, the rest
-% is
-% essentially an immediate consequence of standard notions.
-% Once more, while the main application will be to vector spaces and matrices
-% over a field, we do not need to preoccupy ourselves with specializing the
-% situation
-% before we get to the key point. Therefore, let's keep working for a while longer
-% on
-% our given integral domain 34 R.
-% Claim 7.1. Giving a linear transformation on a free R-module F is the same as
-% giving an R[t]-module structure on F , compatible with its R-module structure.
-% Here R[t] is the polynomial ring in one indeterminate t over the ring R. The
-% claim is much less impressive than it sounds; in fact, it is completely
-% tautological.
-% Giving an R[t]-module structure on F compatible with the R-module structure is
-% the same as giving a homomorphism of R-algebras
-% \phi  : R[t] \to  EndR (F )
-% (this is an insignificant upgrade of the very definition of module from
-% \S{}III.5.1).
-% By the universal property satisfied by polynomial rings (\S{}III.2.2, especially
-% Exam-
-% ple III.2.3), giving \phi  as an extension of the basic R-algebra structure of
-% EndR (F ) is
-% just the same as specifying the image \phi (t), that is, choosing an element of
-% EndR (F ).
-% This is precisely what the claim says.
-% My propensity for the use of a certain language may obfuscate the matter,
-% which is very simple. Given a linear transformation \alpha  of a free module F ,
-% we can
-% define the action of a polynomial
-% f (t) = rm tm + rm-1 tm-1 + \dots  + r0 \in  R[t]
-% on F as follows: for every v \in  F , set
-% f (t)(v) := rm \alpha m (v) + rm-1 \alpha  m-1 (v) + \dots  + r0 v,
-% where \alpha k denotes the k-fold composition of \alpha  with itself; we have
-% already run into
-% this in \S{}6.2. Conversely, an action of R[t] on F determines in particular a
-% map
-% \alpha  : F \to  F , that is, `multiplication by t':
-% v ?\to  tv;
-% the compatibility with the R-module structure on F tells us precisely that
-% \alpha  is a
-% linear transformation of F . Again, this is the content of Claim 7.1.
-% Tautological as it is, Claim 7.1 packs a good amount of information. Indeed,
-% the R[t] module knows everything about similarity:
-% 34 In fact, the requirements that R be an integral domain and that F be free are
-% immaterial
-% here; cf. Exercise III.5.11.
-% Lemma 7.2. Let \alpha , \beta  be linear transformations of a free R-module F .
-% Then the
-% corresponding R[t]-module structures on F are isomorphic if and only if \alpha
-% and \beta
-% are similar.
-% Proof. Denote by F\alpha , F\beta  the two R[t]-modules defined on F by \alpha ,
-% \beta  as per
-% Claim 7.1.
-% Assume first that \alpha  and \beta  are similar. Then there exists an
-% invertible R-linear
-% transformation \pi  : F \to  F such that
-% \beta  = \pi  \circ  \alpha  \circ  \pi -1 ;
-% that is, \pi  \circ  \alpha  = \beta  \circ  \pi . We can view \pi  as an
-% R-linear map
-% F\alpha  \to  F\beta  .
-% I claim that it is R[t]-linear: indeed, multiplication by t is \alpha  in
-% F\alpha  and \beta  in F\beta  , so
-% \pi (tv) = \pi  \circ  \alpha (v) = \beta  \circ  \pi (v) = t\pi (v).
-% Thus \pi  is an invertible R[t]-linear map F\alpha  \to  F\beta  , proving that
-% F\alpha  and F\beta  are
-% isomorphic as R[t]-modules.
-% The converse implication is obtained essentially by running this argument in
-% reverse and is left to the reader (Exercise 7.1).
-%  ?
-% Corollary 7.3. There is a one-to-one correspondence between the similarity
-% classes
-% of R-linear transformations of a free R-module F and the isomorphism classes of
-% R[t]-module structures on F .
-% Of course the same statement holds for square matrices with entries in R, in
-% the finite rank case.
-% Corollary 7.3 is the tool we were looking for, bridging between classifying sim-
-% ilarity classes of linear transformations or matrices and classifying modules.
-% The
-% task now becomes that of translating the notions we have encountered in \S{}6
-% into
-% the module language and seeing if this teaches us anything new.
-% In any case, since we have classified finitely generated modules over PIDs,
-% it is clear that we will be able to classify similarity classes of
-% transformations of
-% finite-rank free modules---provided that R[t] is a PID. This is where the
-% additional
-% hypothesis that R be a field enters the discussion (cf. Exercise V.2.12).
+relation and to obtain special forms for square matrices with entries in
+a field. I am now ready to make good on my promise.
 
-\subsection{k[t]-modules and the rational canonical form}
+The questions the reader should be anxiously asking are, where is the
+PID? Where is the finitely generated module? Why would a classification
+theorem for these things have anything to tell us about matrices? Once
+these questions are answered, everything else will follow easily. In a
+sense, this is the \emph{one} issue that I keep in my mind concerning
+all these considerations: once I remember how to get an interesting
+module out of a linear transformation of vector spaces, the rest is
+essentially an immediate consequence of standard notions.
+
+Once more, while the main application will be to vector spaces and
+matrices over a \emph{field}, we do not need to preoccupy ourselves with
+specializing the situation before we get to the key point. Therefore,
+let's keep working for a while longer on our given integral
+domain\footnote{In fact, the requirements that $R$ be an integral domain
+and that $F$ be free are immaterial here; cf.\ Exercise~III.5.11.} $R$.
+
+\begin{prop}{}{linalg:7.1}
+Giving a linear transformation on a free $R$-module $F$ is the same as
+giving an $R[t]$-module structure on $F$, compatible with its
+$R$-module structure.
+\end{prop}
+
+Here $R[t]$ is the polynomial ring in one indeterminate $t$ over the
+ring $R$. The claim is much less impressive than it sounds; in fact, it
+is completely tautological.
+
+Giving an $R[t]$-module structure on $F$ compatible with the $R$-module
+structure is the same as giving a homomorphism of $R$-algebras
+\[
+\varphi : R[t] \to \operatorname{End}_R(F)
+\]
+(this is an insignificant upgrade of the very definition of module from
+\S{}III.5.1). By the universal property satisfied by polynomial rings
+(\S{}III.2.2, especially Example~III.2.3), giving $\varphi$ as an
+extension of the basic $R$-algebra structure of $\operatorname{End}_R(F)$
+is just the same as specifying the image $\varphi(t)$, that is, choosing
+an element of $\operatorname{End}_R(F)$. This is precisely what the
+claim says.
+
+My propensity for the use of a certain language may obfuscate the
+matter, which is very simple. Given a linear transformation $\alpha$ of
+a free module $F$, we can define the action of a polynomial
+\[
+f(t) = r_m t^m + r_{m-1} t^{m-1} + \dots + r_0 \in R[t]
+\]
+on $F$ as follows: for every $\mathbf{v} \in F$, set
+\[
+f(t)(\mathbf{v}) := r_m \alpha^m(\mathbf{v}) + r_{m-1}
+\alpha^{m-1}(\mathbf{v}) + \dots + r_0 \mathbf{v},
+\]
+where $\alpha^k$ denotes the $k$-fold composition of $\alpha$ with
+itself; we have already run into this in \S{}6.2. Conversely, an action
+of $R[t]$ on $F$ determines in particular a map $\alpha : F \to F$,
+that is, `multiplication by $t$':
+\[
+\mathbf{v} \mapsto t\mathbf{v};
+\]
+the compatibility with the $R$-module structure on $F$ tells us
+precisely that $\alpha$ is a linear transformation of $F$. Again, this
+is the content of Claim~\ref{linalg:7.1}.
+
+Tautological as it is, Claim~\ref{linalg:7.1} packs a good amount of
+information. Indeed, the $R[t]$-module knows everything about
+similarity:
+
+\begin{lem}{}{linalg:7.2}
+Let $\alpha$, $\beta$ be linear transformations of a free $R$-module
+$F$. Then the corresponding $R[t]$-module structures on $F$ are
+isomorphic if and only if $\alpha$ and $\beta$ are similar.
+\end{lem}
+
+\begin{proof}
+Denote by $F_\alpha$, $F_\beta$ the two $R[t]$-modules defined on $F$ by
+$\alpha$, $\beta$ as per Claim~\ref{linalg:7.1}.
+
+Assume first that $\alpha$ and $\beta$ are similar. Then there exists an
+invertible $R$-linear transformation $\pi : F \to F$ such that
+\[
+\beta = \pi \circ \alpha \circ \pi^{-1};
+\]
+that is, $\pi \circ \alpha = \beta \circ \pi$. We can view $\pi$ as an
+$R$-linear map
+\[
+F_\alpha \to F_\beta.
+\]
+I claim that it is $R[t]$-linear: indeed, multiplication by $t$ is
+$\alpha$ in $F_\alpha$ and $\beta$ in $F_\beta$, so
+\[
+\pi(t\mathbf{v}) = \pi \circ \alpha(\mathbf{v}) = \beta \circ
+\pi(\mathbf{v}) = t\pi(\mathbf{v}).
+\]
+Thus $\pi$ is an invertible $R[t]$-linear map $F_\alpha \to F_\beta$,
+proving that $F_\alpha$ and $F_\beta$ are isomorphic as $R[t]$-modules.
+
+The converse implication is obtained essentially by running this
+argument in reverse and is left to the reader (Exercise~7.1).
+\end{proof}
+
+\begin{coro}{}{linalg:7.3}
+There is a one-to-one correspondence between the similarity classes of
+$R$-linear transformations of a free $R$-module $F$ and the isomorphism
+classes of $R[t]$-module structures on $F$.
+\end{coro}
+
+Of course the same statement holds for square matrices with entries in
+$R$, in the finite rank case.
+
+Corollary~\ref{linalg:7.3} is the tool we were looking for, bridging
+between classifying similarity classes of linear transformations or
+matrices and classifying modules. The task now becomes that of
+translating the notions we have encountered in \S{}6 into the module
+language and seeing if this teaches us anything new.
+
+In any case, since we have classified finitely generated modules over
+PIDs, it is clear that we will be able to classify similarity classes of
+transformations of finite-rank free modules---provided that $R[t]$ is a
+PID. This is where the additional hypothesis that $R$ be a field enters
+the discussion (cf.\ Exercise~V.2.12).
+
+\subsection{$k[t]$-modules and the rational canonical form}
 \label{subsec:linalg:k-t-modules-and-the-rational-canonical-form}
-% It is finally time to spe-
+It is finally time to specialize to the case in which $R = k$ is a
+field and $F$ has finite rank; so $F = V$ is simply a
+finite-dimensional vector space. Let $n = \dim V$.
 
-% cialize to the case in which R = k is a field and F has finite rank; so F = V is
-% simply a finite-dimensional vector space. Let n = dim V .
-% By the preceding discussion, choosing a linear transformation of V is the same
-% as giving V a k[t]-module structure (compatible with its vector space
-% structure);
-% similar linear transformations correspond to isomorphic k[t]-modules. Then V is
-% a finitely generated module over k[t], and k[t] is a PID since k is a field
-% (Exer-
-% cise III.4.4 and \S{}V.2); therefore, we are precisely in the situation covered
-% by the
-% classification theorem.
-% Even before spelling out the result of applying Theorem 5.6, we can make use
-% of its slogan version: every finitely generated module over a PID is a direct
-% sum
-% of cyclic modules. This tells us that we can understand all linear
-% transformations
-% of finite-dimensional vector spaces, up to similarity, if we understand the
-% linear
-% transformation given by multiplication by t on a cyclic k[t]-module
-% k[t]
-% V =
-%  ,
-% (f (t))
-% where f (t) is a nonconstant monic polynomial:
-% f (t) = tn + rn-1 tn-1 + \dots  + r0 .
-% It is worthwhile obtaining a good matrix representation of this poster case. We
-% choose the basis
-% 1, t, \dots  , tn-1
-% of V (cf. Proposition III.4.6). Recall that the columns of the matrix
-% corresponding
-% to a transformation consist of the images of the chosen basis (cf. the comments
-% preceding Corollary 2.2). Since multiplication by t on V acts as
-% \{
-% |
-%  |
-%  |
-%  |
-%  |
-%  1 t ?\to t,
-%  ?\to t2 ,
-% |
-%  |
-%  |
-%  |
-%  \} \cdot \cdot \cdot 
-% tn-1
-%  ?\to tn = -rn-1 tn-1 - \dots  - r0 ,
-% the matrix corresponding to this linear transformation is
-% (
-%  )
-% 0 0 0 ... 0
-%  -r0
-% |1 |
-%  0 0 . . . 0
-%  -r1 |
-%  |
-% |0 |
-%  1 0 . . . 0
-%  -r2 |
-%  |
-% | | . .. . .. .. .
-%  . .
-%  .
-%  ..
-%  .
-%  .. . |
-%  | .
-% |
-%  |
-% (0 0 0 . . . 0 -rn-2 )
-% 0 0 0 . . . 1 -rn-1
-% Definition 7.4. This is called the companion matrix of the polynomial f (t), de-
-% noted Cf (t).
-%  ?
-% Theorem 5.6 tells us (among other things) that every linear transformation
-% admits a matrix representation into blocks, each of which is the companion
-% matrix
-% of a polynomial. Here is the statement of Theorem 5.6 in this context:
-% Theorem 7.5. Let k be a field, and let V be a finite-dimensional vector space.
-% Let
-% \alpha  be a linear transformation on V , and endow V with the corresponding k[t]-module
-% structure, as in Claim 7.1. Then the following hold:
-% \bullet  There exist distinct monic irreducible polynomials p1 (t), . . . , p s(t) \in  k[t] and
-% positive integers rij such that
-% !
-%  k[t]
-% V \sim 
-%  =
-% (p
-% i
-%  (t)rij )
-% i,j
-% as k[t]-modules.
-% \bullet  There exist monic nonconstant polynomials f1 (t), . . . , fm (t) \in  k[t] such that
-% f1 (t) | \dots  | fm (t) and
-% V \sim 
-%  =
-%  k[t]
-%  \oplus  \cdot \cdot \cdot  \oplus 
-%  k[t]
-% (f1 (t))
-%  (fm (t))
-% as k[t]-modules.
-% Via these isomorphisms, the action of \alpha  on V corresponds to multiplication
-% by t.
-% Further, two linear transformations \alpha , \beta  are similar if and only if
-% they have
-% the same collections of invariants pi (t)rij (`elementary divisors'), fi (t)
-% (`invariant
-% factors').
-% Proof. Since dim V is finite, V is finitely generated as a k-module and a
-% fortiori as
-% a k[t]-module. The two isomorphisms are then obtained by applying Theorem 5.6.
-% All the relevant polynomials may be chosen to be monic since every polynomial
-% over a field is the associate of a (unique) monic polynomial (Exercise III.4.7).
-% The
-% fact that the action of \alpha  corresponds to multiplication by t is precisely
-% what de-
-% fines the corresponding k[t]-module structure on V . The statement about similar
-% transformations follows from Corollary 7.3.
-%  ?
-% Theorem 7.5 answers (over fields) the question raised in \S{}6.1: we now have a
-% list of invariants which describe completely the similarity class of a linear
-% transfor-
-% mation. Further, these invariants provide us with a special matrix
-% representation
-% of a given linear transformation.
-% Definition 7.6. The rational canonical form of a linear transformation \alpha
-% of a
-% vector space V is the block matrix
-% (
-%  )
-% Cf1(t)
-% |
-%  |
-% |
-%  ..
-%  .
-%  | ,
-% (
-%  )
-% Cfm(t)
-% where f1 (t), . . . , fm (t) are the invariant factors of \alpha .
-%  ?
-% The rational canonical form of a square matrix is (of course) the rational
-% canon-
-% ical form of the corresponding linear transformation. The following statement is
-% an
-% immediate consequence of Theorem 7.5.
-% Corollary 7.7. Every linear transformation admits a rational canonical form. Two
-% linear transformations have the same rational canonical form if and only if they
-% are
-% similar.
-% Remark 7.8. The `rational' in rational canonical form has nothing to do with Q;
-% it is meant to remind the reader that this form can be found without leaving
-% the base field. The other canonical form we will encounter will have entries in
-% a possibly larger field, where the characteristic polynomial of the
-% transformation
-% factors completely.
-%  ?
-% Corollary 7.7 fulfills explicitly another wish expressed at the end of \S{}6.1,
-% that
-% is, to find one distinguished representative in each similarity class of
-% matrices/linear
-% transformations. The rational canonical form is such a representative.
-% The next obvious question is how the invariants we just found relate to our
-% more naive attempts to produce invariants of similar transformations in \S{}6.
-% Proposition 7.9. Let f1 (t) | \dots  | fm (t) be the invariant factors of a
-% linear trans-
-% formation \alpha  on a vector space V . Then the minimal polynomial m\alpha  (t)
-% equals fm (t),
-% and the characteristic polynomial P\alpha  (t) equals the product f1 (t) \dots
-% fm (t).
-% Proof. Tracing definitions, (m\alpha (t)) is the annihilator ideal of V when
-% this is viewed
-% as a k[t]-module via \alpha  (as in Claim 7.1). Therefore the equality of
-% m\alpha  (t) and fm (t)
-% is a restatement of Lemma 5.7.
-% Concerning the characteristic polynomial, by Exercise 6.10 it suffices to prove
-% the statement in the cyclic case: that is, it suffices to prove that if f (t) is
-% a monic
-% polynomial, then f (t) equals the characteristic polynomial of the companion
-% matrix
-% Cf (t) . Explicitly, let
-% f (t) = tn + rn-1 tn-1 + \dots  + r0
-% be a monic polynomial; then the task amounts to showing that
-% (
-%  )
-% t
-%  0 0 ...
-%  r0
-% |-1 t 0 . . .
-%  r1 |
-% |
-%  |
-% | |
-%  0 -1 t . . .
-%  r2 |
-%  |
-% det | | .
-%  ..
-%  .
-%  ..
-%  .
-%  .. . .
-%  .
-%  .
-%  ..
-%  ..
-%  .
-%  |
-%  | = f (t).
-% |
-%  |
-% ( 0
-%  0 0 ...
-%  t
-%  rn-2 )
-%  0 0 . . . -1 t + rn-1
-% This can be done by an easy induction and is left to the reader (Exercise 7.2).
-% ?
-% Corollary 7.10 (Cayley-Hamilton). The minimal polynomial of a linear transfor-
-% mation divides its characteristic polynomial.
-% Proof. This has now become evident, as promised in \S{}6.2.
-%  ?
-% Finding the rational canonical form of a given matrix A amounts to working
-% out the classification theorem for the specific k[t]-module corresponding to A
-% as in
-% Claim 7.1. As k[t] is in fact a Euclidean domain, we know that this can be done
-% by
-% Gaussian elimination (cf. \S{}2.4). In practice, the process consists of
-% compiling the
-% information obtained while diagonalizing tI - A over k[t] by elementary
-% operations.
-% The reader is invited to either produce an original algorithm or at least look
-% it up
-% in a standard reference to see what is involved.
-% Major shortcuts may come to our aid. For example, if the minimal and char-
-% acteristic polynomials coincide, then one knows a priori that the corresponding
-% module is cyclic (cf. Remark 5.8), and it follows that the rational canonical
-% form is
-% simply the companion matrix of the characteristic polynomial.
-% In any case, the strength of a canonical form rests in the fact that it allows
-% us
-% to reduce general facts to specific, standard cases. For example, the following
-% state-
-% ment is somewhat mysterious if all one knows are the definitions, but it becomes
-% essentially trivial with a pinch of rational canonical forms:
-% Proposition 7.11. Let A \in  M n(k) be a square matrix. Then A is similar to its
-% transpose.
-% Proof. If B is similar to A and we can prove that B is similar to its transpose
-% Bt ,
-% then A is similar to its transpose At : because B = P AP -1 , B t = QBQ-1 give
-% At = (P t QP )A(P tQP )-1 .
-% Therefore, it suffices to prove the statement for matrices in rational canonical
-% form.
-% Further, to prove the statement for a block matrix, it clearly suffices to prove
-% it
-% for each block; so we may assume that A is the companion matrix C of a
-% polynomial
-% f (t). Since the characteristic and minimal polynomials of the transpose C t
-% coincide
-% with those of C (Exercise 6.8), they are both equal to f (t). It follows that
-% the
-% rational canonical form of C t is again the companion matrix to f (t); therefore
-% C t
-% and C are similar, as needed.
-%  ?
+By the preceding discussion, choosing a linear transformation of $V$ is
+the same as giving $V$ a $k[t]$-module structure (compatible with its
+vector space structure); similar linear transformations correspond to
+isomorphic $k[t]$-modules. Then $V$ is a finitely generated module over
+$k[t]$, and $k[t]$ is a PID since $k$ is a field (Exercise~III.4.4 and
+\S{}V.2); therefore, we are precisely in the situation covered by the
+classification theorem.
+
+Even before spelling out the result of applying Theorem~5.6, we can
+make use of its slogan version: every finitely generated module over a
+PID is a direct sum of cyclic modules. This tells us that we can
+understand all linear transformations of finite-dimensional vector
+spaces, up to similarity, if we understand the linear transformation
+given by multiplication by $t$ on a cyclic $k[t]$-module
+\[
+V = \frac{k[t]}{(f(t))},
+\]
+where $f(t)$ is a nonconstant monic polynomial:
+\[
+f(t) = t^n + r_{n-1} t^{n-1} + \dots + r_0.
+\]
+It is worthwhile obtaining a good matrix representation of this poster
+case. We choose the basis
+\[
+1, \quad t, \quad \dots, \quad t^{n-1}
+\]
+of $V$ (cf.\ Proposition~III.4.6). Recall that the columns of the
+matrix corresponding to a transformation consist of the images of the
+chosen basis (cf.\ the comments preceding Corollary~2.2). Since
+multiplication by $t$ on $V$ acts as
+\[
+\begin{cases}
+1 \mapsto t, \\
+t \mapsto t^2, \\
+\dots \\
+t^{n-1} \mapsto t^n = -r_{n-1} t^{n-1} - \dots - r_0,
+\end{cases}
+\]
+the matrix corresponding to this linear transformation is
+\[
+\begin{pmatrix}
+0 & 0 & 0 & \dots & 0 & -r_0 \\
+1 & 0 & 0 & \dots & 0 & -r_1 \\
+0 & 1 & 0 & \dots & 0 & -r_2 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & 0 & \dots & 0 & -r_{n-2} \\
+0 & 0 & 0 & \dots & 1 & -r_{n-1}
+\end{pmatrix}.
+\]
+
+\begin{defn}{}{linalg:7.4}
+This matrix is called the \emph{companion matrix} of the polynomial
+$f(t)$, denoted $C_{f(t)}$.
+\end{defn}
+
+Theorem~5.6 tells us (among other things) that every linear
+transformation admits a matrix representation into blocks, each of
+which is the companion matrix of a polynomial. Here is the statement of
+Theorem~5.6 in this context:
+
+\begin{thm}{}{linalg:7.5}
+Let $k$ be a field, and let $V$ be a finite-dimensional vector space.
+Let $\alpha$ be a linear transformation on $V$, and endow $V$ with the
+corresponding $k[t]$-module structure, as in Claim~\ref{linalg:7.1}.
+Then the following hold:
+\begin{itemize}
+\item There exist distinct monic irreducible polynomials $p_1(t),
+\dots, p_s(t) \in k[t]$ and positive integers $r_{ij}$ such that
+\[
+V \cong \bigoplus_{i,j} \frac{k[t]}{(p_i(t)^{r_{ij}})}
+\]
+as $k[t]$-modules.
+\item There exist monic nonconstant polynomials $f_1(t), \dots, f_m(t)
+\in k[t]$ such that $f_1(t) \mid \dots \mid f_m(t)$ and
+\[
+V \cong \frac{k[t]}{(f_1(t))} \oplus \dots \oplus \frac{k[t]}{(f_m(t))}
+\]
+as $k[t]$-modules.
+\end{itemize}
+Via these isomorphisms, the action of $\alpha$ on $V$ corresponds to
+multiplication by $t$.
+
+Further, two linear transformations $\alpha$, $\beta$ are similar if
+and only if they have the same collections of invariants
+$p_i(t)^{r_{ij}}$ (`elementary divisors'), $f_i(t)$ (`invariant
+factors').
+\end{thm}
+
+\begin{proof}
+Since $\dim V$ is finite, $V$ is finitely generated as a $k$-module and
+a fortiori as a $k[t]$-module. The two isomorphisms are then obtained
+by applying Theorem~5.6. All the relevant polynomials may be chosen to
+be monic since every polynomial over a field is the associate of a
+(unique) monic polynomial (Exercise~III.4.7). The fact that the action
+of $\alpha$ corresponds to multiplication by $t$ is precisely what
+defines the corresponding $k[t]$-module structure on $V$. The statement
+about similar transformations follows from Corollary~\ref{linalg:7.3}.
+\end{proof}
+
+Theorem~\ref{linalg:7.5} answers (over fields) the question raised in
+\S{}6.1: we now have a list of invariants which describe completely the
+similarity class of a linear transformation. Further, these invariants
+provide us with a special matrix representation of a given linear
+transformation.
+
+\begin{defn}{}{linalg:7.6}
+The \emph{rational canonical form} of a linear transformation $\alpha$
+of a vector space $V$ is the block matrix
+\[
+\begin{pmatrix}
+C_{f_1(t)} & & \\
+& \ddots & \\
+& & C_{f_m(t)}
+\end{pmatrix},
+\]
+where $f_1(t), \dots, f_m(t)$ are the invariant factors of $\alpha$.
+\end{defn}
+
+The rational canonical form of a square matrix is (of course) the
+rational canonical form of the corresponding linear transformation. The
+following statement is an immediate consequence of Theorem~7.5.
+
+\begin{coro}{}{linalg:7.7}
+Every linear transformation admits a rational canonical form. Two
+linear transformations have the same rational canonical form if and
+only if they are similar.
+\end{coro}
+
+\begin{rem}{}{linalg:7.8}
+The `rational' in rational canonical form has nothing to do with
+$\mathbb{Q}$; it is meant to remind the reader that this form can be
+found without leaving the base field. The other canonical form we will
+encounter will have entries in a possibly larger field, where the
+characteristic polynomial of the transformation factors completely.
+\end{rem}
+
+Corollary~\ref{linalg:7.7} fulfills explicitly another wish expressed
+at the end of \S{}6.1, that is, to find one distinguished representative
+in each similarity class of matrices/linear transformations. The
+rational canonical form is such a representative.
+
+The next obvious question is how the invariants we just found relate to
+our more naive attempts to produce invariants of similar transformations
+in \S{}6.
+
+\begin{prop}{}{linalg:7.9}
+Let $f_1(t) \mid \dots \mid f_m(t)$ be the invariant factors of a
+linear transformation $\alpha$ on a vector space $V$. Then the minimal
+polynomial $m_\alpha(t)$ equals $f_m(t)$, and the characteristic
+polynomial $P_\alpha(t)$ equals the product $f_1(t) \cdots f_m(t)$.
+\end{prop}
+
+\begin{proof}
+Tracing definitions, $(m_\alpha(t))$ is the annihilator ideal of $V$
+when this is viewed as a $k[t]$-module via $\alpha$ (as in
+Claim~\ref{linalg:7.1}). Therefore the equality of $m_\alpha(t)$ and
+$f_m(t)$ is a restatement of Lemma~5.7.
+
+Concerning the characteristic polynomial, by Exercise~6.10 it suffices
+to prove the statement in the cyclic case: that is, it suffices to
+prove that if $f(t)$ is a monic polynomial, then $f(t)$ equals the
+characteristic polynomial of the companion matrix $C_{f(t)}$.
+Explicitly, let
+\[
+f(t) = t^n + r_{n-1} t^{n-1} + \dots + r_0
+\]
+be a monic polynomial; then the task amounts to showing that
+\[
+\det \begin{pmatrix}
+t & 0 & 0 & \dots & 0 & r_0 \\
+-1 & t & 0 & \dots & 0 & r_1 \\
+0 & -1 & t & \dots & 0 & r_2 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & 0 & \dots & t & r_{n-2} \\
+0 & 0 & 0 & \dots & -1 & t + r_{n-1}
+\end{pmatrix} = f(t).
+\]
+This can be done by an easy induction and is left to the reader
+(Exercise~7.2).
+\end{proof}
+
+\begin{coro}{Cayley-Hamilton}{linalg:7.10}
+The minimal polynomial of a linear transformation divides its
+characteristic polynomial.
+\end{coro}
+
+\begin{proof}
+This has now become evident, as promised in \S{}6.2.
+\end{proof}
+
+Finding the rational canonical form of a given matrix $A$ amounts to
+working out the classification theorem for the specific $k[t]$-module
+corresponding to $A$ as in Claim~\ref{linalg:7.1}. As $k[t]$ is in fact
+a Euclidean domain, we know that this can be done by Gaussian
+elimination (cf.\ \S{}2.4). In practice, the process consists of
+compiling the information obtained while diagonalizing $tI - A$ over
+$k[t]$ by elementary operations. The reader is invited to either
+produce an original algorithm or at least look it up in a standard
+reference to see what is involved.
+
+Major shortcuts may come to our aid. For example, if the minimal and
+characteristic polynomials coincide, then one knows a priori that the
+corresponding module is cyclic (cf.\ Remark~5.8), and it follows that
+the rational canonical form is simply the companion matrix of the
+characteristic polynomial.
+
+In any case, the strength of a canonical form rests in the fact that it
+allows us to reduce general facts to specific, standard cases. For
+example, the following statement is somewhat mysterious if all one
+knows are the definitions, but it becomes essentially trivial with a
+pinch of rational canonical forms:
+
+\begin{prop}{}{linalg:7.11}
+Let $A \in \mathcal{M}_n(k)$ be a square matrix. Then $A$ is similar to
+its transpose.
+\end{prop}
+
+\begin{proof}
+If $B$ is similar to $A$ and we can prove that $B$ is similar to its
+transpose $B^t$, then $A$ is similar to its transpose $A^t$: because
+$B = PAP^{-1}$, $B^t = QBQ^{-1}$ give
+\[
+A^t = (P^t Q P) A (P^t Q P)^{-1}.
+\]
+Therefore, it suffices to prove the statement for matrices in rational
+canonical form.
+
+Further, to prove the statement for a block matrix, it clearly suffices
+to prove it for each block; so we may assume that $A$ is the companion
+matrix $C$ of a polynomial $f(t)$. Since the characteristic and
+minimal polynomials of the transpose $C^t$ coincide with those of $C$
+(Exercise~6.8), they are both equal to $f(t)$. It follows that the
+rational canonical form of $C^t$ is again the companion matrix to
+$f(t)$; therefore $C^t$ and $C$ are similar, as needed.
+\end{proof}
 
 \subsection{Jordan canonical form}
 \label{subsec:linalg:jordan-canonical-form}
@@ -5021,534 +5012,471 @@ relation
 % be a matrix
 % with entries in a field larger than k. In any case, whether two transformations
 % are
-% similar or not is independent of the base field (Exercise 7.4), so this does not
-% affect
-% the issue at hand.
-% Given \alpha  \in  End k (V ), obtain the elementary divisor decomposition of
-% the corre-
-% sponding k[t]-module, as in Theorem 7.5:
-% ! k[t]
-% V \sim 
-%  =
-%  .
-% (pi (t)rij )
-% i,j
-% It is an immediate consequence of Proposition 7.9 and the equivalence between
-% the elementary divisor and invariant factor formulations that the characteristic
-% polynomial P\alpha  (t) equals the product
-% ?
-% pi (t)rij .
-% i,j
-% Lemma 7.12. Assume that the characteristic polynomial P\alpha  (t) factors
-% completely;
-% that is,
-% ?
-%  s
-% P\alpha  (t) =
-%  (t - \lambda i )mi
-% i=1
-% where \lambda i , i = 1, . . . , s, are the distinct eigenvalues of \alpha  (and
-%  ? mi are their algebraic
-% multiplicities; cf. \S{}6.3). Then pi(t) = (t - \lambda i ), and mi = j rij .
-% In this situation, the minimal polynomial of \alpha  equals
-% ?
-%  s
-% m\alpha  (t) =
-%  (t - \lambda i )maxj {rij } .
-% i=1
-% Proof. The first statement follows from uniqueness of factorizations. The state-
-% ment about the minimal polynomial is immediate from Proposition 7.9 and the
-% bookkeeping giving the equivalence of the two formulations in Theorem 7.5.
-%  ?
-% The elementary divisor decomposition splits V into a different collection of
-% cyclic modules than the decomposition in invariant factors: the basic cyclic
-% bricks
-% are now of the form k[t]/(p(t)r ) for a monic prime p(t); by Lemma 7.12,
-% assuming
-% that the characteristic polynomial factors completely over k, they are in fact
-% of the
-% form
-% k[t]
-% ((t - \lambda )r )
-% for some \lambda  \in  k (which equals an eigenvalue of \alpha ) and r > 0. Just
-% as we did for
-% `companion matrices', we now look for a basis with respect to which \alpha  (=
-% multipli-
-% cation by t; keep in mind the fine print in Theorem 7.5) has a particularly
-% simple
-% matrix representation. This time we choose the basis
-% (t - \lambda )r-1 ,
-%  (t - \lambda )r-2 ,
-%  \cdot \cdot \cdot  ,
-%  (t - \lambda )0 = 1.
-% Multiplication by t on V acts (in the first line, use the fact that (t-\lambda
-% )r = 0 in V ) as
-% \{
-% | |
-%  |
-%  |
-%  |
-%  (t (t - \lambda )r-1 \lambda )r-2 ?\to t(t ?\to t(t - - \lambda )r-1 \lambda
-%  )r-2 = = \lambda (t (t - - \lambda )r-1 \lambda )r-1 + + \lambda (t (t - -
-%  \lambda )r-2,
-%  \lambda )r = \lambda (t - \lambda )r-1 ,
-% -|
-%  |
-%  |
-%  |
-%  \}
-%  \cdot \cdot \cdot 
-% 1 ?\to t = (t - \lambda ) + \lambda .
-% Therefore, with respect to this basis the linear transformation has matrix
-% (
-%  )
-% \lambda  1 0 ... 0 0
-% | 0 \lambda  1 . . . 0 0|
-% |
-%  |
-% | 0 0 \lambda  . . . 0 0|
-% |
-%  |
-% | | .. . . .. .
-%  .. . .
-%  .
-%  .. .
-%  .. .
-%  |
-%  | .
-% |
-%  |
-% ( 0 0 0 . . . \lambda  1)
-% 0 0 0 ... 0 \lambda 
-% Definition 7.13. This matrix is the Jordan block of size r corresponding to
-% \lambda ,
-% denoted J\lambda ,r .
-%  ?
-% We can put several blocks together for a given \lambda : for (rj ) = (r1 , . . .
-% , r?), let
-% (
-%  )
-% J\lambda ,r1
-% |
-%  |
-% J\lambda ,(rj ) := |
-%  (
-%  ..
-%  .
-%  | )
-%  .
-% J\lambda ,r?
-% With this notation in hand, we get new distinguished representatives of the
-% similarity class of a given linear transformation:
-% Definition 7.14. The Jordan canonical form of a linear transformation \alpha  of
-% a
-% vector space V is the block matrix
-% (
-%  )
-% J\lambda 1 ,(r1j )
-% |
-%  |
-% |
-%  (
-%  ..
-%  .
-%  | )
-%  ,
-% J\lambda s ,(rsj )
-% where (t - \lambda i )rij are the elementary divisors of \alpha  (cf. Lemma
-% 7.12).
-%  ?
-% This canonical form is `a little less canonical' than the rational canonical
-% form,
-% in the sense that while the rational canonical form is really unique, some
-% ambiguity
-% is left in the Jordan canonical form: there is no special way to choose the
-% order
-% of the different blocks any more than there is a way to order35 the eigenvalues
-% \lambda 1 , . . . , \lambda s.
-% Therefore, the analog of Corollary 7.7 should state that two linear transforma-
-% tions are similar if and only if they have the same Jordan canonical form up to
-% a
-% reordering of the blocks. As we have seen, every linear transformation \alpha
-% \in  Endk (V )
-% admits a Jordan canonical form if P\alpha  (t) factors completely over k; for
-% example, we
-% can always find a Jordan canonical form with entries in the algebraic closure of
-% k.
-% Example 7.15. One use of the Jordan canonical form is the enumeration of all
-% possible similarity classes of transformations with given eigenvalues. For
-% example,
-% there are 5 similarity classes of linear transformations with a single
-% eigenvalue \lambda
-% with algebraic multiplicity 4, over a 4-dimensional vector space: indeed, there
-% are 5
-% different ways to stack together Jordan blocks corresponding to the same
-% eigenvalue,
-% within a 4 \times  4 square matrix:
-% (
-%  )
-%  (
-%  )
-%  (
-%  )
-% \lambda 
-%  \lambda 
-%  \lambda 
-% |
-%  (
-%  | | |
-%  \lambda 
-%  \lambda 
-%  0 0 |
-%  |
-%  | )
-%  |
-%  ,
-%  |
-%  ( |
-%  | 0
-%  \lambda 
-%  \lambda 
-%  0 0 )
-%  |
-%  | |
-%  ,
-%  | ( |
-%  |
-%  \lambda 
-%  \lambda 
-%  1 0 )
-%  | |
-%  |
-%  ,
-%  \lambda 
-%  0 \lambda 
-%  \lambda 
-% (
-%  )
-%  (
-%  )
-% \lambda 
-%  \lambda 
-% | |
-%  |
-%  |
-% |
-%  \lambda 
-%  0 |
-%  | 0
-%  \lambda 
-%  0 |
-% |
-%  | , |
-%  | .
-%  ?
-% ( 0
-%  \lambda 
-%  0 )
-%  ( 0
-%  \lambda 
-%  1 )
-%  \lambda 
-%  \lambda 
-% The Jordan canonical form clarifies the difference between algebraic and geo-
-% metric multiplicities of an eigenvalue. The algebraic multiplicity of \lambda
-% as an eigen-
-% value of a linear transformation \alpha  is (of course) the number of times
-% \lambda  appears in
-% the Jordan canonical form of \alpha . Recall that the geometric multiplicity of
-% \lambda  equals
-% the dimension of the eigenspace of \lambda .
-% Proposition 7.16. The geometric multiplicity of \lambda  as an eigenvalue of
-% \alpha  equals
-% the number of Jordan blocks corresponding to \lambda  in the Jordan canonical
-% form of \alpha .
-% 35 Of course if the ground field is Q or R, then we can order the \lambda i
-%  's in, for example, increasing
-% order. However, this is not an option on fields like C.
-% Proof. As the geometric multiplicity is clearly additive in direct sums, it
-% suffices
-% to show that the geometric multiplicity of \lambda  for the transformation
-% corresponding
-% to a single Jordan block
-% (
-%  )
-% \lambda  1 ... 0 0
-% |0 \lambda  . . . 0 0|
-% |
-%  |
-% J = |
-%  | ... ... . . . ... ... |
-%  |
-% |
-%  |
-% (0 0 . . . \lambda  1)
-% 0 0 ... 0 \lambda 
-% is 1.
-%  ( )
-% v1
-% Let v = | ( .. . |
-%  ) be an eigenvector corresponding to \lambda . Then
-% vr
-% ( )
-%  ( ) (
-%  )
-% v1
-%  v1
-%  \lambda v1 + v2
-% |v2 |
-%  |v2 | |\lambda v2 + v3 |
-% | |
-%  | | |
-%  |
-% \lambda  ( | .. . | )
-%  = J | ( . .. ) | = (
-%  |
-%  ..
-%  .
-%  )
-%  | ,
-% vr
-%  vr
-%  \lambda vr
-% yielding
-% v2 = \dots  = vr = 0.
-% That is, the eigenspace of \lambda  is generated by
-% ( )
-% |0|
-% | |
-% v = | . |
-% ( .. )
-% and has dimension 1, as needed.
-%  ?
+similar or not is independent of the base field (Exercise~7.4), so this
+does not affect the issue at hand.
+
+Given $\alpha \in \operatorname{End}_k(V)$, obtain the elementary
+divisor decomposition of the corresponding $k[t]$-module, as in
+Theorem~\ref{linalg:7.5}:
+\[
+V \cong \bigoplus_{i,j} \frac{k[t]}{(p_i(t)^{r_{ij}})}.
+\]
+It is an immediate consequence of Proposition~\ref{linalg:7.9} and the
+equivalence between the elementary divisor and invariant factor
+formulations that the characteristic polynomial $P_\alpha(t)$ equals
+the product
+\[
+\prod_{i,j} p_i(t)^{r_{ij}}.
+\]
+
+\begin{lem}{}{linalg:7.12}
+Assume that the characteristic polynomial $P_\alpha(t)$ factors
+completely; that is,
+\[
+P_\alpha(t) = \prod_{i=1}^s (t - \lambda_i)^{m_i}
+\]
+where $\lambda_i$, $i = 1, \dots, s$, are the distinct eigenvalues of
+$\alpha$ (and $m_i$ are their algebraic multiplicities; cf.\ \S{}6.3).
+Then $p_i(t) = (t - \lambda_i)$, and $m_i = \sum_j r_{ij}$.
+
+In this situation, the minimal polynomial of $\alpha$ equals
+\[
+m_\alpha(t) = \prod_{i=1}^s (t - \lambda_i)^{\max_j \{r_{ij}\}}.
+\]
+\end{lem}
+
+\begin{proof}
+The first statement follows from uniqueness of factorizations. The
+statement about the minimal polynomial is immediate from
+Proposition~\ref{linalg:7.9} and the bookkeeping giving the equivalence
+of the two formulations in Theorem~\ref{linalg:7.5}.
+\end{proof}
+
+The elementary divisor decomposition splits $V$ into a different
+collection of cyclic modules than the decomposition in invariant
+factors: the basic cyclic bricks are now of the form $k[t]/(p(t)^r)$
+for a monic prime $p(t)$; by Lemma~\ref{linalg:7.12}, assuming that the
+characteristic polynomial factors completely over $k$, they are in
+fact of the form
+\[
+\frac{k[t]}{((t - \lambda)^r)}
+\]
+for some $\lambda \in k$ (which equals an eigenvalue of $\alpha$) and
+$r > 0$. Just as we did for `companion matrices', we now look for a
+basis with respect to which $\alpha$ (= multiplication by $t$; keep in
+mind the fine print in Theorem~\ref{linalg:7.5}) has a particularly
+simple matrix representation. This time we choose the basis
+\[
+(t - \lambda)^{r-1}, \quad (t - \lambda)^{r-2}, \quad \dots, \quad
+(t - \lambda)^0 = 1.
+\]
+Multiplication by $t$ on $V$ acts (in the first line, use the fact
+that $(t - \lambda)^r = 0$ in $V$) as
+\[
+\begin{cases}
+(t - \lambda)^{r-1} \mapsto t(t - \lambda)^{r-1} = \lambda(t -
+\lambda)^{r-1} + (t - \lambda)^r = \lambda(t - \lambda)^{r-1}, \\
+(t - \lambda)^{r-2} \mapsto t(t - \lambda)^{r-2} = (t - \lambda)^{r-1} +
+\lambda(t - \lambda)^{r-2}, \\
+\dots \\
+1 \mapsto t = (t - \lambda) + \lambda.
+\end{cases}
+\]
+Therefore, with respect to this basis the linear transformation has
+matrix
+\[
+\begin{pmatrix}
+\lambda & 1 & 0 & \dots & 0 & 0 \\
+0 & \lambda & 1 & \dots & 0 & 0 \\
+0 & 0 & \lambda & \dots & 0 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & 0 & \dots & \lambda & 1 \\
+0 & 0 & 0 & \dots & 0 & \lambda
+\end{pmatrix}.
+\]
+
+\begin{defn}{}{linalg:7.13}
+This matrix is the \emph{Jordan block} of size $r$ corresponding to
+$\lambda$, denoted $J_{\lambda, r}$.
+\end{defn}
+
+We can put several blocks together for a given $\lambda$: for $(r_j) =
+(r_1, \dots, r_\ell)$, let
+\[
+J_{\lambda, (r_j)} := \begin{pmatrix}
+J_{\lambda, r_1} & & \\
+& \ddots & \\
+& & J_{\lambda, r_\ell}
+\end{pmatrix}.
+\]
+With this notation in hand, we get new distinguished representatives of
+the similarity class of a given linear transformation:
+
+\begin{defn}{}{linalg:7.14}
+The \emph{Jordan canonical form} of a linear transformation $\alpha$ of
+a vector space $V$ is the block matrix
+\[
+\begin{pmatrix}
+J_{\lambda_1, (r_{1j})} & & \\
+& \ddots & \\
+& & J_{\lambda_s, (r_{sj})}
+\end{pmatrix},
+\]
+where $(t - \lambda_i)^{r_{ij}}$ are the elementary divisors of
+$\alpha$ (cf.\ Lemma~\ref{linalg:7.12}).
+\end{defn}
+
+This canonical form is `a little less canonical' than the rational
+canonical form, in the sense that while the rational canonical form is
+\emph{really} unique, some ambiguity is left in the Jordan canonical
+form: there is no special way to choose the order of the different
+blocks any more than there is a way to
+order\footnote{Of course if the ground field is $\mathbb{Q}$ or
+$\mathbb{R}$, then we can order the $\lambda_i$'s in, for example,
+increasing order. However, this is not an option on fields like
+$\mathbb{C}$.} the eigenvalues $\lambda_1, \dots, \lambda_s$.
+
+Therefore, the analog of Corollary~\ref{linalg:7.7} should state that
+two linear transformations are similar if and only if they have the
+same Jordan canonical form up to a reordering of the blocks. As we have
+seen, every linear transformation $\alpha \in \operatorname{End}_k(V)$
+admits a Jordan canonical form if $P_\alpha(t)$ factors completely over
+$k$; for example, we can always find a Jordan canonical form with
+entries in the algebraic closure of $k$.
+
+\begin{exam}{}{linalg:7.15}
+One use of the Jordan canonical form is the enumeration of all possible
+similarity classes of transformations with given eigenvalues. For
+example, there are $5$ similarity classes of linear transformations
+with a single eigenvalue $\lambda$ with algebraic multiplicity $4$,
+over a $4$-dimensional vector space: indeed, there are $5$ different
+ways to stack together Jordan blocks corresponding to the same
+eigenvalue, within a $4 \times 4$ square matrix:
+\[
+\begin{pmatrix}
+\lambda & 0 & 0 & 0 \\
+0 & \lambda & 0 & 0 \\
+0 & 0 & \lambda & 0 \\
+0 & 0 & 0 & \lambda
+\end{pmatrix}, \quad
+\begin{pmatrix}
+\lambda & 1 & 0 & 0 \\
+0 & \lambda & 0 & 0 \\
+0 & 0 & \lambda & 0 \\
+0 & 0 & 0 & \lambda
+\end{pmatrix}, \quad
+\begin{pmatrix}
+\lambda & 1 & 0 & 0 \\
+0 & \lambda & 0 & 0 \\
+0 & 0 & \lambda & 1 \\
+0 & 0 & 0 & \lambda
+\end{pmatrix},
+\]
+\[
+\begin{pmatrix}
+\lambda & 1 & 0 & 0 \\
+0 & \lambda & 1 & 0 \\
+0 & 0 & \lambda & 0 \\
+0 & 0 & 0 & \lambda
+\end{pmatrix}, \quad
+\begin{pmatrix}
+\lambda & 1 & 0 & 0 \\
+0 & \lambda & 1 & 0 \\
+0 & 0 & \lambda & 1 \\
+0 & 0 & 0 & \lambda
+\end{pmatrix}.
+\]
+\end{exam}
+
+The Jordan canonical form clarifies the difference between
+\emph{algebraic} and \emph{geometric} multiplicities of an eigenvalue.
+The algebraic multiplicity of $\lambda$ as an eigenvalue of a linear
+transformation $\alpha$ is (of course) the number of times $\lambda$
+appears in the Jordan canonical form of $\alpha$. Recall that the
+geometric multiplicity of $\lambda$ equals the dimension of the
+eigenspace of $\lambda$.
+
+\begin{prop}{}{linalg:7.16}
+The geometric multiplicity of $\lambda$ as an eigenvalue of $\alpha$
+equals the number of Jordan blocks corresponding to $\lambda$ in the
+Jordan canonical form of $\alpha$.
+\end{prop}
+
+\begin{proof}
+As the geometric multiplicity is clearly additive in direct sums, it
+suffices to show that the geometric multiplicity of $\lambda$ for the
+transformation corresponding to a single Jordan block
+\[
+J = \begin{pmatrix}
+\lambda & 1 & \dots & 0 & 0 \\
+0 & \lambda & \dots & 0 & 0 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & \dots & \lambda & 1 \\
+0 & 0 & \dots & 0 & \lambda
+\end{pmatrix}
+\]
+is $1$.
+
+Let $\mathbf{v} = \begin{pmatrix} v_1 \\ \vdots \\ v_r \end{pmatrix}$ be
+an eigenvector corresponding to $\lambda$. Then
+\[
+\lambda \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_r \end{pmatrix} =
+J \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_r \end{pmatrix} =
+\begin{pmatrix} \lambda v_1 + v_2 \\ \lambda v_2 + v_3 \\ \vdots \\
+\lambda v_r \end{pmatrix},
+\]
+yielding
+\[
+v_2 = \dots = v_r = 0.
+\]
+That is, the eigenspace of $\lambda$ is generated by
+\[
+\mathbf{v} = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}
+\]
+and has dimension $1$, as needed.
+\end{proof}
 
 \subsection{Diagonalizability}
 \label{subsec:linalg:diagonalizability}
-% A linear transformation of a vector space V is diagonal-
+A linear transformation of a vector space $V$ is \emph{diagonalizable}
+if it can be represented by a diagonal matrix.
 
-% izable if it can be represented by a diagonal matrix.
-% The question of whether a given linear transformation is or is not
-% diagonalizable
-% is interesting and important: as I pointed out already in \S{}6.3, when \alpha
-% \in  Endk (V ) is
-% diagonalizable, then the vector space V admits a corresponding spectral
-% decomposi-
-% tion: \alpha  is diagonalizable if and only if V admits a basis of eigenvectors
-% of \alpha . Much
-% more could be said on this important theme, but we are already in the position
-% of
-% giving useful criteria for diagonalizability.
-% For example, the diagonal matrix representing \alpha  will necessarily be a
-% Jordan
-% canonical form for \alpha , consisting of blocks of size 1. Proposition 7.16
-% tells us that
-% this can be detected by the difference between algebraic and geometric
-% multiplicity,
-% so we get the following characterization of diagonalizable transformations:
-% Corollary 7.17. Assume the characteristic polynomial of \alpha  \in  Endk (V )
-% factors
-% completely over k. Then \alpha  is diagonalizable if and only if the geometric
-% and alge-
-% braic multiplicities of all its eigenvalues coincide.
-% Another view of the same result is the following:
+The question of whether a given linear transformation is or is not
+diagonalizable is interesting and important: as I pointed out already
+in \S{}6.3, when $\alpha \in \operatorname{End}_k(V)$ is diagonalizable,
+then the vector space $V$ admits a corresponding spectral
+decomposition: $\alpha$ is diagonalizable if and only if $V$ admits a
+basis of eigenvectors of $\alpha$. Much more could be said on this
+important theme, but we are already in the position of giving useful
+criteria for diagonalizability.
+
+For example, the diagonal matrix representing $\alpha$ will necessarily
+be a Jordan canonical form for $\alpha$, consisting of blocks of size
+$1$. Proposition~\ref{linalg:7.16} tells us that this can be detected
+by the difference between algebraic and geometric multiplicity, so we
+get the following characterization of diagonalizable transformations:
+
+\begin{coro}{}{linalg:7.17}
+Assume the characteristic polynomial of $\alpha \in
+\operatorname{End}_k(V)$ factors completely over $k$. Then $\alpha$ is
+diagonalizable if and only if the geometric and algebraic
+multiplicities of all its eigenvalues coincide.
+\end{coro}
+
+Another view of the same result is the following:
+
+\begin{prop}{}{linalg:7.18}
+Assume the characteristic polynomial of $\alpha \in
+\operatorname{End}_k(V)$ factors completely over $k$. Then $\alpha$ is
+diagonalizable if and only if the minimal polynomial of $\alpha$ has no
+multiple roots.
+\end{prop}
+
+\begin{proof}
+Again, diagonalizability is equivalent to having all Jordan blocks of
+size $1$ in the Jordan canonical form of $\alpha$. Therefore, if the
+characteristic polynomial of $\alpha$ factors completely, then $\alpha$
+is diagonalizable if and only if all exponents $r_{ij}$ appearing in
+Theorem~\ref{linalg:7.5} equal $1$. By the second part of
+Lemma~\ref{linalg:7.12}, this is equivalent to the requirement that the
+minimal polynomial of $\alpha$ have no multiple roots.
+\end{proof}
+
+The condition of factorizability in these statements is necessary in
+order to guarantee that a Jordan canonical form exists. Not
+surprisingly, whether a matrix is diagonalizable or not depends on the
+ground field. For example,
+\[
+\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
+\]
+is not diagonalizable over $\mathbb{R}$ (cf.\ Example~6.15), while it
+is diagonalizable over $\mathbb{C}$.
+
+Endowing the vector space $V$ with additional structure (such as an
+inner product) singles out important classes of operators, for which
+one can obtain precise and delicate results on the existence of
+spectral decompositions. For example, this can be used to prove that
+real symmetric matrices are diagonalizable (Exercise~7.20.) The reader
+will get a taste of these `spectral theorems' in the exercises.
 
 \subsection*{Exercises}
 
-% Proposition 7.18. Assume the characteristic polynomial of \alpha  \in  Endk (V )
-% factors
-% completely over k. Then \alpha  is diagonalizable if and only if the minimal
-% polynomial
-% of \alpha  has no multiple roots.
-% Proof. Again, diagonalizability is equivalent to having all Jordan blocks of
-% size 1
-% in the Jordan canonical form of \alpha . Therefore, if the characteristic
-% polynomial of \alpha
-% factors completely, then \alpha  is diagonalizable if and only if all exponents
-% rij appearing
-% in Theorem 7.5 equal 1. By the second part of Lemma 7.12, this is equivalent to
-% the requirement that the minimal polynomial of \alpha  have no multiple roots.
-%  ?
-% The condition of factorizability in these statements is necessary in order to
-% guarantee that a Jordan canonical form exists. Not surprisingly, whether a
-% matrix
-% is diagonalizable or not depends on the ground field. For example,
-% 0 -1
-% 1 0
-% is not diagonalizable over R (cf. Example 6.15), while it is diagonalizable over
-% C.
-% Endowing the vector space V with additional structure (such as an inner prod-
-% uct) singles out important classes of operators, for which one can obtain
-% precise and
-% delicate results on the existence of spectral decompositions. For example, this
-% can
-% be used to prove that real symmetric matrices are diagonalizable (Exercise
-% 7.20.)
-% The reader will get a taste of these `spectral theorems' in the exercises.
-% As above, k denotes a field.
-% 7.1. ? Complete the proof of Lemma 7.2. [\S{}7.1]
-% 7.2. ? Prove that the characteristic polynomial of the companion matrix of a
-% monic
-% polynomial f (t) equals f (t). [\S{}7.2]
-% 7.3. ? Prove that two linear transformations of a vector space of dimension \leq
-% 3 are
-% similar if and only if they have the same characteristic and minimal
-% polynomials.
-% Is this true in dimension 4? [\S{}6.2]
-% 7.4. ? Let k be a field, and let K be a field containing k. Two square matrices
-% A, B \in  Mn (k) may be viewed as matrices with entries in the larger field K.
-% Prove
-% that A and B are similar over k if and only if they are similar over K.
-% [\S{}7.3]
-% 7.5. Find the rational canonical form of a diagonal matrix
-% (
-%  )
-% \lambda 1 0 . . . 0
-% | 0 \lambda 2 . . . 0 |
-% |
-%  |
-% | ( ..
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  .. . | )
-%  ,
-%  0 . . . \lambda r
-% assuming that the \lambda i are all distinct.
-% 7.6. Let
-%  (
-%  )
-% 6 -10
-%  -10
-% A = ( 3
-%  -5
-%  -6 ) .
-% -1
-% \bullet  Compute the characteristic polynomial of A.
-% \bullet  Find the minimal polynomial of A (use the Cayley-Hamilton theorem!).
-% \bullet  Find the invariant factors of A.
-% \bullet  Find the rational canonical form of A.
-% 7.7. Let V be a k-vector space of dimension n, and let \alpha  \in  Endk (V ).
-% Prove that
-% the minimal and characteristic polynomials of \alpha  coincide if and only if
-% there is a
-% vector v \in  V such that
-% v,
-%  \alpha (v),
-%  \cdot \cdot \cdot  ,
-%  \alpha n-1 (v)
-% is a basis of V .
-% 7.8. Let V be a k-vector space of dimension n, and let \alpha  \in  Endk (V ).
-% Prove that the
-% characteristic polynomial P\alpha  (t) divides a power of the minimal polynomial
-% m\alpha  (t).
-% 7.9. What is the number of distinct similarity classes of linear transformations
-% on
-% an n-dimensional vector space with one fixed eigenvalue \lambda  with algebraic
-% multiplic-
-% ity n?
-% 7.10. Classify all square matrices A \in  Mn (k) such that A2 = A, up to
-% similarity.
-% Describe the action of such matrices `geometrically'.
-% 7.11. A square matrix A \in  Mn (k) is nilpotent (cf. Exercise V.4.19) if Ak = 0
-% for
-% some integer k.
-% \bullet  Characterize nilpotent matrices in terms of their Jordan canonical form.
-% \bullet  Prove that if A k = 0 for some integer k, then Ak = 0 for some integer k no
-% larger than n (= the size of the matrix).
-% \bullet  Prove that the trace of a nilpotent matrix is 0.
-% 7.12. \lnot  Let V be a finite-dimensional k-vector space, and let \alpha  \in
-% Endk (V ) be a
-% diagonalizable linear transformation. Assume that W \subseteq  V is an invariant
-% subspace,
-% so that \alpha  induces a linear transformation \alpha |W \in  Endk (W ). Prove
-% that \alpha |W is also
-% diagonalizable. (Use Proposition 7.18.) [7.14]
-% 7.13. \lnot  Let R be an integral domain. Assume that A \in  Mn (R) is
-% diagonalizable,
-% with distinct eigenvalues. Let B \in  Mn (R) be such that AB = BA. Prove that
-% B is also diagonalizable, and in fact it is diagonal w.r.t. a basis of
-% eigenvectors
-% -1 -1 -1of A. (If P is such that P AP is diagonal, note that P AP and P BP also
-% commute.) [7.14]
-% 7.14. Prove that `commuting transformations may be simultaneously diagonalized',
-% in the following sense. Let V be a finite-dimensional vector space, and let
-% \alpha , \beta  \in
-% Endk (V ) be diagonalizable transformations. Assume that \alpha \beta  = \beta
-% \alpha . Prove that V
-% has a basis consisting of eigenvectors of both \alpha  and \beta . (Argue as in
-% Exercise 7.13
-% to reduce to the case in which V is an eigenspace for \alpha ; then use Exercise
-% 7.12.)
-% 7.15. A complete flag of subspaces of a vector space V of dimension n is a
-% sequence
-% of nested subspaces
-% 0 = V0 ? V1 ? \dots  ? Vn-1 ? Vn = V
-% with dim Vi = i. In other words, a complete flag is a composition series in the
-% sense
-% of Exercise 1.16.
-% Let V be a finite-dimensional vector space over an algebraically closed field.
-% Prove that every linear transformation \alpha  of V preserves a complete flag:
-% that is,
-% there is a complete flag as above and such that \alpha (Vi) \subseteq  Vi .
-% Find a linear transformation of R2 that does not preserve a complete flag.
-% 7.16. (Schur form) Let A \in  Mn (C). Prove that there exists a unitary matrix
-% P \in  U(n) such that
-% (
-%  )
-% \lambda 1 \ast 
-%  \ast 
-%  ...
-%  \ast 
-% | |
-%  0 \lambda 2 \ast 
-%  ...
-%  \ast  |
-%  |
-% A = P | | ..
-%  .
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  ..
-%  . .. |
-%  | P -1 .
-% |
-%  |
-% ( 0
-%  0 . . . \lambda  n-1 \ast  )
-%  0 ...
-%  \lambda n
-% So not only is A similar to an upper triangular matrix (this is already
-% guaranteed
-% by the Jordan canonical form), but a matrix of change of basis P
-% `triangularizing'
-% the matrix A can in fact be chosen to be in U(n). (Argue inductively on n. Since
-% C is algebraically closed, A has at least one eigenvector v1 , and we may assume
-% \bot (v1, v1 ) = 1. For the induction step, consider the complement v1 ; cf. Exercise 6.17,
-% and keep in mind Exercise 6.18.)
-% The upper triangular matrix is a Schur form for A. It is (of course) not unique.
-% 7.17. \lnot  A matrix M \in  Mn (C) is normal if M M \dagger  = M \dagger M .
-% Note that unitary
-% matrices and hermitian matrices are both normal.
-% Prove that triangular normal matrices are diagonal. [7.18]
-% 7.18. \lnot  Prove the spectral theorem for normal operators: if M is a normal
-% matrix,
-% then there exists an orthonormal basis of eigenvectors of M . Therefore, normal
-% operators are diagonalizable; they determine a spectral decomposition of the
-% vector
-% space on which they act. (Consider the Schur form of M ; cf. Exercise 7.16. Use
-% Exercise 7.17.) [7.19, 7.20]
-% 7.19. Prove that a matrix M \in  Mn (C) is normal if and only if it admits an
-% orthonormal basis of eigenvectors. (Exercise 7.18 gives one direction; prove the
-% converse.)
-% 7.20. ? Prove that real symmetric matrices are diagonalizable and admit an or-
-% thonormal basis of eigenvectors. (This is an immediate consequence of Exercise
-% 7.18
-% and Exercise 6.22.) [\S{}7.4]
+As above, $k$ denotes a \emph{field}.
+
+\begin{exer}{\exerused}{exer:linalg:7.1}
+Complete the proof of Lemma~\ref{linalg:7.2}. [\S{}7.1]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:7.2}
+Prove that the characteristic polynomial of the companion matrix of a
+monic polynomial $f(t)$ equals $f(t)$. [\S{}7.2]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:7.3}
+Prove that two linear transformations of a vector space of dimension
+$\leq 3$ are similar if and only if they have the same characteristic
+and minimal polynomials. Is this true in dimension $4$? [\S{}6.2]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:7.4}
+Let $k$ be a field, and let $K$ be a field containing $k$. Two square
+matrices $A, B \in \mathcal{M}_n(k)$ may be viewed as matrices with
+entries in the larger field $K$. Prove that $A$ and $B$ are similar
+over $k$ if and only if they are similar over $K$. [\S{}7.3]
+\end{exer}
+\begin{exer}{}{exer:linalg:7.5}
+Find the rational canonical form of a diagonal matrix
+\[
+\begin{pmatrix}
+\lambda_1 & 0 & \dots & 0 \\
+0 & \lambda_2 & \dots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \dots & \lambda_r
+\end{pmatrix},
+\]
+assuming that the $\lambda_i$ are all distinct.
+\end{exer}
+\begin{exer}{}{exer:linalg:7.6}
+Let
+\[
+A = \begin{pmatrix} 6 & -10 & -10 \\ 3 & -5 & -6 \\ -1 & 2 & 3
+\end{pmatrix}.
+\]
+\begin{itemize}
+\item Compute the characteristic polynomial of $A$.
+\item Find the minimal polynomial of $A$ (use the Cayley-Hamilton
+theorem!).
+\item Find the invariant factors of $A$.
+\item Find the rational canonical form of $A$.
+\end{itemize}
+\end{exer}
+\begin{exer}{}{exer:linalg:7.7}
+Let $V$ be a $k$-vector space of dimension $n$, and let $\alpha \in
+\operatorname{End}_k(V)$. Prove that the minimal and characteristic
+polynomials of $\alpha$ coincide if and only if there is a vector
+$\mathbf{v} \in V$ such that
+\[
+\mathbf{v}, \quad \alpha(\mathbf{v}), \quad \dots, \quad
+\alpha^{n-1}(\mathbf{v})
+\]
+is a basis of $V$.
+\end{exer}
+\begin{exer}{}{exer:linalg:7.8}
+Let $V$ be a $k$-vector space of dimension $n$, and let $\alpha \in
+\operatorname{End}_k(V)$. Prove that the characteristic polynomial
+$P_\alpha(t)$ divides a power of the minimal polynomial $m_\alpha(t)$.
+\end{exer}
+\begin{exer}{}{exer:linalg:7.9}
+What is the number of distinct similarity classes of linear
+transformations on an $n$-dimensional vector space with one fixed
+eigenvalue $\lambda$ with algebraic multiplicity $n$?
+\end{exer}
+\begin{exer}{}{exer:linalg:7.10}
+Classify all square matrices $A \in \mathcal{M}_n(k)$ such that
+$A^2 = A$, up to similarity. Describe the action of such matrices
+`geometrically'.
+\end{exer}
+\begin{exer}{}{exer:linalg:7.11}
+A square matrix $A \in \mathcal{M}_n(k)$ is \emph{nilpotent} (cf.\
+Exercise~V.4.19) if $A^k = 0$ for some integer $k$.
+\begin{itemize}
+\item Characterize nilpotent matrices in terms of their Jordan
+canonical form.
+\item Prove that if $A^k = 0$ for some integer $k$, then $A^k = 0$ for
+some integer $k$ no larger than $n$ (= the size of the matrix).
+\item Prove that the trace of a nilpotent matrix is $0$.
+\end{itemize}
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:7.12}
+Let $V$ be a finite-dimensional $k$-vector space, and let $\alpha \in
+\operatorname{End}_k(V)$ be a diagonalizable linear transformation.
+Assume that $W \subseteq V$ is an invariant subspace, so that $\alpha$
+induces a linear transformation $\alpha|_W \in \operatorname{End}_k(W)$.
+Prove that $\alpha|_W$ is also diagonalizable. (Use
+Proposition~\ref{linalg:7.18}.) [7.14]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:7.13}
+Let $R$ be an integral domain. Assume that $A \in \mathcal{M}_n(R)$ is
+diagonalizable, with distinct eigenvalues. Let $B \in \mathcal{M}_n(R)$
+be such that $AB = BA$. Prove that $B$ is also diagonalizable, and in
+fact it is diagonal w.r.t.\ a basis of eigenvectors of $A$. (If $P$ is
+such that $P^{-1}AP$ is diagonal, note that $P^{-1}AP$ and $P^{-1}BP$
+also commute.) [7.14]
+\end{exer}
+\begin{exer}{}{exer:linalg:7.14}
+Prove that `commuting transformations may be simultaneously
+diagonalized', in the following sense. Let $V$ be a finite-dimensional
+vector space, and let $\alpha, \beta \in \operatorname{End}_k(V)$ be
+diagonalizable transformations. Assume that $\alpha\beta = \beta\alpha$.
+Prove that $V$ has a basis consisting of eigenvectors of both $\alpha$
+and $\beta$. (Argue as in Exercise~\ref{exer:linalg:7.13} to reduce to
+the case in which $V$ is an eigenspace for $\alpha$; then use
+Exercise~\ref{exer:linalg:7.12}.)
+\end{exer}
+\begin{exer}{}{exer:linalg:7.15}
+A \emph{complete flag} of subspaces of a vector space $V$ of dimension
+$n$ is a sequence of nested subspaces
+\[
+0 = V_0 \subsetneq V_1 \subsetneq \dots \subsetneq V_{n-1} \subsetneq
+V_n = V
+\]
+with $\dim V_i = i$. In other words, a complete flag is a composition
+series in the sense of Exercise~1.16.
+
+Let $V$ be a finite-dimensional vector space over an algebraically
+closed field. Prove that every linear transformation $\alpha$ of $V$
+preserves a complete flag: that is, there is a complete flag as above
+and such that $\alpha(V_i) \subseteq V_i$.
+
+Find a linear transformation of $\mathbb{R}^2$ that does not preserve a
+complete flag.
+\end{exer}
+\begin{exer}{}{exer:linalg:7.16}
+(Schur form) Let $A \in \mathcal{M}_n(\mathbb{C})$. Prove that there
+exists a unitary matrix $P \in \mathrm{U}(n)$ such that
+\[
+A = P \begin{pmatrix}
+\lambda_1 & \ast & \dots & \ast \\
+0 & \lambda_2 & \dots & \ast \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \dots & \lambda_n
+\end{pmatrix} P^{-1}.
+\]
+So not only is $A$ similar to an upper triangular matrix (this is
+already guaranteed by the Jordan canonical form), but a matrix of
+change of basis $P$ `triangularizing' the matrix $A$ can in fact be
+chosen to be in $\mathrm{U}(n)$. (Argue inductively on $n$. Since
+$\mathbb{C}$ is algebraically closed, $A$ has at least one eigenvector
+$\mathbf{v}_1$, and we may assume $(\mathbf{v}_1, \mathbf{v}_1) = 1$.
+For the induction step, consider the complement $\mathbf{v}_1^\perp$;
+cf.\ Exercise~6.17, and keep in mind Exercise~6.18.)
+
+The upper triangular matrix is a \emph{Schur form} for $A$. It is (of
+course) not unique.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:7.17}
+A matrix $M \in \mathcal{M}_n(\mathbb{C})$ is \emph{normal} if
+$MM^\dagger = M^\dagger M$. Note that unitary matrices and hermitian
+matrices are both normal.
+
+Prove that triangular normal matrices are diagonal. [7.18]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:7.18}
+Prove the \emph{spectral theorem for normal operators}: if $M$ is a
+normal matrix, then there exists an orthonormal basis of eigenvectors
+of $M$. Therefore, normal operators are diagonalizable; they determine
+a spectral decomposition of the vector space on which they act.
+(Consider the Schur form of $M$; cf.\ Exercise~\ref{exer:linalg:7.16}.
+Use Exercise~\ref{exer:linalg:7.17}.) [7.19, 7.20]
+\end{exer}
+\begin{exer}{}{exer:linalg:7.19}
+Prove that a matrix $M \in \mathcal{M}_n(\mathbb{C})$ is normal if and
+only if it admits an orthonormal basis of eigenvectors.
+(Exercise~\ref{exer:linalg:7.18} gives one direction; prove the
+converse.)
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:7.20}
+Prove that real symmetric matrices are diagonalizable and admit an
+orthonormal basis of eigenvectors. (This is an immediate consequence of
+Exercise~\ref{exer:linalg:7.18} and Exercise~6.22.) [\S{}7.4]
+\end{exer}
 
 %%% Local Variables:
 %%% mode: LaTeX
