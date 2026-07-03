@@ -4966,359 +4966,252 @@ injective resolution and $\mathsf{K}^+(\mathsf{I})$.
 
 \subsection{From objects to complexes}
 \label{subsec:homol:from-objects-to-complexes}
-% Suppose that an abelian category A has
 
-% enough projectives. At this point we hopefully agree (Exercise 6.2) that the ho-
-% -motopic category K (P) contains a full subcategory which is equivalent to A:
-% the
-% (homotopy) category of projective resolutions of objects of A. While a priori
-% each
-% object of A corresponds to many projective resolutions, these are all homotopy
-% -equivalent to one another (by Proposition 6.4), hence isomorphic in K (P); mor-
-% phisms in A correspond precisely to homotopy classes of morphisms between pro-
-% -jective resolutions (by Proposition 6.5), hence to morphisms in K (P).
-% -In practice, this says that we can use this subcategory of K (P) as a replace-
-% ment for the original abelian category A. We are very close to achieving our
-% goal of
-% identifying the `essential nature' of cohomology: since homotopy equivalent com-
-% plexes have the same cohomology (by Theorem 4.14) and additive functors preserve
-% -homotopy equivalence, objects of K (P) are ideal carriers of cohomology
-% invariants:
-% while applying an additive functor to objects of A in general destroys
-% cohomolog-
-% -ical information, applying `the same functor' to a corresponding object in K
-% (P)
-% preserves that information.
-% We will follow this lead in the next section; the functors Tori and Exti encoun-
-% tered in Chapter VIII will arise precisely in this fashion and will stand as our
-% poster
-% examples of derived functors.
-% Of course, exactly the same situation will occur if A has enough injectives, in
-% which case the appropriate replacement for A is found in K+ (I). I will say a
-% word
-% about the general situation when projectives or injectives are not available, in
-% \S{}9.1.
-% The reader should now wonder whether the categories K- (P), K+ (I) may in fact
-% be used to extract cohomological information for any (bounded) complex, not just
-% for resolutions of a given object of A. As observed in \S{}4.2, resolutions (in
-% C- (A)
-% or C+ (A)) are just special cases of quasi-isomorphisms; the natural question is
-% -whether every (suitably bounded) complex has a `quasi-isomorphic copy' in K (P)
-% or K+ (I), again uniquely defined up to isomorphism in the homotopy category
-% (that
-% is, up to homotopy equivalence in C(A)).
-% This is indeed the case.
-% Theorem 6.6. Assume the abelian category A has enough projectives, and let
-% L\bullet  be
-% - \bullet 
-% a complex in C (A). Then there exists a bounded-above complex of projectives
-% Pand a quasi-isomorphism P \bullet  \to  L\bullet  , and P \bullet  is uniquely
-% defined up to homotopy
-% equivalence. Further, every morphism \alpha  \bullet  of complexes in C-(A)
-% lifts to a morphism
-% of the corresponding projective resolutions in K- (P), also uniquely determined
-% (up
-% to homotopy).
-% The lift obtained in the last part of this statement exists in the homotopy
-% category: any representative in C-(P) will be a `homotopy lift' of \alpha
-% \bullet  , in the sense
-% that the relevant diagram will only be guaranteed to commute up to homotopy.
-% I will call a complex P \bullet  as in the statement a `projective resolution of
-% L\bullet  ';
-% this is a slight abuse of language, since it forgets the specific
-% quasi-isomorphism
-% P \bullet  \to  L\bullet  .
-% As always, there is a mirror statement to Theorem 6.6 for injectives, which I
-% will leave to the reader to formulate precisely. It is a particularly good
-% exercise for
-% the reader to construct a stand-alone proof for the injective case.
-% Proof. The proof of this result is admittedly rather technical, as it involves
-% many
-% of the tools that we have developed.
-% Construction of P \bullet  . We may assume that L\bullet  is in C\leq 0 (A),
-% -2
-%  -1
-% \cdot \cdot \cdot 
-%  / L-2
-%  dL\bullet 
-%  / L-1
-%  dL\bullet 
-%  / L0
-%  / 0
-%  / \cdot \cdot \cdot  ,
-% and we are seeking a complex P \bullet  in C\leq 0 (P) and a quasi-isomorphism
-% \lambda \bullet  : P \bullet  \to  L\bullet  :
-% -2
-%  -1
-% \cdot \cdot \cdot 
-%  / P -2
-%  dP \bullet 
-%  / P -1
-%  dP \bullet 
-%  / P 0
-%  / 0
-%  / \cdot \cdot \cdot 
-% \lambda -2
-%  \lambda -1
-%  \lambda 0
-%  \lambda 1
-% \sqcup 
-%  d-2
-%  L\bullet 
-%  \sqcup 
-%  d-1
-%  L\bullet 
-%  \sqcup 
-%  \sqcup 
-% \cdot \cdot \cdot 
-%  / L-2
-%  / L
-% -1
-%  / L0
-%  / 0
-%  / \cdot \cdot \cdot 
-% \bullet The construction will give us a little more: we will obtain a projective P and
-% an epi morphism \lambda \bullet  : P \bullet  \to  L\bullet  and moreover such
-% that each induced morphism
-% \hat{\lambda }i : ker diP \bullet  \to  ker diL\bullet  is also an epimorphism.
-% For i > 0, necessarily \lambda i = 0. Arguing inductively, we may assume we have
-% already constructed a suitable \lambda i+1 and use it to construct \lambda i .
-% Here is the diagram
-% summarizing this inductive step:
-% diP \bullet 
-% P i G
-%  G G
-%  G G
-%  G \lambda 
-%  /G
-%  / i
-%  G Li G
-%  G G
-%  \times 
-%  G G
-%  ker G G G di+1
-%  \# \#
-%  L\bullet 
-%  \sqcup 
-%  ker di+1
-%  P \bullet 
-%  \pi 
-%  / ker di+1
-%  \sqcup 
-%  P
-%  \hat{\lambda }i+1
-%  \bullet 
-%  /
-%  +/
-%  P i+1
-% Li
-%  i
-%  / ker di+1
-%  L
-% \bullet 
-% dL\bullet 
-% Here, diL\bullet  restricts the target of diL\bullet  . The square is a
-% pull-back (cf. Examples 1.11
-% and 2.2). The morphism \hat{\lambda }i+1 on the right is an epimorphism by
-% induction, and it
-% follows that the morphism on the left is also an epimorphism, by Lemma 2.3. A
-% projective object P i with an epimorphism to the fibered product exists because
-% A
-% has enough projectives; the composition \lambda i : P i \to  Li is then also an
-% epimorphism,
-% as claimed. Since the square is a pull-back, the kernel of \pi  maps
-% isomorphically
-% i
-% to the kernel of dL
-% \bullet  (Exercise 1.16); it follows easily that the new induced map
-% \hat{\lambda }i
-%  : ker dP i
-%  \bullet  \to  ker diL\bullet  is an epimorphism, concluding the inductive step and the
-% construction of the complex P \bullet  and of the morphism \lambda \bullet  .
-% To see that the morphism induced in cohomology by \lambda \bullet  is an
-% isomorphism,
-% look again at the pull-back diagram and note that H i+1 (P \bullet  ), resp., H
-% i+1 (L\bullet  ), may
-% be realized as the cokernel of \pi , resp., dL
-% \bullet  i
-%  . Since \hat{\lambda }
-% i+1
-%  is an epimorphism, so is the
-% morphism
-% (diL\bullet  , -\hat{\lambda }i+1 ) : Li \oplus  ker di+1
-%  P \bullet  -\to  ker dL\bullet  i+1
-%  .
-% As the diagram is a pull-back, this implies (as observed in Example 2.2) that it
-% is
-% a push-out as well, and (Exercise 1.16 again) it follows that the induced
-% morphism
-% coker \pi  \to  coker diL\bullet  is an isomorphism. As noted, this is nothing
-% but
-% H i+1 (\lambda \bullet  )
-%  :
-%  H i+1 (P \bullet  ) -\to  H i+1 (L\bullet  ),
-% so we are done.
-% \bullet 
-%  \leq 0Uniqueness up to homotopy. It suffices to compare an arbitrary P in C (P)
-% mapping to L\bullet  with the complex P \bullet  constructed in the first part
-% of the proof.
-% Working on the same diagram used above,
-% P \exists \tilde{\lambda } S' i i ''
-%  N ''
-% '
-%  N
-%  '
-% ''
-% N N i ? N
-%  ?
-%  N
-%  v
-%  ?
-%  /N v / N v Li v
-%  N v N \setminus  v
-%  N \times 
-%  v
-%  N
-%  |
-%  v
-%  ker N v
-%  <
-% N v
-%  N v
-%  d & & : i+1
-%  L\bullet 
-%  L
-%  \sqcup 
-%  i
-%  ker di+1
-%  P \bullet 
-%  // ker ker > di+1
-%  di+1
-%  \sqcup 
-%  L\bullet 
-%  P
-%  \bullet 
-%  /
-% /
-%  \tilde{\lambda }i+1
-%  i+1
-%  ? ?
-%  ?
-%  ?
-%  / ? / P Li+1
-%  ?
-%  ? ?
-%  C
-%  i+1
-%  \sqcup 
-% ''''
-% ''P
-%  / PI claim that the morphism \lambda \bullet 
-%  :P \bullet 
-%  \to  L\bullet  lifts to a morphism \tilde{\lambda }\bullet  :P \bullet 
-%  \to  P \bullet  . Indeed,
-% both complexes are 0 in degree ? 0; thus, for i ? 0, P i
-%  \to  P i is necessarily
-% the zero-morphism. Arguing inductively once more, we assume the lift has been
-% constructed in all degrees > i, and we construct it in degree i.
-% The composition P i
-%  \to  P
-%  i+1
-%  \to  P i+1 \to  P i+2 agrees with the composition
-% P i
-%  \to  P
-%  i+1
-%  \to  P
-%  i+2
-%  \to  P i+2
-%  , so it is the zero-morphism. Therefore this composition
-% factors through ker di+1
-%  P \bullet  : this gives the dotted morphism in the diagram. By the
-% universal property of fibered products, we obtain the dashed morphism. Since P i
-% maps epimorphically to Li \times ker di+1
-%  L
-% \bullet 
-%  ker di+1
-%  P \bullet  , the needed lift \tilde{\lambda }i
-%  : P i
-%  \to  P i
-%  exists as
-% i
-% P is projective. The `outer' diagram is commutative by construction; hence the
-% collection \tilde{\lambda }i gives a morphism of cochain complexes
-% \tilde{\lambda }\bullet  . Note that so far we have
-% \bullet 
-% not used the hypothesis that \lambda  is a quasi-isomorphism.
-% -We now have the following commutative diagram in C (A):
-% \bullet 
-% \bullet 
-%  |
-%  \tilde{\lambda } | \bullet 
-%  |
-%  |
-%  | |
-%  |
-%  | P =
-%  \sqcup \sqcup 
-%  \lambda \bullet 
-% P
-%  / L\bullet 
-% \bullet 
-% \lambda 
-% Both \lambda \bullet  and \lambda \bullet 
-%  are quasi-isomorphisms; therefore so is \tilde{\lambda }\bullet  . Theorem 5.9
-%  implies
-% then that \tilde{\lambda }\bullet  is a homotopy equivalence, as needed.
-% Lifting morphisms. Let \alpha \bullet  : L\bullet 
-%  \to  L\bullet  be any morphism in C- (A). The argu-
-% ment we have just given shows that if P \bullet 
-%  is in C- (P) and L \bullet  is in C- (A), then every
-% morphism P \bullet 
-%  \to  L\bullet  lifts to a morphism P \bullet 
-%  \to  P \bullet  , where P \bullet  is the complex con-
-% structed in the first part of the proof. In fact, we have now established that
-% there
-% exists a homotopy lift28 to any complex P \bullet  mapping quasi-isomorphically
-% to L\bullet  ,
-% since every such complex is homotopy equivalent to the one constructed earlier.
-% \bullet 
-% Applying this observation to any complex P
-%  mapping quasi-isomorphically
-% \bullet 
-%  \bullet to L lifts \alpha  as needed.
-% Finally, assume that both \alpha 0 \bullet  , \alpha 1 \bullet  lift \alpha
-% \bullet  homotopically:
-% \alpha \bullet 
-% P
-%  \bullet 
-%  // P \bullet 
-% \alpha \bullet 
-% q-iso.
-%  \lambda \bullet  q-iso.
-% \sqcup 
-%  \bullet 
-%  \alpha 
-% \bullet 
-%  \sqcup 
-% L
-%  / L\bullet 
-% This means that \lambda \bullet  \circ (\alpha 1 \bullet  - \alpha 0 \bullet  )
-% is homotopic to 0:
-% P
-%  \bullet 
-%  \alpha \bullet 
-%  1 -\alpha 0
-%  \bullet 
-%  / P \bullet 
-%  q-iso.
-%  5/ L\bullet 
-% \sim 0
-% It follows that \alpha 1 \bullet  - \alpha 0 \bullet  \sim  0, by Lemma 5.14,
-% and this concludes the proof.
-%  ?
-% 28 That is, the corresponding diagram will commute up to homotopy.
-%  In general, a lift
-% in C- (P) may not exist; cf. Exercise 6.10.
+Suppose that an abelian category $\mathsf{A}$ has enough projectives.
+At this point we hopefully agree (Exercise~6.2) that the homotopic
+category $\mathsf{K}^-(\mathsf{P})$ contains a full subcategory which
+is equivalent to $\mathsf{A}$: the (homotopy) category of projective
+resolutions of objects of $\mathsf{A}$. While a priori each object of
+$\mathsf{A}$ corresponds to many projective resolutions, these are
+all homotopy equivalent to one another (by
+Proposition~\ref{prop:homol:6.4}), hence isomorphic in
+$\mathsf{K}^-(\mathsf{P})$; morphisms in $\mathsf{A}$ correspond
+precisely to homotopy classes of morphisms between projective
+resolutions (by Proposition~\ref{prop:homol:6.5}), hence to morphisms
+in $\mathsf{K}^-(\mathsf{P})$.
+
+In practice, this says that we can use this subcategory of
+$\mathsf{K}^-(\mathsf{P})$ as a replacement for the original abelian
+category $\mathsf{A}$. We are very close to achieving our goal of
+identifying the `essential nature' of cohomology: since homotopy
+equivalent complexes have the same cohomology (by Theorem~4.14) and
+additive functors preserve homotopy equivalence, objects of
+$\mathsf{K}^-(\mathsf{P})$ are ideal carriers of cohomology
+invariants: while applying an additive functor to objects of
+$\mathsf{A}$ in general destroys cohomological information, applying
+`the same functor' to a corresponding object in
+$\mathsf{K}^-(\mathsf{P})$ preserves that information.
+
+We will follow this lead in the next section; the functors
+$\operatorname{Tor}_i$ and $\operatorname{Ext}^i$ encountered in
+Chapter~VIII will arise precisely in this fashion and will stand as
+our poster examples of derived functors.
+
+Of course, exactly the same situation will occur if $\mathsf{A}$ has
+enough injectives, in which case the appropriate replacement for
+$\mathsf{A}$ is found in $\mathsf{K}^+(\mathsf{I})$. I will say a
+word about the general situation when projectives or injectives are
+not available, in \S{}9.1.
+
+The reader should now wonder whether the categories
+$\mathsf{K}^-(\mathsf{P})$, $\mathsf{K}^+(\mathsf{I})$ may in fact be
+used to extract cohomological information for \emph{any} (bounded)
+complex, not just for resolutions of a given object of $\mathsf{A}$.
+As observed in \S{}4.2, resolutions (in $\mathsf{C}^-(\mathsf{A})$ or
+$\mathsf{C}^+(\mathsf{A})$) are just special cases of
+quasi-isomorphisms; the natural question is whether every (suitably
+bounded) complex has a `quasi-isomorphic copy' in
+$\mathsf{K}^-(\mathsf{P})$ or $\mathsf{K}^+(\mathsf{I})$, again
+uniquely defined up to isomorphism in the homotopy category (that is,
+up to homotopy equivalence in $\mathsf{C}(\mathsf{A})$).
+
+This is indeed the case.
+
+\begin{thm}{}{thm:homol:6.6}
+  Assume the abelian category $\mathsf{A}$ has enough projectives,
+  and let $L^\bullet$ be a complex in $\mathsf{C}^-(\mathsf{A})$.
+  Then there exists a bounded-above complex of projectives $P^\bullet$
+  and a quasi-isomorphism $P^\bullet \to L^\bullet$, and $P^\bullet$
+  is uniquely defined up to homotopy equivalence. Further, every
+  morphism $\alpha^\bullet$ of complexes in $\mathsf{C}^-(\mathsf{A})$
+  lifts to a morphism of the corresponding projective resolutions in
+  $\mathsf{K}^-(\mathsf{P})$, also uniquely determined (up to
+  homotopy).
+\end{thm}
+
+The lift obtained in the last part of this statement exists in the
+homotopy category: any representative in $\mathsf{C}^-(\mathsf{P})$
+will be a `homotopy lift' of $\alpha^\bullet$, in the sense that the
+relevant diagram will only be guaranteed to commute up to homotopy.
+
+I will call a complex $P^\bullet$ as in the statement a `projective
+resolution of $L^\bullet$'; this is a slight abuse of language, since
+it forgets the specific quasi-isomorphism $P^\bullet \to L^\bullet$.
+
+As always, there is a mirror statement to Theorem~\ref{thm:homol:6.6}
+for injectives, which I will leave to the reader to formulate
+precisely. It is a particularly good exercise for the reader to
+construct a stand-alone proof for the injective case.
+
+\begin{proof}
+  The proof of this result is admittedly rather technical, as it
+  involves many of the tools that we have developed.
+
+  \emph{Construction of $P^\bullet$.} We may assume that $L^\bullet$
+  is in $\mathsf{C}^{\le 0}(\mathsf{A})$,
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & L^{-2} \arrow[r, "d_{L^\bullet}^{-2}"] &
+      L^{-1} \arrow[r, "d_{L^\bullet}^{-1}"] & L^0 \arrow[r] &
+      0 \arrow[r] & \dots,
+  \end{tikzcd}\]
+  and we are seeking a complex $P^\bullet$ in
+  $\mathsf{C}^{\le 0}(\mathsf{P})$ and a quasi-isomorphism $\lambda^\bullet
+  : P^\bullet \to L^\bullet$:
+  \[\begin{tikzcd}[column sep=large]
+    \dots \arrow[r] & P^{-2} \arrow[r, "d_{P^\bullet}^{-2}"]
+      \arrow[d, "\lambda^{-2}"] &
+      P^{-1} \arrow[r, "d_{P^\bullet}^{-1}"] \arrow[d, "\lambda^{-1}"] &
+      P^0 \arrow[r] \arrow[d, "\lambda^0"] &
+      0 \arrow[r] \arrow[d, "\lambda^1"] & \dots \\
+    \dots \arrow[r] & L^{-2} \arrow[r, "d_{L^\bullet}^{-2}"'] &
+      L^{-1} \arrow[r, "d_{L^\bullet}^{-1}"'] & L^0 \arrow[r] &
+      0 \arrow[r] & \dots
+  \end{tikzcd}\]
+  The construction will give us a little more: we will obtain a
+  projective $P^\bullet$ and an \emph{epi}morphism $\lambda^\bullet :
+  P^\bullet \to L^\bullet$ and moreover such that each induced
+  morphism $\hat\lambda^i : \ker d^i_{P^\bullet} \to \ker
+  d^i_{L^\bullet}$ is also an epimorphism.
+
+  For $i > 0$, necessarily $\lambda^i = 0$. Arguing inductively, we
+  may assume we have already constructed a suitable $\lambda^{i+1}$
+  and use it to construct $\lambda^i$. Here is the diagram
+  summarizing this inductive step:
+  \[\begin{tikzcd}[column sep=large]
+    P^i \arrow[r, twoheadrightarrow]
+      \arrow[rrr, "d_{P^\bullet}^i", bend left=15]
+      \arrow[dr, "\lambda^i"'] &
+      L^i \times_{\ker d_{L^\bullet}^{i+1}} \ker d_{P^\bullet}^{i+1}
+      \arrow[r, "\pi"] \arrow[d] &
+      \ker d_{P^\bullet}^{i+1} \arrow[r, hook]
+      \arrow[d, "\hat\lambda^{i+1}"] & P^{i+1} \\
+    & L^i \arrow[r, "d_{L^\bullet}^i"'] &
+      \ker d_{L^\bullet}^{i+1} &
+  \end{tikzcd}\]
+  Here, $d^i_{L^\bullet}$ restricts the target of $d^i_{L^\bullet}$.
+  The square is a pull-back (cf. Examples~1.11 and 2.2). The
+  morphism $\hat\lambda^{i+1}$ on the right is an epimorphism by
+  induction, and it follows that the morphism on the left is also an
+  epimorphism, by Lemma~2.3. A projective object $P^i$ with an
+  epimorphism to the fibered product exists because $\mathsf{A}$ has
+  enough projectives; the composition $\lambda^i : P^i \to L^i$ is
+  then also an epimorphism, as claimed. Since the square is a
+  pull-back, the kernel of $\pi$ maps isomorphically to the kernel of
+  $d^i_{L^\bullet}$ (Exercise~1.16); it follows easily that the new
+  induced map $\hat\lambda^i : \ker d^i_{P^\bullet} \to \ker
+  d^i_{L^\bullet}$ is an epimorphism, concluding the inductive step
+  and the construction of the complex $P^\bullet$ and of the
+  morphism $\lambda^\bullet$.
+
+  To see that the morphism induced in cohomology by $\lambda^\bullet$
+  is an isomorphism, look again at the pull-back diagram and note
+  that $H^{i+1}(P^\bullet)$, resp., $H^{i+1}(L^\bullet)$, may be
+  realized as the cokernel of $\pi$, resp., $d^i_{L^\bullet}$. Since
+  $\hat\lambda^{i+1}$ is an epimorphism, so is the morphism
+  \[
+    \bigl(d^i_{L^\bullet},\, -\hat\lambda^{i+1}\bigr) : L^i \oplus
+    \ker d^{i+1}_{P^\bullet} \longrightarrow \ker d^{i+1}_{L^\bullet}.
+  \]
+  As the diagram is a pull-back, this implies (as observed in
+  Example~2.2) that it is a push-out as well, and (Exercise~1.16
+  again) it follows that the induced morphism $\operatorname{coker}\pi
+  \to \operatorname{coker} d^i_{L^\bullet}$ is an isomorphism. As
+  noted, this is nothing but
+  \[
+    H^{i+1}(\lambda^\bullet) : H^{i+1}(P^\bullet) \longrightarrow
+    H^{i+1}(L^\bullet),
+  \]
+  so we are done.
+  \emph{Uniqueness up to homotopy.} It suffices to compare an
+  arbitrary $\overline{P}^\bullet$ in $\mathsf{C}^{\le
+  0}(\mathsf{P})$ mapping to $L^\bullet$ with the complex $P^\bullet$
+  constructed in the first part of the proof. Working on the same
+  diagram used above,
+  % TODO: diagram of the inductive construction of the lift
+  % \tilde\lambda^\bullet: \overline{P}^\bullet \to P^\bullet -- the
+  % same pull-back square P^i \twoheadrightarrow L^i
+  % \times_{\ker d_L^{i+1}} \ker d_P^{i+1} \to \ker d_P^{i+1}
+  % \hookrightarrow P^{i+1} as above, with \overline{P}^i and
+  % \overline{P}^{i+1} added below (connected by a curved arrow along
+  % the bottom), a dotted arrow \overline{P}^i \to \ker d_P^{i+1}
+  % (the map obtained by factoring the zero composition
+  % \overline{P}^i \to \overline{P}^{i+1} \to P^{i+1} \to P^{i+2}
+  % through \ker d_P^{i+1}), and the resulting dashed arrow
+  % \exists \tilde\lambda^i: \overline{P}^i \to P^i obtained from the
+  % universal property of the fibered product
+  I claim that the morphism $\overline\lambda^\bullet : \overline
+  P^\bullet \to L^\bullet$ lifts to a morphism $\tilde\lambda^\bullet
+  : \overline P^\bullet \to P^\bullet$. Indeed, both complexes are
+  $0$ in degree $\gg 0$; thus, for $i \gg 0$, $\overline P^i \to P^i$
+  is necessarily the zero-morphism. Arguing inductively once more, we
+  assume the lift has been constructed in all degrees $> i$, and we
+  construct it in degree $i$.
+
+  The composition $\overline P^i \to \overline P^{i+1} \to P^{i+1}
+  \to P^{i+2}$ agrees with the composition $\overline P^i \to
+  \overline P^{i+1} \to \overline P^{i+2} \to P^{i+2}$, so it is the
+  zero-morphism. Therefore this composition factors through $\ker
+  d^{i+1}_{P^\bullet}$: this gives the dotted morphism in the
+  diagram. By the universal property of fibered products, we obtain
+  the dashed morphism. Since $P^i$ maps epimorphically to $L^i
+  \times_{\ker d^{i+1}_{L^\bullet}} \ker d^{i+1}_{P^\bullet}$, the
+  needed lift $\tilde\lambda^i : \overline P^i \to P^i$ exists as
+  $\overline P^i$ is projective. The `outer' diagram is commutative
+  by construction; hence the collection $\tilde\lambda^i$ gives a
+  morphism of cochain complexes $\tilde\lambda^\bullet$. Note that so
+  far we have not used the hypothesis that $\overline\lambda^\bullet$
+  is a quasi-isomorphism.
+
+  We now have the following commutative diagram in
+  $\mathsf{C}^-(\mathsf{A})$:
+  \[\begin{tikzcd}
+    & P^\bullet \arrow[d, "\lambda^\bullet"] \\
+    \overline P^\bullet \arrow[ur, "\tilde\lambda^\bullet"]
+      \arrow[r, "\overline\lambda^\bullet"'] & L^\bullet
+  \end{tikzcd}\]
+  Both $\lambda^\bullet$ and $\overline\lambda^\bullet$ are
+  quasi-isomorphisms; therefore so is $\tilde\lambda^\bullet$.
+  Theorem~\ref{thm:homol:5.9} implies then that $\tilde\lambda^\bullet$
+  is a homotopy equivalence, as needed.
+
+  \emph{Lifting morphisms.} Let $\alpha^\bullet : \overline L^\bullet
+  \to L^\bullet$ be any morphism in $\mathsf{C}^-(\mathsf{A})$. The
+  argument we have just given shows that if $\overline P^\bullet$ is
+  in $\mathsf{C}^-(\mathsf{P})$ and $\overline L^\bullet$ is in
+  $\mathsf{C}^-(\mathsf{A})$, then every morphism $\overline P^\bullet
+  \to L^\bullet$ lifts to a morphism $\overline P^\bullet \to
+  P^\bullet$, where $P^\bullet$ is the complex constructed in the
+  first part of the proof. In fact, we have now established that
+  there exists a homotopy lift\footnote{That is, the corresponding
+  diagram will commute up to homotopy. In general, a lift in
+  $\mathsf{C}^-(\mathsf{P})$ may not exist; cf. Exercise~6.10.} to any
+  complex $P^\bullet$ mapping quasi-isomorphically to $L^\bullet$,
+  since every such complex is homotopy equivalent to the one
+  constructed earlier.
+
+  Applying this observation to any complex $\overline P^\bullet$
+  mapping quasi-isomorphically to $\overline L^\bullet$ lifts
+  $\alpha^\bullet$ as needed.
+
+  Finally, assume that both $\alpha_0^\bullet$, $\alpha_1^\bullet$
+  lift $\alpha^\bullet$ homotopically:
+  \[\begin{tikzcd}
+    \overline P^\bullet \arrow[r, "\alpha_1^\bullet", shift left]
+      \arrow[r, "\alpha_0^\bullet"', shift right]
+      \arrow[d, "\text{q-iso.}"'] &
+      P^\bullet \arrow[d, "\lambda^\bullet", "\text{q-iso.}"'] \\
+    \overline L^\bullet \arrow[r, "\alpha^\bullet"'] & L^\bullet
+  \end{tikzcd}\]
+  This means that $\lambda^\bullet \circ (\alpha_1^\bullet -
+  \alpha_0^\bullet)$ is homotopic to $0$:
+  \[\begin{tikzcd}
+    \overline P^\bullet \arrow[r, "\alpha_1^\bullet - \alpha_0^\bullet"]
+      \arrow[rr, "\sim\, 0"', bend right=20] &
+      P^\bullet \arrow[r, "\text{q-iso.}"] & L^\bullet
+  \end{tikzcd}\]
+  It follows that $\alpha_1^\bullet - \alpha_0^\bullet \sim 0$, by
+  Lemma~\ref{lem:homol:5.14}, and this concludes the proof.
+\end{proof}
 
 \subsection{Poor man's derived category}
 \label{subsec:homol:poor-man-s-derived-category}
