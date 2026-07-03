@@ -1,21 +1,21 @@
-XELATEX = xelatex -file-line-error -interaction=nonstopmode
-MASTER  = master
+LUALATEX = lualatex -file-line-error -interaction=nonstopmode
+MASTER   = master
 
 .PHONY: pdf quick check clean chktex warnings
 
 pdf: $(MASTER).pdf
 
 $(MASTER).pdf: $(MASTER).tex $(wildcard *.tex) $(wildcard chapters/*.tex)
-	$(XELATEX) $(MASTER)
+	$(LUALATEX) $(MASTER)
 	biber $(MASTER)
-	$(XELATEX) $(MASTER)
-	$(XELATEX) $(MASTER)
+	$(LUALATEX) $(MASTER)
+	$(LUALATEX) $(MASTER)
 
 quick:
-	$(XELATEX) $(MASTER)
+	$(LUALATEX) $(MASTER)
 
 check:
-	$(XELATEX) -no-pdf $(MASTER)
+	$(LUALATEX) -no-pdf $(MASTER)
 
 # Fail if the log contains any warning other than Overfull/Underfull box warnings.
 warnings: pdf
