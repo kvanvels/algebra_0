@@ -10050,172 +10050,89 @@ so the conclusion reproduces the corresponding statement in
 Theorem~8.12. This is what is meant by the incantation `by an
 immediate spectral sequence argument' I mentioned in the beginning
 of this subsection.
-% This reasoning and other applications of the spectral sequence of a double
-% complex are easier to understand if the various degrees and shifts are
-% visualized in
-% a more compelling way. View the original double complex
-% ..
-%  ..
-%  ..
-%  ..
-% . O
-%  . O
-%  . O
-%  . O
-% M 0,2
-%  O
-%  M 1,2
-%  O
-%  M 2,2
-%  O
-%  M 3,2
-%  O
-%  \cdot \cdot \cdot 
-% M 0,1
-%  O
-%  M 1,1
-%  O
-%  M 2,1
-%  O
-%  M 3,1
-%  O
-%  \cdot \cdot \cdot 
-% M 0,0
-%  M 1,0
-%  M 2,0
-%  M 3,0
-%  \cdot \cdot \cdot 
-% as an `E0' term in the sequence. The horizontal differentials are dotted out to
-% highlight the fact that v E 1 is obtained by taking the cohomology of the
-% columns;
-% this gives
-% H 2 (T0 \bullet  /T1 \bullet  )
-%  / H 3 (T1 \bullet  /T2 \bullet )
-%  / H 4 (T2 \bullet  /T3 \bullet )
-%  / H 5(T3 \bullet  /T4 \bullet  )
-%  / \cdot \cdot \cdot 
-% H 1 (T0 \bullet  /T1 \bullet  )
-%  / H 2 (T1 \bullet  /T2 \bullet )
-%  / H 3 (T2 \bullet  /T3 \bullet )
-%  / H 4(T3 \bullet  /T4 \bullet  )
-%  / \cdot \cdot \cdot 
-% H 0 (T0 \bullet  /T1 \bullet  )
-%  / H 1 (T1 \bullet  /T2 \bullet )
-%  / H 2 (T2 \bullet  /T3 \bullet )
-%  / H 3(T3 \bullet  /T4 \bullet  )
-%  / \cdot \cdot \cdot 
-% For example, the part in degree 2 of H 3 (gr\bullet  v (T )) is the cohomology
-% of the second
-% column M 2,\bullet  computed at gr3 v (T ) 2 = M 2,1 , so I placed the
-% corresponding object
-% 3 \bullet  \bullet H (T2 /T3 ) in position (2, 1). The differential of v E 1
-% increases both the cohomolog-
-% ical degree and the filtration degree by 1, as indicated. Such diagrams are
-% somewhat
-% hard to parse. To simplify dealing with the indices, it is common to assign
-% degrees
-% (i, j) to the terms in v E 1 according to the indices of the objects M i,j = M
-% m,k-m
-% at which the cohomology is computed; that is, set
-% v E i,j
-%  1 = H
-%  i+j
-%  (Ti \bullet /Ti+1
-%  \bullet 
-%  ).
-% Then the same array is drawn as
-% v E 1
-%  0,2
-%  / v E 1,2
-%  / v E 1
-%  2,2
-%  / v E 3,2
-%  / \cdot \cdot \cdot 
-% v E 1
-%  0,1
-%  / v E 1
-%  1,1
-%  / v E 2,1
-%  / v E 3,1
-%  / \cdot \cdot \cdot 
-% v E 1
-%  0,0
-%  / v E 1
-%  1,0
-%  / v E 2,0
-%  / v E 3,0
-%  / \cdot \cdot \cdot 
-% The next term v E 2 is obtained by taking the cohomology of v E 1 . Its
-% differential
-% acts by increasing m by 2 and k by 1, that is, i by 2 and j by -1. We can draw
-% this as
-% v E 0,2
-%  0,1
-%  2 TT
-%  TT Tv T TT E 1,2
-%  2 1,1
-%  T T
-%  T T TT T TT T
-% T T *
-%  v T E TT 2,2
-%  2,1
-%  2 TT
-%  TT T TT T T
-%  TT T *
-%  T v E TT 2
-%  3,2
-%  3,1
-%  T
-% T TT T
-% T T)
-%  \cdot \cdot \cdot 
-% v E 0,0
-%  2 TT
-%  TT Tv T TT E
-%  1,0
-%  2 T T
-%  T T TT T TT T
-% T T *
-%  v T TT E
-%  2,0
-%  2 TT
-%  TT T TT T T
-%  TT T *
-%  v T E
-%  TT 3,0
-%  T
-% T TT T
-% T T)
-%  \cdot \cdot \cdot 
-% v E 2
-%  v E 2
-%  v E 2
-%  v E 2
-%  \cdot \cdot \cdot 
-% In general, v E r is the cohomology of v E r-1, and its differential increases m
-% by r
-% and k by 1 (Remark 9.4); that is, (i, j) ?\to  (i+r, j -(r -1)). Pictorially,
-% differentials
-% at different stages act like this:
-% v E1
-%  v E2
-%  v E3
-% and so on. This picture of a `rotating' differential may be the image that most
-% people
-% have in mind when they think of a spectral sequence. The argument sketched
-% above, deriving Theorem 8.12 from Theorem 9.5, is probably clearer from this
-% point of view: if the cohomology of the columns is concentrated in degree 0,
-% then
-% v E 1 is concentrated along the bottom row of the array. It is then clear that
-% all
-% differentials di for i \geq  2 will have to be zero, since either their source
-% or their target
-% is zero. Thus the sequence collapses at v E 2 and yields the cohomology of the
-% total
-% complex by Theorem 9.5. The other situation considered in Theorem 8.12 can be
-% analyzed by using the sequence hE i obtained from the horizontal filtration.
-
-\subsection*{Exercises}
+This reasoning and other applications of the spectral sequence of a
+double complex are easier to understand if the various degrees and
+shifts are visualized in a more compelling way. View the original
+double complex
+\[\begin{tikzcd}
+  \vdots \arrow[u] & \vdots \arrow[u] & \vdots \arrow[u] & \vdots \arrow[u] & \\
+  M^{0,2} \arrow[u] \arrow[r,dotted] & M^{1,2} \arrow[u] \arrow[r,dotted] & M^{2,2} \arrow[u] \arrow[r,dotted] & M^{3,2} \arrow[u] \arrow[r,dotted] & \cdots \\
+  M^{0,1} \arrow[u] \arrow[r,dotted] & M^{1,1} \arrow[u] \arrow[r,dotted] & M^{2,1} \arrow[u] \arrow[r,dotted] & M^{3,1} \arrow[u] \arrow[r,dotted] & \cdots \\
+  M^{0,0} \arrow[r,dotted] & M^{1,0} \arrow[r,dotted] & M^{2,0} \arrow[r,dotted] & M^{3,0} \arrow[r,dotted] & \cdots
+\end{tikzcd}\]
+as an `$E_0$' term in the sequence. The horizontal differentials are
+dotted out to highlight the fact that ${}_vE_1$ is obtained by
+taking the cohomology of the columns; this gives
+\[\begin{tikzcd}
+  H^2(T_0^\bullet/T_1^\bullet) \arrow[r] & H^3(T_1^\bullet/T_2^\bullet) \arrow[r] & H^4(T_2^\bullet/T_3^\bullet) \arrow[r] & H^5(T_3^\bullet/T_4^\bullet) \arrow[r] & \cdots \\
+  H^1(T_0^\bullet/T_1^\bullet) \arrow[r] & H^2(T_1^\bullet/T_2^\bullet) \arrow[r] & H^3(T_2^\bullet/T_3^\bullet) \arrow[r] & H^4(T_3^\bullet/T_4^\bullet) \arrow[r] & \cdots \\
+  H^0(T_0^\bullet/T_1^\bullet) \arrow[r] & H^1(T_1^\bullet/T_2^\bullet) \arrow[r] & H^2(T_2^\bullet/T_3^\bullet) \arrow[r] & H^3(T_3^\bullet/T_4^\bullet) \arrow[r] & \cdots
+\end{tikzcd}\]
+For example, the part in degree $2$ of $H^3(\operatorname{gr}_v^\bullet(T))$
+is the cohomology of the second column $M^{2,\bullet}$ computed at
+$\operatorname{gr}_v^3(T)_2 = M^{2,1}$, so I placed the corresponding
+object $H^3(T_2^\bullet/T_3^\bullet)$ in position $(2,1)$. The
+differential of ${}_vE_1$ increases both the cohomological degree and
+the filtration degree by $1$, as indicated. Such diagrams are
+somewhat hard to parse. To simplify dealing with the indices, it is
+common to assign degrees $(i,j)$ to the terms in ${}_vE_1$ according
+to the indices of the objects $M^{i,j} = M^{m,k-m}$ at which the
+cohomology is computed; that is, set
+\[
+  {}_vE_1^{i,j} = H^{i+j}(T_i^\bullet/T_{i+1}^\bullet).
+\]
+Then the same array is drawn as
+\[\begin{tikzcd}
+  {}_vE_1^{0,2} \arrow[r] & {}_vE_1^{1,2} \arrow[r] & {}_vE_1^{2,2} \arrow[r] & {}_vE_1^{3,2} \arrow[r] & \cdots \\
+  {}_vE_1^{0,1} \arrow[r] & {}_vE_1^{1,1} \arrow[r] & {}_vE_1^{2,1} \arrow[r] & {}_vE_1^{3,1} \arrow[r] & \cdots \\
+  {}_vE_1^{0,0} \arrow[r] & {}_vE_1^{1,0} \arrow[r] & {}_vE_1^{2,0} \arrow[r] & {}_vE_1^{3,0} \arrow[r] & \cdots
+\end{tikzcd}\]
+The next term ${}_vE_2$ is obtained by taking the cohomology of
+${}_vE_1$. Its differential acts by increasing $m$ by $2$ and $k$ by
+$1$, that is, $i$ by $2$ and $j$ by $-1$. We can draw this as
+\[\begin{tikzcd}
+  {}_vE_2^{0,2} \arrow[drr] & {}_vE_2^{1,2} \arrow[drr] & {}_vE_2^{2,2} & {}_vE_2^{3,2} & \cdots \\
+  {}_vE_2^{0,1} \arrow[drr] & {}_vE_2^{1,1} \arrow[drr] & {}_vE_2^{2,1} & {}_vE_2^{3,1} & \cdots \\
+  {}_vE_2^{0,0} & {}_vE_2^{1,0} & {}_vE_2^{2,0} & {}_vE_2^{3,0} & \cdots
+\end{tikzcd}\]
+In general, ${}_vE_r$ is the cohomology of ${}_vE_{r-1}$, and its
+differential increases $m$ by $r$ and $k$ by $1$
+(Remark~\ref{homol:9.4}); that is, $(i,j) \mapsto (i+r, j-(r-1))$.
+Pictorially, differentials at different stages act like this:
+\[
+  \underset{{}_vE_1}{
+  \begin{tikzcd}[column sep=10pt, row sep=10pt, ampersand replacement=\&]
+    \bullet \arrow[r] \& \bullet \& \bullet \& \bullet \\
+    \bullet \& \bullet \& \bullet \& \bullet \\
+    \bullet \& \bullet \& \bullet \& \bullet
+  \end{tikzcd}}
+  \qquad
+  \underset{{}_vE_2}{
+  \begin{tikzcd}[column sep=10pt, row sep=10pt, ampersand replacement=\&]
+    \bullet \arrow[drr] \& \bullet \& \bullet \& \bullet \\
+    \bullet \& \bullet \& \bullet \& \bullet \\
+    \bullet \& \bullet \& \bullet \& \bullet
+  \end{tikzcd}}
+  \qquad
+  \underset{{}_vE_3}{
+  \begin{tikzcd}[column sep=10pt, row sep=10pt, ampersand replacement=\&]
+    \bullet \arrow[ddrrr] \& \bullet \& \bullet \& \bullet \\
+    \bullet \& \bullet \& \bullet \& \bullet \\
+    \bullet \& \bullet \& \bullet \& \bullet
+  \end{tikzcd}}
+\]
+and so on. This picture of a `rotating' differential may be the
+image that most people have in mind when they think of a spectral
+sequence. The argument sketched above, deriving Theorem~8.12 from
+Theorem~\ref{homol:9.5}, is probably clearer from this point of
+view: if the cohomology of the columns is concentrated in degree
+$0$, then ${}_vE_1$ is concentrated along the bottom row of the
+array. It is then clear that all differentials $d_i$ for $i \ge 2$
+will have to be zero, since either their source or their target is
+zero. Thus the sequence collapses at ${}_vE_2$ and yields the
+cohomology of the total complex by Theorem~\ref{homol:9.5}. The
+other situation considered in Theorem~8.12 can be analyzed by using
+the sequence ${}_hE_i$ obtained from the horizontal filtration.
 
 % Of course, spectral sequences are not limited to these simple applications. The
 % Grothendieck spectral sequence `computes' the derived functor of the composition
