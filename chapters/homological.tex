@@ -9319,66 +9319,69 @@ these categories should not be expected to be (and indeed are not)
 for example, long exact cohomology sequences. The fact that derived
 functors ended up having long exact sequences associated to them
 (\S{}7.4) bears witness to this fact.
-% The essential ingredients of a triangulated (additive) category are a
-% `translation'
-% functor, which in the case of K(A) or D(A) is realized as the shift functor
-% L\bullet  ?\to  L[1]\bullet  ;
-% and a class of diagrams
-% A
-%  E 4+1
-%  4 4
-% ?
-% C o
-%  B
-% where the morphism labeled `+1' acts as C \to  A[1]; these diagrams are called
-% distinguished triangles. A common alternative notation is
-% A
-%  / B
-%  / C
-%  +1
-%  / .
-% Distinguished triangles are required to satisfy several axioms. Among them,
-% E 0 2 2
-% +1
-%  2 2
-% 2 2
-% ?
-% A o
-%  A
-% idA
-% is required to be distinguished for every A; every morphism \alpha  : A \to  B
-% must be
-% a side of a distinguished triangle; triangles isomorphic to a distinguished
-% triangle
-% (in the evident sense) must be distinguished; and distinguished triangles can be
-% `rotated':
-% +1
-%  A
-%  E 44
-%  4 \alpha 
-% \gamma 
-%  4 44
-%  ?
-% C o
-%  B
-% \beta 
-% is distinguished if and only if
-% -\alpha  ? +1 ?
-%  ? ?
-%  ? ?
-%  ? C
-%  B3
-%  3 3
-%  3 3\beta 
-%  3 3
-%  ?
-% A[1] o
-%  C
-% \gamma 
-% is distinguished. There is more, including an infamous octahedral axiom (so
-% named
-% since a popular way to state it invokes an octahedral diagram). The reader will
-% have no difficulties locating this information in the literature.
+The essential ingredients of a triangulated (additive) category are
+a `translation' functor, which in the case of $\mathsf{K}(\mathsf{A})$
+or $\mathsf{D}(\mathsf{A})$ is realized as the shift functor
+$L^\bullet \mapsto L[1]^\bullet$; and a class of diagrams
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (A) at (1,1.3) {$A$};
+    \node (C) at (0,0) {$C$};
+    \node (B) at (2,0) {$B$};
+    \draw[->] (A) -- (B);
+    \draw[->] (B) -- (C);
+    \draw[->] (C) -- (A) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+where the morphism labeled `$+1$' acts as $C \to A[1]$; these
+diagrams are called \emph{distinguished triangles}. A common
+alternative notation is
+\[
+  A \longrightarrow B \longrightarrow C \xrightarrow{+1}.
+\]
+
+Distinguished triangles are required to satisfy several axioms.
+Among them,
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (T) at (1,1.3) {$0$};
+    \node (C) at (0,0) {$A$};
+    \node (B) at (2,0) {$A$};
+    \draw[->] (T) -- (B);
+    \draw[->] (B) -- (C) node[midway, below] {$\operatorname{id}_A$};
+    \draw[->] (C) -- (T) node[midway, left] {$+1$};
+  \end{tikzpicture}
+\]
+is required to be distinguished for every $A$; every morphism
+$\alpha : A \to B$ must be a side of a distinguished triangle;
+triangles isomorphic to a distinguished triangle (in the evident
+sense) must be distinguished; and distinguished triangles can be
+`rotated':
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (A) at (1,1.3) {$A$};
+    \node (C) at (0,0) {$C$};
+    \node (B) at (2,0) {$B$};
+    \draw[->] (A) -- (B) node[midway, right] {$\alpha$};
+    \draw[->] (B) -- (C) node[midway, below] {$\beta$};
+    \draw[->] (C) -- (A) node[midway, left] {$\substack{+1\\\gamma}$};
+  \end{tikzpicture}
+\]
+is distinguished if and only if
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (B) at (1,1.3) {$B$};
+    \node (A) at (0,0) {$A[1]$};
+    \node (C) at (2,0) {$C$};
+    \draw[->] (B) -- (C) node[midway, right] {$\beta$};
+    \draw[->] (C) -- (A) node[midway, below] {$\gamma$};
+    \draw[->] (A) -- (B) node[midway, left] {$\substack{+1\\-\alpha}$};
+  \end{tikzpicture}
+\]
+is distinguished. There is more, including an infamous
+\emph{octahedral axiom} (so named since a popular way to state it
+invokes an octahedral diagram). The reader will have no difficulties
+locating this information in the literature.
 % The category K(A) is triangulated: the translation functor is the basic shift of
 % a complex, and distinguished triangles are those isomorphic to
 % L\bullet 
