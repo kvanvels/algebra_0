@@ -9598,84 +9598,91 @@ functors, such as the long exact sequences studied in \S{}7.4.
 
 \subsection{Spectral sequences}
 \label{subsec:homol:spectral-sequences}
-% I mentioned in \S{}8.3 that `spectral sequences' may be
+I mentioned in \S{}8.3 that `spectral sequences' may be used to
+compute the cohomology of a double complex. There unfortunately does
+not seem to be an easy entry point in the subject of spectral
+sequences, which is marred by intrinsic notational complexity. I
+will limit myself to a very scant description of the concept and
+some information linking it back to \S{}8.4. My motivation is that,
+in the literature, references to results such as Theorem~8.12 are
+often replaced by sentences such as `by an immediate spectral
+sequence argument\dots', and I should try to explain to the reader
+what this means.
 
-% used to compute the cohomology of a double complex. There unfortunately does not
-% seem to be an easy entry point in the subject of spectral sequences, which is
-% marred
-% by intrinsic notational complexity. I will limit myself to a very scant
-% description of
-% the concept and some information linking it back to \S{}8.4. My motivation is
-% that,
-% in the literature, references to results such as Theorem 8.12 are often replaced
-% by
-% sentences such as `by an immediate spectral sequence argument. . . ', and I
-% should
-% try to explain to the reader what this means.
-% Given that we were thinking about triangles a moment ago, the following con-
-% struction may be helpful in appreciating the notion of spectral sequence. Let
-% A
-%  E 3 3
-% \gamma 
-%  3 3\alpha 
-% 3 3
-% ?
-% E o
-%  A
-% \beta 
-% be an exact triangle39 in an abelian category; I am placing no assumption on the
-% `degree' of \gamma  (and indeed, I am not assuming we have defined a translation
-% functor).
-% Let d : E \to  E be the composition \beta  \circ  \gamma ; since \gamma  \circ
-% \beta  = 0, we have
-% d \circ  d = \beta  \circ (\gamma  \circ  \beta ) \circ  \gamma  = 0.
-% Thus we can take the homology of E with respect to d and define
-% ker d
-% \setminus E :=
-%  .
-% im d
-% Further, we can let A\setminus  := im \alpha  and let
-% \bullet  \alpha  \setminus  : A\setminus  \to  A\setminus  be the restriction of \alpha  to A \setminus  ;
-% \bullet  \beta  \setminus  : A\setminus  \to  E \setminus  be defined by \beta  \setminus  (\alpha (a)) := [\beta (a)];
-% \bullet  \gamma  \setminus  : E \setminus  \to  A\setminus  be defined by \gamma  \setminus  ([e]) := \gamma (e),
-% where [e] denotes the class of e \in  E in E \setminus  . (Since \beta  \circ
-% \gamma (e) = d(e) = 0, \gamma (e) \in  ker \beta  =
-% im \alpha  = A\setminus  .) All needed verifications (such as the independence
-% on the representative
-% e of [e] in the third prescription) are straightforward, from the exactness of
-% the given
-% triangle.
-% Claim 9.1. The new triangle
-% \setminus 
-% \gamma  ?
-%  ? ?
-%  ?
-%  ? ?
-%  ?
-%  A
-%  D 5 5
-%  5 5 5 \alpha ?
-%  ?
-% E \setminus  o
-%  A\setminus 
-% ?
-% \beta 
-% is again exact.
-% The reader will have no difficulty proving this statement (Exercise 9.7).
-% The datum of an exact triangle as above is called an exact couple, which I find
-% confusing since a triangle has three vertices (but it is true that only two
-% objects
-% are involved here); the new exact triangle (couple) obtained in Claim 9.1 is the
-% derived couple, which I find even more confusing since there is no derived
-% category
-% or functor in sight. Exact couples arose in topology (they are due to W.
-% Massey),
-% and the terminology reflects their origin.
-% Of course we can turn the crank at will and get derived couple after derived
-% couple: let A1 = A, E1 = E, etc., and inductively define Ai+1 := A\setminus  i ,
-% Ei+1 := Ei \setminus  ,
-% etc. For example, \beta i+1 is obtained by `rewinding' the morphism \alpha  a
-% total of i times
+Given that we were thinking about triangles a moment ago, the
+following construction may be helpful in appreciating the notion of
+spectral sequence. Let
+\[
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \node (A) at (1,1.3) {$A$};
+    \node (E) at (0,0) {$E$};
+    \node (A2) at (2,0) {$A$};
+    \draw[->] (A) -- (A2) node[midway, right] {$\alpha$};
+    \draw[->] (A2) -- (E) node[midway, below] {$\beta$};
+    \draw[->] (E) -- (A) node[midway, left] {$\gamma$};
+  \end{tikzpicture}
+\]
+be an exact triangle\footnote{That is, $\operatorname{im}\alpha =
+\ker\beta$, $\operatorname{im}\beta = \ker\gamma$, and
+$\operatorname{im}\gamma = \ker\alpha$.} in an abelian category; I am
+placing no assumption on the `degree' of $\gamma$ (and indeed, I am
+not assuming we have defined a translation functor).
+
+Let $d : E \to E$ be the composition $\beta \circ \gamma$; since
+$\gamma \circ \beta = 0$, we have
+\[
+  d \circ d = \beta \circ (\gamma \circ \beta) \circ \gamma = 0.
+\]
+Thus we can take the homology of $E$ with respect to $d$ and define
+\[
+  E' := \frac{\ker d}{\operatorname{im} d}.
+\]
+Further, we can let $A' := \operatorname{im}\alpha$ and let
+\begin{itemize}
+\item $\alpha' : A' \to A'$ be the restriction of $\alpha$ to $A'$;
+\item $\beta' : A' \to E'$ be defined by $\beta'(\alpha(a)) :=
+  [\beta(a)]$;
+\item $\gamma' : E' \to A'$ be defined by $\gamma'([e]) := \gamma(e)$,
+\end{itemize}
+where $[e]$ denotes the class of $e \in E$ in $E'$. (Since $\beta
+\circ \gamma(e) = d(e) = 0$, $\gamma(e) \in \ker\beta =
+\operatorname{im}\alpha = A'$.) All needed verifications (such as
+the independence on the representative $e$ of $[e]$ in the third
+prescription) are straightforward, from the exactness of the given
+triangle.
+
+\begin{fact}{Claim~9.1}{fact:homol:9.1}
+  The new triangle
+  \[
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+      \node (A) at (1,1.3) {$A'$};
+      \node (E) at (0,0) {$E'$};
+      \node (A2) at (2,0) {$A'$};
+      \draw[->] (A) -- (A2) node[midway, right] {$\alpha'$};
+      \draw[->] (A2) -- (E) node[midway, below] {$\beta'$};
+      \draw[->] (E) -- (A) node[midway, left] {$\gamma'$};
+    \end{tikzpicture}
+  \]
+  is again exact.
+\end{fact}
+
+The reader will have no difficulty proving this statement
+(Exercise~\ref{exer:homol:9.7}).
+
+The datum of an exact triangle as above is called an \emph{exact
+couple}, which I find confusing since a triangle has three vertices
+(but it is true that only two objects are involved here); the new
+exact triangle (couple) obtained in Claim~\ref{fact:homol:9.1} is the
+\emph{derived couple}, which I find even more confusing since there
+is no derived category or functor in sight. Exact couples arose in
+topology (they are due to W. Massey), and the terminology reflects
+their origin.
+
+Of course we can turn the crank at will and get derived couple after
+derived couple: let $A_1 = A$, $E_1 = E$, etc., and inductively
+define $A_{i+1} := A'_i$, $E_{i+1} := E'_i$, etc. For example,
+$\beta_{i+1}$ is obtained by `rewinding' the morphism $\alpha$ a
+total of $i$ times
 % 39That is, im \alpha  = ker \beta , im \beta  = ker \gamma , and im \gamma  =
 % ker \alpha .
 % and then applying the original morphism \beta : we can do this since Ai+1 is the
