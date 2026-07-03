@@ -175,6 +175,23 @@
   \renewcommand{\setminus}{\mathbin{\backslash}}%
 }
 
+% Plain-text fallbacks so hyperref can build PDF strings (bookmarks,
+% etc.) for headings that use these macros, e.g. \subsection{$\Ext(G,\Z)$}.
+\pdfstringdefDisableCommands{%
+  \def\R{R}%
+  \def\Q{Q}%
+  \def\C{C}%
+  \def\N{N}%
+  \def\Z{Z}%
+  \def\Hom{Hom}%
+  \def\Ext{Ext}%
+  \def\Tor{Tor}%
+  \def\Aut{Aut}%
+  \def\End{End}%
+  \def\Obj{Obj}%
+  \def\coker{coker}%
+}
+
 
 
 
@@ -202,8 +219,8 @@
    % chapters/groups2,
    % chapters/irreducibility,
    % chapters/linear_algebra,
-   chapters/fields,
-   % chapters/linear_reprise,
+   % chapters/fields,
+   chapters/linear_reprise,
    % chapters/homological
 }
 
