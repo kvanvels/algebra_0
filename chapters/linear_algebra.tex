@@ -1474,993 +1474,949 @@ finitely generated abelian group is a direct sum of cyclic groups.
 \label{sec:linalg:homomorphisms-of-free-modules-ii}
 
 
-%Prove Corollary IV.6.5 again as a corollary of Proposition 2.11}
-% In fact,
-
-% prove the more general fact that every finitely generated abelian group is a
-% direct
-% sum of cyclic groups. [\S{}II.6.3, \S{}IV.6.1, \S{}IV.6.3, \S{}2.4, \S{}4.1,
-% \S{}4.3]
-% The work in \S{}2 accomplishes the goal of describing HomR (F, G), where F and G
-% are free R-modules of finite rank; as we have seen, this can be done most
-% explicitly
-% if, for example, R is a field or a Euclidean domain. We are not quite done,
-% though:
-% even over fields, it is important to `understand the answer'---that is, examine
-% the
-% classification of homomorphisms into finitely many classes, highlighted at the
-% end
-% of \S{}2.3. Also, the frequent appearance of invertible matrices makes it
-% necessary
-% to develop criteria to tell whether a given matrix is or is not in the general
-% linear
-% group. I begin by pointing out a straightforward application of the
-% classification of
-% homomorphisms.
+The work in \S{}2 accomplishes the goal of describing $\Hom_R(F,G)$,
+where $F$ and $G$ are free $R$-modules of finite rank; as we have seen,
+this can be done most explicitly if, for example, $R$ is a field or a
+Euclidean domain. We are not quite done, though: even over fields, it
+is important to `understand the answer'---that is, examine the
+classification of homomorphisms into finitely many classes, highlighted
+at the end of \S{}2.3. Also, the frequent appearance of invertible
+matrices makes it necessary to develop criteria to tell whether a given
+matrix is or is not in the general linear group. I begin by pointing
+out a straightforward application of the classification of
+homomorphisms.
 
 \subsection{Solving systems of linear equations}
 \label{subsec:linalg:solving-systems-of-linear-equations}
-% A moment's thought reveals that
+A moment's thought reveals that Gaussian elimination, through the
+auspices of statements such as Proposition~2.9, gives us a tool to
+solve systems of linear equations over a field or a Euclidean
+domain\footnote{Of course one can deal with systems over arbitrary
+integral domains $R$ by reducing to the field case, by embedding $R$ in
+its field of fractions.}. This is another point which does not seem to
+warrant a careful treatment or memory gymnastic: writing things out
+carefully should take care of producing tools as need be. To describe a
+typical situation, suppose
+\[
+\begin{cases}
+a_{11}x_1 + \dots + a_{1n}x_n = b_1 \\
+\dots \\
+a_{m1}x_1 + \dots + a_{mn}x_n = b_m
+\end{cases}
+\]
+is a system of $m$ equations in $n$ unknowns, with $a_{ij}$, $b_i$ in a
+Euclidean domain $R$. We want to find all solutions $x_1, \dots, x_n$
+in $R$.
 
-% Gaussian elimination, through the auspices of statements such as Proposition
-% 2.9,
-% gives us a tool to solve systems of linear equations over a field or a Euclidean
-% domain16 . This is another point which does not seem to warrant a careful
-% treatment
-% or memory gymnastic: writing things out carefully should take care of producing
-% tools as need be. To describe a typical situation, suppose
-% \{
-% |
-%  | a11x1 + \dots  + a1n xn = b1
-% ...
-% |
-%  \}a m1x1
-%  + \cdot \cdot \cdot  + amn xn
-%  = b
-% m
-% is a system of m equations in n unknowns, with aij , bi in a Euclidean domain R.
-% We want to find all solutions x1, . . . , xn in R.
-% (
-%  )
-%  ( )
-%  ( )
-% a11 \dots  a1n
-%  b1
-%  x1
-% With A = | ( .
-%  ..
-%  .
-%  ..
-%  .
-%  .. |
-%  ), b = ( |
-%  .. .
-%  ), |
-%  and x = |
-%  ( ... ), |
-%  this amounts to
-% am1 \dots  amn
-%  bm
-%  xn
-% `solving for x' in the matrix equation
-% A \cdot  x = b.
-% Of course, if m = n and the matrix A is square and invertible, then the
-% solutions
-% are obtained simply as
-% x = A-1 \cdot  b.
-% Here A-1 may be obtained through Gaussian elimination (cf. Proposition 2.9) or
-% through determinants (\S{}3.2).
-% 16 Of course one can deal with systems over arbitrary integral domains R by
-% reducing to the
-% field case, by embedding R in its field of fractions.
-% Even without requiring anything special of the `matrix of coefficients' A, row
-% and column operations will take it to the standard form presented in Proposi-
-% tion 2.11; that is, it will yield invertible matrices M , N such that
-% (
-%  )
-% d1 \dots  0 0
-% | . .
-%  |
-% M \cdot  A \cdot  N = |
-%  | |
-%  ..
-%  . . ... ... |
-%  |
-%  |
-% ( 0 \dots  dr 0 )
-%  \cdot \cdot \cdot 
-% with notation as in Proposition 2.11. Gaussian elimination is a constructive
-% pro-
-% cedure: watching yourself as you switch/combine rows or columns will produce M
-% and N explicitly. Now, letting y = (yj ) and c = M b, the system
-% (M \cdot  A \cdot  N ) \cdot  y = c
-% solves itself:
-%  \{
-% |
-%  |
-%  |
-%  |
-%  |
-%  |
-%  |
-%  d1y1 \cdot \cdot \cdot 
-%  = c1
-% dr yr = cr
-% |
-%  |
-%  |
-%  |
-%  |
-%  |
-%  \}
-%  0 = cr+1
-% \cdot \cdot \cdot 
-% has solutions if and only if dj | cj for all j and cj = 0 for j > r; moreover,
-% in this
-% case yj = d-1
-%  j cj for j = 1, . . . , r, and yj is arbitrary for j > r. This yields y, and
-% the reader will check that x = N y gives all solutions to the original system.
-% Such arguments can be packaged into convenient explicit procedures to solve
-% systems of linear equations. Again, it seems futile to list (or try to remember)
-% any
-% such procedure; it seems more important to know what is behind such techniques,
-% so as to be able to come up with one when needed.
-% In any case, the reader should be able to justify such recipes rigorously. The
-% most famous one is possibly Cramer's rule (Proposition 3.6) which relies on de-
-% terminants and is, incidentally, essentially useless in practice for any
-% decent-size
-% problem.
+With
+\[
+A = \begin{pmatrix} a_{11} & \dots & a_{1n} \\ \vdots & \ddots & \vdots
+\\ a_{m1} & \dots & a_{mn} \end{pmatrix}, \quad
+\mathbf{b} = \begin{pmatrix} b_1 \\ \vdots \\ b_m \end{pmatrix}, \quad
+\text{and} \quad
+\mathbf{x} = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix},
+\]
+this amounts to `solving for $\mathbf{x}$' in the matrix equation
+\[
+A \cdot \mathbf{x} = \mathbf{b}.
+\]
+Of course, if $m = n$ and the matrix $A$ is square and invertible, then
+the solutions are obtained simply as
+\[
+\mathbf{x} = A^{-1} \cdot \mathbf{b}.
+\]
+Here $A^{-1}$ may be obtained through Gaussian elimination (cf.\
+Proposition~2.9) or through determinants (\S{}3.2).
+
+Even without requiring anything special of the `matrix of coefficients'
+$A$, row and column operations will take it to the standard form
+presented in Proposition~2.11; that is, it will yield invertible
+matrices $M$, $N$ such that
+\[
+M \cdot A \cdot N =
+\left(
+\begin{array}{ccc|c}
+d_1 & \dots & 0 & 0 \\
+\vdots & \ddots & \vdots & \vdots \\
+0 & \dots & d_r & 0
+\end{array}
+\right)
+\]
+with notation as in Proposition~2.11. Gaussian elimination is a
+constructive procedure: watching yourself as you switch/combine rows or
+columns will produce $M$ and $N$ explicitly. Now, letting
+$\mathbf{y} = (y_j)$ and $\mathbf{c} = M\mathbf{b}$, the system
+\[
+(M \cdot A \cdot N) \cdot \mathbf{y} = \mathbf{c}
+\]
+solves itself:
+\[
+\begin{cases}
+d_1 y_1 = c_1 \\
+\dots \\
+d_r y_r = c_r \\
+0 = c_{r+1} \\
+\dots
+\end{cases}
+\]
+has solutions if and only if $d_j \mid c_j$ for all $j$ and $c_j = 0$
+for $j > r$; moreover, in this case $y_j = d_j^{-1} c_j$ for
+$j = 1, \dots, r$, and $y_j$ is arbitrary for $j > r$. This yields
+$\mathbf{y}$, and the reader will check that $\mathbf{x} = N\mathbf{y}$
+gives all solutions to the original system.
+
+Such arguments can be packaged into convenient explicit procedures to
+solve systems of linear equations. Again, it seems futile to list (or
+try to remember) any such procedure; it seems more important to know
+what is behind such techniques, so as to be able to come up with one
+when needed.
+
+In any case, the reader should be able to justify such recipes
+rigorously. The most famous one is possibly Cramer's rule
+(Proposition~3.6) which relies on determinants and is, incidentally,
+essentially useless in practice for any decent-size problem.
 
 \subsection{The determinant}
 \label{subsec:linalg:the-determinant}
-% Let \alpha  : F \to  G be a homomorphism of free R-modules
+Let $\alpha : F \to G$ be a homomorphism of free $R$-modules of the
+same rank, and let $A$ be the matrix representing $\alpha$ with respect
+to a choice of bases for $F$ and $G$. As a consequence of Lemma~2.3
+(cf.\ Exercise~2.3), $\alpha$ is an isomorphism if and only if $A$ is a
+unit in $\mathcal{M}_n(R)$, that is, if and only if it is invertible as
+a matrix with entries in $R$. This may be detected by computing the
+\emph{determinant} of $A$.
 
-% of the same rank, and let A be the matrix representing \alpha  with respect to a
-% choice
-% of bases for F and G. As a consequence of Lemma 2.3 (cf. Exercise 2.3), \alpha
-% is an
-% isomorphism if and only if A is a unit in Mn (R), that is, if and only if it is
-% invertible
-% as a matrix with entries in R. This may be detected by computing the determinant
-% of A.
-% Definition 3.1. Let A = (aij ) \in  M n(R) be a square matrix. Then the
-% determinant
-% of A is the element
-% ?
-%  ?
-%  n
-% det(A) =
-%  (-1)\sigma 
-%  ai\sigma (i) \in  R.
-%  ?
-% \sigma \in Sn
-%  i=1
-% Here Sn denotes the symmetric group on {1, . . . , n}, and I write17 \sigma (i)
-% for the
-% action of \sigma  \in  Sn on i \in  {1, . . . , n}; (-1)\sigma  is the sign of a
-% permutation (Defini-
-% tion IV.4.10, Lemma IV.4.12).
-% The reader is surely familiar with determinants, at least over fields. They
-% satisfy a number of remarkable properties; here is a selection:
-% ---The determinant of a matrix A equals the determinant of its transpose At =
-% (atij ), defined by setting
-% atij = aji
-% for all i and j (that is, the rows of At are the columns of A). Indeed,
-% ?
-%  ?
-%  n
-%  ?
-%  ?
-%  n
-%  ?
-%  ?
-%  n
-% det(At ) =
-%  (-1)\sigma 
-%  ati\sigma (i) =
-%  (-1)\sigma 
-%  a\sigma (i)i =
-%  (-1)\sigma 
-%  ai\sigma -1 (i)
-% \sigma \in Sn
-%  i=1
-%  \sigma \in Sn
-%  i=1
-%  \sigma \in Sn
-%  i=1
-% -1by the commutativity of the product in R; and \sigma  ranges over all
-% permutations
-% of {1, . . . , n} as \sigma  does the same, and with the same sign, so the
-% right-most term
-% equals det(A).
-% ---If two rows or columns of a square matrix A agree, then det(A) = 0. Indeed,
-% it is enough to check this for matching columns; the case for rows follows by
-% applying
-% \setminus the previous observation. If columns j and j of A are equal, the contribution to
-% det(A) due to a \sigma  \in  Sn is equal and opposite in sign to the
-% contribution due to the
-% product of \sigma  and the transposition (jj\setminus  ), so det(A) = 0.
-% ---Suppose A = (aij ) and B = (bij ) agree on all but at most one row: aij = bij
-% if i = k, for all j and some fixed k. Let cij := aij = bij for i = k, ckj := akj
-% + bkj ,
-% and let C := (c ij ). Then
-% det(C) = det(A) + det(B).
-% This follows immediately from Definition 3.1 and distributivity. Applying this
-% observation to the transpose matrices gives an analogous statement for matrices
-% differing at most along a column.
-% I will record more officially the effect of elementary operations on
-% determinants:
-% Lemma 3.2. Let A be a square matrix with entries in an integral domain R.
-% \bullet  Let A\setminus  be obtained from A by switching two rows or two columns. Then
-% det(A\setminus  ) = - det(A).
-% \bullet  Let A\setminus  be obtained from A by adding to a row (column) a multiple of another
-% row (column). Then det(A\setminus  ) = det(A).
-% \bullet  Let A\setminus  be obtained from A by multiplying a row (column) by an element18
-% c \in  R. Then det(A\setminus  ) = c det(A).
-% In other words, the effect of an elementary operation on det(A) is the same as
-% multiplying det(A) by the determinant of the corresponding elementary matrix.
-% 17 Consistency with previous encounters with the symmetric group (e.g.,
-% \S{}IV.4) would demand
-% that I write i\sigma ; but then I would end up with things like `aii\sigma  ',
-% which are very hard to parse.
-% 18For an elementary operation, c should be a unit; this restriction is not
-% necessary here.
-% Proof. These are all essentially immediate from Definition 3.1. For example,
-% switching two columns amounts to correcting each \sigma  in the
-%  ? definition by a fixed
-% transposition, changing the sign of all contributions to the
-%  in the definition. The
-% third point is immediate from distributivity. Combining the third operation and
-% the two remarks preceding the statement yields the second point. Details are
-% left
-% to the reader (Exercise 3.2).
-%  ?
-% This observation simplifies the theory of determinants drastically. If R = k is
-% a field and P \in  Mn(k), Gaussian elimination (Proposition 2.10) shows
-% ?
-%  ?
-% Ir 0
-%  \setminus  \setminus A = E 1 \dots  Ea \cdot 
-%  \cdot  E1 \dots  Eb ,
-% 0 0
-% where r \leq  n and Ei , Ej \setminus  are elementary matrices. Then Lemma 3.2
-% gives that
-% ?
-%  ?
-% ?
-%  ?
-%  \setminus 
-%  Ir 0
-% det(A) =
-%  det(Ei )
-%  det(E j ) det
-%  .
-% 0 0
-% i
-%  j
-% (In particular, det A = 0 only if r = n.) Useful facts about the determinant
-% follow
-% from this remark. For example,
-% Proposition 3.3. Let R be a commutative ring.
-% \bullet  A square matrix A \in  Mn (R) is invertible if and only if det(A) is a unit in R.
-% \bullet  The determinant is a homomorphism19 GLn (R) \to  (R\ast  , \cdot ). More generally,
-% for A, B \in  Mn (R),
-% det(A \cdot  B) = det(A) det(B).
-% Proof for R = a field. If R = k is a field, we can use the considerations imme-
-% diately preceding the statement. The first point is reduced to the case of a
-% block
-% matrix
-%  ?
-%  ?
-% Ir 0
-% ,
-% 0 0
-% for which it is immediate. In fact, this shows that det(A) = 0 if and only if
-% the
-% linear map kn \to  k n corresponding to A is not an isomorphism. In particular,
-% for
-% all A, B we have det(AB) = 0 if and only if AB is not an isomorphism, if and
-% only
-% if A or B is not an isomorphism, if and only if det(A) = 0 or det(B) = 0. So we
-% only need to check the homomorphism property for invertible matrices. These are
-% products of elementary matrices `on the nose', and the homomorphism property
-% then follows from Lemma 3.2.
-%  ?
-% Before giving the (easy) extension to the case of arbitrary commutative rings,
-% it is helpful to note the following explicit formulas. A `submatrix' obtained
-% from a
-% given matrix A by removing a number of rows and columns is called a minor of A;
-% more properly, this term refers to the determinants of square submatrices
-% obtained
-% 19 Recall that (R \ast  , \cdot ) denotes the groups of units of R.
-% in these ways. If A \in  Mn (R), the cofactors of A are the (n - 1) \times  (n -
-% 1) minors
-% of A, corrected by a sign. More precisely, for A = (aij ) I will let
-% (
-%  )
-% a11
-%  \cdot \cdot \cdot 
-%  a1j-1
-%  a1j+1
-%  \cdot \cdot \cdot 
-%  a1n
-% | | ..
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  .. . |
-%  |
-% |
-%  |
-% A(ij) := (-1)i+j det |ai-11
-%  |
-%  \cdot \cdot \cdot 
-%  ai-1j-1
-%  ai-1j+1
-%  \cdot \cdot \cdot 
-%  ai-1n |
-%  | .
-% |ai+11
-%  |
-%  \cdot \cdot \cdot 
-%  ai+1j-1
-%  ai+1j+1
-%  \cdot \cdot \cdot 
-%  ai+1n |
-%  |
-% | ( .
-%  ..
-%  ..
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  ..
-%  .
-%  .. . |
-%  )
-% an1
-%  \cdot \cdot \cdot 
-%  anj-1
-%  anj+1
-%  \cdot \cdot \cdot 
-%  ann
-% Lemma 3.4. With notation as above,
-% ?n
-% \bullet  for all i = 1, . . . , n, det(A) = j=1 aij A(ij) ,
-% ?n
-% \bullet  for all j = 1, . . . , n, det(A) = i=1 aij A(ij).
-% Proof. This is a simple (if slightly messy) induction on n, which I leave to the
-% diligent reader.
-%  ?
-% Of course Lemma 3.4 is simply stating the famous strategy computing a deter-
-% minant by expanding it with respect to your favorite row or column. This works
-% wonderfully for very small matrices and is totally useless for large ones, since
-% the
-% number of computations needed to apply it grows as the factorial of the size of
-% the
-% matrix. From a computational point of view, it makes much better sense to apply
-% Gaussian elimination and use the considerations preceding Proposition 3.3.
-% But Lemma 3.4 has the following important implication:
-% Corollary 3.5. Let R be a commutative ring and A \in  Mn (R). Then
-% (
-%  ) ( (11)
-%  )
-% A(11)
-%  \cdot \cdot \cdot 
-%  A(n1)
-%  A
-%  \cdot \cdot \cdot 
-%  A(n1)
-% A \cdot  | ( ..
-%  .
-%  ..
-%  .
-%  .. . | ) = | ( ..
-%  .
-%  ..
-%  .
-%  .. . | )
-%  \cdot  A = det(A) In
-%  .
-% A(1n)
-%  \cdot \cdot \cdot 
-%  A (nn)
-%  A(1n)
-%  \cdot \cdot \cdot 
-%  A(nn)
-% Note the switch in the role of i and j in the matrix of cofactors. This matrix
-% is called the adjoint matrix of A.
-% Proof. Along the diagonal of the right-hand side, this is a restatement of Lemma
-% 3.4.
-% Off the diagonal, one is evaluating (for example)
-% ?
-%  n
-% j=1
-% ai?j A(ij)
-% for i\setminus  = i. By Lemma 3.4 this is the same as the determinant of the
-% matrix obtained
-% by replacing the i-th row with the i\setminus  -th row; the resulting matrix has
-% two equal rows,
-% so its determinant is 0, as needed.
-%  ?
-% In particular, Corollary 3.5 proves that we can invert a matrix if we can invert
-% its determinant:
-%  ( (11)
-%  )
-% A
-%  \dots  A(n1)
-% A-1 = det(A)-1 |
-%  ( ...
-%  ..
-%  .
-%  .. . | )
-%  ;
-% A(1n) \dots  A(nn)
-% this holds over any commutative ring, as soon as det(A) is a unit. In practice
-% the computation of cofactors is `expensive', so in any given concrete case
-% Gaussian
-% elimination is likely a better alternative (at least over fields); cf. Exercise
-% 3.5.
-% But this formula for the inverse has good theoretical significance. For example,
-% we are now in a position to complete the proof of Proposition 3.3.
-% Proof of Proposition 3.3 for commutative rings. The first point follows from
-% the second and from what we have just seen. Indeed, we have checked that
-% A \in  Mn (R) admits an inverse A-1 \in  Mn (R) if det(A) is a unit in R;
-% conversely,
-% if A admits an inverse A-1 \in  Mn(R), then
-% det(A) det(A-1) = det(AA-1 ) = det(In ) = 1
-% by the second statement, so that det(A-1 ) is the inverse of det(A) in R.
-% Thus, we just need to verify the second point, that is, the homomorphism
-% property of determinants. In order to verify this over every (commutative) ring,
-% it suffices to verify the `universal' identity obtained by writing out the
-% claimed
-% equality, for matrices with indeterminate entries. For example, for n = 2 the
-% statement is
-% x1
-%  x2
-%  y1
-%  y2
-%  x1y1
-%  + x2 y3 x1 y2 + x2 y4
-% det det = det ,
-% x3 x4
-%  y3 y4
-%  x3y1 + x4 y3 x3 y2 + x4 y4
-% which translates into the identity
-% (x1x4 - x2x3 )(y1 y4 - y2y3 ) = (x1 y1 + x2 y3 )(x3 y2 + x4 y4 ) - (x 1 y2 + x2
-% y 4 )(x3y1 + x4 y3);
-% since this identity holds in Z[x1 , . . . , y4 ], it must hold in any
-% commutative ring, for
-% any choice of x1 , . . . , y4 : indeed, Z is initial in Ring.
-% Now, we have verified that the homomorphism property holds over fields; in
-% particular it holds over the field of fractions of Z[x11 , . . . , xnn, y11, . .
-% . , ynn]. It
-% follows that it does hold in Z[x11 , . . . , xnn , y11, . . . , ynn ], and we
-% are done.
-%  ?
-% The `universal identity' argument extending the result from fields to arbitrary
-% commutative rings is a useful device, and the reader is invited to contemplate
-% it
-% carefully.
-% As an application of determinants (and especially cofactors) we can now go
-% back to the special case of a system of n equations in n unknowns
-% A \cdot  x = b,
-% cf. \S{}3.1, in the case in which det(A) is a unit.
-% Proposition 3.6 (Cramer's rule). Assume det(A) is a unit, and let A(j) be the
-% matrix obtained by replacing the j-th column of A by the column vector b. Then
-% xj = det(A)-1 det(A(j)).
-% Proof. Using Lemma 3.4, expand det(A(j) ) with respect to the j-th column:
-% ?
-%  n
-% det(A (j)) =
-%  A(ij)bi .
-% i=1
-% Therefore
-% (
-%  )
-%  ( (11)
-%  ) ( )
-% x1
-%  A
-%  \dots  A(n1)
-%  b1
-% ( | . .. |
-%  ) = A-1
-%  b = det(A) -1 | ( .
-%  ..
-%  ..
-%  .
-%  . .. ) | \cdot  | ( . .. )
-%  |
-% xn
-%  A
-% (1n)
-%  \cdot \cdot \cdot  A
-% (nn)
-%  bn
-% ( ?n
-%  i=1 A
-% (i1)
-%  bi
-%  ) (
-%  det(A)-1
-%  det(A(1) )
-%  )
-% = det(A)-1 |
-%  (
-%  .
-%  ..
-%  | ) = (
-%  |
-%  ..
-%  .
-%  ) |
-%  ,
-% ?n
-%  (in)
-%  -1
-%  (n)
-% i=1 A
-%  bi
-%  det(A) det(A )
-% which gives the statement.
-%  ?
+\begin{defn}{}{linalg:3.1}
+Let $A = (a_{ij}) \in \mathcal{M}_n(R)$ be a square matrix. Then the
+\emph{determinant} of $A$ is the element
+\[
+\det(A) = \sum_{\sigma \in S_n} (-1)^\sigma \prod_{i=1}^n a_{i\sigma(i)}
+\in R.
+\]
+\end{defn}
+Here $S_n$ denotes the symmetric group on $\{1, \dots, n\}$, and I
+write\footnote{Consistency with previous encounters with the symmetric
+group (e.g., \S{}IV.4) would demand that I write $i\sigma$; but then I
+would end up with things like `$a_{i\sigma i}$', which are very hard to
+parse.} $\sigma(i)$ for the action of $\sigma \in S_n$ on
+$i \in \{1, \dots, n\}$; $(-1)^\sigma$ is the \emph{sign} of a
+permutation (Definition~IV.4.10, Lemma~IV.4.12).
+
+The reader is surely familiar with determinants, at least over fields.
+They satisfy a number of remarkable properties; here is a selection:
+
+---The determinant of a matrix $A$ equals the determinant of its
+\emph{transpose} $A^t = (a_{ij}^t)$, defined by setting
+\[
+a_{ij}^t = a_{ji}
+\]
+for all $i$ and $j$ (that is, the rows of $A^t$ are the columns of
+$A$). Indeed,
+\[
+\det(A^t) = \sum_{\sigma \in S_n} (-1)^\sigma \prod_{i=1}^n
+a^t_{i\sigma(i)} = \sum_{\sigma \in S_n} (-1)^\sigma \prod_{i=1}^n
+a_{\sigma(i)i} = \sum_{\sigma \in S_n} (-1)^\sigma \prod_{i=1}^n
+a_{i\sigma^{-1}(i)}
+\]
+by the commutativity of the product in $R$; and $\sigma^{-1}$ ranges
+over all permutations of $\{1, \dots, n\}$ as $\sigma$ does the same,
+and with the same sign, so the right-most term equals $\det(A)$.
+
+---If two rows or columns of a square matrix $A$ agree, then
+$\det(A) = 0$. Indeed, it is enough to check this for matching columns;
+the case for rows follows by applying the previous observation. If
+columns $j$ and $j'$ of $A$ are equal, the contribution to $\det(A)$
+due to a $\sigma \in S_n$ is equal and opposite in sign to the
+contribution due to the product of $\sigma$ and the transposition
+$(jj')$, so $\det(A) = 0$.
+
+---Suppose $A = (a_{ij})$ and $B = (b_{ij})$ agree on all but at most
+one row: $a_{ij} = b_{ij}$ if $i \neq k$, for all $j$ and some fixed
+$k$. Let $c_{ij} := a_{ij} = b_{ij}$ for $i \neq k$,
+$c_{kj} := a_{kj} + b_{kj}$, and let $C := (c_{ij})$. Then
+\[
+\det(C) = \det(A) + \det(B).
+\]
+This follows immediately from Definition~3.1 and distributivity.
+Applying this observation to the transpose matrices gives an analogous
+statement for matrices differing at most along a column.
+
+I will record more officially the effect of elementary operations on
+determinants:
+\begin{lem}{}{linalg:3.2}
+Let $A$ be a square matrix with entries in an integral domain $R$.
+\begin{itemize}
+\item Let $A'$ be obtained from $A$ by switching two rows or two
+columns. Then $\det(A') = -\det(A)$.
+\item Let $A'$ be obtained from $A$ by adding to a row (column) a
+multiple of another row (column). Then $\det(A') = \det(A)$.
+\item Let $A'$ be obtained from $A$ by multiplying a row (column) by an
+element\footnote{For an elementary operation, $c$ should be a unit;
+this restriction is not necessary here.} $c \in R$. Then
+$\det(A') = c\det(A)$.
+\end{itemize}
+In other words, the effect of an elementary operation on $\det(A)$ is
+the same as multiplying $\det(A)$ by the determinant of the
+corresponding elementary matrix.
+\end{lem}
+\begin{proof}
+These are all essentially immediate from Definition~3.1. For example,
+switching two columns amounts to correcting each $\sigma$ in the
+definition by a fixed transposition, changing the sign of all
+contributions to the $\sum$ in the definition. The third point is
+immediate from distributivity. Combining the third operation and the
+two remarks preceding the statement yields the second point. Details
+are left to the reader (Exercise~3.2).
+\end{proof}
+
+This observation simplifies the theory of determinants drastically. If
+$R = k$ is a field and $P \in \mathcal{M}_n(k)$, Gaussian elimination
+(Proposition~2.10) shows
+\[
+A = E_1 \dots E_a \cdot
+\left(
+\begin{array}{c|c}
+I_r & 0 \\
+\hline
+0 & 0
+\end{array}
+\right)
+\cdot E_1' \dots E_b',
+\]
+where $r \leq n$ and $E_i$, $E_j'$ are elementary matrices. Then
+Lemma~3.2 gives that
+\[
+\det(A) = \prod_i \det(E_i) \prod_j \det(E_j') \det
+\left(
+\begin{array}{c|c}
+I_r & 0 \\
+\hline
+0 & 0
+\end{array}
+\right).
+\]
+(In particular, $\det A \neq 0$ only if $r = n$.) Useful facts about
+the determinant follow from this remark. For example,
+
+\begin{prop}{}{linalg:3.3}
+Let $R$ be a commutative ring.
+\begin{itemize}
+\item A square matrix $A \in \mathcal{M}_n(R)$ is invertible if and
+only if $\det(A)$ is a unit in $R$.
+\item The determinant is a homomorphism\footnote{Recall that
+$(R^*, \cdot)$ denotes the groups of units of $R$.}
+$\mathrm{GL}_n(R) \to (R^*, \cdot)$. More generally, for
+$A, B \in \mathcal{M}_n(R)$,
+\[
+\det(A \cdot B) = \det(A) \det(B).
+\]
+\end{itemize}
+\end{prop}
+\begin{proof}[Proof for $R = $ a field]
+If $R = k$ is a field, we can use the considerations immediately
+preceding the statement. The first point is reduced to the case of a
+block matrix
+\[
+\left(
+\begin{array}{c|c}
+I_r & 0 \\
+\hline
+0 & 0
+\end{array}
+\right),
+\]
+for which it is immediate. In fact, this shows that $\det(A) = 0$ if
+and only if the linear map $k^n \to k^n$ corresponding to $A$ is not an
+isomorphism. In particular, for all $A, B$ we have $\det(AB) = 0$ if
+and only if $AB$ is not an isomorphism, if and only if $A$ or $B$ is
+not an isomorphism, if and only if $\det(A) = 0$ or $\det(B) = 0$. So we
+only need to check the homomorphism property for invertible matrices.
+These are products of elementary matrices `on the nose', and the
+homomorphism property then follows from Lemma~3.2.
+\end{proof}
+
+Before giving the (easy) extension to the case of arbitrary commutative
+rings, it is helpful to note the following explicit formulas. A
+`submatrix' obtained from a given matrix $A$ by removing a number of
+rows and columns is called a \emph{minor} of $A$; more properly, this
+term refers to the determinants of square submatrices obtained in these
+ways. If $A \in \mathcal{M}_n(R)$, the \emph{cofactors} of $A$ are the
+$(n-1) \times (n-1)$ minors of $A$, corrected by a sign. More precisely,
+for $A = (a_{ij})$ I will let
+\[
+A^{(ij)} := (-1)^{i+j} \det
+\begin{pmatrix}
+a_{11} & \cdots & a_{1,j-1} & a_{1,j+1} & \cdots & a_{1n} \\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{i-1,1} & \cdots & a_{i-1,j-1} & a_{i-1,j+1} & \cdots & a_{i-1,n} \\
+a_{i+1,1} & \cdots & a_{i+1,j-1} & a_{i+1,j+1} & \cdots & a_{i+1,n} \\
+\vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & \cdots & a_{n,j-1} & a_{n,j+1} & \cdots & a_{nn}
+\end{pmatrix}.
+\]
+
+\begin{lem}{}{linalg:3.4}
+With notation as above,
+\begin{itemize}
+\item for all $i = 1, \dots, n$, $\det(A) = \sum_{j=1}^n a_{ij}
+A^{(ij)}$,
+\item for all $j = 1, \dots, n$, $\det(A) = \sum_{i=1}^n a_{ij}
+A^{(ij)}$.
+\end{itemize}
+\end{lem}
+\begin{proof}
+This is a simple (if slightly messy) induction on $n$, which I leave to
+the diligent reader.
+\end{proof}
+
+Of course Lemma~3.4 is simply stating the famous strategy computing a
+determinant by expanding it with respect to your favorite row or
+column. This works wonderfully for very small matrices and is totally
+useless for large ones, since the number of computations needed to
+apply it grows as the factorial of the size of the matrix. From a
+computational point of view, it makes much better sense to apply
+Gaussian elimination and use the considerations preceding
+Proposition~3.3.
+
+But Lemma~3.4 has the following important implication:
+\begin{coro}{}{linalg:3.5}
+Let $R$ be a commutative ring and $A \in \mathcal{M}_n(R)$. Then
+\[
+A \cdot
+\begin{pmatrix}
+A^{(11)} & \cdots & A^{(n1)} \\
+\vdots & \ddots & \vdots \\
+A^{(1n)} & \cdots & A^{(nn)}
+\end{pmatrix}
+=
+\begin{pmatrix}
+A^{(11)} & \cdots & A^{(n1)} \\
+\vdots & \ddots & \vdots \\
+A^{(1n)} & \cdots & A^{(nn)}
+\end{pmatrix}
+\cdot A = \det(A) I_n.
+\]
+Note the switch in the role of $i$ and $j$ in the matrix of cofactors.
+This matrix is called the \emph{adjoint matrix} of $A$.
+\end{coro}
+\begin{proof}
+Along the diagonal of the right-hand side, this is a restatement of
+Lemma~3.4. Off the diagonal, one is evaluating (for example)
+\[
+\sum_{j=1}^n a_{i'j} A^{(ij)}
+\]
+for $i' \neq i$. By Lemma~3.4 this is the same as the determinant of
+the matrix obtained by replacing the $i$-th row with the $i'$-th row;
+the resulting matrix has two equal rows, so its determinant is $0$, as
+needed.
+\end{proof}
+
+In particular, Corollary~3.5 proves that we can invert a matrix if we
+can invert its determinant:
+\[
+A^{-1} = \det(A)^{-1}
+\begin{pmatrix}
+A^{(11)} & \dots & A^{(n1)} \\
+\vdots & \ddots & \vdots \\
+A^{(1n)} & \dots & A^{(nn)}
+\end{pmatrix};
+\]
+this holds over any commutative ring, as soon as $\det(A)$ is a unit.
+In practice the computation of cofactors is `expensive', so in any
+given concrete case Gaussian elimination is likely a better alternative
+(at least over fields); cf.\ Exercise~3.5.
+
+But this formula for the inverse has good theoretical significance. For
+example, we are now in a position to complete the proof of
+Proposition~3.3.
+\begin{proof}[Proof of Proposition~3.3 for commutative rings]
+The first point follows from the second and from what we have just
+seen. Indeed, we have checked that $A \in \mathcal{M}_n(R)$ admits an
+inverse $A^{-1} \in \mathcal{M}_n(R)$ if $\det(A)$ is a unit in $R$;
+conversely,
+if $A$ admits an inverse $A^{-1} \in \mathcal{M}_n(R)$, then
+\[
+\det(A) \det(A^{-1}) = \det(AA^{-1}) = \det(I_n) = 1
+\]
+by the second statement, so that $\det(A^{-1})$ is the inverse of
+$\det(A)$ in $R$.
+
+Thus, we just need to verify the second point, that is, the
+homomorphism property of determinants. In order to verify this over
+every (commutative) ring, it suffices to verify the `universal'
+identity obtained by writing out the claimed equality, for matrices
+with indeterminate entries. For example, for $n = 2$ the statement is
+\[
+\det \begin{pmatrix} x_1 & x_2 \\ x_3 & x_4 \end{pmatrix}
+\det \begin{pmatrix} y_1 & y_2 \\ y_3 & y_4 \end{pmatrix}
+= \det
+\begin{pmatrix}
+x_1y_1 + x_2y_3 & x_1y_2 + x_2y_4 \\
+x_3y_1 + x_4y_3 & x_3y_2 + x_4y_4
+\end{pmatrix},
+\]
+which translates into the identity
+\[
+(x_1x_4 - x_2x_3)(y_1y_4 - y_2y_3) = (x_1y_1 + x_2y_3)(x_3y_2 + x_4y_4)
+- (x_1y_2 + x_2y_4)(x_3y_1 + x_4y_3);
+\]
+since this identity holds in $\mathbb{Z}[x_1, \dots, y_4]$, it must
+hold in any commutative ring, for any choice of $x_1, \dots, y_4$:
+indeed, $\mathbb{Z}$ is initial in $\mathsf{Ring}$.
+
+Now, we have verified that the homomorphism property holds over
+fields; in particular it holds over the field of fractions of
+$\mathbb{Z}[x_{11}, \dots, x_{nn}, y_{11}, \dots, y_{nn}]$. It follows
+that it does hold in $\mathbb{Z}[x_{11}, \dots, x_{nn}, y_{11}, \dots,
+y_{nn}]$, and we are done.
+\end{proof}
+
+The `universal identity' argument extending the result from fields to
+arbitrary commutative rings is a useful device, and the reader is
+invited to contemplate it carefully.
+
+As an application of determinants (and especially cofactors) we can now
+go back to the special case of a system of $n$ equations in $n$
+unknowns
+\[
+A \cdot \mathbf{x} = \mathbf{b},
+\]
+cf.\ \S{}3.1, in the case in which $\det(A)$ is a unit.
+
+\begin{prop}{Cramer's rule}{linalg:3.6}
+Assume $\det(A)$ is a unit, and let $A^{(j)}$ be the matrix obtained by
+replacing the $j$-th column of $A$ by the column vector $\mathbf{b}$.
+Then
+\[
+x_j = \det(A)^{-1} \det(A^{(j)}).
+\]
+\end{prop}
+\begin{proof}
+Using Lemma~3.4, expand $\det(A^{(j)})$ with respect to the $j$-th
+column:
+\[
+\det(A^{(j)}) = \sum_{i=1}^n A^{(ij)} b_i.
+\]
+Therefore
+\[
+\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}
+= A^{-1}\mathbf{b}
+= \det(A)^{-1}
+\begin{pmatrix}
+A^{(11)} & \cdots & A^{(n1)} \\
+\vdots & \ddots & \vdots \\
+A^{(1n)} & \cdots & A^{(nn)}
+\end{pmatrix}
+\cdot
+\begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix}
+= \det(A)^{-1}
+\begin{pmatrix}
+\sum_{i=1}^n A^{(i1)} b_i \\ \vdots \\ \sum_{i=1}^n A^{(in)} b_i
+\end{pmatrix}
+=
+\begin{pmatrix}
+\det(A)^{-1} \det(A^{(1)}) \\ \vdots \\ \det(A)^{-1} \det(A^{(n)})
+\end{pmatrix},
+\]
+which gives the statement.
+\end{proof}
 
 \subsection{Rank and nullity}
 \label{subsec:linalg:rank-and-nullity}
-% According to Proposition 2.10, each equivalence class of
+According to Proposition~2.10, each equivalence class of matrices over
+a field has a representative of the type
+\[
+\left(
+\begin{array}{c|c}
+I_r & 0 \\
+\hline
+0 & 0
+\end{array}
+\right).
+\]
+The reason why two different $m \times n$ matrices of this type are
+surely inequivalent is that if $\alpha : V \to W$ (with $V$ and $W$
+free modules, vector spaces in this case) is represented by a matrix of
+this form, then $r$ is the dimension of the image of $\alpha$.
+Therefore, matrices with different $r$ cannot represent the same
+$\alpha$.
 
-% matrices over a field has a representative of the type
-% ?
-%  ?
-% Ir 0
-% .
-% 0 0
-% The reason why two different m \times  n matrices of this type are surely
-% inequivalent
-% is that if \alpha  : V \to  W (with V and W free modules, vector spaces in this
-% case) is
-% represented by a matrix of this form, then r is the dimension of the image of
-% \alpha .
-% Therefore, matrices with different r cannot represent the same \alpha .
-% This integer r is called the rank of the matrix and deserves some attention. I
-% will discuss it for matrices with entries in a field, leaving generalizations to
-% more
-% general rings to the reader (for now at least).
-% The column (row) space of a matrix P over a field k is the span of the columns
-% (rows) of P . The column (row) rank of P is the dimension of the column (row)
-% space of P .
-% Proposition 3.7. The row rank of a matrix over a field k equals its column rank.
-% Proof. Equivalent matrices have the same ranks. Indeed, let P \in  Mm,n (k); the
-% row space of P consists of all row vectors
-% ?
-%  ? ?
-%  ?
-% a 1 \dots  am = v 1 \dots  vm \cdot  P
-% ?
-%  obtained
-%  as each
-%  ? v ? i ranges in k. ? If Q = M P N , with M and N invertible, let
-% w1 \dots  wm = v1 \dots  vm \cdot  M -1 ; then
-% ?
-%  ?
-%  ?
-%  ?
-%  -1 ?
-%  ?
-% w1 \dots  wm \cdot  Q = v1 \dots  vm M (M P N ) = a1 \dots  am \cdot  N.
-% This shows that multiplication on the right by N maps the row space of P
-% (isomor-
-% phically, since N is invertible) to the row space of Q; thus the two spaces have
-% the
-% same dimension, as claimed. Minimal variations on the same argument show that
-% the column ranks of P and Q agree. (Cf. Exercise 2.10.)
-% Applying this observation and Proposition 2.10 reduces the question to matrices
-% ?
-%  ?
-% Ir 0
-% ,
-% 0 0
-% for which row rank = r = column rank, proving the statement.
-%  ?
-% The result upgrades easily to matrices over an arbitrary integral domain R
-% (applying the usual trick of embedding R in its field of fractions).
-% In view of Proposition 3.7, we can simply talk about the rank of a matrix:
-% Definition 3.8. Let M \in  Mm,n (k) be a matrix over a field k. The rank of M is
-% the dimension of its column (or, equivalently, row) space.
-%  ?
-% One way to rephrase Proposition 2.10 is that matrices over a field are
-% classified
-% up to equivalence by their rank.
-% The foregoing considerations translate nicely in more abstract terms for a
-% linear
-% map \alpha  : V \to  W between finite-dimensional vector spaces over a field k.
-% Using the
-% convenient language introduced in \S{}III.7.1, note that each \alpha  determines
-% an exact
-% sequence of vector spaces
-%  / ker \alpha 
-%  / V
-%  / im \alpha 
-%  / 0 .
-% Definition 3.9. The rank of \alpha , denoted rk \alpha , is the dimension of im
-% \alpha . The nullity
-% of \alpha  is dim(ker \alpha ).
-%  ?
-% Claim 3.10. Let \alpha  : V \to  W be a linear map of finite-dimensional vector
-% spaces.
-% Then
-% (rank of \alpha ) + (nullity of \alpha ) = dim V.
-% Proof. Let n = dim V and m = dim W . By Proposition 2.10 we can represent \alpha
-% by an m \times  n matrix of the form
-% ?
-%  ?
-% Ir 0
-% .
-% 0 0
-% From this representation it is immediate that rk \alpha  = r and the nullity of
-% \alpha  is n - r,
-% with the stated consequence.
-%  ?
-% Summarizing, rk \alpha  equals the (column) rank of any matrix P representing
-% \alpha ;
-% similarly, the nullity of \alpha  equals `dim V minus the (row) rank' of P .
-% Claim 3.10 is
-% the abstract version of the equality of row rank and column rank.
+This integer $r$ is called the \emph{rank} of the matrix and deserves
+some attention. I will discuss it for matrices with entries in a field,
+leaving generalizations to more general rings to the reader (for now at
+least).
+
+The \emph{column (row) space} of a matrix $P$ over a field $k$ is the
+span of the columns (rows) of $P$. The \emph{column (row) rank} of $P$
+is the dimension of the column (row) space of $P$.
+
+\begin{prop}{}{linalg:3.7}
+The row rank of a matrix over a field $k$ equals its column rank.
+\end{prop}
+\begin{proof}
+Equivalent matrices have the same ranks. Indeed, let
+$P \in \mathcal{M}_{m,n}(k)$; the row space of $P$ consists of all row
+vectors
+\[
+\begin{pmatrix} a_1 & \dots & a_m \end{pmatrix} =
+\begin{pmatrix} v_1 & \dots & v_m \end{pmatrix} \cdot P
+\]
+obtained as each $v_i$ ranges in $k$. If $Q = MPN$, with $M$ and $N$
+invertible, let
+$\begin{pmatrix} w_1 & \dots & w_m \end{pmatrix} =
+\begin{pmatrix} v_1 & \dots & v_m \end{pmatrix} \cdot M^{-1}$; then
+\[
+\begin{pmatrix} w_1 & \dots & w_m \end{pmatrix} \cdot Q =
+\begin{pmatrix} v_1 & \dots & v_m \end{pmatrix} M^{-1}(MPN) =
+\begin{pmatrix} a_1 & \dots & a_m \end{pmatrix} \cdot N.
+\]
+This shows that multiplication on the right by $N$ maps the row space
+of $P$ (isomorphically, since $N$ is invertible) to the row space of
+$Q$; thus the two spaces have the same dimension, as claimed. Minimal
+variations on the same argument show that the column ranks of $P$ and
+$Q$ agree. (Cf.\ Exercise~2.10.)
+
+Applying this observation and Proposition~2.10 reduces the question to
+matrices
+\[
+\left(
+\begin{array}{c|c}
+I_r & 0 \\
+\hline
+0 & 0
+\end{array}
+\right),
+\]
+for which row rank $= r =$ column rank, proving the statement.
+\end{proof}
+
+The result upgrades easily to matrices over an arbitrary integral
+domain $R$ (applying the usual trick of embedding $R$ in its field of
+fractions).
+
+In view of Proposition~3.7, we can simply talk about the rank of a
+matrix:
+\begin{defn}{}{linalg:3.8}
+Let $M \in \mathcal{M}_{m,n}(k)$ be a matrix over a field $k$. The
+\emph{rank} of $M$ is the dimension of its column (or, equivalently,
+row) space.
+\end{defn}
+One way to rephrase Proposition~2.10 is that matrices over a field are
+classified up to equivalence by their rank.
+
+The foregoing considerations translate nicely in more abstract terms
+for a linear map $\alpha : V \to W$ between finite-dimensional vector
+spaces over a field $k$. Using the convenient language introduced in
+\S{}III.7.1, note that each $\alpha$ determines an exact sequence of
+vector spaces
+\[
+0 \to \ker\alpha \to V \to \operatorname{im}\alpha \to 0.
+\]
+\begin{defn}{}{linalg:3.9}
+The \emph{rank} of $\alpha$, denoted $\operatorname{rk}\alpha$, is the
+dimension of $\operatorname{im}\alpha$. The \emph{nullity} of $\alpha$
+is $\dim(\ker\alpha)$.
+\end{defn}
+\begin{prop}{}{linalg:3.10}
+Let $\alpha : V \to W$ be a linear map of finite-dimensional vector
+spaces. Then
+\[
+(\text{rank of } \alpha) + (\text{nullity of } \alpha) = \dim V.
+\]
+\end{prop}
+\begin{proof}
+Let $n = \dim V$ and $m = \dim W$. By Proposition~2.10 we can represent
+$\alpha$ by an $m \times n$ matrix of the form
+\[
+\left(
+\begin{array}{c|c}
+I_r & 0 \\
+\hline
+0 & 0
+\end{array}
+\right).
+\]
+From this representation it is immediate that
+$\operatorname{rk}\alpha = r$ and the nullity of $\alpha$ is $n - r$,
+with the stated consequence.
+\end{proof}
+
+Summarizing, $\operatorname{rk}\alpha$ equals the (column) rank of any
+matrix $P$ representing $\alpha$; similarly, the nullity of $\alpha$
+equals `$\dim V$ minus the (row) rank' of $P$. Proposition~3.10 is
+the abstract version of the equality of row rank and column rank.
 
 \subsection{Euler characteristic and the Grothendieck group}
 \label{subsec:linalg:euler-characteristic-and-the-grothendieck-group}
-% Against my best ef-
+Against my best efforts, I cannot resist extending these simple
+observations to more general complexes. Proposition~3.10 may be
+reformulated as follows:
+\begin{prop}{}{linalg:3.11}
+Let
+\[
+0 \to U \to V \to W \to 0
+\]
+be a short exact sequence of finite-dimensional vector spaces. Then
+\[
+\dim(V) = \dim(U) + \dim(W).
+\]
+\end{prop}
+Equivalently, this amounts to the relation
+$\dim(V/U) = \dim(V) - \dim(U)$.
 
-% forts, I cannot resist extending these simple observations to more general
-% complexes.
-% Claim 3.10 may be reformulated as follows:
-% Proposition 3.11. Let
-%  / U
-%  / V
-%  / W
-%  / 0
-% be a short exact sequence of finite-dimensional vector spaces. Then
-% dim(V ) = dim(U ) + dim(W ).
-% Equivalently, this amounts to the relation dim(V /U ) = dim(V ) - dim(U ).
-% Consider then a complex of finite-dimensional vector spaces and linear maps:
-% V\bullet  :
-%  / VN
-%  \alpha N
-%  / VN -1 \alpha N -1 / \dots 
-%  \alpha 2
-%  / V1
-%  \alpha 1
-%  / V0
-%  / 0
-% (cf. \S{}III.7.1). Thus, \alpha i-1 \circ  \alpha i = 0 for all i. This
-% condition is equivalent to the
-% requirement that im(\alpha i+1 ) \subseteq  ker(\alpha i ); recall that the
-% homology of this complex is
-% defined as the collection of spaces
-% ker(\alpha i)
-% Hi (V\bullet  ) =
-%  .
-% im(\alpha i+1 )
-% The complex is exact if im(\alpha i+1 ) = ker(\alpha i ) for all i, that is, if
-% Hi (V\bullet  ) = 0 for all i.
-% Definition 3.12. The Euler characteristic of V\bullet  is the integer
-% ?
-% \chi (V\bullet  ) :=
-%  (-1)i dim(Vi ).
-%  ?
-% i
-% The original motivation for the introduction of this number is topological: with
-% suitable positions, this Euler characteristic equals the Euler characteristic
-% obtained
-% by triangulating a manifold and then computing the number of vertices of the
-% triangulation, minus the number of edges, plus the number of faces, etc.
-% The following simple result is then a straightforward (and very useful) gener-
-% alization of Proposition 3.11:
-% Proposition 3.13. With notation as above,
-% ?
-%  N
-% \chi (V\bullet  ) =
-%  (-1)i dim(Hi (V\bullet )).
-% i=0
-% In particular, if V\bullet  is exact, then \chi (V\bullet ) = 0.
-% Proof. There is nothing to show for N = 0, and the result follows directly from
-% Proposition 3.11 if N = 1 (Exercise 3.15). Arguing by induction, given a complex
-% V\bullet  :
-%  / VN
-%  \alpha N
-%  / VN -1 \alpha N -1 / \dots 
-%  \alpha 2
-%  / V1
-%  \alpha 1
-%  / V0
-%  / 0,
-% we may assume that the result is known for `shorter' complexes. Consider then
-% the
-% truncation
-% V\bullet  \setminus  :
-%  / VN -1 \alpha N -1 / \dots 
-%  \alpha 2
-%  / V1
-%  \alpha 1
-%  / V0
-%  / 0 .
-% Then
-% \chi (V\bullet  ) = \chi (V\bullet  \setminus  ) + (-1)N dim(VN ),
-% and
-% Hi (V\bullet ) = Hi(V\bullet  \setminus )
-%  for 0 \leq  i \leq  N - 2,
-% while
-% ? ker(\alpha N -1 )
-% HN -1 (V\bullet  ) = ker(\alpha N -1 ),
-%  HN -1 (V\bullet  ) =
-%  ,
-%  HN (V\bullet  ) = ker(\alpha N ).
-% im(\alpha N )
-% By Proposition 3.11 (cf. Claim 3.10),
-% dim(VN ) = dim(im(\alpha N )) + dim(ker(\alpha N ))
-% and
-% dim(HN -1(V\bullet  )) = dim(ker(\alpha N -1 )) - dim(im(\alpha N ));
-% therefore
-% dim(HN -1 (V\bullet  \setminus  )) - dim(VN ) = dim(HN -1 (V\bullet  )) - dim(HN
-% (V\bullet )).
-% Putting all of this together with the induction hypothesis,
-% N
-%  ?
-%  -1
-% \chi (V\bullet  \setminus  ) =
-%  (-1)i dim(Hi (V\bullet  \setminus  ))
-% i=0
-% gives
-% \chi (V\bullet ) = \chi (V\bullet  \setminus  ) + (-1)N dim(VN )
-% N
-%  ?
-%  -1
-% =
-%  (-1)i dim(Hi (V\bullet  \setminus  )) + (-1)N dim(VN )
-% i=0
-% N
-%  ?
-%  -2
-% =
-%  (-1)i dim(Hi (V\bullet  \setminus  )) + (-1)N -1 (dim(HN -1 (V\bullet
-%  \setminus  )) - dim(VN ))
-% i=0
-% N
-%  ?
-%  -2
-% =
-%  (-1)i dim(Hi (V\bullet  )) + (-1)N -1 (dim(HN -1 (V\bullet )) - dim(HN
-%  (V\bullet  )))
-% i=0
-% ?
-%  N
-% i=
-%  (-1) dim(Hi (V\bullet ))
-% i=0
-% as needed.
-% ?
-% In terms of the topological motivation recalled above, Proposition 3.13 tells us
-% that the Euler characteristic of a manifold may be computed as the alternating
-% sum
-% of the ranks of its homology, that is, of its Betti numbers.
-% Having come this far, I cannot refrain from mentioning the next, equally simple-
-% minded, generalization. The reader has surely noticed that the only tool used in
-% the proof of Proposition 3.13 was the `additivity' property of dimension,
-% established
-% in Proposition 3.11: if
-%  / U
-%  / V
-%  / W
-%  / 0
-% is exact, then
-% dim(V ) = dim(U ) + dim(W ).
-% Proposition 3.13 is a formal consequence of this one property of dim.
-% With this in mind, we can reinterpret what we have just done in the following
-% curious way. Consider the category k-Vectf of finite-dimensional k-vector
-% spaces.
-% Each object V of k-Vectf determines an isomorphism class [V ]. Let F (k-Vectf )
-% be
-% the free abelian group on the set of these isomorphism classes; further, let E
-% be the
-% subgroup generated by the elements
-% [V ] - [U ] - [W ]
-% for all short exact sequences
-%  / U
-%  / V
-%  / W
-%  / 0
-% in k-Vectf . The quotient group
-% F (k-Vectf )
-% K(k-Vectf ) :=
-% E
-% is called the Grothendieck group of the category k-Vectf . The element
-% determined
-% by V in the Grothendieck group is still denoted [V ].
-% More generally, a Grothendieck group may be defined for any category admitting
-% a notion of exact sequence.
-% Every complex V\bullet  determines an element in K(k-Vectf ), namely
-% ?
-% \chi K (V\bullet  ) :=
-%  (-1)i[Vi ] \in  K(k-Vectf ).
-% i
-% Claim 3.14. With notation as above, we have the following:
-% \bullet  \chi K `is an Euler characteristic', in the sense that it satisfies the formula given
-% in Proposition 3.13:
-% ?
-% \chi K (V\bullet  ) =
-%  (-1)i [Hi(V\bullet  )].
-% i
-% \bullet  \chi K is a `universal Euler characteristic', in the following sense. Let G be an
-% abelian group, and let \delta  be a function associating an element of G to each
-% finite-
-% dimensional vector space, such that \delta (V ) = \delta (V \setminus  ) if V
-% \sim
-%  = V \setminus  and \delta (V /U ) =
-% \delta (V ) - \delta (U ). For V\bullet  a complex, define
-% ?
-% \chi G (V\bullet  ) =
-%  (-1)i\delta (Vi).
-% i
-% Then \delta  induces a (unique) group homomorphism
-% K(k-Vectf ) \to  G
-% mapping \chi K (V\bullet  ) to \chi G (V\bullet  ).
-% \bullet  In particular, \delta  = dim induces a group homomorphism
-% K(k-Vectf ) \to  Z
-% such that \chi  K (V\bullet ) ?\to  \chi (V\bullet ).
-% \bullet  This is in fact an isomorphism.
-% The best way to convince the reader that this impressive claim is completely
-% trivial is to leave its proof to the reader (Exercise 3.16). The first point is
-% proved
-% by adapting the proof of Proposition 3.13; the second point is a harmless
-% mixture
-% of universal properties; the third point follows from the second; and the last
-% point
-% follows from the fact that dim(k) = 1 and the IBN property.
-% The last point is, in fact, rather anticlimactic: if the impressively abstract
-% Grothendieck group turns out to just be a copy of the integers, why bother
-% defin-
-% ing it? The answer is, of course, that this only stresses how special the
-% category
-% k-Vectf is. The definition of the Grothendieck group can be given in any context
-% in
-% which complexes and a notion of exactness are available (for example, in the
-% cate-
-% gory of finitely generated20 modules over any ring). The formal arguments
-% proving
-% Claim 3.14 will go through in any such context and provide us with a useful
-% notion
-% of `universal Euler characteristic'.
-% We will come back to complexes and homology in Chapter IX.
+Consider then a complex of finite-dimensional vector spaces and linear
+maps:
+\[
+V_\bullet : \quad 0 \to V_N \xrightarrow{\alpha_N} V_{N-1}
+\xrightarrow{\alpha_{N-1}} \dots \xrightarrow{\alpha_2} V_1
+\xrightarrow{\alpha_1} V_0 \to 0
+\]
+(cf.\ \S{}III.7.1). Thus, $\alpha_{i-1} \circ \alpha_i = 0$ for all $i$.
+This condition is equivalent to the requirement that
+$\operatorname{im}(\alpha_{i+1}) \subseteq \ker(\alpha_i)$; recall that
+the \emph{homology} of this complex is defined as the collection of
+spaces
+\[
+H_i(V_\bullet) = \frac{\ker(\alpha_i)}{\operatorname{im}(\alpha_{i+1})}.
+\]
+The complex is \emph{exact} if $\operatorname{im}(\alpha_{i+1}) =
+\ker(\alpha_i)$ for all $i$, that is, if $H_i(V_\bullet) = 0$ for all
+$i$.
+
+\begin{defn}{}{linalg:3.12}
+The \emph{Euler characteristic} of $V_\bullet$ is the integer
+\[
+\chi(V_\bullet) := \sum_i (-1)^i \dim(V_i).
+\]
+\end{defn}
+The original motivation for the introduction of this number is
+topological: with suitable positions, this Euler characteristic equals
+the Euler characteristic obtained by triangulating a manifold and then
+computing the number of vertices of the triangulation, minus the number
+of edges, plus the number of faces, etc.
+
+The following simple result is then a straightforward (and very useful)
+generalization of Proposition~3.11:
+\begin{prop}{}{linalg:3.13}
+With notation as above,
+\[
+\chi(V_\bullet) = \sum_{i=0}^N (-1)^i \dim(H_i(V_\bullet)).
+\]
+In particular, if $V_\bullet$ is exact, then $\chi(V_\bullet) = 0$.
+\end{prop}
+\begin{proof}
+There is nothing to show for $N = 0$, and the result follows directly
+from Proposition~3.11 if $N = 1$ (Exercise~3.15). Arguing by induction,
+given a complex
+\[
+V_\bullet : \quad 0 \to V_N \xrightarrow{\alpha_N} V_{N-1}
+\xrightarrow{\alpha_{N-1}} \dots \xrightarrow{\alpha_2} V_1
+\xrightarrow{\alpha_1} V_0 \to 0,
+\]
+we may assume that the result is known for `shorter' complexes.
+Consider then the truncation
+\[
+V_\bullet' : \quad 0 \to V_{N-1} \xrightarrow{\alpha_{N-1}} \dots
+\xrightarrow{\alpha_2} V_1 \xrightarrow{\alpha_1} V_0 \to 0.
+\]
+Then
+\[
+\chi(V_\bullet) = \chi(V_\bullet') + (-1)^N \dim(V_N),
+\]
+and
+\[
+H_i(V_\bullet) = H_i(V_\bullet') \quad \text{for } 0 \leq i \leq N-2,
+\]
+while
+\[
+H_{N-1}(V_\bullet') = \ker(\alpha_{N-1}), \quad
+H_{N-1}(V_\bullet) = \frac{\ker(\alpha_{N-1})}{\operatorname{im}(\alpha_N)},
+\quad
+H_N(V_\bullet) = \ker(\alpha_N).
+\]
+By Proposition~3.11 (cf.\ Proposition~3.10),
+\[
+\dim(V_N) = \dim(\operatorname{im}(\alpha_N)) + \dim(\ker(\alpha_N))
+\]
+and
+\[
+\dim(H_{N-1}(V_\bullet)) = \dim(\ker(\alpha_{N-1})) -
+\dim(\operatorname{im}(\alpha_N));
+\]
+therefore
+\[
+\dim(H_{N-1}(V_\bullet')) - \dim(V_N) = \dim(H_{N-1}(V_\bullet)) -
+\dim(H_N(V_\bullet)).
+\]
+Putting all of this together with the induction hypothesis,
+\[
+\chi(V_\bullet') = \sum_{i=0}^{N-1} (-1)^i \dim(H_i(V_\bullet'))
+\]
+gives
+\[
+\chi(V_\bullet) = \chi(V_\bullet') + (-1)^N \dim(V_N)
+\]
+\[
+= \sum_{i=0}^{N-1} (-1)^i \dim(H_i(V_\bullet')) + (-1)^N \dim(V_N)
+\]
+\[
+= \sum_{i=0}^{N-2} (-1)^i \dim(H_i(V_\bullet')) + (-1)^{N-1}
+(\dim(H_{N-1}(V_\bullet')) - \dim(V_N))
+\]
+\[
+= \sum_{i=0}^{N-2} (-1)^i \dim(H_i(V_\bullet)) + (-1)^{N-1}
+(\dim(H_{N-1}(V_\bullet)) - \dim(H_N(V_\bullet)))
+\]
+\[
+= \sum_{i=0}^N (-1)^i \dim(H_i(V_\bullet))
+\]
+as needed.
+\end{proof}
+
+In terms of the topological motivation recalled above, Proposition~3.13
+tells us that the Euler characteristic of a manifold may be computed as
+the alternating sum of the ranks of its homology, that is, of its
+\emph{Betti numbers}.
+
+Having come this far, I cannot refrain from mentioning the next,
+equally simple-minded, generalization. The reader has surely noticed
+that the only tool used in the proof of Proposition~3.13 was the
+`additivity' property of dimension, established in Proposition~3.11: if
+\[
+0 \to U \to V \to W \to 0
+\]
+is exact, then
+\[
+\dim(V) = \dim(U) + \dim(W).
+\]
+Proposition~3.13 is a formal consequence of this one property of $\dim$.
+
+With this in mind, we can reinterpret what we have just done in the
+following curious way. Consider the category $k$-\textsf{Vect}$^f$ of
+finite-dimensional $k$-vector spaces. Each object $V$ of
+$k$-\textsf{Vect}$^f$ determines an isomorphism class $[V]$. Let
+$F(k\text{-}\textsf{Vect}^f)$ be the free abelian group on the set of
+these isomorphism classes; further, let $E$ be the subgroup generated
+by the elements
+\[
+[V] - [U] - [W]
+\]
+for all short exact sequences
+\[
+0 \to U \to V \to W \to 0
+\]
+in $k$-\textsf{Vect}$^f$. The quotient group
+\[
+K(k\text{-}\textsf{Vect}^f) := \frac{F(k\text{-}\textsf{Vect}^f)}{E}
+\]
+is called the \emph{Grothendieck group} of the category
+$k$-\textsf{Vect}$^f$. The element determined by $V$ in the
+Grothendieck group is still denoted $[V]$.
+
+More generally, a Grothendieck group may be defined for any category
+admitting a notion of exact sequence.
+
+Every complex $V_\bullet$ determines an element in
+$K(k\text{-}\textsf{Vect}^f)$, namely
+\[
+\chi_K(V_\bullet) := \sum_i (-1)^i [V_i] \in
+K(k\text{-}\textsf{Vect}^f).
+\]
+
+\begin{prop}{}{linalg:3.14}
+With notation as above, we have the following:
+\begin{itemize}
+\item $\chi_K$ `is an Euler characteristic', in the sense that it
+satisfies the formula given in Proposition~3.13:
+\[
+\chi_K(V_\bullet) = \sum_i (-1)^i [H_i(V_\bullet)].
+\]
+\item $\chi_K$ is a `universal Euler characteristic', in the following
+sense. Let $G$ be an abelian group, and let $\delta$ be a function
+associating an element of $G$ to each finite-dimensional vector space,
+such that $\delta(V) = \delta(V')$ if $V \cong V'$ and
+$\delta(V/U) = \delta(V) - \delta(U)$. For $V_\bullet$ a complex, define
+\[
+\chi_G(V_\bullet) = \sum_i (-1)^i \delta(V_i).
+\]
+Then $\delta$ induces a (unique) group homomorphism
+\[
+K(k\text{-}\textsf{Vect}^f) \to G
+\]
+mapping $\chi_K(V_\bullet)$ to $\chi_G(V_\bullet)$.
+\item In particular, $\delta = \dim$ induces a group homomorphism
+\[
+K(k\text{-}\textsf{Vect}^f) \to \mathbb{Z}
+\]
+such that $\chi_K(V_\bullet) \mapsto \chi(V_\bullet)$.
+\item This is in fact an isomorphism.
+\end{itemize}
+\end{prop}
+The best way to convince the reader that this impressive claim is
+completely trivial is to leave its proof to the reader
+(Exercise~3.16). The first point is proved by adapting the proof of
+Proposition~3.13; the second point is a harmless mixture of universal
+properties; the third point follows from the second; and the last point
+follows from the fact that $\dim(k) = 1$ and the IBN property.
+
+The last point is, in fact, rather anticlimactic: if the impressively
+abstract Grothendieck group turns out to just be a copy of the
+integers, why bother defining it? The answer is, of course, that this
+only stresses how special the category $k$-\textsf{Vect}$^f$ is. The
+definition of the Grothendieck group can be given in any context in
+which complexes and a notion of exactness are available (for example,
+in the category of finitely generated\footnote{Note that some
+finiteness condition is likely to be necessary. We cannot define a
+`Grothendieck group of $k$-\textsf{Vect}' because the isomorphism
+classes of objects in $k$-\textsf{Vect} do not form a set: there is one
+for each cardinal number, and cardinal numbers do not form a set.}
+modules over any ring). The formal arguments proving Proposition~3.14
+will go through in any such context and provide us with a useful notion
+of `universal Euler characteristic'.
+
+We will come back to complexes and homology in Chapter~IX.
 
 \subsection*{Exercises}
 
-% 3.1. Use Gaussian elimination to find all integer solutions of the system of
-% equations
-% ?
-% 7x - 36y + 12z = 1,
-% -8x + 42y - 14z = 2.
-% 3.2. ? Provide details for the proof of Lemma 3.2. [\S{}3.2]
-% 3.3. Redo Exercise II.8.8.
-% 3.4. Formalize the discussion of `universal identities': by what cocktail of
-% universal
-% properties is it true that if an identity holds in Z[x1 , . . . , xr ], then it
-% holds over
-% every commutative ring R, for every choice of xi \in  R? (Is the commutativity
-% of R
-% necessary?)
-% 3.5. ? Let A be an n \times  n square invertible matrix with entries in a field,
-% and
-% consider the n \times  (2n) matrix B = (A|In ) obtained by placing the identity
-% matrix
-% to the side of A. Perform elementary row operations on B so as to reduce A to In
-% (cf. Exercise 2.15). Prove that this transforms B into (In |A-1 ).
-% (This is a much more efficient way to compute the inverse of a matrix than by
-% using determinants as in \S{}3.2.) [\S{}2.3, \S{}3.2]
-% 3.6. \lnot  Let R be a commutative ring and M = ?m1 , .(
-%  . . , m )
-%  r ? a finitely
-%  (
-%  ) generated
-% m1
-% R-module. Let A \in  Mr (R) be a matrix such that A \cdot  | ( ... ) | = ( | ...
-% |
-%  ). Prove that
-% mr
-% det(A)m = 0 for all m \in  M . (Hint: Multiply by the adjoint.) [3.7]
-% 3.7. \lnot  Let R be a commutative ring, M a finitely generated R-module, and
-% let J
-% be an ideal of R. Assume JM = M . Prove that there exists an element b \in  J
-% such
-% that (1 + b)M = 0. (Let m1 , . . . , mr be generators
-%  for M . Find an r \times  r matrix
-% (
-%  )
-%  ( )m1
-%  m1
-% B with entries in J such that ( | . .. ) |
-%  = B \cdot  ( | . .. ). |
-%  Then use Exercise 3.6.) [3.8,
-% mr
-%  mr
-% VIII.1.18]
-% 20 Note that some finiteness condition is likely to be necessary.
-%  We cannot define a
-% `Grothendieck group of k-Vect' because the isomorphism classes of objects in
-% k-Vect do not form
-% a set: there is one for each cardinal number, and cardinal numbers do not form a
-% set.
-% 3.8. \lnot  Let R be a commutative ring, M be a finitely generated R-module, and
-% let
-% J be an ideal of R contained in the Jacobson radical of R (Exercise V.3.14).
-% Prove
-% that M = 0 \iff  JM = M . (Use Exercise 3.7. This is Nakayama's lemma, a
-% result with important applications in commutative algebra and algebraic
-% geometry.
-% A particular case was given as Exercise III.5.16.) [III.5.16, 3.9, 5.5]
-% 3.9. \lnot  Let R be a commutative local ring, that is, a ring with a single
-% maximal
-% ideal m, and let M , N be finitely generated R-modules. Prove that if M = mM +N
-% ,
-% then M = N . (Apply Nakayama's lemma, that is, Exercise 3.8, to M/N . Note
-% that the Jacobson radical of R is m.) [3.10]
-% 3.10. \lnot  Let R be a commutative local ring, and let M be a finitely
-% generated R-
-% module. Note that M/mM is a finite-dimensional vector space over the field R/m;
-% let m1 , . . . , mr \in  M be elements whose cosets mod mM form a basis of M/mM
-% .
-% Prove that m1 , . . . , mr generate M .
-% (Show that ?m1 , . . . , mr ? + mM = M ; then apply Nakayama's lemma in the
-% form of Exercise 3.9.) [5.5, VIII.2.24]
-% 3.11. Explain how to use Gaussian elimination to find bases for the row space
-% and
-% the column space of a matrix over a field.
-% 3.12. \lnot  Let R be an integral domain, and let M \in  Mm,n(R), with m < n.
-% Prove
-% that the columns of M are linearly dependent over R. [5.6]
-% 3.13. Let k be a field. Prove that a matrix M \in  Mm,n (k) has rank \leq  r if
-% and only
-% if there exist matrices P \in  Mm,r (k), Q \in  Mr,n (k) such that M = P Q.
-% (Thus the
-% rank of M is the smallest such integer.)
-% 3.14. Generalize Proposition 3.11 to the case of finitely generated free modules
-% over any integral domain. (Embed the integral domain in its field of fractions.)
-% 3.15. ? Prove Proposition 3.13 for the case N = 1. [\S{}3.4]
-% 3.16. ? Prove Claim 3.14. [\S{}3.4]
-% 3.17. Extend the definition of Grothendieck group of vector spaces given in
-% \S{}3.4 to
-% the category of vector spaces of countable (possibly infinite) dimension, and
-% prove
-% that it is the trivial group.
-% 3.18. Let Abf g be the category of finitely generated abelian groups. Define a
-% Grothendieck group of this category in the style of the construction of
-% K(k-Vectf ),
-% and prove that K(Abf g ) \sim 
-%  = Z.
-% 3.19. \lnot  Let Abf be the category of finite abelian groups. Prove that
-% assigning to ev-
-% ery finite abelian group its order extends to a homomorphism from the
-% Grothendieck
-% group K(Abf ) to the multiplicative group (Q\ast  , \cdot ). [3.20]
-% 3.20. Let R-Modf be the category of modules of finite length (cf. Exercise 1.16)
-% over a ring R. Let G be an abelian group, and let \delta  be a function
-% assigning an
-% element of G to every simple R-module. Prove that \delta  extends to a
-% homomorphism
-% from the Grothendieck group of R-Modf to G.
-% Explain why Exercise 3.19 is a particular case of this observation.
-% (For another example, letting \delta (M ) = 1 \in  Z for every simple module M
-% shows
-% that length itself extends to a homomorphism from the Grothendieck group of
-% R-Modf to Z.)
+\begin{exer}{}{exer:linalg:3.1}
+Use Gaussian elimination to find all integer solutions of the system of
+equations
+\[
+\begin{cases}
+7x - 36y + 12z = 1, \\
+-8x + 42y - 14z = 2.
+\end{cases}
+\]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:3.2}
+Provide details for the proof of Lemma~3.2. [$\S$3.2]
+\end{exer}
+\begin{exer}{}{exer:linalg:3.3}
+Redo Exercise~II.8.8.
+\end{exer}
+\begin{exer}{}{exer:linalg:3.4}
+Formalize the discussion of `universal identities': by what cocktail of
+universal properties is it true that if an identity holds in
+$\mathbb{Z}[x_1, \dots, x_r]$, then it holds over every commutative
+ring $R$, for every choice of $x_i \in R$? (Is the commutativity of $R$
+necessary?)
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:3.5}
+Let $A$ be an $n \times n$ square invertible matrix with entries in a
+field, and consider the $n \times (2n)$ matrix $B = (A | I_n)$ obtained
+by placing the identity matrix to the side of $A$. Perform elementary
+row operations on $B$ so as to reduce $A$ to $I_n$ (cf.\
+Exercise~2.15). Prove that this transforms $B$ into $(I_n | A^{-1})$.
+
+(This is a much more efficient way to compute the inverse of a matrix
+than by using determinants as in \S{}3.2.) [$\S$2.3, $\S$3.2]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:3.6}
+Let $R$ be a commutative ring and $M = \langle m_1, \dots, m_r \rangle$
+a finitely generated $R$-module. Let $A \in \mathcal{M}_r(R)$ be a
+matrix such that
+\[
+A \cdot \begin{pmatrix} m_1 \\ \vdots \\ m_r \end{pmatrix} =
+\begin{pmatrix} 0 \\ \vdots \\ 0 \end{pmatrix}.
+\]
+Prove that $\det(A) m = 0$ for all $m \in M$. (Hint: Multiply by the
+adjoint.) [3.7]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:3.7}
+Let $R$ be a commutative ring, $M$ a finitely generated $R$-module, and
+let $J$ be an ideal of $R$. Assume $JM = M$. Prove that there exists an
+element $b \in J$ such that $(1+b)M = 0$. (Let $m_1, \dots, m_r$ be
+generators for $M$. Find an $r \times r$ matrix $B$ with entries in $J$
+such that
+\[
+\begin{pmatrix} m_1 \\ \vdots \\ m_r \end{pmatrix} = B \cdot
+\begin{pmatrix} m_1 \\ \vdots \\ m_r \end{pmatrix}.
+\]
+Then use Exercise~3.6.) [3.8, VIII.1.18]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:3.8}
+Let $R$ be a commutative ring, $M$ be a finitely generated $R$-module,
+and let $J$ be an ideal of $R$ contained in the Jacobson radical of $R$
+(Exercise~V.3.14). Prove that $M = 0 \iff JM = M$. (Use Exercise~3.7.
+This is \emph{Nakayama's lemma}, a result with important applications
+in commutative algebra and algebraic geometry. A particular case was
+given as Exercise~III.5.16.) [III.5.16, 3.9, 5.5]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:3.9}
+Let $R$ be a commutative local ring, that is, a ring with a single
+maximal ideal $\mathfrak{m}$, and let $M$, $N$ be finitely generated
+$R$-modules. Prove that if $M = \mathfrak{m}M + N$, then $M = N$.
+(Apply Nakayama's lemma, that is, Exercise~3.8, to $M/N$. Note that the
+Jacobson radical of $R$ is $\mathfrak{m}$.) [3.10]
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:3.10}
+Let $R$ be a commutative local ring, and let $M$ be a finitely
+generated $R$-module. Note that $M/\mathfrak{m}M$ is a
+finite-dimensional vector space over the field $R/\mathfrak{m}$; let
+$m_1, \dots, m_r \in M$ be elements whose cosets mod $\mathfrak{m}M$
+form a basis of $M/\mathfrak{m}M$. Prove that $m_1, \dots, m_r$
+generate $M$.
+
+(Show that $\langle m_1, \dots, m_r \rangle + \mathfrak{m}M = M$; then
+apply Nakayama's lemma in the form of Exercise~3.9.) [5.5, VIII.2.24]
+\end{exer}
+\begin{exer}{}{exer:linalg:3.11}
+Explain how to use Gaussian elimination to find bases for the row space
+and the column space of a matrix over a field.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:3.12}
+Let $R$ be an integral domain, and let $M \in \mathcal{M}_{m,n}(R)$,
+with $m < n$. Prove that the columns of $M$ are linearly dependent over
+$R$. [5.6]
+\end{exer}
+\begin{exer}{}{exer:linalg:3.13}
+Let $k$ be a field. Prove that a matrix $M \in \mathcal{M}_{m,n}(k)$
+has rank $\leq r$ if and only if there exist matrices
+$P \in \mathcal{M}_{m,r}(k)$, $Q \in \mathcal{M}_{r,n}(k)$ such that
+$M = PQ$. (Thus the rank of $M$ is the smallest such integer.)
+\end{exer}
+\begin{exer}{}{exer:linalg:3.14}
+Generalize Proposition~3.11 to the case of finitely generated free
+modules over any integral domain. (Embed the integral domain in its
+field of fractions.)
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:3.15}
+Prove Proposition~3.13 for the case $N = 1$. [$\S$3.4]
+\end{exer}
+\begin{exer}{\exerused}{exer:linalg:3.16}
+Prove \cref{linalg:3.14}. [$\S$3.4]
+\end{exer}
+\begin{exer}{}{exer:linalg:3.17}
+Extend the definition of Grothendieck group of vector spaces given in
+\S{}3.4 to the category of vector spaces of countable (possibly
+infinite) dimension, and prove that it is the trivial group.
+\end{exer}
+\begin{exer}{}{exer:linalg:3.18}
+Let $\categ{Ab}^{fg}$ be the category of finitely generated abelian
+groups. Define a Grothendieck group of this category in the style of
+the construction of $K(k\text{-}\textsf{Vect}^f)$, and prove that
+$K(\categ{Ab}^{fg}) \cong \mathbb{Z}$.
+\end{exer}
+\begin{exer}{$\lnot$}{exer:linalg:3.19}
+Let $\categ{Ab}^f$ be the category of finite abelian groups. Prove that
+assigning to every finite abelian group its order extends to a
+homomorphism from the Grothendieck group $K(\categ{Ab}^f)$ to the
+multiplicative group $(\mathbb{Q}^*, \cdot)$. [3.20]
+\end{exer}
+\begin{exer}{}{exer:linalg:3.20}
+Let $R\text{-}\textsf{Mod}^f$ be the category of modules of finite
+length (cf.\ Exercise~1.16) over a ring $R$. Let $G$ be an abelian
+group, and let $\delta$ be a function assigning an element of $G$ to
+every simple $R$-module. Prove that $\delta$ extends to a homomorphism
+from the Grothendieck group of $R\text{-}\textsf{Mod}^f$ to $G$.
+
+Explain why Exercise~3.19 is a particular case of this observation.
+
+(For another example, letting $\delta(M) = 1 \in \mathbb{Z}$ for every
+simple module $M$ shows that length itself extends to a homomorphism
+from the Grothendieck group of $R\text{-}\textsf{Mod}^f$ to
+$\mathbb{Z}$.)
+\end{exer}
 
 \section{Presentations and resolutions}
 \label{sec:linalg:presentations-and-resolutions}
