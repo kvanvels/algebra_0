@@ -9682,90 +9682,80 @@ Of course we can turn the crank at will and get derived couple after
 derived couple: let $A_1 = A$, $E_1 = E$, etc., and inductively
 define $A_{i+1} := A'_i$, $E_{i+1} := E'_i$, etc. For example,
 $\beta_{i+1}$ is obtained by `rewinding' the morphism $\alpha$ a
-total of $i$ times
-% 39That is, im \alpha  = ker \beta , im \beta  = ker \gamma , and im \gamma  =
-% ker \alpha .
-% and then applying the original morphism \beta : we can do this since Ai+1 is the
-% image
-% of \alpha i.
-% Thus, one exact triangle produces a whole sequence of triangles and in par-
-% ticular a sequence of objects E i , each endowed with a differential di , such
-% that
-% Ei+1 = ker di / im di.
-% Definition 9.2. A spectral sequence {(Ei , di )}i=1,2,... is a sequence of
-% objects Ei
-% and morphisms di : Ei \to  Ei in an abelian category, such that di \circ  di = 0
-% and
-% Ei+1 \sim 
-%  = ker di / im di.
-%  ?
-% Thus, exact couples are a way to produce spectral sequences. There is a sense
-% in which we can turn the crank `infinitely many times'; in fact, this can be
-% done
-% with any spectral sequence. To see this, let
-% Z 1 = E 1 , B1 = 0,
-% so that E1 = \sim 
-%  Z1 /B1; inductively, assume we have defined Zi \subseteq  Z1 , Bi \subseteq  Zi
-%  so
-% that E i \sim 
-%  = Zi /Bi , and let Z i+1 = ker di, B i+1 = im di; define Zi+1 , Bi+1 as the
-% corresponding subobjects of Zi . Then
-% Ei+1 \sim 
-%  =
-%  Z i+1 \sim  =
-%  Zi+1
-%  ,
-% B i+1
-%  Bi+1
-% realizing Ei+1 as a subquotient 40 of E1 , and
-% B1 \subseteq  \dots  \subseteq  Bi \subseteq  Bi+1 \subseteq  \dots  \subseteq
-% Zi+1 \subseteq  Zi \subseteq  \dots  \subseteq  Z1 .
-% Define
-% \setminus 
-%  ?
-% Z\infty 
-% B\infty  :=
-%  Bi ,
-%  Z\infty  :=
-%  Zi ,
-%  E\infty  :=
-%  .
-% B\infty 
-% i
-%  i
-% This `ultimate' subquotient E\infty  is the limit of the spectral sequence; it
-% is common
-% to say that the spectral sequence Er abuts to E\infty  . By definition, if dr =
-% dr+1 =
-% \dots  = 0, then Z\infty  = Zr and B\infty  = Br , so that E\infty  \sim 
-%  = Er ; in this case we say that
-% the sequence collapses at Er .
-% The reader will verify (Exercise 9.8) that if the spectral sequence arises from
-% an exact couple, as above, then
-% ?
-%  \setminus 
-% Z\infty  = \gamma  -1 ( im \alpha r ), B\infty  = \beta ( ker \alpha r ),
-% r
-%  r
-% so the limit E\infty  has a concrete realization in this case.
-% Typically, a spectral sequence is as interesting as its limit, especially if
-% some
-% fortunate circumstance causes its collapse very soon; it is not too uncommon to
-% have situations in which E \infty  = E2 . If all goes well, this translates into
-% a useful
-% relation between the given `input' E 1 and the interesting `output' E\infty  .
-% 40That is, as a quotient of a subobject.
-% 41 Here I am implicitly working in a category R-Mod of modules over a ring,
-% containing
-% the given abelian category A (invoking the Freyd-Mitchell theorem). The infinite
-% unions and
-% intersections used here make sense in R-Mod; the limits and the corresponding
-% E\infty  are therefore
-% defined as objects in R-Mod and in general not as objects of A. But if, e.g.,
-% the sequence collapses
-% at Er , then B\infty  = Br , Z\infty  = Zr , and E\infty  exists in A. In
-% practice, this difficulty will play no role
-% in the considerations that follow.
+total of $i$ times and then applying the original morphism $\beta$:
+we can do this since $A_{i+1}$ is the image of $\alpha^i$.
+
+Thus, one exact triangle produces a whole sequence of triangles and
+in particular a sequence of objects $E_i$, each endowed with a
+differential $d_i$, such that $E_{i+1} = \ker d_i / \operatorname{im}
+d_i$.
+
+\begin{defn}{}{defn:homol:9.2}
+  A \emph{spectral sequence} $\{(E_i, d_i)\}_{i=1,2,\dots}$ is a
+  sequence of objects $E_i$ and morphisms $d_i : E_i \to E_i$ in an
+  abelian category, such that $d_i \circ d_i = 0$ and $E_{i+1} \cong
+  \ker d_i / \operatorname{im} d_i$.
+\end{defn}
+
+Thus, exact couples are a way to produce spectral sequences. There
+is a sense in which we can turn the crank `infinitely many times';
+in fact, this can be done with any spectral sequence. To see this,
+let
+\[
+  Z_1 = E_1, \quad B_1 = 0,
+\]
+so that $E_1 \cong Z_1/B_1$; inductively, assume we have defined
+$Z_i \subseteq Z_1$, $B_i \subseteq Z_i$ so that $E_i \cong Z_i/B_i$,
+and let $\overline{Z}_{i+1} = \ker d_i$, $\overline{B}_{i+1} =
+\operatorname{im} d_i$; define $Z_{i+1}$, $B_{i+1}$ as the
+corresponding subobjects of $Z_i$. Then
+\[
+  E_{i+1} \cong \frac{\overline{Z}_{i+1}}{\overline{B}_{i+1}} \cong
+  \frac{Z_{i+1}}{B_{i+1}},
+\]
+realizing $E_{i+1}$ as a \emph{subquotient}\footnote{That is, as a
+quotient of a subobject.} of $E_1$, and
+\[
+  B_1 \subseteq \dots \subseteq B_i \subseteq B_{i+1} \subseteq
+  \dots \subseteq Z_{i+1} \subseteq Z_i \subseteq \dots \subseteq
+  Z_1.
+\]
+Define\footnote{Here I am implicitly working in a category
+$R\text{-}\mathsf{Mod}$ of modules over a ring, containing the given
+abelian category $\mathsf{A}$ (invoking the Freyd--Mitchell theorem,
+Theorem~\ref{homol:2.9}). The infinite unions and intersections used
+here make sense in $R\text{-}\mathsf{Mod}$; the limits and the
+corresponding $E_\infty$ are therefore defined as objects in
+$R\text{-}\mathsf{Mod}$ and in general not as objects of $\mathsf{A}$.
+But if, e.g., the sequence collapses at $E_r$, then $B_\infty = B_r$,
+$Z_\infty = Z_r$, and $E_\infty$ exists in $\mathsf{A}$. In practice,
+this difficulty will play no role in the considerations that
+follow.}
+\[
+  B_\infty := \bigcup_i B_i, \quad Z_\infty := \bigcap_i Z_i, \quad
+  E_\infty := \frac{Z_\infty}{B_\infty}.
+\]
+This `ultimate' subquotient $E_\infty$ is the \emph{limit} of the
+spectral sequence; it is common to say that the spectral sequence
+$E_r$ \emph{abuts} to $E_\infty$. By definition, if $d_r = d_{r+1} =
+\dots = 0$, then $Z_\infty = Z_r$ and $B_\infty = B_r$, so that
+$E_\infty \cong E_r$; in this case we say that the sequence
+\emph{collapses} at $E_r$.
+
+The reader will verify (Exercise~\ref{exer:homol:9.8}) that if the
+spectral sequence arises from an exact couple, as above, then
+\[
+  Z_\infty = \bigcap_r \gamma^{-1}(\operatorname{im} \alpha^r), \quad
+  B_\infty = \bigcup_r \beta(\ker \alpha^r),
+\]
+so the limit $E_\infty$ has a concrete realization in this case.
+
+Typically, a spectral sequence is as interesting as its limit,
+especially if some fortunate circumstance causes its collapse very
+soon; it is not too uncommon to have situations in which $E_\infty =
+E_2$. If all goes well, this translates into a useful relation
+between the given `input' $E_1$ and the interesting `output'
+$E_\infty$.
 % Where is my double complex? I promised that spectral sequences could be
 % used to `compute' the cohomology of the total complex of a double complex. We
 % will now see how a double complex gives rise to an exact couple and hence to a
