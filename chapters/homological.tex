@@ -6006,129 +6006,158 @@ natural transformations go `backwards'.
 
 \subsection{Taking cohomology}
 \label{subsec:homol:taking-cohomology}
-% The content of Proposition 7.3 is again in line with our
 
-% main strategy: in moving from A to B, the left derived functor F is the functor
-% that
-% preserves `as much cohomological information as possible' regarding
-% bounded-above
-% complexes, in the sense that it is the closest one can get to extending F : A
-% \to  B
-% to a functor D- (A) \to  D- (B).
-% Applying cohomology extracts this information; actually, when deriving on the
-% left, the indexing works better if we take homology rather than cohomology. The
-% i-th left-derived functor of F is the functor Li F := H -i \circ  LF . Note that
-% LiF (P \bullet  ) = H -i (PB (C(F )(P \bullet ))) \sim 
-%  = H -i (C(F )(P \bullet )),
-% since PB(C(F )(P \bullet  )) is quasi-isomorphic to C(F )(P \bullet  ). Thus, if
-% cohomology is all
-% \bullet we are interested in, it is not necessary to find a projective resolution of C(F )(P ).
-% (In particular, we can define Li F even if B does not have enough projectives.)
-% At this point we can come down to earth and define each Li F as a functor A \to 
-% B: we know that this is a somewhat limited scope (because Li F can properly be
-% -defined on the much subtler D (A)), but it will be the source of the only
-% applications
-% we will really consider at any level of depth, and historically this is how
-% derived
-% functors arose originally.
-% Definition 7.5. Let A, B be abelian categories, and assume that A has enough
-% projectives. Let F : A \to  B be an additive functor. The i-th left-derived
-% functor
-% Li F of F is the functor A \to  B given by
-% LiF = H -i \circ  LF \circ  PA \circ  \iota A .
-% For an object M in A, the complex in C(B) with Li F (M ) in degree -i and with
-% vanishing differentials is denoted by L\bullet F (M ).
-%  ?
-% Let's spell this out. Given an object M of A, Li F (M ) is obtained by finding
-% \bullet 
-%  \bullet 
-% any projective resolution PM
-%  of M , applying the functor C(F ) to PM
-%  to obtain
-% a complex in C(B), and taking the (-i)-th cohomology of this complex31 . Up to
-% isomorphism, the result does not depend on the choice of the projective
-% resolution:
-% this is clear from the path of concepts that led us here, and it is directly
-% implied by
-% \bullet  Proposition 6.4, showing that any two projective resolutions are homotopy
-% equivalent, in conjunction with
-% \bullet  Theorem 4.14, showing that the images of homotopy equivalent complexes via
-% an additive functor have isomorphic cohomology.
-% Of course we can similarly define the i-th right-derived functor Ri F of an
-% additive functor F : A \to  B and complexes R \bullet  F (M ), provided that A
-% has enough
-% injectives: concretely, Ri F (M ) is the cohomology of the image of an injective
-% resolution of M , i.e.,
-% Ri F = H i \circ  RF \circ  QA \circ  \iota A .
-% So far, I have always implicitly assumed that F was a covariant functor. Con-
-% travariant functors A \to  B should be viewed as covariant functors Aop \to  B
-% (Defini-
-% tion VIII.1.1); the roles of injectives and projectives should therefore be
-% swapped.
-% Thus, the right-derived functors of an additive contravariant functor A \to  B
-% will
-% be defined if A has enough projectives: Aop will then have enough injectives, as
-% needed.
-% The attentive reader already knows two families of examples of derived func-
-% tors, both defined from the category R-Mod of modules over a (commutative) ring
-% to itself. Recall that R-Mod has both enough projectives and injectives (as seen
-% in \S{}VIII.6.2 and \S{}VIII.6.3); thus every covariant/contravariant functor
-% R-Mod \to
-% R-Mod can be derived on the left and on the right.
-% Example 7.6. Every R-module N determines a functor
-%  \otimes R N : M ?\to  M \otimes R N
-% L
-% (see \S{}VIII.2.2). The left-derived functor of \otimes R N is denoted \otimes R
-% N and acts
-% D- (R-Mod) \to  D-(R-Mod). The i-th left-derived functor of \otimes R N , viewed
-% as a
-% functor R-Mod \to  R-Mod, is TorR
-%  i ( \otimes R N ): indeed, the construction of Tori R
-%  (M, N )
-% given in \S{}VIII.2.4 matches precisely the `concrete' interpretation of the
-% i-th left-
-% derived functor given above. The reader may note that in \S{}VIII.2.4 we used a
-% free resolution of M ; free modules are projective, so this was simply a
-% convenient
-% way to choose a projective resolution. The fact that we could use any projective
-% resolution of M to compute TorR
-%  i (M, N ) was mentioned at the end of \S{}VIII.6.2 and
-% was attributed there to the `magic of homological algebra'. This piece of magic
-% has
-% now been explained in gory detail.
-% However, I also mentioned that flat resolutions may be used in place of pro-
-% jective resolutions, and this piece of magic still needs to be explained. The
-% same
-% applies to the fact, mentioned in \S{}VIII.2.4, that Tori (M, N ) may in fact be
-% com-
-% puted by using a projective resolution of N rather than M . Both mysteries will
-% be
-% dispelled in \S{}8.
-%  ?
-% 31 Projective resolutions of an object are complexes with nonzero objects only
-% in degree \leq  0;
-% hence Li F = 0 for i < 0.
-% Example 7.7. Similarly, HomR admits a right-derived functor R HomR , and its
-% manifestations as the right-derived functors of HomR (M, ) are the Ext modules:
-% ExtiR (M, N ) is (isomorphic to) the i-th cohomology of HomR (M, N \bullet  ),
-% where N \bullet  is
-% an injective resolution of N . As mentioned in \S{}VIII.6.4, it is also the i-th
-% cohomol-
-% ogy of HomR (M \bullet , N ), where M \bullet  is a projective resolution of M .
-% This projective
-% resolution should really be viewed as an injective resolution in the opposite
-% category
-% R-Modop , since the functor HomR ( , N ) is contravariant.
-% At this point we understand why the results of these operations are independent
-% of the chosen injective/projective resolution. We are, however, not quite ready
-% to
-% verify that the two strategies lead to the same Ext functor; this last point
-% will also
-% be clarified in \S{}8.
-% Also note that we could define the Ext functors as functors to Ab on any
-% abelian category with enough injectives and/or projectives: any abelian category
-% has left-exact Hom functors32 to Ab.
-%  ?
+The content of Proposition~\ref{prop:homol:7.3} is again in line with
+our main strategy: in moving from $\mathsf{A}$ to $\mathsf{B}$, the
+left derived functor $\mathscr{F}$ is the functor that preserves `as
+much cohomological information as possible' regarding bounded-above
+complexes, in the sense that it is the closest one can get to
+extending $\mathscr{F} : \mathsf{A} \to \mathsf{B}$ to a functor
+$\mathsf{D}^-(\mathsf{A}) \to \mathsf{D}^-(\mathsf{B})$.
+
+Applying cohomology extracts this information; actually, when
+deriving on the left, the indexing works better if we take
+\emph{homology} rather than cohomology. The $i$-th left-derived
+functor of $\mathscr{F}$ is the functor $\mathsf{L}_i\mathscr{F} :=
+H^{-i} \circ \mathsf{L}\mathscr{F}$. Note that
+\[
+  \mathsf{L}_i\mathscr{F}(P^\bullet) = H^{-i}(\mathscr{P}_{\mathsf{B}}
+  (\mathsf{C}(\mathscr{F})(P^\bullet))) \cong
+  H^{-i}(\mathsf{C}(\mathscr{F})(P^\bullet)),
+\]
+since $\mathscr{P}_{\mathsf{B}}(\mathsf{C}(\mathscr{F})(P^\bullet))$
+is quasi-isomorphic to $\mathsf{C}(\mathscr{F})(P^\bullet)$. Thus, if
+cohomology is all we are interested in, it is not necessary to find a
+projective resolution of $\mathsf{C}(\mathscr{F})(P^\bullet)$. (In
+particular, we can define $\mathsf{L}_i\mathscr{F}$ even if
+$\mathsf{B}$ does not have enough projectives.)
+
+At this point we can come down to earth and define each
+$\mathsf{L}_i\mathscr{F}$ as a functor $\mathsf{A} \to \mathsf{B}$:
+we know that this is a somewhat limited scope (because
+$\mathsf{L}_i\mathscr{F}$ can properly be defined on the much subtler
+$\mathsf{D}^-(\mathsf{A})$), but it will be the source of the only
+applications we will really consider at any level of depth, and
+historically this is how derived functors arose originally.
+
+\begin{defn}{}{defn:homol:7.5}
+  Let $\mathsf{A}$, $\mathsf{B}$ be abelian categories, and assume
+  that $\mathsf{A}$ has enough projectives. Let $\mathscr{F} :
+  \mathsf{A} \to \mathsf{B}$ be an additive functor. The \emph{$i$-th
+  left-derived functor} $\mathsf{L}_i\mathscr{F}$ of $\mathscr{F}$ is
+  the functor $\mathsf{A} \to \mathsf{B}$ given by
+  \[
+    \mathsf{L}_i\mathscr{F} = H^{-i} \circ \mathsf{L}\mathscr{F} \circ
+    \mathscr{P}_{\mathsf{A}} \circ \iota_{\mathsf{A}}.
+  \]
+  For an object $M$ in $\mathsf{A}$, the complex in $\mathsf{C}(\mathsf{B})$
+  with $\mathsf{L}_i\mathscr{F}(M)$ in degree $-i$ and with vanishing
+  differentials is denoted by $\mathsf{L}_\bullet\mathscr{F}(M)$.
+\end{defn}
+
+Let's spell this out. Given an object $M$ of $\mathsf{A}$,
+$\mathsf{L}_i\mathscr{F}(M)$ is obtained by finding any projective
+resolution $P^\bullet_M$ of $M$, applying the functor
+$\mathsf{C}(\mathscr{F})$ to $P^\bullet_M$ to obtain a complex in
+$\mathsf{C}(\mathsf{B})$, and taking the $(-i)$-th cohomology of this
+complex\footnote{Projective resolutions of an object are complexes
+with nonzero objects only in degree $\le 0$; hence
+$\mathsf{L}_i\mathscr{F} = 0$ for $i < 0$.}. Up to isomorphism, the
+result does not depend on the choice of the projective resolution:
+this is clear from the path of concepts that led us here, and it is
+directly implied by
+\begin{itemize}
+\item Proposition~6.4, showing that any two projective resolutions
+  are homotopy equivalent, in conjunction with
+\item Theorem~4.14, showing that the images of homotopy equivalent
+  complexes via an additive functor have isomorphic cohomology.
+\end{itemize}
+
+Of course we can similarly define the $i$-th right-derived functor
+$\mathsf{R}^i\mathscr{F}$ of an additive functor $\mathscr{F} :
+\mathsf{A} \to \mathsf{B}$ and complexes $\mathsf{R}^\bullet
+\mathscr{F}(M)$, provided that $\mathsf{A}$ has enough injectives:
+concretely, $\mathsf{R}^i\mathscr{F}(M)$ is the cohomology of the
+image of an injective resolution of $M$, i.e.,
+\[
+  \mathsf{R}^i\mathscr{F} = H^i \circ \mathsf{R}\mathscr{F} \circ
+  \mathscr{Q}_{\mathsf{A}} \circ \iota_{\mathsf{A}}.
+\]
+
+So far, I have always implicitly assumed that $\mathscr{F}$ was a
+\emph{covariant} functor. \emph{Contravariant} functors $\mathsf{A}
+\to \mathsf{B}$ should be viewed as covariant functors
+$\mathsf{A}^{op} \to \mathsf{B}$ (Definition~VIII.1.1); the roles of
+injectives and projectives should therefore be swapped. Thus, the
+right-derived functors of an additive contravariant functor
+$\mathsf{A} \to \mathsf{B}$ will be defined if $\mathsf{A}$ has enough
+\emph{projectives}: $\mathsf{A}^{op}$ will then have enough
+injectives, as needed.
+
+The attentive reader already knows two families of examples of
+derived functors, both defined from the category $R\text{-Mod}$ of
+modules over a (commutative) ring to itself. Recall that $R\text{-Mod}$
+has both enough projectives and injectives (as seen in \S{}VIII.6.2
+and \S{}VIII.6.3); thus every covariant/contravariant functor
+$R\text{-Mod} \to R\text{-Mod}$ can be derived on the left and on the
+right.
+
+\begin{exam}{}{exam:homol:7.6}
+  Every $R$-module $N$ determines a functor
+  \[
+    \_ \otimes_R N : M \mapsto M \otimes_R N
+  \]
+  (see \S{}VIII.2.2). The left-derived functor of $\_ \otimes_R N$ is
+  denoted $\_ \otimes^{\mathsf{L}}_R N$ and acts
+  $\mathsf{D}^-(R\text{-Mod}) \to \mathsf{D}^-(R\text{-Mod})$. The
+  $i$-th left-derived functor of $\_ \otimes_R N$, viewed as a
+  functor $R\text{-Mod} \to R\text{-Mod}$, is $\operatorname{Tor}^R_i
+  (\_ \otimes_R N)$: indeed, the construction of $\operatorname{Tor}^R_i
+  (M, N)$ given in \S{}VIII.2.4 matches precisely the `concrete'
+  interpretation of the $i$-th left-derived functor given above. The
+  reader may note that in \S{}VIII.2.4 we used a free resolution of
+  $M$; free modules are projective, so this was simply a convenient
+  way to choose a projective resolution. The fact that we could use
+  \emph{any} projective resolution of $M$ to compute
+  $\operatorname{Tor}^R_i(M, N)$ was mentioned at the end of
+  \S{}VIII.6.2 and was attributed there to the `magic of homological
+  algebra'. This piece of magic has now been explained in gory
+  detail.
+
+  However, I also mentioned that \emph{flat} resolutions may be used
+  in place of projective resolutions, and this piece of magic still
+  needs to be explained. The same applies to the fact, mentioned in
+  \S{}VIII.2.4, that $\operatorname{Tor}_i(M, N)$ may in fact be
+  computed by using a projective resolution \emph{of $N$} rather than
+  $M$. Both mysteries will be dispelled in \S{}8.
+\end{exam}
+
+\begin{exam}{}{exam:homol:7.7}
+  Similarly, $\Hom_R$ admits a right-derived functor
+  $\mathsf{R}\Hom_R$, and its manifestations as the right-derived
+  functors of $\Hom_R(M, \_)$ are the Ext modules:
+  $\operatorname{Ext}^i_R(M, N)$ is (isomorphic to) the $i$-th
+  cohomology of $\Hom_R(M, N^\bullet)$, where $N^\bullet$ is an
+  injective resolution of $N$. As mentioned in \S{}VIII.6.4, it is
+  also the $i$-th cohomology of $\Hom_R(M^\bullet, N)$, where
+  $M^\bullet$ is a projective resolution of $M$. This projective
+  resolution should really be viewed as an injective resolution in
+  the opposite category $R\text{-Mod}^{op}$, since the functor
+  $\Hom_R(\_, N)$ is contravariant.
+
+  At this point we understand why the results of these operations
+  are independent of the chosen injective/projective resolution. We
+  are, however, not quite ready to verify that the two strategies
+  lead to the same Ext functor; this last point will also be
+  clarified in \S{}8.
+
+  Also note that we could define the Ext functors as functors to
+  $\categ{Ab}$ on any abelian category with enough injectives and/or
+  projectives: any abelian category has left-exact Hom
+  functors\footnote{In fact, the presence of injectives or
+  projectives may be bypassed if we adopt the `Yoneda' viewpoint on
+  Ext.} to $\categ{Ab}$.
+\end{exam}
 
 \subsection{Long exact sequence of derived functors}
 \label{subsec:homol:long-exact-sequence-of-derived-functors}
