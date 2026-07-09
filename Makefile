@@ -1,7 +1,7 @@
 LUALATEX = lualatex -file-line-error -interaction=nonstopmode
 MASTER   = master
 
-.PHONY: pdf quick check clean chktex warnings
+.PHONY: pdf quick check check_syntax clean chktex warnings
 
 pdf: $(MASTER).pdf
 
@@ -16,6 +16,11 @@ quick:
 
 check:
 	$(LUALATEX) -no-pdf $(MASTER)
+
+# Fast pass with no PDF output, for catching errors/undefined refs
+# without paying for font loading and page output.
+check_syntax:
+	$(LUALATEX) --draftmode $(MASTER)
 
 # Fail if the log contains any warning/error other than Overfull/Underfull box warnings.
 warnings: pdf
