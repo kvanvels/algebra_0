@@ -313,8 +313,9 @@ is often the main factor determining notation.
 By definition, if $g^n = e$ for some positive integer $n$, then
 $|g| \leq n$.  One can be more precise:
 
-\begin{lem}{If $g^n = e$ for some positive integer $n$, then $|g|$ is
-    a divisor of $n$.}{lem:groups:order-divisor}
+\begin{lem}{}{lem:groups:order-divisor}
+  If $g^n = e$ for some positive integer $n$, then $|g|$ is
+    a divisor of $n$.
 \end{lem}
 \begin{proof}
   As observed, $n \geq |g|$ by definition of order, that is,
@@ -355,6 +356,13 @@ we encourage the reader to keep firmly in mind:
     g^N = e \iff N \text{ is a multiple of } |g|.
   \]
 \end{coro}
+\begin{proof}
+  First, suppose that $N$ is a multiple of $|g|$, say $N = \ell |g|$ for some
+  integer $\ell$.  Then we have
+  \[
+    g^N = g^{\ell\ |g|} = (g^{|g|})^{\ell} = e^\ell = e.
+  \]  The other direction is just a restatement of the previous lemma.
+\end{proof}
 \begin{defn}{Order of a group}{defn:groups:order-group}
   If $G$ is finite as a set, its \textbf{order} $|G|$ is the number of
   its elements; we write $|G| = \infty$ if $G$ is infinite.
@@ -463,6 +471,18 @@ special case.
   Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove
   that $G$ is commutative.
 \end{exer}
+\begin{proof}
+  For $a,b \in G$, we have
+  \begin{align*}
+    a b 
+    & = e (a b)\\
+    & = ((b a) (b a)) (a b)\\
+    & = b a (b (a a) b)\\
+    & = b a (b e b)\\
+    & = b a (b b)\\
+    & = b a  \qedhere
+  \end{align*}
+\end{proof}
 \begin{exer}{}{exer:groups:multiplication-table}
   The `multiplication table' of a group is an array compiling the
   results of all multiplications $g \bullet h$:
@@ -481,6 +501,14 @@ special case.
   multiplication table of a group contains all elements of the group
   exactly once (like Sudoku diagrams!).
 \end{exer}
+\begin{proof}
+  We show that for every pair of elements $f,g$ in a group $G$, there
+  exists a unique element $\ell\in G$, such that $f \ell = g$.  Indeed
+  let $\ell = f^{-1} g$, then $f \ell = f (f^{-1} g) = (f f^{-1}) g =
+  g$.  So we have existence.  Now suppose that $\ell_1,\ell_2\in G$,
+  are such that $f \ell_1 = g$ and $f \ell_2 = g$, then from
+  \Cref{prop:groups:cancellation} we have the $\ell_1 = \ell_2$.
+\end{proof}
 \begin{exer}{$\lnot$}{exer:groups:small-group-tables}
   Prove that there is only one possible multiplication table for $G$
   if $G$ has exactly 1, 2, or 3 elements. Analyze the possible

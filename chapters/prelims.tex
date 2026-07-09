@@ -722,8 +722,17 @@ bijection? This is true, but in fact we can be much more precise.
 
 \begin{coro}{}{}
   A function $f : A \to B$ is a bijection if and only if it has a
-  (two-sided) inverse.
+  (two-sided) inverse.  \footnote{Do we still need that $A$ is not empty?}
 \end{coro}
+\begin{proof}
+  Let $g_{\mathrm{left}}, g_{\mathrm{right}}:B\to A$ be the left and
+  right inverse of $f$, respectively.  Then we have
+  \begin{align*}
+    g_{\mathrm{left}} &= g_{\mathrm{left}} \circ \id_A
+                        = g_{\mathrm{left}} \circ (f \circ g_{\mathrm{right}})\\
+       &= (g_{\mathrm{left}} \circ f) \circ g_{\mathrm{right}} = \id_A \circ g_{\mathrm{right}} = g_{\mathrm{right}}\qedhere
+  \end{align*}
+\end{proof}
 
 This is not completely innocent: if $f$ has both a left-inverse and a
 right-inverse, why should it have one inverse that works as both on
@@ -757,7 +766,7 @@ $f^{-1}$. This symbol is also used for functions that are not
 bijections, but in a slightly different context: if $f : A \to B$ is
 any function and $T \subseteq B$ is a subset of $B$, then $f^{-1} (T)$
 denotes the subset of $A$ of `all elements that map to $T$'; that is,
-$f^{-1}(T) = \{a \in A \mid f (a) \in T \}$.  If $T = {q}$ consists of
+$f^{-1}(T) = \{a \in A \mid f (a) \in T \}$.  If $T = \{q\}$ consists of
 a single element of $B$, $f^{-1}(T)$ (abbreviated $f^{-1}(q)$) is
 called the \emph{fiber} of $f$ over $q$. Thus a function $f : A \to B$
 is a bijection if it has nonempty fibers over all elements of $B$
@@ -800,8 +809,8 @@ holds: for all sets $Z$ and all functions $\alpha', \alpha'' Z \to A$
   which elements $a' = \alpha ' (p)$, $a'' = \alpha''(p)$ we should
   send the single element $p$ of $Z$. For this particular choice of
   $Z$, the property defining monomorphisms,
-  $f \circ \alpha' = f \circ \alpha'' \Rightarrow \alpha ' = \alpha'$
-  , becomes
+  $f \circ \alpha' = f \circ \alpha'' \Rightarrow \alpha ' = \alpha',$
+  becomes
   \[f \circ \alpha'(p) = f \circ \alpha'' (p) \Rightarrow \alpha' =
     \alpha'',\] that is,
   $f (a') = f (a'') \Rightarrow \alpha' = \alpha''$.
