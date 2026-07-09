@@ -1,7 +1,7 @@
 LUALATEX = lualatex -file-line-error -interaction=nonstopmode
 MASTER   = master
 
-.PHONY: pdf quick check check_syntax clean chktex warnings
+.PHONY: pdf quick check_syntax clean chktex warnings
 
 pdf: $(MASTER).pdf
 
@@ -13,9 +13,6 @@ $(MASTER).pdf: $(MASTER).tex $(wildcard *.tex) $(wildcard chapters/*.tex)
 
 quick:
 	$(LUALATEX) $(MASTER)
-
-check:
-	$(LUALATEX) -no-pdf $(MASTER)
 
 # Fast pass with no PDF output, for catching errors/undefined refs
 # without paying for font loading and page output.
