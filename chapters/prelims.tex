@@ -355,9 +355,9 @@ Here is how to get a partition of $S$ from a relation $\sim$ on $S$:
 for every element $a \in S$, the equivalence class of $a$ (w.r.t.\
 $\sim$) is the subset of $S$ defined by
 \[ [a]_\sim \df \{b \in S \mid b \sim a\};\] then the equivalence
-classes form a partition $P_\sim$ of $S$ (Exercise 1.2).
+classes form a partition $P_\sim$ of $S$ (\Cref{exer:1.2}).
 
-Conversely (Exercise 1.3) every partition $P$ is the partition
+Conversely (\Cref{exer:1.3}) every partition $P$ is the partition
 corresponding in this fashion to an equivalence relation. Therefore,
 the notions of `equivalence relation on $S$' and `partition of $S$'
 are really equivalent.
@@ -407,12 +407,12 @@ further clarifications, if necessary.
   set $S$, then the corresponding family $P_\sim$ defined in
   \cref{subsec:prelims:equivalence-relations} is indeed a partition of
   $S$: that is, its elements are nonempty, disjoint, and their union
-  is $S$. [\S{}1.5]
+  is $S$. [\S{}\ref{subsec:prelims:equivalence-relations}]
 \end{exer}
 \begin{exer}{}{exer:1.3}
   \exerused Given a partition $P$ on a set $S$, show how to define a
   relation $\sim$ on $S$ such that $P$ is the corresponding
-  partition. [\S{}1.5]
+  partition. [\S{}\ref{subsec:prelims:equivalence-relations}]
 \end{exer}
 \begin{exer}{}{exer:1.4}
   How many different equivalence relations may be defined on the set
@@ -431,7 +431,7 @@ further clarifications, if necessary.
   $\quot{\R}{\sim}$. Do the same for the relation $\approx$ on the
   plane $\R \times \R$ defined by declaring
   $(a_1, a_2) \approx (b_1 , b_2) \iff b_1 - a_1 \in \Z \text{ and }
-  b_2 - a_2 \in \Z$.  [\S{}II.8.1, II.8.10]
+  b_2 - a_2 \in \Z$.  [\S{}\ref{subsec:groups:canonical-decomposition}, TODO:II.8.10]
 \end{exer}
 
 \section{Functions between sets}
@@ -717,10 +717,10 @@ bijection? This is true, but in fact we can be much more precise.
   $g : B \to A$ is a left-inverse of $f$ . Indeed, if $a \in A$, then
   $b = f (a)$ is of the first type, so it is sent back to a by $g$;
   that is, $g \circ f(a) = a = \id_A(a)$ for all $a \in A$, as needed.
-  The proof of (2) is left as an exercise (Exercise 2.2).
+  The proof of (2) is left as an exercise (\Cref{exer:2.2}).
 \end{proof}
 
-\begin{coro}{}{}
+\begin{coro}{}{coro:prelims:bijection-iff-invertible}
   A function $f : A \to B$ is a bijection if and only if it has a
   (two-sided) inverse.  \footnote{Do we still need that $A$ is not empty?}
 \end{coro}
@@ -742,7 +742,7 @@ come back to this issue soon (in \S{}4).
 If a function is injective but not surjective, then it will not have a
 right-inverse, and if the source has at least two elements, it will
 necessarily have more than one left-inverse (this should be clear from
-the argument given in the proof of Proposition 2.1). Similarly, a
+the argument given in the proof of \Cref{prop:inv-inj-sur}). Similarly, a
 surjective function will in general have many right-inverses; they are
 often called sections.
 
@@ -783,11 +783,11 @@ but which is in fact even more basic.
 A function $f : A \to B$ is a monomorphism (or monic) if the following
 holds: for all sets $Z$ and all functions $\alpha', \alpha'' Z \to A$
 \[f \circ \alpha' = f \circ \alpha'' \Rightarrow \alpha' = \alpha''.\]
-\begin{prop}{}{prop:old-2.3}
+\begin{prop}{}{prop:prelims:injective-iff-monomorphism}
   A function is injective if and only if it is a monomorphism.
 \end{prop}
 \begin{proof}
-  ( $\Rightarrow$ ) By Proposition 2.1 \Cref{prop:inv-inj-sur}, if a function
+  ( $\Rightarrow$ ) By \Cref{prop:inv-inj-sur}, if a function
   $f : A \to B$ is injective, then it has a left-inverse
   $g : B \to A$. Now assume that $\alpha' ,\alpha''$ are arbitrary
   functions from another set $Z$ to $A$ and that
@@ -828,7 +828,7 @@ equivalent to `surjective'.  This is the case: such a notion is called
 epimorphism. Finding it, and proving the equivalence with the ordinary
 definition of `surjective', is left to the reader\footnote{This is a
   particularly important exercise, and I recommend that the reader
-  write out all the gory details carefully.} (Exercise 2.5).
+  write out all the gory details carefully.} (\Cref{exer:2.5}).
 
 
 \subsection{Basic examples}
@@ -836,7 +836,7 @@ definition of `surjective', is left to the reader\footnote{This is a
 The basic operations on sets provided us with several important
 examples of injective and surjective functions.
 
-\begin{exam}{}{}
+\begin{exam}{}{exam:prelims:projections-surjective}
   Let $A$, $B$ be sets. Then there are natural \emph{projections}
   $\pi_A$, $\pi_B$:
   \[
@@ -864,7 +864,7 @@ examples of injective and surjective functions.
   $B'$ of $B$) in $A \amalg B$.
 \end{exam}
 
-\begin{exam}{}{}
+\begin{exam}{}{exam:prelims:quotient-map-surjective}
   If $\sim$ is an equivalence relation on a set $A$, there is a
   (clearly surjective) canonical projection
   \[ A \twoheadrightarrow A/{\sim} \] obtained by sending every
@@ -894,7 +894,7 @@ this is indeed an equivalence relation.)
     \end{tikzcd}
   \]
   where the first function is the canonical projection
-  $A \to A/{\sim}$ (as in Example~2.6), the third function is the
+  $A \to A/{\sim}$ (as in \Cref{exam:prelims:quotient-map-surjective}), the third function is the
   inclusion $\image f \subseteq B$, and the bijection $\tilde{f}$ in
   the middle is defined by
   \[ \tilde{f}([a]_\sim) := f(a) \] for all $a \in A$.
@@ -969,7 +969,7 @@ sensible not to make a fixed choice once and for all and simply accept
 the fact that all of them produce acceptable candidates for
 $A \amalg B$. From this egalitarian standpoint, the result of the
 operation $A \amalg B$ is not `well-defined' as a set in the sense
-specified above. However, it is easy to see (Exercise~2.9) that
+specified above. However, it is easy to see (\Cref{exer:2.9}) that
 $A \amalg B$ is well-defined up to isomorphism: that is, that any two
 choices for the copies $A'$, $B'$ lead to isomorphic candidates for
 $A \amalg B$. The same considerations apply to products and quotients.
@@ -987,7 +987,7 @@ categories.
 
 \begin{exer}{}{exer:2.1}
   \exerused How many different bijections are there between a set $S$
-  with $n$ elements and itself? [\S{}II.2.1]
+  with $n$ elements and itself? [\S{}\ref{subsec:groups:symmetric-groups}]
 \end{exer}
 
 \begin{exer}{}{exer:2.2}
@@ -995,7 +995,7 @@ categories.
   assume that given a family of disjoint nonempty subsets of a set,
   there is a way to choose one element in each member of the
   family.\footnote{This (reasonable) statement is the \emph{axiom of
-      choice}; cf.\ \S{}V.3.} [\S{}2.5, V.3.3]
+      choice}; cf.\ \S{}V.3.} [\S{}\ref{subsec:prelims:injections-surjections-bijections-second-viewpoint}, TODO:V.3.3]
 \end{exer}
 
 \begin{exer}{}{exer:2.3}
@@ -1005,18 +1005,18 @@ categories.
 
 \begin{exer}{}{exer:2.4}
   \exerused Prove that `isomorphism' is an equivalence relation (on
-  any set of sets). [\S{}4.1]
+  any set of sets). [\S{}\ref{subsec:prelims:isomorphisms}]
 \end{exer}
 
 \begin{exer}{}{exer:2.5}
   \exerused Formulate a notion of \emph{epimorphism}, in the style of
   the notion of monomorphism seen in \S{}2.6, and prove a result
-  analogous to \Cref{prop:old-2.3}, for epimorphisms and
-  surjections. [\S{}2.6, \S{}4.2]
+  analogous to \Cref{prop:prelims:injective-iff-monomorphism}, for epimorphisms and
+  surjections. [\S{}\ref{subsec:prelims:functions:monomorphisms-and-epimorphisms}, \S{}\ref{subsec:prelims:morphisms:monomorphisms-and-epimorphisms}]
 \end{exer}
 
 \begin{exer}{}{exer:2.6}
-  With notation as in Example~2.4, explain how any function
+  With notation as in \Cref{exam:prelims:projections-surjective}, explain how any function
   $f : A \to B$ determines a section of $\pi_A$.
 \end{exer}
 
@@ -1037,16 +1037,16 @@ categories.
   further $A' \cap B' = \emptyset$ and $A'' \cap B'' = \emptyset$,
   then $A' \cup B' \cong A'' \cup B''$. Conclude that the operation
   $A \amalg B$ (as described in \S{}1.4) is well-defined up to
-  isomorphism (cf.\ \S{}2.9).  [\S{}2.9, 5.7]
+  isomorphism (cf.\ \S{}2.9).  [\S{}\ref{subsec:prelims:clarification}, \ref{exer:5.7}]
 \end{exer}
 
 \begin{exer}{}{exer:2.10}
   \exerused Show that if $A$ and $B$ are finite sets, then
-  $|B^A| = |B|^{|A|}$.  [\S{}2.1, 2.11, \S{}II.4.1]
+  $|B^A| = |B|^{|A|}$.  [\S{}\ref{subsec:prelims:functions:definition}, \ref{exer:2.11}, \S{}\ref{subsec:groups:examples}]
 \end{exer}
 
 \begin{exer}{}{exer:2.11}
-  \exerused In view of Exercise~2.10, it is not unreasonable to use
+  \exerused In view of \Cref{exer:2.10}, it is not unreasonable to use
   $2^A$ to denote the set of functions from an arbitrary set $A$ to a
   set with 2 elements (say $\{0,1\}$). Prove that there is a bijection
   between $2^A$ and the power set of $A$ (cf.\ \S{}1.2). [\S{}1.2,
@@ -1076,7 +1076,7 @@ ways.  Categories may make you think of sets, in that they are
 `functions from categories to categories' (called
 \emph{functors}\footnote{However, we will not consider functors until
   later chapters: our first formal encounter with functors will be in
-  Chapter VIII.}). At the same time, every category may make you think
+  \Cref{chap:linrep}.}). At the same time, every category may make you think
 of the collection of all sets, since there will be analogs of
 `functions' among the things it contains.
 
@@ -1191,7 +1191,7 @@ a category in terms of its objects: for example, one talks about the
 one may consider are (psychologically at least) determined by the
 objects: if one is talking about sets, what can one possibly mean for
 `morphism' other than a function of sets? In other situations (cf.\
-Example~3.5 below or Exercise~3.9) it is a little less clear what the
+\Cref{exam:prelims:slice-category} below or \Cref{exer:3.9}) it is a little less clear what the
 morphisms should be, and looking for the `right' notion may be an
 interesting project.
 \begin{exam}{}{}
@@ -1268,7 +1268,7 @@ interesting project.
   $hg = (b,d)$, and hence $h(gf) = (a,d) = (hg)f$, proving
   associativity. The reader will have no difficulties checking that
   $1_a$ is an identity with respect to this composition, as needed
-  (Exercise~3.3).
+  (\Cref{exer:3.3}).
 
   The most trivial instance of this construction is the category
   obtained from a set $S$ taken with the equivalence relation `$=$';
@@ -1294,14 +1294,14 @@ interesting project.
   the case in, e.g., $\categ{Set}$. Also note that these categories
   are all small.
 \end{exam}
-\begin{exam}{}{}
+\begin{exam}{}{exam:prelims:power-set-category}
   Here is another\footnote{Actually, this is again an instance of the
-    categories considered in Example~3.3. Do you see why?
-    (Exercise~3.5.)} example of a small category. Let $S$ again be a
+    categories considered in \Cref{exam:prelims:category-leq}. Do you see why?
+    (\Cref{exer:3.5}.)} example of a small category. Let $S$ again be a
   set. Define a category $\hat{\categ{S}}$ by setting
   \begin{itemize}
   \item $\Obj(\hat{\categ{S}}) = \mathscr{P}(S)$, the power set of $S$
-    (cf.\ \S{}1.2 and Exercise~2.11);
+    (cf.\ \S{}1.2 and \Cref{exer:2.11});
   \item for $A$, $B$ objects of $\hat{\categ{S}}$ (that is,
     $A \subseteq S$ and $B \subseteq S$) let
     $\Hom_{\hat{\categ{S}}}(A, B)$ be the pair $(A, B)$ if
@@ -1321,7 +1321,7 @@ interesting project.
   hugely important in well-established fields such as algebraic
   geometry.
 \end{exam}
-\begin{exam}{}{}
+\begin{exam}{}{exam:prelims:slice-category}
   The next example is very abstract, but thinking about it will make
   you rather comfortable with everything we have seen so far; and it
   is a very common construction, variations of which will abound in
@@ -1410,9 +1410,9 @@ interesting project.
     categories} in the literature; they are particular cases of
   \emph{comma categories}.
 \end{exam}
-\begin{exam}{}{}
+\begin{exam}{}{exam:prelims:slice-category-integers}
   For the sake of concreteness, let's apply the construction given in
-  Example~3.5 to the category constructed in Example~3.3, say for
+  \Cref{exam:prelims:slice-category} to the category constructed in \Cref{exam:prelims:category-leq}, say for
   $S = \Z$ and $\sim$ the relation $\leq$. Call $\categ{C}$ this
   category, and choose an object $A$ of $\categ{C}$---that is, an
   integer, for example, $A = 3$. Then the objects of $\categ{C}_A$ are
@@ -1423,17 +1423,17 @@ interesting project.
   integers $\leq 3$, with `the same' morphisms as in $\categ{C}$.
 \end{exam}
 
-\begin{exam}{}{}
-  An entirely similar example to the one explored in Example~3.5 may
+\begin{exam}{}{exam:prelims:coslice-category}
+  An entirely similar example to the one explored in \Cref{exam:prelims:slice-category} may
   be obtained by considering morphisms in a category $\categ{C}$
   \emph{from} a fixed object $A$ to all objects in $\categ{C}$, again
   with morphisms defined by suitable commutative diagrams. This leads
   to \emph{coslice categories}. The reader should provide details of
-  this construction (Exercise~3.7).
+  this construction (\Cref{exer:3.7}).
 \end{exam}
 
-\begin{exam}{}{}
-  As a `concrete' instance of a category as in Example~3.7, let
+\begin{exam}{}{exam:prelims:pointed-sets}
+  As a `concrete' instance of a category as in \Cref{exam:prelims:coslice-category}, let
   $\categ{C} = \categ{Set}$ and $A = $ a fixed singleton $\{*\}$. Call
   the resulting category $\categ{Set}^*$.
 
@@ -1458,7 +1458,7 @@ interesting project.
   in the sense considered above.
 \end{exam}
 
-\begin{exam}{}{}
+\begin{exam}{}{exam:prelims:two-leg-category}
   It is useful to contemplate a few more `abstract' examples in the
   style of Examples~3.5 and~3.7. These will be essential ingredients
   in the promised revisitation of some of the operations mentioned in
@@ -1487,13 +1487,13 @@ interesting project.
   make both sides of the diagram commute simultaneously.
 
   Flipping most of the arrows gives an analogous variation of
-  Example~3.7, producing a category which we may\footnote{There does
+  \Cref{exam:prelims:coslice-category}, producing a category which we may\footnote{There does
     not seem to be an established notation for these commonplace
     categories.} denote $\categ{C}^{A,B}$; details are left to the
   reader.
 \end{exam}
 
-\begin{exam}{}{}
+\begin{exam}{}{exam:prelims:fibered-category}
   As a final variation on these examples, we conclude by considering
   the \emph{fibered} version of $\categ{C}_{A,B}$ (and
   $\categ{C}^{A,B}$). Take this as a test to see if you have really
@@ -1514,7 +1514,7 @@ interesting project.
   \item morphisms correspond to morphisms $\sigma : Z_1 \to Z_2$
     making the evident diagram commute.
   \end{itemize}
-  A solid understanding of Example~3.9 will make this example look
+  A solid understanding of \Cref{exam:prelims:two-leg-category} will make this example look
   just as tame; at this point the reader should have no difficulties
   formalizing it (that is, explaining how composition works, what
   identities are, etc.).
@@ -1539,7 +1539,7 @@ interesting project.
   of morphisms in $\categ{C}^{\mathrm{op}}$ and verify the properties
   listed in \S{}3.1). Intuitively, the `opposite' category
   $\categ{C}^{\mathrm{op}}$ is simply obtained by `reversing all the
-  arrows' in $\categ{C}$. [5.1, \S{}VIII.1.1, \S{}IX.1.2, IX.1.10]
+  arrows' in $\categ{C}$. [\ref{exer:5.1}, \S{}\ref{subsec:linrep:functors}, \S{}\ref{subsec:homol:additive-categories}, TODO:IX.1.10]
 \end{exer}
 
 \begin{exer}{}{exer:3.2}
@@ -1548,18 +1548,18 @@ interesting project.
 
 \begin{exer}{}{exer:3.3}
   \exerused Formulate precisely what it means to say that $1_a$ is an
-  identity with respect to composition in Example~3.3, and prove this
-  assertion. [\S{}3.2]
+  identity with respect to composition in \Cref{exam:prelims:category-leq}, and prove this
+  assertion. [\S{}\ref{subsec:prelims:examples}]
 \end{exer}
 
 \begin{exer}{}{exer:3.4}
-  Can we define a category in the style of Example~3.3 using the
+  Can we define a category in the style of \Cref{exam:prelims:category-leq} using the
   relation $<$ on the set $\Z$?
 \end{exer}
 
 \begin{exer}{}{exer:3.5}
-  \exerused Explain in what sense Example~3.4 is an instance of the
-  categories considered in Example~3.3. [\S{}3.2]
+  \exerused Explain in what sense \Cref{exam:prelims:power-set-category} is an instance of the
+  categories considered in \Cref{exam:prelims:category-leq}. [\S{}\ref{subsec:prelims:examples}]
 \end{exer}
 
 \begin{exer}{}{exer:3.6}
@@ -1569,12 +1569,12 @@ interesting project.
   real entries, for all $n, m \in \N$. (I will leave the reader the
   task of making sense of a matrix with 0 rows or columns.) Use
   product of matrices to define composition. Does this category `feel'
-  familiar? [\S{}VI.2.1, \S{}VIII.1.3]
+  familiar? [\S{}\ref{subsec:linalg:matrices}, \S{}\ref{subsec:linrep:equivalence-of-categories}]
 \end{exer}
 
 \begin{exer}{}{exer:3.7}
-  \exerused Define carefully objects and morphisms in Example~3.7, and
-  draw the diagram corresponding to composition. [\S{}3.2]
+  \exerused Define carefully objects and morphisms in \Cref{exam:prelims:coslice-category}, and
+  draw the diagram corresponding to composition. [\S{}\ref{subsec:prelims:examples}]
 \end{exer}
 
 \begin{exer}{}{exer:3.8}
@@ -1588,7 +1588,7 @@ interesting project.
   $\Hom_{\categ{C}'}(A, B) = \Hom_{\categ{C}}(A, B)$ for all $A$, $B$
   in $\Obj(\categ{C}')$. Construct a category of infinite sets and
   explain how it may be viewed as a full subcategory of
-  $\categ{Set}$. [4.4, \S{}VI.1.1, \S{}VIII.1.3]
+  $\categ{Set}$. [\ref{exer:4.4}, \S{}\ref{subsec:linalg:r-mod}, \S{}\ref{subsec:linrep:equivalence-of-categories}]
 \end{exer}
 
 \begin{exer}{}{exer:3.9}
@@ -1605,7 +1605,7 @@ interesting project.
   several natural notions of morphisms of multisets. Try to define
   morphisms in $\categ{MSet}$ so that the notion you obtain for
   ordinary multisets captures your intuitive understanding of these
-  objects.) [\S{}2.2, \S{}3.2, 4.5]
+  objects.) [\S{}\ref{subsec:prelims:examples-multisets-indexed-sets}, \S{}\ref{subsec:prelims:examples}, \ref{exer:4.5}]
 \end{exer}
 
 \begin{exer}{}{exer:3.10}
@@ -1622,8 +1622,8 @@ interesting project.
 \begin{exer}{}{exer:3.11}
   \exerused Draw the relevant diagrams and define composition and
   identities for the category $\categ{C}^{A,B}$ mentioned in
-  Example~3.9. Do the same for the category $\categ{C}^{\alpha,\beta}$
-  mentioned in Example~3.10.  [\S{}5.5, 5.12]
+  \Cref{exam:prelims:two-leg-category}. Do the same for the category $\categ{C}^{\alpha,\beta}$
+  mentioned in \Cref{exam:prelims:fibered-category}.  [\S{}\ref{subsec:prelims:coproducts}, \ref{exer:5.12}]
 \end{exer}
 
 \section{Morphisms}
@@ -1685,7 +1685,7 @@ verification:
 Note that the argument really proves that if $f$ is a morphism with a
 left-inverse $g_1$ and a right-inverse $g_2$, then necessarily $f$ is
 an isomorphism, $g_1 = g_2$, and this morphism is the (unique) inverse
-of $f$.  Look back at Corollary~2.2. Since the inverse of $f$ is
+of $f$.  Look back at \Cref{coro:prelims:bijection-iff-invertible}. Since the inverse of $f$ is
 uniquely determined by $f$, there is no ambiguity in denoting it by
 $f^{-1}$.
 
@@ -1799,7 +1799,7 @@ Similarly, epimorphisms are defined as follows:
 \end{defn}
 
 \begin{exam}{}{}
-  As proven in Proposition~2.3, in the category $\categ{Set}$ the
+  As proven in \Cref{prop:prelims:injective-iff-monomorphism}, in the category $\categ{Set}$ the
   monomorphisms are precisely the injective functions. The reader
   should have by now checked that, likewise, in $\categ{Set}$ the
   epimorphisms are precisely the surjective functions (cf.\
@@ -1832,7 +1832,7 @@ which $\categ{Set}$ is not an example!), but that is a story for a
 very distant future.
 
 Similarly, in $\categ{Set}$ a function is an epimorphism, that is,
-surjective, if and only if it has a right-inverse (Proposition~2.1);
+surjective, if and only if it has a right-inverse (\Cref{prop:inv-inj-sur});
 this may fail in general, even in respectable categories such as the
 category $\categ{Grp}$ of groups.
 
@@ -1857,7 +1857,7 @@ category $\categ{Grp}$ of groups.
   $f_n \circ f_{n-1} \circ \cdots \circ f_1$ equals
   $((\cdots((f_n \circ f_{n-1}) \circ f_{n-2}) \circ \cdots) \circ
   f_1)$. Carefully working out the case $n = 5$ is helpful.
-\end{hint} [\S{}4.1, \S{}II.1.3]
+\end{hint} [\S{}\ref{subsec:prelims:isomorphisms}, \S{}\ref{subsec:groups:basic-properties}]
 \end{exer}
 
 \begin{exer}{\exerused}{exer:4.2}
@@ -1865,7 +1865,7 @@ category $\categ{Grp}$ of groups.
   category from a set endowed with a relation, provided this latter is
   reflexive and transitive. For what types of relations is the
   corresponding category a groupoid (cf.\
-  \Cref{exam:prelims:groupoids})? [\S{}4.1]
+  \Cref{exam:prelims:groupoids})? [\S{}\ref{subsec:prelims:isomorphisms}]
 \end{exer}
 
 \begin{exer}{}{exer:4.3}
@@ -1915,7 +1915,7 @@ steady appearance of constructions satisfying suitable \emph{universal
 disjoint unions (as reviewed in \S{}1.3 and following) are
 characterized by certain universal properties having to do with the
 categories $\categ{C}_{A,B}$ and $\categ{C}^{A,B}$ considered in
-Example~3.9.  Many of the concepts introduced in this course will have
+\Cref{exam:prelims:two-leg-category}.  Many of the concepts introduced in this course will have
 an explicit description (such as the definition of product of sets
 given in \S{}1.4) and an accompanying description in terms of a
 universal property (such as the one we will see in \S{}5.4). The
@@ -1964,13 +1964,13 @@ A category need not have initial or final objects, as the following
 example shows.
 \begin{exam}{}{}
   The category obtained by endowing $\Z$ with the relation $\leq$ (see
-  Example~3.3) has no initial or final object. Indeed, an initial
+  \Cref{exam:prelims:category-leq}) has no initial or final object. Indeed, an initial
   object in this category would be an integer $i$ such that $i \leq a$
   for all integers $a$; there is no such integer. Similarly, a final
   object would be an integer $f$ larger than every integer, and there
   is no such thing.
 
-  By contrast, the category considered in Example~3.6 \emph{does} have
+  By contrast, the category considered in \Cref{exam:prelims:slice-category-integers} \emph{does} have
   a final object, namely the pair $(3,3)$; it still has no initial
   object.
 \end{exam}
@@ -2084,7 +2084,7 @@ with $Z$ any set, satisfying the property
   a' \sim a'' \Rightarrow \varphi(a') = \varphi(a'').
 \]
 These morphisms are objects of a category (very similar to the
-category defined in Example~3.7); for convenience, let's denote such
+category defined in \Cref{exam:prelims:coslice-category}); for convenience, let's denote such
 an object by $(\varphi, Z)$.  The only reasonable way to define
 morphisms $(\varphi_1, Z_1) \to (\varphi_2, Z_2)$ is as commutative
 diagrams
@@ -2094,11 +2094,11 @@ diagrams
     & A \arrow[ul, "\varphi_1"] \arrow[ur, "\varphi_2"'] &
   \end{tikzcd}
 \]
-This is the same definition considered in Example~3.7.
+This is the same definition considered in \Cref{exam:prelims:coslice-category}.
 
 Does this category have initial objects?
 \begin{prop}{}{prop:prelims:quotient-universal}
-  Denoting by $\pi$ the `canonical projection' defined in Example~2.6,
+  Denoting by $\pi$ the `canonical projection' defined in \Cref{exam:prelims:quotient-map-surjective},
   the pair $(\pi, A/{\sim})$ is an initial object of this category.
 \end{prop}
 
@@ -2164,7 +2164,7 @@ $f \colon A \to B$, as in \S{}2.8. Then the reader will realize easily
 that $\image f$ also satisfies the universal property given above for
 $A/{\sim}$; therefore (by \Cref{prop:prelims:initial-final-unique})
 $\image f$ and $A/{\sim}$ must be isomorphic. This is precisely the
-content of Theorem~2.7; thus, the universal property sheds some light
+content of \Cref{thm:canonical-decomposition}; thus, the universal property sheds some light
 on the `canonical decomposition' studied in \S{}2.8.
 
 \subsection{Products}
@@ -2183,7 +2183,7 @@ $A \times B$, with the two natural projections:
     A & & B
   \end{tikzcd}
 \]
-(see Example~2.4). Then for every set $Z$ and morphisms
+(see \Cref{exam:prelims:projections-surjective}). Then for every set $Z$ and morphisms
 \[
   \begin{tikzcd}[column sep=small]
     & Z \arrow[dl, "f_A"'] \arrow[dr, "f_B"] & \\
@@ -2220,7 +2220,7 @@ $f_A \times f_B$.
 In other words, products of sets (or, more precisely, products of sets
 together with the information of their natural projections to the
 factors) are final objects in the category $\categ{C}_{A,B}$
-considered in Example~3.9, for $\categ{C} = \categ{Set}$.  What is the
+considered in \Cref{exam:prelims:two-leg-category}, for $\categ{C} = \categ{Set}$.  What is the
 advantage of viewing products this way? The main advantage is that the
 universal property may be stated in \emph{any} category, while the
 definition of products given in \S{}1.4 only makes sense in
@@ -2228,12 +2228,12 @@ $\categ{Set}$ (and possibly in other categories where one has a notion
 of `elements'). We say that a category $\categ{C}$ \emph{has (finite)
   products}, or is a category `with (finite) products', if for all
 objects $A$, $B$ in $\categ{C}$ the category $\categ{C}_{A,B}$
-considered in Example~3.9 has final objects. Such a final object
+considered in \Cref{exam:prelims:two-leg-category} has final objects. Such a final object
 consists of the data of an object of $\categ{C}$, usually denoted
 $A \times B$, and of two morphisms $A \times B \to A$,
 $A \times B \to B$.  Note that a `product' from this perspective does
 not need to `look like a product'. Consider our recurring example of
-the category obtained from $\leq$ on $\Z$, as in Example~3.3. Does
+the category obtained from $\leq$ on $\Z$, as in \Cref{exam:prelims:category-leq}. Does
 this category have products? Objects of this category are simply
 integers $a, b \in \Z$; call $a \times b$ for a moment the
 `categorical' product of $a$ and $b$. The universal property written
@@ -2259,7 +2259,7 @@ arrows'.  Just as products are final objects in the categories
 $\categ{C}_{A,B}$ obtained by considering morphisms in $\categ{C}$
 with common source, whose targets are $A$ and $B$, coproducts will be
 initial objects in the categories\footnote{These categories were also
-  considered in Example~3.9; cf.\ \Cref{exer:3.11}.} $\categ{C}^{A,B}$
+  considered in \Cref{exam:prelims:two-leg-category}; cf.\ \Cref{exer:3.11}.} $\categ{C}^{A,B}$
 of morphisms with common target, whose sources are $A$ and $B$. Dear
 reader, look away and spell this universal property out before we do.
 Here it is. Let $A$, $B$ be objects of a category $\categ{C}$. A
@@ -2346,31 +2346,31 @@ $a$, $b$ is simply the maximum of $a$ and $b$.
 
 \begin{exer}{\exerused}{exer:5.2}
   Prove that $\emptyset$ is the unique initial object in
-  $\categ{Set}$. [\S{}5.1]
+  $\categ{Set}$. [\S{}\ref{subsec:prelims:initial-and-final-objects}]
 \end{exer}
 
 \begin{exer}{\exerused}{exer:5.3}
-  Prove that final objects are unique up to isomorphism. [\S{}5.1]
+  Prove that final objects are unique up to isomorphism. [\S{}\ref{subsec:prelims:initial-and-final-objects}]
 \end{exer}
 
 \begin{exer}{}{exer:5.4}
   What are initial and final objects in the category of `pointed sets'
-  (Example~3.8)? Are they unique?
+  (\Cref{exam:prelims:pointed-sets})? Are they unique?
 \end{exer}
 
 \begin{exer}{\exerused}{exer:5.5}
   What are the final objects in the category considered in \S{}5.3?
-  [\S{}5.3]
+  [\S{}\ref{subsec:prelims:quotients}]
 \end{exer}
 
 \begin{exer}{\exerused}{exer:5.6}
-  Consider the category corresponding to endowing (as in Example~3.3)
+  Consider the category corresponding to endowing (as in \Cref{exam:prelims:category-leq})
   the set $\Z^+$ of positive integers with the divisibility
   relation. Thus there is exactly one morphism $d \to m$ in this
   category if and only if $d$ divides $m$ without remainder; there is
   no morphism between $d$ and $m$ otherwise. Show that this category
   has products and coproducts. What are their `conventional' names?
-  [\S{}VII.5.1]
+  [\S{}\ref{subsec:fields:the-galois-correspondence-and-galois-extensions}]
 \end{exer}
 
 \begin{exer}{}{exer:5.7}
@@ -2430,7 +2430,7 @@ $a$, $b$ is simply the maximum of $a$ and $b$.
 \begin{exer}{\lnot}{exer:5.12}
   Define the notions of fibered products and fibered coproducts, as
   terminal objects of the categories $\categ{C}_{\alpha,\beta}$,
-  $\categ{C}^{\alpha,\beta}$ considered in Example~3.10 (cf.\ also
+  $\categ{C}^{\alpha,\beta}$ considered in \Cref{exam:prelims:fibered-category} (cf.\ also
   \Cref{exer:3.11}), by stating carefully the corresponding universal
   properties.  As it happens, $\categ{Set}$ has both fibered products
   and coproducts. Define these objects `concretely', in terms of naive
