@@ -1,82 +1,905 @@
 {
   "_readme": "Maps Aluffi's original numeric references (marked OLD... during the reference-cleanup pass) to the modern \\label keys they resolve to via \\Cref/\\ref/\\S{}\\ref. Lets later chapters' stale cross-chapter refs (e.g. 'cf. Exercise I.2.10' or '[II.4.16]') be looked up instead of re-derived from the source PDF. Chapter numerals: I=prelims, II=groups, III=rings, IV=groups2, V=irreducibility, VI=linear_algebra, VII=fields, VIII=linear_reprise, IX=homological.",
   "prelims": {
-    "Exercise 1.2": {"label": "exer:1.2"},
-    "Exercise 1.3": {"label": "exer:1.3"},
-    "Exercise 2.2": {"label": "exer:2.2"},
-    "Exercise 2.5": {"label": "exer:2.5"},
-    "Exercise 2.9": {"label": "exer:2.9"},
-    "Exercise 2.10": {"label": "exer:2.10"},
-    "Exercise 2.11": {"label": "exer:2.11"},
-    "Exercise 3.3": {"label": "exer:3.3"},
-    "Exercise 3.5": {"label": "exer:3.5"},
-    "Exercise 3.7": {"label": "exer:3.7"},
-    "Exercise 3.9": {"label": "exer:3.9"},
-    "Exercise 4.4": {"label": "exer:4.4"},
-    "Exercise 4.5": {"label": "exer:4.5"},
-    "Exercise 5.1": {"label": "exer:5.1"},
-    "Exercise 5.7": {"label": "exer:5.7"},
-    "Exercise 5.12": {"label": "exer:5.12"},
-    "Proposition 2.1": {"label": "prop:inv-inj-sur", "desc": "injective/surjective have one-sided inverses"},
-    "Proposition 2.3": {"label": "prop:prelims:injective-iff-monomorphism", "desc": "renamed from legacy prop:old-2.3"},
-    "Corollary 2.2": {"label": "coro:prelims:bijection-iff-invertible", "desc": "was unlabeled, label added"},
-    "Theorem 2.7": {"label": "thm:canonical-decomposition"},
-    "Chapter VIII": {"label": "chap:linrep"},
-    "Example 2.4": {"label": "exam:prelims:projections-surjective", "desc": "was unlabeled, label added"},
-    "Example 2.6": {"label": "exam:prelims:quotient-map-surjective", "desc": "was unlabeled, label added"},
-    "Example 3.3": {"label": "exam:prelims:category-leq", "desc": "relations as categories; already had this label"},
-    "Example 3.4": {"label": "exam:prelims:power-set-category", "desc": "was unlabeled, label added"},
-    "Example 3.5": {"label": "exam:prelims:slice-category", "desc": "was unlabeled, label added"},
-    "Example 3.6": {"label": "exam:prelims:slice-category-integers", "desc": "was unlabeled, label added"},
-    "Example 3.7": {"label": "exam:prelims:coslice-category", "desc": "was unlabeled, label added"},
-    "Example 3.8": {"label": "exam:prelims:pointed-sets", "desc": "was unlabeled, label added"},
-    "Example 3.9": {"label": "exam:prelims:two-leg-category", "desc": "was unlabeled, label added"},
-    "Example 3.10": {"label": "exam:prelims:fibered-category", "desc": "was unlabeled, label added"},
-    "Example 2.5": {"label": null, "desc": "unlabeled: natural injections into disjoint union; not yet referenced by any hardcoded ref"},
-    "Example 3.2": {"label": null, "desc": "unlabeled: Set is a category; not yet referenced by any hardcoded ref"},
-    "Example 4.9": {"label": null, "desc": "unlabeled: monos/epis in Set are injective/surjective; not yet referenced"},
-    "Example 4.10": {"label": null, "desc": "unlabeled: every morphism mono+epi in a \\S3.3-style category; not yet referenced"},
-    "§1.5": {"label": "subsec:prelims:equivalence-relations"},
-    "§2.1": {"label": "subsec:prelims:functions:definition"},
-    "§2.2": {"label": "subsec:prelims:examples-multisets-indexed-sets"},
-    "§2.5": {"label": "subsec:prelims:injections-surjections-bijections-second-viewpoint"},
-    "§2.6": {"label": "subsec:prelims:functions:monomorphisms-and-epimorphisms"},
-    "§2.9": {"label": "subsec:prelims:clarification"},
-    "§3.2": {"label": "subsec:prelims:examples"},
-    "§4.1": {"label": "subsec:prelims:isomorphisms"},
-    "§4.2": {"label": "subsec:prelims:morphisms:monomorphisms-and-epimorphisms"},
-    "§5.1": {"label": "subsec:prelims:initial-and-final-objects"},
-    "§5.3": {"label": "subsec:prelims:quotients"},
-    "§5.5": {"label": "subsec:prelims:coproducts"}
+    "Exercise 1.2": {
+      "label": "exer:1.2"
+    },
+    "Exercise 1.3": {
+      "label": "exer:1.3"
+    },
+    "Exercise 2.2": {
+      "label": "exer:2.2"
+    },
+    "Exercise 2.5": {
+      "label": "exer:2.5"
+    },
+    "Exercise 2.9": {
+      "label": "exer:2.9"
+    },
+    "Exercise 2.10": {
+      "label": "exer:2.10"
+    },
+    "Exercise 2.11": {
+      "label": "exer:2.11"
+    },
+    "Exercise 3.3": {
+      "label": "exer:3.3"
+    },
+    "Exercise 3.5": {
+      "label": "exer:3.5"
+    },
+    "Exercise 3.7": {
+      "label": "exer:3.7"
+    },
+    "Exercise 3.9": {
+      "label": "exer:3.9"
+    },
+    "Exercise 4.4": {
+      "label": "exer:4.4"
+    },
+    "Exercise 4.5": {
+      "label": "exer:4.5"
+    },
+    "Exercise 5.1": {
+      "label": "exer:5.1"
+    },
+    "Exercise 5.7": {
+      "label": "exer:5.7"
+    },
+    "Exercise 5.12": {
+      "label": "exer:5.12"
+    },
+    "Proposition 2.1": {
+      "label": "prop:inv-inj-sur",
+      "desc": "injective/surjective have one-sided inverses"
+    },
+    "Proposition 2.3": {
+      "label": "prop:prelims:injective-iff-monomorphism",
+      "desc": "renamed from legacy prop:old-2.3"
+    },
+    "Corollary 2.2": {
+      "label": "coro:prelims:bijection-iff-invertible",
+      "desc": "was unlabeled, label added"
+    },
+    "Theorem 2.7": {
+      "label": "thm:canonical-decomposition"
+    },
+    "Chapter VIII": {
+      "label": "chap:linrep"
+    },
+    "Example 2.4": {
+      "label": "exam:prelims:projections-surjective",
+      "desc": "was unlabeled, label added"
+    },
+    "Example 2.6": {
+      "label": "exam:prelims:quotient-map-surjective",
+      "desc": "was unlabeled, label added"
+    },
+    "Example 3.3": {
+      "label": "exam:prelims:category-leq",
+      "desc": "relations as categories; already had this label"
+    },
+    "Example 3.4": {
+      "label": "exam:prelims:power-set-category",
+      "desc": "was unlabeled, label added"
+    },
+    "Example 3.5": {
+      "label": "exam:prelims:slice-category",
+      "desc": "was unlabeled, label added"
+    },
+    "Example 3.6": {
+      "label": "exam:prelims:slice-category-integers",
+      "desc": "was unlabeled, label added"
+    },
+    "Example 3.7": {
+      "label": "exam:prelims:coslice-category",
+      "desc": "was unlabeled, label added"
+    },
+    "Example 3.8": {
+      "label": "exam:prelims:pointed-sets",
+      "desc": "was unlabeled, label added"
+    },
+    "Example 3.9": {
+      "label": "exam:prelims:two-leg-category",
+      "desc": "was unlabeled, label added"
+    },
+    "Example 3.10": {
+      "label": "exam:prelims:fibered-category",
+      "desc": "was unlabeled, label added"
+    },
+    "Example 2.5": {
+      "label": null,
+      "desc": "unlabeled: natural injections into disjoint union; not yet referenced by any hardcoded ref"
+    },
+    "Example 3.2": {
+      "label": null,
+      "desc": "unlabeled: Set is a category; not yet referenced by any hardcoded ref"
+    },
+    "Example 4.9": {
+      "label": null,
+      "desc": "unlabeled: monos/epis in Set are injective/surjective; not yet referenced"
+    },
+    "Example 4.10": {
+      "label": null,
+      "desc": "unlabeled: every morphism mono+epi in a \\S3.3-style category; not yet referenced"
+    },
+    "§1.5": {
+      "label": "subsec:prelims:equivalence-relations"
+    },
+    "§2.1": {
+      "label": "subsec:prelims:functions:definition"
+    },
+    "§2.2": {
+      "label": "subsec:prelims:examples-multisets-indexed-sets"
+    },
+    "§2.5": {
+      "label": "subsec:prelims:injections-surjections-bijections-second-viewpoint"
+    },
+    "§2.6": {
+      "label": "subsec:prelims:functions:monomorphisms-and-epimorphisms"
+    },
+    "§2.9": {
+      "label": "subsec:prelims:clarification"
+    },
+    "§3.2": {
+      "label": "subsec:prelims:examples"
+    },
+    "§4.1": {
+      "label": "subsec:prelims:isomorphisms"
+    },
+    "§4.2": {
+      "label": "subsec:prelims:morphisms:monomorphisms-and-epimorphisms"
+    },
+    "§5.1": {
+      "label": "subsec:prelims:initial-and-final-objects"
+    },
+    "§5.3": {
+      "label": "subsec:prelims:quotients"
+    },
+    "§5.5": {
+      "label": "subsec:prelims:coproducts"
+    }
   },
   "groups": {
-    "§1.3": {"label": "subsec:groups:basic-properties"},
-    "§2.1": {"label": "subsec:groups:symmetric-groups"},
-    "§4.1": {"label": "subsec:groups:examples"},
-    "§8.1": {"label": "subsec:groups:canonical-decomposition"},
-    "Exercise 8.10": {"label": null, "desc": "referenced from prelims.tex exer:1.6 bracket; groups.tex not yet audited for numeric exercise labels"}
+    "Exercise 1.1": {
+      "label": "exer:groups:group-as-automorphisms"
+    },
+    "Exercise 1.2": {
+      "label": "exer:groups:sets-of-numbers"
+    },
+    "Exercise 1.3": {
+      "label": "exer:groups:inverse-product"
+    },
+    "Exercise 1.4": {
+      "label": "exer:groups:order-two-commutative"
+    },
+    "Exercise 1.5": {
+      "label": "exer:groups:multiplication-table"
+    },
+    "Exercise 1.6": {
+      "label": "exer:groups:small-group-tables"
+    },
+    "Exercise 1.7": {
+      "label": "exer:groups:prove-corollary-order"
+    },
+    "Exercise 1.8": {
+      "label": "exer:groups:product-order-two"
+    },
+    "Exercise 1.9": {
+      "label": "exer:groups:even-order-element"
+    },
+    "Exercise 1.10": {
+      "label": "exer:groups:odd-order-square"
+    },
+    "Exercise 1.11": {
+      "label": "exer:groups:conjugate-order"
+    },
+    "Exercise 1.12": {
+      "label": "exer:groups:infinite-order-product"
+    },
+    "Exercise 1.13": {
+      "label": "exer:groups:order-product-not-lcm"
+    },
+    "Exercise 1.14": {
+      "label": "exer:groups:order-product-coprime"
+    },
+    "Exercise 1.15": {
+      "label": "exer:groups:maximal-order-divides"
+    },
+    "Exercise 2.1": {
+      "label": "exer:groups:permutation-matrix"
+    },
+    "Exercise 2.2": {
+      "label": "exer:groups:sn-order-d"
+    },
+    "Exercise 2.3": {
+      "label": "exer:groups:element-order-n"
+    },
+    "Exercise 2.4": {
+      "label": "exer:groups:d8-s4-homomorphism"
+    },
+    "Exercise 2.5": {
+      "label": "exer:groups:dihedral-generators"
+    },
+    "Exercise 2.6": {
+      "label": "exer:groups:order-two-product-n"
+    },
+    "Exercise 2.7": {
+      "label": "exer:groups:dihedral-center"
+    },
+    "Exercise 2.8": {
+      "label": "exer:groups:platonic-solids"
+    },
+    "Exercise 2.9": {
+      "label": "exer:groups:congruence-equivalence"
+    },
+    "Exercise 2.10": {
+      "label": "exer:groups:znz-n-elements"
+    },
+    "Exercise 2.11": {
+      "label": "exer:groups:odd-square-mod-8"
+    },
+    "Exercise 2.12": {
+      "label": "exer:groups:no-pythagorean-3"
+    },
+    "Exercise 2.13": {
+      "label": "exer:groups:bezout"
+    },
+    "Exercise 2.14": {
+      "label": "exer:groups:multiplication-well-defined"
+    },
+    "Exercise 2.15": {
+      "label": "exer:groups:euler-phi-odd"
+    },
+    "Exercise 2.16": {
+      "label": "exer:groups:last-digit"
+    },
+    "Exercise 2.17": {
+      "label": "exer:groups:coprime-class-well-defined"
+    },
+    "Exercise 2.18": {
+      "label": "exer:groups:znz-to-sn"
+    },
+    "Exercise 2.19": {
+      "label": "exer:groups:z5z-vs-z12z-units"
+    },
+    "Exercise 3.1": {
+      "label": "exer:groups:phi-x-phi"
+    },
+    "Exercise 3.2": {
+      "label": "exer:groups:composition-products"
+    },
+    "Exercise 3.3": {
+      "label": "exer:groups:ab-coproduct"
+    },
+    "Exercise 3.4": {
+      "label": "exer:groups:product-not-trivial"
+    },
+    "Exercise 3.5": {
+      "label": "exer:groups:q-not-product"
+    },
+    "Exercise 3.6": {
+      "label": "exer:groups:c2-c3-not-coproduct"
+    },
+    "Exercise 3.7": {
+      "label": "exer:groups:surjective-free-product"
+    },
+    "Exercise 3.8": {
+      "label": "exer:groups:c2-star-c3"
+    },
+    "Exercise 3.9": {
+      "label": "exer:groups:ab-fiber-coproduct"
+    },
+    "Exercise 4.1": {
+      "label": "exer:groups:pi-nm-well-defined"
+    },
+    "Exercise 4.2": {
+      "label": "exer:groups:pi42-not-isomorphism"
+    },
+    "Exercise 4.3": {
+      "label": "exer:groups:order-n-iff-znz"
+    },
+    "Exercise 4.4": {
+      "label": "exer:groups:z-q-r-not-isomorphic"
+    },
+    "Exercise 4.5": {
+      "label": "exer:groups:rstar-cstar-not-isomorphic"
+    },
+    "Exercise 4.6": {
+      "label": "exer:groups:q-qpos-isomorphic"
+    },
+    "Exercise 4.7": {
+      "label": "exer:groups:inverse-square-homomorphism-iff-abelian"
+    },
+    "Exercise 4.8": {
+      "label": "exer:groups:inner-automorphisms"
+    },
+    "Exercise 4.9": {
+      "label": "exer:groups:cmn-iso-cm-times-cn"
+    },
+    "Exercise 4.10": {
+      "label": "exer:groups:zpqz-star-not-cyclic"
+    },
+    "Exercise 4.11": {
+      "label": "exer:groups:zpz-star-cyclic"
+    },
+    "Exercise 4.12": {
+      "label": "exer:groups:order-9-mod-31"
+    },
+    "Exercise 4.13": {
+      "label": "exer:groups:aut-c2xc2-iso-s3"
+    },
+    "Exercise 4.14": {
+      "label": "exer:groups:aut-cn-euler-phi"
+    },
+    "Exercise 4.15": {
+      "label": "exer:groups:aut-z-aut-cp"
+    },
+    "Exercise 4.16": {
+      "label": "exer:groups:wilsons-theorem"
+    },
+    "Exercise 4.17": {
+      "label": "exer:groups:generator-zpz-star"
+    },
+    "Exercise 4.18": {
+      "label": "exer:groups:second-part-prop-4-8"
+    },
+    "Exercise 5.1": {
+      "label": "exer:groups:fa-final-objects"
+    },
+    "Exercise 5.2": {
+      "label": "exer:groups:e-t-not-initial"
+    },
+    "Exercise 5.3": {
+      "label": "exer:groups:j-injective"
+    },
+    "Exercise 5.4": {
+      "label": "exer:groups:reduction-order-independent"
+    },
+    "Exercise 5.5": {
+      "label": "exer:groups:hoplusa-group"
+    },
+    "Exercise 5.6": {
+      "label": "exer:groups:free-group-two-generators-coproduct"
+    },
+    "Exercise 5.7": {
+      "label": "exer:groups:free-groups-n-generators-coproduct"
+    },
+    "Exercise 5.8": {
+      "label": "exer:groups:free-constructions-preserve-coproducts"
+    },
+    "Exercise 5.9": {
+      "label": "exer:groups:zoplusn-square-isomorphic"
+    },
+    "Exercise 5.10": {
+      "label": "exer:groups:fab-quotient-by-2g"
+    },
+    "Exercise 6.1": {
+      "label": "exer:groups:matrix-subgroups-inclusions"
+    },
+    "Exercise 6.2": {
+      "label": "exer:groups:upper-triangular-subgroup"
+    },
+    "Exercise 6.3": {
+      "label": "exer:groups:su2-sphere"
+    },
+    "Exercise 6.4": {
+      "label": "exer:groups:exponential-image-cyclic"
+    },
+    "Exercise 6.5": {
+      "label": "exer:groups:nth-powers-subgroup-commutative"
+    },
+    "Exercise 6.6": {
+      "label": "exer:groups:union-of-subgroups"
+    },
+    "Exercise 6.7": {
+      "label": "exer:groups:inn-cyclic-iff-abelian"
+    },
+    "Exercise 6.8": {
+      "label": "exer:groups:finitely-generated-abelian-surjection"
+    },
+    "Exercise 6.9": {
+      "label": "exer:groups:q-finitely-generated-subgroups-cyclic"
+    },
+    "Exercise 6.10": {
+      "label": "exer:groups:sl2z-generated-by-s-t"
+    },
+    "Exercise 6.11": {
+      "label": "exer:groups:s3-not-coproduct-of-cyclic"
+    },
+    "Exercise 6.12": {
+      "label": "exer:groups:mn-generated-subgroup-of-z"
+    },
+    "Exercise 6.13": {
+      "label": "exer:groups:lattices-c2c2-c4-s3-c6"
+    },
+    "Exercise 6.14": {
+      "label": "exer:groups:euler-totient-sum-formula"
+    },
+    "Exercise 6.15": {
+      "label": "exer:groups:left-inverse-implies-monomorphism"
+    },
+    "Exercise 6.16": {
+      "label": "exer:groups:z3z-to-s3-no-left-inverse"
+    },
+    "Exercise 7.1": {
+      "label": "exer:groups:s3-normal-subgroups"
+    },
+    "Exercise 7.2": {
+      "label": "exer:groups:image-not-necessarily-normal"
+    },
+    "Exercise 7.3": {
+      "label": "exer:groups:normality-conditions-equivalent"
+    },
+    "Exercise 7.4": {
+      "label": "exer:groups:exercise-5-10-relation-compatible"
+    },
+    "Exercise 7.5": {
+      "label": "exer:groups:psl2z-modular-group"
+    },
+    "Exercise 7.6": {
+      "label": "exer:groups:gn-relation-equivalence-commutative"
+    },
+    "Exercise 7.7": {
+      "label": "exer:groups:order-n-elements-generate-normal"
+    },
+    "Exercise 7.8": {
+      "label": "exer:groups:prove-prop-7-6"
+    },
+    "Exercise 7.9": {
+      "label": "exer:groups:mirror-statements-daggerdagger"
+    },
+    "Exercise 7.10": {
+      "label": "exer:groups:normal-iff-inn-stabilizes"
+    },
+    "Exercise 7.11": {
+      "label": "exer:groups:commutator-subgroup-normal"
+    },
+    "Exercise 7.12": {
+      "label": "exer:groups:free-mod-commutator-is-fab"
+    },
+    "Exercise 7.13": {
+      "label": "exer:groups:free-groups-isomorphic-implies-sets-isomorphic"
+    },
+    "Exercise 7.14": {
+      "label": "exer:groups:inn-normal-in-aut"
+    },
+    "Exercise 8.1": {
+      "label": "exer:groups:same-subgroup-two-groups-isomorphic"
+    },
+    "Exercise 8.2": {
+      "label": "exer:groups:index-2-subgroup-normal"
+    },
+    "Exercise 8.3": {
+      "label": "exer:groups:finite-groups-finitely-presented"
+    },
+    "Exercise 8.4": {
+      "label": "exer:groups:dihedral-presentation"
+    },
+    "Exercise 8.5": {
+      "label": "exer:groups:order-2-generators-dihedral"
+    },
+    "Exercise 8.6": {
+      "label": "exer:groups:cayley-graph-tree-iff-free"
+    },
+    "Exercise 8.7": {
+      "label": "exer:groups:coproduct-via-presentations"
+    },
+    "Exercise 8.8": {
+      "label": "exer:groups:sln-normal-in-gln"
+    },
+    "Exercise 8.9": {
+      "label": "exer:groups:so3-su2-mod-plusminus-i"
+    },
+    "Exercise 8.10": {
+      "label": "exer:groups:r2-mod-z2-torus"
+    },
+    "Exercise 8.11": {
+      "label": "exer:groups:third-isomorphism-by-hand"
+    },
+    "Exercise 8.12": {
+      "label": "exer:groups:second-isomorphism-by-hand"
+    },
+    "Exercise 8.13": {
+      "label": "exer:groups:odd-order-every-element-square"
+    },
+    "Exercise 8.14": {
+      "label": "exer:groups:gk-surjective-coprime"
+    },
+    "Exercise 8.15": {
+      "label": "exer:groups:n-divides-phi-an-minus-1"
+    },
+    "Exercise 8.16": {
+      "label": "exer:groups:eulers-theorem"
+    },
+    "Exercise 8.17": {
+      "label": "exer:groups:cauchy-abelian"
+    },
+    "Exercise 8.18": {
+      "label": "exer:groups:abelian-order-2n-one-element-order-2"
+    },
+    "Exercise 8.19": {
+      "label": "exer:groups:proper-divisor-element-order"
+    },
+    "Exercise 8.20": {
+      "label": "exer:groups:abelian-subgroup-of-order-d"
+    },
+    "Exercise 8.21": {
+      "label": "exer:groups:hk-cardinality-formula"
+    },
+    "Exercise 8.22": {
+      "label": "exer:groups:cokernel-in-grp-universal-property"
+    },
+    "Exercise 8.23": {
+      "label": "exer:groups:cokernel-trivial-not-surjective"
+    },
+    "Exercise 8.24": {
+      "label": "exer:groups:epimorphisms-no-right-inverse"
+    },
+    "Exercise 8.25": {
+      "label": "exer:groups:g-mod-h-to-aut-h"
+    },
+    "Exercise 9.1": {
+      "label": "exer:groups:on-preserves-lengths-angles"
+    },
+    "Exercise 9.2": {
+      "label": "exer:groups:d8-action-on-plane"
+    },
+    "Exercise 9.3": {
+      "label": "exer:groups:opposite-group"
+    },
+    "Exercise 9.4": {
+      "label": "exer:groups:another-right-action"
+    },
+    "Exercise 9.5": {
+      "label": "exer:groups:left-mult-action-free"
+    },
+    "Exercise 9.6": {
+      "label": "exer:groups:orbit-action-transitive"
+    },
+    "Exercise 9.7": {
+      "label": "exer:groups:stabilizers-are-subgroups"
+    },
+    "Exercise 9.8": {
+      "label": "exer:groups:gset-is-category"
+    },
+    "Exercise 9.9": {
+      "label": "exer:groups:gset-products-coproducts"
+    },
+    "Exercise 9.10": {
+      "label": "exer:groups:left-right-cosets-bijection"
+    },
+    "Exercise 9.11": {
+      "label": "exer:groups:smallest-prime-index-normal"
+    },
+    "Exercise 9.12": {
+      "label": "exer:groups:index-n-normal-subgroup-bound"
+    },
+    "Exercise 9.13": {
+      "label": "exer:groups:g-mod-h-conjugate-isomorphic-gset"
+    },
+    "Exercise 9.14": {
+      "label": "exer:groups:psl2z-coproduct-c2-c3"
+    },
+    "Exercise 9.15": {
+      "label": "exer:groups:free-group-acts-freely-cayley-graph"
+    },
+    "Exercise 9.16": {
+      "label": "exer:groups:subgroups-of-free-groups-are-free"
+    },
+    "Exercise 9.17": {
+      "label": "exer:groups:autgset-g-is-g"
+    },
+    "Exercise 9.18": {
+      "label": "exer:groups:groupoid-from-action"
+    },
+    "Exercise 10.1": {
+      "label": "exer:groups:define-unnamed-maps-group-object"
+    },
+    "Exercise 10.2": {
+      "label": "exer:groups:groups-are-group-objects-in-set"
+    },
+    "Exercise 10.3": {
+      "label": "exer:groups:two-operations-coincide"
+    },
+    "Exercise 10.4": {
+      "label": "exer:groups:abelian-group-object-in-ab"
+    },
+    "Exercise 10.5": {
+      "label": "exer:groups:group-object-in-grp"
+    },
+    "Example 8.15": {
+      "label": "exam:groups:order-divides-order-of-group"
+    },
+    "Corollary 1.11": {
+      "label": "coro:groups:order-multiple"
+    },
+    "Lemma 1.10": {
+      "label": "lem:groups:order-divisor"
+    },
+    "Theorem 9.5": {
+      "label": "thm:groups:cayleys-theorem"
+    },
+    "Proposition 1.13": {
+      "label": "prop:groups:order-power"
+    },
+    "Corollary 2.5": {
+      "label": "coro:groups:generator-coprime"
+    },
+    "Example 4.6": {
+      "label": "exam:groups:cyclic-formal-intro"
+    },
+    "Lemma 2.2": {
+      "label": "lem:groups:congruence-addition"
+    },
+    "Definition 3.1": {
+      "label": "defn:groups:homomorphism"
+    },
+    "Proposition 3.2": {
+      "label": "prop:groups:homo-preserves-identity"
+    },
+    "Proposition 3.3": {
+      "label": "prop:groups:trivial-zero-object"
+    },
+    "Proposition 2.3": {
+      "label": "prop:groups:order-class"
+    },
+    "Definition 4.7": {
+      "label": "defn:groups:cyclic"
+    },
+    "Proposition 4.3": {
+      "label": "prop:groups:iso-iff-bijection"
+    },
+    "Proposition 4.1": {
+      "label": "prop:groups:hom-order-divides"
+    },
+    "Example 4.4": {
+      "label": "exam:groups:isomorphism-examples"
+    },
+    "Example 5.3": {
+      "label": "exam:groups:free-group-two-generators-cayley-graph"
+    },
+    "Proposition 6.9": {
+      "label": "prop:groups:subgroups-of-z"
+    },
+    "Proposition 2.6": {
+      "label": "prop:groups:units-group"
+    },
+    "Proposition 6.11": {
+      "label": "prop:groups:subgroups-of-znz"
+    },
+    "Example 1.3": {
+      "label": "exam:groups:trivial-group"
+    },
+    "Example 1.5": {
+      "label": "exam:groups:gln-matrices"
+    },
+    "Example 9.4": {
+      "label": "exam:groups:action-on-cosets"
+    },
+    "Definition 1.2": {
+      "label": "defn:groups:group"
+    },
+    "Chapter II": {
+      "label": "chap:groups"
+    },
+    "§1.3": {
+      "label": "subsec:groups:basic-properties"
+    },
+    "§2.1": {
+      "label": "subsec:groups:symmetric-groups"
+    },
+    "§4.1": {
+      "label": "subsec:groups:examples"
+    },
+    "§8.1": {
+      "label": "subsec:groups:canonical-decomposition"
+    },
+    "§6.4": {
+      "label": "subsec:groups:example-subgroups-of-cyclic-groups",
+      "desc": "Example: Subgroups of cyclic groups"
+    },
+    "_note": "item_table position numbers (non-Exercise) are UNRELIABLE for anything not in the verified_items list above -- content in this rewrite has drifted from Aluffi's original numbering. Only use item positions from this file for keys explicitly listed; do not extrapolate."
   },
   "linear_algebra": {
-    "§1.1": {"label": "subsec:linalg:r-mod"},
-    "§2.1": {"label": "subsec:linalg:matrices"}
+    "§1.1": {
+      "label": "subsec:linalg:r-mod"
+    },
+    "§2.1": {
+      "label": "subsec:linalg:matrices"
+    }
   },
   "linear_reprise": {
-    "§1.1": {"label": "subsec:linrep:functors"},
-    "§1.3": {"label": "subsec:linrep:equivalence-of-categories"}
+    "§1.1": {
+      "label": "subsec:linrep:functors"
+    },
+    "§1.3": {
+      "label": "subsec:linrep:equivalence-of-categories"
+    }
   },
   "homological": {
-    "§1.2": {"label": "subsec:homol:additive-categories"},
-    "Exercise 1.10": {"label": null, "desc": "referenced from prelims.tex exer:3.1 bracket; homological.tex not yet audited for numeric exercise labels"}
+    "§1.2": {
+      "label": "subsec:homol:additive-categories"
+    },
+    "Exercise 1.10": {
+      "label": null,
+      "desc": "referenced from prelims.tex exer:3.1 bracket; homological.tex not yet audited for numeric exercise labels"
+    }
   },
   "fields": {
-    "§5.1": {"label": "subsec:fields:the-galois-correspondence-and-galois-extensions"}
+    "§5.1": {
+      "label": "subsec:fields:the-galois-correspondence-and-galois-extensions"
+    }
   },
   "irreducibility": {
-    "Exercise 3.3": {"label": null, "desc": "referenced from prelims.tex exer:2.2 bracket; irreducibility.tex not yet audited for numeric exercise labels"}
+    "Exercise 3.3": {
+      "label": null,
+      "desc": "referenced from prelims.tex exer:2.2 bracket; irreducibility.tex not yet audited for numeric exercise labels"
+    }
   },
   "_pending_cross_chapter_todo": [
-    {"in_file": "chapters/prelims.tex", "line": 434, "marker": "TODO:II.8.10", "target_chapter": "groups", "target": "Exercise 8.10"},
-    {"in_file": "chapters/prelims.tex", "line": 998, "marker": "TODO:V.3.3", "target_chapter": "irreducibility", "target": "Exercise 3.3"},
-    {"in_file": "chapters/prelims.tex", "line": 1542, "marker": "TODO:IX.1.10", "target_chapter": "homological", "target": "Exercise 1.10"}
-  ]
+    {
+      "in_file": "chapters/prelims.tex",
+      "line": 998,
+      "marker": "OLD:V.3.3",
+      "target_chapter": "irreducibility",
+      "target": "Exercise 3.3"
+    },
+    {
+      "in_file": "chapters/prelims.tex",
+      "line": 1542,
+      "marker": "OLD:IX.1.10",
+      "target_chapter": "homological",
+      "target": "Exercise 1.10"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:VIII.1.19",
+      "target_chapter": "linear_reprise",
+      "target": "Exercise 1.19"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:V.6.8",
+      "target_chapter": "irreducibility",
+      "target": "Exercise 6.8"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:III.5.3",
+      "target_chapter": "rings",
+      "target": "Proposition 5.3"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:IV.6.10",
+      "target_chapter": "groups2",
+      "target": "Theorem 6.10"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:VII.5.15",
+      "target_chapter": "fields",
+      "target": "Exercise 5.15"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:IV.6.13",
+      "target_chapter": "groups2",
+      "target": "Exercise 6.13"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:VI.1.1",
+      "target_chapter": "linear_algebra",
+      "target": "Exercise 1.1"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:IV.6.6",
+      "target_chapter": "groups2",
+      "target": "Theorem 6.6 / Exercise 6.6"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:VI.2.19",
+      "target_chapter": "linear_algebra",
+      "target": "Exercise 2.19"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:VI.5.6",
+      "target_chapter": "linear_algebra",
+      "target": "Theorem 5.6"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:III.1.12",
+      "target_chapter": "rings",
+      "target": "Exercise 1.12"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:IV.4.17",
+      "target_chapter": "groups2",
+      "target": "Exercise 4.17"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:IV.2.1",
+      "target_chapter": "groups2",
+      "target": "Theorem 2.1"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:IV.2.5",
+      "target_chapter": "groups2",
+      "target": "Section 2.5 (subsection)"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:V.2.1",
+      "target_chapter": "irreducibility",
+      "target": "Section 2.1 (subsection)"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:V.2.4",
+      "target_chapter": "irreducibility",
+      "target": "Exercise 2.4"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:III.1.4",
+      "target_chapter": "rings",
+      "target": "Exercise 1.4"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:VI.6.16",
+      "target_chapter": "linear_algebra",
+      "target": "Exercise 6.16"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:VII.5.2",
+      "target_chapter": "fields",
+      "target": "Section 5.2 (subsection)"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:IV.3.3",
+      "target_chapter": "groups2",
+      "target": "Section 3.3 (subsection)"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:VI.1.20",
+      "target_chapter": "linear_algebra",
+      "target": "Exercise 1.20"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:IV.1.16",
+      "target_chapter": "groups2",
+      "target": "Exercise 1.16"
+    },
+    {
+      "in_file": "chapters/groups.tex",
+      "marker": "OLD:VI.1.3",
+      "target_chapter": "linear_algebra",
+      "target": "Exercise 1.3"
+    }
+  ],
+  "_chapter_labels": {
+    "I": "chap:prelims",
+    "II": "chap:groups",
+    "III": "chap:rings",
+    "IV": "chap:groups2",
+    "V": "chap:irred",
+    "VI": "chap:linalg",
+    "VII": "chap:fields",
+    "VIII": "chap:linrep",
+    "IX": "chap:homol"
+  }
 }
