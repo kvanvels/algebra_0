@@ -18,6 +18,7 @@ pdf: $(MASTER).pdf
 $(MASTER).pdf: $(MASTER).tex $(wildcard *.tex) $(wildcard chapters/*.tex)
 	-$(LUALATEX) $(MASTER)
 	-biber $(MASTER)
+	-makeindex $(MASTER).idx
 	-$(LUALATEX) $(MASTER)
 	-for i in 1 2 3 4; do \
 		grep -qE "Rerun to get|may have changed" $(MASTER).log || break; \
@@ -69,7 +70,9 @@ clean:
 	rm -f $(MASTER).aux $(MASTER).bbl $(MASTER).bcf $(MASTER).blg \
 	       $(MASTER).log $(MASTER).out $(MASTER).run.xml \
 	       $(MASTER).synctex.gz $(MASTER).toc $(MASTER).pdf \
+	       $(MASTER).idx $(MASTER).ind $(MASTER).ilg \
 	       $(FASTMASTER).aux $(FASTMASTER).bbl $(FASTMASTER).bcf $(FASTMASTER).blg \
 	       $(FASTMASTER).log $(FASTMASTER).out $(FASTMASTER).run.xml \
 	       $(FASTMASTER).synctex.gz $(FASTMASTER).toc $(FASTMASTER).pdf \
+	       $(FASTMASTER).idx $(FASTMASTER).ind $(FASTMASTER).ilg \
 	       chapters/*.aux *.aux
