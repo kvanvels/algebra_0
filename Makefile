@@ -7,11 +7,22 @@ FASTMASTER = master_fastcheck
 
 pdf: $(MASTER).pdf
 
+# Reruns lualatex until the log stops asking for another pass (or a
+# safety cap of 6 total lualatex runs is hit). A fixed 3-pass count
+# was not always enough for this document: tcolorbox's breakable boxes
+# can shift page-dependent label positions across passes, so 3 passes
+# sometimes still left genuine undefined-reference warnings even
+# though every label existed. Confirmed empirically (2026-07-09) that
+# this document needs up to 5 lualatex passes after biber to reach a
+# stable, fully-resolved fixed point.
 $(MASTER).pdf: $(MASTER).tex $(wildcard *.tex) $(wildcard chapters/*.tex)
 	$(LUALATEX) $(MASTER)
 	biber $(MASTER)
 	$(LUALATEX) $(MASTER)
-	$(LUALATEX) $(MASTER)
+	for i in 1 2 3 4; do \
+		grep -qE "Rerun to get|may have changed" $(MASTER).log || break; \
+		$(LUALATEX) $(MASTER); \
+	done
 
 quick:
 	$(LUALATEX) $(MASTER)
