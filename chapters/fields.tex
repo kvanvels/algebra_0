@@ -176,7 +176,7 @@ The polynomial $p(t)$ appearing in this statement is called the
 
 Of course the minimal polynomial of an element $\alpha$ of a (`large')
 field depends on the base (`small') field $k$. For example,
-$\sqrt{2} \in \mathbb{C}$ has minimal polynomial $t^2 - 2$ over $\Q$,
+$\sqrt{2} \in \C$ has minimal polynomial $t^2 - 2$ over $\Q$,
 but $t - \sqrt{2}$ over $\R$.
 
 \begin{proof}
@@ -236,7 +236,7 @@ the `versality' part of \Cref{prop:irred:5.7}.
   $\Q(\sqrt{2}) = \Q(-\sqrt{2})$, and this may seem to compensate for
   the lack of uniqueness lamented above. The morphism may not be
   unique, but the image of the morphism surely is? No. The reader will
-  check that there are three distinct subfields of $\mathbb{C}$
+  check that there are three distinct subfields of $\C$
   isomorphic to $\Q[t]/(t^3 - 2)$ (\Cref{fields:exer:1.5}).
 \end{exam}
 
@@ -1470,19 +1470,19 @@ translating geometry into algebra and conversely. It is worthwhile
 formalizing this statement and exploring other `geometric'
 consequences of the Nullstellensatz.
 
-For $K$ a field, $\mathbb{A}^n_K$ denotes the \emph{affine space} of
+For $K$ a field, $\A^n_K$ denotes the \emph{affine space} of
 dimension $n$ over $K$, that is, the set of $n$-tuples of elements of
 $K$:
 \[
-  \mathbb{A}^n_K = \{(c_1, \dots, c_n) \mid c_i \in K\}.
+  \A^n_K = \{(c_1, \dots, c_n) \mid c_i \in K\}.
 \]
-Elements of $\mathbb{A}^n_K$ are called \emph{points}.
+Elements of $\A^n_K$ are called \emph{points}.
 
 \emph{Objection}: Why don't we just use `$K^n$' for this object?
 Because the latter already stands for the standard $n$-dimensional
 vector space over $K$; so it carries with it a certain baggage: the
 tuple $(0, \dots, 0)$ is special, so are the vector subspaces of
-$K^n$, etc.  By contrast, no point of $\mathbb{A}^n_K$ is `special';
+$K^n$, etc.  By contrast, no point of $\A^n_K$ is `special';
 we can carry any point to any other point by a simple
 translation. Similarly, although it is useful to consider affine
 subspaces, these (unlike vector subspaces) are not required to go
@@ -1491,7 +1491,7 @@ in many respects.
 
 We have already established that, by the Nullstellensatz, if $K$ is
 algebraically closed, then there is a natural bijection between the
-points of $\mathbb{A}^n_K$ and the maximal ideals of the polynomial
+points of $\A^n_K$ and the maximal ideals of the polynomial
 ring $K[x_1, \dots, x_n]$. Concretely, the bijection works like this:
 the point $p = (c_1, \dots, c_n)$ corresponds to the set of
 polynomials
@@ -1508,10 +1508,10 @@ $(x_1 - c_1, \dots, x_n - c_n)$.
 This correspondence $p \mapsto \mathcal{I}(p)$ may be defined over
 every field; the content of \cref{coro:fields:2.10} is that every
 maximal ideal of $K[x_1, \dots, x_n]$ corresponds to a point of
-$\mathbb{A}^n_K$ in this way, if $K$ is algebraically closed.
+$\A^n_K$ in this way, if $K$ is algebraically closed.
 
 It is natural to upgrade the correspondence as follows (again, over
-arbitrary fields): for every subset $S \subseteq \mathbb{A}^n_K$,
+arbitrary fields): for every subset $S \subseteq \A^n_K$,
 consider the ideal
 \[
   \mathcal{I}(S) := \{f(x) \in K[x_1, \dots, x_n] \mid \forall p \in
@@ -1521,20 +1521,20 @@ that is, the set of polynomials `vanishing along $S$'; it is
 immediately checked that this is indeed an ideal of
 $K[x_1, \dots, x_n]$. We can also consider a correspondence in the
 reverse direction, from ideals of $K[x_1, \dots, x_n]$ to subsets of
-$\mathbb{A}^n_K$, defined by setting for every ideal $I$,
+$\A^n_K$, defined by setting for every ideal $I$,
 \[
-  \mathcal{V}(I) := \{p = (c_1, \dots, c_n) \in \mathbb{A}^n_K \mid
+  \mathcal{V}(I) := \{p = (c_1, \dots, c_n) \in \A^n_K \mid
   \forall f \in I,\, f(c_1, \dots, c_n) = 0\}.
 \]
 Thus, $\mathcal{V}(I)$ is the set of common solutions of all the
 polynomial equations $f = 0$ as $f \in I$: the set of points `cut out
-in $\mathbb{A}^n_K$' by the polynomials in $I$.
+in $\A^n_K$' by the polynomials in $I$.
 
 In its most elementary manifestation, the dictionary mentioned in the
 beginning of the section consists precisely of the pair of
 correspondences
 \[
-  \left\{\text{subsets of }\mathbb{A}^n_K\right\}
+  \left\{\text{subsets of }\A^n_K\right\}
   \begin{matrix}
     \xrightarrow{\;\mathcal{I}\;} \\[3pt]
     \xleftarrow{\;\mathcal{V}\;}
@@ -1572,26 +1572,26 @@ we really want to construct a dictionary between `geometry' and
 `algebra'.
 
 For example, there are (in general) lots of subsets of
-$\mathbb{A}^n_K$ which are not cut out by a set of polynomial
+$\A^n_K$ which are not cut out by a set of polynomial
 equations, and there are lots of ideals in $K[x_1, \dots, x_n]$ which
 are not obtained as $\mathcal{I}(S)$ for any subset
-$S \subseteq \mathbb{A}^n_K$.
+$S \subseteq \A^n_K$.
 
 I will leave to the reader the task of finding examples of the first
 phenomenon (\Cref{fields:exer:2.6}). The way around it is to restrict our
-attention to subsets of $\mathbb{A}^n_K$ which are of the form
+attention to subsets of $\A^n_K$ which are of the form
 $\mathcal{V}(I)$ for some ideal $I$.
 \begin{defn}{}{defn:fields:2.11}
   An \emph{(affine) algebraic set} is a subset
-  $S \subseteq \mathbb{A}^n_K$ such that there exists an ideal
+  $S \subseteq \A^n_K$ such that there exists an ideal
   $I \subseteq K[x_1, \dots, x_n]$ for which $S = \mathcal{V}(I)$.
 \end{defn}
 This definition may seem like a cheap patch: we do not really know
 what the image of $\mathcal{V}$ is, so we label it in some way and
 proceed.  This is not entirely true --- the family of algebraic
-subsets of a given $\mathbb{A}^n_K$ has a solid, recognizable
+subsets of a given $\A^n_K$ has a solid, recognizable
 structure: it is the family of closed subsets in a topology on
-$\mathbb{A}^n_K$ (\Cref{fields:exer:2.7}); this topology is called the
+$\A^n_K$ (\Cref{fields:exer:2.7}); this topology is called the
 \emph{Zariski topology}.
 
 Studying affine algebraic sets is the business of affine algebraic
@@ -1599,7 +1599,7 @@ geometry. The aim is to understand `geometric' properties of these
 sets in terms of `algebraic' properties of corresponding ideals or
 other algebraic entities associated with them.
 \begin{exam}{}{exam:fields:exam:2.12}
-  Here are pictures of two algebraic subsets of $\mathbb{A}^2_{\R}$:
+  Here are pictures of two algebraic subsets of $\A^2_{\R}$:
   the first is $\mathcal{V}((y - x^2))$; the second is
   $\mathcal{V}((y^2 - x^3))$. What feature of the ideal $(y^2 - x^3)$
   is responsible for the `cusp' at $(0, 0)$ in the second picture? The
@@ -1635,7 +1635,7 @@ characterized as the intersection of all prime ideals containing $I$
 \end{exam}
 \begin{lem}{}{lem:fields:2.15}
   Let $K$ be a field, and let $S$ be a subset of
-  $\mathbb{A}^n_K$. Then the ideal $\mathcal{I}(S)$ is a radical ideal
+  $\A^n_K$. Then the ideal $\mathcal{I}(S)$ is a radical ideal
   of $K[x_1, \dots, x_n]$.
 \end{lem}
 \begin{proof}
@@ -1649,10 +1649,10 @@ characterized as the intersection of all prime ideals containing $I$
   needed.
 \end{proof}
 In view of these considerations, for any field we can refine the
-correspondence between subsets of $\mathbb{A}^n_K$ and ideals of
+correspondence between subsets of $\A^n_K$ and ideals of
 $K[x_1, \dots, x_n]$ as follows:
 \[
-  \left\{\text{algebraic subsets of }\mathbb{A}^n_K\right\}
+  \left\{\text{algebraic subsets of }\A^n_K\right\}
   \begin{matrix}
     \xrightarrow{\;\mathcal{I}\;} \\[3pt]
     \xleftarrow{\;\mathcal{V}\;}
@@ -1725,7 +1725,7 @@ which does imply injectivity:
   \]
   We have to verify the reverse inclusion: assume that
   $f \in \mathcal{I}(\mathcal{V}(I))$, that is, $f(p) = 0$ for all
-  $p \in \mathbb{A}^n_K$ such that $\forall g \in I,\, g(p) = 0$; we
+  $p \in \A^n_K$ such that $\forall g \in I,\, g(p) = 0$; we
   have to show that there exists an $m$ for which $f^m \in I$.  The
   argument is not difficult after the fact, but it is fiendishly
   clever.\footnote{This is called the \name{Rabinowitsch} trick and
@@ -1743,11 +1743,11 @@ which does imply injectivity:
     J = (G_1, \dots, G_r, 1 - Fy).
   \]
   As $K[x_1, \dots, x_n, y]$ has $n+1$ variables, the ideal $J$
-  defines a subset $\mathcal{V}(J)$ in $\mathbb{A}^{n+1}_K$. I claim
+  defines a subset $\mathcal{V}(J)$ in $\A^{n+1}_K$. I claim
   $\mathcal{V}(J) = \emptyset$.
 
   Indeed, assume on the contrary that $\mathcal{V}(J) \neq \emptyset$,
-  and let $p = (a_1, \dots, a_n, b) \in \mathbb{A}^{n+1}_K$ be a point
+  and let $p = (a_1, \dots, a_n, b) \in \A^{n+1}_K$ be a point
   of $\mathcal{V}(J)$. Then for $i = 1, \dots, r$,
   $G_i(a_1, \dots, a_n, b) = 0$; but this means
   $g_i(a_1, \dots, a_n) = 0$ for $i = 1, \dots, r$; that is,
@@ -1795,13 +1795,13 @@ which does imply injectivity:
 \end{proof}
 The addition of the variable $y$ in the proof looks more reasonable
 (and less like a trick) if one views it geometrically. The variety
-$\mathcal{V}(1 - xy)$ in $\mathbb{A}^2_K$ is an ordinary
+$\mathcal{V}(1 - xy)$ in $\A^2_K$ is an ordinary
 hyperbola. The projection $(x, y) \mapsto x$ may be used to identify
 $\mathcal{V}(1 - xy)$ with the complement of the origin (that is,
 $\mathcal{V}(x)$) in the ``$x$-axis'' (viewed as
-$\mathbb{A}^1_K$). Similarly, $\mathcal{V}(1 - fy)$ is a way to
-realize the Zariski open set $\mathbb{A}^n_K \setminus \mathcal{V}(f)$
-as a Zariski closed subset in a space $\mathbb{A}^{n+1}_K$ of
+$\A^1_K$). Similarly, $\mathcal{V}(1 - fy)$ is a way to
+realize the Zariski open set $\A^n_K \setminus \mathcal{V}(f)$
+as a Zariski closed subset in a space $\A^{n+1}_K$ of
 dimension one higher. The proof of \cref{prop:fields:2.17} hinges on
 this fact, and this fact is also an important building block in the
 basic set-up of algebraic geometry, since it can be used to show that
@@ -1813,7 +1813,7 @@ the functions $\mathcal{V}$, $\mathcal{I}$:
   Let $K$ be an algebraically closed field. Then for any $n \geq 0$
   the functions
   \[
-    \left\{\text{algebraic subsets of }\mathbb{A}^n_K\right\}
+    \left\{\text{algebraic subsets of }\A^n_K\right\}
     \begin{matrix}
       \xrightarrow{\;\mathcal{I}\;} \\[3pt]
       \xleftarrow{\;\mathcal{V}\;}
@@ -1837,7 +1837,7 @@ level of $K$-algebras. We say that a ring is \emph{reduced} if it has
 no nonzero nilpotents; then $R/I$ is reduced if and only if $I$ is a
 radical ideal (\Cref{fields:exer:2.8}).
 \begin{defn}{}{defn:fields:2.19}
-  Let $S \subseteq \mathbb{A}^n_K$ be an algebraic set. The
+  Let $S \subseteq \A^n_K$ be an algebraic set. The
   \emph{coordinate ring} of $S$ is the quotient\footnote{The notation
     `$K[S]$' is fairly standard, although it may lead to confusion
     with the usual polynomial rings; hopefully the context takes care
@@ -1920,20 +1920,20 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
 \begin{exer}{}{fields:exer:2.5}
   Let $K$ be a field, let $A$ be a subset of $K[x_1, \dots, x_n]$, and
   let $I$ be the ideal generated by $A$. Prove that
-  $\mathcal{V}(A) = \mathcal{V}(I)$ in $\mathbb{A}^n_K$.
+  $\mathcal{V}(A) = \mathcal{V}(I)$ in $\A^n_K$.
 \end{exer}
 \begin{exer}{}{fields:exer:2.6}
   Let $K$ be your favorite infinite field. Find examples of subsets
-  $S \subseteq \mathbb{A}^n_K$ which cannot be realized as
+  $S \subseteq \A^n_K$ which cannot be realized as
   $\mathcal{V}(I)$ for any ideal $I \subseteq K[x_1, \dots,
   x_n]$. Prove that if $K$ is a finite field, then every subset
-  $S \subseteq \mathbb{A}^n_K$ equals $\mathcal{V}(I)$ for some ideal
+  $S \subseteq \A^n_K$ equals $\mathcal{V}(I)$ for some ideal
   $I \subseteq K[x_1, \dots, x_n]$.
 \end{exer}
 \begin{exer}{}{fields:exer:2.7}
   Let $K$ be a field and $n$ a nonnegative integer. Prove that the set
-  of algebraic subsets of $\mathbb{A}^n_K$ is the family of closed
-  sets of a topology on $\mathbb{A}^n_K$.
+  of algebraic subsets of $\A^n_K$ is the family of closed
+  sets of a topology on $\A^n_K$.
 \end{exer}
 \begin{exer}{}{fields:exer:2.8}
   With notation as in \cref{defn:fields:2.13}:
@@ -1963,7 +1963,7 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
 \end{exer}
 \begin{exer}{}{fields:exer:2.12}
   Let $K$ be an infinite field. A \emph{polynomial function} on an
-  affine algebraic set $S \subseteq \mathbb{A}^n_K$ is the restriction
+  affine algebraic set $S \subseteq \A^n_K$ is the restriction
   to $S$ of (the evaluation function of) a polynomial
   $f(x_1, \dots, x_n) \in K[x_1, \dots, x_n]$. Polynomial functions on
   $S$ manifestly form a ring and in fact a $K$-algebra. Prove that
@@ -1972,7 +1972,7 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
 \begin{exer}{}{fields:exer:2.13}
   Let $K$ be an algebraically closed field. Prove that every reduced
   commutative $K$-algebra of finite type is the coordinate ring of an
-  algebraic set $S$ in some affine space $\mathbb{A}^n_K$.
+  algebraic set $S$ in some affine space $\A^n_K$.
 \end{exer}
 \begin{exer}{}{fields:exer:2.14}
   Prove that, over an algebraically closed field $K$, the points of an
@@ -1984,32 +1984,32 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
 \end{exer}
 \begin{exer}{}{fields:exer:2.15}
   Let $K$ be an algebraically closed field. An algebraic subset $S$ of
-  $\mathbb{A}^n_K$ is \emph{irreducible} if it cannot be written as
+  $\A^n_K$ is \emph{irreducible} if it cannot be written as
   the union of two algebraic subsets properly contained in it. Prove
   that $S$ is irreducible if and only if its ideal $\mathcal{I}(S)$ is
   prime, if and only if its coordinate ring $K[S]$ is an integral
   domain.
 
   An irreducible algebraic set is `all in one piece', like
-  $\mathbb{A}^n_K$ itself, and unlike (for example) $\mathcal{V}(xy)$
-  in the affine plane $\mathbb{A}^2_K$ with coordinates $x$,
+  $\A^n_K$ itself, and unlike (for example) $\mathcal{V}(xy)$
+  in the affine plane $\A^2_K$ with coordinates $x$,
   $y$. Irreducible affine algebraic sets are called \emph{(affine
     algebraic) varieties}.
 \end{exer}
 \begin{exer}{}{fields:exer:2.16}
   Let $K$ be an algebraically closed field. The field of rational
   functions $K(x_1, \dots, x_n)$ is the field of fractions of
-  $K[\mathbb{A}^n_K] = K[x_1, \dots, x_n]$; every rational function
+  $K[\A^n_K] = K[x_1, \dots, x_n]$; every rational function
   $\alpha = F/G$ (with $G \neq 0$ and $F$, $G$ relatively prime) may
   be viewed as defining a function on the open set
-  $\mathbb{A}^n_K \setminus \mathcal{V}(G)$; we say that $\alpha$ is
+  $\A^n_K \setminus \mathcal{V}(G)$; we say that $\alpha$ is
   `defined' for all points in the complement of $\mathcal{V}(G)$.
 
   Let $G \in K[x_1, \dots, x_n]$ be irreducible. The set of rational
   functions that are defined in the complement of $\mathcal{V}(G)$ is
   a subring of $K(x_1, \dots, x_n)$. Prove that this subring may be
   identified with the localization (\Cref{exer:irred:4.7}) of
-  $K[\mathbb{A}^n_K]$ at the multiplicative set
+  $K[\A^n_K]$ at the multiplicative set
   $\{1, G, G^2, G^3, \dots\}$. (Use the Nullstellensatz.)
 
   The same considerations may be carried out for any irreducible
@@ -2019,14 +2019,14 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
 \begin{exer}{}{fields:exer:2.17}
   Let $K$ be an algebraically closed field, and let $\mathfrak{m}$ be
   a maximal ideal of $K[x_1, \dots, x_n]$, corresponding to a point
-  $p$ of $\mathbb{A}^n_K$. A \emph{germ of a function} at $p$ is
+  $p$ of $\A^n_K$. A \emph{germ of a function} at $p$ is
   determined by an open set containing $p$ and a function defined on
   that open set; in our context (dealing with rational functions and
   where the open set may be taken to be the complement of a function
   that does not vanish at $p$) this is the same information as a
   rational function defined at $p$, in the sense of
   \Cref{fields:exer:2.16}. Show how to identify the ring of germs with the
-  localization $K[\mathbb{A}^n_K]_{\mathfrak{m}}$ (defined in
+  localization $K[\A^n_K]_{\mathfrak{m}}$ (defined in
   \Cref{exer:irred:4.11}).
 
   As in \Cref{fields:exer:2.16}, the same discussion can be carried out for any
@@ -2038,11 +2038,11 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
 \end{exer}
 \begin{exer}{}{fields:exer:2.18}
   Let $K$ be an algebraically closed field. Consider the two `curves'
-  $C_1 : y = x^2$, $C_2 : y^2 = x^3$ in $\mathbb{A}^2_K$ (pictures of
+  $C_1 : y = x^2$, $C_2 : y^2 = x^3$ in $\A^2_K$ (pictures of
   the real points of these algebraic sets are shown in
   \cref{exam:fields:exam:2.12}).
   \begin{itemize}
-  \item Prove that $K[C_1] \cong K[t] = K[\mathbb{A}^1_K]$, while
+  \item Prove that $K[C_1] \cong K[t] = K[\A^1_K]$, while
     $K[C_2]$ may be identified with the subring $K[t^2, t^3]$ of
     $K[t]$ consisting of polynomials $a_0 + a_2 t^2 + \dots + a_d t^d$
     with zero $t$-coefficient. (Note that every polynomial in
@@ -2085,10 +2085,10 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
   algebra.
 \end{exer}
 \begin{exer}{}{fields:exer:2.20}
-  Recall from \Cref{exer:linalg:2.13} that $\mathbb{P}^n_K$ denotes the
+  Recall from \Cref{exer:linalg:2.13} that $\P^n_K$ denotes the
   `projective space' parametrizing lines in the vector space
   $K^{n+1}$.  Every such line consists of multiples of a nonzero
-  vector $(c_0, \dots, c_n) \in K^{n+1}$, so that $\mathbb{P}^n_K$ may
+  vector $(c_0, \dots, c_n) \in K^{n+1}$, so that $\P^n_K$ may
   be identified with the quotient (in the set-theoretic sense of
   \S{}\ref{subsec:prelims:equivalence-relations}) of $K^{n+1} \setminus \{(0, \dots, 0)\}$ by the
   equivalence relation $\sim$ defined by
@@ -2097,7 +2097,7 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
     \in K^*)\; (c_0', \dots, c_n') = (\lambda c_0, \dots, \lambda
     c_n).
   \]
-  The `point' in $\mathbb{P}^n_K$ determined by the vector
+  The `point' in $\P^n_K$ determined by the vector
   $(c_0, \dots, c_n)$ is denoted $(c_0 : \cdots : c_n)$; these are the
   `projective coordinates'\footnote{This is a convenient abuse of
     language. Keep in mind that the $c_i$'s are not determined by the
@@ -2105,15 +2105,15 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
     ratios are, however, determined by the point.} of the point. Note
   that there is no `point' $(0 : \cdots : 0)$.
 
-  Prove that the function $\mathbb{A}^n_K \to \mathbb{P}^n_K$ defined
+  Prove that the function $\A^n_K \to \P^n_K$ defined
   by
   \[
     (c_1, \dots, c_n) \mapsto (1 : c_1 : \cdots : c_n)
   \]
-  is a bijection. This function is used to realize $\mathbb{A}^n_K$ as
-  a subset of $\mathbb{P}^n_K$. By using similar functions, prove that
-  $\mathbb{P}^n_K$ can be covered with $n+1$ copies of
-  $\mathbb{A}^n_K$, and relate this fact to the cell decomposition
+  is a bijection. This function is used to realize $\A^n_K$ as
+  a subset of $\P^n_K$. By using similar functions, prove that
+  $\P^n_K$ can be covered with $n+1$ copies of
+  $\A^n_K$, and relate this fact to the cell decomposition
   obtained in \Cref{exer:linalg:2.13}. (Suggestion: Work out carefully the
   case $n = 2$.)
 \end{exer}
@@ -2122,12 +2122,12 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in \S{}\ref{subsec:rings:p
   Let $F(x_0, \dots, x_n) \in K[x_0, \dots, x_n]$ be a homogeneous
   polynomial. With notation as in \Cref{fields:exer:2.20}, prove that the
   condition `$F(c_0, \dots, c_n) = 0$' for a point
-  $(c_0 : \cdots : c_n) \in \mathbb{P}^n_K$ is well-defined: it does
+  $(c_0 : \cdots : c_n) \in \P^n_K$ is well-defined: it does
   not depend on the representative $(c_0, \dots, c_n)$ chosen for the
   point $(c_0 : \cdots : c_n)$. We can then define the following
-  subset of $\mathbb{P}^n_K$:
+  subset of $\P^n_K$:
   \[
-    \mathcal{V}(F) := \{(c_0 : \cdots : c_n) \in \mathbb{P}^n_K \mid
+    \mathcal{V}(F) := \{(c_0 : \cdots : c_n) \in \P^n_K \mid
     F(c_0,\dots,c_n)=0\}.
   \]
   Prove that this `projective algebraic set' can be covered with $n+1$
@@ -2258,7 +2258,7 @@ constructible point.
   and $P = (1,0)$, as above). I will denote by
   $\mathcal{C}_\R \subseteq \R$ the set of constructible real numbers.
 
-  Also, we can identify the real plane with $\mathbb{C}$, placing $O$
+  Also, we can identify the real plane with $\C$, placing $O$
   at $0$ and $P$ at $1$, and we say that $z = x + iy$ is constructible
   if the point $(x,y)$ is constructible by straightedge and compass. I
   will denote by $\mathcal{C}_\C \subseteq \C$ the set
@@ -2267,7 +2267,7 @@ constructible point.
 Summarizing the foregoing discussion, we have proved:
 \begin{lem}{}{lem:fields:3.2}
   A point $(x,y)$ is constructible by straightedge and compass if and
-  only if $x + iy \in \mathcal{C}_\mathbb{C}$, if and only if
+  only if $x + iy \in \mathcal{C}_\C$, if and only if
   $x, y \in \mathcal{C}_\R$.
 \end{lem}
 The next obvious question is what kind of structure these sets of
@@ -2275,9 +2275,9 @@ constructible numbers carry, and this prompts us to look at a few more
 basic straightedge-and-compass constructions.
 \begin{lem}{}{lem:fields:3.3}
   The subset $\mathcal{C}_\R \subseteq \R$ of constructible numbers is
-  a subfield of $\R$. Likewise, $\mathcal{C}_\mathbb{C}$ is a subfield
-  of $\mathbb{C}$, and in fact
-  $\mathcal{C}_\mathbb{C} = \mathcal{C}_\R(i)$.
+  a subfield of $\R$. Likewise, $\mathcal{C}_\C$ is a subfield
+  of $\C$, and in fact
+  $\mathcal{C}_\C = \mathcal{C}_\R(i)$.
 \end{lem}
 \begin{proof}
   The set $\mathcal{C}_\R \subseteq \R$ is nonempty, so in order to
@@ -2296,27 +2296,27 @@ basic straightedge-and-compass constructions.
   the triangles $AOB$ and $COP$ are similar, we see that
   $C = (0, a/b)$; it follows that $a/b$ is constructible.
 
-  The fact that $\mathcal{C}_\mathbb{C}$ is a subfield of $\mathbb{C}$
+  The fact that $\mathcal{C}_\C$ is a subfield of $\C$
   is an immediate consequence of the fact that $\mathcal{C}_\R$ is a
   field, and the proof of this is left to the enjoyment of the reader
   (\Cref{fields:exer:3.7}). The fact that
-  $\mathcal{C}_\mathbb{C} = \mathcal{C}_\R(i)$ is a restatement of the
-  fact that $x + iy \in \mathcal{C}_\mathbb{C}$ if and only if $x$ and
+  $\mathcal{C}_\C = \mathcal{C}_\R(i)$ is a restatement of the
+  fact that $x + iy \in \mathcal{C}_\C$ if and only if $x$ and
   $y$ are in $\mathcal{C}_\R$.
 \end{proof}
-We may view $\mathcal{C}_\R$ and $\mathcal{C}_\mathbb{C}$ as
+We may view $\mathcal{C}_\R$ and $\mathcal{C}_\C$ as
 extensions of $\Q$, drawing a bridge between constructibility by
 straightedge and compass and field theory: we will be able to
 understand constructibility of geometric figures if we can understand
 the field extensions
 $\Q \subseteq \mathcal{C}_\R \subseteq
-\mathcal{C}_\mathbb{C}$. Happily, we can understand these extensions!
+\mathcal{C}_\C$. Happily, we can understand these extensions!
 
 \subsection{Constructible numbers and quadratic extensions}
 \label{subsec:fields:constructible-numbers-and-quadratic-extensions}
 Our goal is to prove the following amazingly explicit description of
 $\mathcal{C}_\R$ (immediately implying one for
-$\mathcal{C}_\mathbb{C}$).
+$\mathcal{C}_\C$).
 \begin{thm}{}{thm:fields:3.4}
   Let $\gamma \in \R$. Then $\gamma \in \mathcal{C}_\R$ if and only if
   there exist real numbers $\delta_1, \dots, \delta_k$ such that for
@@ -2330,7 +2330,7 @@ $\mathcal{C}_\mathbb{C}$).
   In other words, $\gamma \in \R$ is constructible if and only if it
   can be placed in the top field of a sequence of (real) quadratic
   extensions over $\Q$. Since
-  $\mathcal{C}_\mathbb{C} = \mathcal{C}_\R(i)$, the same statement
+  $\mathcal{C}_\C = \mathcal{C}_\R(i)$, the same statement
   holds for constructible complex numbers, including $i$ in the list
   of $\delta_j$ (or simply allowing the $\delta_j$ to be complex
   numbers; cf.\ \Cref{fields:exer:3.9}).
@@ -2459,7 +2459,7 @@ application of \cref{thm:fields:3.4}:
 \cref{thm:fields:3.4} easily settles the three problems mentioned in
 \S{}\ref{subsec:fields:constructions-by-straightedge-and-compass}, via the following immediate consequence:
 \begin{coro}{}{coro:fields:3.6}
-  Let $\gamma \in \mathcal{C}_\mathbb{C}$ be a constructible
+  Let $\gamma \in \mathcal{C}_\C$ be a constructible
   number. Then $[\Q(\gamma) : \Q]$ is a power of $2$.
 \end{coro}
 \begin{proof}
@@ -2570,30 +2570,30 @@ further clarified soon, allowing us to bypass heavy-duty trigonometry.
   compass.
 \end{exer}
 \begin{exer}{}{fields:exer:3.7}
-  Identify the (real) plane with $\mathbb{C}$, and place $O$, $P$ at
-  $0, 1 \in \mathbb{C}$. Let $\mathcal{C}_\mathbb{C}$ be the set of
-  all constructible points, viewed as a subset of $\mathbb{C}$. Prove
-  that $\mathcal{C}_\mathbb{C}$ is a subfield of $\mathbb{C}$.
+  Identify the (real) plane with $\C$, and place $O$, $P$ at
+  $0, 1 \in \C$. Let $\mathcal{C}_\C$ be the set of
+  all constructible points, viewed as a subset of $\C$. Prove
+  that $\mathcal{C}_\C$ is a subfield of $\C$.
 \end{exer}
 \begin{exer}{}{fields:exer:3.8}
-  For $\delta \in \mathbb{C}$, $\delta \neq 0$, let $\theta_\delta$ be
+  For $\delta \in \C$, $\delta \neq 0$, let $\theta_\delta$ be
   the argument of $\delta$ (that is, the angle formed by the line
   through $0$ and $\delta$ with the real axis). Prove that
-  $\delta \in \mathcal{C}_\mathbb{C}$ if and only if $|\delta|$,
+  $\delta \in \mathcal{C}_\C$ if and only if $|\delta|$,
   $\cos\theta_\delta$, $\sin\theta_\delta$ are all constructible real
   numbers.
 \end{exer}
 \begin{exer}{}{fields:exer:3.9}
-  Let $\gamma_1, \dots, \gamma_k \in \mathcal{C}_\mathbb{C}$ be
+  Let $\gamma_1, \dots, \gamma_k \in \mathcal{C}_\C$ be
   constructible complex numbers, and let $K$ be the field
   $\Q(\gamma_1, \dots, \gamma_k) \subseteq
-  \mathcal{C}_\mathbb{C}$. Let $\delta$ be a complex number such that
+  \mathcal{C}_\C$. Let $\delta$ be a complex number such that
   $[K(\delta) : K] = 2$. Prove that
-  $\delta \in \mathcal{C}_\mathbb{C}$.
+  $\delta \in \mathcal{C}_\C$.
 
   Deduce that there are no irreducible polynomials of degree $2$ over
-  $\mathcal{C}_\mathbb{C}$ and that $\mathcal{C}_\mathbb{C}$ is the
-  smallest subfield of $\mathbb{C}$ with this property.
+  $\mathcal{C}_\C$ and that $\mathcal{C}_\C$ is the
+  smallest subfield of $\C$ with this property.
 \end{exer}
 \begin{exer}{}{fields:exer:3.10}
   Prove that if two lines in any constructible configuration form an
@@ -2725,7 +2725,7 @@ be.
 \end{proof}
 \begin{exam}{}{exam:fields:exam:4.3}
   By definition, $\Q(i)$ is the splitting field of $x^2 + 1$ over
-  $\Q$, and $\mathbb{C}$ is the splitting field for the same
+  $\Q$, and $\C$ is the splitting field for the same
   polynomial, over $\R$.
 \end{exam}
 \begin{exam}{}{exam:fields:exam:4.4}
@@ -2882,27 +2882,27 @@ the factors (as in $(x-1)^2(x-2)$), then these will be distinct. For
 example, surely irreducible polynomials necessarily split as products
 of distinct factors in an algebraic closure, right? Wrong.
 \begin{exam}{}{exam:fields:exam:4.11}
-  Let $p$ be a prime, and consider the field $\mathbb{F}_p(t)$ of
-  rational functions over $\mathbb{F}_p$. Then the polynomial
+  Let $p$ be a prime, and consider the field $\F_p(t)$ of
+  rational functions over $\F_p$. Then the polynomial
   \[
-    x^p - t \in \mathbb{F}_p(t)[x]
+    x^p - t \in \F_p(t)[x]
   \]
   is irreducible: by Eisenstein's criterion it is irreducible in
-  $\mathbb{F}_p[t][x]$ (since $(t)$ is prime in $\mathbb{F}_p[t]$),
-  hence in $\mathbb{F}_p(t)[x]$ by \Cref{prop:irred:4.16}. Let $u$ be a
-  root of this polynomial in an extension $L$ of $\mathbb{F}_p(t)$
+  $\F_p[t][x]$ (since $(t)$ is prime in $\F_p[t]$),
+  hence in $\F_p(t)[x]$ by \Cref{prop:irred:4.16}. Let $u$ be a
+  root of this polynomial in an extension $L$ of $\F_p(t)$
   (for example $L$ could be the algebraic closure of
-  $\mathbb{F}_p(t)$, or more modestly a splitting field for the
+  $\F_p(t)$, or more modestly a splitting field for the
   polynomial). Then (\Cref{fields:exer:4.8})
   \[
     x^p - t = (x - u)^p
   \]
   in $L[x]$; that is, $u$ has multiplicity $p$ as a root of $f(x)$.
 
-  In other words, the minimal polynomial over $\mathbb{F}_p(t)$ of
+  In other words, the minimal polynomial over $\F_p(t)$ of
   $u \in L$ vanishes $p$ times at $u$, and there is nothing to do
   about this: no smaller power of $(x-u)$ than $(x-u)^p = x^p - t$ has
-  coefficients in $\mathbb{F}_p(t)$ (a smaller power would give a
+  coefficients in $\F_p(t)$ (a smaller power would give a
   nontrivial factor of $x^p - t$, and $x^p - t$ is irreducible).
 \end{exam}
 I have always found this example difficult to visualize, because of
@@ -3060,9 +3060,9 @@ ring homomorphism from a field; but it is not necessarily surjective.
   of the statement follows from \cref{prop:fields:4.17}.
 \end{proof}
 The reader now sees why I have chosen the somewhat unusual field
-$\mathbb{F}_p(t)$ in \Cref{exam:fields:exam:4.11}: we need a field of positive
+$\F_p(t)$ in \Cref{exam:fields:exam:4.11}: we need a field of positive
 characteristic, but no example of irreducible inseparable polynomial
-can be found over $\mathbb{F}_p$, by \cref{coro:fields:4.18}; to
+can be found over $\F_p$, by \cref{coro:fields:4.18}; to
 concoct an example, we need to enlarge the field so that it is
 infinite and to throw in an element (that is, $t$) for which there is
 no $p$-th root, that is, which is not in the image of Frobenius.
@@ -3271,7 +3271,7 @@ for the minimal polynomial of $\beta$? It does, by virtue of
 \end{exer}
 \begin{exer}{}{fields:exer:4.11}
   Let $p$ be a prime integer. Prove that the Frobenius homomorphism on
-  $\mathbb{F}_p$ is the identity. (Hint: Fermat.) [\S{}\ref{subsec:fields:finite-fields}]
+  $\F_p$ is the identity. (Hint: Fermat.) [\S{}\ref{subsec:fields:finite-fields}]
 \end{exer}
 \begin{exer}{}{fields:exer:4.12}
   Let $k$ be a field, and assume that $k$ is not perfect. Prove that
@@ -3410,9 +3410,9 @@ fact simple (cf.\ \Cref{exam:fields:exam:1.19}).
 \label{subsec:fields:finite-fields}
 Let $F$ be a finite field, and let $p$ be its characteristic. We know
 (\S{}\ref{subsec:fields:basic-definitions}) that $F$ may be viewed as an extension
-$\mathbb{F}_p \subseteq F$ of $\mathbb{F}_p = \Z/p\Z$; let
-$d = [F : \mathbb{F}_p]$. Since $F$ has dimension $d$ as a vector
-space over $\mathbb{F}_p$, it is isomorphic to $\mathbb{F}_p^d$ as a
+$\F_p \subseteq F$ of $\F_p = \Z/p\Z$; let
+$d = [F : \F_p]$. Since $F$ has dimension $d$ as a vector
+space over $\F_p$, it is isomorphic to $\F_p^d$ as a
 vector space, and in particular $|F| = p^d$ is a power of $p$.
 
 The general question we pose is whether there exist fields of
@@ -3427,13 +3427,13 @@ hypothesis of commutativity in this subsection would not lead to a
 different classification.
 \begin{thm}{}{thm:fields:5.1}
   Let $q = p^d$ be a power of a prime integer $p$. Then the polynomial
-  $x^q - x$ is separable over $\mathbb{F}_p$, and the splitting field
-  of $x^q - x$ over $\mathbb{F}_p$ is a field with precisely $q$
+  $x^q - x$ is separable over $\F_p$, and the splitting field
+  of $x^q - x$ over $\F_p$ is a field with precisely $q$
   elements.  Conversely, let $F$ be a field with exactly $q$ elements;
-  then $F$ is a splitting field for $x^q - x$ over $\mathbb{F}_p$.
+  then $F$ is a splitting field for $x^q - x$ over $\F_p$.
 \end{thm}
 \begin{proof}
-  Let $F$ be the splitting field of $x^q - x$ over $\mathbb{F}_p$. Let
+  Let $F$ be the splitting field of $x^q - x$ over $\F_p$. Let
   $E$ be the set of roots of $f(x) = x^q - x$ in $F$. Since
   $f'(x) = qx^{q-1} - 1 = -1$ (as $q = 0$ in characteristic $p$), we
   have $(f(x), f'(x)) = 1$; hence (\cref{lem:fields:4.13}) $f(x)$ is
@@ -3479,17 +3479,17 @@ different classification.
 Since there is exactly one isomorphism class of fields of order $q$
 for any given prime power $q$, we can devise a notation for a field of
 order $q$; it makes sense to adopt\footnote{Keep in mind that
-  $\mathbb{F}_q$ is not the ring $\Z/q\Z$ unless $q$ is prime: if $q$
+  $\F_q$ is not the ring $\Z/q\Z$ unless $q$ is prime: if $q$
   is composite, then $\Z/q\Z$ is not an integral domain.}
-$\mathbb{F}_q$. This is called the \emph{Galois field} of order $q$.
+$\F_q$. This is called the \emph{Galois field} of order $q$.
 \begin{exam}{}{exam:fields:exam:5.3}
   Let $p$ be a prime integer. Then I claim that the polynomial
   $x^4 + 1$ is reducible\footnote{Of course $x^4 + 1$ is irreducible
     over $\Z$. This example shows that \Cref{prop:irred:5.15} cannot be
-    turned into an `if and only if' statement.} over $\mathbb{F}_p$
+    turned into an `if and only if' statement.} over $\F_p$
   (and therefore over every finite field).
 
-  Since $x^4 + 1 = (x+1)^4$ in $\mathbb{F}_2[x]$, the statement holds
+  Since $x^4 + 1 = (x+1)^4$ in $\F_2[x]$, the statement holds
   for $p = 2$. Thus, we may assume that $p$ is an odd prime. Then I
   claim that $x^4 + 1$ divides $x^{p^2} - x$. Indeed, the square of
   every odd number is congruent to $1 \pmod{8}$ (\Cref{exer:groups:odd-square-mod-8});
@@ -3499,13 +3499,13 @@ $\mathbb{F}_q$. This is called the \emph{Galois field} of order $q$.
     (x^4+1) \mid (x^8-1) \mid (x^{p^2-1}-1) \mid (x^{p^2}-x).
   \]
   It follows that $x^4 + 1$ factors completely in the splitting field
-  of $x^{p^2} - x$, that is, in $\mathbb{F}_{p^2}$. If $\alpha$ is a
-  root of $x^4 + 1$ in $\mathbb{F}_{p^2}$, we have the extensions
-  $\mathbb{F}_p \subseteq \mathbb{F}_p(\alpha) \subseteq
-  \mathbb{F}_{p^2}$; therefore (\cref{coro:fields:1.11})
-  $[\mathbb{F}_p(\alpha) : \mathbb{F}_p]$ divides
-  $[\mathbb{F}_{p^2} : \mathbb{F}_p] = 2$. That is, $\alpha$ has
-  degree $1$ or $2$ over $\mathbb{F}_p$. But then its minimal
+  of $x^{p^2} - x$, that is, in $\F_{p^2}$. If $\alpha$ is a
+  root of $x^4 + 1$ in $\F_{p^2}$, we have the extensions
+  $\F_p \subseteq \F_p(\alpha) \subseteq
+  \F_{p^2}$; therefore (\cref{coro:fields:1.11})
+  $[\F_p(\alpha) : \F_p]$ divides
+  $[\F_{p^2} : \F_p] = 2$. That is, $\alpha$ has
+  degree $1$ or $2$ over $\F_p$. But then its minimal
   polynomial is a factor of degree $1$ or $2$ of $(x^4+1)$, showing
   that the latter is reducible.
 \end{exam}
@@ -3513,17 +3513,17 @@ $\mathbb{F}_q$. This is called the \emph{Galois field} of order $q$.
 a few in the rest of this subsection.
 \begin{coro}{}{coro:fields:5.4}
   Let $p$ be a prime, and let $d \leq e$ be positive integers. Then
-  there is an extension $\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^e}$
+  there is an extension $\F_{p^d} \subseteq \F_{p^e}$
   if and only if $d \mid e$. Further, if $d \mid e$, then there is
-  exactly one such extension, in the sense that $\mathbb{F}_{p^e}$
-  contains a unique copy of $\mathbb{F}_{p^d}$. All extensions
-  $\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^e}$ are simple.
+  exactly one such extension, in the sense that $\F_{p^e}$
+  contains a unique copy of $\F_{p^d}$. All extensions
+  $\F_{p^d} \subseteq \F_{p^e}$ are simple.
 \end{coro}
 \begin{proof}
   If there is an extension as stated, then
-  $\mathbb{F}_p \subseteq \mathbb{F}_{p^d} \subseteq
-  \mathbb{F}_{p^e}$; hence $[\mathbb{F}_{p^d} : \mathbb{F}_p]$ divides
-  $[\mathbb{F}_{p^e} : \mathbb{F}_p]$ by \cref{coro:fields:1.11}. This
+  $\F_p \subseteq \F_{p^d} \subseteq
+  \F_{p^e}$; hence $[\F_{p^d} : \F_p]$ divides
+  $[\F_{p^e} : \F_p]$ by \cref{coro:fields:1.11}. This
   says precisely that $d \mid e$.
 
   Conversely, assume that $d \mid e$. As
@@ -3533,18 +3533,18 @@ a few in the rest of this subsection.
   we see that $p^d - 1$ divides $p^e - 1$, and consequently
   $x^{p^d - 1} - 1$ divides $x^{p^e - 1} - 1$
   (\Cref{exer:irred:2.13}). Therefore $(x^{p^d} - x) \mid (x^{p^e} - x)$. By
-  \cref{thm:fields:5.1}, $\mathbb{F}_{p^e}$ is a splitting field for
+  \cref{thm:fields:5.1}, $\F_{p^e}$ is a splitting field for
   the second polynomial. It follows that it contains a unique copy of
   the splitting field for the first polynomial (\Cref{fields:exer:4.5}), that
-  is, of $\mathbb{F}_{p^d}$.
+  is, of $\F_{p^d}$.
 
   For the last statement, recall that the multiplicative group of
   nonzero elements of a finite field is necessarily cyclic
-  (\Cref{thm:groups2:6.10}). If $\alpha \in \mathbb{F}_{p^e}$ is a generator
-  of this group, then $\alpha$ will generate $\mathbb{F}_{p^e}$ over
+  (\Cref{thm:groups2:6.10}). If $\alpha \in \F_{p^e}$ is a generator
+  of this group, then $\alpha$ will generate $\F_{p^e}$ over
   any subfield; if $d \mid e$, this says
-  $\mathbb{F}_{p^e} = \mathbb{F}_{p^d}(\alpha)$, so
-  $\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^e}$ is simple.
+  $\F_{p^e} = \F_{p^d}(\alpha)$, so
+  $\F_{p^d} \subseteq \F_{p^e}$ is simple.
 \end{proof}
 These results can be translated into rather precise information on the
 structure of the polynomial ring over a finite field. For example,
@@ -3553,44 +3553,44 @@ structure of the polynomial ring over a finite field. For example,
   exist irreducible polynomials of degree $n$ in $F[x]$.
 \end{coro}
 \begin{proof}
-  We know $F = \mathbb{F}_{p^d}$ for some prime $p$ and some
+  We know $F = \F_{p^d}$ for some prime $p$ and some
   $d \geq 1$.  By \cref{coro:fields:5.4} there is an extension
-  $\mathbb{F}_{p^d} \subseteq \mathbb{F}_{p^{dn}}$, generated by an
+  $\F_{p^d} \subseteq \F_{p^{dn}}$, generated by an
   element $\alpha$. Then
-  $[\mathbb{F}_{p^{dn}} : \mathbb{F}_{p^d}] = n$, and it follows that
-  the minimal polynomial of $\alpha$ over $F = \mathbb{F}_{p^d}$ is an
+  $[\F_{p^{dn}} : \F_{p^d}] = n$, and it follows that
+  the minimal polynomial of $\alpha$ over $F = \F_{p^d}$ is an
   irreducible polynomial of degree $n$ in $F[x]$.
 \end{proof}
 In fact, our analysis of extensions of finite fields tells us about
 explicit factorizations, leading to an inductive algorithm to find all
-irreducible polynomials in $\mathbb{F}_q[x]$:
+irreducible polynomials in $\F_q[x]$:
 \begin{coro}{}{coro:fields:5.6}
-  Let $F = \mathbb{F}_q$ be a finite field, and let $n$ be a positive
+  Let $F = \F_q$ be a finite field, and let $n$ be a positive
   integer. Then the factorization of $x^{q^n} - x$ in $F[x]$ consists
   of all irreducible monic polynomials of degree $d$, as $d$ ranges
   over the positive divisors of $n$. In particular, all these
-  polynomials factor completely in $\mathbb{F}_{q^n}$.
+  polynomials factor completely in $\F_{q^n}$.
 \end{coro}
 \begin{proof}
-  By \cref{thm:fields:5.1}, $\mathbb{F}_{q^n}$ is the splitting field
-  of $x^{q^n} - x$ over $\mathbb{F}_p$, and hence over
-  $\mathbb{F}_q = F$.
+  By \cref{thm:fields:5.1}, $\F_{q^n}$ is the splitting field
+  of $x^{q^n} - x$ over $\F_p$, and hence over
+  $\F_q = F$.
 
   If $f(x)$ is a monic irreducible polynomial of degree $d$, then
   $F[x]/(f(x)) \cong F(\alpha)$ is an extension of degree $d$ of $F$,
-  that is, an isomorphic copy of $\mathbb{F}_{q^d}$. By
+  that is, an isomorphic copy of $\F_{q^d}$. By
   \cref{coro:fields:5.4}, if $d \mid n$, then there is an embedding of
-  $\mathbb{F}_{q^d}$ in $\mathbb{F}_{q^n}$. But then $\alpha$ must be
+  $\F_{q^d}$ in $\F_{q^n}$. But then $\alpha$ must be
   a root of $x^{q^n} - x$, and hence $x^{q^n} - x$ is a multiple of
   $f(x)$, as this is the minimal polynomial of $\alpha$. This proves
   that every irreducible polynomial of degree $d \mid n$ is a factor
   of $x^{q^n} - x$.
 
   Conversely, if $f(x)$ is an irreducible factor of $x^{q^n} - x$,
-  then $\mathbb{F}_{q^n}$ contains a root $\alpha$ of $f(x)$; we have
+  then $\F_{q^n}$ contains a root $\alpha$ of $f(x)$; we have
   the extensions
-  $F = \mathbb{F}_q \subseteq \mathbb{F}_q(\alpha) \subseteq
-  \mathbb{F}_{q^n}$, and $\mathbb{F}_q(\alpha) \cong \mathbb{F}_{q^d}$
+  $F = \F_q \subseteq \F_q(\alpha) \subseteq
+  \F_{q^n}$, and $\F_q(\alpha) \cong \F_{q^d}$
   for $d = \deg \alpha$. It follows that $d \mid n$, again by
   \cref{coro:fields:5.4}.
 \end{proof}
@@ -3599,29 +3599,29 @@ $x^{q^n} - x$ clump into disjoint subsets, with each subset collecting
 the roots of each and every irreducible polynomial of degree
 $d \mid n$ in $F[x]$.
 \begin{exam}{}{exam:fields:exam:5.7}
-  Let's contemplate the case $q = 2$: $\mathbb{F}_2 = \Z/2\Z$.
+  Let's contemplate the case $q = 2$: $\F_2 = \Z/2\Z$.
   \begin{itemize}
   \item $n = 1$: the polynomial $x^2 - x$ factors as the product of
     $x$ and $(x - 1)$ (which we could write as $(x + 1)$ just as well,
-    since we are working over $\mathbb{F}_2$). These are all the
-    irreducible polynomials of degree $1$ over $\mathbb{F}_2$.
+    since we are working over $\F_2$). These are all the
+    irreducible polynomials of degree $1$ over $\F_2$.
   \item $n = 2$: the polynomial $x^4 - x$ must factor as the product
     of all irreducible polynomials of degree $1$ and $2$; in fact
     \[
       x^4 - x = x(x-1)(x^2+x+1),
     \]
     and the conclusion is that there is exactly one irreducible
-    polynomial of degree $2$ over $\mathbb{F}_2$, namely
+    polynomial of degree $2$ over $\F_2$, namely
     $x^2 + x + 1$.
   \item $n = 3$: the quotient of $x^8 - x$ by $x(x-1)$ is a polynomial
     of degree $6$, which must therefore be the product of the two
-    irreducible polynomials of degree $3$ over $\mathbb{F}_2$. It
+    irreducible polynomials of degree $3$ over $\F_2$. It
     takes a moment to find them: $x^3 + x^2 + 1$ and $x^3 + x + 1$. It
-    also follows that $\mathbb{F}_8$ may be realized in two ways as a
-    quotient of $\mathbb{F}_2[x]$ modulo an irreducible polynomial:
+    also follows that $\F_8$ may be realized in two ways as a
+    quotient of $\F_2[x]$ modulo an irreducible polynomial:
     \[
-      \frac{\mathbb{F}_2[x]}{(x^3+x^2+1)} \cong
-      \frac{\mathbb{F}_2[x]}{(x^3+x+1)}.
+      \frac{\F_2[x]}{(x^3+x^2+1)} \cong
+      \frac{\F_2[x]}{(x^3+x+1)}.
     \]
     We know that these two fields must be isomorphic because of
     \cref{thm:fields:5.1}; it is instructive to find an explicit
@@ -3632,20 +3632,20 @@ $d \mid n$ in $F[x]$.
     $x - 1$, the one irreducible polynomial of degree $2$, and the two
     irreducible polynomials of degree $3$ found above, and that leaves
     room for $9$ polynomials of degree $6$, which must be all and only
-    the irreducible polynomials of degree $6$ over $\mathbb{F}_2$. So
-    the $64$ elements of $\mathbb{F}_{64}$ cluster into disjoint sets
+    the irreducible polynomials of degree $6$ over $\F_2$. So
+    the $64$ elements of $\F_{64}$ cluster into disjoint sets
     of roots of each irreducible polynomial. The unique copies of
-    $\mathbb{F}_4$ and $\mathbb{F}_8$ contained in $\mathbb{F}_{64}$
-    intersect in the unique copy of $\mathbb{F}_2$. Again,
-    $\mathbb{F}_{64}$ may be realized by quotienting $\mathbb{F}_2[x]$
+    $\F_4$ and $\F_8$ contained in $\F_{64}$
+    intersect in the unique copy of $\F_2$. Again,
+    $\F_{64}$ may be realized by quotienting $\F_2[x]$
     by the ideal generated by any of the irreducible polynomials of
     degree $6$; this gives $9$ `different' realizations of this field.
   \end{itemize}
 \end{exam}
-The picture drawn above for $\mathbb{F}_{64}$ means next to nothing,
+The picture drawn above for $\F_{64}$ means next to nothing,
 but it may help us focus on one last element of information we are
 going to extract regarding finite fields. Note that the effect of any
-automorphism of $\mathbb{F}_{64}$ must be to scramble elements in each
+automorphism of $\F_{64}$ must be to scramble elements in each
 sector represented in the picture, without mixing elements in
 different sectors and without interchanging sectors. Indeed, every
 automorphism of an extension sends roots of an irreducible polynomial
@@ -3653,52 +3653,52 @@ to roots of the same polynomial.
 
 Since extensions of finite fields are simple extensions, our previous
 work allows us to be much more precise. Restricting our attention to
-the extensions $\mathbb{F}_p \subseteq \mathbb{F}_{p^d}$, for a prime
+the extensions $\F_p \subseteq \F_{p^d}$, for a prime
 $p$, we know these can be realized as simple extensions by an element
 with minimal polynomial of degree $d$. This polynomial is necessarily
-separable ($\mathbb{F}_p$ is perfect), so \cref{coro:fields:1.7}
+separable ($\F_p$ is perfect), so \cref{coro:fields:1.7}
 immediately gives us the size of the automorphism group:
-$|\Aut_{\mathbb{F}_p}(\mathbb{F}_{p^d})| = d$. But what is
+$|\Aut_{\F_p}(\F_{p^d})| = d$. But what is
 this group?
 \begin{prop}{}{prop:fields:5.8}
-  $\Aut_{\mathbb{F}_p}(\mathbb{F}_{p^d})$ is cyclic, generated
+  $\Aut_{\F_p}(\F_{p^d})$ is cyclic, generated
   by the Frobenius isomorphism.
 \end{prop}
 \begin{proof}
   Let $\phi$ be the Frobenius homomorphism
-  $\mathbb{F}_{p^d} \to \mathbb{F}_{p^d}$: $\phi(x) = x^p$. The
+  $\F_{p^d} \to \F_{p^d}$: $\phi(x) = x^p$. The
   Frobenius homomorphism is an isomorphism on a finite field
   (\cref{coro:fields:4.18}) and restricts to the identity on
-  $\mathbb{F}_p$ (\Cref{fields:exer:4.11}), so
-  $\phi \in \Aut_{\mathbb{F}_p}(\mathbb{F}_{p^d})$. Since we
+  $\F_p$ (\Cref{fields:exer:4.11}), so
+  $\phi \in \Aut_{\F_p}(\F_{p^d})$. Since we
   know a priori the size of this group, all we have to show is that
   the order of $\phi$ is $d$.
 
   Let $e = |\phi|$. Then $\phi^e = \id$; hence $x^{p^e} = x$
-  for all $x \in \mathbb{F}_{p^d}$. In other words, the (nonzero)
-  polynomial $x^{p^e} - x$ has $p^d$ roots in $\mathbb{F}_{p^d}$; this
+  for all $x \in \F_{p^d}$. In other words, the (nonzero)
+  polynomial $x^{p^e} - x$ has $p^d$ roots in $\F_{p^d}$; this
   implies $p^d \leq p^e$ (\Cref{lem:irred:5.1}). Equivalently, $d \leq e$,
   yielding
-  $|\Aut_{\mathbb{F}_p}(\mathbb{F}_{p^d})| \leq |\phi|$. But
+  $|\Aut_{\F_p}(\F_{p^d})| \leq |\phi|$. But
   then these two numbers must be equal, since the order of an element
   always divides the order of the group (\Cref{exam:groups:order-divides-order-of-group}).
 \end{proof}
 Two last comments on finite fields are in order:
 \begin{itemize}
 \item For $n$ large enough, the stupendously large (but finite) field
-  $\mathbb{F}_{p^{n!}}$ works as an approximation of the algebraic
-  closure $\bar{\mathbb{F}}_p$: indeed, this field contains roots of
-  all polynomials of degree $\leq n$ in $\mathbb{F}_p[x]$, by
+  $\F_{p^{n!}}$ works as an approximation of the algebraic
+  closure $\bar{\F}_p$: indeed, this field contains roots of
+  all polynomials of degree $\leq n$ in $\F_p[x]$, by
   \cref{coro:fields:5.6}. This observation can be turned into the
-  explicit construction of an algebraic closure of $\mathbb{F}_p$: by
+  explicit construction of an algebraic closure of $\F_p$: by
   \cref{coro:fields:5.4} there are extensions
   \[
-    \mathbb{F}_p \subseteq \mathbb{F}_{p^2} \subseteq \mathbb{F}_{p^6}
-    \subseteq \mathbb{F}_{p^{4!}} \subseteq \cdots
+    \F_p \subseteq \F_{p^2} \subseteq \F_{p^6}
+    \subseteq \F_{p^{4!}} \subseteq \cdots
   \]
   and the union of this chain of fields\footnote{A more formal
     construction requires the notion of direct limit; cf.\
-    \S{}\ref{subsec:linrep:limits-and-colimits}.}  gives a copy of $\bar{\mathbb{F}}_p$.
+    \S{}\ref{subsec:linrep:limits-and-colimits}.}  gives a copy of $\bar{\F}_p$.
 \item Finite fields form a category, which (by \cref{coro:fields:5.4})
   should strongly remind the reader of the `toy' category encountered
   in \Cref{exer:5.6}. There is an important difference, however: in
@@ -3861,18 +3861,18 @@ it).
   (again using \Cref{fields:exer:4.8}, and denoting cosets by underlining)
   \[
     \underline{g}(x)^p = \underline{f}(x)\underline{h}(x)
-    \quad\text{in } \mathbb{F}_p[x];
+    \quad\text{in } \F_p[x];
   \]
   in particular, $\underline{f}(x)$ and $\underline{g}(x)$ must have a
-  nontrivial common factor in $\mathbb{F}_p[x]$. But then its square
+  nontrivial common factor in $\F_p[x]$. But then its square
   divides $\underline{f}(x)\underline{g}(x)$: the reduction of
   $\Phi_n(x)$ modulo $p$ must have a multiple factor.
 
-  This implies that $x^n - 1 \in \mathbb{F}_p[x]$ has a multiple
+  This implies that $x^n - 1 \in \F_p[x]$ has a multiple
   factor; that is, it is inseparable. However, its derivative
-  $nx^{n-1} \in \mathbb{F}_p[x]$ is nonzero (because $p$ does not
+  $nx^{n-1} \in \F_p[x]$ is nonzero (because $p$ does not
   divide $n$ by assumption), and \cref{lem:fields:4.13} implies that
-  $x^n - 1$ is separable in $\mathbb{F}_p[x]$. This contradiction
+  $x^n - 1$ is separable in $\F_p[x]$. This contradiction
   shows that our assumption that $\Phi_n(x)$ is reducible must be
   nonsense, proving the statement.
 \end{proof}
@@ -4058,8 +4058,8 @@ found in \cref{coro:fields:1.7} to all finite separable extensions:
   By \cref{prop:fields:5.19}, if we want to construct a nonsimple
   finite extension, we have to use inseparable elements; to produce an
   example, we jazz up \Cref{exam:fields:exam:4.11} a little. Consider the field of
-  rational functions $F = \mathbb{F}_p(u, v)$ in two variables over
-  $\mathbb{F}_p$ and the subfield $k = \mathbb{F}_p(s, t)$, where
+  rational functions $F = \F_p(u, v)$ in two variables over
+  $\F_p$ and the subfield $k = \F_p(s, t)$, where
   $s = u^p$ and $t = v^p$. Then $k \subseteq F$ is an algebraic
   extension; the minimal polynomial of $u$ over $k$ is $x^p - s$; the
   minimal polynomial of $v$ over $k(u)$ is $y^p - t$; it follows that
@@ -4073,7 +4073,7 @@ found in \cref{coro:fields:1.7} to all finite separable extensions:
   $[k(cu + v) : k] = p^2$. But this is not the case, since
   $(cu + v)^p = c^p s + t \in k(s, t) = k$; hence the minimal
   polynomial of $cu + v$ over $k$ has degree at most $p$. Since
-  $k = \mathbb{F}_p(s, t)$ is infinite, there are infinitely many
+  $k = \F_p(s, t)$ is infinite, there are infinitely many
   intermediate fields, and it follows (by \cref{prop:fields:5.18})
   that $F$ is not a simple extension of $k$.
 \end{exam}
@@ -4092,34 +4092,34 @@ found in \cref{coro:fields:1.7} to all finite separable extensions:
 \begin{exer}{}{fields:exer:5.3}
   Find an explicit isomorphism
   \[
-    \frac{\mathbb{F}_2[x]}{(x^3+x^2+1)} \cong
-    \frac{\mathbb{F}_2[x]}{(x^3+x+1)}.
+    \frac{\F_2[x]}{(x^3+x^2+1)} \cong
+    \frac{\F_2[x]}{(x^3+x+1)}.
   \] [\S{}\ref{subsec:fields:finite-fields}]
 \end{exer}
 \begin{exer}{}{fields:exer:5.4}
-  Find all irreducible polynomials of degree $4$ over $\mathbb{F}_2$,
+  Find all irreducible polynomials of degree $4$ over $\F_2$,
   and count those of degree $5$. [\S{}\ref{subsec:fields:finite-fields}]
 \end{exer}
 \begin{exer}{}{fields:exer:5.5}
   Find the number of irreducible polynomials of degree $12$ over
-  $\mathbb{F}_9$.
+  $\F_9$.
 \end{exer}
 \begin{exer}{}{fields:exer:5.6}
   Write out explicitly the action of the cyclic group $C_4$ on
-  $\mathbb{F}_{16}$, in terms of any realization of this field as a
-  quotient of $\mathbb{F}_2[x]$.
+  $\F_{16}$, in terms of any realization of this field as a
+  quotient of $\F_2[x]$.
 \end{exer}
 \begin{exer}{}{fields:exer:5.7}
   Let $p$ be a prime integer. View the Frobenius automorphism
-  $\phi : \mathbb{F}_{p^d} \to \mathbb{F}_{p^d}$ as a linear
-  transformation of the $\mathbb{F}_p$-vector space
-  $\mathbb{F}_{p^d}$.  Find the rational canonical form of
+  $\phi : \F_{p^d} \to \F_{p^d}$ as a linear
+  transformation of the $\F_p$-vector space
+  $\F_{p^d}$.  Find the rational canonical form of
   $\phi$. (Adapt the proof of \cref{prop:fields:5.8} to show that the
   minimal polynomial of $\phi$ is $x^d - 1$.)
 \end{exer}
 \begin{exer}{}{fields:exer:5.8}
   For a prime $p$, find the factorization of $\Phi_p(x)$ over
-  $\mathbb{F}_p$.
+  $\F_p$.
 \end{exer}
 \begin{exer}{}{fields:exer:5.9}
   Find all cyclotomic polynomials $\Phi_n(x)$ for $1 \leq n \leq 15$.
@@ -4151,7 +4151,7 @@ found in \cref{coro:fields:1.7} to all finite separable extensions:
   Let $R$ be a finite division ring.
   \begin{itemize}
   \item Prove that the center of $R$ (\Cref{exer:rings:center-is-subring}) is isomorphic
-    to $\mathbb{F}_q$, for $q$ a prime power. Prove that $|R| = q^n$
+    to $\F_q$, for $q$ a prime power. Prove that $|R| = q^n$
     for some $n$.
   \item For every $r \in R$, prove that the centralizer of $r$ in the
     multiplicative group $(R^*, \cdot)$ has order $q^d - 1$ for some
@@ -4201,7 +4201,7 @@ found in \cref{coro:fields:1.7} to all finite separable extensions:
   \begin{itemize}
   \item Prove that there is a prime $p$ such that $|R| = p^n$ for some
     integer $n$.
-  \item If $n = 1$, then $R \cong \mathbb{F}_p$. If $n = 2$ or if
+  \item If $n = 1$, then $R \cong \F_p$. If $n = 2$ or if
     $p = 2$ and $n = 6$, then $R$ is commutative: the reader has
     proved this in Exercises~III.2.11 and~IV.2.17.
   \item Therefore, by Birkhoff--Vandiver we may assume that $p^n - 1$
@@ -4612,12 +4612,12 @@ lattice of subgroups of the corresponding Galois group are identical.
   For finite fields, this coincidence of lattices was essentially
   proven `by hand' in \cref{coro:fields:5.4} and
   \cref{prop:fields:5.8}. For example, the extension
-  $\mathbb{F}_2 \subseteq \mathbb{F}_{64}$ is Galois, with cyclic
+  $\F_2 \subseteq \F_{64}$ is Galois, with cyclic
   Galois group $C_6$, generated by the Frobenius automorphism
   $\phi$. The divisors of $6$ are $1, 2, 3, 6$, corresponding to
   subgroups $\{e\}$, $\{e, \phi^3\}$, $\{e, \phi^2, \phi^4\}$, and
-  $C_6$; and to intermediate fields $\mathbb{F}_{64}$, $\mathbb{F}_8$,
-  $\mathbb{F}_4$, and $\mathbb{F}_2$, respectively.
+  $C_6$; and to intermediate fields $\F_{64}$, $\F_8$,
+  $\F_4$, and $\F_2$, respectively.
 \end{exam}
 \cref{thm:fields:6.12} is often used in the `groups to fields'
 direction: finding the lattice of subgroups of a finite group is
