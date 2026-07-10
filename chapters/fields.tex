@@ -1,4 +1,4 @@
-\chapter{Fields}
+\chapter{Fields}%
 \label{chap:fields}
 
 The minuscule amount of algebra we have developed so far allows us to
@@ -25,7 +25,7 @@ inspired by easy linear algebra considerations. The keywords here are
 \subsection{Basic definitions}
 \label{subsec:fields:basic-definitions}
 The study of fields is (of course) the study of the category
-\textsf{Fld} of fields (\Cref{defn:rings:field}), with ring homomorphisms
+$\categ{Fld}$ of fields (\Cref{defn:rings:field}), with ring homomorphisms
 as morphisms. The task is to understand what fields are and above all
 what they are \emph{in relation to one another}.
 
@@ -37,7 +37,7 @@ nonzero ring is a proper ideal (because a homomorphism maps $1$ to $1$
 by definition and $1 \neq 0$ in nonzero rings), and the only proper
 ideal in a field is $(0)$. In particular, every ring homomorphism of
 fields is injective (fields are nonzero rings by definition!); every
-morphism in \textsf{Fld} is a monomorphism (cf.\ \Cref{prop:rings:mono-equiv}).
+morphism in $\categ{Fld}$ is a monomorphism (cf.\ \Cref{prop:rings:mono-equiv}).
 Thus, every morphism $k \to K$ between two fields identifies the first
 with a subfield of the second. In other words, one can view $K$ as a
 particular way to enlarge $k$, that is, as an \emph{extension} of
@@ -49,7 +49,7 @@ like, as it suggests a quotienting operation) and $\frac{K}{k}$ (which
 we will avoid most of the time, as it is hard to typeset).  The
 coarsest invariant of a field $k$ is its \emph{characteristic}; cf.\
 \Cref{exer:irred:4.17}. We have a unique ring homomorphism $i : \Z \to k$
-($\Z$ is initial in \textsf{Ring}: $1$ must go to $1$ by definition of
+($\Z$ is initial in $\categ{Ring}$: $1$ must go to $1$ by definition of
 homomorphism, and this fixes the value of $i(n)$ for all $n \in \Z$);
 the \emph{characteristic} of $k$, $\operatorname{char} k$, is defined
 to be the nonnegative generator of the ideal $\ker i$; that is,
@@ -65,9 +65,9 @@ $\ker i$ must be a prime ideal. Therefore, the characteristic of a
 field is either $0$ or a prime number.  If $k \subseteq K$ is an
 extension, then $\operatorname{char} k = \operatorname{char} K$
 (\Cref{fields:exer:1.1}). Thus, we could define and study categories
-$\textsf{Fld}_0$, $\textsf{Fld}_p$ of fields of a given
+$$\categ{Fld}$_0$, $$\categ{Fld}$_p$ of fields of a given
 characteristic, without losing any information: these categories live
-within \textsf{Fld}, without interacting with each
+within $\categ{Fld}$, without interacting with each
 other.\footnote{They do interact in other ways, however---for example,
   because $\Z$ is initial in $\categ{Ring}$, so $\Z$ maps to all
   fields.} Further, each of these categories has an initial object:
@@ -81,7 +81,7 @@ contemplate it again. In each case, the initial object is called the
 canonical way an extension of its prime subfield: studying fields
 really means studying field extensions.  To a large extent, the
 `small' field $k$ will be fixed in what follows, and our main object
-of study will be the category $\textsf{Fld}_k$ of extensions of $k$,
+of study will be the category $$\categ{Fld}$_k$ of extensions of $k$,
 with the evident (and by now familiar to the reader) notions of
 morphisms.
 
@@ -290,7 +290,7 @@ and draw the following diagram of extensions:
   \end{tikzcd}\] We will be particularly interested in considering
 isomorphisms of a field to itself, subject to the condition of fixing
 a specified subfield $k$ (that is, extending the identity on $k$),
-that is, automorphisms in $\textsf{Fld}_k$. Explicitly, for
+that is, automorphisms in $\categ{Fld}_k$. Explicitly, for
 $k \subseteq F$ an extension, we will analyze isomorphisms
 $j : F \xrightarrow{\sim} F$ such that $\forall c \in k$, $j(c) =
 c$. I will denote the group of such automorphisms by
@@ -451,11 +451,12 @@ degree behaves nicely with respect to this operation:
   $\lambda_{ij}$ equal $0$, as needed.
 \end{proof}
 The formula given in the statement should look familiar to the reader:
-glance at the end of \S{}\ref{subsec:groups:the-index-and-lagrange-s-theorem}. Of course this is not accidental; the
-reader should take it as another hint that the world of groups and the
-world of fields have deep interaction. As in the case of groups, we
-draw the immediate (but powerful) consequence, reminiscent of
-Lagrange's theorem:
+glance at the end of
+\S{}\ref{subsec:groups:the-index-and-lagrange-s-theorem}. Of course
+this is not accidental; the reader should take it as another hint that
+the world of groups and the world of fields have deep interaction. As
+in the case of groups, we draw the immediate (but powerful)
+consequence, reminiscent of Lagrange's theorem:
 \begin{coro}{}{coro:fields:1.11}
   Let $k \subseteq F$ be a finite extension, and let $E$ be an
   intermediate field (that is, $k \subseteq E \subseteq F$). Then both
@@ -715,7 +716,8 @@ serve as an encouragement to look at many more.
   side-effect of the computation carried out above is that the
   polynomial $t^2 - 3$ must be irreducible over $\Q(\sqrt{2})$; this
   is not surprising, but note that this method is very different from
-  anything we encountered back in \S{}\ref{sec:irred:irreducibility-of-polynomials}.
+  anything we encountered back in
+  \S{}\ref{sec:irred:irreducibility-of-polynomials}.
 
   The fact that the other roots of the minimal polynomial of
   $\sqrt{2}+\sqrt{3}$ `looked so much like' $\sqrt{2}+\sqrt{3}$ is not
@@ -888,7 +890,7 @@ serve as an encouragement to look at many more.
     \quad\text{and}\quad N_{k \subseteq F}(\alpha) = N_{k \subseteq
       k(\alpha)}(\alpha)^r.
   \]
-  (Cf.\ Exercises~1.12 and~1.13.) (Hint: If $f_1, \dots, f_r$ is a
+  (Cf.\ OLDExercises~1.12 and~1.13.) (Hint: If $f_1, \dots, f_r$ is a
   basis of $F$ over $k(\alpha)$ and $\alpha$ has degree $d$ over $k$,
   then
   $(f_i \alpha^j)_{\substack{i = 1, \dots, r \\ j = 0, \dots, d-1}}$
@@ -934,6 +936,7 @@ serve as an encouragement to look at many more.
 
   Prove that an analogous statement for $\sqrt[4]{2}$ is false.
 \end{exer}
+
 \begin{exer}{}{fields:exer:1.21}
   Let $k \subseteq F$ be a field extension, and let $E$ be the
   intermediate field consisting of the elements of $F$ which are
@@ -989,9 +992,9 @@ serve as an encouragement to look at many more.
   $F$. This choice determines a homomorphism $\phi$ of $k$-algebras
   from the polynomial ring $k[I]$ on the set $I$ to $F$ (the
   polynomial ring is a free commutative $k$-algebra; cf.\
-  \Cref{prop:rings:free-R-algebra}). We say that $\{\alpha_i\}_{i \in I}$ is
-  \emph{algebraically independent} over $k$ if $\phi$ is
-  injective. For example, distinct elements
+  \Cref{prop:rings:free-R-algebra}). We say that
+  $\{\alpha_i\}_{i \in I}$ is \emph{algebraically independent} over
+  $k$ if $\phi$ is injective. For example, distinct elements
   $\alpha_1, \dots, \alpha_n$ of $F$ are algebraically independent
   over $k$ if there is no nonzero polynomial
   $f(x_1, \dots, x_n) \in k[x_1, \dots, x_n]$ such that
@@ -1006,9 +1009,10 @@ serve as an encouragement to look at many more.
 \end{exer}
 
 \begin{exer}{}{fields:exer:1.27}
-  With notation and terminology as in \Cref{fields:exer:1.26}, the indexed set
-  $\{\alpha_i\}_{i \in I}$ is a \emph{transcendence basis} for $F$
-  over $k$ if it is a maximal algebraically independent set in $F$.
+  With notation and terminology as in \Cref{fields:exer:1.26}, the
+  indexed set $\{\alpha_i\}_{i \in I}$ is a \emph{transcendence basis}
+  for $F$ over $k$ if it is a maximal algebraically independent set in
+  $F$.
   \begin{itemize}
   \item Prove that $\{\alpha_i\}_{i \in I}$ is a transcendence basis
     for $F$ over $k$ if and only if it is algebraically independent
@@ -1059,7 +1063,7 @@ serve as an encouragement to look at many more.
 \end{exer}
 
 \section{Algebraic closure, Nullstellensatz, and a little algebraic
-  geometry}
+  geometry}%
 \label{sec:fields:algebraic-closure-nullstellensatz-and-a-little-algebraic}
 
 One of the most important extensions of a field $k$ is its algebraic
@@ -1070,7 +1074,7 @@ the temptation to say a few words about the important result known as
 Hilbert's Nullstellensatz, at the cost of a small digression into
 algebraic geometry, will simply be irresistible.
 
-\subsection{Algebraic closure}
+\subsection{Algebraic closure}%
 \label{subsec:fields:algebraic-closure}
 Recall (\Cref{defn:irred:5.9}) that a field $K$ is algebraically closed if
 all irreducible polynomials in $K[x]$ have degree $1$, that is, if
