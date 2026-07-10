@@ -22,7 +22,10 @@ ITEM_ENVS = "defn|prop|lem|thm|coro|exam|fact|rmk|claim"
 BEGIN_RE = re.compile(
     r"^\\begin\{(" + ITEM_ENVS + r"|exer)\}\{[^{}]*\}\{([a-zA-Z0-9:._-]*)\}"
 )
-SECTION_RE = re.compile(r"^\\section\{(.*)\}")
+# Only used as a section-BOUNDARY marker -- titles may span multiple lines
+# or contain nested braces (\texorpdfstring{...}{...}), so we don't try to
+# capture the full title, just detect that a new \section starts here.
+SECTION_START_RE = re.compile(r"^\\section\{")
 
 
 def main():
@@ -31,19 +34,18 @@ def main():
     args = ap.parse_args()
 
     sec = 0
-    sec_title = ""
     item_n = 0
     exer_n = 0
     item_table = {}
     exer_table = {}
+    section_starts = []
 
     for lineno, line in enumerate(open(args.chapter), 1):
-        m = SECTION_RE.match(line)
-        if m:
+        if SECTION_START_RE.match(line):
             sec += 1
-            sec_title = m.group(1)
             item_n = 0
             exer_n = 0
+            section_starts.append(lineno)
             continue
         m = BEGIN_RE.match(line)
         if m:
@@ -59,6 +61,8 @@ def main():
 
     print(f"=== Sections in {args.chapter} ===")
     print(f"(non-exercise items share one counter per section; exercises have their own)")
+    for i, lineno in enumerate(section_starts, 1):
+        print(f"  section {i} starts at line {lineno}")
     print()
     print("=== Item table (Definition/Proposition/Lemma/Theorem/Corollary/Example/...) ===")
     for k in sorted(item_table, key=lambda k: tuple(map(int, k.split(".")))):
