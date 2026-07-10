@@ -1,7 +1,9 @@
 LUALATEX = lualatex -file-line-error -interaction=nonstopmode
+PDFLATEX = pdflatex -file-line-error -interaction=nonstopmode
 MASTER   = master
+FASTMASTER = master_fastcheck
 
-.PHONY: pdf quick check_syntax clean chktex warnings
+.PHONY: pdf quick check_syntax check_fast clean chktex warnings
 
 pdf: $(MASTER).pdf
 
@@ -18,6 +20,19 @@ quick:
 # without paying for font loading and page output.
 check_syntax:
 	$(LUALATEX) --draftmode $(MASTER)
+
+# Much faster reference/syntax-only check: plain pdflatex (no OpenType
+# font loading) against master_fastcheck.tex, which swaps in
+# fonts_fast.tex (no fontspec/unicode-math) and environments_fast.tex
+# (plain-text theorem environments instead of tcolorbox's
+# colored/breakable boxes -- the actual bottleneck). Same \label/\ref
+# behavior, ~3x faster. NEVER represents the real book's appearance;
+# only use it to check references/errors, never to review layout.
+# \include writes aux files named after each chapter, shared with the
+# real master -- run `make clean` before switching between the two to
+# avoid stale cross-contaminated aux state.
+check_fast:
+	$(PDFLATEX) --draftmode $(FASTMASTER)
 
 # Fail if the log contains any warning/error other than Overfull/Underfull box warnings.
 warnings: pdf
@@ -43,4 +58,7 @@ clean:
 	rm -f $(MASTER).aux $(MASTER).bbl $(MASTER).bcf $(MASTER).blg \
 	       $(MASTER).log $(MASTER).out $(MASTER).run.xml \
 	       $(MASTER).synctex.gz $(MASTER).toc $(MASTER).pdf \
+	       $(FASTMASTER).aux $(FASTMASTER).bbl $(FASTMASTER).bcf $(FASTMASTER).blg \
+	       $(FASTMASTER).log $(FASTMASTER).out $(FASTMASTER).run.xml \
+	       $(FASTMASTER).synctex.gz $(FASTMASTER).toc $(FASTMASTER).pdf \
 	       chapters/*.aux *.aux

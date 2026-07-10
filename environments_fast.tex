@@ -1,0 +1,49 @@
+% Stub replacement for environments.tex, used only by
+% master_fastcheck.tex. Reproduces the same environment names, same
+% shared counter, same {title}{label} calling convention, and same
+% cleveref name registration as the real tcolorbox-based environments
+% -- but with plain text output instead of colored/breakable boxes,
+% which is what actually costs the time. Never used for the real book
+% PDF, only for fast reference/syntax verification.
+
+\newcounter{mycounter}[section]
+\def\themycounter{\arabic{chapter}.\arabic{section}.\arabic{mycounter}}
+\def\theHmycounter{\theHchapter.\theHsection.\arabic{mycounter}}
+
+\makeatletter
+\renewcommand{\theequation}
+{\arabic{chapter}.\arabic{section}.\arabic{equation}}
+\@addtoreset{equation}{chapter}
+\makeatother
+
+\newenvironment{solution}
+{\begin{proof}[Solution]}{\end{proof}}
+
+\newenvironment{hint}{%
+  \noindent\textbf{Hint:} \bgroup\itshape%
+}{%
+  \egroup\par%
+}
+
+\newcommand{\declarefastthm}[4]{%
+  % #1 = env name, #2 = display name, #3 = crefname, #4 = Crefname
+  \newenvironment{#1}[2]{%
+    \refstepcounter{mycounter}%
+    \par\noindent\textbf{#2~\themycounter.}~##1%
+    \def\@thislabel{##2}%
+    \expandafter\ifx\@thislabel\@empty\else\label{##2}\fi
+  }{\par}%
+  \crefname{#3}{#3}{#3 s}%
+  \Crefname{#4}{#4}{#4 s}%
+}
+
+\declarefastthm{thm}{Theorem}{theorem}{Theorem}
+\declarefastthm{axm}{Axiom}{axiom}{Axiom}
+\declarefastthm{lem}{Lemma}{lemma}{Lemma}
+\declarefastthm{prop}{Proposition}{proposition}{Proposition}
+\declarefastthm{coro}{Corollary}{corollary}{Corollary}
+\declarefastthm{rem}{Remark}{remark}{Remark}
+\declarefastthm{defn}{Definition}{definition}{Definition}
+\declarefastthm{fact}{Fact}{fact}{Fact}
+\declarefastthm{exer}{Exercise}{exercise}{Exercise}
+\declarefastthm{exam}{Example}{example}{Example}
