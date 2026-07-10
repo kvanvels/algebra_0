@@ -2,7 +2,7 @@
 \label{chap:groups2}
 
 In this chapter we return to $\categ{Grp}$ and study several topics of
-a less `general' nature than those considered in Chapter~II\@. Most of
+a less `general' nature than those considered in \Cref{chap:groups}\@. Most of
 what we do here will apply exclusively to \emph{finite} groups; this
 is an important example in its own right, as it has spectacular
 applications (for example, in Galois theory; cf.\ \S{}VII.7), and it
@@ -23,15 +23,15 @@ precise results on finite groups by extremely simple-minded
 applications of the elementary facts concerning group actions that we
 established back in~\S{}II.9.
 
-Recall that we proved (Proposition~II.9.9) that every
+Recall that we proved (\Cref{prop:groups:transitive-action-is-g-mod-h}) that every
 \emph{transitive} (left-)~action of a group $G$ on a set $S$ is, up to
 a natural notion of isomorphism, `left-multiplication on the set of
 left-cosets $G/H$'. Here, $H$ may be taken to be the stabilizer
 $\operatorname{Stab}_G(a)$ of any element $a \in S$, that is
-(Definition~II.9.8) the subgroup of $G$ fixing $a$. This fact applies
+(\Cref{defn:groups:stabilizer}) the subgroup of $G$ fixing $a$. This fact applies
 to the orbits of every left-action of $G$ on a set; in particular, the
 number of elements in a finite orbit $O$ equals the index of the
-stabilizer of any $a \in O$; in particular (Corollary~II.9.10) the
+stabilizer of any $a \in O$; in particular (\Cref{coro:groups:orbit-divides-order}) the
 number of elements $|O|$ of an orbit must divide the order $|G|$ of
 $G$, if $G$ is finite.
 
@@ -67,7 +67,7 @@ of $a$ alone.
   \[
     |S| = |Z| + \sum_{a \in A} |O_a|,
   \]
-  where $O_a$ denotes the orbit of $a$. By Proposition~II.9.9, the
+  where $O_a$ denotes the orbit of $a$. By \Cref{prop:groups:transitive-action-is-g-mod-h}, the
   order $|O_a|$ equals the index of the stabilizer of $a$, yielding
   the statement.
 \end{proof}
@@ -103,13 +103,13 @@ establish\footnote{In this sense,
   encounter a few such theorems in topology courses, where the role of
   the `size' of a set may be played by (for example) the Euler
   characteristic of a topological space.} that $Z \neq \emptyset$: see
-Exercise~1.1. Such immediate consequences of
+\Cref{exer:groups2:1.1}. Such immediate consequences of
 \cref{prop:groups2:class-formula-action} will assist us below, in the
 proof of Sylow's theorems.
 
 \subsection{Center, centralizer, conjugacy classes}
 \label{subsec:groups2:center-centralizer-conjugacy-classes}
-Recall (Example~II.9.3) that every group $G$ acts on itself in at
+Recall (\Cref{exam:groups:action-by-left-multiplication-conjugation}) that every group $G$ acts on itself in at
 least two interesting ways: by (left-) multiplication and by
 \emph{conjugation}. The latter action is defined by the following
 $\rho : G \times G \to G$:
@@ -160,7 +160,7 @@ that a group is commutative:
   is commutative (and hence $G/Z(G)$ is in fact trivial).
 \end{lem}
 \begin{proof}
-  (Cf.\ Exercise~1.5.) As $G/Z(G)$ is cyclic, there exists an element
+  (Cf.\ \Cref{exer:groups2:1.5}.) As $G/Z(G)$ is cyclic, there exists an element
   $g \in G$ such that the class $gZ(G)$ generates $G/Z(G)$. Then
   $\forall a \in G$
   \[
@@ -252,11 +252,11 @@ Possibly the most famous such application is to $p$-groups, via
 \end{proof}
 For example, it follows immediately (from
 \cref{coro:groups2:p-group-nontrivial-center} and
-\cref{lem:groups2:quotient-center-cyclic}; cf.\ Exercise~1.6) that if
+\cref{lem:groups2:quotient-center-cyclic}; cf.\ \Cref{exer:groups2:1.6}) that if
 $p$ is prime, then every group of order $p^2$ is commutative. In
 general, the class formula poses a strong constraint on what can go on
 in a group.
-\begin{exam}{}{}
+\begin{exam}{}{exam:groups2:order-6-class-formula}
   Consider a group $G$ of order 6; what are the possibilities for its
   class formula?
 
@@ -276,7 +276,7 @@ in a group.
   \]
   is the only possibility. The reader should check that this is indeed
   the class formula for $S_3$; in fact, $S_3$ is the only
-  noncommutative group of order 6 up to isomorphism (Exercise~1.13).
+  noncommutative group of order 6 up to isomorphism (\Cref{exer:groups2:1.13}).
 \end{exam}
 Another useful observation is that normal subgroups must be unions of
 conjugacy classes: because if $H$ is a normal subgroup, $a \in H$, and
@@ -331,7 +331,7 @@ conjugates of a given subset or subgroup may be very useful.
   normalizer of $H$ in $G$.
 \end{lem}
 \begin{proof}
-  This is again an immediate consequence of Proposition~II.9.9.
+  This is again an immediate consequence of \Cref{prop:groups:transitive-action-is-g-mod-h}.
 \end{proof}
 \begin{coro}{}{coro:groups2:conjugate-subgroups-divides-index}
   If $[G : H]$ is finite, then the number of subgroups conjugate to
@@ -346,7 +346,7 @@ One of the celebrated Sylow theorems will strengthen this statement
 substantially in the case in which $H$ is a maximal $p$-group
 contained in a finite group $G$. For a statement concerning the size
 of the normalizer of an arbitrary $p$-subgroup of a group, see
-Lemma~2.9.  Another useful numerical tool is the observation that if
+\Cref{lem:groups2:normalizer-index-mod-p}.  Another useful numerical tool is the observation that if
 $H$ and $K$ are subgroups of a group $G$ and $H \subseteq N_G(K)$---so
 that $gKg^{-1} = K$ for all $g \in H$---then conjugation by $g \in H$
 gives an automorphism of $K$. Indeed, I have already observed that
@@ -361,12 +361,12 @@ Thus, conjugation gives a set-function
   \gamma : H \to \Aut_{\categ{Grp}}(K).
 \]
 The reader will check that this is a group homomorphism and will
-determine $\ker\gamma$ (Exercise~1.21).
+determine $\ker\gamma$ (\Cref{exer:groups2:1.21}).
 
 This is especially useful if $H$ is finite and some information is
 available concerning $\Aut_{\categ{Grp}}(K)$ (for an
-example, see Exercise~4.14). A classic application is presented in
-Exercise~1.22.
+example, see \Cref{exer:groups2:4.14}). A classic application is presented in
+\Cref{exer:groups2:1.22}.
 
 \subsection*{Exercises}
 
@@ -378,7 +378,7 @@ Exercise~1.22.
 \end{exer}
 \begin{exer}{}{exer:groups2:1.2}
   Find the center of $D_{2n}$. (The answer depends on the parity of
-  $n$. You have actually done this already: Exercise~II.2.7. This
+  $n$. You have actually done this already: \Cref{exer:groups:dihedral-center}. This
   time, use a presentation.)
 \end{exer}
 \begin{exer}{}{exer:groups2:1.3}
@@ -390,21 +390,23 @@ Exercise~1.22.
 \end{exer}
 \begin{exer}{}{exer:groups2:1.4}
   \exerused{} Let $G$ be a group, and let $N$ be a subgroup of
-  $Z(G)$. Prove that $N$ is normal in $G$. [\S{}2.2]
+  $Z(G)$. Prove that $N$ is normal in $G$. [\S{}
+ef{subsec:groups2:sylow-i}]
 \end{exer}
 \begin{exer}{}{exer:groups2:1.5}
   \exerused{} Let $G$ be a group. Prove that $G/Z(G)$ is isomorphic to
   the group $\operatorname{Inn}(G)$ of inner automorphisms of
-  $G$. (Cf.\ Exercise~II.4.8.) Then prove
+  $G$. (Cf.\ \Cref{exer:groups:inner-automorphisms}.) Then prove
   \cref{lem:groups2:quotient-center-cyclic} again by using the result
-  of Exercise~II.6.7. [\S{}1.2]
+  of \Cref{exer:groups:inn-cyclic-iff-abelian}. [\S{}\ref{subsec:groups2:center-centralizer-conjugacy-classes}]
 \end{exer}
 \begin{exer}{}{exer:groups2:1.6}
   \exerused{} Let $p$, $q$ be prime integers, and let $G$ be a group
   of order $pq$. Prove that either $G$ is commutative or the center of
   $G$ is trivial.  Conclude (using
   \cref{coro:groups2:p-group-nontrivial-center}) that every group of
-  order $p^2$, for a prime $p$, is commutative. [\S{}1.3]
+  order $p^2$, for a prime $p$, is commutative. [\S{}
+ef{subsec:groups2:the-class-formula}]
 \end{exer}
 \begin{exer}{}{exer:groups2:1.7}
   Prove or disprove that if $p$ is prime, then every group of order
@@ -413,12 +415,13 @@ Exercise~1.22.
 \begin{exer}{}{exer:groups2:1.8}
   \exerused{} Let $p$ be a prime number, and let $G$ be a $p$-group:
   $|G| = p^r$.  Prove that $G$ contains a normal subgroup of order
-  $p^k$ for every nonnegative $k \leq r$. [\S{}2.2]
+  $p^k$ for every nonnegative $k \leq r$. [\S{}
+ef{subsec:groups2:sylow-i}]
 \end{exer}
 \begin{exer}{}{exer:groups2:1.9}
   $\lnot$ Let $p$ be a prime number, $G$ a $p$-group, and $H$ a
   nontrivial normal subgroup of $G$. Prove that
-  $H \cap Z(G) \neq \{e\}$. (Hint: Use the class formula.) [3.11]
+  $H \cap Z(G) \neq \{e\}$. (Hint: Use the class formula.) [\ref{exer:groups2:3.11}]
 \end{exer}
 \begin{exer}{}{exer:groups2:1.10}
   Prove that if $G$ is a group of odd order and $g \in G$ is conjugate
@@ -433,12 +436,12 @@ Exercise~1.22.
 \end{exer}
 \begin{exer}{}{exer:groups2:1.12}
   Verify that the class formula for both $D_8$ and $Q_8$ (cf.\
-  Exercise~III.1.12) is $8 = 2 + 2 + 2 + 2$. (Also note that
+  \Cref{exer:rings:quaternions}) is $8 = 2 + 2 + 2 + 2$. (Also note that
   $D_8 \not\cong Q_8$.)
 \end{exer}
 \begin{exer}{}{exer:groups2:1.13}
   \exerused{} Let $G$ be a noncommutative group of order 6. As
-  observed in Example~1.10, $G$ must have trivial center and exactly
+  observed in \Cref{exam:groups2:order-6-class-formula}, $G$ must have trivial center and exactly
   two conjugacy classes, of order 2 and 3.
   \begin{itemize}
   \item Prove that if every element of a group has order $\leq 2$,
@@ -451,7 +454,9 @@ Exercise~1.22.
   \item Prove that $x$ has order 2.
   \item Prove that $x$ and $y$ generate $G$.
   \item Prove that $G \cong S_3$.
-  \end{itemize} [\S{}1.3, \S{}2.5]
+  \end{itemize} [\S{}
+ef{subsec:groups2:the-class-formula}, \S{}
+ef{subsec:groups2:applications}]
 \end{exer}
 \begin{exer}{}{exer:groups2:1.14}
   Let $G$ be a group, and assume $[G : Z(G)] = n$ is finite. Let
@@ -469,21 +474,21 @@ Exercise~1.22.
   $[a]_G$, the conjugacy class of $a$ in $H$, resp., $G$. Prove that
   either $[a]_H = [a]_G$ or $[a]_H$ is half the size of $[a]_G$,
   according to whether the centralizer $Z_G(a)$ is not or is contained
-  in $H$. (Hint: Note that $H$ is normal in $G$, by Exercise~II.8.2;
-  apply Proposition~II.8.11.) [\S{}4.4]
+  in $H$. (Hint: Note that $H$ is normal in $G$, by \Cref{exer:groups:index-2-subgroup-normal};
+  apply \Cref{prop:groups:second-isomorphism-theorem}.) [\S{}\ref{subsec:groups2:conjugacy-an-simplicity}]
 \end{exer}
 \begin{exer}{}{exer:groups2:1.17}
   $\lnot$ Let $H$ be a proper subgroup of a finite group $G$. Prove
   that $G$ is not the union of the conjugates of $H$. (Hint: You know
   the number of conjugates of $H$; keep in mind that any two subgroups
-  overlap, at least at the identity.) [1.18, 1.20]
+  overlap, at least at the identity.) [\ref{exer:groups2:1.18}, \ref{exer:groups2:1.20}]
 \end{exer}
 \begin{exer}{}{exer:groups2:1.18}
   Let $S$ be a set endowed with a transitive action of a finite group
   $G$, and assume $|S| \geq 2$. Prove that there exists a $g \in G$
   without fixed points in $S$, that is, such that $gs \neq s$ for all
-  $s \in S$. (Hint: By Proposition~II.9.9, you may assume $S = G/H$,
-  with $H$ proper in $G$. Use Exercise~1.17.)
+  $s \in S$. (Hint: By \Cref{prop:groups:transitive-action-is-g-mod-h}, you may assume $S = G/H$,
+  with $H$ proper in $G$. Use \Cref{exer:groups2:1.17}.)
 \end{exer}
 \begin{exer}{}{exer:groups2:1.19}
   Let $H$ be a proper subgroup of a finite group $G$. Prove that there
@@ -491,11 +496,11 @@ Exercise~1.22.
 \end{exer}
 \begin{exer}{}{exer:groups2:1.20}
   Let $G = \mathrm{GL}_2(\C)$, and let $H$ be the subgroup consisting
-  of upper triangular matrices (Exercise~II.6.2). Prove that $G$ is
+  of upper triangular matrices (\Cref{exer:groups:upper-triangular-subgroup}). Prove that $G$ is
   the union of the conjugates of $H$. Thus, the finiteness hypothesis
-  in Exercise~1.17 is necessary. (Hint: Equivalently, prove that every
+  in \Cref{exer:groups2:1.17} is necessary. (Hint: Equivalently, prove that every
   $2 \times 2$ matrix is conjugate to a matrix in $H$. You will use
-  the fact that $\C$ is algebraically closed; see Example~III.4.14.)
+  the fact that $\C$ is algebraically closed; see \Cref{exam:rings:speck-prime-ideals-maximal}.)
 \end{exer}
 \begin{exer}{}{exer:groups2:1.21}
   \exerused{} Let $H$, $K$ be subgroups of a group $G$, with
@@ -503,17 +508,17 @@ Exercise~1.22.
   $\gamma : H \to \Aut_{\categ{Grp}}(K)$ defined by
   conjugation is a homomorphism of groups and that
   $\ker\gamma = H \cap Z_G(K)$, where $Z_G(K)$ is the centralizer of
-  $K$.  [\S{}1.4, 1.22]
+  $K$.  [\S{}\ref{subsec:groups2:conjugation-of-subsets-and-subgroups}, \ref{exer:groups2:1.22}]
 \end{exer}
 \begin{exer}{}{exer:groups2:1.22}
   \exerused{} Let $G$ be a finite group, and let $H$ be a cyclic
   subgroup of $G$ of order $p$. Assume that $p$ is the smallest prime
   dividing the order of $G$ and that $H$ is normal in $G$. Prove that
-  $H$ is contained in the center of $G$. (Hint: By Exercise~1.21 there
+  $H$ is contained in the center of $G$. (Hint: By \Cref{exer:groups2:1.21} there
   is a homomorphism
   $\gamma : G \to \Aut_{\categ{Grp}}(H)$; by
-  Exercise~II.4.14, $\Aut_{\categ{Grp}}(H)$ has order
-  $p - 1$. What can you say about $\gamma$?) [\S{}1.4]
+  \Cref{exer:groups:aut-cn-euler-phi}, $\Aut_{\categ{Grp}}(H)$ has order
+  $p - 1$. What can you say about $\gamma$?) [\S{}\ref{subsec:groups2:conjugation-of-subsets-and-subgroups}]
 \end{exer}
 
 \section{The Sylow theorems}
@@ -538,14 +543,14 @@ As it happens, only the \emph{abelian} version of this statement is
 needed for the proof of the first Sylow theorem; then the full
 statement of Cauchy's theorem follows from the first Sylow theorem
 itself. Since the (diligent) reader has already proved Cauchy's
-theorem for abelian groups (in Exercise~II.8.17), we could directly
+theorem for abelian groups (in \Cref{exer:groups:cauchy-abelian}), we could directly
 move on to Sylow theorems.  However, there is a quick
 proof\footnote{This argument is apparently due to James McKay.} of the
 full statement of Cauchy's theorem which does not rely on Sylow and is
 a good illustration of the power of the general `class formula for
 arbitrary actions' (\cref{prop:groups2:class-formula-action}). I will
 present this proof, while also encouraging the reader to go back and
-(re)do Exercise~II.8.17 now.
+(re)do \Cref{exer:groups:cauchy-abelian} now.
 \begin{proof}[Proof of \cref{thm:groups2:cauchy}]
   Consider the set $S$ of ordered $p$-tuples of elements of $G$:
   \[
@@ -600,7 +605,7 @@ The proof of this fact is left to the reader (as an incentive to
 really understand the proof of \cref{thm:groups2:cauchy}).
 \cref{fact:groups2:cauchy-cyclic-count}, coupled with the simple
 observation that if there is only 1 cyclic subgroup $H$ of order $p$,
-then that subgroup must be normal (Exercise~2.2), suffices for
+then that subgroup must be normal (\Cref{exer:groups2:2.2}), suffices for
 interesting applications.
 
 \begin{defn}{}{defn:groups2:simple-group}
@@ -614,7 +619,7 @@ to be able to tell whether a group is simple or not.\footnote{In fact,
   a complete list of all finite simple groups is known: this is the
   classification result mentioned at the end of \S{}II.6.3, arguably
   one of the deepest and hardest results in mathematics.}
-\begin{exam}{}{}
+\begin{exam}{}{exam:groups2:mp-not-simple}
   Let $p$ be a positive prime integer. If $|G| = mp$, with
   $1 < m < p$, then $G$ is not simple.
 
@@ -681,7 +686,7 @@ and I see no reason to hide this fact. Here is the argument:
   by hypothesis, we have that $p^{k-1}$ divides the order of $G/N$. By
   the induction hypothesis, we may conclude that $G/N$ contains a
   subgroup of order $p^{k-1}$. By the structure of the subgroups of a
-  quotient (\S{}II.8.3, especially Proposition~II.8.9), this subgroup
+  quotient (\S{}II.8.3, especially \Cref{prop:groups:subgroups-of-quotients-bijection}), this subgroup
   must be of the form $P/N$, for $P$ a subgroup of $G$.
 
   But then $|P| = |P/N| \cdot |N| = p^{k-1} \cdot p = p^k$, as needed.
@@ -692,7 +697,7 @@ given above is easy to remember and is a good template for similar
 arguments.
 
 \begin{rem}{}{}
-  The diligent reader worked out in Exercise~II.8.20 a \emph{stronger}
+  The diligent reader worked out in \Cref{exer:groups:abelian-subgroup-of-order-d} a \emph{stronger}
   statement than \cref{prop:groups2:sylow-i-strong}, for abelian
   groups. The arguments are similar; the advantage in the abelian case
   is that any cyclic subgroup produced by Cauchy's theorem is
@@ -811,7 +816,7 @@ useful in establishing the existence of normal subgroups of $G$: since
 all $p$-Sylow subgroups of a group are conjugates of each other (by
 the second Sylow theorem), if there is only one $p$-Sylow subgroup,
 then that subgroup must be normal.\footnote{For an alternative
-  viewpoint, see Exercise~2.2.}
+  viewpoint, see \Cref{exer:groups2:2.2}.}
 \begin{thm}{Third Sylow theorem}{thm:groups2:sylow-iii}
   Let $p$ be a prime integer, and let $G$ be a finite group of order
   $|G| = p^r m$. Assume that $p$ does not divide $m$. Then the number
@@ -846,7 +851,7 @@ then that subgroup must be normal.\footnote{For an alternative
   as needed.
 \end{proof}
 Of course there are other ways to prove \cref{thm:groups2:sylow-iii}:
-see for example Exercise~2.11.
+see for example \Cref{exer:groups2:2.11}.
 
 \subsection{Applications}
 \label{subsec:groups2:applications}
@@ -863,7 +868,7 @@ the exercises at the end of this section.
 
 \begin{fact}{}{fact:groups2:nonsimple-mpr}
   Let $G$ be a group of order $mp^r$, where $p$ is a prime integer and
-  $1 < m < p$. Then $G$ is not simple. (Cf.\ Example~2.4.)
+  $1 < m < p$. Then $G$ is not simple. (Cf.\ \Cref{exam:groups2:mp-not-simple}.)
 \end{fact}
 \begin{proof}
   By the third Sylow theorem, the number $N_p$ of $p$-Sylow subgroups
@@ -912,7 +917,7 @@ its fruits so readily, however.
 Even this more refined counting will often fail, and one has to dig
 deeper.
 
-\begin{exam}{}{}
+\begin{exam}{}{exam:groups2:no-simple-order-24}
   There are no simple groups of order 24.
 
   Indeed, let $G$ be a group of order 24, and consider its 2-Sylow
@@ -942,7 +947,7 @@ $n$. Beware: such problems are a common feature of qualifying exams.
   action of $G$ on $H$, hence (by \cref{exer:groups2:1.21}) a
   homomorphism $\gamma : G \to \Aut(H)$.  Now $H$ is
   cyclic of order $p$, so $|\Aut(H)| = p - 1$
-  (Exercise~II.4.14); the order of $\gamma(G)$ must divide both $pq$
+  (\Cref{exer:groups:aut-cn-euler-phi}); the order of $\gamma(G)$ must divide both $pq$
   and $p - 1$, and it follows that $\gamma$ is the trivial map.
   Therefore, conjugation is trivial on $H$: that is,
   $H \subseteq Z(G)$.  \cref{lem:groups2:quotient-center-cyclic}
@@ -951,14 +956,14 @@ $n$. Beware: such problems are a common feature of qualifying exams.
   Finally, an abelian group of order $pq$, with $p < q$ primes, is
   necessarily cyclic: indeed it must contain elements $g$, $h$ of
   order $p$, $q$, respectively (for example by Cauchy's theorem), and
-  then $|gh| = pq$ by Exercise~II.1.14.
+  then $|gh| = pq$ by \Cref{exer:groups:order-product-coprime}.
 \end{proof}
 For example, this statement `classifies' all groups of order 15, 33,
 35, 51, $\dots$: such groups are necessarily cyclic.
 
 The argument given in the proof is rather `high-brow', as it involves
 the automorphism group of $H$; that is precisely why I gave it. For
-low-brow alternatives, see Exercise~2.18 or Remark~5.4.
+low-brow alternatives, see \Cref{exer:groups2:2.18} or \Cref{rem:groups2:5.4}.
 
 The condition $q \not\equiv 1 \bmod p$ in
 \cref{fact:groups2:order-pq-cyclic} is clearly necessary: indeed,
@@ -968,10 +973,10 @@ $|G| = pq$, with $p < q$ prime, and $G$ has a normal subgroup of order
 $p$, then $G$ is cyclic. If $q \equiv 1 \bmod p$, it can be shown that
 there is in fact a unique noncommutative group of order $pq$ up to
 isomorphism: the reader will work this out after learning about
-semidirect products (Exercise~5.12). But we are in fact already in the
+semidirect products (\Cref{exer:groups2:5.12}). But we are in fact already in the
 position of obtaining rather sophisticated information about this
 group, even without knowing its construction in general
-(Exercise~2.19).
+(\Cref{exer:groups2:2.19}).
 
 For fun, let's tackle the case in which $p = 2$.
 \begin{fact}{}{fact:groups2:order-2q-dihedral}
@@ -995,11 +1000,11 @@ For fun, let's tackle the case in which $p = 2$.
   \[
     q \mid (r^2 - 1) = (r-1)(r+1)
   \]
-  by Corollary~II.1.11. Since $q$ is prime, this says that
+  by \Cref{coro:groups:order-multiple}. Since $q$ is prime, this says that
   $q \mid (r-1)$ or $q \mid (r+1)$; since $0 \leq r \leq q-1$, it
   follows that $r = 1$ or $r = q - 1$.  If $r = 1$, then
   $xyx^{-1} = y$; that is, $xy = yx$. But then the order of $xy$ is
-  $2q$ (by Exercise~II.1.14), and $G$ is cyclic, a contradiction.
+  $2q$ (by \Cref{exer:groups:order-product-coprime}), and $G$ is cyclic, a contradiction.
 
   Therefore $r = q - 1$, and we have established the relations
   \[
@@ -1010,7 +1015,7 @@ For fun, let's tackle the case in which $p = 2$.
     \end{cases}
   \]
   These are the relations satisfied by generators $x$, $y$ of
-  $D_{2q}$, as the reader hopefully verified in Exercise~II.2.5; the
+  $D_{2q}$, as the reader hopefully verified in \Cref{exer:groups:dihedral-generators}; the
   statement follows.
 \end{proof}
 \cref{fact:groups2:order-2q-dihedral} yields a classification of
@@ -1023,7 +1028,8 @@ isomorphic to $D_6 \cong S_3$.
 \subsection*{Exercises}
 
 \begin{exer}{}{exer:groups2:2.1}
-  \exerused{} Prove \cref{fact:groups2:cauchy-cyclic-count}. [\S{}2.1]
+  \exerused{} Prove \cref{fact:groups2:cauchy-cyclic-count}. [\S{}
+ef{subsec:groups2:cauchy-s-theorem}]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.2}
   \exerused{} Let $G$ be a group. A subgroup $H$ of $G$ is
@@ -1038,7 +1044,9 @@ isomorphic to $D_6 \cong S_3$.
   \item Let $K$ be a normal subgroup of a finite group $G$, and assume
     that $|K|$ and $|G/K|$ are relatively prime. Prove that $K$ is
     characteristic in $G$.
-  \end{itemize} [\S{}2.1, \S{}2.4, 2.13, \S{}3.3]
+  \end{itemize} [\S{}
+ef{subsec:groups2:cauchy-s-theorem}, \S{}
+ef{subsec:groups2:sylow-iii}, \ref{exer:groups2:2.13}, \S{}\ref{subsec:groups2:the-commutator-subgroup-derived-series-and-solvability}]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.3}
   Prove that a nonzero abelian group $G$ is simple if and only if
@@ -1048,7 +1056,7 @@ isomorphic to $D_6 \cong S_3$.
   \exerused{} Prove that a nontrivial group $G$ is simple if and only
   if its only homomorphic images (i.e., groups $G'$ such that there is
   an onto homomorphism $G \to G'$) are the trivial group and $G$
-  itself (up to isomorphism). [\S{}3.2]
+  itself (up to isomorphism). [\S{}\ref{subsec:groups2:composition-factors-schreier-s-theorem}]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.5}
   Let $G$ be a simple group, and assume $\varphi : G \to G'$ is a
@@ -1062,7 +1070,7 @@ isomorphic to $D_6 \cong S_3$.
 \begin{exer}{}{exer:groups2:2.7}
   Prove that there are no simple groups of order 6, 10, 14, 15, 20,
   21, 22, 26, 28, 33, 34, 35, 38, 39, 42, 44, 46, 51, 52, 55, 57, or
-  58. (Hint: Example~2.4.)
+  58. (Hint: \Cref{exam:groups2:mp-not-simple}.)
 \end{exer}
 \begin{exer}{}{exer:groups2:2.8}
   Let $G$ be a finite group, $p$ a prime integer, and let $N$ be the
@@ -1076,22 +1084,23 @@ isomorphic to $D_6 \cong S_3$.
   $\lnot$ Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and
   let $H \subseteq G$ be a $p$-subgroup. Assume $H \subseteq
   N_G(P)$. Prove that $H \subseteq P$. (Hint: $P$ is normal in
-  $N_G(P)$, so $PH$ is a subgroup of $N_G(P)$ by Proposition~II.8.11,
+  $N_G(P)$, so $PH$ is a subgroup of $N_G(P)$ by \Cref{prop:groups:second-isomorphism-theorem},
   and $|PH/P| = |H/(P \cap H)|$. Show that this implies that $PH$ is a
   $p$-group, and hence $PH = P$ since $P$ is a maximal $p$-subgroup of
-  $G$. Deduce that $H \subseteq P$.) [2.10]
+  $G$. Deduce that $H \subseteq P$.) [\ref{exer:groups2:2.10}]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.10}
   $\lnot$ Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and
   act with $P$ by conjugation on the set of $p$-Sylow subgroups of
   $G$. Show that $P$ is the unique fixed point of this action. (Hint:
-  Use Exercise~2.9.) [2.11]
+  Use \Cref{exer:groups2:2.9}.) [\ref{exer:groups2:2.11}]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.11}
   \exerused{} Use the second Sylow theorem,
   \cref{coro:groups2:conjugate-subgroups-divides-index}, and
-  Exercise~2.10 to paste together an alternative proof of the third
-  Sylow theorem. [\S{}2.4]
+  \Cref{exer:groups2:2.10} to paste together an alternative proof of the third
+  Sylow theorem. [\S{}
+ef{subsec:groups2:sylow-iii}]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.12}
   Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and let
@@ -1107,7 +1116,7 @@ isomorphic to $D_6 \cong S_3$.
     subgroup $P$.  Assume $P$ is normal in $H$ and $H$ is normal in
     $G$. Prove that $P$ is normal in $G$.
   \item Prove that $N_G(N_G(P)) = N_G(P)$.
-  \end{itemize} [3.12]
+  \end{itemize} [\ref{exer:groups2:3.12}]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.14}
   Prove that there are no simple groups of order 18, 40, 45, 50, or
@@ -1133,10 +1142,10 @@ isomorphic to $D_6 \cong S_3$.
   \item Prove that necessarily $xy = y^3 x$. (Hint: To eliminate
     $xy = y^2 x$, multiply on the right by $y$.)
   \item Prove that $G \cong D_8$ or $G \cong Q_8$.
-  \end{itemize} [6.2, VII.6.6]
+  \end{itemize} [\ref{exer:groups2:6.2}, VII.6.6]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.17}
-  $\lnot$ Let $R$ be a division ring (Definition~III.1.13), and assume
+  $\lnot$ Let $R$ be a division ring (\Cref{defn:rings:division-ring}), and assume
   $|R| = 64$. Prove that $R$ is necessarily commutative (hence, a
   field), as follows:
   \begin{itemize}
@@ -1146,12 +1155,12 @@ isomorphic to $D_6 \cong S_3$.
     $G$.
   \item Prove that the set of elements of $R$ commuting with every
     element of $G$ is a sub-division ring of $R$ containing $G$. (Cf.\
-    Exercise~III.2.10.)
+    \Cref{exer:rings:centralizer-is-subring}.)
   \item Conclude that $G$ is contained in the center of $R$. Recall
     that the center of $R$ is a sub-division ring of $R$ (cf.\
-    Exercise~III.2.9), and conclude that $R$ is commutative.
+    \Cref{exer:rings:center-is-subring}), and conclude that $R$ is commutative.
   \end{itemize}
-  Like Exercise~III.2.11, this is a particular case of a theorem of
+  Like \Cref{exer:rings:division-ring-p2-commutative}, this is a particular case of a theorem of
   Wedderburn, according to which every finite division ring is a
   field. [VII.5.16]
 \end{exer}
@@ -1160,7 +1169,8 @@ isomorphic to $D_6 \cong S_3$.
   \cref{fact:groups2:order-pq-cyclic} as follows: use the third Sylow
   theorem to count the number of elements of order $p$ and $q$ in $G$;
   use this to show that there are elements in $G$ of order neither 1
-  nor $p$ nor $q$; deduce that $G$ is cyclic. [\S{}2.5]
+  nor $p$ nor $q$; deduce that $G$ is cyclic. [\S{}
+ef{subsec:groups2:applications}]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.19}
   \exerused{} Let $G$ be a noncommutative group of order $pq$, where
@@ -1171,7 +1181,8 @@ isomorphic to $D_6 \cong S_3$.
   \item Draw the lattice of subgroups of $G$.
   \item Find the number of elements of each possible order in $G$.
   \item Find the number and size of the conjugacy classes in $G$.
-  \end{itemize} [\S{}2.5]
+  \end{itemize} [\S{}
+ef{subsec:groups2:applications}]
 \end{exer}
 \begin{exer}{}{exer:groups2:2.20}
   How many elements of order 7 are there in a simple group of order
@@ -1193,8 +1204,8 @@ isomorphic to $D_6 \cong S_3$.
   group $G$.  Prove that if $G$ is simple, then $|G|$ divides $N_p!$
   for all primes $p$ in the factorization of $|G|$. More generally,
   prove that if $G$ is simple and $H$ is a subgroup of $G$ of index
-  $N > 1$, then $|G|$ divides $N!$. (Hint: Exercise~II.9.12.) This
-  problem capitalizes on the idea behind Example~2.15.  [2.25]
+  $N > 1$, then $|G|$ divides $N!$. (Hint: \Cref{exer:groups:index-n-normal-subgroup-bound}.) This
+  problem capitalizes on the idea behind \Cref{exam:groups2:no-simple-order-24}.  [\ref{exer:groups2:2.25}]
 \end{exer}
 
 \begin{exer}{}{exer:groups2:2.24}
@@ -1202,7 +1213,7 @@ isomorphic to $D_6 \cong S_3$.
   order less than 60. If you have sufficient stamina, prove that the
   next possible order for a noncommutative simple group is 168. (Don't
   feel too bad if you have to cheat and look up a few particularly
-  troublesome orders $> 60$.) [\S{}4.4]
+  troublesome orders $> 60$.) [\S{}\ref{subsec:groups2:conjugacy-an-simplicity}]
 \end{exer}
 
 \begin{exer}{}{exer:groups2:2.25}
@@ -1217,11 +1228,11 @@ isomorphic to $D_6 \cong S_3$.
     of them. Prove that the centralizer of $g$ has index 5.
   \end{itemize}
   Conclude that every simple group\footnote{The reader will prove
-    later (Exercise~4.22) that there is in fact only one simple group
+    later (\Cref{exer:groups2:4.22}) that there is in fact only one simple group
     of order 60 up to isomorphism and that this group contains exactly
     five 2-Sylow subgroups. The result obtained here will be needed to
     establish this fact.} of order 60 contains a subgroup of index
-  5. [4.22]
+  5. [\ref{exer:groups2:4.22}]
 \end{exer}
 
 \section{Composition series and solvability}
@@ -1325,7 +1336,7 @@ orders).
   \]
   of $K$: this is not difficult to see, and will be verified more
   formally in the proof of \cref{prop:groups2:comp-series-normal}. By
-  Proposition~II.8.11 (the ``second isomorphism theorem''),
+  \Cref{prop:groups:second-isomorphism-theorem} (the ``second isomorphism theorem''),
   \[
     \frac{G_1}{K} = \frac{G_1}{G_1 \cap G'_1} \cong \frac{G_1
       G'_1}{G'_1} = \frac{G}{G'_1} \quad\text{and}\quad \frac{G'_1}{K}
@@ -1427,7 +1438,7 @@ This phenomenon holds in complete generality:
 \begin{proof}
   If $G/N$ has a composition series, the subgroups appearing in it
   correspond to subgroups of $G$ containing $N$, with isomorphic
-  quotients, by Proposition~II.8.10 (the ``third isomorphism
+  quotients, by \Cref{prop:groups:third-isomorphism-theorem} (the ``third isomorphism
   theorem''). Thus, if both $G/N$ and $N$ have composition series,
   juxtaposing them produces a composition series for $G$, with the
   stated consequence on composition factors.  The converse is a little
@@ -1486,7 +1497,7 @@ This phenomenon holds in complete generality:
   \]
   this is surjective (check!), and the subgroup $G_{i+1}$ of the
   source is sent to the identity element in the target; hence (by
-  Theorem~II.7.12) there is an onto homomorphism
+  \Cref{thm:groups:quotient-universal-property}) there is an onto homomorphism
   \[
     \frac{G_i}{G_{i+1}} \twoheadrightarrow \frac{G_i N}{G_{i+1} N}.
   \]
@@ -1541,7 +1552,7 @@ Such a group may well be thought of as the closest `commutative
 approximation' of the given group $G$. To verify that this universal
 object exists, we introduce the following important notion. (The
 diligent reader has begun exploring this territory already, in
-Exercise~II.7.11.)
+\Cref{exer:groups:commutator-subgroup-normal}.)
 \begin{defn}{}{defn:groups2:commutator-subgroup}
   Let $G$ be a group. The \emph{commutator subgroup} of $G$ is the
   subgroup generated by all elements $ghg^{-1}h^{-1}$ with
@@ -1570,7 +1581,7 @@ useful, remark:
   and $\varphi(G'_1) \subseteq G'_2$.
 \end{lem}
 This simple observation makes the key properties of the commutator
-subgroup essentially immediate (cf.\ Exercise~II.7.11):
+subgroup essentially immediate (cf.\ \Cref{exer:groups:commutator-subgroup-normal}):
 
 \begin{prop}{}{prop:groups2:commutator-subgroup-props}
   Let $G'$ be the commutator subgroup of $G$. Then
@@ -1602,7 +1613,7 @@ subgroup essentially immediate (cf.\ Exercise~II.7.11):
   $G' \subseteq \ker\alpha$.
 
   ---The universality follows from the previous point and from the
-  universal property of quotients (Theorem~II.7.12).
+  universal property of quotients (\Cref{thm:groups:quotient-universal-property}).
 \end{proof}
 Taking successive commutators of a group produces a descending
 sequence of subgroups,
@@ -1718,16 +1729,16 @@ the scope of this book: the original 1963 proof runs about 250 pages.
 \begin{exer}{}{exer:groups2:3.3}
   \exerused Prove that every finite group has a composition
   series. Prove that $\Z$ does not have a composition
-  series. [\S{}3.1]
+  series. [\S{}\ref{subsec:groups2:the-jordan-h-older-theorem}]
 \end{exer}
 
 \begin{exer}{}{exer:groups2:3.4}
   \exerused Find an example of two nonisomorphic groups with the same
-  composition factors. [\S{}3.2]
+  composition factors. [\S{}\ref{subsec:groups2:composition-factors-schreier-s-theorem}]
 \end{exer}
 \begin{exer}{}{exer:groups2:3.5}
   \exerused Show that if $H$, $K$ are \emph{normal} subgroups of a
-  group $G$, then $HK$ is a normal subgroup of $G$. [\S{}3.1]
+  group $G$, then $HK$ is a normal subgroup of $G$. [\S{}\ref{subsec:groups2:the-jordan-h-older-theorem}]
 \end{exer}
 
 \begin{exer}{}{exer:groups2:3.6}
@@ -1739,12 +1750,12 @@ the scope of this book: the original 1963 proof runs about 250 pages.
   \exerused Locate and understand a proof of (the general form of)
   Schreier's theorem that does not use the Jordan-H\"older
   theorem. Then obtain an alternative proof of the Jordan-H\"older
-  theorem, using Schreier's. [\S{}3.2]
+  theorem, using Schreier's. [\S{}\ref{subsec:groups2:composition-factors-schreier-s-theorem}]
 \end{exer}
 
 \begin{exer}{}{exer:groups2:3.8}
   \exerused Prove
-  Lemma~\ref{lem:groups2:commutator-homomorphism}. [\S{}3.3]
+  Lemma~\ref{lem:groups2:commutator-homomorphism}. [\S{}\ref{subsec:groups2:the-commutator-subgroup-derived-series-and-solvability}]
 \end{exer}
 \begin{exer}{}{exer:groups2:3.9}
   Let $G$ be a nontrivial $p$-group. Construct explicitly an abelian
@@ -1758,7 +1769,7 @@ the scope of this book: the original 1963 proof runs about 250 pages.
   $\lnot$ Let $G$ be a group. Define inductively an increasing
   sequence $Z_0 = \{e\} \subseteq Z_1 \subseteq Z_2 \subseteq \dots$
   of subgroups of $G$ as follows: for $i \geq 1$, $Z_i$ is the
-  subgroup of $G$ corresponding (as in Proposition~II.8.9) to the
+  subgroup of $G$ corresponding (as in \Cref{prop:groups:subgroups-of-quotients-bijection}) to the
   center of $G/Z_{i-1}$.
   \begin{itemize}
   \item Prove that each $Z_i$ is normal in $G$, so that this
@@ -1821,7 +1832,7 @@ the scope of this book: the original 1963 proof runs about 250 pages.
 \end{exer}
 \begin{exer}{}{exer:groups2:3.16}
   \exerused Prove that every group of order $< 120$ and $\neq 60$ is
-  solvable.  [\S{}4.4, \S{}VII.7.4]
+  solvable.  [\S{}\ref{subsec:groups2:conjugacy-an-simplicity}, OLD:\S{}VII.7.4]
 \end{exer}
 
 \begin{exer}{}{exer:groups2:3.17}
@@ -2259,9 +2270,9 @@ two sets.
   If $Z_{S_n}(\sigma) \not\subseteq A_n$, then note that
   $A_n Z_{S_n}(\sigma) = S_n$: indeed, $A_n Z_{S_n}(\sigma)$ is a
   subgroup of $S_n$ (because $A_n$ is normal; cf.\
-  Proposition~II.8.11), and it properly contains $A_n$, so it must
+  \Cref{prop:groups:second-isomorphism-theorem}), and it properly contains $A_n$, so it must
   equal $S_n$ as $A_n$ has index $2$ in $S_n$. By index considerations
-  (cf.\ Exercise~II.8.21)
+  (cf.\ \Cref{exer:groups:hk-cardinality-formula})
   \[ [A_n : Z_{A_n}(\sigma)] = [A_n : A_n \cap Z_{S_n}(\sigma)] = [A_n
     Z_{S_n}(\sigma) : Z_{S_n}(\sigma)] = [S_n : Z_{S_n}(\sigma)],
   \]
@@ -2387,7 +2398,7 @@ The reader will check that $A_6$ is simple, by the same method
 groups $A_n$, $n \geq 5$, are simple (and noncommutative), implying
 that $S_n$ is not solvable for $n \geq 5$, and these facts are rather
 important in view of applications to Galois theory (cf., e.g.,
-Corollary~VII.7.16). Note that $A_2$ is trivial, $A_3 \cong \Z/3\Z$ is
+Corollary VII.7.16). Note that $A_2$ is trivial, $A_3 \cong \Z/3\Z$ is
 simple and abelian, and $A_4$ is not simple
 (Exercise~\ref{exer:groups2:2.24}).
 
@@ -2502,7 +2513,8 @@ Exercise~\ref{exer:groups2:3.16}.
       8 & 1 & 2 & 7 & 5 & 3 & 4 & 6
     \end{pmatrix}
   \]
-  in $S_8$. [\S{}4.1]
+  in $S_8$. [\S{}
+ef{subsec:groups2:cycle-notation}]
 \end{exer}
 \begin{exer}{}{exer:groups2:4.2}
   \exerused{} Suppose
@@ -2512,7 +2524,8 @@ Exercise~\ref{exer:groups2:3.16}.
   \]
   are two products of disjoint cycles. Prove that the factors agree up
   to order. (Hint: The two corresponding partitions of
-  $\{1, \dots, n\}$ must agree.) [\S{}4.1]
+  $\{1, \dots, n\}$ must agree.) [\S{}
+ef{subsec:groups2:cycle-notation}]
 \end{exer}
 \begin{exer}{}{exer:groups2:4.3}
   Assume $\sigma$ has type $[\lambda_1, \dots, \lambda_r]$ and that
@@ -2569,7 +2582,7 @@ Exercise~\ref{exer:groups2:3.16}.
   Let $p$ be a prime integer. Compute the number of $p$-Sylow
   subgroups of $S_p$. (Use \cref{exer:groups2:4.10}.) Use this result
   and Sylow's third theorem to prove again the `only if' implication
-  in Wilson's theorem (cf.\ Exercise~II.4.16).
+  in Wilson's theorem (cf.\ \Cref{exer:groups:wilsons-theorem}).
 \end{exer}
 \begin{exer}{}{exer:groups2:4.12}
   \exerused{} A subgroup $G$ of $S_n$ is \emph{transitive} if the
@@ -2590,16 +2603,16 @@ Exercise~\ref{exer:groups2:3.16}.
     \end{itemize}
     With a bit of stamina, you can prove that these are the
     \emph{only} transitive subgroups of $S_4$.
-  \end{itemize} [\S{}VII.7.5]
+  \end{itemize} [OLD:\S{}VII.7.5]
 \end{exer}
 \begin{exer}{}{exer:groups2:4.13}
   (If you know about determinants.) Prove that the sign of a
   permutation $\sigma$, as defined in \cref{defn:groups2:sign}, equals
-  the determinant of the matrix $M_\sigma$ defined in Exercise~II.2.1.
+  the determinant of the matrix $M_\sigma$ defined in \Cref{exer:groups:permutation-matrix}.
 \end{exer}
 \begin{exer}{}{exer:groups2:4.14}
   \exerused{} Prove that the center of $A_n$ is trivial for
-  $n \geq 4$.  [\S{}4.4]
+  $n \geq 4$.  [\S{}\ref{subsec:groups2:conjugacy-an-simplicity}]
 \end{exer}
 \begin{exer}{}{exer:groups2:4.15}
   Justify the `pictorial' recipe given in \S{}4.3 to decide whether a
@@ -2618,7 +2631,7 @@ Exercise~\ref{exer:groups2:3.16}.
   \begin{itemize}
   \item Find the class formula for $A_4$.
   \item Use it to prove that $A_4$ has no subgroup of order $6$.
-    [\S{}II.8.5]
+    [\S{}\ref{subsec:groups:the-index-and-lagrange-s-theorem}]
   \end{itemize}
 \end{exer}
 \begin{exer}{}{exer:groups2:4.18}
@@ -2642,16 +2655,16 @@ Exercise~\ref{exer:groups2:3.16}.
 \begin{exer}{}{exer:groups2:4.21}
   \exerused{} Prove that $A_6$ is simple, by using its class formula
   (as is done for $A_5$ in the proof of
-  \cref{coro:groups2:4.17}). [\S{}4.4]
+  \cref{coro:groups2:4.17}). [\S{}\ref{subsec:groups2:conjugacy-an-simplicity}]
 \end{exer}
 \begin{exer}{}{exer:groups2:4.22}
   $\lnot$ Verify that $A_5$ is the \emph{only} simple group of order
-  $60$, up to isomorphism. (Hint: By Exercise~2.25, a simple group $G$
+  $60$, up to isomorphism. (Hint: By \Cref{exer:groups2:2.25}, a simple group $G$
   of order $60$ contains a subgroup of index $5$. Use this fact to
   construct a homomorphism $G \to S_5$, and prove that the image of
   this homomorphism must be $A_5$.) Note that $A_5$ has exactly five
   $2$-Sylow subgroups; cf.\ \cref{exer:groups2:4.20}. Thus, the other
-  possibility contemplated in Exercise~2.25 does not occur. [2.25]
+  possibility contemplated in \Cref{exer:groups2:2.25} does not occur. [\ref{exer:groups2:2.25}]
 \end{exer}
 
 \section{Products of groups}
@@ -2666,11 +2679,11 @@ needed to reconstruct a group from its composition factors.
 \label{subsec:groups2:the-direct-product}
 Recall from~\S{}II.3.4 that the \emph{(direct) product} of two groups
 $H$, $K$ is the group supported on the set $H \times K$, with
-operation defined componentwise. We have checked (Proposition~II.3.4)
+operation defined componentwise. We have checked (\Cref{prop:groups:direct-product-universal})
 that the direct product satisfies the universal property defining
 products in the category \textsf{Grp}.  There are situations in which
 the direct product of two subgroups $N$, $H$ of a group $G$ may be
-realized as a subgroup of $G$. Recall (Proposition~II.8.11) that if
+realized as a subgroup of $G$. Recall (\Cref{prop:groups:second-isomorphism-theorem}) that if
 one of the subgroups is normal, then the subset $NH$ of $G$ is in fact
 a subgroup of $G$. The relation between $NH$ and $N \times H$ depends
 on how $N$ and $H$ intersect in $G$, so we take a look at this
@@ -2732,14 +2745,14 @@ In fact, under the same hypothesis more is true:
 \end{proof}
 \begin{rem}{}{rem:groups2:5.4}
   This result gives an alternative argument for the proof of
-  Claim~2.16: if $|G| = pq$, with $p < q$ prime integers, and $G$
+  \Cref{fact:groups2:order-pq-cyclic}: if $|G| = pq$, with $p < q$ prime integers, and $G$
   contains normal subgroups $H$, $K$ of order $p$, $q$, respectively
   (as is the case if $q \not\equiv 1 \bmod p$, by Sylow), then
   $H \cap K = \{e\}$ necessarily, and then \cref{prop:groups2:5.3}
   shows $HK \cong H \times K$. As $|HK| = |G| = pq$, this proves
   $G \cong H \times K \cong \Z/p\Z \times \Z/q\Z$. Finally, $(1, 1)$
   has order $pq$ in this group, so $G$ is cyclic, with the same
-  conclusion we obtained in Claim~2.16.
+  conclusion we obtained in \Cref{fact:groups2:order-pq-cyclic}.
 \end{rem}
 
 \subsection{Exact sequences of groups; extension problem}
@@ -2856,7 +2869,7 @@ and $H$ are normal and $N \cap H = \{e\}$, then $N$ and $H$ commute
 with each other. This is what ultimately causes the extension $NH$ to
 be trivial. Now, recall that as soon as $N$ is normal, then every
 subgroup $H$ of $G$ acts on $N$ by conjugation: in fact (cf.\
-Exercise~1.21) conjugation determines a homomorphism
+\Cref{exer:groups2:1.21}) conjugation determines a homomorphism
 \[\gamma : H \to \Aut_{\textsf{Grp}}(N), \quad
   h \mapsto \gamma_h.\] (Explicitly, for $h \in H$ the automorphism
 $\gamma_h : N \to N$ acts by $\gamma_h(n) := hnh^{-1}$.) The subgroups
@@ -3023,7 +3036,7 @@ semidirect product is sometimes called an \emph{internal} product.
 \end{exam}
 The reader should contemplate carefully the slightly more general case
 of dihedral groups (\cref{exer:groups2:5.11}); this enriches (and in a
-sense explains) the discussion presented in Claim~2.17.
+sense explains) the discussion presented in \Cref{fact:groups2:order-2q-dihedral}.
 
 In fact, semidirect products shed light on all groups of order $pq$,
 for $p < q$ primes; the reader should be able to complete the
@@ -3069,10 +3082,10 @@ $\Aut_{\textsf{Grp}}(N)$ and can be carried out. See
 \begin{exer}{}{exer:groups2:5.4}
   \exerused{} Prove that the sequence
   \[0 \longrightarrow \Z \xrightarrow{\cdot 2} \Z \longrightarrow
-    \Z/2\Z \longrightarrow 0\] is exact but does not split. [\S{}5.2]
+    \Z/2\Z \longrightarrow 0\] is exact but does not split. [\S{}\ref{subsec:groups2:exact-sequences-of-groups-extension-problem}]
 \end{exer}
 \begin{exer}{}{exer:groups2:5.5}
-  In Proposition~III.7.5 we have seen that if an exact sequence
+  In \Cref{prop:rings:split-sequence} we have seen that if an exact sequence
   \[0 \longrightarrow M \xrightarrow{\varphi} N \longrightarrow
     N/(\varphi(M)) \longrightarrow 0\] of abelian groups splits, then
   $\varphi$ has a left-inverse. Is this necessarily the case for split
@@ -3094,7 +3107,7 @@ $\Aut_{\textsf{Grp}}(N)$ and can be carried out. See
 \end{exer}
 \begin{exer}{}{exer:groups2:5.9}
   \exerused{} Prove that if $G = N \rtimes H$ is commutative, then
-  $G \cong N \times H$. [\S{}6.1]
+  $G \cong N \times H$. [\S{}\ref{subsec:groups2:classification-of-finite-abelian-groups}]
 \end{exer}
 \begin{exer}{}{exer:groups2:5.10}
   Let $N$ be a normal subgroup of a finite group $G$, and assume that
@@ -3104,7 +3117,7 @@ $\Aut_{\textsf{Grp}}(N)$ and can be carried out. See
 \end{exer}
 \begin{exer}{}{exer:groups2:5.11}
   \exerused{} For all $n > 0$ express $D_{2n}$ as a semidirect product
-  $C_n \rtimes_\theta C_2$, finding $\theta$ explicitly. [\S{}5.3]
+  $C_n \rtimes_\theta C_2$, finding $\theta$ explicitly. [\S{}\ref{subsec:groups2:internal-semidirect-products}]
 \end{exer}
 \begin{exer}{}{exer:groups2:5.12}
   \exerused{} Classify groups $G$ of order $pq$, with $p < q$ prime:
@@ -3113,7 +3126,8 @@ $\Aut_{\textsf{Grp}}(N)$ and can be carried out. See
   noncommutative groups of order $pq$ in this case. (You will likely
   have to use the fact that
   $\Aut_{\textsf{Grp}}(C_q) \cong C_{q-1}$ if $q$ is
-  prime; cf.\ Exercise~II.4.15.) [\S{}2.5, \S{}5.3]
+  prime; cf.\ \Cref{exer:groups:aut-z-aut-cp}.) [\S{}
+ef{subsec:groups2:applications}, \S{}\ref{subsec:groups2:internal-semidirect-products}]
 \end{exer}
 \begin{exer}{}{exer:groups2:5.13}
   $\lnot$ Let $G = N \rtimes_\theta H$ be a semidirect product, and
@@ -3125,7 +3139,7 @@ $\Aut_{\textsf{Grp}}(N)$ and can be carried out. See
 \begin{exer}{}{exer:groups2:5.14}
   Recall that
   $S_3 \cong \Aut_{\textsf{Grp}}(C_2 \times C_2)$
-  (Exercise~II.4.13). Let $\iota$ be this isomorphism. Prove that
+  (\Cref{exer:groups:aut-c2xc2-iso-s3}). Let $\iota$ be this isomorphism. Prove that
   $(C_2 \times C_2) \rtimes_\iota S_3 \cong S_4$. (Hint:
   \cref{exer:groups2:5.13}.)
 \end{exer}
@@ -3146,17 +3160,17 @@ $\Aut_{\textsf{Grp}}(N)$ and can be carried out. See
   \item Prove that $D_{28} \cong C_2 \times D_{14}$. The other
     noncommutative group of order $28$ is a \emph{generalized
       quaternionic group}.
-  \end{itemize} [\S{}5.3]
+  \end{itemize} [\S{}\ref{subsec:groups2:internal-semidirect-products}]
 \end{exer}
 \begin{exer}{}{exer:groups2:5.16}
-  Prove that the quaternionic group $Q_8$ (cf.\ Exercise~III.1.12)
+  Prove that the quaternionic group $Q_8$ (cf.\ \Cref{exer:rings:quaternions})
   cannot be written as a semidirect product of two nontrivial
   subgroups.
 \end{exer}
 \begin{exer}{}{exer:groups2:5.17}
   Prove that the multiplicative group $\mathbb{H}^*$ of nonzero
-  quaternions (cf.\ Exercise~III.1.12) is isomorphic to a semidirect
-  product $\mathrm{SU}(2) \rtimes \R^+$. (Hint: Exercise~III.2.5.) Is
+  quaternions (cf.\ \Cref{exer:rings:quaternions}) is isomorphic to a semidirect
+  product $\mathrm{SU}(2) \rtimes \R^+$. (Hint: \Cref{exer:rings:quaternion-norm}.) Is
   this semidirect product in fact direct?
 \end{exer}
 
@@ -3173,9 +3187,9 @@ position to classify all finite \emph{abelian} groups.\footnote{Of
   course fancier semidirect products will not be needed here; cf.\
   \cref{exer:groups2:5.9}.}
 
-In due time (Proposition~VI.2.11, Exercise~VI.2.19) we will in fact be
+In due time (Proposition VI.2.11, VI.2.19) we will in fact be
 able to classify all finitely generated abelian groups: as mentioned
-in Example~II.6.3, all such groups are products of cyclic
+in UNCERTAIN:Example II.6.3, all such groups are products of cyclic
 groups.\footnote{The natural context to prove this more general result
   is that of modules over Euclidean rings or even principal ideal
   domains.} In particular, this is the case for finite abelian groups:
@@ -3190,13 +3204,13 @@ First of all, I will congeal into an explicit statement a simple
 observation that has been with us in one form or another since at
 least as far back as\footnote{In fact, this observation will really
   find its most appropriate resting place when we prove the Chinese
-  Remainder Theorem, Theorem~V.6.1.} Exercise~II.4.9.
+  Remainder Theorem, Theorem V.6.1.} \Cref{exer:groups:cmn-iso-cm-times-cn}.
 \begin{lem}{}{lem:groups2:6.1}
   Let $G$ be an abelian group, and let $H$, $K$ be subgroups such that
   $|H|$, $|K|$ are relatively prime. Then $H + K \cong H \oplus K$.
 \end{lem}
 \begin{proof}
-  By Lagrange's theorem (Corollary~II.8.14), $H \cap K = \{0\}$. Since
+  By Lagrange's theorem (\Cref{coro:groups:lagrange}), $H \cap K = \{0\}$. Since
   subgroups of abelian groups are automatically normal, the statement
   follows from \cref{prop:groups2:5.3}.
 \end{proof}
@@ -3261,7 +3275,7 @@ easily once the particular case is settled.
 
   Therefore $|k| = p^s$ for some $s < r$; $k$ generates a subgroup
   $\langle k \rangle$ of the cyclic group $K$, of order $p^s$. By
-  Proposition~II.6.11,
+  \Cref{prop:groups:subgroups-of-znz},
   $\langle k \rangle = \langle p^{r-s} g \rangle$.  Since $s < r$,
   $\langle k \rangle \subseteq \langle pg \rangle$; thus, $k = mpg$
   for some $m \in \Z$.
@@ -3495,19 +3509,19 @@ of $g$ divides $d_s$), contradicting the hypothesis.  Therefore
 $s = 1$; that is, $G$ is cyclic.  \cref{lem:groups2:6.9} is the key to
 a particularly nice proof of the following important fact, a weak form
 of which\footnote{The diligent reader has proved that particular case
-  in Exercise~II.4.11. The proof hinted at in that exercise upgrades
+  in \Cref{exer:groups:zpz-star-cyclic}. The proof hinted at in that exercise upgrades
   easily to the general case presented here. The point is not that the
   classification theorem is \emph{necessary} in order to prove
   statements such as \cref{thm:groups2:6.10}; the point is that it
   makes such statements nearly evident.} we ran across back in
-Example~II.4.6. Recall that the set $F^*$ of nonzero elements of a
+\Cref{exam:groups:cyclic-formal-intro}. Recall that the set $F^*$ of nonzero elements of a
 field $F$ is a commutative group under multiplication. Also recall
-(Example~III.4.7) that a polynomial $f(x) \in F[x]$ is divisible by
+(\Cref{exam:rings:remainder-degree-1}) that a polynomial $f(x) \in F[x]$ is divisible by
 $(x - a)$ if and only if $f(a) = 0$; since a nonzero polynomial of
 degree $n$ over a field can have at most $n$ linear factors, this
 shows\footnote{Unique factorization in $F[x]$ is secretly needed
   here. We will deal with this issue more formally later; cf.\
-  Lemma~V.5.1.} that if $f(x) \in F[x]$ has degree $n$, then
+  Lemma V.5.1.} that if $f(x) \in F[x]$ has degree $n$, then
 $f(a) = 0$ for at most $n$ distinct elements $a \in F$.
 \begin{thm}{}{thm:groups2:6.10}
   Let $F$ be a field, and let $G$ be a finite subgroup of the
@@ -3522,17 +3536,17 @@ $f(a) = 0$ for at most $n$ distinct elements $a \in F$.
 
 As a (very) particular case, the multiplicative group
 $((\Z/p\Z)^*, \cdot)$ is cyclic: this is the fact pointed to in
-Example~II.4.6.  \emph{Preview of coming attractions:} Finitely
+\Cref{exam:groups:cyclic-formal-intro}.  \emph{Preview of coming attractions:} Finitely
 generated (as opposed to just finite) abelian groups are also direct
 sums of cyclic groups.  The only difference between the classification
 of finitely generated abelian groups and the classification of finite
 abelian groups explored here is the possible presence of a `free'
 factor $\Z^{\oplus r}$ in the decomposition. The reader will first
-prove this fact in Exercise~VI.2.19, as a consequence of `Gaussian
+prove this fact in VI.2.19, as a consequence of `Gaussian
 elimination over integral domains', and then recover it again as a
 particular case of the classification theorem for finitely generated
-modules over PIDs, Theorem~VI.5.6. Neither Gaussian elimination nor
-the very general Theorem~VI.5.6 are any harder to prove than the
+modules over PIDs, Theorem VI.5.6. Neither Gaussian elimination nor
+the very general Theorem VI.5.6 are any harder to prove than the
 particular case of finite abelian groups laboriously worked out by
 hand in this section---a common benefit of finding the right general
 point of view is that, as a rule, proofs simplify. Technical work such
@@ -3553,7 +3567,7 @@ need for such technicalities evaporates in the process.
   $s_1 \geq \dots \geq s_n$, then $m = n$ and $r_i = s_i$ for all
   $i$. Do this by induction, by considering the group $pG$ obtained as
   the image of the homomorphism $G \to G$ defined by $g \mapsto pg$.)
-  [\S{}6.2, \S{}VI.5.3, VI.5.12]
+  [\S{}\ref{subsec:groups2:invariant-factors-and-elementary-divisors}, OLD:\S{}VI.5.3, VI.5.12]
 \end{exer}
 \begin{exer}{}{exer:groups2:6.2}
   Complete the classification of groups of order $8$ (cf.\
@@ -3574,7 +3588,7 @@ need for such technicalities evaporates in the process.
 \end{exer}
 \begin{exer}{}{exer:groups2:6.6}
   \exerused{} How many \emph{abelian} groups of order $1024$ are
-  there, up to isomorphism? [\S{}II.6.3]
+  there, up to isomorphism? [\S{}\ref{subsec:groups:example-subgroup-generated-by-a-subset}]
 \end{exer}
 \begin{exer}{}{exer:groups2:6.7}
   $\lnot$ Let $p > 0$ be a prime integer, $G$ a finite abelian group,
@@ -3638,7 +3652,7 @@ need for such technicalities evaporates in the process.
     (\cref{thm:groups2:6.6}) to classify all finite modules over the
     ring $\Z/n\Z$.
   \item Prove that if $p$ is prime, all finite modules over $\Z/p\Z$
-    are free.\footnote{As we will see in Proposition~VI.4.10, this
+    are free.\footnote{As we will see in Proposition VI.4.10, this
       property characterizes fields.}
   \end{itemize}
 \end{exer}
@@ -3652,12 +3666,12 @@ need for such technicalities evaporates in the process.
   of order $n$. Prove that $G \cong H$. (Note: The `abelian'
   hypothesis is necessary! $C_4 \times C_4$ and $Q_8 \times C_2$ are
   nonisomorphic groups both with $1$ element of order $1$, $3$
-  elements of order $2$, and $12$ elements of order $4$.) [\S{}II.4.3]
+  elements of order $2$, and $12$ elements of order $4$.) [\S{}\ref{subsec:groups:isomorphisms}]
 \end{exer}
 \begin{exer}{}{exer:groups2:6.14}
   Let $G$ be a finite abelian $p$-group, and assume $G$ has only one
   subgroup of order $p$. Prove that $G$ is cyclic. (This is in some
-  sense a converse to Proposition~II.6.11. You are welcome to try to
+  sense a converse to \Cref{prop:groups:subgroups-of-znz}. You are welcome to try to
   prove it `by hand', but use of the classification theorem will
   simplify the argument considerably.)
 \end{exer}
@@ -3665,7 +3679,7 @@ need for such technicalities evaporates in the process.
   Let $G$ be a finite abelian group, and let $a \in G$ be an element
   of \emph{maximal} order in $G$. Prove that the order of every
   $b \in G$ divides $|a|$. (This essentially reproduces the result of
-  Exercise~II.1.15.)
+  \Cref{exer:groups:maximal-order-divides}.)
 \end{exer}
 \begin{exer}{}{exer:groups2:6.16}
   Let $G$ be an abelian group of order $n$, and assume that $G$ has at

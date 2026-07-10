@@ -18,7 +18,7 @@ Usage:
 import argparse
 import re
 
-ITEM_ENVS = "defn|prop|lem|thm|coro|exam|fact|rmk|claim"
+ITEM_ENVS = "defn|prop|lem|thm|coro|exam|fact|rem|axm"
 BEGIN_RE = re.compile(
     r"^\\begin\{(" + ITEM_ENVS + r"|exer)\}\{[^{}]*\}\{([a-zA-Z0-9:._-]*)\}"
 )

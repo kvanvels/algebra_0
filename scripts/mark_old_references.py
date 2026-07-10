@@ -38,7 +38,7 @@ import glob
 import re
 import sys
 
-ENV_NAMES = "defn|prop|lem|thm|coro|exam|exer|fact|rmk|claim"
+ENV_NAMES = "defn|prop|lem|thm|coro|exam|exer|fact|rem|axm"
 ENV_LABEL_RE = re.compile(
     r"\\begin\{(?:" + ENV_NAMES + r")\}\{[^{}]*\}\{([a-zA-Z0-9:._-]+)\}"
 )
