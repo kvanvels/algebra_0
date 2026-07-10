@@ -16,10 +16,10 @@ pdf: $(MASTER).pdf
 # this document needs up to 5 lualatex passes after biber to reach a
 # stable, fully-resolved fixed point.
 $(MASTER).pdf: $(MASTER).tex $(wildcard *.tex) $(wildcard chapters/*.tex)
-	$(LUALATEX) $(MASTER)
-	biber $(MASTER)
-	$(LUALATEX) $(MASTER)
-	for i in 1 2 3 4; do \
+	-$(LUALATEX) $(MASTER)
+	-biber $(MASTER)
+	-$(LUALATEX) $(MASTER)
+	-for i in 1 2 3 4; do \
 		grep -qE "Rerun to get|may have changed" $(MASTER).log || break; \
 		$(LUALATEX) $(MASTER); \
 	done
