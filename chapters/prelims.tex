@@ -44,7 +44,7 @@ elements:
   the extra : %chktex 26
   is a psychologically convenient decoration inherited from computer
   science.} the set consisting of the integers $1$, $2$, and $3$. By
-convention, the order\footnote{Ordered lists are denoted with round
+convention, the order\footnote{\emph{Ordered} lists are denoted with round
   parentheses: $(1, 2, 3)$ is not the same as $(1, 3, 2)$.} in which
 the elements are listed, or repetitions in the list, are immaterial to
 the definition.  Thus, the same set may be written out in many ways:
@@ -302,7 +302,7 @@ time\footnote{The reader will have to employ the axiom of choice in
   some exercises every now and then, even before we come back to these
   issues, but this will probably happen below the awareness level, and
   so it should.}, when they become more relevant to the issues at hand
-(cf.~\S{}\ref{sec:irred:intermezzo-zorn-s-lemma}).
+(cf.~\Cref{sec:irred:intermezzo-zorn-s-lemma}).
 
 \subsection{Equivalence relations, partitions, quotients}%
 \label{subsec:prelims:equiv-relations}
@@ -411,7 +411,7 @@ quotient $\quot{S}{\sim}$ are equal if and only if the corresponding
 elements in $S$ are related by $\sim$. In other words, taking a
 quotient is a way to turn any equivalence relation into an
 equality. This observation will be further formalized in `categorical
-terms' in a short while (\S{}\ref{subsec:prelims:quotients}\nameref{subsec:prelims:quotients}).
+terms' in a short while (\Fullref{subsec:prelims:quotients}).
 
 \subsection*{Exercises}
 
@@ -465,7 +465,9 @@ introduced in this book will be to try to understand both the type of
 structures and the ways in which different instances of a given
 structure may interact.
 
-Sets interact with each other through functions. It is tempting to
+
+
+Sets interact with each other through \emph{functions}. It is tempting to
 think of a function $f$ from a set $A$ to a set $B$ in `dynamic'
 terms, as a way to `go from $A$ to $B$'. Similarly to the business
 with relations, it is straightforward to formalize this notion in ways
@@ -500,10 +502,11 @@ element $a \in A$ is sometimes indicated by a `decorated' arrow, as in
 
 The collection of all functions from a set $A$ to a set $B$ is itself
 a set\footnote{This is another `operation among sets', not listed in
-  \S{}1.3. Can you see why we use $B^A$ for this set?  (Cf. Exercise
-  2.10.)}, denoted $B^A$. If we take seriously the notion that a
-function is really the same thing as its graph, then we can view $B^A$
-as a (special) subset of the power set of $A \times B$.
+  \cref{subsec:prelims:operations-between-sets}. Can you see why we
+  use $B^A$ for this set?  (Cf.~\Cref{exer:prelim:card-finite-funcs})},
+denoted $B^A$. If we take seriously the notion that a function is
+really the same thing as its graph, then we can view $B^A$ as a
+(special) subset of the power set of $A \times B$.
 
 Every set $A$ comes equipped with a very special function, whose graph
 is the diagonal in $A \times A$: the identity function on $A$
@@ -529,13 +532,14 @@ $i : S \to A$ is the inclusion. Note that $f (S) = \image(f\big|_S)$.
 
 \subsection{Examples: Multisets, indexed sets}%
 \label{subsec:prelims:examples-multisets-indexed-sets}
-The `multisets' mentioned briefly in \S{}1.1 are a simple example of a
+The `multisets' mentioned briefly in \Cref{subsec:prelims:sets}
+are a simple example of a
 notion easily formalized by means of functions.  A multiset may be
 defined by giving a function from a (regular) set $A$ to the set
 $\N^*$ of positive\footnote{Some references allow 0 as a possible
   multiplicity.} integers; if $m : A \to \N^*$ is such a function, the
 corresponding multiset consists of the elements $a \in A$, each taken
-$m(a)$ times. Thus, the multiset $\{a, a, a, b, b, b, b, b, c\}$ is
+$m(a)$ times. Thus, the \emph{multiset} $\{a, a, a, b, b, b, b, b, c\}$ is
 really the function $m : \{a, b, c\} \to \N^*$ for which $m(a) = 3$,
 $m(b) = 5$, $m(c) = 1$. As with ordinary sets, the order in which the
 elements are listed is not part of the information carried by a
@@ -558,12 +562,13 @@ coincidence $a_0 = a_1$ as elements of the target set $A$.
 It is easy to miss such subtleties, and some abuse of notation is
 common and usually harmless. These distinctions play a role in (for
 example) discussions of linear independence of sets of vectors;
-cf. \S{}\ref{subsec:linalg:linear-independence-and-bases}.
+cf.~\Cref{subsec:linalg:linear-independence-and-bases}.
 
 \subsection{Composition of functions}%
 \label{subsec:prelims:composition-of-functions}
-Functions may be composed: if $f : A \to B$ and $g : B \to C$ are
-functions, then so is the operation $g \circ f$ defined by
+Functions may be \emph{composed}\index{composition}: if $f : A \to B$
+and $g : B \to C$ are functions, then so is the operation $g \circ f$
+defined by
 \begin{equation}
   \label{eq:comp-def}
   (\forall a \in A)\quad (g \circ f)(a) := g(f(a)) :
@@ -623,9 +628,9 @@ commute.
 \subsection{Injections, surjections, bijections}%
 \label{subsec:prelims:injections-surjections-bijections}
 Special kinds of functions deserve highlighting:
-\begin{enumerate}
-\item A function $f : A \to B$ is injective (or an injection or
-  one-to-one) if
+\begin{itemize}
+\item A function $f : A \to B$ is \emph{injective} (or \emph{an injection} or
+  \emph{one-to-one}) if
   \[\kforall_{a' \in A}\ \kforall_{a'' \in A}\
     a' = a'' \Rightarrow f(a') = f(a'')\] that is, if $f$ sends
   different elements to different elements\footnote{Often one checks
@@ -638,7 +643,7 @@ Special kinds of functions deserve highlighting:
   \[\kforall_{b \in B}\ \kexists_{a \in A}\ b = f(a):\]
   that is, if $f$ `covers the whole of $B$'; more precisely, if
   $\image f = B$.
-\end{enumerate}
+\end{itemize}
 
 Injections are often drawn $\hookrightarrow$; surjections are often
 drawn $\twoheadrightarrow$.
@@ -699,12 +704,13 @@ bijection? This is true, but in fact we can be much more precise.
 
 \begin{prop}{}{prop:inv-inj-sur}
   Assume $A \ne\emptyset$, and let $f : A \to B$ be a function. Then
-  \begin{itemize}
+  \begin{enumerate}
   \item $f$ has a left-inverse if and only if it is injective.
   \item $f$ has a right-inverse if and only if it is surjective.
-  \end{itemize}
+  \end{enumerate}
 \end{prop}
-\begin{proof}
+\begin{proof} Let's prove~(1).
+  
   ($\Rightarrow$) If $f : A \to B$ has a left-inverse, then there
   exists a $g : B \to A$ such that $g \circ f = id_A$. Now assume
   that $a' \ne a''$ are arbitrary different elements in $A$ then
@@ -759,7 +765,7 @@ bijection? This is true, but in fact we can be much more precise.
 This is not completely innocent: if $f$ has both a left-inverse and a
 right-inverse, why should it have one inverse that works as both on
 the left and on the right?  Try to prove this by yourself now. We will
-come back to this issue soon (in \S{}\ref{sec:prelims:morphisms}).
+come back to this issue soon (in~\Fullref{sec:prelims:morphisms}).
 
 If a function is injective but not surjective, then it will not have a
 right-inverse, and if the source has at least two elements, it will
@@ -789,7 +795,7 @@ $f^{-1}$. This symbol is also used for functions that are not
 bijections, but in a slightly different context: if $f : A \to B$ is
 any function and $T \subseteq B$ is a subset of $B$, then $f^{-1} (T)$
 denotes the subset of $A$ of `all elements that map to $T$'; that is,
-$f^{-1}(T) = \{a \in A \mid f (a) \in T \}$.  If $T = \{q\}$ consists of
+\[f^{-1}(T) = \{a \in A \mid f (a) \in T \}.\]  If $T = \{q\}$ consists of
 a single element of $B$, $f^{-1}(T)$ (abbreviated $f^{-1}(q)$) is
 called the \emph{fiber} of $f$ over $q$. Thus a function $f : A \to B$
 is a bijection if it has nonempty fibers over all elements of $B$
@@ -851,7 +857,8 @@ equivalent to `surjective'.  This is the case: such a notion is called
 epimorphism. Finding it, and proving the equivalence with the ordinary
 definition of `surjective', is left to the reader\footnote{This is a
   particularly important exercise, and I recommend that the reader
-  write out all the gory details carefully.} (\Cref{exer:prelim:epimorph-iff-srjctv}).
+  write out all the gory details carefully.}
+(\Cref{exer:prelim:epimorph-iff-srjctv}).
 
 
 \subsection{Basic examples}%
@@ -972,7 +979,7 @@ to the one epitomized here.
   $\tilde{f}$ is surjective, as needed.
 \end{proof}
 
-\Cref{thm:canonical-decomposition} shows that every function is the
+\Cref{thm:canonical-decomposition} shows that \emph{every} function is the
 composition of a surjection, followed by an isomorphism, followed by
 an injection. While its proof is trivial, this is a result of some
 importance, since it is the prototype of a situation that will occur
@@ -1020,7 +1027,7 @@ categories.
   there is a way to choose one element in each member of the
   family.\footnote{This (reasonable) statement is the \emph{axiom of
       choice}; cf.\ \S{}\ref{sec:irred:intermezzo-zorn-s-lemma}.}
-  [\S{}\ref{subsec:prelims:injections-surjections-bijections-second-viewpoint},~\ref{exer:irred:3.3}]
+  [\S{}\ref{subsec:prelims:injections-surjections-bijections-second-viewpoint},~\ref{exer:irred:3.3}\footnote{TODO: double check this reference}]
 \end{exer}
 
 \begin{exer}{}{exer:prelim:bij-props}
@@ -1112,7 +1119,7 @@ ways.  Categories may make you think of sets, in that they are
 `functions from categories to categories' (called
 \emph{functors}\footnote{However, we will not consider functors until
   later chapters: our first formal encounter with functors will be in
-  \Cref{chap:linrep}.}). At the same time, every category may make you think
+  \Fullref{chap:linrep}.}). At the same time, every category may make you think
 of the collection of all sets, since there will be analogs of
 `functions' among the things it contains.
 
@@ -1129,7 +1136,7 @@ objects, opting for the more generic `collection'. This is an
 annoying, but unavoidable, difficulty: for example, we want to have a
 `category of sets', in which the `objects' are sets and the
 `morphisms' are functions between sets, and the problem is that there
-simply is not a set of all sets\footnote{That is one thing we learn
+simply is not a \emph{set of all sets}\footnote{That is one thing we learn
   from Russell's paradox.}. In a sense, the collection of all sets is
 `too big' to be a set. There are however ways to deal with such
 `collections', and the technical name for them is \emph{class}.  There
