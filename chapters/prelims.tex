@@ -1,4 +1,4 @@
-\chapter{Preliminaries: Set theory and categories}~
+\chapter{Preliminaries: Set theory and categories}%
 \label{chap:prelims}
 
 \emph{Set theory} is a mathematical field in itself, and its proper
@@ -40,7 +40,8 @@ elements:
 \[A \df {1, 2, 3}\] is\footnote{$\df$ is a notation often used to mean
   that the symbol on the left-hand side is defined by whatever is on
   the right-hand side. Logically, this is just expressing the equality
-  of the two sides and could just as well be written `='; the extra :
+  of the two sides and could just as well be written `=';
+  the extra : %chktex 26
   is a psychologically convenient decoration inherited from computer
   science.} the set consisting of the integers $1$, $2$, and $3$. By
 convention, the order\footnote{Ordered lists are denoted with round
@@ -71,7 +72,6 @@ of}\dots) and this is in general precise and unambiguous\footnote{But
   nonsense. All is well so long as $S$ is indeed known to be a set to
   begin with.}.
 
-
   We will occasionally encounter a variation on the notion of set,
 called `multiset'.  A multiset is a set in which the elements are
 allowed to appear `with multiplicity': that is, a notion for which
@@ -90,257 +90,271 @@ A few famous sets are
 \item $\R$: the set of \emph{real numbers};
 \item $\C$: the set of \emph{complex numbers}.
 \end{itemize}
-% Also, the term \emph{singleton} is used to refer to any set consisting
-% of precisely one element. Thus ${1}$, ${2}$, ${3}$ are different sets,
-% but they are all singletons.
+Also, the term \emph{singleton}\index{singleton|textbf} is used to
+refer to any set consisting of precisely one element. Thus ${1}$,
+${2}$, ${3}$ are different sets, but they are all singletons.
 
-% Here are a few useful symbols (called quantifiers):
-% \begin{itemize}
-% \item $\exists$ means \emph{there exists}\ldots (the existential
-%   quantifier);
-% \item $\forall$ means \emph{for all}\ldots (the universal quantifier).
-% \end{itemize}
-% Also, $\exists !$ is used to mean there exists a unique\ldots
+Here are a few useful symbols (called quantifiers):
+\begin{itemize}
+\item $\exists$ means \emph{there exists}\ldots (the existential
+  quantifier);
+\item $\forall$ means \emph{for all}\ldots (the universal quantifier).
+\end{itemize}
+Also, $\exists!$ is used to mean there exists a unique\ldots %chktex 40
 
-% For example, the set of even integers may be written as
-% \[E = \{a \in Z | (\exists n \in Z) a = 2n\}:\] in words, ``all
-% integers $a$ such that there exists an integer $n$ for which
-% $a = 2n$''. In this case we could replace $\exists$ by $\exists !$
-% without changing the set---but that has to do with properties of
-% $\field{Z}$, not with mathematical syntax. Also, it is common to adopt
-% the shorthand
-% \[E = \{2n | n \in \Z\},\] in which the existential quantifier is
-% understood.  Being able to parse such strings of symbols effortlessly,
-% and being able to write them out fluently, is extremely important. The
-% reader of this book is assumed to have already acquired this skill.
+For example, the set of even integers may be written as
+\[E = \{a \in Z | (\exists n \in Z) a = 2n\}:\] in words, ``all
+integers $a$ such that there exists an integer $n$ for which
+$a = 2n$''. In this case we could replace $\exists$ by $\exists!$ %chktex 40
+without changing the set---but that has to do with properties of
+$\field{Z}$, not with mathematical syntax. Also, it is common to adopt
+the shorthand
+\[E = \{2n | n \in \Z\},\] in which the existential quantifier is
+understood.  Being able to parse such strings of symbols effortlessly,
+and being able to write them out fluently, is extremely important. The
+reader of this book is assumed to have already acquired this skill.
 
-% Note that the \emph{order} in which things are written may make a big
-% difference. For example, the statement
-% \[(\forall a \in \Z) (\exists b \in \Z)\quad b = 2a\] is true: it says
-% that the result of doubling an arbitrary integer yields an integer;
-% but
-% \[(\exists b \in \Z) (\forall a \in \Z)\quad b = 2a\] is false: it
-% says that there exists a fixed integer $b$ which is `simultaneously'
-% twice as much as every integer---there is no such thing.
+Note that the \emph{order} in which things are written may make a big
+difference. For example, the statement
+\[(\forall a \in \Z) (\exists b \in \Z)\quad b = 2a\] is true: it says
+that the result of doubling an arbitrary integer yields an integer;
+but
+\[(\exists b \in \Z) (\forall a \in \Z)\quad b = 2a\] is false: it
+says that there exists a fixed integer $b$ which is `simultaneously'
+twice as much as every integer---there is no such thing.
 
-% Note also that writing simply
-% \[b = 2a\] by itself does not convey enough information, unless the
-% context makes it completely clear what quantifiers are attached to $a$
-% and $b$: indeed, as we have just seen, different quantifiers may make
-% this into a true or a false statement.
+Note also that writing simply
+\[b = 2a\] by itself does not convey enough information, unless the
+context makes it completely clear what quantifiers are attached to $a$
+and $b$: indeed, as we have just seen, different quantifiers may make
+this into a true or a false statement.
 
-% \subsection{Inclusion of sets}%
-% \label{subsec:prelims:inclusion-of-sets}
-% As mentioned above, two sets are equal if and only if they contain the
-% same elements. We say that a set $S$ is a subset of a set $T$ if every
-% element of $S$ is an element of $T$ , in symbols, $S \subseteq T$.  By
-% convention, $S \subset T$ means the same thing: that is (unlike $<$
-% vs. $\leq$ ), it does not exclude the possibility that $S$ and $T$ may
-% be equal. To avoid any confusion, I will consistently use $\subseteq$
-% in this book. One adopts $S \subsetneq T$ to mean that $S$ is
-% `properly' contained in $T$ : that is, $S \subseteq T$ and $S \ne T$.
+\subsection{Inclusion of sets}%
+\label{subsec:prelims:inclusion-of-sets}
+As mentioned above, two sets are equal if and only if they contain the
+same elements. We say that a set $S$ is a subset of a set $T$ if every
+element of $S$ is an element of $T$, in symbols, $S \subseteq T$.  By
+convention, $S \subset T$ means the same thing: that is (unlike $<$
+vs. $\leq$), it does not exclude the possibility that $S$ and $T$ may
+be equal. To avoid any confusion, I will consistently use $\subseteq$
+in this book. One adopts $S \subsetneq T$ to mean that $S$ is
+`properly' contained in $T$: that is, $S \subseteq T$ and $S \ne T$.
 
-% We can think of `inclusion of sets' in terms of logic: $S \subseteq T$
-% means that $s \in S \Rightarrow s \in T$ (the quantifier $\forall s$
-% is understood); that is, `if $s$ is an element of $S$, then $s$ is an
-% element of $T$'; that is, all elements of $S$ are elements of $T$;
-% that is, $S \subseteq T$ as promised.
+We can think of `inclusion of sets' in terms of logic: $S \subseteq T$
+means that \[s \in S \Rightarrow s \in T\] (the quantifier $\forall s$
+is understood); that is, `if $s$ is an element of $S$, then $s$ is an
+element of $T$'; that is, all elements of $S$ are elements of $T$;
+that is, $S \subseteq T$ as promised.
 
-% Note that for all sets $S$, $\emptyset \subseteq S$ and
-% $S \subseteq S$.  If $S \subseteq T$ and $T \subseteq S$, then
-% $S = T$.  The symbol $|S|$ denotes the number of elements of $S$, if
-% this number is finite; otherwise, one writes $|S| = \infty$. If $S$
-% and $T$ are finite, then $S \subseteq T \Rightarrow |S| \leq |T |$.
-% The subsets of a set $S$ form a set, called the power set, or the set
-% of parts of $S$. For example, the power set of the empty set
-% $\emptyset$ consists of one element: $\emptyset$. The power set of $S$
-% is denoted $\mathcal{P}(S)$; a popular alternative is $2^S$, and
-% indeed $|P(S)| = 2^{|S|}$ if $S$ is finite (cf. \Cref{exer:2.11}).
+Note that for all sets $S$, $\emptyset \subseteq S$ and
+$S \subseteq S$.
 
-% \subsection{Operations between sets}%
-% \label{subsec:prelims:operations-between-sets}
-% Once we have a few sets to play with, we can obtain more by applying
-% certain standard operations. Here are a few:
-% \begin{itemize}
-% \item $\cup$ : the union;
-% \item $\cap$ : the intersection;
-% \item $\setminus$ : the difference;
-% \item $\amalg$ : the disjoint union;
-% \item $\times$ : the (Cartesian) product;
-% \item and the important notion of `quotient by an equivalence
-%   relation'.
-% \end{itemize}
+If $S \subseteq T$ and $T \subseteq S$, then
+$S = T$.
 
-% Most of these operations should be familiar to the reader: for
-% example, $\{1, 2, 4\} \cup \{3, 4, 5\} = \{1, 2, 3, 4, 5\}$ while
-% $\{1, 2, 4\} \setminus \{3, 4, 5\} = \{1, 2\}$.
-% % TODO: Venn Diagrams
-% %In terms of \name{Venn} diagrams of infamous `new math' memory: S T
-% %S \cup T S \cap T S \setminus T (the solid black contour indicates
-% % the set included in the operation).
-% Several of these operations may be written out in a transparent way in
-% terms of logic: thus, for example,
-% \[
-%   s \in S \cap T \iff (s \in S\ \mathrm{and\ } s \in T ).
-% \]
+The symbol $|S|$ denotes the number of elements of $S$, if
+this number is finite; otherwise, one writes $|S| = \infty$. If $S$
+and $T$ are finite, then $S \subseteq T \Rightarrow |S| \leq |T |$.
 
-% Two sets $S$ and $T$ are disjoint if $S \cap T = \emptyset$, that is,
-% if no element is `simultaneously' in both of them.
+The subsets of a set $S$ form a set, called the \emph{power
+  set}\index{power set}, or the set of parts of $S$. For example, the
+power set of the empty set $\emptyset$ consists of one element:
+$\{\emptyset\}$. The power set of $S$ is denoted $\mathcal{P}(S)$; a
+popular alternative is $2^S$, and indeed $|P(S)| = 2^{|S|}$ if $S$ is
+finite (cf. \Cref{exer:2.11}).
 
-% The \emph{complement} of a subset $T$ in a set $S$ is the difference
-% set $S \setminus T$ consisting of all elements of $S$ which are not
-% in$T$. Thus, for example, the complement of the set of even integers
-% in $\Z$ is the set of odd integers.
+\subsection{Operations between sets}%
+\label{subsec:prelims:operations-between-sets}
+Once we have a few sets to play with, we can obtain more by applying
+certain standard operations. Here are a few:
+\begin{itemize}
+\item $\cup$: the \emph{union};
+\item $\cap$: the \emph{intersection};
+\item $\setminus$: the \emph{difference};
+\item $\amalg$: the \emph{disjoint union};
+\item $\times$: the (Cartesian) \emph{product};
+\item and the important notion of `quotient by an equivalence
+  relation'.
+\end{itemize}
+Most of these operations should be familiar to the reader: for
+example, $\{1, 2, 4\} \cup \{3, 4, 5\} = \{1, 2, 3, 4, 5\}$ while
+$\{1, 2, 4\} \setminus \{3, 4, 5\} = \{1, 2\}$.
+% TODO: Venn Diagrams
+%In terms of \name{Venn} diagrams of infamous `new math' memory: S T
+%S \cup T S \cap T S \setminus T (the solid black contour indicates
+% the set included in the operation).
+Several of these operations may be written out in a transparent way in
+terms of logic: thus, for example,
+\[
+  s \in S \cap T \iff (s \in S\ \mathrm{and\ } s \in T ).
+\]
 
-% The operations $\amalg$ , $\times$ , and quotients by equivalence
-% relations are slightly more mysterious, and it is very instructive to
-% contemplate them carefully. We will look at them in a particularly
-% naive way first and come back to them in a short while when we have
-% acquired more language and can view them from a more sophisticated
-% viewpoint.
+Two sets $S$ and $T$ are \emph{disjoint}\index{disjoint} if
+$S \cap T = \emptyset$, that is, if no element is `simultaneously' in
+both of them.
 
-% \subsection{Disjoint unions, products}%
-% \label{subsec:prelims:disjoint-unions-products}
-% One problem with these operations is that their output may not be
-% defined as a set, but rather as a set up to isomorphisms of sets, that
-% is, up to bijections.  To make sense out of this, we have to talk
-% about functions, and we will do that in a moment.
+The \emph{complement}\index{complement} of a subset $T$ in a set $S$
+is the difference set $S \setminus T$ consisting of all elements of
+$S$ which are \emph{not} in $T$. Thus, for example, the complement of
+the set of even integers in $\Z$ is the set of odd integers.
 
-% Roughly speaking, the disjoint union of two sets $S$ and $T$ is a set
-% $S \amalg T$ obtained by first producing `copies' $S'$ and $T'$ of the
-% sets $S$ and $T$, with the property that $S' \cap T' = \emptyset$, and
-% then taking the (ordinary) union of $S'$ and $T'$. The careful reader
-% will feel uneasy, since this `recipe' does not define one set:
-% whatever it means to produce a `copy' of a set, surely there are many
-% ways to do so. This ambiguity will be clarified below.
+The operations $\amalg$, $\times$, and quotients by equivalence
+relations are slightly more mysterious, and it is very instructive to
+contemplate them carefully. We will look at them in a particularly
+naive way first and come back to them in a short while when we have
+acquired more language and can view them from a more sophisticated
+viewpoint.
 
-% Nevertheless, note that we can say something about $S \amalg T$ even
-% on these very shaky grounds: for example, if $S$ consists of 3
-% elements and $T$ consists of 4 elements, the reader should expect
-% (correctly) that $S \amalg T$ consists of 7 elements.
+\subsection{Disjoint unions, products}%
+\label{subsec:prelims:disjoint-unions-products}
+One problem with these operations is that their output may not be
+defined as a set, but rather as a set up to isomorphisms of sets, that
+is, up to bijections.  To make sense out of this, we have to talk
+about functions, and we will do that in a moment.
 
-% Products are marred by the same kind of ambiguity, but fortunately
-% there is a convenient convention that allows us to write down `one'
-% set representing the product of two sets $S$ and $T$: given $S$ and
-% $T$, we let $S \times T$ be the set whose elements are the ordered
-% pairs\footnote{One can define the ordered pair $(s, t)$ as a set by
-%   setting $(s, t) = \{s, \{s, t\}\}$: this carries the information of
-%   the elements $s$, $t$, as well as conveying the fact that $s$ is
-%   special (= the first element of the pair).} $(s, t)$ of elements of
-% $S$ and $T$:
-% \[
-%   S \times T := \{(s, t) \mid s \in S,\, t \in T\}.
-% \]
-% Thus, if $S = \{1, 2, 3\}$ and $T = \{3, 4\}$, then
-% $S \times T = \{(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)\}$.
-% For a more sophisticated example, $\R \times \R$ is the set of pairs
-% of real numbers, which (as we learn in calculus) is a good way to
-% represent a plane.  The set $\Z \times \Z$ could be represented by
-% considering the points in this plane that happen to have integer
-% coordinates. Incidentally, it is common to denote these sets $\R^2$,
-% $\Z^2$; and similarly, the product $A \times A$ of a set by itself is
-% often denoted $A^2$.
+Roughly speaking, the \emph{disjoint union} of two sets $S$ and $T$ is a set
+$S \amalg T$ obtained by first producing `copies' $S'$ and $T'$ of the
+sets $S$ and $T$, with the property that $S' \cap T' = \emptyset$, and
+then taking the (ordinary) union of $S'$ and $T'$. The careful reader
+will feel uneasy, since this `recipe' does not \emph{define} one set:
+whatever it means to produce a `copy' of a set, surely there are many
+ways to do so. This ambiguity will be clarified below.
 
-% If $S$ and $T$ are finite sets, clearly $|S \times T| = |S||T|$.
+Nevertheless, note that we can say something about $S \amalg T$ even
+on these very shaky grounds: for example, if $S$ consists of 3
+elements and $T$ consists of 4 elements, the reader should expect
+(correctly) that $S \amalg T$ consists of 7 elements.
 
-% Also note that we can use products to obtain explicit `copies' of sets
-% as needed for the disjoint union: for example, we could let
-% $S' = \{0\} \times S$, $T' = \{1\} \times T$, guaranteeing that $S'$
-% and $T'$ are disjoint (why?); and there is an evident way to
-% `identify' $S$ and $S'$, $T$ and $T'$. Again, making this precise
-% requires a little more vocabulary.  The operations $\cup$, $\cap$,
-% $\amalg$, $\times$ extend to operations on whole `families' of sets:
-% for example, if $S_1, \dots, S_n$ are sets, we write
-% \[
-%   \bigcap_{i=1}^{n} S_i = S_1 \cap S_2 \cap \dots \cap S_n
-% \]
-% for the set whose elements are those elements which are simultaneously
-% elements of all sets $S_1, \dots, S_n$; and similarly for the other
-% operations. But note that while it is clear from the definitions that,
-% for example,
-% \[
-%   S_1 \cup S_2 \cup S_3 = (S_1 \cup S_2) \cup S_3 = S_1 \cup (S_2 \cup
-%   S_3),
-% \]
-% it is not so clear in what sense the sets
-% \[
-%   S_1 \times S_2 \times S_3, \quad (S_1 \times S_2) \times S_3, \quad
-%   S_1 \times (S_2 \times S_3)
-% \]
-% should be `identified' (where we can define the leftmost set as the
-% set of `ordered triples' of elements of $S_1$, $S_2$, $S_3$, by
-% analogy with the definition for two sets). In fact, again, we can
-% really make sense of such statements only after we acquire the
-% language of functions. However, all such statements do turn out to be
-% true, as the reader probably expects; by virtue of this fortunate
-% circumstance, we can be somewhat cavalier and gloss over such
-% subtleties.  More generally, if $\mathcal{S}$ is a set of sets, we may
-% consider sets
-% \[
-%   \bigcup_{S \in \mathcal{S}} S, \quad \bigcap_{S \in \mathcal{S}} S,
-%   \quad \coprod_{S \in \mathcal{S}} S, \quad \prod_{S \in \mathcal{S}}
-%   S
-% \]
-% for the union, intersection, disjoint union, product of all sets in
-% $\mathcal{S}$. There are important subtleties concerning these
-% definitions: for example, if all $S \in \mathcal{S}$ are nonempty,
-% does it follow that $\prod_{S \in \mathcal{S}} S$ is nonempty? The
-% reader probably thinks so, but (if $\mathcal{S}$ is infinite) this is
-% a rather thorny issue, amounting to the axiom of choice.
+Products are marred by the same kind of ambiguity, but fortunately
+there is a convenient convention that allows us to write down `one'
+set representing the product of two sets $S$ and $T$: given $S$ and
+$T$, we let $S \times T$ be the set whose elements are the ordered
+pairs\footnote{One can define the ordered pair $(s, t)$ as a set by
+  setting $(s, t) = \{s, \{s, t\}\}$: this carries the information of
+  the elements $s$, $t$, as well as conveying the fact that $s$ is
+  special (= the first element of the pair).} $(s, t)$ of elements of
+$S$ and $T$:
+\[
+  S \times T := \{(s, t) \mid s \in S,\, t \in T\}.
+\]
+Thus, if $S = \{1, 2, 3\}$ and $T = \{3, 4\}$, then
+$S \times T = \{(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)\}$.
+For a more sophisticated example, $\R \times \R$ is the set of pairs
+of real numbers, which (as we learn in calculus) is a good way to
+represent a plane.  The set $\Z \times \Z$ could be represented by
+considering the points in this plane that happen to have integer
+coordinates. Incidentally, it is common to denote these sets $\R^2$,
+$\Z^2$; and similarly, the product $A \times A$ of a set by itself is
+often denoted $A^2$.
 
-% By and large, such subtleties do not affect the material in this
-% course; we will partly come to terms with them in due
-% time\footnote{The reader will have to employ the axiom of choice in
-%   some exercises every now and then, even before we come back to these
-%   issues, but this will probably happen below the awareness level, and
-%   so it should.}, when they become more relevant to the issues at hand
-% (cf.~\S{}\ref{sec:irred:intermezzo-zorn-s-lemma}).
+If $S$ and $T$ are finite sets, clearly $|S \times T| = |S||T|$.
 
-% \subsection{Equivalence relations, partitions, quotients}%
-% \label{subsec:prelims:equivalence-relations}
+Also note that we can use products to obtain explicit `copies' of sets
+as needed for the disjoint union: for example, we could let
+$S' = \{0\} \times S$, $T' = \{1\} \times T$, guaranteeing that $S'$
+and $T'$ are disjoint (why?); and there is an evident way to
+`identify' $S$ and $S'$, $T$ and $T'$. Again, making this precise
+requires a little more vocabulary.
 
-% Intuitively, a relation on elements of a set $S$ is some special
-% affinity among selections of elements of $S$. For example, the
-% relation $<$ on the set $\Z$ is a way to compare the size of two
-% integers: since $2 < 5$, $2$ `is related to' $5$ in this sense, while
-% $5$ is not related to $2$ in the same sense. For all practical
-% purposes, what a relation `means' is completely captured by which
-% elements are related to which elements in the set. We would really
-% know all there is to know about $<$ on $\Z$ if we had a complete list
-% of all pairs $(a, b)$ of integers such that $a < b$. For example,
-% $(2, 5)$ is such a pair, while $(5, 2)$ is not.  This leads to a
-% completely straightforward definition of the notion of relation: a
-% relation on a set $S$ is simply a subset $R$ of the product
-% $S \times S$. If $(a, b) \in R$, we say that $a$ and $b$ are `related
-% by $R$' and write
-% \[
-%   a \mathrel{R} b.
-% \]
-% Often we use fancier symbols for relations, such as $<$, $\leq$, $=$,
-% $\sim$, \dots.  The prototype of a well-behaved relation is `=', which
-% corresponds to the `diagonal'
-% \[
-%   \{(a, b) \in S \times S \mid a = b\} = \{(a, a) \mid a \in S\}
-%   \subseteq S \times S.
-% \]
-% Three properties of this very special relation turn out to be
-% particularly important: if $\sim$ denotes for a moment the relation
-% $=$ of equality, then $\sim$ satisfies
-% \begin{itemize}
-% \item reflexivity: $(\forall a \in S)\; a \sim a$;
-% \item symmetry:
-%   $(\forall a \in S)\; (\forall b \in S)\; a \sim b \Rightarrow b \sim
-%   a$;
-% \item transitivity:
-%   $(\forall a \in S)\; (\forall b \in S)\; (\forall c \in S),\; (a
-%   \sim b \text{ and } b \sim c) \Rightarrow a \sim c$.
-% \end{itemize}
-% That is, every $a$ is equal to itself; if $a$ is equal to $b$, then
-% $b$ is equal to $a$; etc.
-% \begin{defn}{Equivalence relation}{def:prelims:equivalence-relation}
-%   An \emph{equivalence relation} on a set $S$ is any relation $\sim$
-%   satisfying these three properties.
-% \end{defn}
+The operations $\cup$, $\cap$,
+$\amalg$, $\times$ extend to operations on whole `families' of sets:
+for example, if $S_1, \dots, S_n$ are sets, we write
+\[
+  \bigcap_{i=1}^{n} S_i = S_1 \cap S_2 \cap \dots \cap S_n
+\]
+for the set whose elements are those elements which are simultaneously
+elements of all sets $S_1, \dots, S_n$; and similarly for the other
+operations. But note that while it is clear from the definitions that,
+for example,
+\[
+  S_1 \cup S_2 \cup S_3 = (S_1 \cup S_2) \cup S_3 = S_1 \cup (S_2 \cup
+  S_3),
+\]
+it is not so clear in what sense the sets
+\[
+  S_1 \times S_2 \times S_3, \quad (S_1 \times S_2) \times S_3, \quad
+  S_1 \times (S_2 \times S_3)
+\]
+should be `identified' (where we can define the leftmost set as the
+set of `ordered triples' of elements of $S_1$, $S_2$, $S_3$, by
+analogy with the definition for two sets). In fact, again, we can
+really make sense of such statements only after we acquire the
+language of functions. However, all such statements do turn out to be
+true, as the reader probably expects; by virtue of this fortunate
+circumstance, we can be somewhat cavalier and gloss over such
+subtleties.  More generally, if $\mathcal{S}$ is a set of sets, we may
+consider sets
+\[
+  \bigcup_{S \in \mathcal{S}} S, \quad \bigcap_{S \in \mathcal{S}} S,
+  \quad \coprod_{S \in \mathcal{S}} S, \quad \prod_{S \in \mathcal{S}}
+  S
+\]
+for the union, intersection, disjoint union, product of all sets in
+$\mathcal{S}$. There are important subtleties concerning these
+definitions: for example, if all $S \in \mathcal{S}$ are nonempty,
+does it follow that $\prod_{S \in \mathcal{S}} S$ is nonempty? The
+reader probably thinks so, but (if $\mathcal{S}$ is infinite) this is
+a rather thorny issue, amounting to the \emph{axiom of choice}.
+
+By and large, such subtleties do not affect the material in this
+course; we will partly come to terms with them in due
+time\footnote{The reader will have to employ the axiom of choice in
+  some exercises every now and then, even before we come back to these
+  issues, but this will probably happen below the awareness level, and
+  so it should.}, when they become more relevant to the issues at hand
+(cf.~\S{}\ref{sec:irred:intermezzo-zorn-s-lemma}).
+
+\subsection{Equivalence relations, partitions, quotients}%
+\label{subsec:prelims:equivalence-relations}
+
+Intuitively, a relation on elements of a set $S$ is some special
+affinity among selections of elements of $S$. For example, the
+relation $<$ on the set $\Z$ is a way to compare the size of two
+integers: since $2 < 5$, $2$ `is related to' $5$ in this sense, while
+$5$ is not related to $2$ in the same sense.
+
+For all practical purposes, what a relation `means' is completely
+captured by which elements are related to which elements in the
+set. We would really know all there is to know about $<$ on $\Z$ if we
+had a complete list of all pairs $(a, b)$ of integers such that
+$a < b$. For example, $(2, 5)$ is such a pair, while $(5, 2)$ is not.
+
+This leads to a
+completely straightforward definition of the notion of relation: a
+relation on a set $S$ is simply a subset $R$ of the product
+$S \times S$. If $(a, b) \in R$, we say that $a$ and $b$ are `related
+by $R$' and write
+\[
+  a \mathrel{R} b.
+\]
+Often we use fancier symbols for relations, such as $<$, $\leq$, $=$,
+$\sim$, \dots.
+
+The prototype of a well-behaved relation is `=', which
+corresponds to the `diagonal'
+\[
+  \{(a, b) \in S \times S \mid a = b\} = \{(a, a) \mid a \in S\}
+  \subseteq S \times S.
+\]
+Three properties of this very special relation turn out to be
+particularly important: if $\sim$ denotes for a moment the relation
+$=$ of equality, then $\sim$ satisfies
+\begin{itemize}
+\item \emph{reflexivity}\index{reflexivity}: $(\forall a \in S)\; a \sim a$;
+\item \emph{symmetry}\index{symmetry}:
+  $(\forall a \in S)\; (\forall b \in S)\; a \sim b \Rightarrow b \sim
+  a$;
+\item \emph{transitivity}\index{transitivitity}:
+  $(\forall a \in S)\; (\forall b \in S)\; (\forall c \in S),\; (a
+  \sim b \text{ and } b \sim c) \Rightarrow a \sim c$.
+\end{itemize}
+That is, every $a$ is equal to itself; if $a$ is equal to $b$, then
+$b$ is equal to $a$; etc.
+\begin{defn}{Equivalence relation}{def:prelims:equivalence-relation}%
+  \index{Equivalence relation}
+  An \emph{equivalence relation} on a set $S$ is any relation $\sim$
+  satisfying these three properties.
+\end{defn}
 
 % In terms of the corresponding subset $R$ of $S \times S$,
 % `reflexivity' says that the diagonal is contained in $R$; `symmetry'
@@ -1054,13 +1068,15 @@ A few famous sets are
 %   $|B^A| = |B|^{|A|}$.  [\S{}\ref{subsec:prelims:functions:definition}, \ref{exer:2.11}, \S{}\ref{subsec:groups:examples}]
 % \end{exer}
 
-% \begin{exer}{}{exer:2.11}
-%   \exerused In view of \Cref{exer:2.10}, it is not unreasonable to use
-%   $2^A$ to denote the set of functions from an arbitrary set $A$ to a
-%   set with 2 elements (say $\{0,1\}$). Prove that there is a bijection
-%   between $2^A$ and the power set of $A$ (cf.\ \S{}\ref{subsec:prelims:inclusion-of-sets}). [\S{}\ref{subsec:prelims:inclusion-of-sets},
-%   \ref{exer:rings:powerset-vs-z2s}]
-% \end{exer}
+\begin{exer}{}{exer:2.11}
+  \exerused{} In view of \Cref{exer:2.10}, it is not unreasonable to
+  use $2^A$ to denote the set of functions from an arbitrary set $A$
+  to a set with 2 elements (say $\{0,1\}$). Prove that there is a
+  bijection between $2^A$ and the power set of $A$ (cf.\
+  \S{}\ref{subsec:prelims:inclusion-of-sets}).
+  [\S{}\ref{subsec:prelims:inclusion-of-sets},~%
+  \ref{exer:rings:powerset-vs-z2s}]
+\end{exer}
 
 % \section{Categories}
 % \label{sec:prelims:categories}
