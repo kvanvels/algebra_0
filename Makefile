@@ -59,11 +59,13 @@ warnings: pdf
 # -n9:  suppress mismatched bracket warning — half-open intervals are correct.
 # -n11: suppress "use \cdots" — \dots from amsmath chooses automatically.
 # -n17: suppress bracket count mismatch — same reason as -n9.
+# -n18: suppress wrong paranthesis wanring
 # -n36: suppress "space before (" — f(x) etc. are correct math notation.
 # -n38: suppress "punctuation before quotes" — intentional style.
+
 chktex:
 	-chktex -f $$'%f:%l:%c: Warning %n: %m\n' -q \
-	    -n9 -n11 -n17 -n36 -n38 \
+	    -n9 -n11 -n17 -n18 -n36 -n38 \
 	    $(MASTER).tex $(wildcard chapters/*.tex)
 
 clean:
