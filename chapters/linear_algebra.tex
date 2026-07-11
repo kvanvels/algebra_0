@@ -58,7 +58,7 @@ generated free modules, this can be done by means of \emph{matrices}
 with entries in $R$. Later in the chapter, we will see that matrices
 may also be used to describe important classes of nonfree modules.
 
-\subsection{Linear independence and bases}
+\subsection{Linear independence and bases}%
 \label{subsec:linalg:linear-independence-and-bases}
 The reader is invited to review the definition of free $R$-modules
 given in \S{}\ref{subsec:rings:free-modules-and-free-algebras}: $F^R(S)$ denotes an $R$-module containing a
@@ -647,7 +647,7 @@ the same thing as the choice of a basis of $F$ (\Cref{linalg:1.5}).
 This is simultaneously good and bad news. The good news is that if
 $F_1, F_2$ are free, then it must be possible to
 `understand'\footnote{For notational simplicity I will denote
-  $\Hom_{R\text{-}$\categ{Mod}$}(M,N)$ by $\Hom_R(M,N)$; this is very
+  $\Hom_{R\text{-}\categ{Mod}}(M,N)$ by $\Hom_R(M,N)$; this is very
   common, and no confusion is likely.}
 \[
   \Hom_R(F_1, F_2)
@@ -1454,8 +1454,8 @@ ef{subsec:linalg:rank-and-nullity}]
 
   For $r = 1$, the Grassmannian is called the \emph{projective space}.
   For a vector space $V$, the corresponding projective space
-  $\PV$ is the set of `lines' (1-dimensional subspaces) in
-  $V$. For $V = k^n$, $\PV$ may be denoted
+  $\field{P}V$ is the set of `lines' (1-dimensional subspaces) in
+  $V$. For $V = k^n$, $\field{P}V$ may be denoted
   $\P_k^{n-1}$, and the field $k$ may be omitted if it is
   clear from the context. Show that $\P_k^{n-1}$ may be
   written as a union
@@ -2231,7 +2231,7 @@ With this in mind, we can reinterpret what we have just done in the
 following curious way. Consider the category $k$-$\categ{Vect}$$^f$ of
 finite-dimensional $k$-vector spaces. Each object $V$ of
 $k$-$\categ{Vect}$$^f$ determines an isomorphism class $[V]$. Let
-$F(k\text{-}$\categ{Vect}$^f)$ be the free abelian group on the set of
+$F(k\text{-}\categ{Vect}^f)$ be the free abelian group on the set of
 these isomorphism classes; further, let $E$ be the subgroup generated
 by the elements
 \[ [V] - [U] - [W]
@@ -2242,20 +2242,20 @@ for all short exact sequences
 \]
 in $k$-$\categ{Vect}$$^f$. The quotient group
 \[
-  K(k\text{-}$\categ{Vect}$^f) := \frac{F(k\text{-}$\categ{Vect}$^f)}{E}
+  K(k\text{-}\categ{Vect}^f) := \frac{F(k\text{-}\categ{Vect}^f)}{E}
 \]
 is called the \emph{Grothendieck group} of the category
-$k$-$\categ{Vect}$$^f$. The element determined by $V$ in the
+$k-\categ{Vect}^f$. The element determined by $V$ in the
 Grothendieck group is still denoted $[V]$.
 
 More generally, a Grothendieck group may be defined for any category
 admitting a notion of exact sequence.
 
 Every complex $V_\bullet$ determines an element in
-$K(k\text{-}$\categ{Vect}$^f)$, namely
+$K(k\text{-}\categ{Vect}^f)$, namely
 \[
-  \chi_K(V_\bullet) := \sum_i (-1)^i [V_i] \in
-  K(k\text{-}$\categ{Vect}$^f).
+  \chi_K(V_\bullet) \df \sum_i (-1)^i [V_i] \in
+  K(k\text{-}\categ{Vect}^f).
 \]
 
 \begin{prop}{}{linalg:3.14}
@@ -2278,12 +2278,12 @@ $K(k\text{-}$\categ{Vect}$^f)$, namely
     \]
     Then $\delta$ induces a (unique) group homomorphism
     \[
-      K(k\text{-}$\categ{Vect}$^f) \to G
+      K(k\text{-}\categ{Vect}^f) \to G
     \]
     mapping $\chi_K(V_\bullet)$ to $\chi_G(V_\bullet)$.
   \item In particular, $\delta = \dim$ induces a group homomorphism
     \[
-      K(k\text{-}$\categ{Vect}$^f) \to \Z
+      K(k- \categ{Vect}^f) \to \Z
     \]
     such that $\chi_K(V_\bullet) \mapsto \chi(V_\bullet)$.
   \item This is in fact an isomorphism.
@@ -2434,7 +2434,7 @@ We will come back to complexes and homology in \Cref{chap:homol}.
 \begin{exer}{}{exer:linalg:3.18}
   Let $\categ{Ab}^{fg}$ be the category of finitely generated abelian
   groups. Define a Grothendieck group of this category in the style of
-  the construction of $K(k\text{-}$\categ{Vect}$^f)$, and prove that
+  the construction of $K(k\text{-}\categ{Vect}^f)$, and prove that
   $K(\categ{Ab}^{fg}) \cong \Z$.
 \end{exer}
 \begin{exer}{$\lnot$}{exer:linalg:3.19}
@@ -2444,18 +2444,18 @@ We will come back to complexes and homology in \Cref{chap:homol}.
   multiplicative group $(\Q^*, \cdot)$. [\ref{exer:linalg:3.20}]
 \end{exer}
 \begin{exer}{}{exer:linalg:3.20}
-  Let $R\text{-}$\categ{Mod}$^f$ be the category of modules of finite
+  Let $R-\categ{Mod}^f$ be the category of modules of finite
   length (cf.\ \Cref{exer:linalg:1.16}) over a ring $R$. Let $G$ be an abelian
   group, and let $\delta$ be a function assigning an element of $G$ to
   every simple $R$-module. Prove that $\delta$ extends to a
   homomorphism from the Grothendieck group of
-  $R\text{-}$\categ{Mod}$^f$ to $G$.
+  $R-\categ{Mod}^f$ to $G$.
 
   Explain why \Cref{exer:linalg:3.19} is a particular case of this observation.
 
   (For another example, letting $\delta(M) = 1 \in \Z$ for every
   simple module $M$ shows that length itself extends to a homomorphism
-  from the Grothendieck group of $R\text{-}$\categ{Mod}$^f$ to $\Z$.)
+  from the Grothendieck group of $R-\categ{Mod}^f$ to $\Z$.)
 \end{exer}
 
 \section{Presentations and resolutions}

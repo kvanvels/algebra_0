@@ -6,7 +6,7 @@ In this chapter we introduce groups, we observe they form a category
 category: what are the monomorphisms and the epimorphisms in this
 category? what is the appropriate notion of `equivalence relation' and
 `quotients' for a group? does a `decomposition theorem' hold in
-$\categ{Grp}$? and other analogous questions.  In \Cref{chap:rings} we will
+$\categ{Grp}$? and other analogous questions.  In \Fullref{chap:rings} we will
 acquire a similar degree of familiarity with \emph{rings} and
 \emph{modules}. A more object-oriented analysis of $\categ{Grp}$ (for
 example, a treatment of the famous Sylow theorems, `composition
@@ -440,7 +440,7 @@ In general, for commuting elements,
       h}_{N\text{ times}} = g^N h^N = e.
   \]
   As this holds for every common multiple $N$ of $m$ and $n$, in
-  particular $(gh)^{\operatorname{lcm}(m,n)} = e$. The statement then
+  particular \[(gh)^{\operatorname{lcm}(m,n)} = e.\] The statement then
   follows from \Cref{lem:groups:order-divisor}.
 \end{proof}
 
@@ -870,8 +870,9 @@ Of course we have to check that this prescription is well-defined;
 luckily, this is very easy: the following small lemma does the job, as
 it shows that the result of the operation does not depend on the
 representatives chosen for the classes.
-\begin{lem}{If $a \equiv a' \pmod{n}$ and $b \equiv b' \pmod{n}$, then
-    $(a+b) \equiv (a'+b') \pmod{n}$.}{lem:groups:congruence-addition}
+\begin{lem}{}{lem:groups:congruence-addition}
+  If $a \equiv a' \pmod{n}$ and $b \equiv b' \pmod{n}$, then
+    $(a+b) \equiv (a'+b') \pmod{n}$.
 \end{lem}
 \begin{proof}
   By hypothesis $n \mid (a'-a)$ and $n \mid (b'-b)$; therefore
@@ -920,9 +921,10 @@ Equivalently, we may phrase this fact by observing that the order of
 $[1]_n$ in $\Z/n\Z$ is $n$: this implies that the $n$ multiples
 $0 \cdot [1]_n, 1 \cdot [1]_n, \ldots, (n-1) \cdot [1]_n$ must all be
 distinct, and hence they must fill up $\Z/n\Z$.
-\begin{prop}{The order of $[m]_n$ in $\Z/n\Z$ is $1$ if $n \mid m$,
+\begin{prop}{}{prop:groups:order-class}
+  The order of $[m]_n$ in $\Z/n\Z$ is $1$ if $n \mid m$,
     and more generally
-    $|[m]_n| = \dfrac{n}{\gcd(m,n)}$.}{prop:groups:order-class}
+    $|[m]_n| = \dfrac{n}{\gcd(m,n)}$.
 \end{prop}
 \begin{proof}
   If $n \mid m$, then $[m]_n = [0]_n$. If $n$ does not divide $m$,
@@ -934,8 +936,9 @@ distinct, and hence they must fill up $\Z/n\Z$.
   (\Cref{exam:groups:order-divides-order-of-group}) that this is a general feature of the order of
   elements in any finite group.
 \end{rem}
-\begin{coro}{The class $[m]_n$ generates $\Z/n\Z$ if and only if
-    $\gcd(m,n) = 1$.}{coro:groups:generator-coprime}
+\begin{coro}{}{coro:groups:generator-coprime}
+  The class $[m]_n$ generates $\Z/n\Z$ if and only if
+    $\gcd(m,n) = 1$.
 \end{coro}
 This simple result is quite important. For example, if $n = p$ is a
 prime integer, it shows that every nonzero class in the group $\Z/p\Z$
@@ -1383,7 +1386,7 @@ construction requires handling presentations more proficiently than we
 do right now, and general coproducts of groups will not be used in the
 rest of the book; so the reader will have to deal with them on his or
 her own. For an important example, see \Cref{exer:groups:c2-star-c3}; more will show up
-in Exercises~5.6 and~5.7, since free groups are themselves particular
+in OLDExercises~5.6 and~5.7, since free groups are themselves particular
 cases of coproducts. The reader will finally produce the coproduct of
 any two groups explicitly in \Cref{exer:groups:coproduct-via-presentations}. For now, just realize that
 the disjoint union, which works as a coproduct in $\categ{Set}$
@@ -1392,27 +1395,27 @@ reasonable group structure on the disjoint union. The coproduct of $G$
 and $H$ in $\categ{Grp}$ is denoted $G * H$ and is called the
 \textbf{free product} of $G$ and $H$.
 
-\subsection{Abelian groups}
+\subsection{Abelian groups}%
 \label{subsec:groups:abelian-groups}
-The category $\categ{Ab}$ whose objects are abelian groups, and whose
-morphisms are group homomorphisms, will in a sense be more important
-for us than the category $\categ{Grp}$. In many ways, as we will see,
-$\categ{Ab}$ is a `nicer' category\footnote{As we will see in due time
-  (\Cref{prop:rings:Z-module}), $\categ{Ab}$ is one instance of a general
-  class of categories of `modules over a commutative ring $R$' (for
-  $R = \Z$). Unlike $\categ{Grp}$, these categories are abelian, which
-  makes them very well-behaved. We will learn two or three things
-  about abelian categories in \Cref{chap:homol}.} than $\categ{Grp}$.  Again
-the trivial groups are both initial and final (that is, `zero')
-objects; products exist and coincide with products in
-$\categ{Grp}$. But here is a difference: unlike in $\categ{Grp}$,
-coproducts in $\categ{Ab}$ coincide with products. That is, if $G$ and
-$H$ are abelian groups, then the product $G \times H$ (with the two
-natural homomorphisms $G \to G \times H$, $H \to G \times H$)
-satisfies the universal property for coproducts in $\categ{Ab}$ (cf.\
-\Cref{exer:groups:ab-coproduct}). When working as a coproduct, the product $G \times H$
-of two abelian groups is often called their \textbf{direct sum} and is
-denoted $G \oplus H$.
+The category $\categ{Ab}$ whose objects are \emph{abelian} groups, and
+whose morphisms are group homomorphisms, will in a sense be more
+important for us than the category $\categ{Grp}$. In many ways, as we
+will see, $\categ{Ab}$ is a `nicer' category\footnote{As we will see
+  in due time (\Cref{prop:rings:Z-module}), $\categ{Ab}$ is one
+  instance of a general class of categories of `modules over a
+  commutative ring $R$' (for $R = \Z$). Unlike $\categ{Grp}$, these
+  categories are abelian, which makes them very well-behaved. We will
+  learn two or three things about abelian categories in
+  \Cref{chap:homol}.} than $\categ{Grp}$.  Again the trivial groups
+are both initial and final (that is, `zero') objects; products exist
+and coincide with products in $\categ{Grp}$. But here is a difference:
+unlike in $\categ{Grp}$, coproducts in $\categ{Ab}$ coincide with
+products. That is, if $G$ and $H$ are abelian groups, then the product
+$G \times H$ (with the two natural homomorphisms $G \to G \times H$,
+$H \to G \times H$) satisfies the universal property for coproducts in
+$\categ{Ab}$ (cf.\ \Cref{exer:groups:ab-coproduct}). When working as a
+coproduct, the product $G \times H$ of two abelian groups is often
+called their \textbf{direct sum} and is denoted $G \oplus H$.
 
 There is a pretty subtlety here, which may highlight the power of the
 language: even if $G$ and $H$ are commutative, the product
@@ -3213,7 +3216,7 @@ $gN \subseteq Ng$) and $ng = gn''$ (so that $Ng \subseteq gN$).
 \subsection{Quotient group}
 \label{subsec:groups:quotient-group}
 Recall that we have the notion of a quotient of a \emph{set} by an
-equivalence relation (\S{}\ref{subsec:prelims:equivalence-relations}) and that this notion satisfies a
+equivalence relation (\S{}\ref{subsec:prelims:equiv-relations}) and that this notion satisfies a
 universal property (clumsily stated in \S{}\ref{subsec:prelims:quotients}). It is natural to
 investigate this notion in $\categ{Grp}$.
 
