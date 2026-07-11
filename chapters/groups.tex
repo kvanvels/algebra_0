@@ -6,12 +6,12 @@ In this chapter we introduce groups, we observe they form a category
 category: what are the monomorphisms and the epimorphisms in this
 category? what is the appropriate notion of `equivalence relation' and
 `quotients' for a group? does a `decomposition theorem' hold in
-$\categ{Grp}$? and other analogous questions.  In \Fullref{chap:rings} we will
-acquire a similar degree of familiarity with \emph{rings} and
-\emph{modules}. A more object-oriented analysis of $\categ{Grp}$ (for
-example, a treatment of the famous Sylow theorems, `composition
-series', or the classification of finite abelian groups) is deferred
-to \Cref{chap:groups2}.
+$\categ{Grp}$? and other analogous questions.  In
+\Fullref{chap:rings}, we will acquire a similar degree of familiarity
+with \emph{rings} and \emph{modules}. A more object-oriented analysis
+of $\categ{Grp}$ (for example, a treatment of the famous \name{Sylow}
+theorems, `composition series', or the classification of finite
+abelian groups) is deferred to \Fullref{chap:groups2}.
 
 \section{Definition of group}%
 \label{sec:groups:definition-of-group}
@@ -94,13 +94,14 @@ dictate.\footnote{Not without exceptions; see for example permutation
 \end{exam}
 
 \begin{exam}{}{}
-  The reader should check carefully (cf.\ \Cref{exer:groups:sets-of-numbers}) that
-  $(\Z, +)$, $(\Q, +)$, $(\R, +)$, $(\C, +)$, and several variations
-  using $\cdot$ (for example, the subset $\{+1, -1\}$ of $\Z$, with
-  ordinary multiplication) all give examples of groups. While very
-  interesting in themselves, these examples do not really capture at
-  any intuitive level `what' a group really is, because they are too
-  special. For example, all these examples are commutative (see
+  The reader should check carefully (cf.\
+  \Cref{exer:groups:sets-of-numbers}) that $(\Z, +)$, $(\Q, +)$,
+  $(\R, +)$, $(\C, +)$, and several variations using $\cdot$ (for
+  example, the subset $\{+1, -1\}$ of $\Z$, with ordinary
+  multiplication) all give examples of groups. While very interesting
+  in themselves, these examples do not really capture at any intuitive
+  level `what' a group really is, because they are too special. For
+  example, all these examples are commutative (see
   \S{}\ref{subsec:groups:commutative-groups}).
 \end{exam}
 \begin{exam}{}{exam:groups:gln-matrices}
@@ -147,7 +148,7 @@ denote this element: $1$ and $0$ are popular alternatives, depending
 on the context. In any case, for any given group $G$ this element is
 unique. That is, no other element of $G$ can work as an identity:
 
-\begin{prop}{}{prop:groups:identity-unique}
+\begin{prop}{Identity elements are unique.}{prop:groups:identity-unique}
   If $h \in G$ is an identity of $G$, then $h = e_G$.
 \end{prop}
 Incidentally, this makes groups pointed sets in the sense of
@@ -165,19 +166,21 @@ Incidentally, this makes groups pointed sets in the sense of
   (Amusingly, this argument only uses that $e_G$ is a `left' identity
   and $h$ is a `right' identity.)
 \end{proof}
-\begin{prop}{}{prop:groups:inverse-unique}
+\begin{prop}{Inverses are unique.}{prop:groups:inverse-unique}
   The inverse is also unique: if $h_1$, $h_2$ are both inverses of $g$
   in $G$, then $h_1 = h_2$.
 \end{prop}
 \begin{proof}
-  This actually follows from \Cref{prop:prelims:iso-unique-inverse} (by viewing $G$ as the
-  set of isomorphisms of a groupoid with a single object). The reader
-  should construct a stand-alone proof, using the same trick, but
-  carefully hiding any reference to morphisms.
+  This actually follows from \Cref{prop:prelims:iso-unique-inverse}
+  (by viewing $G$ as the set of isomorphisms of a groupoid with a
+  single object). The reader should construct a stand-alone proof,
+  using the same trick, but carefully hiding any reference to
+  morphisms.
 \end{proof}
 \Cref{prop:groups:inverse-unique} authorizes us to give a name to
 \emph{the} inverse of $g$: this is usually\footnote{But note the
-  `abelian' case, discussed in \S{}\ref{subsec:groups:commutative-groups}.} denoted $g^{-1}$.
+  `abelian' case, discussed in
+  \S{}\ref{subsec:groups:commutative-groups}.} denoted $g^{-1}$.
 
 One more notational item is in order. The definition of a group only
 contemplates the `product' of two elements; in multiplying a string of
@@ -548,8 +551,8 @@ special case.
 \begin{exer}{\exerused}{exer:groups:infinite-order-product}
   In the group of invertible $2 \times 2$ matrices, consider
   \[
-    g = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad h
-    = \begin{pmatrix} 0 & 1 \\ -1 & -1 \end{pmatrix}.
+     g = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad h
+     = \begin{pmatrix} 0 & 1 \\ -1 & -1 \end{pmatrix}.
   \]
   Verify that $|g| = 4$, $|h| = 3$, and $|gh| = \infty$. [\S{}\ref{subsec:groups:order}]
 \end{exer}
@@ -582,13 +585,16 @@ special case.
 
 \subsection{Symmetric groups}
 \label{subsec:groups:symmetric-groups}
-In \S{}\ref{subsec:prelims:isomorphisms} we have already observed that every object $A$ of every
-category $\categ{C}$ determines a group, called
-$\Aut_{\categ{C}}(A)$, namely the group of automorphisms
-of $A$. In a somewhat artificial sense it is clear that every group
-arises in this fashion (cf.\ \Cref{exer:groups:group-as-automorphisms}); this fact is true in more
+In \fullref{subsec:prelims:isomorphisms} we have already observed that
+every object $A$ of every category $\categ{C}$ determines a group,
+called $\Aut_{\categ{C}}(A)$, namely the group of automorphisms of
+$A$. In a somewhat artificial sense it is clear that every group
+arises in this fashion (cf.\
+\Cref{exer:groups:group-as-automorphisms}); this fact is true in more
 `meaningful' ways, which will become apparent when we discuss group
-actions (\S{}\ref{sec:groups:group-actions}): cf.\ especially \Cref{thm:groups:cayleys-theorem} and \Cref{exer:groups:autgset-g-is-g}.
+actions (\S{}\ref{sec:groups:group-actions}): cf.\ especially
+\Cref{thm:groups:cayleys-theorem} and
+\Cref{exer:groups:autgset-g-is-g}.
 
 In any case, this observation provides the reader with an infinite
 class of very important examples:
@@ -606,15 +612,15 @@ transformation of $A$ which does not change it (as a set), hence a
 `symmetry'.
 
 The groups $S_A$ are famously large: as the reader checked in
-\Cref{exer:prelim:count-bijections}, $|S_n| = n!$. For example, $|S_{70}| > 10^{100}$,
-which is substantially larger than the estimated number of elementary
-particles in the observable universe.  \pheader{Potentially confusing
-  point:} The various conventions clash in the way the operation in
-$S_A$ should be written. From the `automorphism' point of view,
-elements of $S_A$ are functions and should be composed as such; thus,
-if $f, g \in S_A = \Aut_{\categ{Set}}(A)$, then the
-`product' of $f$ and $g$ should be written $g \circ f$ and should act
-as follows:
+\Cref{exer:prelim:count-bijections}, $|S_n| = n!$. For example,
+$|S_{70}| > 10^{100}$, which is substantially larger than the
+estimated number of elementary particles in the observable universe.
+\pheader{Potentially confusing point:} The various conventions clash
+in the way the operation in $S_A$ should be written. From the
+`automorphism' point of view, elements of $S_A$ are functions and
+should be composed as such; thus, if
+$f, g \in S_A = \Aut_{\categ{Set}}(A)$, then the `product' of $f$ and
+$g$ should be written $g \circ f$ and should act as follows:
 \[
   (\forall p \in A) : \quad g \circ f(p) = g(f(p)).
 \]
@@ -747,8 +753,10 @@ the group `generated' by two elements $x$ and $y$, with the
 More generally, a subset $A$ of a group $G$ `generates' $G$ if every
 element of $G$ may be written as a product of elements of $A$ and of
 inverses of elements of $A$. We will deal with this notion more
-formally in \S{}\ref{subsec:groups:example-subgroup-generated-by-a-subset} and with descriptions of groups in terms of
-generators and relations in \S{}\ref{subsec:groups:presentations}.
+formally in
+\S{}\ref{subsec:groups:example-subgroup-generated-by-a-subset} and
+with descriptions of groups in terms of generators and relations in
+\S{}\ref{subsec:groups:presentations}.
 
 \subsection{Dihedral groups}
 \label{subsec:groups:dihedral-groups}
@@ -810,16 +818,17 @@ this out for several examples involving $D_6 \to S_3$ and
 $D_8 \to S_4$.
 
 A concise way to describe the situation is that these functions are
-(group) \textit{homomorphisms} (cf.\ \S{}\ref{sec:groups:group-homomorphisms}). Since both $D_6$ and
-$S_3$ have 6 elements and the function $D_6 \to S_3$ given above is
+(group) \textit{homomorphisms} (cf.\
+\S{}\ref{sec:groups:group-homomorphisms}). Since both $D_6$ and $S_3$
+have 6 elements and the function $D_6 \to S_3$ given above is
 injective, it must also be surjective. Thus there are bijective
 homomorphisms between $D_6$ and $S_3$; we say that these groups are
-\textit{isomorphic} (cf.\ \S{}\ref{subsec:groups:isomorphisms}). We will study these concepts very
-carefully in the next several sections.  As an alternative (and more
-abstract) way to draw the same conclusion, denote by $y$ the
-counterclockwise rotation considered above and by $x$ the reflection
-about the line through the center and vertex~$\mathbf{3}$ of our
-equilateral triangle:
+\textit{isomorphic} (cf.\ \S{}\ref{subsec:groups:isomorphisms}). We
+will study these concepts very carefully in the next several sections.
+As an alternative (and more abstract) way to draw the same conclusion,
+denote by $y$ the counterclockwise rotation considered above and by
+$x$ the reflection about the line through the center and
+vertex~$\mathbf{3}$ of our equilateral triangle:
 
 % TODO: diagram of equilateral triangle with reflection axis (page 53)
 
@@ -838,8 +847,9 @@ In other words, the group $D_6$ is also generated by two elements $x$,
 $y$, subject to the relations $x^2 = e$, $y^3 = e$,
 $yx = xy^2$---precisely as we found for $S_3$. Since $D_6$ and $S_3$
 admit matching descriptions in terms of generators and relations (that
-is, matching \textit{presentations}; cf.\ \S{}\ref{subsec:groups:presentations}), `of course' they
-are isomorphic.
+is, matching \textit{presentations}; cf.\
+\S{}\ref{subsec:groups:presentations}), `of course' they are
+isomorphic.
 
 \subsection{Cyclic groups and modular arithmetic}
 \label{subsec:groups:cyclic-groups-and-modular-arithmetic}
@@ -850,16 +860,16 @@ $\Z$ defined by\footnote{The notation $n \mid m$ stands for $n$
   (\forall a, b \in \Z) : \quad a \equiv b \pmod{n} \iff n \mid (b-a).
 \]
 This is called \textbf{congruence modulo $n$}. We have encountered
-this relation already, for $n = 2$, in \Cref{exam:prelims:z-mod-2}. It is very easy
-to check that it is an equivalence relation, for all $n$; the set of
-equivalence classes is often denoted by $\Z_n$, $\Z/(n)$, $\Z/n\Z$, or
-$\F_n$. We will opt for $\Z/n\Z$, which is not preempted by other
-notions\footnote{When $n = p$ is prime, $\Z_p$ is the official
-  notation for `$p$-adic integers', which are a completely different
-  concept; see \Cref{linrep:exer:1.19}.}. I will denote by $[a]_n$ the
-equivalence class of the integer $a$ modulo $n$, or simply $[a]$ if no
-ambiguity arises.  The reader should check carefully that $\Z/n\Z$
-consists of exactly $n$ elements, namely
+this relation already, for $n = 2$, in \Cref{exam:prelims:z-mod-2}. It
+is very easy to check that it is an equivalence relation, for all $n$;
+the set of equivalence classes is often denoted by $\Z_n$, $\Z/(n)$,
+$\Z/n\Z$, or $\F_n$. We will opt for $\Z/n\Z$, which is not preempted
+by other notions\footnote{When $n = p$ is prime, $\Z_p$ is the
+  official notation for `$p$-adic integers', which are a completely
+  different concept; see \Cref{linrep:exer:1.19}.}. I will denote by
+$[a]_n$ the equivalence class of the integer $a$ modulo $n$, or simply
+$[a]$ if no ambiguity arises.  The reader should check carefully that
+$\Z/n\Z$ consists of exactly $n$ elements, namely
 $[0]_n, [1]_n, \ldots, [n-1]_n$.
 
 We can use the group structure on $\Z$ to induce an (abelian) group
@@ -959,8 +969,8 @@ $\Z/n\Z$ consisting of classes $[m]_n$ such that $\gcd(m,n)=1$:
 This subset is clearly well-defined: if $m \equiv m' \pmod{n}$, then
 $\gcd(m,n)=1 \iff \gcd(m',n)=1$ (\Cref{exer:groups:coprime-class-well-defined}), so the defining
 property of classes in $(\Z/n\Z)^*$ is independent of representatives.
-\begin{prop}{Multiplication makes $(\Z/n\Z)^*$ into a
-    group.}{prop:groups:units-group}
+\begin{prop}{}{prop:groups:units-group}
+  Multiplication makes $(\Z/n\Z)^*$ into a group.  
 \end{prop}
 \begin{proof}
   Simple properties of gcd's show that if
@@ -3961,7 +3971,7 @@ $G_1 \times G_2$ and
   By Corollary~\ref{coro:groups:first-isomorphism-theorem}, therefore,
   \[
     \frac{\R}{\Z} \cong S^1.
-  \]
+  \]xo
   (Cf.\ \Cref{exer:1.6}.) Geometrically, this amounts to `wrapping'
   $\R$ infinitely many times around the circle, realizing $\R$ as the
   `universal cover' of $S^1$; here, $\Z$ plays the role of

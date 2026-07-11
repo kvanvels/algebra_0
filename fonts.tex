@@ -2,29 +2,56 @@
 
 % ---- Text + math font options (uncomment exactly one block) ----
 
--- TeX Gyre Bonum (Bookman) --
-\setmainfont{texgyrebonum}[
-  Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
-  UprightFont    = *-regular,
-  ItalicFont     = *-italic,
-  BoldFont       = *-bold,
-  BoldItalicFont = *-bolditalic
-]
-\setmathfont{texgyrebonum-math}[
-  Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
-]
-\setmathfont[version=bold]{texgyrebonum-math}[
-  Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
-]
-
-% -- TeX Gyre Pagella (Palatino) --
-% \setmainfont{texgyrepagella}[
+% -- TeX Gyre Bonum (Bookman) --
+% \setmainfont{texgyrebonum}[
 %   Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
 %   UprightFont    = *-regular,
 %   ItalicFont     = *-italic,
 %   BoldFont       = *-bold,
 %   BoldItalicFont = *-bolditalic
 % ]
+% \setmathfont{texgyrebonum-math}[
+%   Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
+% ]
+% \setmathfont[version=bold]{texgyrebonum-math}[
+%   Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
+% ]
+
+% \mathsf specifically borrows glyphs from the plain (non-MATH-table)
+% LibertinusSans text font via unicode-math's range= override -- no
+% dedicated "Libertinus Sans Math" font exists (Libertinus only ships
+% one math companion, styled to match the serif face).
+% \setmathfont{LibertinusSans-Regular}[
+%   Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
+%   range = sfup
+% ]
+
+%-- TeX Gyre Pagella (Palatino) -- math: Libertinus Math (borrowed) --
+\setmainfont{texgyrepagella}[
+  Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
+  UprightFont    = *-regular,
+  ItalicFont     = *-italic,
+  BoldFont       = *-bold,
+  BoldItalicFont = *-bolditalic
+  ]
+
+\setmathfont{LibertinusMath-Regular}[
+  Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
+]
+\setmathfont[version=bold]{LibertinusMath-Regular}[
+  Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
+]
+% \setmathfont{Luciole-Math.otf}[
+%   BoldFont = Luciole-Math-Bold.otf % braces prevent chktex warning 26 (space before punctuation)
+% ]
+% Math font has no sans-serif math alphabet glyphs of its own, so
+% \mathsf borrows them directly from the plain LibertinusSans text font
+% via this range= override (proven working empirically -- the
+% unimathsetup mathsf=text hook did not reliably kick in).
+\setmathfont{LibertinusSans-Regular}[
+  Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
+  range = sfup
+]
 % \setmathfont{texgyrepagella-math}[
 %   Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
 % ]
@@ -32,7 +59,59 @@
 %   Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
 % ]
 
-% -- TeX Gyre Schola (Century Schoolbook) --
+% -- "Concrete Mathematics" look -- math: AMS Euler (the book's actual
+% math font; its calligraphic variables are the signature look) --
+% text: Pagella (no modern OTF of the original Concrete Roman text
+% face exists, only old METAFONT/TFM -- Pagella substituted instead).
+% \setmainfont{texgyrepagella}[
+%   Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
+%   UprightFont    = *-regular,
+%   ItalicFont     = *-italic,
+%   BoldFont       = *-bold,
+%   BoldItalicFont = *-bolditalic
+%   ]
+%
+% \setmathfont{Euler-Math.otf}
+%
+% Euler-Math has no sans-serif math alphabet glyphs of its own, so
+% \mathsf borrows them directly from the plain LibertinusSans text font
+% via this range= override (same technique used in the other blocks).
+% \setmathfont{LibertinusSans-Regular}[
+%   Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
+%   range = sfup
+% ]
+
+% -- Luciole (accessibility-focused; text + math both from Luciole) --
+% Bold math companion is wired via BoldFont= (not a separate
+% [version=bold] call) -- this is the pairing luciole-math.sty itself
+% uses.
+% \setmainfont{Luciole}[
+%   Extension      = .ttf, % braces prevent chktex warning 26 (space before punctuation)
+%   UprightFont    = *-Regular,
+%   BoldFont       = *-Bold,
+%   ItalicFont     = *-Regular-Italic,
+%   BoldItalicFont = *-Bold-Italic
+% ]
+% \setmathfont{Luciole-Math.otf}[
+%   BoldFont = Luciole-Math-Bold.otf % braces prevent chktex warning 26 (space before punctuation)
+% ]
+
+% -- Libertinus (Serif + Sans + Math, all from the Libertinus family) --
+% \setmainfont{LibertinusSerif}[
+%   Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
+%   UprightFont    = *-Regular,
+%   ItalicFont     = *-Italic,
+%   BoldFont       = *-Bold,
+%   BoldItalicFont = *-BoldItalic
+% ]
+% \setmathfont{LibertinusMath-Regular}[
+%   Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
+% ]
+% \setmathfont[version=bold]{LibertinusMath-Regular}[
+%   Extension = {.otf} % braces prevent chktex warning 26 (space before punctuation)
+% ]
+
+%% -- TeX Gyre Schola (Century Schoolbook) --
 % \setmainfont{texgyreschola}[
 %   Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
 %   UprightFont    = *-regular,
@@ -85,6 +164,22 @@
   ItalicFont  = *-Italic,
   BoldFont    = *-Bold
 ]
+
+% Force \mathrm/\mathit/\mathbf/\mathsf/\mathtt to draw from the math
+% font (LibertinusMath) instead of unicode-math's default of routing
+% them through the text fonts (\setmainfont/\setsansfont/etc.) -- see
+% unicode-math-luatex.sty's default `mathrm=text,...' setup.
+% mathsf stays on `text': LibertinusMath has no sans-serif math
+% alphabet glyphs at all, so routing it through the math font silently
+% falls back to plain upright letters instead of erroring -- keeping
+% it on `text' correctly draws from \setsansfont{LibertinusSans}, which
+% does have real sans glyphs. Must come AFTER \setsansfont so
+% \sfdefault is already set when this hook fires.
+% mathsf deliberately excluded here -- it's populated manually via a
+% range=sfup override earlier (LibertinusMath has no sans-serif math
+% glyphs), and re-processing mathsf=sym or mathsf=text this late resets
+% that override.
+\unimathsetup{mathrm=sym,mathit=sym,mathbf=sym,mathtt=sym}
 
 \defaultfontfeatures{Ligatures=TeX}
 
