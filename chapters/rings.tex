@@ -3433,7 +3433,7 @@ hints; we will see it in \S{}\ref{subsec:irred:noetherian-rings-revisited}.
   is onto if and only if for all $R$-module homomorphisms
   $\alpha : F \to N$ there exists an $R$-module homomorphism
   $\beta : F \to M$ such that $\alpha = \phi \circ \beta$. (Free
-  modules are projective, as we will see in \Cref{chap:linrep}.) [\ref{exer:rings:7.8},
+  modules are projective, as we will see in \Cref{chap:linrep}.) [\ref{exer:rings:exact-seq-with-free-quotient-splits},
   \ref{exer:linalg:direct-summand-of-free-over-local-is-free}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:fibered-product}
@@ -3501,7 +3501,7 @@ hints; we will see it in \S{}\ref{subsec:irred:noetherian-rings-revisited}.
     \in I), an = 0\}$.
   \item For $a, b \in \Z$, prove that
     $\Hom_{\categ{Ab}}(\Z/a\Z, \Z/b\Z) \cong \Z/\gcd(a,b)\Z$.
-  \end{itemize} [\ref{exer:rings:7.7}]
+  \end{itemize} [\ref{exer:rings:hom-contravariant-left-exact-from-ses}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:fg-submodule-quotient}
   Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Prove
@@ -3601,7 +3601,7 @@ that this observation allows us to break up every exact complex into a
 large number of short exact sequences. The diagonal sequences in the
 following diagram are short exact sequences, and they interlock nicely
 by the exactness of the horizontal complex. This observation
-simplifies many arguments; cf.\ for example \Cref{exer:rings:7.5}.
+simplifies many arguments; cf.\ for example \Cref{exer:rings:noetherian-sandwiched-in-exact-sequence}.
 
 \subsection{Split exact sequences}
 \label{subsec:rings:split-exact-sequences}
@@ -3625,7 +3625,7 @@ that there is a commutative diagram
     \arrow[r] & 0
   \end{tikzcd}\] in which the vertical maps are all
 isomorphisms\footnote{In fact, this last requirement is somewhat
-  redundant; cf.\ \Cref{exer:rings:7.11}.}.
+  redundant; cf.\ \Cref{exer:rings:retraction-to-direct-sum-implies-splits}.}.
 
 \begin{exam}{}{}
   The exact sequence of $\Z$-modules
@@ -3650,7 +3650,7 @@ give a more explicit description of such morphisms?
 \end{prop}
 \begin{proof}
   I will prove the first part and leave the other as an exercise to
-  the reader (\Cref{exer:rings:7.6}). If the sequence splits, then $\phi$ may
+  the reader (\Cref{exer:rings:split-epimorphism-part-of-split-seq-prop}). If the sequence splits, then $\phi$ may
   be identified with the embedding of $M$ into a direct sum
   $M \oplus M'$, and the projection $M \oplus M' \to M$ gives a
   left-inverse of $\phi$. Conversely, assume that $\phi$ has a
@@ -3854,7 +3854,7 @@ become really straightforward once the lemma is settled. For example,
     \coker\lambda \to 0 \to \coker\nu \to
     0.\] Exactness implies
   $\coker\lambda = \coker\nu = 0$
-  (\Cref{exer:rings:7.1}); hence $\lambda$ and $\nu$ are surjective, with the
+  (\Cref{exer:rings:single-nonzero-term-exact-implies-zero}); hence $\lambda$ and $\nu$ are surjective, with the
   stated consequences.
 \end{proof}
 
@@ -3862,36 +3862,36 @@ Several more such statements may be proved just as easily; the reader
 should experiment to his or her heart's content.
 
 \subsection*{Exercises}
-\begin{exer}{\exerused}{exer:rings:7.1}
+\begin{exer}{\exerused}{exer:rings:single-nonzero-term-exact-implies-zero}
   Assume that the complex $\cdots \to 0 \to M \to 0 \to \cdots$ is
   exact. Prove that $M \cong 0$. [\S{}\ref{subsec:rings:homology-and-the-snake-lemma}]
 \end{exer}
-\begin{exer}{}{exer:rings:7.2}
+\begin{exer}{}{exer:rings:two-term-exact-complex-gives-iso}
   Assume that the complex $\cdots \to 0 \to M \to M' \to 0 \to \cdots$
   is exact. Prove that $M \cong M'$.
 \end{exer}
-\begin{exer}{}{exer:rings:7.3}
+\begin{exer}{}{exer:rings:five-term-exact-complex-ker-coker-identification}
   Assume that the complex
   $\cdots \to 0 \to L \to M \xrightarrow{\phi} M' \to N \to 0 \to
   \cdots$ is exact. Show that, up to natural identifications,
   $L = \ker\phi$ and $N = \coker\phi$.
 \end{exer}
-\begin{exer}{}{exer:rings:7.4}
+\begin{exer}{}{exer:rings:hilbert-hotel-exact-sequences-with-z-n}
   Construct short exact sequences of $\Z$-modules
   \[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z \to 0\] and
   \[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to 0.\]
   (Hint: David Hilbert's Grand Hotel.)
 \end{exer}
-\begin{exer}{\exerused}{exer:rings:7.5}
+\begin{exer}{\exerused}{exer:rings:noetherian-sandwiched-in-exact-sequence}
   Assume that the complex $\cdots \to L \to M \to N \to \cdots$ is
   exact and that $L$ and $N$ are Noetherian. Prove that $M$ is
   Noetherian. [\S{}\ref{subsec:rings:complexes-and-exact-sequences}]
 \end{exer}
-\begin{exer}{\exerused}{exer:rings:7.6}
+\begin{exer}{\exerused}{exer:rings:split-epimorphism-part-of-split-seq-prop}
   Prove the ``split epimorphism'' part of
   \cref{prop:rings:split-sequence}. [\S{}\ref{subsec:rings:split-exact-sequences}]
 \end{exer}
-\begin{exer}{\exerused}{exer:rings:7.7}
+\begin{exer}{\exerused}{exer:rings:hom-contravariant-left-exact-from-ses}
   Let $0 \to M \to N \to P \to 0$ be a short exact sequence of
   $R$-modules, and let $L$ be an $R$-module.
   \begin{enumerate}[label=(\roman*)]
@@ -3907,28 +3907,28 @@ should experiment to his or her heart's content.
     in (i) need not be onto.
   \item Show that if the original sequence splits, then the rightmost
     homomorphism in (i) is onto.
-  \end{enumerate} [\ref{exer:rings:7.9}, \ref{exer:linrep:onto-hom-explicit-restriction-extension-scalars}, \S{}\ref{subsec:linrep:adjunction-again}]
+  \end{enumerate} [\ref{exer:rings:hom-sequence-exactness-with-free-quotient}, \ref{exer:linrep:onto-hom-explicit-restriction-extension-scalars}, \S{}\ref{subsec:linrep:adjunction-again}]
 \end{exer}
-\begin{exer}{\exerused}{exer:rings:7.8}
+\begin{exer}{\exerused}{exer:rings:exact-seq-with-free-quotient-splits}
   Prove that every exact sequence $0 \to M \to N \to F \to 0$ of
   $R$-modules, with $F$ free, splits. (Hint: \Cref{exer:rings:free-projective}.)
   [\S{}\ref{subsec:linrep:duality-and-exactness}]
 \end{exer}
-\begin{exer}{}{exer:rings:7.9}
+\begin{exer}{}{exer:rings:hom-sequence-exactness-with-free-quotient}
   Let $0 \to M \to N \to F \to 0$ be a short exact sequence of
   $R$-modules, with $F$ free, and let $L$ be an $R$-module. Prove that
   there is an exact sequence
   \[\Hom_{R\text{-Mod}}(F,L) \to \Hom_{R\text{-Mod}}(N,L) \to
-    \Hom_{R\text{-Mod}}(M,L) \to 0.\] (Cf.\ \Cref{exer:rings:7.7}.)
+    \Hom_{R\text{-Mod}}(M,L) \to 0.\] (Cf.\ \Cref{exer:rings:hom-contravariant-left-exact-from-ses}.)
 \end{exer}
-\begin{exer}{\exerused}{exer:rings:7.10}
+\begin{exer}{\exerused}{exer:rings:short-five-lemma-via-snake-lemma}
   In the situation of the snake lemma, assume that $\lambda$ and $\nu$
   are isomorphisms. Use the snake lemma and prove that $\mu$ is an
   isomorphism. This is called the ``short five-lemma,'' as it follows
-  immediately from the five-lemma (cf.\ \Cref{exer:rings:7.14}), as well as
+  immediately from the five-lemma (cf.\ \Cref{exer:rings:five-lemma-for-modules}), as well as
   from the snake lemma. [\ref{exer:linrep:why-ext-is-called-ext-part1}, \ref{exer:homol:short-five-lemma}]
 \end{exer}
-\begin{exer}{\exerused}{exer:rings:7.11}
+\begin{exer}{\exerused}{exer:rings:retraction-to-direct-sum-implies-splits}
   Let
   \[0 \to M_1 \to N \to M_2 \to 0 \tag{$*$}\] be an exact sequence of
   $R$-modules. (This may be called an ``extension'' of $M_2$ by
@@ -3940,7 +3940,7 @@ should experiment to his or her heart's content.
     \end{tikzcd}\] commute, where the bottom sequence is the standard
   sequence of a direct sum. Prove that $(*)$ splits. [\S{}\ref{subsec:rings:split-exact-sequences}]
 \end{exer}
-\begin{exer}{\lnot}{exer:rings:7.12}
+\begin{exer}{\lnot}{exer:rings:four-lemma-first-version}
   Practice your diagram chasing skills by proving the ``four-lemma'':
   if
   \[\begin{tikzcd}
@@ -3948,13 +3948,13 @@ should experiment to his or her heart's content.
       A_0 \ar[r] & B_0 \ar[r] & C_0 \ar[r] & D_0
     \end{tikzcd}\] is a commutative diagram of $R$-modules with exact
   rows, $\alpha$ is an epimorphism, and $\beta$, $\delta$ are
-  monomorphisms, then $\gamma$ is a monomorphism. [\ref{exer:rings:7.13}, \ref{exer:homol:four-lemma-in-abelian-categories}]
+  monomorphisms, then $\gamma$ is a monomorphism. [\ref{exer:rings:four-lemma-second-version}, \ref{exer:homol:four-lemma-in-abelian-categories}]
 \end{exer}
-\begin{exer}{}{exer:rings:7.13}
+\begin{exer}{}{exer:rings:four-lemma-second-version}
   Prove another\footnote{It is in fact unnecessary to prove both
     versions, but to realize this one has to view the matter from the
     more general context of abelian categories; cf.\ \Cref{exer:homol:four-lemma-in-abelian-categories}.}
-  version of the ``four-lemma'' of \cref{exer:rings:7.12}: if
+  version of the ``four-lemma'' of \cref{exer:rings:four-lemma-first-version}: if
   \[\begin{tikzcd}
       B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[r] \ar[d,"\delta"'] & E_1 \ar[d,"\epsilon"'] \\
       B_0 \ar[r] & C_0 \ar[r] & D_0 \ar[r] & E_0
@@ -3962,7 +3962,7 @@ should experiment to his or her heart's content.
   rows, $\beta$ and $\delta$ are epimorphisms, and $\epsilon$ is a
   monomorphism, then $\gamma$ is an epimorphism.
 \end{exer}
-\begin{exer}{\lnot}{exer:rings:7.14}
+\begin{exer}{\lnot}{exer:rings:five-lemma-for-modules}
   Prove the ``five-lemma'': if
   \[\begin{tikzcd}
       A_1 \ar[r] \ar[d,"\alpha"'] & B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[r] \ar[d,"\delta"'] & E_1 \ar[d,"\epsilon"'] \\
@@ -3971,9 +3971,9 @@ should experiment to his or her heart's content.
   rows, $\beta$ and $\delta$ are isomorphisms, $\alpha$ is an
   epimorphism, and $\epsilon$ is a monomorphism, then $\gamma$ is an
   isomorphism. (You can avoid the needed diagram chase by pasting
-  together results from previous exercises.) [\ref{exer:rings:7.10}]
+  together results from previous exercises.) [\ref{exer:rings:short-five-lemma-via-snake-lemma}]
 \end{exer}
-\begin{exer}{\lnot}{exer:rings:7.15}
+\begin{exer}{\lnot}{exer:rings:nine-lemma}
   Consider the following commutative diagram of $R$-modules:
   \[\begin{tikzcd}
       0 \ar[r] & L_2 \ar[r] \ar[d] & M_2 \ar[r] \ar[d,"\alpha"'] & N_2 \ar[r] \ar[d] & 0 \\
@@ -3985,10 +3985,10 @@ should experiment to his or her heart's content.
   two leftmost columns are exact; prove that the right column is
   exact. This is the ``nine-lemma.'' (You can avoid a diagram chase by
   applying the snake lemma; for this, you will have to turn the
-  diagram by $90^\circ$.) [\ref{exer:rings:7.16}]
+  diagram by $90^\circ$.) [\ref{exer:rings:nine-lemma-outer-columns-mono-epi}]
 \end{exer}
-\begin{exer}{}{exer:rings:7.16}
-  In the same situation as in \cref{exer:rings:7.15}, assume that the
+\begin{exer}{}{exer:rings:nine-lemma-outer-columns-mono-epi}
+  In the same situation as in \cref{exer:rings:nine-lemma}, assume that the
   three rows are exact and that the leftmost and rightmost columns are
   exact.
   \begin{itemize}
@@ -4002,7 +4002,7 @@ should experiment to his or her heart's content.
     exact.
   \end{itemize}
 \end{exer}
-\begin{exer}{\lnot}{exer:rings:7.17}
+\begin{exer}{\lnot}{exer:rings:infinite-ladder-two-exact-columns-implies-third}
   Generalize the previous two exercises as follows. Consider a
   (possibly infinite) commutative diagram of $R$-modules:
   \[\begin{tikzcd}
