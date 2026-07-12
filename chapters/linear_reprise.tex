@@ -890,7 +890,7 @@ also exact.
   will prove this in \Cref{exer:linrep:intersection-of-ideal-powers-via-artin-rees}. Assume this, and prove that
   $\bigcap_n I^n$ equals the set of $r \in R$ such that $(1-a)r = 0$
   for some $a \in I$. (Hint: One inclusion is elementary. For the
-  other, use the Nakayama lemma in the form of \Cref{exer:linalg:3.7}. This
+  other, use the Nakayama lemma in the form of \Cref{exer:linalg:jm-eq-m-implies-1-plus-b-kills-m}. This
   result is attributed to Krull.) For example, if $I$ is proper, then
   $\bigcap_n I^n = (0)$ if $R$ is an integral domain or if it is
   local.  In these cases, the natural map $R \to \hat{R}_I$ to the
@@ -1818,7 +1818,7 @@ $R$ denotes a fixed commutative ring.
   \item Choose elements $m_1, \dots, m_r \in M$ whose cosets mod
     $\mathfrak{m}M$ are a basis of $M/\mathfrak{m}M$ as a vector space
     over the field $R/\mathfrak{m}$. By Nakayama's lemma,
-    $M = \langle m_1, \dots, m_r \rangle$ (\Cref{exer:linalg:3.10}).
+    $M = \langle m_1, \dots, m_r \rangle$ (\Cref{exer:linalg:nakayama-gives-generators-from-quotient-basis}).
   \item Obtain an exact sequence
     $0 \to N \to R^{\oplus r} \to M \to 0$, where $N$ is finitely
     generated.
@@ -1831,7 +1831,7 @@ $R$ denotes a fixed commutative ring.
   Thus, a finitely generated module over a (Noetherian\footnote{The
     Noetherian hypothesis is actually unnecessary, but it simplifies
     the proof by allowing the use of Nakayama's lemma.}) local ring is
-  flat if and only if it is free. Compare with \Cref{exer:linalg:5.5}.
+  flat if and only if it is free. Compare with \Cref{exer:linalg:direct-summand-of-free-over-local-is-free}.
   [\ref{exer:linrep:flat-iff-tor1-vanishes-at-maximal-ideals}, \ref{exer:linrep:combine-results-reprove-rank-thm}, \ref{exer:linrep:fin-gen-over-noeth-locally-free-iff-projective-iff-flat}]
 \end{exer}
 
@@ -2972,7 +2972,7 @@ denotes a field.
   $(w_1 \wedge \dots \wedge w_\ell) \wedge u$ in $\bigwedge^*_k(V)$?)
 
   Deduce that there is an injective function from the Grassmannian of
-  $\ell$-di\-men\-sional subspaces of $V$ (\Cref{exer:linalg:2.13}) to the
+  $\ell$-di\-men\-sional subspaces of $V$ (\Cref{exer:linalg:grassmannian-cell-decomposition}) to the
   projective space $\mathbf{P}(\bigwedge^\ell_k V)$: the Grassmannian
   is identified with the set of `pure wedges' in the projectivization
   of the exterior power $\bigwedge^\ell_k(V)$. This is called the
@@ -3168,7 +3168,7 @@ denotes a field.
   symmetric algebra $\mathrm{S}^*_{k[x,y]}(I)$. (For the last point,
   use the exact sequence mentioned at the end of \S{}\ref{subsec:linrep:tensor-algebras}. It will be
   helpful to have an explicit presentation of $I$ as a
-  $k[x,y]$-module; for this, looking back at \Cref{exer:linalg:4.15} may
+  $k[x,y]$-module; for this, looking back at \Cref{exer:linalg:free-resolution-of-z-over-zxy} may
   help.) [\S{}\ref{subsec:linrep:very-small-detour-graded-algebra}, \S{}\ref{subsec:linrep:tensor-algebras}]
 \end{exer}
 
@@ -3202,7 +3202,7 @@ denotes a field.
   As proven for $n = 2, 3$ in Exercises VI.4.13 and VI.4.14, the
   Koszul complex is exact if $(a_1, \dots, a_n)$ is a regular sequence
   in $R$, providing a free resolution for $R/I$ in that case. Try to
-  prove this in general. [\ref{exer:linalg:4.14}]
+  prove this in general. [\ref{exer:linalg:koszul-complex-length-3}]
 \end{exer}
 
 \section{Hom and duals}
@@ -3618,7 +3618,7 @@ appear as duals of other modules:
   $M^\vee$.
 \end{proof}
 
-The diligent reader has proved this already in \Cref{exer:linalg:4.2} and
+The diligent reader has proved this already in \Cref{exer:linalg:hom-torsion-free-if-target-torsion-free} and
 probably by a more direct way than what we did just now, but never
 mind. In any case, remember that dualizing kills torsion. Practice
 this by working out \Cref{exer:linrep:compute-dual-of-fin-gen-module-over-pid}.  Even if not every module is the
@@ -3764,7 +3764,7 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   injective, and it is \emph{nonsingular} if they are isomorphisms.
   The notions coincide if $M$ is a finite-dimensional vector space.
   Prove that the `standard inner product' in $R^n$ (defined in
-  \Cref{exer:linalg:6.18}) is nondegenerate. If $M$ is free of rank $n$, let
+  \Cref{exer:linalg:on-r-iff-orthonormal-columns-rows}) is nondegenerate. If $M$ is free of rank $n$, let
   $(e_1, \dots, e_n)$ be a basis of $M$, and let $A = (a_{ij})$ be the
   matrix with entries $a_{ij} = \phi(e_i, e_j)$. Prove that $\phi$ is
   nondegenerate if and only if $\det(A)$ is nonzero, and it is
@@ -3808,7 +3808,7 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
 \begin{exer}{$\lnot$}{exer:linrep:annihilator-of-subspace-basics}
   Let $V$ be a vector space, and let $W \subseteq V$ be a subspace.
   The \emph{annihilator} of $W$ is\footnote{The notation is inspired
-    by \Cref{exer:linalg:6.17}, which is a particular case of this
+    by \Cref{exer:linalg:orthogonal-complement-is-subspace-dim-n-minus-1}, which is a particular case of this
     problem. Do you see why?}
   \[
     W^\perp := \{\,\check{v} \in V^\vee \mid (\forall w \in W),\,
@@ -3831,7 +3831,7 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
 \begin{exer}{$\lnot$}{exer:linrep:grassmannian-bijection-with-dual-grassmannian}
   Let $V$ be a vector space of dimension $n$. Prove that there is a
   natural bijection between the Grassmannian $\mathrm{Gr}(r, V)$ of
-  $r$-dimensional subspaces of $V$ (cf.\ \Cref{exer:linalg:2.13}) and the
+  $r$-dimensional subspaces of $V$ (cf.\ \Cref{exer:linalg:grassmannian-cell-decomposition}) and the
   Grassmannian $\mathrm{Gr}(n-r, V^\vee)$ of $(n-r)$-dimensional
   subspaces of the dual of $V$. (Use \Cref{exer:linrep:annihilator-of-subspace-basics}.) In particular,
   the Grassmannian $\mathrm{Gr}_k(n-1, n)$ has the same structure as
@@ -3845,7 +3845,7 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
     simply identify $\mathbf{P}V$ and $\mathrm{Gr}(n-1,V)$. We can
     identify $\mathbf{P}V$ and $\mathrm{Gr}(n-1,V^\vee)$, and it is
     sometimes useful to do so.}, but established conventions are what
-  they are. [\ref{exer:linalg:2.13}]
+  they are. [\ref{exer:linalg:grassmannian-cell-decomposition}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:wedge-pairing-induces-iso-wedge-dual}
@@ -4518,7 +4518,7 @@ As usual, $R$ denotes a fixed commutative ring.
 
 \begin{exer}{}{exer:linrep:combine-results-reprove-rank-thm}
   Prove that Exercises~2.24 and~6.7 together imply the result of
-  \Cref{exer:linalg:5.5}.
+  \Cref{exer:linalg:direct-summand-of-free-over-local-is-free}.
 \end{exer}
 
 \begin{exer}{}{exer:linrep:vector-spaces-flat-injective-projective}
@@ -4535,7 +4535,7 @@ As usual, $R$ denotes a fixed commutative ring.
 \begin{exer}{$\lnot$}{exer:linrep:fin-gen-over-local-ring-projective-iff-free}
   Prove that a finitely generated module over a local ring is
   projective if and only if it is free. (You have already done this,
-  in \Cref{exer:linalg:5.5}.) Besides PIDs and local rings, there are other
+  in \Cref{exer:linalg:direct-summand-of-free-over-local-is-free}.) Besides PIDs and local rings, there are other
   classes of rings for which projective and free modules coincide.
   Topological considerations suggested to \name{Serre} that projective
   modules over a polynomial ring over a field should necessarily be

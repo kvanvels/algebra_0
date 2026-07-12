@@ -256,10 +256,10 @@ view of generating sets:
 \end{lem}
 
 \begin{proof}
-  \Cref{exer:linalg:1.6}.
+  \Cref{exer:linalg:min-generating-set-is-basis}.
 \end{proof}
 
-\cref{linalg:1.8} also fails on more general rings (\Cref{exer:linalg:1.5}). To
+\cref{linalg:1.8} also fails on more general rings (\Cref{exer:linalg:complete-to-basis-over-domain-q}). To
 reiterate, over fields (but not over general rings) a subset $B$ of a
 vector space is a basis $\iff$ it is a maximal linearly independent
 subset $\iff$ it is a minimal generating set.
@@ -289,7 +289,7 @@ a somewhat stronger statement.
 \begin{proof}
   By taking fields of fractions, the general case over an integral
   domain is easily reduced to the case of vector spaces over a field;
-  see \Cref{exer:linalg:1.7}. We may then assume that $R = k$ is a field and
+  see \Cref{exer:linalg:lin-indep-in-free-module-iff-in-frac-field}. We may then assume that $R = k$ is a field and
   $M = V$ is a $k$-vector space.
 
   We have to prove that there is an injective map
@@ -349,7 +349,7 @@ a somewhat stronger statement.
   \]
 \end{coro}
 \begin{proof}
-  \Cref{exer:linalg:1.8}.
+  \Cref{exer:linalg:deduce-free-module-iso-iff-bijection}.
 \end{proof}
 
 \begin{rem}{}{linalg:1.12}
@@ -371,7 +371,7 @@ a somewhat stronger statement.
   an infinite-dimensional vector space does not satisfy the IBN
   property.  On the other hand, integral domains are a bit of an
   overshoot: all commutative rings satisfy the IBN property
-  (\Cref{exer:linalg:1.11}).
+  (\Cref{exer:linalg:comm-rings-satisfy-ibn}).
 \end{rem}
 
 One way to think about this is that the category of finitely generated
@@ -416,7 +416,7 @@ cardinality higher than or equal to the rank. Indeed,
   $S$ contains a maximal linearly independent subset of $M$.
 \end{prop}
 \begin{proof}
-  By \Cref{exer:linalg:1.7} we may assume that $R$ is a field and $M = V$ is a
+  By \Cref{exer:linalg:lin-indep-in-free-module-iff-in-frac-field} we may assume that $R$ is a field and $M = V$ is a
   vector space. Use Zorn's lemma to obtain a linearly independent
   subset $B \subseteq S$ which is maximal among subsets of
   $S$. Arguing as in the proof of \cref{linalg:1.6} shows that $S$ is
@@ -434,32 +434,32 @@ cardinality higher than or equal to the rank. Indeed,
 
   Another standard method to reduce questions about modules over
   arbitrary commutative rings to vector spaces is to mod out by a
-  maximal ideal; cf.\ \Cref{exer:linalg:1.9} and following.
+  maximal ideal; cf.\ \Cref{exer:linalg:module-killed-by-maximal-ideal-is-vector-space} and following.
 \end{rem}
 
 \subsection*{Exercises}
 
-\begin{exer}{$\lnot$}{exer:linalg:1.1}
+\begin{exer}{$\lnot$}{exer:linalg:r-and-c-iso-as-q-vector-spaces}
   Prove that $\R$ and $\C$ are isomorphic \emph{as $\Q$-vector
     spaces}. (In particular, $(\R, +)$ and $(\C, +)$ are
   isomorphic as groups.) [\ref{exer:groups:z-q-r-not-isomorphic}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:1.2}
+\begin{exer}{$\lnot$}{exer:linalg:lie-algebra-sets-are-r-vector-spaces}
   Prove that the sets listed in \Cref{exer:rings:matrix-ring} are all $\R$-vector
-  spaces, and compute their dimensions. [\ref{exer:linalg:1.3}]
+  spaces, and compute their dimensions. [\ref{exer:linalg:su2-iso-so3-as-vector-spaces}]
 \end{exer}
-\begin{exer}{}{exer:linalg:1.3}
+\begin{exer}{}{exer:linalg:su2-iso-so3-as-vector-spaces}
   Prove that $\mathfrak{su}(2) \cong \mathfrak{so}_3(\R)$ as
   $\R$-vector spaces. (This is immediate, and not particularly
   interesting, from the dimension computation of
-  \Cref{exer:linalg:1.2}. However, these two spaces may be viewed as the tangent
+  \Cref{exer:linalg:lie-algebra-sets-are-r-vector-spaces}. However, these two spaces may be viewed as the tangent
   spaces to $\mathrm{SU}(2)$, resp., $\mathrm{SO}_3(\R)$, at $I$; the
   surjective homomorphism $\mathrm{SU}(2) \to \mathrm{SO}_3(\R)$ you
   constructed in \Cref{exer:groups:so3-su2-mod-plusminus-i} induces a more `meaningful'
   isomorphism $\mathfrak{su}(2) \to \mathfrak{so}_3(\R)$. Can you find
   this isomorphism?)
 \end{exer}
-\begin{exer}{}{exer:linalg:1.4}
+\begin{exer}{}{exer:linalg:lie-bracket-axioms-and-category}
   Let $V$ be a vector space over a field $k$. A \emph{Lie bracket} on
   $V$ is an operation $[\cdot,\cdot] : V \times V \to V$ such that
   \begin{itemize}
@@ -488,7 +488,7 @@ cardinality higher than or equal to the rank. Indeed,
     Lie algebras over $\R$.
   \end{itemize}
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:1.5}
+\begin{exer}{\exerused}{exer:linalg:complete-to-basis-over-domain-q}
   Let $R$ be an integral domain. Prove or disprove the following:
   \begin{itemize}
   \item Every linearly independent subset of a free $R$-module may be
@@ -496,10 +496,10 @@ cardinality higher than or equal to the rank. Indeed,
   \item Every generating subset of a free $R$-module contains a basis.
   \end{itemize} [\S{}\ref{subsec:linalg:vector-spaces}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:1.6}
+\begin{exer}{\exerused}{exer:linalg:min-generating-set-is-basis}
   Prove \cref{linalg:1.8}. [\S{}\ref{subsec:linalg:vector-spaces}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:1.7}
+\begin{exer}{\exerused}{exer:linalg:lin-indep-in-free-module-iff-in-frac-field}
   Let $R$ be an integral domain, and let $M = R^{\oplus A}$ be a free
   $R$-module. Let $K$ be the field of fractions of $R$, and view $M$
   as a subset of $V = K^{\oplus A}$ in the evident way. Prove that a
@@ -509,27 +509,27 @@ cardinality higher than or equal to the rank. Indeed,
   (as a $K$-vector space). Prove that if $S$ generates $M$ over $R$,
   then it generates $V$ over $K$. Is the converse true? [\S{}\ref{subsec:linalg:recovering-b-from-f-r-b}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:1.8}
+\begin{exer}{\exerused}{exer:linalg:deduce-free-module-iso-iff-bijection}
   Deduce \cref{linalg:1.11} from \cref{linalg:1.9}. [\S{}\ref{subsec:linalg:recovering-b-from-f-r-b}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:1.9}
+\begin{exer}{\exerused}{exer:linalg:module-killed-by-maximal-ideal-is-vector-space}
   Let $R$ be a commutative ring, and let $M$ be an $R$-module. Let
   $\mathfrak{m}$ be a maximal ideal in $R$, such that
   $\mathfrak{m}M = 0$ (that is, $rm = 0$ for all $r \in \mathfrak{m}$,
   $m \in M$). Define in a natural way a vector space structure over
   $R/\mathfrak{m}$ on $M$.  [\S{}\ref{subsec:linalg:recovering-b-from-f-r-b}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:1.10}
+\begin{exer}{$\lnot$}{exer:linalg:quotient-of-free-module-by-max-ideal}
   Let $R$ be a commutative ring, and let $F = R^{\oplus B}$ be a free
   module over $R$. Let $\mathfrak{m}$ be a maximal ideal of $R$, and
   let $k = R/\mathfrak{m}$ be the quotient field. Prove that
-  $F/\mathfrak{m}F \cong k^{\oplus B}$ as $k$-vector spaces. [\ref{exer:linalg:1.11}]
+  $F/\mathfrak{m}F \cong k^{\oplus B}$ as $k$-vector spaces. [\ref{exer:linalg:comm-rings-satisfy-ibn}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:1.11}
+\begin{exer}{\exerused}{exer:linalg:comm-rings-satisfy-ibn}
   Prove that commutative rings satisfy the IBN property. (Use
-  \Cref{prop:irred:3.5} and \Cref{exer:linalg:1.10}.) [\S{}\ref{subsec:linalg:recovering-b-from-f-r-b}]
+  \Cref{prop:irred:3.5} and \Cref{exer:linalg:quotient-of-free-module-by-max-ideal}.) [\S{}\ref{subsec:linalg:recovering-b-from-f-r-b}]
 \end{exer}
-\begin{exer}{}{exer:linalg:1.12}
+\begin{exer}{}{exer:linalg:ibn-fails-for-endomorphism-ring}
   Let $V$ be a vector space over a field $k$, and let
   $R = \End_{k\text{-}\categ{Vect}}(V)$ be its ring of endomorphisms
   (cf.\ \Cref{exer:rings:endomorphism-algebra}). (Note that $R$ is \emph{not} commutative in
@@ -543,23 +543,23 @@ cardinality higher than or equal to the rank. Indeed,
     $V = k^{\oplus \N}$.)
   \end{itemize}
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:1.13}
+\begin{exer}{$\lnot$}{exer:linalg:end-a-field-char-0-implies-a-iso-q}
   Let $A$ be an abelian group such that $\End_{\categ{Ab}}(A)$ is a
   field of characteristic $0$. Prove that $A \cong \Q$.  (Hint: Prove
   that $A$ carries a $\Q$-vector space structure; what must its
   dimension be?) [\ref{exer:homol:2.13}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:1.14}
+\begin{exer}{$\lnot$}{exer:linalg:stable-ker-image-fin-dim-endomorphism}
   Let $V$ be a finite-dimensional vector space, and let
   $\varphi : V \to V$ be a homomorphism of vector spaces. Prove that
   there is an integer $n$ such that
   $\ker\varphi^{n+1} = \ker\varphi^n$ and
   $\image\varphi^{n+1} = \image\varphi^n$.
 
-  Show that both claims may fail if $V$ has infinite dimension. [\ref{exer:linalg:1.15}]
+  Show that both claims may fail if $V$ has infinite dimension. [\ref{exer:linalg:stable-ker-image-free-module-over-domain}]
 \end{exer}
-\begin{exer}{}{exer:linalg:1.15}
-  Consider the question of \Cref{exer:linalg:1.14} for free $R$-modules $F$ of
+\begin{exer}{}{exer:linalg:stable-ker-image-free-module-over-domain}
+  Consider the question of \Cref{exer:linalg:stable-ker-image-fin-dim-endomorphism} for free $R$-modules $F$ of
   finite rank, where $R$ is an integral domain that is not a
   field. Let $\varphi : F \to F$ be an $R$-module homomorphism.
 
@@ -571,7 +571,7 @@ cardinality higher than or equal to the rank. Indeed,
   $\image\varphi^{n+1} \subsetneq
   \image\varphi^n$ for all $n \geq 0$.
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:1.16}
+\begin{exer}{$\lnot$}{exer:linalg:jordan-holder-for-modules}
   Let $M$ be a module over a ring $R$. A \emph{finite composition
     series} for $M$ (if it exists) is a decreasing sequence of
   submodules
@@ -591,15 +591,15 @@ cardinality higher than or equal to the rank. Indeed,
 
   We say that $M$ has \emph{length} $m$ if $M$ admits a finite
   composition series of length $m$. This notion is well-defined as a
-  consequence of the result you just proved. [\ref{exer:linalg:1.17}, \ref{exer:linalg:1.18}, \ref{exer:linalg:3.20}, \ref{exer:linalg:7.15}]
+  consequence of the result you just proved. [\ref{exer:linalg:length-of-vector-space-equals-dim}, \ref{exer:linalg:submodule-of-fin-length-module-dcc}, \ref{exer:linalg:grothendieck-grp-universal-property-fin-length}, \ref{exer:linalg:linear-transformation-preserves-complete-flag}]
 \end{exer}
-\begin{exer}{}{exer:linalg:1.17}
+\begin{exer}{}{exer:linalg:length-of-vector-space-equals-dim}
   Prove that a $k$-vector space $V$ has finite length as a module over
-  $k$ (cf.\ \Cref{exer:linalg:1.16}) if and only if it is finite-dimensional and
+  $k$ (cf.\ \Cref{exer:linalg:jordan-holder-for-modules}) if and only if it is finite-dimensional and
   that in this case its length equals its dimension.
 \end{exer}
-\begin{exer}{}{exer:linalg:1.18}
-  Let $M$ be an $R$-module of finite length $m$ (cf.\ \Cref{exer:linalg:1.16}).
+\begin{exer}{}{exer:linalg:submodule-of-fin-length-module-dcc}
+  Let $M$ be an $R$-module of finite length $m$ (cf.\ \Cref{exer:linalg:jordan-holder-for-modules}).
   \begin{itemize}
   \item Prove that every submodule $N$ of $M$ has finite length
     $n \leq m$. (Adapt the proof of \Cref{prop:groups2:comp-series-normal}.)
@@ -610,7 +610,7 @@ cardinality higher than or equal to the rank. Indeed,
     only if it is the $0$-module.
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:linalg:1.19}
+\begin{exer}{}{exer:linalg:poly-multiple-with-prime-exponents}
   Let $k$ be a field, and let $f(x) \in k[x]$ be any polynomial. Prove
   that there exists a multiple of $f(x)$ in which all exponents of
   nonzero monomials are prime integers. (Example: for
@@ -623,7 +623,7 @@ cardinality higher than or equal to the rank. Indeed,
 
   (Hint: $k[x]/(f(x))$ is a finite-dimensional $k$-vector space.)
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:1.20}
+\begin{exer}{$\lnot$}{exer:linalg:free-groups-iso-iff-bijection-of-sets}
   Let $A$, $B$ be sets. Prove that the free groups $F(A)$, $F(B)$
   (\S{}\ref{sec:groups:free-groups}) are isomorphic if and only if there is a bijection
   $A \cong B$. (For the interesting direction: remember that
@@ -730,7 +730,7 @@ $p \times q$, and $q \times n$, then
   (A \cdot B) \cdot C = A \cdot (B \cdot C).
 \]
 The reader should have no trouble reconstructing the proof of this
-fact (\Cref{exer:linalg:2.2}).
+fact (\Cref{exer:linalg:matrix-mult-is-associative}).
 
 In particular, we have a binary operation on the abelian group
 $\mathcal{M}_n(R)$ of square $n \times n$ matrices, and this operation
@@ -746,7 +746,7 @@ element
 \]
 (the \emph{identity matrix}, denoted $I_n$). That is,
 $\mathcal{M}_n(R)$ is a ring (\Cref{exam:rings:matrix-ring-noncommutative}) and in fact an
-$R$-algebra (\Cref{exer:linalg:2.3}).  Except in very special cases (such as
+$R$-algebra (\Cref{exer:linalg:mn-r-iso-hom-as-r-algebras}).  Except in very special cases (such as
 $n = 1$) this ring is not commutative.
 
 Matrices of type $n \times 1$ are called \emph{column $n$-vectors};
@@ -1120,7 +1120,7 @@ operations' that can be performed on a matrix $P$:
   adds to the third column of a $m \times 3$ matrix the $c$-multiple
   of the first column. The diligent reader will formalize this
   discussion and prove that all these matrices are indeed invertible
-  (\Cref{exer:linalg:2.5}).
+  (\Cref{exer:linalg:elementary-ops-give-equivalent-matrices}).
 \end{proof}
 
 The matrices corresponding to the elementary operations are called
@@ -1217,14 +1217,14 @@ over fields.
 
 Note that, with notation as in the preceding proof,
 $A^{-1} = N \cdot M$; thus, the process explained in the proof may be
-used to compute the inverse of a matrix (also cf.\ \Cref{exer:linalg:3.5}).
+used to compute the inverse of a matrix (also cf.\ \Cref{exer:linalg:row-reduction-computes-matrix-inverse}).
 
 When applied only to the rows of a matrix, the simplification of a
 matrix by means of elementary operations is called \emph{Gaussian
   elimination}. This corresponds to multiplying the given matrix on
 the left by a product of elementary matrices, and it suffices in order
 to reduce any square invertible matrix to the identity
-(\Cref{exer:linalg:2.15}).
+(\Cref{exer:linalg:invertible-iff-row-equivalent-to-identity}).
 
 I will sloppily call `Gaussian elimination' the more drastic process
 including column operations as well as row operations; this is in line
@@ -1320,7 +1320,7 @@ goals (a classification theorem for finitely generated modules over
 PIDs) over Euclidean domains; this will hopefully be clear in a little
 while, but the reader can gain the needed insight right away by
 contemplating \Cref{linalg:2.11} vis-\`{a}-vis the classification of
-finite abelian groups (\Cref{exer:linalg:2.19}).
+finite abelian groups (\Cref{exer:linalg:fin-gen-abel-grp-direct-sum-cyclic-via-matrices}).
 
 \begin{rem}{}{linalg:2.12}
   As a consequence of the preceding considerations and arguing as in
@@ -1340,7 +1340,7 @@ finite abelian groups (\Cref{exer:linalg:2.19}).
 
 \subsection*{Exercises}
 
-\begin{exer}{}{exer:linalg:2.1}
+\begin{exer}{}{exer:linalg:unipotent-matrices-iso-to-r-plus}
   Prove that the subset of $\mathcal{M}_2(R)$ consisting of matrices
   of the form
   \[
@@ -1348,10 +1348,10 @@ finite abelian groups (\Cref{exer:linalg:2.19}).
   \]
   is a group under matrix multiplication and is isomorphic to $(R,+)$.
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:2.2}
+\begin{exer}{\exerused}{exer:linalg:matrix-mult-is-associative}
   Prove that matrix multiplication is associative. [\S{}\ref{subsec:linalg:matrices}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:2.3}
+\begin{exer}{\exerused}{exer:linalg:mn-r-iso-hom-as-r-algebras}
   Prove that both $\mathcal{M}_n(R)$ and $\Hom_R(R^n, R^n)$ are
   $R$-algebras in a natural way and the bijection
   $\Hom_R(R^n, R^n) \cong \mathcal{M}_n(R)$ of \cref{linalg:2.2} is an
@@ -1361,13 +1361,13 @@ finite abelian groups (\Cref{exer:linalg:2.19}).
   $\mathcal{M}_n(R)$ if and only if $\varphi$ is an isomorphism. (Note
   that $R$ is commutative by default.) [\S{}\ref{subsec:linalg:matrices}, \S{}\ref{subsec:linalg:the-determinant}, \S{}\ref{subsec:linalg:endomorphisms-and-similarity}]
 \end{exer}
-\begin{exer}{}{exer:linalg:2.4}
+\begin{exer}{}{exer:linalg:hom-of-free-modules-iso-matrices}
   Prove \cref{linalg:2.2}.
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:2.5}
+\begin{exer}{\exerused}{exer:linalg:elementary-ops-give-equivalent-matrices}
   Give a formal argument proving \cref{linalg:2.7}. [\S{}\ref{subsec:linalg:elementary-operations-and-gaussian-elimination}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:2.6}
+\begin{exer}{$\lnot$}{exer:linalg:gaussian-elimination-to-reduced-echelon}
   A matrix with entries in a field is in \emph{row echelon form} if
   \begin{itemize}
   \item its nonzero rows are all above the zero rows and
@@ -1385,29 +1385,29 @@ finite abelian groups (\Cref{exer:linalg:2.19}).
 
   Prove that any matrix with entries in a field can be brought into
   reduced echelon form by a sequence of elementary operations on rows.
-  (This is what is more properly called Gaussian elimination.) [\ref{exer:linalg:2.7},
-  \ref{exer:linalg:2.9}]
+  (This is what is more properly called Gaussian elimination.) [\ref{exer:linalg:pivots-determine-row-combination-coeffs},
+  \ref{exer:linalg:unique-reduced-echelon-form-per-class}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:2.7}
+\begin{exer}{$\lnot$}{exer:linalg:pivots-determine-row-combination-coeffs}
   Let $M$ be a matrix with entries in a field and in reduced row
-  echelon form (\Cref{exer:linalg:2.6}). Prove that if a row vector $\mathbf{r}$
+  echelon form (\Cref{exer:linalg:gaussian-elimination-to-reduced-echelon}). Prove that if a row vector $\mathbf{r}$
   is a linear combination $\sum a_i \mathbf{r}_i$ of the nonzero rows
   of $M$, then $a_i$ equals the component of $\mathbf{r}$ at the
   position corresponding to the pivot on the $i$-th row of $M$. Deduce
-  that the nonzero rows of $M$ are linearly independent. [\ref{exer:linalg:2.9}]
+  that the nonzero rows of $M$ are linearly independent. [\ref{exer:linalg:unique-reduced-echelon-form-per-class}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:2.8}
+\begin{exer}{$\lnot$}{exer:linalg:row-equivalence-is-equivalence-relation}
   Two matrices $M$, $N$ are \emph{row-equivalent} if $M = PN$ for an
   invertible matrix $P$. Prove that this is indeed an equivalence
   relation, and that two matrices with entries in a field are
   row-equivalent if and only if one may be obtained from the other by
-  a sequence of elementary operations on rows. [\ref{exer:linalg:2.9}, \ref{exer:linalg:2.12}]
+  a sequence of elementary operations on rows. [\ref{exer:linalg:unique-reduced-echelon-form-per-class}, \ref{exer:linalg:bijection-row-equiv-classes-and-subspaces}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:2.9}
-  Let $k$ be a field, and consider row-equivalence (\Cref{exer:linalg:2.8}) on
+\begin{exer}{$\lnot$}{exer:linalg:unique-reduced-echelon-form-per-class}
+  Let $k$ be a field, and consider row-equivalence (\Cref{exer:linalg:row-equivalence-is-equivalence-relation}) on
   the set of $m \times n$ matrices $\mathcal{M}_{m,n}(k)$. Prove that
   each equivalence class contains exactly one matrix in reduced row
-  echelon form (\Cref{exer:linalg:2.6}). (Hint: To prove uniqueness, argue by
+  echelon form (\Cref{exer:linalg:gaussian-elimination-to-reduced-echelon}). (Hint: To prove uniqueness, argue by
   contradiction. Let $M$, $N$ be different row-equivalent reduced row
   echelon matrices; assume that they have the minimum number of
   columns with this property. If the leftmost column at which $M$ and
@@ -1418,36 +1418,36 @@ finite abelian groups (\Cref{exer:linalg:2.19}).
         * \end{array}\right) \quad \text{or} \quad
     \left(\begin{array}{c|c} I_{k-1} & * \end{array}\right).
   \]
-  Use \Cref{exer:linalg:2.7} to obtain a contradiction.)
+  Use \Cref{exer:linalg:pivots-determine-row-combination-coeffs} to obtain a contradiction.)
 
   The unique matrix in reduced row echelon form that is row-equivalent
   to a given matrix $M$ is called the \emph{reduced echelon form} of
-  $M$.  [\ref{exer:linalg:2.11}]
+  $M$.  [\ref{exer:linalg:dim-row-space-equals-nonzero-echelon-rows}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:2.10}
+\begin{exer}{\exerused}{exer:linalg:row-equivalent-same-row-space}
   The \emph{row space} of a matrix $M$ is the span of its rows; the
   \emph{column space} of $M$ is the span of its column. Prove that
   row-equivalent matrices have the same row space and isomorphic
-  column spaces. [\ref{exer:linalg:2.12}, \S{}
+  column spaces. [\ref{exer:linalg:bijection-row-equiv-classes-and-subspaces}, \S{}
 ef{subsec:linalg:rank-and-nullity}]
 \end{exer}
-\begin{exer}{}{exer:linalg:2.11}
+\begin{exer}{}{exer:linalg:dim-row-space-equals-nonzero-echelon-rows}
   Let $k$ be a field and $M \in \mathcal{M}_{m,n}(k)$. Prove that the
   dimension of the space spanned by the rows of $M$ equals the number
   of nonzero rows in the reduced echelon form of $M$ (cf.\
-  \Cref{exer:linalg:2.9}).
+  \Cref{exer:linalg:unique-reduced-echelon-form-per-class}).
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:2.12}
+\begin{exer}{$\lnot$}{exer:linalg:bijection-row-equiv-classes-and-subspaces}
   Let $k$ be a field, and consider row-equivalence on
-  $\mathcal{M}_{m,n}(k)$ (\Cref{exer:linalg:2.8}). By \Cref{exer:linalg:2.10},
+  $\mathcal{M}_{m,n}(k)$ (\Cref{exer:linalg:row-equivalence-is-equivalence-relation}). By \Cref{exer:linalg:row-equivalent-same-row-space},
   row-equivalent matrices have the same row space. Prove that,
   conversely, there is exactly one row-equivalence class in
   $\mathcal{M}_{m,n}(k)$ for each subspace of $k^n$ of dimension
-  $\leq m$. [\ref{exer:linalg:2.13}, \ref{exer:linalg:2.14}]
+  $\leq m$. [\ref{exer:linalg:grassmannian-cell-decomposition}, \ref{exer:linalg:gr-2-4-union-of-six-schubert-cells}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:2.13}
+\begin{exer}{$\lnot$}{exer:linalg:grassmannian-cell-decomposition}
   The set of subspaces of given dimension in a fixed vector space is
-  called a \emph{Grassmannian}. In \Cref{exer:linalg:2.12} you have constructed
+  called a \emph{Grassmannian}. In \Cref{exer:linalg:bijection-row-equiv-classes-and-subspaces} you have constructed
   a bijection between the Grassmannian of $r$-dimensional subspaces of
   $k^n$ and the set of reduced row echelon matrices with $n$ columns
   and $r$ nonzero rows.
@@ -1473,26 +1473,26 @@ ef{subsec:linalg:rank-and-nullity}]
   $k^n$ admits a cell decomposition entirely analogous to that of
   $\P_k^{n-1}$. (This phenomenon will be explained in \Cref{exer:linrep:grassmannian-bijection-with-dual-grassmannian}.) [\ref{exer:fields:affine-to-projective-space-covering}, \ref{exer:linrep:plucker-embedding-well-defined}, \ref{exer:linrep:grassmannian-bijection-with-dual-grassmannian}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:2.14}
+\begin{exer}{\exerused}{exer:linalg:gr-2-4-union-of-six-schubert-cells}
   Show that the Grassmannian $\operatorname{Gr}_k(2,4)$ of
   2-dimensional subspaces of $k^4$ is the union of 6 Schubert cells:
   $k^4 \cup k^3 \cup k^2 \cup k^2 \cup k^1 \cup k^0$. (Use
-  \Cref{exer:linalg:2.12}; list all the possible reduced echelon forms.)
+  \Cref{exer:linalg:bijection-row-equiv-classes-and-subspaces}; list all the possible reduced echelon forms.)
   [\ref{exer:linrep:grassmannian-2-4-as-projective-quadric}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:2.15}
+\begin{exer}{\exerused}{exer:linalg:invertible-iff-row-equivalent-to-identity}
   Prove that a square matrix with entries in a field is invertible if
   and only if it is equivalent to the identity, if and only if it is
   row-equivalent to the identity, if and only if its reduced echelon
-  form is the identity. [\S{}\ref{subsec:linalg:elementary-operations-and-gaussian-elimination}, \ref{exer:linalg:3.5}]
+  form is the identity. [\S{}\ref{subsec:linalg:elementary-operations-and-gaussian-elimination}, \ref{exer:linalg:row-reduction-computes-matrix-inverse}]
 \end{exer}
-\begin{exer}{}{exer:linalg:2.16}
+\begin{exer}{}{exer:linalg:matrix-equiv-to-block-form-over-field}
   Prove \cref{linalg:2.10}.
 \end{exer}
-\begin{exer}{}{exer:linalg:2.17}
+\begin{exer}{}{exer:linalg:matrix-equiv-to-diagonal-form-euclidean-domain}
   Prove \cref{linalg:2.11}.
 \end{exer}
-\begin{exer}{}{exer:linalg:2.18}
+\begin{exer}{}{exer:linalg:diagonal-form-example-z3-to-z2}
   Suppose $\alpha : \Z^3 \to \Z^2$ is represented by the matrix
   \[
     \begin{pmatrix} -6 & 12 & 18 \\ -15 & 36 & 54 \end{pmatrix}
@@ -1501,7 +1501,7 @@ ef{subsec:linalg:rank-and-nullity}]
   with respect to which $\alpha$ is given by a matrix of the form
   obtained in \cref{linalg:2.11}.
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:2.19}
+\begin{exer}{\exerused}{exer:linalg:fin-gen-abel-grp-direct-sum-cyclic-via-matrices}
   Prove \cref{coro:groups2:6.5} again as a corollary of
   \cref{linalg:2.11}. In fact, prove the more general fact that every
   finitely generated abelian group is a direct sum of cyclic groups.
@@ -1618,7 +1618,7 @@ essentially useless in practice for any decent-size problem.
 Let $\alpha : F \to G$ be a homomorphism of free $R$-modules of the
 same rank, and let $A$ be the matrix representing $\alpha$ with
 respect to a choice of bases for $F$ and $G$. As a consequence of
-\Cref{linalg:2.3} (cf.\ \Cref{exer:linalg:2.3}), $\alpha$ is an isomorphism if and only
+\Cref{linalg:2.3} (cf.\ \Cref{exer:linalg:mn-r-iso-hom-as-r-algebras}), $\alpha$ is an isomorphism if and only
 if $A$ is a unit in $\mathcal{M}_n(R)$, that is, if and only if it is
 invertible as a matrix with entries in $R$. This may be detected by
 computing the \emph{determinant} of $A$.
@@ -1703,7 +1703,7 @@ determinants:
   contributions to the $\sum$ in the definition. The third point is
   immediate from distributivity. Combining the third operation and the
   two remarks preceding the statement yields the second point. Details
-  are left to the reader (\Cref{exer:linalg:3.2}).
+  are left to the reader (\Cref{exer:linalg:det-row-col-operations-details}).
 \end{proof}
 
 This observation simplifies the theory of determinants drastically. If
@@ -1859,7 +1859,7 @@ can invert its determinant:
 this holds over any commutative ring, as soon as $\det(A)$ is a unit.
 In practice the computation of cofactors is `expensive', so in any
 given concrete case Gaussian elimination is likely a better
-alternative (at least over fields); cf.\ \Cref{exer:linalg:3.5}.
+alternative (at least over fields); cf.\ \Cref{exer:linalg:row-reduction-computes-matrix-inverse}.
 
 But this formula for the inverse has good theoretical
 significance. For example, we are now in a position to complete the
@@ -2006,7 +2006,7 @@ is the dimension of the column (row) space of $P$.
   space of $P$ (isomorphically, since $N$ is invertible) to the row
   space of $Q$; thus the two spaces have the same dimension, as
   claimed. Minimal variations on the same argument show that the
-  column ranks of $P$ and $Q$ agree. (Cf.\ \Cref{exer:linalg:2.10}.)
+  column ranks of $P$ and $Q$ agree. (Cf.\ \Cref{exer:linalg:row-equivalent-same-row-space}.)
 
   Applying this observation and \Cref{linalg:2.10} reduces the question
   to matrices
@@ -2139,7 +2139,7 @@ useful) generalization of \Cref{linalg:3.11}:
 \end{prop}
 \begin{proof}
   There is nothing to show for $N = 0$, and the result follows
-  directly from \Cref{linalg:3.11} if $N = 1$ (\Cref{exer:linalg:3.15}). Arguing
+  directly from \Cref{linalg:3.11} if $N = 1$ (\Cref{exer:linalg:euler-char-case-n-eq-1}). Arguing
   by induction, given a complex
   \[
     V_\bullet : \quad 0 \to V_N \xrightarrow{\alpha_N} V_{N-1}
@@ -2291,7 +2291,7 @@ $K(k\text{-}\categ{Vect}^f)$, namely
 \end{prop}
 The best way to convince the reader that this impressive claim is
 completely trivial is to leave its proof to the reader
-(\Cref{exer:linalg:3.16}). The first point is proved by adapting the proof of
+(\Cref{exer:linalg:euler-char-properties}). The first point is proved by adapting the proof of
 \Cref{linalg:3.13}; the second point is a harmless mixture of universal
 properties; the third point follows from the second; and the last
 point follows from the fact that $\dim(k) = 1$ and the IBN property.
@@ -2315,7 +2315,7 @@ We will come back to complexes and homology in \Cref{chap:homol}.
 
 \subsection*{Exercises}
 
-\begin{exer}{}{exer:linalg:3.1}
+\begin{exer}{}{exer:linalg:gaussian-elimination-integer-solutions-example}
   Use Gaussian elimination to find all integer solutions of the system
   of equations
   \[
@@ -2325,31 +2325,31 @@ We will come back to complexes and homology in \Cref{chap:homol}.
     \end{cases}
   \]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:3.2}
+\begin{exer}{\exerused}{exer:linalg:det-row-col-operations-details}
   Provide details for the proof of \Cref{linalg:3.2}. [\S{}\ref{subsec:linalg:the-determinant}]
 \end{exer}
-\begin{exer}{}{exer:linalg:3.3}
+\begin{exer}{}{exer:linalg:redo-sln-normal-in-gln-with-det}
   Redo \Cref{exer:groups:sln-normal-in-gln}.
 \end{exer}
-\begin{exer}{}{exer:linalg:3.4}
+\begin{exer}{}{exer:linalg:universal-identities-formalization}
   Formalize the discussion of `universal identities': by what cocktail
   of universal properties is it true that if an identity holds in
   $\Z[x_1, \dots, x_r]$, then it holds over every commutative ring
   $R$, for every choice of $x_i \in R$? (Is the commutativity of $R$
   necessary?)
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:3.5}
+\begin{exer}{\exerused}{exer:linalg:row-reduction-computes-matrix-inverse}
   Let $A$ be an $n \times n$ square invertible matrix with entries in
   a field, and consider the $n \times (2n)$ matrix $B = (A | I_n)$
   obtained by placing the identity matrix to the side of $A$. Perform
   elementary row operations on $B$ so as to reduce $A$ to $I_n$ (cf.\
-  \Cref{exer:linalg:2.15}). Prove that this transforms $B$ into
+  \Cref{exer:linalg:invertible-iff-row-equivalent-to-identity}). Prove that this transforms $B$ into
   $(I_n | A^{-1})$.
 
   (This is a much more efficient way to compute the inverse of a
   matrix than by using determinants as in \S{}\ref{subsec:linalg:the-determinant}.) [\S{}\ref{subsec:linalg:elementary-operations-and-gaussian-elimination}, \S{}\ref{subsec:linalg:the-determinant}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:3.6}
+\begin{exer}{$\lnot$}{exer:linalg:det-a-annihilates-module-determinant-trick}
   Let $R$ be a commutative ring and
   $M = \langle m_1, \dots, m_r \rangle$ a finitely generated
   $R$-module. Let $A \in \mathcal{M}_r(R)$ be a matrix such that
@@ -2358,9 +2358,9 @@ We will come back to complexes and homology in \Cref{chap:homol}.
     \begin{pmatrix} 0 \\ \vdots \\ 0 \end{pmatrix}.
   \]
   Prove that $\det(A) m = 0$ for all $m \in M$. (Hint: Multiply by the
-  adjoint.) [\ref{exer:linalg:3.7}]
+  adjoint.) [\ref{exer:linalg:jm-eq-m-implies-1-plus-b-kills-m}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:3.7}
+\begin{exer}{$\lnot$}{exer:linalg:jm-eq-m-implies-1-plus-b-kills-m}
   Let $R$ be a commutative ring, $M$ a finitely generated $R$-module,
   and let $J$ be an ideal of $R$. Assume $JM = M$. Prove that there
   exists an element $b \in J$ such that $(1+b)M = 0$. (Let
@@ -2370,25 +2370,25 @@ We will come back to complexes and homology in \Cref{chap:homol}.
     \begin{pmatrix} m_1 \\ \vdots \\ m_r \end{pmatrix} = B \cdot
     \begin{pmatrix} m_1 \\ \vdots \\ m_r \end{pmatrix}.
   \]
-  Then use \Cref{exer:linalg:3.6}.) [\ref{exer:linalg:3.8}, \ref{exer:linrep:intersection-of-ideal-powers-krull}]
+  Then use \Cref{exer:linalg:det-a-annihilates-module-determinant-trick}.) [\ref{exer:linalg:nakayamas-lemma}, \ref{exer:linrep:intersection-of-ideal-powers-krull}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:3.8}
+\begin{exer}{$\lnot$}{exer:linalg:nakayamas-lemma}
   Let $R$ be a commutative ring, $M$ be a finitely generated
   $R$-module, and let $J$ be an ideal of $R$ contained in the Jacobson
   radical of $R$ (\Cref{exer:irred:jacobson-radical-characterization}). Prove that $M = 0 \iff JM =
-  M$. (Use \Cref{exer:linalg:3.7}.  This is \emph{Nakayama's lemma}, a result
+  M$. (Use \Cref{exer:linalg:jm-eq-m-implies-1-plus-b-kills-m}.  This is \emph{Nakayama's lemma}, a result
   with important applications in commutative algebra and algebraic
   geometry. A particular case was given as \Cref{exer:rings:nakayama-nilpotent}.)
-  [\ref{exer:rings:nakayama-nilpotent}, \ref{exer:linalg:3.9}, \ref{exer:linalg:5.5}]
+  [\ref{exer:rings:nakayama-nilpotent}, \ref{exer:linalg:local-ring-m-eq-mm-plus-n-implies-m-eq-n}, \ref{exer:linalg:direct-summand-of-free-over-local-is-free}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:3.9}
+\begin{exer}{$\lnot$}{exer:linalg:local-ring-m-eq-mm-plus-n-implies-m-eq-n}
   Let $R$ be a commutative local ring, that is, a ring with a single
   maximal ideal $\mathfrak{m}$, and let $M$, $N$ be finitely generated
   $R$-modules. Prove that if $M = \mathfrak{m}M + N$, then $M = N$.
-  (Apply Nakayama's lemma, that is, \Cref{exer:linalg:3.8}, to $M/N$. Note that
-  the Jacobson radical of $R$ is $\mathfrak{m}$.) [\ref{exer:linalg:3.10}]
+  (Apply Nakayama's lemma, that is, \Cref{exer:linalg:nakayamas-lemma}, to $M/N$. Note that
+  the Jacobson radical of $R$ is $\mathfrak{m}$.) [\ref{exer:linalg:nakayama-gives-generators-from-quotient-basis}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:3.10}
+\begin{exer}{$\lnot$}{exer:linalg:nakayama-gives-generators-from-quotient-basis}
   Let $R$ be a commutative local ring, and let $M$ be a finitely
   generated $R$-module. Note that $M/\mathfrak{m}M$ is a
   finite-dimensional vector space over the field $R/\mathfrak{m}$; let
@@ -2397,61 +2397,61 @@ We will come back to complexes and homology in \Cref{chap:homol}.
   generate $M$.
 
   (Show that $\langle m_1, \dots, m_r \rangle + \mathfrak{m}M = M$;
-  then apply Nakayama's lemma in the form of \Cref{exer:linalg:3.9}.) [\ref{exer:linalg:5.5},
+  then apply Nakayama's lemma in the form of \Cref{exer:linalg:local-ring-m-eq-mm-plus-n-implies-m-eq-n}.) [\ref{exer:linalg:direct-summand-of-free-over-local-is-free},
   \ref{exer:linrep:fin-gen-flat-over-noeth-local-is-free}]
 \end{exer}
-\begin{exer}{}{exer:linalg:3.11}
+\begin{exer}{}{exer:linalg:gaussian-elim-finds-row-col-space-bases}
   Explain how to use Gaussian elimination to find bases for the row
   space and the column space of a matrix over a field.
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:3.12}
+\begin{exer}{$\lnot$}{exer:linalg:more-columns-than-rows-linearly-dependent}
   Let $R$ be an integral domain, and let $M \in \mathcal{M}_{m,n}(R)$,
   with $m < n$. Prove that the columns of $M$ are linearly dependent
-  over $R$. [\ref{exer:linalg:5.6}]
+  over $R$. [\ref{exer:linalg:rank-bounded-by-num-generators}]
 \end{exer}
-\begin{exer}{}{exer:linalg:3.13}
+\begin{exer}{}{exer:linalg:rank-leq-r-iff-pq-factorization}
   Let $k$ be a field. Prove that a matrix $M \in \mathcal{M}_{m,n}(k)$
   has rank $\leq r$ if and only if there exist matrices
   $P \in \mathcal{M}_{m,r}(k)$, $Q \in \mathcal{M}_{r,n}(k)$ such that
   $M = PQ$. (Thus the rank of $M$ is the smallest such integer.)
 \end{exer}
-\begin{exer}{}{exer:linalg:3.14}
+\begin{exer}{}{exer:linalg:generalize-exact-seq-dim-formula-to-domains}
   Generalize \Cref{linalg:3.11} to the case of finitely generated free
   modules over any integral domain. (Embed the integral domain in its
   field of fractions.)
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:3.15}
+\begin{exer}{\exerused}{exer:linalg:euler-char-case-n-eq-1}
   Prove \Cref{linalg:3.13} for the case $N = 1$. [\S{}\ref{subsec:linalg:euler-characteristic-and-the-grothendieck-group}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:3.16}
+\begin{exer}{\exerused}{exer:linalg:euler-char-properties}
   Prove \cref{linalg:3.14}. [\S{}\ref{subsec:linalg:euler-characteristic-and-the-grothendieck-group}]
 \end{exer}
-\begin{exer}{}{exer:linalg:3.17}
+\begin{exer}{}{exer:linalg:grothendieck-grp-countable-dim-trivial}
   Extend the definition of Grothendieck group of vector spaces given
   in \S{}\ref{subsec:linalg:euler-characteristic-and-the-grothendieck-group} to the category of vector spaces of countable (possibly
   infinite) dimension, and prove that it is the trivial group.
 \end{exer}
-\begin{exer}{}{exer:linalg:3.18}
+\begin{exer}{}{exer:linalg:grothendieck-grp-fin-gen-abelian-iso-z}
   Let $\categ{Ab}^{fg}$ be the category of finitely generated abelian
   groups. Define a Grothendieck group of this category in the style of
   the construction of $K(k\text{-}\categ{Vect}^f)$, and prove that
   $K(\categ{Ab}^{fg}) \cong \Z$.
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:3.19}
+\begin{exer}{$\lnot$}{exer:linalg:order-hom-from-grothendieck-grp-finite-abelian}
   Let $\categ{Ab}^f$ be the category of finite abelian groups. Prove
   that assigning to every finite abelian group its order extends to a
   homomorphism from the Grothendieck group $K(\categ{Ab}^f)$ to the
-  multiplicative group $(\Q^*, \cdot)$. [\ref{exer:linalg:3.20}]
+  multiplicative group $(\Q^*, \cdot)$. [\ref{exer:linalg:grothendieck-grp-universal-property-fin-length}]
 \end{exer}
-\begin{exer}{}{exer:linalg:3.20}
+\begin{exer}{}{exer:linalg:grothendieck-grp-universal-property-fin-length}
   Let $R-\categ{Mod}^f$ be the category of modules of finite
-  length (cf.\ \Cref{exer:linalg:1.16}) over a ring $R$. Let $G$ be an abelian
+  length (cf.\ \Cref{exer:linalg:jordan-holder-for-modules}) over a ring $R$. Let $G$ be an abelian
   group, and let $\delta$ be a function assigning an element of $G$ to
   every simple $R$-module. Prove that $\delta$ extends to a
   homomorphism from the Grothendieck group of
   $R-\categ{Mod}^f$ to $G$.
 
-  Explain why \Cref{exer:linalg:3.19} is a particular case of this observation.
+  Explain why \Cref{exer:linalg:order-hom-from-grothendieck-grp-finite-abelian} is a particular case of this observation.
 
   (For another example, letting $\delta(M) = 1 \in \Z$ for every
   simple module $M$ shows that length itself extends to a homomorphism
@@ -2492,7 +2492,7 @@ the base ring.
 A commutative ring is torsion-free as a module over itself if and only
 if it is an integral domain; this is a good reason to limit the
 discussion to integral domains in this chapter. Also, the reader will
-check (\Cref{exer:linalg:4.1}) that if $R$ is an integral domain, then
+check (\Cref{exer:linalg:torsion-submodule-needs-domain}) that if $R$ is an integral domain, then
 $\Tor(M)$ is a \emph{submodule} of $M$. Equally easy is
 the following observation:
 \begin{lem}{}{linalg:4.2}
@@ -2521,13 +2521,13 @@ subset of $R$, and $R$ has rank $1$ over itself); thus one element
 would suffice to generate $I$, and $I$ would be principal.
 
 What is behind this example is a characterization of PIDs in terms of
-`torsion-free submodules of a rank-1 free module' (\Cref{exer:linalg:4.3}). This
+`torsion-free submodules of a rank-1 free module' (\Cref{exer:linalg:domain-is-pid-iff-submodules-of-r-free}). This
 is a facet of the main result towards which we are heading, that is,
 the classification of finitely generated modules over PIDs
 (\Cref{linalg:5.6}). The gist of this classification is that finitely
 generated modules over a PID can be decomposed into cyclic modules. We
 have essentially proved this fact already for modules over Euclidean
-domains (it follows from \Cref{linalg:2.11}; see \Cref{exer:linalg:2.19}), and we
+domains (it follows from \Cref{linalg:2.11}; see \Cref{exer:linalg:fin-gen-abel-grp-direct-sum-cyclic-via-matrices}), and we
 have looked in great detail at the particular case of $\Z$-modules,
 a.k.a.\ abelian groups (\S{}\ref{sec:groups2:finite-abelian-groups}); we are almost ready to deal with
 the general case of PIDs.
@@ -2614,7 +2614,7 @@ generated module is torsion.
     0\}.
   \]
 \end{defn}
-The subscript is usually omitted. The reader will check (\Cref{exer:linalg:4.4})
+The subscript is usually omitted. The reader will check (\Cref{exer:linalg:annihilator-is-ideal-torsion-criterion})
 that $\operatorname{Ann}(M)$ is an ideal of $R$ and that if $M$ is a
 finitely generated module and $R$ is an integral domain, then $M$ is
 torsion if and only if $\operatorname{Ann}(M) \neq 0$.
@@ -2775,7 +2775,7 @@ us to determine the module $M$ explicitly. For example, take
 this matrix corresponds to a homomorphism $\Z^2 \to \Z^3$, hence to a
 $\Z$-module, that is, a finitely generated abelian group $G$. The
 reader should figure out what $G$ is more explicitly (in terms of the
-classification of \S{}\ref{sec:groups2:finite-abelian-groups}; cf.\ \Cref{exer:linalg:2.19}) before reading on. In
+classification of \S{}\ref{sec:groups2:finite-abelian-groups}; cf.\ \Cref{exer:linalg:fin-gen-abel-grp-direct-sum-cyclic-via-matrices}) before reading on. In
 the rest of this section I will simply tie up loose ends into a more
 concrete recipe to perform these operations.
 
@@ -2800,7 +2800,7 @@ can be executed on the corresponding matrices. For example,
   \]
 \end{lem}
 \begin{proof}
-  This follows immediately from \Cref{exer:linalg:4.16}.
+  This follows immediately from \Cref{exer:linalg:coker-of-direct-sum-of-homomorphisms}.
 \end{proof}
 
 Coming back to $(*)$, note that the module $M$ cannot know which bases
@@ -2918,23 +2918,23 @@ corresponding to a matrix with an explicit direct sum of cyclic
 modules, as in \Cref{linalg:4.14}. This is too much to expect over more
 general rings, since in general elementary transformations do not
 generate $\mathrm{GL}$; cf.\ \Cref{linalg:2.12}.
-\begin{exer}{\exerused}{exer:linalg:4.1}
+\begin{exer}{\exerused}{exer:linalg:torsion-submodule-needs-domain}
   Prove that if $R$ is an integral domain and $M$ is an $R$-module,
   then $\Tor(M)$ is a submodule of $M$. Give an example
   showing that the hypothesis that $R$ is an integral domain is
   necessary.  [\S{}\ref{subsec:linalg:torsion}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:4.2}
+\begin{exer}{\exerused}{exer:linalg:hom-torsion-free-if-target-torsion-free}
   Let $M$ be a module over an integral domain $R$, and let $N$ be a
   torsion-free module. Prove that $\Hom_R(M,N)$ is torsion-free. In
   particular, $\Hom_R(M,R)$ is torsion-free. (We will run into this
   fact again; see \Cref{linrep:5.16}.) [\S{}\ref{subsec:linrep:duals-and-matrices-biduality}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:4.3}
+\begin{exer}{\exerused}{exer:linalg:domain-is-pid-iff-submodules-of-r-free}
   Prove that an integral domain $R$ is a PID if and only if every
-  submodule of $R$ itself is free. [\S{}\ref{subsec:linalg:torsion}, \ref{exer:linalg:5.13}]
+  submodule of $R$ itself is free. [\S{}\ref{subsec:linalg:torsion}, \ref{exer:linalg:torsion-free-iff-free-characterizes-pids}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:4.4}
+\begin{exer}{\exerused}{exer:linalg:annihilator-is-ideal-torsion-criterion}
   Let $R$ be a commutative ring and $M$ an $R$-module.
   \begin{itemize}
   \item Prove that $\operatorname{Ann}(M)$ is an ideal of $R$.
@@ -2946,7 +2946,7 @@ generate $\mathrm{GL}$; cf.\ \Cref{linalg:2.12}.
     example cannot be finitely generated!)
   \end{itemize} [\S{}\ref{subsec:linalg:finitely-presented-modules-and-free-resolutions}, \S{}\ref{subsec:linalg:the-classification-theorem}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:4.5}
+\begin{exer}{$\lnot$}{exer:linalg:associated-primes-basics}
   Let $M$ be a module over a commutative ring $R$. Prove that an ideal
   $I$ of $R$ is the annihilator of an element of $M$ if and only if
   $M$ contains an isomorphic copy of $R/I$ (viewed as an $R$-module).
@@ -2955,18 +2955,18 @@ generate $\mathrm{GL}$; cf.\ \Cref{linalg:2.12}.
   ideals $\operatorname{Ann}(m)$, for $m \in M$. The set of the
   associated primes of a module $M$ is denoted
   $\operatorname{Ass}_R(M)$. Note that every prime in
-  $\operatorname{Ass}_R(M)$ contains $\operatorname{Ann}_R(M)$. [\ref{exer:linalg:4.6},
-  \ref{exer:linalg:4.7}, \ref{exer:linalg:5.16}]
+  $\operatorname{Ass}_R(M)$ contains $\operatorname{Ann}_R(M)$. [\ref{exer:linalg:maximal-annihilators-are-prime},
+  \ref{exer:linalg:prime-filtration-of-fin-gen-module}, \ref{exer:linalg:primes-in-elem-divisors-are-assoc-primes}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:4.6}
+\begin{exer}{$\lnot$}{exer:linalg:maximal-annihilators-are-prime}
   Let $M$ be a module over a commutative ring $R$, and consider the
   family of ideals $\operatorname{Ann}(m)$, as $m$ ranges over the
   nonzero elements of $M$. Prove that the maximal elements in this
   family are prime ideals of $R$. Conclude that if $R$ is Noetherian,
-  then $\operatorname{Ass}_R(M) \neq \emptyset$ (cf.\ \Cref{exer:linalg:4.5}).
-  [\ref{exer:linalg:4.7}, \ref{exer:linalg:4.9}]
+  then $\operatorname{Ass}_R(M) \neq \emptyset$ (cf.\ \Cref{exer:linalg:associated-primes-basics}).
+  [\ref{exer:linalg:prime-filtration-of-fin-gen-module}, \ref{exer:linalg:union-of-annihilators-eq-union-of-assoc-primes}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:4.7}
+\begin{exer}{$\lnot$}{exer:linalg:prime-filtration-of-fin-gen-module}
   Let $R$ be a commutative Noetherian ring, and let $M$ be a finitely
   generated module over $R$. Prove that $M$ admits a finite series
   \[
@@ -2981,15 +2981,15 @@ generate $\mathrm{GL}$; cf.\ \Cref{linalg:2.12}.
   $\mathfrak{p}_1$. Then do the same with $M/M'$, producing an
   $M'' \supseteq M'$ such that $M''/M' \cong R/\mathfrak{p}_2$ for
   some prime $\mathfrak{p}_2$. Why must this process stop after
-  finitely many steps?) [\ref{exer:linalg:4.8}]
+  finitely many steps?) [\ref{exer:linalg:assoc-primes-appear-in-prime-filtration}]
 \end{exer}
-\begin{exer}{}{exer:linalg:4.8}
+\begin{exer}{}{exer:linalg:assoc-primes-appear-in-prime-filtration}
   Let $R$ be a commutative Noetherian ring, and let $M$ be a finitely
   generated module over $R$. Prove that every prime in
   $\operatorname{Ass}_R(M)$ appears in the list of primes produced by
-  the procedure presented in \Cref{exer:linalg:4.7}. (If $\mathfrak{p}$ is an
+  the procedure presented in \Cref{exer:linalg:prime-filtration-of-fin-gen-module}. (If $\mathfrak{p}$ is an
   associated prime, then $M$ contains an isomorphic copy $N$ of
-  $R/\mathfrak{p}$. With notation as in the hint in \Cref{exer:linalg:4.7},
+  $R/\mathfrak{p}$. With notation as in the hint in \Cref{exer:linalg:prime-filtration-of-fin-gen-module},
   prove that either $\mathfrak{p}_1 = \mathfrak{p}$ or
   $N \cap M' = 0$. In the latter case, $N$ maps isomorphically to a
   copy of $R/\mathfrak{p}$ in $M/M'$; iterate the reasoning.)
@@ -2997,33 +2997,33 @@ generate $\mathrm{GL}$; cf.\ \Cref{linalg:2.12}.
   In particular, if $M$ is a finitely generated module over a
   Noetherian ring, then $\operatorname{Ass}(M)$ is finite.
 \end{exer}
-\begin{exer}{}{exer:linalg:4.9}
+\begin{exer}{}{exer:linalg:union-of-annihilators-eq-union-of-assoc-primes}
   Let $M$ be a module over a commutative Noetherian ring $R$. Prove
   that the union of all annihilators of nonzero elements of $M$ equals
-  the union of all associated primes of $M$. (Use \Cref{exer:linalg:4.6}.)
+  the union of all associated primes of $M$. (Use \Cref{exer:linalg:maximal-annihilators-are-prime}.)
 
   Deduce that the union of the associated primes of a Noetherian ring
   $R$ (viewed as a module over itself) equals the set of zero-divisors
   of $R$.
 \end{exer}
-\begin{exer}{}{exer:linalg:4.10}
+\begin{exer}{}{exer:linalg:intersection-of-assoc-primes-eq-nilradical}
   Let $R$ be a commutative Noetherian ring. One can prove that the
   minimal primes of $\operatorname{Ann}(M)$ (cf.\ \Cref{exer:irred:noeth-implies-fin-minimal-primes}) are
   in $\operatorname{Ass}(M)$. Assuming this, prove that the
   intersection of the associated primes of a Noetherian ring $R$
   (viewed as a module over itself) equals the nilradical of $R$.
 \end{exer}
-\begin{exer}{}{exer:linalg:4.11}
+\begin{exer}{}{exer:linalg:group-vs-module-presentations}
   Review the notion of presentation of a group, (\S{}\ref{subsec:groups:presentations}), and
   relate it to the notion of presentation introduced in \S{}\ref{subsec:linalg:finitely-presented-modules-and-free-resolutions}.
 \end{exer}
-\begin{exer}{}{exer:linalg:4.12}
+\begin{exer}{}{exer:linalg:fin-gen-module-over-poly-quotient-fin-presented}
   Let $\mathfrak{p}$ be a prime ideal of a polynomial ring
   $k[x_1, \dots, x_n]$ over a field $k$, and let
   $R = k[x_1, \dots, x_n]/\mathfrak{p}$. Prove that every finitely
   generated module over $R$ has a finite presentation.
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:4.13}
+\begin{exer}{$\lnot$}{exer:linalg:koszul-complex-length-2}
   Let $R$ be a commutative ring. A tuple $(a_1, a_2, \dots, a_n)$ of
   elements of $R$ is a \emph{regular sequence} if $a_1$ is a
   non-zero-divisor in $R$, $a_2$ is a non-zero-divisor
@@ -3051,12 +3051,12 @@ generate $\mathrm{GL}$; cf.\ \Cref{linalg:2.12}.
   The complex $(*)$ is called the \emph{Koszul complex} of
   $(a,b)$. Thus, when $(a,b)$ is a regular sequence, the Koszul
   complex provides us with a free resolution of the module
-  $R/(a,b)$. [\ref{exer:linalg:4.14}, \ref{exer:linalg:5.4}, \ref{exer:linrep:koszul-complex-definition}]
+  $R/(a,b)$. [\ref{exer:linalg:koszul-complex-length-3}, \ref{exer:linalg:krull-dim-geq-2-example}, \ref{exer:linrep:koszul-complex-definition}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:4.14}
+\begin{exer}{$\lnot$}{exer:linalg:koszul-complex-length-3}
   A Koszul complex may be defined for any sequence $a_1, \dots, a_n$
   of elements of a commutative ring $R$. The case $n = 2$ seen in
-  \Cref{exer:linalg:4.13} and the case $n = 3$ reviewed here will hopefully
+  \Cref{exer:linalg:koszul-complex-length-2} and the case $n = 3$ reviewed here will hopefully
   suffice to get a gist of the general construction; the general case
   will be given in VIII.4.22.
 
@@ -3082,11 +3082,11 @@ generate $\mathrm{GL}$; cf.\ \Cref{linalg:2.12}.
   Koszul complexes are very important in commutative algebra and
   algebraic geometry. [\ref{exer:linrep:koszul-complex-definition}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:4.15}
+\begin{exer}{\exerused}{exer:linalg:free-resolution-of-z-over-zxy}
   View $\Z$ as a module over the ring $R = \Z[x,y]$, where $x$ and $y$
   act by $0$. Find a free resolution of $\Z$ over $R$. [\ref{exer:linrep:rees-algebra-example-iso-to-quotient}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:4.16}
+\begin{exer}{\exerused}{exer:linalg:coker-of-direct-sum-of-homomorphisms}
   Let $\varphi : R^n \to R^m$ and $\psi : R^p \to R^q$ be two
   $R$-module homomorphisms, and let
   \[
@@ -3098,7 +3098,7 @@ generate $\mathrm{GL}$; cf.\ \Cref{linalg:2.12}.
     \coker\varphi \oplus \coker\psi.
   \]
 \end{exer}
-\begin{exer}{}{exer:linalg:4.17}
+\begin{exer}{}{exer:linalg:determine-module-from-matrix-example}
   Determine (as a better known entity) the module represented by the
   matrix
   \[
@@ -3120,7 +3120,7 @@ generated modules over arbitrary PIDs. We have already proved this
 statement in the special case of finite $\Z$-modules (\S{}\ref{sec:groups2:finite-abelian-groups}), and
 the diligent reader has worked out a proof in the less special case of
 finitely generated modules over Euclidean domains, in
-\Cref{exer:linalg:2.19}. Now we go for the real thing.
+\Cref{exer:linalg:fin-gen-abel-grp-direct-sum-cyclic-via-matrices}. Now we go for the real thing.
 
 \subsection{Submodules of free modules}
 \label{subsec:linalg:submodules-of-free-modules}
@@ -3268,7 +3268,7 @@ Here is the formal argument:
   \[
     F = \langle x \rangle \oplus F',
   \]
-  as claimed (cf.\ \Cref{exer:linalg:5.1}).
+  as claimed (cf.\ \Cref{exer:linalg:internal-direct-sum-for-modules}).
 
   Second, if $z \in M$, then $a$ divides $\alpha(z)$: indeed,
   $\alpha(z) \in \alpha(M) = (a)$. Writing $\alpha(z) = ca$, we have
@@ -3434,7 +3434,7 @@ integral domain $R$.
   of a finitely generated $R$-module $M$ is the maximum number of
   linearly independent elements in $M$.
 \end{defn}
-It should be clear that this number is finite (\Cref{exer:linalg:5.6}).
+It should be clear that this number is finite (\Cref{exer:linalg:rank-bounded-by-num-generators}).
 
 \begin{thm}{}{linalg:5.6}
   Let $R$ be a PID, and let $M$ be a finitely generated
@@ -3515,7 +3515,7 @@ As for the uniqueness of the representations, if
 with $T$ a torsion module\footnote{Recall that this means that every
   element of $T$ is a torsion element; cf.\ \S{}\ref{subsec:linalg:torsion}.}, then
 $r = \operatorname{rk} M$ and $T \cong \Tor_R(M)$
-$\cong \Tor_R(M)$ (\Cref{exer:linalg:5.10}). Thus, the `free part'
+$\cong \Tor_R(M)$ (\Cref{exer:linalg:direct-proof-rank-and-torsion-submodule}). Thus, the `free part'
 and the `torsion part' in the decompositions given in \Cref{linalg:5.6} are
 determined uniquely.
 
@@ -3530,7 +3530,7 @@ the range of the indices is the same and, up to reordering,
 $(p_i) = (q_i)$ and $r_{ij} = s_{ij}$ for all $i, j$.
 
 Since a finitely generated module is torsion if and only if its
-annihilator is nonzero (\Cref{exer:linalg:4.4}), it is reasonable that
+annihilator is nonzero (\Cref{exer:linalg:annihilator-is-ideal-torsion-criterion}), it is reasonable that
 $\operatorname{Ann}(M)$ will be of some use here.
 \begin{lem}{}{linalg:5.7}
   Let $M$ be a torsion module, expressed as in \Cref{linalg:5.6} (with
@@ -3571,7 +3571,7 @@ from the observation that the isomorphism in $(*)$ must match like
 primes, in the sense that an element of a factor $R/(p_i^{r_{ij}})$ in
 the source must land in a combination of quotients in the target by
 powers of the same prime $p_i$; this follows by comparing annihilators
-(cf.\ \Cref{exer:linalg:5.11}). Therefore, uniqueness is reduced to the case of
+(cf.\ \Cref{exer:linalg:annihilator-inclusion-under-homomorphism}). Therefore, uniqueness is reduced to the case of
 a single irreducible $q \in R$: it suffices to show that if
 \[
   \frac{R}{(q^{r_1})} \oplus \dots \oplus \frac{R}{(q^{r_m})} \cong
@@ -3582,7 +3582,7 @@ $m = n$ and $r_i = s_i$ for all $i$. This situation reproduces
 precisely the key step the reader used in the proof of uniqueness for
 the particular case of abelian groups, in \Cref{exer:groups2:uniqueness-of-p-grp-decomp}. Of course I
 will not spoil the reader's fun by giving any more details this time
-(\Cref{exer:linalg:5.12}).
+(\Cref{exer:linalg:complete-uniqueness-proof-classification-thm}).
 
 \begin{rem}{}{linalg:5.8}
   To summarize, the information carried by a torsion module over a PID
@@ -3609,7 +3609,7 @@ will not spoil the reader's fun by giving any more details this time
   characterized as the prime ideals containing the annihilator ideal.
   They may just as well be characterized as those prime ideals
   containing the characteristic ideal, as the reader will check
-  (\Cref{exer:linalg:5.15}).
+  (\Cref{exer:linalg:primes-in-elem-divisors-contain-char-ideal}).
 
   Finally, note that from this point of view it is immediate that the
   characteristic ideal is contained in the annihilator ideal. We will
@@ -3619,21 +3619,21 @@ will not spoil the reader's fun by giving any more details this time
 
 \subsection*{Exercises}
 
-\begin{exer}{\exerused}{exer:linalg:5.1}
+\begin{exer}{\exerused}{exer:linalg:internal-direct-sum-for-modules}
   Let $N$, $P$ be submodules of a module $M$, such that
   $N \cap P = \{0\}$ and $M = N + P$. Prove that $M \cong N \oplus
   P$. (This is a word-for-word repetition of \Cref{prop:groups2:5.3} for
   modules.) [\S{}\ref{subsec:linalg:submodules-of-free-modules}]
 \end{exer}
-\begin{exer}{}{exer:linalg:5.2}
+\begin{exer}{}{exer:linalg:torsion-iff-rank-zero}
   Let $R$ be an integral domain, and let $M$ be a finitely generated
   $R$-module. Prove that $M$ is torsion if and only if
   $\operatorname{rk} M = 0$.
 \end{exer}
-\begin{exer}{}{exer:linalg:5.3}
+\begin{exer}{}{exer:linalg:complete-proof-submodule-of-free-module-structure}
   Complete the proof of \Cref{linalg:5.3}.
 \end{exer}
-\begin{exer}{}{exer:linalg:5.4}
+\begin{exer}{}{exer:linalg:krull-dim-geq-2-example}
   Let $R$ be an integral domain, and assume that $a, b \in R$ are such
   that $a \neq 0$, $b \notin (a)$, and $R/(a)$, $R/(a,b)$ are both
   integral domains.
@@ -3647,14 +3647,14 @@ will not spoil the reader's fun by giving any more details this time
   admitting a free resolution of length $2$ which cannot be shortened.
   \begin{itemize}
   \item Prove that $(a,b)$ is a regular sequence in $R$
-    (\Cref{exer:linalg:4.13}).
+    (\Cref{exer:linalg:koszul-complex-length-2}).
   \item Prove that the $R$-module $R/(a,b)$ has a free resolution of
     length exactly $2$.
   \end{itemize}
   Can you see how to construct analogous situations with $n \geq 3$
   elements $a_1, \dots, a_n$?
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:5.5}
+\begin{exer}{$\lnot$}{exer:linalg:direct-summand-of-free-over-local-is-free}
   Recall (\Cref{exer:irred:localization-at-prime-is-local}) that a commutative ring is \emph{local} if
   it has a single maximal ideal $\mathfrak{m}$. Let $R$ be a local
   ring, and let $M$ be a direct summand of a finitely generated free
@@ -3664,7 +3664,7 @@ will not spoil the reader's fun by giving any more details this time
   \item Choose elements $m_1, \dots, m_r \in M$ whose cosets mod
     $\mathfrak{m}M$ are a basis of $M/\mathfrak{m}M$ as a vector space
     over the field $R/\mathfrak{m}$. By Nakayama's lemma,
-    $M = \langle m_1, \dots, m_r \rangle$ (\Cref{exer:linalg:3.10}).
+    $M = \langle m_1, \dots, m_r \rangle$ (\Cref{exer:linalg:nakayama-gives-generators-from-quotient-basis}).
   \item Obtain a surjective homomorphism
     $\pi : F = R^{\oplus r} \to M$.
   \item Show that $\pi$ splits, giving an isomorphism
@@ -3672,7 +3672,7 @@ will not spoil the reader's fun by giving any more details this time
     surjective homomorphism $\pi$ and the free module $M \oplus N$ to
     obtain a splitting $M \to F$; then use \Cref{prop:rings:split-sequence}.)
   \item Show $\ker\pi/\mathfrak{m}\ker\pi = 0$. Use Nakayama's lemma
-    (\Cref{exer:linalg:3.8}) to deduce that $\ker\pi = 0$.
+    (\Cref{exer:linalg:nakayamas-lemma}) to deduce that $\ker\pi = 0$.
   \item Conclude that $M \cong F$ is in fact free. [\ref{exer:linrep:fin-gen-flat-over-noeth-local-is-free},
     \ref{exer:linrep:combine-results-reprove-rank-thm}, \ref{exer:linrep:fin-gen-over-local-ring-projective-iff-free}]
   \end{itemize}
@@ -3687,18 +3687,18 @@ will not spoil the reader's fun by giving any more details this time
   Contrast this fact with \Cref{linalg:5.1}, which shows that, over a
   PID, every submodule of a finitely generated free module is free.
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:5.6}
+\begin{exer}{\exerused}{exer:linalg:rank-bounded-by-num-generators}
   Let $R$ be an integral domain, and let
   $M = \langle m_1, \dots, m_r \rangle$ be a finitely generated
   module. Prove that $\operatorname{rk} M \leq r$. (Use
-  \Cref{exer:linalg:3.12}.) [\S{}\ref{subsec:linalg:the-classification-theorem}]
+  \Cref{exer:linalg:more-columns-than-rows-linearly-dependent}.) [\S{}\ref{subsec:linalg:the-classification-theorem}]
 \end{exer}
-\begin{exer}{}{exer:linalg:5.7}
+\begin{exer}{}{exer:linalg:rank-of-m-equals-rank-of-m-mod-torsion}
   Let $R$ be an integral domain, and let $M$ be a finitely generated
   module over $R$. Prove that
   $\operatorname{rk} M = \operatorname{rk}(M/\Tor(M))$.
 \end{exer}
-\begin{exer}{}{exer:linalg:5.8}
+\begin{exer}{}{exer:linalg:rank-r-iff-free-submodule-torsion-quotient}
   Let $R$ be an integral domain, and let $M$ be a finitely generated
   module over $R$. Prove that $\operatorname{rk} M = r$ if and only if
   $M$ has a free submodule $N \cong R^r$, such that $M/N$ is torsion.
@@ -3706,7 +3706,7 @@ will not spoil the reader's fun by giving any more details this time
   If $R$ is a PID, then $N$ may be chosen so that
   $0 \to N \to M \to M/N \to 0$ splits.
 \end{exer}
-\begin{exer}{}{exer:linalg:5.9}
+\begin{exer}{}{exer:linalg:rank-additive-in-exact-sequences}
   Let $R$ be an integral domain, and let
   \[
     0 \to M_1 \to M_2 \to M_3 \to 0
@@ -3719,44 +3719,44 @@ will not spoil the reader's fun by giving any more details this time
   group of the category of finitely generated $R$-modules to $\Z$
   (cf.\ \S{}\ref{subsec:linalg:euler-characteristic-and-the-grothendieck-group}).
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:5.10}
+\begin{exer}{\exerused}{exer:linalg:direct-proof-rank-and-torsion-submodule}
   Let $R$ be an integral domain, $M$ an $R$-module, and assume
   $M \cong R^r \oplus T$, with $T$ a torsion module. Prove directly
   (that is, without using \Cref{linalg:5.6}) that $r = \operatorname{rk} M$
   and $T \cong \Tor_R(M)$. [\S{}\ref{subsec:linalg:the-classification-theorem}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:5.11}
+\begin{exer}{\exerused}{exer:linalg:annihilator-inclusion-under-homomorphism}
   Let $R$ be an integral domain, let $M$, $N$ be $R$-modules, and let
   $\varphi : M \to N$ be a homomorphism. For $m \in M$, show that
   $\operatorname{Ann}(\langle m \rangle) \subseteq
   \operatorname{Ann}(\langle \varphi(m) \rangle)$. [\S{}\ref{subsec:linalg:the-classification-theorem}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:5.12}
+\begin{exer}{\exerused}{exer:linalg:complete-uniqueness-proof-classification-thm}
   Complete the proof of uniqueness in \Cref{linalg:5.6}. (The hint in
   \Cref{exer:groups2:uniqueness-of-p-grp-decomp} may be helpful.) [\S{}\ref{subsec:linalg:the-classification-theorem}]
 \end{exer}
-\begin{exer}{}{exer:linalg:5.13}
+\begin{exer}{}{exer:linalg:torsion-free-iff-free-characterizes-pids}
   Let $M$ be a finitely generated module over an integral domain $R$.
   Prove that if $R$ is a PID, then $M$ is torsion-free if and only if
   it is free. Prove that this property characterizes PIDs. (Cf.\
-  \Cref{exer:linalg:4.3}.)
+  \Cref{exer:linalg:domain-is-pid-iff-submodules-of-r-free}.)
 \end{exer}
-\begin{exer}{}{exer:linalg:5.14}
+\begin{exer}{}{exer:linalg:example-not-direct-sum-of-cyclics}
   Give an example of a finitely generated module over an integral
   domain which is not isomorphic to a direct sum of cyclic modules.
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:5.15}
+\begin{exer}{\exerused}{exer:linalg:primes-in-elem-divisors-contain-char-ideal}
   Prove that the prime ideals appearing in the elementary divisor
   version of the classification theorem for a torsion module $M$ over
   a PID are the prime ideals containing the characteristic ideal of
   $M$, as defined in \Cref{linalg:5.8}. [\S{}\ref{subsec:linalg:the-classification-theorem}]
 \end{exer}
-\begin{exer}{}{exer:linalg:5.16}
+\begin{exer}{}{exer:linalg:primes-in-elem-divisors-are-assoc-primes}
   Prove that the prime ideals appearing in the elementary divisor
   version of the classification theorem for a module $M$ over a PID
-  are the associated primes of $M$, as defined in \Cref{exer:linalg:4.5}.
+  are the associated primes of $M$, as defined in \Cref{exer:linalg:associated-primes-basics}.
 \end{exer}
-\begin{exer}{}{exer:linalg:5.17}
+\begin{exer}{}{exer:linalg:grothendieck-grp-fin-gen-modules-over-pid}
   Let $R$ be a PID. Prove that the Grothendieck group (cf.\ \S{}\ref{subsec:linalg:euler-characteristic-and-the-grothendieck-group})
   of the category of finitely generated $R$-modules is isomorphic to
   $\Z$.
@@ -3796,7 +3796,7 @@ of a fixed free $R$-module $F$:
 \]
 Note that $\End_R(F)$ is in fact an $R$-algebra: the operation of
 composition makes it a ring, compatibly with the $R$-module structure
-(cf.\ \Cref{exer:linalg:2.3}).
+(cf.\ \Cref{exer:linalg:mn-r-iso-hom-as-r-algebras}).
 
 From the point of view championed in \S{}\ref{sec:linalg:homomorphisms-of-free-modules-i}, the two copies of $F$
 appearing in $\End_R(F) = \Hom_R(F,F)$ are unrelated; they are just
@@ -3945,7 +3945,7 @@ there exists an invertible matrix $P$ such that $B = PAP^{-1}$; then
 by \Cref{linalg:3.3}. Thus the determinant is indeed independent of the
 choice of basis. Essentially the same argument shows that if $\alpha$
 and $\beta$ are similar linear transformations, then
-$\det(\alpha) = \det(\beta)$ (\Cref{exer:linalg:6.3}).
+$\det(\alpha) = \det(\beta)$ (\Cref{exer:linalg:similar-matrices-same-det-and-trace}).
 
 By \Cref{linalg:3.3}, a linear transformation $\alpha$ is invertible if
 and only if $\det(\alpha)$ is a unit in $R$. If $R$ is a field, this
@@ -4067,7 +4067,7 @@ which can be nicely collected together into the \emph{characteristic
   \[
     tI - \beta = \pi \circ (tI - \alpha) \circ \pi^{-1}
   \]
-  are similar (as endomorphisms of $R[t]^n$). By \Cref{exer:linalg:6.3} these
+  are similar (as endomorphisms of $R[t]^n$). By \Cref{exer:linalg:similar-matrices-same-det-and-trace} these
   two transformations must have the same determinant, and this proves
   the fourth point.
 \end{proof}
@@ -4117,7 +4117,7 @@ $\End_R(F)$; multiplication by $r \in R$ amounts to composition with
 $rI \in \End_R(F)$, and $\alpha^k$ stands for the $k$-fold composition
 $\alpha \circ \dots \circ \alpha$ of $\alpha$ with itself. The set of
 polynomials such that $f(\alpha) = 0$ is an ideal of $R[t]$
-(\Cref{exer:linalg:6.7}), which I will denote $\mathscr{I}_\alpha$ and call the
+(\Cref{exer:linalg:annihilator-ideal-of-linear-transformation}), which I will denote $\mathscr{I}_\alpha$ and call the
 \emph{annihilator ideal} of $\alpha$.
 \begin{lem}{}{linalg:6.10}
   If $\alpha$ and $\beta$ are similar, then
@@ -4150,7 +4150,7 @@ An optimistic reader might now guess that two linear transformations
 are similar if and only if both their characteristic polynomials and
 annihilator ideals coincide. This is unfortunatley not the case in
 general, but I promise that the situation will be considerably
-clarified in short order (cf.\ \Cref{exer:linalg:7.3}).
+clarified in short order (cf.\ \Cref{exer:linalg:similar-iff-same-char-min-poly-low-dim}).
 
 In any case, even the simple example given above allows me to point
 out a remarkable fact. Note that the (common) characteristic
@@ -4175,7 +4175,7 @@ Cramer's rule\footnote{Here is an even more direct `proof':
   $\det(tI - \alpha)$ of the characteristic polynomial, $t$ is assumed
   to act as a scalar and cannot be replaced by $\alpha$. Applying
   Cramer's rule circumvents this obstacle.}, in the form of
-\Cref{linalg:3.5}; cf.\ \Cref{exer:linalg:6.9}. In any case, the Cayley-Hamilton
+\Cref{linalg:3.5}; cf.\ \Cref{exer:linalg:cayley-hamilton-theorem}. In any case, the Cayley-Hamilton
 theorem will become essentially evident once we connect these linear
 algebra considerations with the classification theorem for finitely
 generated modules over a PID; the adventurous reader can already look
@@ -4339,7 +4339,7 @@ eigenspace may be.
   The \emph{geometric multiplicity} of an eigenvalue $\lambda$ is the
   rank of its eigenspace.
 \end{defn}
-This is clearly invariant under similarity (\Cref{exer:linalg:6.14}). Geometric
+This is clearly invariant under similarity (\Cref{exer:linalg:geometric-multiplicity-invariant-under-similarity}). Geometric
 and algebraic multiplicities do not necessarily coincide: for example,
 the matrix
 \[
@@ -4367,7 +4367,7 @@ the base ring $R$, and each algebraic multiplicity may agree with the
 corresponding geometric multiplicity. If this is the case, $F$ may
 then be expressed as a direct sum of the eigenspaces, producing the
 so-called \emph{spectral decomposition} of $F$ determined by $\alpha$
-(cf.\ \Cref{exer:linalg:6.15} for a concrete instance of this situation). The
+(cf.\ \Cref{exer:linalg:eigenvectors-distinct-eigenvalues-lin-indep} for a concrete instance of this situation). The
 action of $\alpha$ on $F$ is then completely transparent, as it
 amounts to simply applying a (possibly) different scaling factor on
 each piece of the spectral decomposition.
@@ -4396,7 +4396,7 @@ once we bring \Cref{linalg:5.6} into the picture.
 \subsection*{Exercises}
 
 In these exercises, $R$ denotes an integral domain.
-\begin{exer}{}{exer:linalg:6.1}
+\begin{exer}{}{exer:linalg:finite-equiv-classes-infinite-similarity-classes}
   Let $k$ be an infinite field, and let $n$ be any positive integer.
   \begin{itemize}
   \item Prove that there are finitely many equivalence classes of
@@ -4405,49 +4405,49 @@ In these exercises, $R$ denotes an integral domain.
     matrices in $\mathcal{M}_n(k)$.
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:linalg:6.2}
+\begin{exer}{}{exer:linalg:det-multiplicative-invertible-iff-det-invertible}
   Let $F$ be a free $R$-module of rank $n$, and let
   $\alpha, \beta \in \End_R(F)$. Prove that
   $\det(\alpha \circ \beta) = \det(\alpha)\det(\beta)$. Prove that
   $\alpha$ is invertible if and only if $\det(\alpha)$ is invertible.
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:6.3}
+\begin{exer}{\exerused}{exer:linalg:similar-matrices-same-det-and-trace}
   Prove that if $\alpha$ and $\beta$ are similar in the sense of
   \Cref{linalg:6.3}, then $\det(\alpha) = \det(\beta)$ and
   $\operatorname{tr}(\alpha) = \operatorname{tr}(\beta)$.  (Do this
   without using \Cref{linalg:6.9}!) [\S{}\ref{subsec:linalg:the-characteristic-and-minimal-polynomials-of-an-endomorphism}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:6.4}
+\begin{exer}{\exerused}{exer:linalg:injective-not-surjective-iff-det-not-unit}
   Let $F$ be a finitely generated free $R$-module, and let $\alpha$ be
   a linear transformation of $F$. Give an example of an injective
   $\alpha$ which is not surjective; in fact, prove that $\alpha$ is
   not surjective precisely when $\det(\alpha)$ is not a
   unit. [\S{}\ref{subsec:linalg:the-characteristic-and-minimal-polynomials-of-an-endomorphism}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:6.5}
+\begin{exer}{\exerused}{exer:linalg:injective-not-surjective-example-on-kt}
   Let $k$ be a field, and view $k[t]$ as a vector space over $k$ in
   the evident way. Give an example of a $k$-linear transformation
   $k[t] \to k[t]$ which is injective but not surjective; give an
   example of a linear transformation which is surjective but not
   injective.  [\S{}\ref{subsec:linalg:the-characteristic-and-minimal-polynomials-of-an-endomorphism}, \S{}\ref{subsec:fields:splitting-fields-and-normal-extensions}]
 \end{exer}
-\begin{exer}{}{exer:linalg:6.6}
+\begin{exer}{}{exer:linalg:same-char-poly-2x2-iff-trace-det}
   Prove that two $2 \times 2$ matrices have the same characteristic
   polynomial if and only if they have the same trace and determinant.
   Find two $3 \times 3$ matrices with the same trace and determinant
   but different characteristic polynomials.
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:6.7}
+\begin{exer}{\exerused}{exer:linalg:annihilator-ideal-of-linear-transformation}
   Let $\alpha \in \End_R(F)$ be a linear transformation on a free
   $R$-module $F$. Prove that the set of polynomials $f(t) \in R[t]$
   such that $f(\alpha) = 0$ is an ideal of $R[t]$.  [\S{}\ref{subsec:linalg:the-characteristic-and-minimal-polynomials-of-an-endomorphism}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:6.8}
+\begin{exer}{\exerused}{exer:linalg:matrix-transpose-same-char-poly-annihilator}
   Let $A \in \mathcal{M}_n(R)$ be a square matrix, and let $A^t$ be
   its transpose. Prove that $A$ and $A^t$ have the same characteristic
   polynomial and the same annihilator ideals. [\S{}\ref{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:6.9}
+\begin{exer}{\exerused}{exer:linalg:cayley-hamilton-theorem}
   Prove the Cayley-Hamilton theorem, as follows. Recall that every
   square matrix $M$ has an adjoint matrix, which I will denote
   $\operatorname{adj}(M)$, and that we proved (\Cref{linalg:3.5}) that
@@ -4463,7 +4463,7 @@ In these exercises, $R$ denotes an integral domain.
   $(*)$ to obtain $P_\alpha(A) = 0$, proving the Cayley-Hamilton
   theorem.  [\S{}\ref{subsec:linalg:the-characteristic-and-minimal-polynomials-of-an-endomorphism}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:6.10}
+\begin{exer}{\exerused}{exer:linalg:char-poly-multiplicative-direct-sums}
   Let $F_1, F_2$ be free $R$-modules of finite rank, and let
   $\alpha_1$, resp., $\alpha_2$, be linear transformations of $F_1$,
   resp., $F_2$. Let $F = F_1 \oplus F_2$, and let
@@ -4475,21 +4475,21 @@ In these exercises, $R$ denotes an integral domain.
     polynomial is multiplicative under direct sums.
   \item Find an example showing that the minimal polynomial is
     \emph{not} multiplicative under direct sums.
-  \end{itemize} [\ref{exer:linalg:6.11}, \S{}
+  \end{itemize} [\ref{exer:linalg:char-poly-multiplicative-invariant-subspace}, \S{}
 ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:6.11}
+\begin{exer}{$\lnot$}{exer:linalg:char-poly-multiplicative-invariant-subspace}
   Let $\alpha$ be a linear transformation of a finite-dimensional
   vector space $V$, and let $V_1$ be an invariant subspace, that is,
   such that $\alpha(V_1) \subseteq V_1$. Let $\alpha_1$ be the
   restriction of $\alpha$ to $V_1$, and let $V_2 = V/V_1$. Prove that
   $\alpha$ induces a linear transformation $\alpha_2$ on $V_2$, and
-  (in the same vein as \Cref{exer:linalg:6.10}) show that
+  (in the same vein as \Cref{exer:linalg:char-poly-multiplicative-direct-sums}) show that
   $P_\alpha(t) = P_{\alpha_1}(t)P_{\alpha_2}(t)$.  Also, prove that
   $\operatorname{tr}(\alpha^r) = \operatorname{tr}(\alpha_1^r) +
-  \operatorname{tr}(\alpha_2^r)$, for all $r \geq 0$. [\ref{exer:linalg:6.12}]
+  \operatorname{tr}(\alpha_2^r)$, for all $r \geq 0$. [\ref{exer:linalg:zeta-function-identity-linear-transformation}]
 \end{exer}
-\begin{exer}{}{exer:linalg:6.12}
+\begin{exer}{}{exer:linalg:zeta-function-identity-linear-transformation}
   Let $\alpha$ be a linear transformation of a finite-dimensional
   $\C$-vector space $V$. Prove the identity of formal power
   series with coefficients in $\C$:
@@ -4498,7 +4498,7 @@ ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
       \operatorname{tr}(\alpha^r) \frac{t^r}{r} \right).
   \]
   (Hint: The left-hand side is essentially the inverse of the
-  characteristic polynomial of $\alpha$. Use \Cref{exer:linalg:6.11} to show
+  characteristic polynomial of $\alpha$. Use \Cref{exer:linalg:char-poly-multiplicative-invariant-subspace} to show
   that both sides are multiplicative with respect to exact sequences
   $0 \to V_1 \to V \to V_2 \to 0$, where $V_1$ is an invariant
   subspace. Use this and the fact that $\alpha$ admits nontrivial
@@ -4511,17 +4511,17 @@ ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
   ingredient in the cohomological interpretation of the `Weil
   conjectures'.
 \end{exer}
-\begin{exer}{}{exer:linalg:6.13}
+\begin{exer}{}{exer:linalg:rational-eigenvalue-of-integer-matrix-is-integer}
   Let $A$ be a square matrix with integer entries. Prove that if
   $\lambda$ is a rational eigenvalue of $A$, then in fact
   $\lambda \in \Z$. (Hint: \Cref{prop:irred:5.5}.)
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:6.14}
+\begin{exer}{\exerused}{exer:linalg:geometric-multiplicity-invariant-under-similarity}
   Let $\lambda$ be an eigenvalue of two similar transformations
   $\alpha, \beta$. Prove that the geometric multiplicities of
   $\lambda$ with respect to $\alpha$ and $\beta$ coincide. [\S{}\ref{subsec:linalg:eigenvalues-eigenvectors-eigenspaces}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:6.15}
+\begin{exer}{\exerused}{exer:linalg:eigenvectors-distinct-eigenvalues-lin-indep}
   Let $\alpha$ be a linear transformation on a free $R$-module $F$,
   and let $\mathbf{v}_1, \dots, \mathbf{v}_n$ be eigenvectors
   corresponding to pairwise distinct eigenvalues
@@ -4536,7 +4536,7 @@ ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
   eigenvalues, then $\alpha$ induces a spectral decomposition of $F$.
   [\S{}\ref{subsec:linalg:eigenvalues-eigenvectors-eigenspaces}, \ref{exer:fields:distinct-automorphisms-linearly-independent}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:6.16}
+\begin{exer}{$\lnot$}{exer:linalg:orthogonal-unitary-preserve-inner-product}
   The \emph{standard inner product} on $V = \R^n$ is the map
   $V \times V \to \R$ defined by
   \[
@@ -4576,21 +4576,21 @@ ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
   \]
   Likewise, prove that a matrix $M \in \mathcal{M}_n(\C)$
   belongs to $\mathrm{U}(n)$ if and only if it preserves the standard
-  hermitian product on $\C^n$. [\ref{exer:linalg:6.18}]
+  hermitian product on $\C^n$. [\ref{exer:linalg:on-r-iff-orthonormal-columns-rows}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:6.17}
+\begin{exer}{$\lnot$}{exer:linalg:orthogonal-complement-is-subspace-dim-n-minus-1}
   We say that two vectors $\mathbf{v}, \mathbf{w}$ of $\R^n$ or
   $\C^n$ are \emph{orthogonal} if
   $(\mathbf{v}, \mathbf{w}) = 0$.  The \emph{orthogonal complement}
   $\mathbf{v}^\perp$ of $\mathbf{v}$ is the set of vectors
   $\mathbf{w}$ that are orthogonal to $\mathbf{v}$.  Prove that if
   $\mathbf{v} \neq 0$ in $V = \R^n$ or $\C^n$, then
-  $\mathbf{v}^\perp$ is a subspace of $V$ of dimension $n-1$. [\ref{exer:linalg:7.16},
+  $\mathbf{v}^\perp$ is a subspace of $V$ of dimension $n-1$. [\ref{exer:linalg:schur-form},
   \ref{exer:linrep:annihilator-of-subspace-basics}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:6.18}
+\begin{exer}{$\lnot$}{exer:linalg:on-r-iff-orthonormal-columns-rows}
   Let $V = \R^n$, endowed with the standard inner product defined in
-  \Cref{exer:linalg:6.16}. A set of distinct vectors
+  \Cref{exer:linalg:orthogonal-unitary-preserve-inner-product}. A set of distinct vectors
   $\mathbf{v}_1, \dots, \mathbf{v}_r$ is \emph{orthonormal} if
   $(\mathbf{v}_i, \mathbf{v}_j) = 0$ for $i \neq j$ and $1$ for
   $i = j$.  Geometrically, this means that each vector has length $1$,
@@ -4605,10 +4605,10 @@ ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
 
   Formulate and prove an analogous statement for $\mathrm{U}(n)$. (The
   group $\mathrm{U}(n)$ is called the \emph{unitary group}. Note that,
-  for $n = 1$, it consists of the complex numbers of norm $1$.) [\ref{exer:linalg:6.19},
-  \ref{exer:linalg:7.16}, \ref{exer:linrep:nondegenerate-nonsingular-bilinear-forms}]
+  for $n = 1$, it consists of the complex numbers of norm $1$.) [\ref{exer:linalg:orthonormal-vectors-coefficient-projection-formulas},
+  \ref{exer:linalg:schur-form}, \ref{exer:linrep:nondegenerate-nonsingular-bilinear-forms}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:6.19}
+\begin{exer}{$\lnot$}{exer:linalg:orthonormal-vectors-coefficient-projection-formulas}
   Let $\mathbf{v}_1, \dots, \mathbf{v}_r$ form an orthonormal set of
   vectors in $\R^n$.
   \begin{itemize}
@@ -4633,12 +4633,12 @@ ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
     \end{tikzpicture}
   \end{center}
   For reasons such as these, it is convenient to work with orthonormal
-  bases. Note that, by \Cref{exer:linalg:6.18}, a matrix is in
+  bases. Note that, by \Cref{exer:linalg:on-r-iff-orthonormal-columns-rows}, a matrix is in
   $\mathrm{O}_n(\R)$ if and only if its columns form an orthonormal
   basis of $\R^n$. Again, the reader should formulate parallel
-  statements for hermitian products in $\C^n$. [\ref{exer:linalg:6.20}]
+  statements for hermitian products in $\C^n$. [\ref{exer:linalg:gram-schmidt-process}]
 \end{exer}
-\begin{exer}{}{exer:linalg:6.20}
+\begin{exer}{}{exer:linalg:gram-schmidt-process}
   The \emph{Gram-Schmidt process} takes as input a choice of linearly
   independent vectors $\mathbf{v}_1, \dots, \mathbf{v}_r$ of $\R^n$
   and returns vectors $\mathbf{w}_1, \dots, \mathbf{w}_r$ spanning the
@@ -4654,10 +4654,10 @@ ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
     orthogonal projection of $\mathbf{v}_k$ onto
     $\langle \mathbf{w}_1, \dots, \mathbf{w}_{k-1} \rangle$.
   \end{itemize}
-  (Cf.\ \Cref{exer:linalg:6.19}.) Prove that this process accomplishes the
+  (Cf.\ \Cref{exer:linalg:orthonormal-vectors-coefficient-projection-formulas}.) Prove that this process accomplishes the
   stated goal.
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:6.21}
+\begin{exer}{$\lnot$}{exer:linalg:symmetric-hermitian-iff-self-adjoint}
   A matrix $M \in \mathcal{M}_n(\R)$ is \emph{symmetric} if $M^t =
   M$. Prove that $M$ is symmetric if and only if
   $(\forall \mathbf{v}, \mathbf{w} \in \C^n)$,
@@ -4674,14 +4674,14 @@ ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
 
   A hermitian matrix with real entries is symmetric. It is in fact
   useful to think of real symmetric matrices as particular cases of
-  hermitian matrices. [\ref{exer:linalg:6.22}]
+  hermitian matrices. [\ref{exer:linalg:hermitian-eigenvalues-real-orthogonal-eigenvectors}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:6.22}
-  Prove that the eigenvalues of a hermitian matrix (\Cref{exer:linalg:6.21}) are
+\begin{exer}{$\lnot$}{exer:linalg:hermitian-eigenvalues-real-orthogonal-eigenvectors}
+  Prove that the eigenvalues of a hermitian matrix (\Cref{exer:linalg:symmetric-hermitian-iff-self-adjoint}) are
   real. Also, prove that if $\mathbf{v}, \mathbf{w}$ are eigenvectors
   of a hermitian matrix, corresponding to different eigenvalues, then
   $(\mathbf{v}, \mathbf{w}) = 0$. (Thus, eigenvectors with distinct
-  eigenvalues for a real symmetric matrix are orthogonal.) [\ref{exer:linalg:7.20}]
+  eigenvalues for a real symmetric matrix are orthogonal.) [\ref{exer:linalg:real-symmetric-diagonalizable-orthonormal-eigenbasis}]
 \end{exer}
 
 \section{Canonical forms}
@@ -4793,7 +4793,7 @@ similarity:
   isomorphic as $R[t]$-modules.
 
   The converse implication is obtained essentially by running this
-  argument in reverse and is left to the reader (\Cref{exer:linalg:7.1}).
+  argument in reverse and is left to the reader (\Cref{exer:linalg:complete-proof-rt-module-iso-iff-similar}).
 \end{proof}
 
 \begin{coro}{}{linalg:7.3}
@@ -4987,7 +4987,7 @@ transformations in \S{}\ref{sec:linalg:linear-transformations-of-a-free-module}.
   Claim~\ref{linalg:7.1}). Therefore the equality of $m_\alpha(t)$ and
   $f_m(t)$ is a restatement of \Cref{linalg:5.7}.
 
-  Concerning the characteristic polynomial, by \Cref{exer:linalg:6.10} it
+  Concerning the characteristic polynomial, by \Cref{exer:linalg:char-poly-multiplicative-direct-sums} it
   suffices to prove the statement in the cyclic case: that is, it
   suffices to prove that if $f(t)$ is a monic polynomial, then $f(t)$
   equals the characteristic polynomial of the companion matrix
@@ -5007,7 +5007,7 @@ transformations in \S{}\ref{sec:linalg:linear-transformations-of-a-free-module}.
     \end{pmatrix} = f(t).
   \]
   This can be done by an easy induction and is left to the reader
-  (\Cref{exer:linalg:7.2}).
+  (\Cref{exer:linalg:char-poly-of-companion-matrix}).
 \end{proof}
 
 \begin{coro}{Cayley-Hamilton}{linalg:7.10}
@@ -5060,7 +5060,7 @@ pinch of rational canonical forms:
   suffices to prove it for each block; so we may assume that $A$ is
   the companion matrix $C$ of a polynomial $f(t)$. Since the
   characteristic and minimal polynomials of the transpose $C^t$
-  coincide with those of $C$ (\Cref{exer:linalg:6.8}), they are both equal to
+  coincide with those of $C$ (\Cref{exer:linalg:matrix-transpose-same-char-poly-annihilator}), they are both equal to
   $f(t)$. It follows that the rational canonical form of $C^t$ is
   again the companion matrix to $f(t)$; therefore $C^t$ and $C$ are
   similar, as needed.
@@ -5080,7 +5080,7 @@ pinch of rational canonical forms:
 % form of a linear transformation \alpha \in Endk (V ) may be a matrix
 % with entries in a field larger than k. In any case, whether two
 % transformations are
-similar or not is independent of the base field (\Cref{exer:linalg:7.4}), so
+similar or not is independent of the base field (\Cref{exer:linalg:similarity-over-k-iff-over-extension}), so
 this does not affect the issue at hand.
 
 Given $\alpha \in \End_k(V)$, obtain the elementary divisor
@@ -5367,30 +5367,30 @@ Endowing the vector space $V$ with additional structure (such as an
 inner product) singles out important classes of operators, for which
 one can obtain precise and delicate results on the existence of
 spectral decompositions. For example, this can be used to prove that
-real symmetric matrices are diagonalizable (\Cref{exer:linalg:7.20}.) The reader
+real symmetric matrices are diagonalizable (\Cref{exer:linalg:real-symmetric-diagonalizable-orthonormal-eigenbasis}.) The reader
 will get a taste of these `spectral theorems' in the exercises.
 
 \subsection*{Exercises}
 
 As above, $k$ denotes a \emph{field}.
 
-\begin{exer}{\exerused}{exer:linalg:7.1}
+\begin{exer}{\exerused}{exer:linalg:complete-proof-rt-module-iso-iff-similar}
   Complete the proof of Lemma~\ref{linalg:7.2}. [\S{}
 ef{subsec:linalg:linear-transformations-of-free-modules-actions-of-polynomial-rings}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:7.2}
+\begin{exer}{\exerused}{exer:linalg:char-poly-of-companion-matrix}
   Prove that the characteristic polynomial of the companion matrix of
   a monic polynomial $f(t)$ equals $f(t)$. [\S{}
 ef{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:7.3}
+\begin{exer}{\exerused}{exer:linalg:similar-iff-same-char-min-poly-low-dim}
   Prove that two linear transformations of a vector space of dimension
   $\leq 3$ are similar if and only if they have the same
   characteristic and minimal polynomials. Is this true in dimension
   $4$? [\S{}
 ef{subsec:linalg:the-characteristic-and-minimal-polynomials-of-an-endomorphism}]
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:7.4}
+\begin{exer}{\exerused}{exer:linalg:similarity-over-k-iff-over-extension}
   Let $k$ be a field, and let $K$ be a field containing $k$. Two
   square matrices $A, B \in \mathcal{M}_n(k)$ may be viewed as
   matrices with entries in the larger field $K$. Prove that $A$ and
@@ -5398,7 +5398,7 @@ ef{subsec:linalg:the-characteristic-and-minimal-polynomials-of-an-endomorphism}]
   $K$. [\S{}
 ef{subsec:linalg:jordan-canonical-form}]
 \end{exer}
-\begin{exer}{}{exer:linalg:7.5}
+\begin{exer}{}{exer:linalg:rational-canonical-form-of-diagonal-matrix}
   Find the rational canonical form of a diagonal matrix
   \[
     \begin{pmatrix}
@@ -5410,7 +5410,7 @@ ef{subsec:linalg:jordan-canonical-form}]
   \]
   assuming that the $\lambda_i$ are all distinct.
 \end{exer}
-\begin{exer}{}{exer:linalg:7.6}
+\begin{exer}{}{exer:linalg:compute-char-poly-min-poly-rcf-example}
   Let
   \[
     A = \begin{pmatrix} 6 & -10 & -10 \\ 3 & -5 & -6 \\ -1 & 2 & 3
@@ -5424,7 +5424,7 @@ ef{subsec:linalg:jordan-canonical-form}]
   \item Find the rational canonical form of $A$.
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:linalg:7.7}
+\begin{exer}{}{exer:linalg:min-eq-char-poly-iff-cyclic-vector-exists}
   Let $V$ be a $k$-vector space of dimension $n$, and let $\alpha \in
   \End_k(V)$. Prove that the minimal and characteristic polynomials of
   $\alpha$ coincide if and only if there is a vector
@@ -5435,22 +5435,22 @@ ef{subsec:linalg:jordan-canonical-form}]
   \]
   is a basis of $V$.
 \end{exer}
-\begin{exer}{}{exer:linalg:7.8}
+\begin{exer}{}{exer:linalg:char-poly-divides-power-of-min-poly}
   Let $V$ be a $k$-vector space of dimension $n$, and let $\alpha \in
   \End_k(V)$. Prove that the characteristic polynomial $P_\alpha(t)$
   divides a power of the minimal polynomial $m_\alpha(t)$.
 \end{exer}
-\begin{exer}{}{exer:linalg:7.9}
+\begin{exer}{}{exer:linalg:num-similarity-classes-single-eigenvalue}
   What is the number of distinct similarity classes of linear
   transformations on an $n$-dimensional vector space with one fixed
   eigenvalue $\lambda$ with algebraic multiplicity $n$?
 \end{exer}
-\begin{exer}{}{exer:linalg:7.10}
+\begin{exer}{}{exer:linalg:classify-idempotent-matrices-up-to-similarity}
   Classify all square matrices $A \in \mathcal{M}_n(k)$ such that
   $A^2 = A$, up to similarity. Describe the action of such matrices
   `geometrically'.
 \end{exer}
-\begin{exer}{}{exer:linalg:7.11}
+\begin{exer}{}{exer:linalg:nilpotent-matrices-jordan-form-and-trace}
   A square matrix $A \in \mathcal{M}_n(k)$ is \emph{nilpotent} (cf.\
   \Cref{exer:irred:nilpotent-implies-1-plus-a-unit}) if $A^k = 0$ for some integer $k$.
   \begin{itemize}
@@ -5462,35 +5462,35 @@ ef{subsec:linalg:jordan-canonical-form}]
   \item Prove that the trace of a nilpotent matrix is $0$.
   \end{itemize}
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:7.12}
+\begin{exer}{$\lnot$}{exer:linalg:diagonalizable-restricted-to-invariant-subspace}
   Let $V$ be a finite-dimensional $k$-vector space, and let
   $\alpha \in
   \End_k(V)$ be a diagonalizable linear transformation.  Assume that
   $W \subseteq V$ is an invariant subspace, so that $\alpha$ induces a
   linear transformation $\alpha|_W \in \End_k(W)$.  Prove that
   $\alpha|_W$ is also diagonalizable. (Use
-  Proposition~\ref{linalg:7.18}.) [\ref{exer:linalg:7.14}]
+  Proposition~\ref{linalg:7.18}.) [\ref{exer:linalg:commuting-diagonalizable-simultaneously-diagonalizable}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:7.13}
+\begin{exer}{$\lnot$}{exer:linalg:commuting-matrix-diagonal-in-eigenbasis}
   Let $R$ be an integral domain. Assume that $A \in \mathcal{M}_n(R)$
   is diagonalizable, with distinct eigenvalues. Let
   $B \in \mathcal{M}_n(R)$ be such that $AB = BA$. Prove that $B$ is
   also diagonalizable, and in fact it is diagonal w.r.t.\ a basis of
   eigenvectors of $A$. (If $P$ is such that $P^{-1}AP$ is diagonal,
-  note that $P^{-1}AP$ and $P^{-1}BP$ also commute.) [\ref{exer:linalg:7.14}]
+  note that $P^{-1}AP$ and $P^{-1}BP$ also commute.) [\ref{exer:linalg:commuting-diagonalizable-simultaneously-diagonalizable}]
 \end{exer}
-\begin{exer}{}{exer:linalg:7.14}
+\begin{exer}{}{exer:linalg:commuting-diagonalizable-simultaneously-diagonalizable}
   Prove that `commuting transformations may be simultaneously
   diagonalized', in the following sense. Let $V$ be a
   finite-dimensional vector space, and let
   $\alpha, \beta \in \End_k(V)$ be diagonalizable
   transformations. Assume that $\alpha\beta = \beta\alpha$.  Prove
   that $V$ has a basis consisting of eigenvectors of both $\alpha$ and
-  $\beta$. (Argue as in Exercise~\ref{exer:linalg:7.13} to reduce to
+  $\beta$. (Argue as in Exercise~\ref{exer:linalg:commuting-matrix-diagonal-in-eigenbasis} to reduce to
   the case in which $V$ is an eigenspace for $\alpha$; then use
-  Exercise~\ref{exer:linalg:7.12}.)
+  Exercise~\ref{exer:linalg:diagonalizable-restricted-to-invariant-subspace}.)
 \end{exer}
-\begin{exer}{}{exer:linalg:7.15}
+\begin{exer}{}{exer:linalg:linear-transformation-preserves-complete-flag}
   A \emph{complete flag} of subspaces of a vector space $V$ of
   dimension $n$ is a sequence of nested subspaces
   \[
@@ -5498,7 +5498,7 @@ ef{subsec:linalg:jordan-canonical-form}]
     \subsetneq V_n = V
   \]
   with $\dim V_i = i$. In other words, a complete flag is a
-  composition series in the sense of \Cref{exer:linalg:1.16}.
+  composition series in the sense of \Cref{exer:linalg:jordan-holder-for-modules}.
 
   Let $V$ be a finite-dimensional vector space over an algebraically
   closed field. Prove that every linear transformation $\alpha$ of $V$
@@ -5508,7 +5508,7 @@ ef{subsec:linalg:jordan-canonical-form}]
   Find a linear transformation of $\R^2$ that does not preserve a
   complete flag.
 \end{exer}
-\begin{exer}{}{exer:linalg:7.16}
+\begin{exer}{}{exer:linalg:schur-form}
   (Schur form) Let $A \in \mathcal{M}_n(\C)$. Prove that there
   exists a unitary matrix $P \in \mathrm{U}(n)$ such that
   \[
@@ -5526,38 +5526,38 @@ ef{subsec:linalg:jordan-canonical-form}]
   $\C$ is algebraically closed, $A$ has at least one
   eigenvector $\mathbf{v}_1$, and we may assume
   $(\mathbf{v}_1, \mathbf{v}_1) = 1$.  For the induction step,
-  consider the complement $\mathbf{v}_1^\perp$; cf.\ \Cref{exer:linalg:6.17},
-  and keep in mind \Cref{exer:linalg:6.18}.)
+  consider the complement $\mathbf{v}_1^\perp$; cf.\ \Cref{exer:linalg:orthogonal-complement-is-subspace-dim-n-minus-1},
+  and keep in mind \Cref{exer:linalg:on-r-iff-orthonormal-columns-rows}.)
 
   The upper triangular matrix is a \emph{Schur form} for $A$. It is
   (of course) not unique.
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:7.17}
+\begin{exer}{$\lnot$}{exer:linalg:triangular-normal-matrices-are-diagonal}
   A matrix $M \in \mathcal{M}_n(\C)$ is \emph{normal} if
   $MM^\dagger = M^\dagger M$. Note that unitary matrices and hermitian
   matrices are both normal.
 
-  Prove that triangular normal matrices are diagonal. [\ref{exer:linalg:7.18}]
+  Prove that triangular normal matrices are diagonal. [\ref{exer:linalg:spectral-theorem-for-normal-operators}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:linalg:7.18}
+\begin{exer}{$\lnot$}{exer:linalg:spectral-theorem-for-normal-operators}
   Prove the \emph{spectral theorem for normal operators}: if $M$ is a
   normal matrix, then there exists an orthonormal basis of
   eigenvectors of $M$. Therefore, normal operators are diagonalizable;
   they determine a spectral decomposition of the vector space on which
   they act.  (Consider the Schur form of $M$; cf.\
-  Exercise~\ref{exer:linalg:7.16}.  Use
-  Exercise~\ref{exer:linalg:7.17}.) [\ref{exer:linalg:7.19}, \ref{exer:linalg:7.20}]
+  Exercise~\ref{exer:linalg:schur-form}.  Use
+  Exercise~\ref{exer:linalg:triangular-normal-matrices-are-diagonal}.) [\ref{exer:linalg:normal-iff-orthonormal-eigenbasis-exists}, \ref{exer:linalg:real-symmetric-diagonalizable-orthonormal-eigenbasis}]
 \end{exer}
-\begin{exer}{}{exer:linalg:7.19}
+\begin{exer}{}{exer:linalg:normal-iff-orthonormal-eigenbasis-exists}
   Prove that a matrix $M \in \mathcal{M}_n(\C)$ is normal if
   and only if it admits an orthonormal basis of eigenvectors.
-  (Exercise~\ref{exer:linalg:7.18} gives one direction; prove the
+  (Exercise~\ref{exer:linalg:spectral-theorem-for-normal-operators} gives one direction; prove the
   converse.)
 \end{exer}
-\begin{exer}{\exerused}{exer:linalg:7.20}
+\begin{exer}{\exerused}{exer:linalg:real-symmetric-diagonalizable-orthonormal-eigenbasis}
   Prove that real symmetric matrices are diagonalizable and admit an
   orthonormal basis of eigenvectors. (This is an immediate consequence
-  of Exercise~\ref{exer:linalg:7.18} and \Cref{exer:linalg:6.22}.) [\S{}
+  of Exercise~\ref{exer:linalg:spectral-theorem-for-normal-operators} and \Cref{exer:linalg:hermitian-eigenvalues-real-orthogonal-eigenvectors}.) [\S{}
 ef{subsec:linalg:diagonalizability}]
 \end{exer}
 
