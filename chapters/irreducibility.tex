@@ -142,7 +142,7 @@ algebraic geometry and number theory. Thus, entire fields of
 mathematics are a little more manageable thanks to
 \cref{thm:irred:1.2}.
 
-The proof of this deep fact is surprisingly easy. By \Cref{exer:irred:1.1}, it
+The proof of this deep fact is surprisingly easy. By \Cref{exer:irred:quot-of-noeth-is-noeth}, it
 suffices to prove that $R$ Noetherian $\implies$ $R[x_1, \dots, x_n]$
 Noetherian; and an immediate induction reduces the statement to the
 following particular case, which carries a distinguished name:
@@ -160,7 +160,7 @@ following particular case, which carries a distinguished name:
   $f(x)$. Consider the following subset of $R$:
   \[A = \{0\} \cup \{a \in R \mid a \text{ is a leading coefficient of
       an element of } I\}.\] It is clear that $A$ is an ideal of $R$
-  (\Cref{exer:irred:1.6}); since $R$ is Noetherian, $A$ is finitely
+  (\Cref{exer:irred:hilbert-basis-thm-set-a-is-ideal}); since $R$ is Noetherian, $A$ is finitely
   generated. Thus there exist elements $f_1(x), \dots, f_r(x) \in I$
   whose leading coefficients $a_1, \dots, a_r$ generate $A$ as an
   ideal of $R$.
@@ -264,7 +264,7 @@ irreducible if and only if
 \item $a = bc$ implies that $(a) = (b)$ or $(a) = (c)$
   (\cref{lem:irred:1.5});
 \item $(a) \subseteq (b) \implies (b) = (a)$ or $(b) = (1)$
-  (\Cref{exer:irred:1.12});
+  (\Cref{exer:irred:irred-iff-a-maximal-principal});
 \item $(a)$ is maximal among proper principal ideals (rephrasing the
   previous point!).
 \end{itemize}
@@ -274,7 +274,7 @@ It is important to realize that primality and irreducibility are
 counterintuitive since they \emph{are} equivalent in $\Z$, as the
 reader should verify\footnote{This fact will be fully explained by the
   general theory, so the reader should work this out right away.}
-(\Cref{exer:irred:1.13}). What is true in general is that prime is stronger
+(\Cref{exer:irred:prime-iff-irred-in-z}). What is true in general is that prime is stronger
 than irreducible:
 
 \begin{lem}{}{lem:irred:1.7}
@@ -380,7 +380,7 @@ variables\footnote{Remember that polynomials are finite linear
   combinations of monomials; cf.~\S{}\ref{subsec:rings:polynomial-rings}.}, so it belongs to a
 subring $\Z[x_1, \dots, x_n]$ isomorphic to an ordinary polynomial
 ring over $\Z$; further, this subring contains every divisor of
-$f$. It follows easily (cf.\ \Cref{exer:irred:1.15}) that the ascending chain
+$f$. It follows easily (cf.\ \Cref{exer:irred:acc-principal-ideals-infinite-vars}) that the ascending chain
 condition for principal ideals holds in $\Z[x_1, x_2, x_3, \dots]$,
 because it holds in $\Z[x_1, \dots, x_n]$ (since this ring is
 Noetherian, by Hilbert's basis theorem).
@@ -389,17 +389,17 @@ Noetherian, by Hilbert's basis theorem).
 
 Remember that in this section all rings are taken to be
 \emph{commutative}.
-\begin{exer}{\exerused}{exer:irred:1.1}
+\begin{exer}{\exerused}{exer:irred:quot-of-noeth-is-noeth}
   Let $R$ be a Noetherian ring, and let $I$ be an ideal of $R$. Prove
   that $R/I$ is a Noetherian ring. [\S{}\ref{subsec:irred:noetherian-rings-revisited}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:1.2}
+\begin{exer}{}{exer:irred:rx-noeth-implies-r-noeth}
   Prove that if $R[x]$ is Noetherian, so is $R$. (This is a `converse'
   to Hilbert's basis theorem.)
 \end{exer}
 
-\begin{exer}{}{exer:irred:1.3}
+\begin{exer}{}{exer:irred:subrings-of-kx-over-kt-noeth}
   Let $k$ be a field, and let $f \in k[x]$, $f \notin k$. For every
   subring $R$ of $k[x]$ containing $k$ and $f$, define a homomorphism
   $\phi : k[t] \to R$ by extending the identity on $k$ and mapping $t$
@@ -414,22 +414,22 @@ Remember that in this section all rings are taken to be
   \end{itemize}
 \end{exer}
 
-\begin{exer}{}{exer:irred:1.4}
+\begin{exer}{}{exer:irred:cont-fns-on-01-not-noeth}
   Let $R$ be the ring of real-valued continuous functions on the
   interval $[0, 1]$. Prove that $R$ is not Noetherian.
 \end{exer}
 
-\begin{exer}{}{exer:irred:1.5}
+\begin{exer}{}{exer:irred:power-set-ring-noeth-iff}
   Determine for which sets $S$ the power set ring $\mathscr{P}(S)$ is
   Noetherian. (Cf.\ \Cref{exer:rings:subsets-of-t-form-ideal}.)
 \end{exer}
-\begin{exer}{\exerused}{exer:irred:1.6}
+\begin{exer}{\exerused}{exer:irred:hilbert-basis-thm-set-a-is-ideal}
   Let $I$ be an ideal of $R[x]$, and let $A \subseteq R$ be the set
   defined in the proof of \cref{thm:irred:1.2}. Prove that $A$ is an
   ideal of $R$.  [\S{}\ref{subsec:irred:noetherian-rings-revisited}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:1.7}
+\begin{exer}{}{exer:irred:power-series-ring-noeth}
   Prove that if $R$ is a Noetherian ring, then the ring of power
   series $R[[x]]$ (cf.~\S{}\ref{subsec:rings:polynomial-rings}) is also Noetherian. (Hint: The
   order of a power series $\sum_{i=0}^{\infty} a_i x^i$ is the
@@ -442,7 +442,7 @@ Remember that in this section all rings are taken to be
   generated for the same reason. Now adapt the proof of
   \cref{lem:irred:1.3}.)
 \end{exer}
-\begin{exer}{}{exer:irred:1.8}
+\begin{exer}{}{exer:irred:ideal-contains-product-of-primes}
   Prove that every ideal in a Noetherian ring $R$ contains a finite
   product of prime ideals. (Hint: Let $\mathscr{F}$ be the family of
   ideals that do not contain finite products of prime ideals. If
@@ -451,9 +451,9 @@ Remember that in this section all rings are taken to be
   $\exists a, b \in R$ s.t.\ $a \notin M$, $b \notin M$, yet
   $ab \in M$. What's wrong with this?)
 \end{exer}
-\begin{exer}{$\lnot$}{exer:irred:1.9}
+\begin{exer}{$\lnot$}{exer:irred:noeth-implies-fin-minimal-primes}
   Let $R$ be a commutative ring, and let $I \subseteq R$ be a proper
-  ideal.  The reader will prove in \Cref{exer:irred:3.12} that the set of prime
+  ideal.  The reader will prove in \Cref{exer:irred:minimal-primes-exist} that the set of prime
   ideals containing $I$ has minimal elements (the \emph{minimal
     primes} of $I$).  Prove that if $R$ is Noetherian, then the set of
   minimal primes of $I$ is finite. (Hint: Let $\mathscr{F}$ be the
@@ -464,7 +464,7 @@ Remember that in this section all rings are taken to be
   $J_1 J_2 \subseteq I$, and deduce a contradiction.)
   [\hyperref[exer:linalg:4.10]{VI.4.10}]
 \end{exer}
-\begin{exer}{$\lnot$}{exer:irred:1.10}
+\begin{exer}{$\lnot$}{exer:irred:artinian-basics}
   By \cref{prop:irred:1.1}, a ring $R$ is Noetherian if and only if it
   satisfies the a.c.c.\ for ideals. A ring is \emph{Artinian} if it
   satisfies the d.c.c.\ (descending chain condition) for ideals. Prove
@@ -479,31 +479,31 @@ Remember that in this section all rings are taken to be
     Noetherian and has Krull dimension $0$. Thus, the d.c.c.\ implies
     the a.c.c., while the a.c.c.\ implies the d.c.c.\ if and only if
     all prime ideals are
-    maximal.}). [\hyperref[exer:irred:2.11]{2.11}]
+    maximal.}). [\hyperref[exer:irred:pid-mod-ideal-is-artinian]{2.11}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:1.11}
+\begin{exer}{}{exer:irred:associate-is-equiv-reln}
   Prove that the `associate' relation is an equivalence relation.
 \end{exer}
 
-\begin{exer}{\exerused}{exer:irred:1.12}
+\begin{exer}{\exerused}{exer:irred:irred-iff-a-maximal-principal}
   Let $R$ be an integral domain. Prove that a nonzero $a \in R$ is
   irreducible if and only if $(a)$ is maximal among proper principal
   ideals of $R$. [\S{}\ref{subsec:irred:prime-and-irreducible-elements}, \S{}\ref{subsec:irred:pid-implies-ufd}]
 \end{exer}
 
-\begin{exer}{\exerused}{exer:irred:1.13}
+\begin{exer}{\exerused}{exer:irred:prime-iff-irred-in-z}
   Prove that, for nonzero elements, prime $\iff$ irreducible in $\Z$.
   [\S{}\ref{subsec:irred:prime-and-irreducible-elements}, \S{}\ref{subsec:irred:pid-implies-ufd}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:1.14}
+\begin{exer}{}{exer:irred:a-prime-mod-b-iff-b-prime-mod-a}
   For $a$, $b$ in a commutative ring $R$, prove that the class of $a$
   in $R/(b)$ is prime if and only if the class of $b$ in $R/(a)$ is
   prime.
 \end{exer}
 
-\begin{exer}{\exerused}{exer:irred:1.15}
+\begin{exer}{\exerused}{exer:irred:acc-principal-ideals-infinite-vars}
   Identify $S = \Z[x_1, \dots, x_n]$ in the natural way with a subring
   of the polynomial ring in countably infinitely many variables
   $R = \Z[x_1, x_2, x_3, \dots]$. Prove that if $f \in S$ and
@@ -512,14 +512,14 @@ Remember that in this section all rings are taken to be
   hence $R$ is a domain with factorizations. [\S{}\ref{subsec:irred:factorization-into-irreducibles-domains-with-factorizations}, \S{}\ref{subsec:irred:r-ufd-implies-r-x-ufd}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:1.16}
+\begin{exer}{}{exer:irred:acc-principal-ideals-fails-example}
   Let
   \[R = \frac{\Z[x_1, x_2, x_3, \dots]}{(x_1 - x_2^2,\, x_2 - x_3^2,\,
       \dots)}.\] Does the ascending chain condition for principal
   ideals hold in $R$?
 \end{exer}
 
-\begin{exer}{\exerused}{exer:irred:1.17}
+\begin{exer}{\exerused}{exer:irred:z-sqrt-neg5-not-ufd}
   Consider the subring of $\C$:
   \[\Z[\sqrt{-5}] := \{a + bi\sqrt{5} \mid a, b \in \Z\}.\]
   \begin{itemize}
@@ -536,8 +536,8 @@ Remember that in this section all rings are taken to be
     prime. (Prove that the rings obtained by mod-ing out the ideals
     generated by these elements are not integral domains.)
   \item Prove that $\Z[\sqrt{-5}]$ is not a UFD.
-  \end{itemize} [\S{}\ref{subsec:irred:characterization-of-ufds}, \ref{exer:irred:2.18},
-  \ref{exer:irred:6.14}]
+  \end{itemize} [\S{}\ref{subsec:irred:characterization-of-ufds}, \ref{exer:irred:z-1-plus-sqrt-neg19-over-2-not-euclidean},
+  \ref{exer:irred:z-sqrt-neg2-and-imaginary-quad-euclidean}]
 \end{exer}
 
 \section{UFDs, PIDs, Euclidean domains}
@@ -570,7 +570,7 @@ about UFDs, such as the characterization of \cref{thm:irred:2.5}:
   \end{itemize}
 \end{lem}
 
-The proof is left to the reader (\Cref{exer:irred:2.1}). The advantage of
+The proof is left to the reader (\Cref{exer:irred:divisibility-via-irred-factors-in-ufd}). The advantage of
 working in a UFD resides in the fact that ring-theoretic statements
 about elements of the ring often reduce to straightforward
 set-theoretic statements about multisets of irreducible elements, by
@@ -602,7 +602,7 @@ element in each class of associate integers (that is, the nonnegative
 one).
 
 Also note that greatest common divisors need not exist (cf.\
-\Cref{exer:irred:2.5}); but they do exist in UFDs:
+\Cref{exer:irred:no-gcd-example-in-subring-of-zt}); but they do exist in UFDs:
 \begin{lem}{}{lem:irred:2.3}
   Let $R$ be a UFD, and let $a$, $b$ be nonzero elements of $R$. Then
   $a$, $b$ have a greatest common divisor.
@@ -638,13 +638,13 @@ point in a moment. In fact, greatest common divisors in $\Z$ have
 properties that should not be expected in a more general domain: for
 example, the result of \Cref{exer:groups:bezout} does not generalize to
 arbitrary domains (and not even to arbitrary UFDs), as the reader will
-check in \Cref{exer:irred:2.4}.
+check in \Cref{exer:irred:gcd-not-lin-comb-in-zxy}.
 
 \subsection{Characterization of UFDs}
 \label{subsec:irred:characterization-of-ufds}
 It is easy to construct integral domains where unique factorization
 fails.  The diligent reader has already analyzed one example
-(\Cref{exer:irred:1.17}); for another, in the domain\footnote{In algebraic
+(\Cref{exer:irred:z-sqrt-neg5-not-ufd}); for another, in the domain\footnote{In algebraic
   geometry, this is the ring of a `quadric cone in
   $\A^4$'. The vertex of this cone (at the origin) is a
   singular point, and this has to do with the fact that $R$ is not a
@@ -768,7 +768,7 @@ We now add one important point to this list:
 
   Let $a \in R$ be an irreducible element. Ideals generated by
   irreducible elements are maximal among principal ideals
-  (\Cref{exer:irred:1.12}), hence $(a)$ is a maximal ideal in $R$ as all ideals
+  (\Cref{exer:irred:irred-iff-a-maximal-principal}), hence $(a)$ is a maximal ideal in $R$ as all ideals
   in $R$ are principal. Since maximal ideals are prime it follows that
   $(a)$ is prime, as needed.
 \end{proof}
@@ -777,13 +777,13 @@ In particular, $k[x]$ is a UFD if $k$ is a field, and $\Z$ is a
 UFD---which hopefully will not come as a big surprise to our
 readers\footnote{This fact is known as the fundamental theorem of
   arithmetic.}. Note that at this point we have recovered the fact
-stated in \Cref{exer:irred:1.13} in full glory.
+stated in \Cref{exer:irred:prime-iff-irred-in-z} in full glory.
 
 \cref{prop:irred:2.6} justifies another feature of the picture given
 at the beginning of this chapter: the class of PIDs is contained in
 the class of UFDs. We will soon see that the inclusion is proper, that
 is, that there are UFDs which are not PIDs; for example, $\Z[x]$ is
-not a PID (\Cref{exer:irred:2.12}), yet $\Z[x]$ is a unique factorization
+not a PID (\Cref{exer:irred:rx-pid-implies-r-field}), yet $\Z[x]$ is a unique factorization
 domain as we will soon be able to prove (\cref{thm:irred:4.14}). In
 fact, there are UFDs which are not Noetherian, as represented in the
 picture; however, these examples are best discussed after more
@@ -794,8 +794,8 @@ contemplating the fact (recalled above and essentially tautological)
 that, in a PID, greatest common divisors of $a$, $b$ are linear
 combinations of $a$ and $b$. This is a very strong requirement: for
 example, it characterizes PIDs among Noetherian domains, as the reader
-will check (\Cref{exer:irred:2.7}); it does not hold in general UFDs
-(\Cref{exer:irred:2.4}).
+will check (\Cref{exer:irred:noeth-gcd-lin-comb-implies-pid}); it does not hold in general UFDs
+(\Cref{exer:irred:gcd-not-lin-comb-in-zxy}).
 
 \subsection{\texorpdfstring{Euclidean domain $\implies$ PID}{Euclidean
     domain implies PID}}
@@ -820,7 +820,7 @@ $R$ is any function $v : R \setminus \{0\} \to \Z^{\geq 0}$.
   valuation satisfying the following property\footnote{It is not
     uncommon to also require that $v(ab) \geq v(b)$ for all nonzero
     $a, b \in R$; but this is not needed in the considerations that
-    follow, and cf.\ \Cref{exer:irred:2.15}.}: for all $a \in R$ and all
+    follow, and cf.\ \Cref{exer:irred:euclidean-valuation-monotone-variant}.}: for all $a \in R$ and all
   nonzero $b \in R$ there exist $q, r \in R$ such that $a = qb + r$,
   with either $r = 0$ or $v(r) < v(b)$. An integral domain $R$ is a
   \emph{Euclidean domain} if it admits a Euclidean valuation.
@@ -869,11 +869,11 @@ condition amounts to requiring that there exist $q, s \in R$ such that
 $as = bq + r$ with $v(r) < v(b)$; hence a Euclidean valuation (for
 which we may in fact choose $s = 1$) is a Dedekind--Hasse
 valuation. It is not hard to show that an integral domain is a PID if
-and only if it admits a Dedekind--Hasse valuation (\Cref{exer:irred:2.21}).
+and only if it admits a Dedekind--Hasse valuation (\Cref{exer:irred:pid-iff-dedekind-hasse-valuation}).
 
 For example, this can be used to show that the ring
 $\Z[\frac{1+\sqrt{-19}}{2}]$ is a PID: the norm considered in
-\Cref{exer:irred:2.18} in order to prove that this ring is not a Euclidean
+\Cref{exer:irred:z-1-plus-sqrt-neg19-over-2-not-euclidean} in order to prove that this ring is not a Euclidean
 domain turns out to be a Dedekind--Hasse valuation\footnote{This boils
   down to a case-by-case analysis, which I am happily leaving to my
   most patient readers.}. Thus, this ring gives an example of a PID
@@ -968,28 +968,28 @@ Euclidean domain later in this chapter (\S{}\ref{subsec:irred:gaussian-integers}
 
 \subsection*{Exercises}
 
-\begin{exer}{}{exer:irred:2.1}
+\begin{exer}{}{exer:irred:divisibility-via-irred-factors-in-ufd}
   \exerused{} Prove \Cref{lem:irred:2.1}. [\S{}\ref{subsec:irred:irreducible-factors-and-greatest-common-divisor}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:2.2}
+\begin{exer}{}{exer:irred:euclids-lemma-in-ufd}
   Let $R$ be a UFD, and let $a$, $b$, $c$ be elements of $R$ such that
   $a \mid bc$ and $\gcd(a, b) = 1$. Prove that $a \mid c$.
 \end{exer}
 
-\begin{exer}{}{exer:irred:2.3}
+\begin{exer}{}{exer:irred:factors-of-n-vs-comp-factors-of-znz}
   Let $n$ be a positive integer. Prove that there is a one-to-one
   correspondence preserving multiplicities between the irreducible
   factors of $n$ (as an integer) and the composition factors of
   $\Z/n\Z$ (as a group). (In fact, the Jordan--H\"older theorem may be
   used to prove that $\Z$ is a UFD.)
 \end{exer}
-\begin{exer}{}{exer:irred:2.4}
+\begin{exer}{}{exer:irred:gcd-not-lin-comb-in-zxy}
   \exerused{} Consider the elements $x$, $y$ in $\Z[x, y]$. Prove that
   $1$ is a gcd of $x$ and $y$, and yet $1$ is not a linear combination
   of $x$ and $y$. (Cf.\ \Cref{exer:groups:bezout}.) [\S{}\ref{subsec:irred:irreducible-factors-and-greatest-common-divisor}, \S{}\ref{subsec:irred:pid-implies-ufd}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.5}
+\begin{exer}{}{exer:irred:no-gcd-example-in-subring-of-zt}
   \exerused{} Let $R$ be the subring of $\Z[t]$ consisting of
   polynomials with no term of degree~$1$:
   $a_0 + a_2 t^2 + \dots + a_d t^d$.
@@ -1000,7 +1000,7 @@ Euclidean domain later in this chapter (\S{}\ref{subsec:irred:gaussian-integers}
   \item Prove that $t^5$ and $t^6$ have no gcd in $R$.
   \end{itemize} [\S{}\ref{subsec:irred:irreducible-factors-and-greatest-common-divisor}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.6}
+\begin{exer}{}{exer:irred:principal-intersections-implies-gcd}
   Let $R$ be a domain with the property that the intersection of any
   family of principal ideals in $R$ is necessarily a principal ideal.
   \begin{itemize}
@@ -1008,43 +1008,43 @@ Euclidean domain later in this chapter (\S{}\ref{subsec:irred:gaussian-integers}
   \item Show that UFDs satisfy this property.
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:irred:2.7}
+\begin{exer}{}{exer:irred:noeth-gcd-lin-comb-implies-pid}
   \exerused{} Let $R$ be a Noetherian domain, and assume that for all
   nonzero $a$, $b$ in $R$, the greatest common divisors of $a$ and $b$
   are linear combinations of $a$ and $b$. Prove that $R$ is a
   PID. [\S{}\ref{subsec:irred:pid-implies-ufd}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.8}
+\begin{exer}{}{exer:irred:ufd-desc-chain-principal-stabilizes}
   Let $R$ be a UFD, and let $I \neq (0)$ be an ideal of $R$. Prove
   that every descending chain of principal ideals containing $I$ must
   stabilize.
 \end{exer}
-\begin{exer}{}{exer:irred:2.9}
+\begin{exer}{}{exer:irred:ufd-height-1-prime-principal}
   $\lnot$ The \emph{height} of a prime ideal $P$ in a ring $R$ is (if
   finite) the maximum length $h$ of a chain of prime ideals
   $P_0 \subsetneq P_1 \subsetneq \dots \subsetneq P_h = P$ in
   $R$. (Thus, the Krull dimension of $R$, if finite, is the maximum
   height of a prime ideal in $R$.) Prove that if $R$ is a UFD, then
-  every prime ideal of height~$1$ in $R$ is principal. [\ref{exer:irred:2.10}]
+  every prime ideal of height~$1$ in $R$ is principal. [\ref{exer:irred:noeth-domain-ufd-iff-height-1-principal}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.10}
+\begin{exer}{}{exer:irred:noeth-domain-ufd-iff-height-1-principal}
   $\lnot$ It is a consequence of a theorem known as Krull's
   Hauptidealsatz that every nonzero, nonunit element in a Noetherian
   domain is contained in a prime ideal of height~$1$. Assuming this,
-  prove a converse to \Cref{exer:irred:2.9}, and conclude that a Noetherian
+  prove a converse to \Cref{exer:irred:ufd-height-1-prime-principal}, and conclude that a Noetherian
   domain $R$ is a UFD if and only if every prime ideal of height~$1$
-  in $R$ is principal. [\ref{exer:irred:4.16}]
+  in $R$ is principal. [\ref{exer:irred:ufd-iff-localization-ufd}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.11}
+\begin{exer}{}{exer:irred:pid-mod-ideal-is-artinian}
   Let $R$ be a PID, and let $I$ be a nonzero ideal of $R$. Show that
-  $R/I$ is an artinian ring (cf.\ \Cref{exer:irred:1.10}), by proving
+  $R/I$ is an artinian ring (cf.\ \Cref{exer:irred:artinian-basics}), by proving
   explicitly that the d.c.c.\ holds in $R/I$.
 \end{exer}
-\begin{exer}{}{exer:irred:2.12}
+\begin{exer}{}{exer:irred:rx-pid-implies-r-field}
   \exerused{} Prove that if $R[x]$ is a PID, then $R$ is a field.
   [\S{}\ref{subsec:irred:pid-implies-ufd}, \S{}\ref{subsec:linalg:linear-transformations-of-free-modules-actions-of-polynomial-rings}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.13}
+\begin{exer}{}{exer:irred:power-minus-1-divisibility}
   \exerused{} For $a$, $b$, $c$ positive integers with $c > 1$, prove
   that $c^a - 1$ divides $c^b - 1$ if and only if $a \mid b$. Prove
   that $x^a - 1$ divides $x^b - 1$ in $\Z[x]$ if and only if
@@ -1052,11 +1052,11 @@ Euclidean domain later in this chapter (\S{}\ref{subsec:irred:gaussian-integers}
   $b = ad + r$ with $0 \leq r < a$, and take `size' into account.)
   [\S{}\ref{subsec:fields:finite-fields}, \ref{fields:exer:5.13}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.14}
+\begin{exer}{}{exer:irred:formal-power-series-euclidean}
   \exerused{} Prove that if $k$ is a field, then $k[[x]]$ is a
   Euclidean domain. [\S{}\ref{subsec:irred:r-ufd-implies-r-x-ufd}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.15}
+\begin{exer}{}{exer:irred:euclidean-valuation-monotone-variant}
   \exerused{} Prove that if $R$ is a Euclidean domain, then $R$ admits
   a Euclidean valuation $v$ such that $v(ab) \geq v(b)$ for all
   nonzero $a, b \in R$. (Hint: Since $R$ is a Euclidean domain, it
@@ -1066,24 +1066,24 @@ Euclidean domain later in this chapter (\S{}\ref{subsec:irred:gaussian-integers}
   as well, let $a$, $b$ be nonzero in $R$, with $b \nmid a$; choose
   $q$, $r$ so that $a = bq + r$, with $\bar{v}(r)$ minimal; assume
   that $\bar{v}(r) \geq \bar{v}(b)$, and get a contradiction.)
-  [\S{}\ref{subsec:irred:euclidean-domain-implies-pid}, \ref{exer:irred:2.16}]
+  [\S{}\ref{subsec:irred:euclidean-domain-implies-pid}, \ref{exer:irred:euclidean-valuation-associates-units}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.16}
+\begin{exer}{}{exer:irred:euclidean-valuation-associates-units}
   Let $R$ be a Euclidean domain with Euclidean valuation $v$; assume
   that $v(ab) \geq v(b)$ for all nonzero $a, b \in R$ (cf.\
-  \Cref{exer:irred:2.15}).  Prove that associate elements have the same
+  \Cref{exer:irred:euclidean-valuation-monotone-variant}).  Prove that associate elements have the same
   valuation and that units have minimum valuation.
 \end{exer}
-\begin{exer}{}{exer:irred:2.17}
+\begin{exer}{}{exer:irred:euclidean-domain-remainder-unit-or-zero}
   $\lnot$ Let $R$ be a Euclidean domain that is not a field. Prove
   that there exists a nonzero, nonunit element $c$ in $R$ such that
   $\forall a \in R$, $\exists\, q, r \in R$ with $a = qc + r$ and
-  either $r = 0$ or $r$ a unit. [\ref{exer:irred:2.18}]
+  either $r = 0$ or $r$ a unit. [\ref{exer:irred:z-1-plus-sqrt-neg19-over-2-not-euclidean}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.18}
+\begin{exer}{}{exer:irred:z-1-plus-sqrt-neg19-over-2-not-euclidean}
   \exerused{} For an integer $d$, denote by $\Q(\sqrt{d})$ the
   smallest subfield of $\C$ containing $\Q$ and $\sqrt{d}$,
-  with norm $N$ defined as in \Cref{exer:rings:z-sqrt-d-subring-of-c}. See \Cref{exer:irred:1.17} for
+  with norm $N$ defined as in \Cref{exer:rings:z-sqrt-d-subring-of-c}. See \Cref{exer:irred:z-sqrt-neg5-not-ufd} for
   the case $d = -5$; in this problem, you will take $d = -19$.
 
   Let $\delta = \frac{1 + \sqrt{-19}}{2}$, and consider the following
@@ -1096,15 +1096,15 @@ Euclidean domain later in this chapter (\S{}\ref{subsec:irred:gaussian-integers}
     $N(a + b\delta) \geq 5$ if $b \neq 0$.
   \item Prove that the units in $\Z[\delta]$ are $\pm 1$.
   \item If $c \in \Z[\delta]$ satisfies the condition specified in
-    \Cref{exer:irred:2.17}, prove that $c$ must divide $2$ or $3$ in
+    \Cref{exer:irred:euclidean-domain-remainder-unit-or-zero}, prove that $c$ must divide $2$ or $3$ in
     $\Z[\delta]$, and conclude that $c = \pm 2$ or $c = \pm 3$.
   \item Now show that $\nexists\, q \in \Z[\delta]$ such that
     $\delta = qc + r$ with $c = \pm 2, \pm 3$ and $r = 0, \pm 1$.
   \end{itemize}
   Conclude that $\Z[\frac{1+\sqrt{-19}}{2}]$ is not a Euclidean
-  domain. [\S{}\ref{subsec:irred:euclidean-domain-implies-pid}, \ref{exer:irred:6.14}]
+  domain. [\S{}\ref{subsec:irred:euclidean-domain-implies-pid}, \ref{exer:irred:z-sqrt-neg2-and-imaginary-quad-euclidean}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.19}
+\begin{exer}{}{exer:irred:discrete-valuation-ring-basics}
   $\lnot$ A \emph{discrete valuation} on a field $k$ is a surjective
   homomorphism of abelian groups $v : (k^*, \cdot) \to (\Z, +)$ such
   that $v(a + b) \geq \min(v(a), v(b))$ for all $a, b \in k^*$ such
@@ -1123,45 +1123,45 @@ Euclidean domain later in this chapter (\S{}\ref{subsec:irred:gaussian-integers}
   \begin{itemize}
   \item Prove that the ring of rational numbers $a/b$ with $b$ not
     divisible by a fixed prime integer $p$ is a DVR.
-  \end{itemize} [\ref{exer:irred:2.20}, \ref{linrep:exer:1.19}]
+  \end{itemize} [\ref{exer:irred:dvr-is-pid-local-parameter}, \ref{linrep:exer:1.19}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.20}
-  $\lnot$ As seen in \Cref{exer:irred:2.19}, DVRs are Euclidean domains. In
+\begin{exer}{}{exer:irred:dvr-is-pid-local-parameter}
+  $\lnot$ As seen in \Cref{exer:irred:discrete-valuation-ring-basics}, DVRs are Euclidean domains. In
   particular, they must be PIDs. Check this directly, as follows. Let
   $R$ be a DVR, and let $t \in R$ be an element such that $v(t) =
   1$. Prove that if $I \subseteq R$ is any nonzero ideal, then
   $I = (t^k)$ for some $k \geq 1$. (The element $t$ is called a `local
-  parameter' of $R$.)  [\ref{exer:irred:4.13}, \ref{fields:exer:2.18}]
+  parameter' of $R$.)  [\ref{exer:irred:dvr-is-local-pid-localization-is-dvr}, \ref{fields:exer:2.18}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.21}
+\begin{exer}{}{exer:irred:pid-iff-dedekind-hasse-valuation}
   \exerused{} Prove that an integral domain is a PID if and only if it
   admits a Dedekind--Hasse valuation. (Hint: For the $\Leftarrow$
   implication, adapt the argument in \Cref{prop:irred:2.8}; for
   $\Rightarrow$, let $v(a)$ be the size of the multiset of irreducible
   factors of $a$.)  [\S{}\ref{subsec:irred:euclidean-domain-implies-pid}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.22}
+\begin{exer}{}{exer:irred:gcd-in-pid-remains-gcd-in-extension}
   $\lnot$ Suppose $R \subseteq S$ is an inclusion of integral domains,
   and assume that $R$ is a PID. Let $a, b \in R$, and let $d \in R$ be
   a gcd for $a$ and $b$ in $R$. Prove that $d$ is also a gcd for $a$
-  and $b$ in~$S$. [\ref{exer:irred:5.2}]
+  and $b$ in~$S$. [\ref{exer:irred:irred-poly-no-multiple-roots}]
 \end{exer}
-\begin{exer}{}{exer:irred:2.23}
+\begin{exer}{}{exer:irred:compute-gcd-example}
   Compute $d = \gcd(5504227617645696, 2922476045110123)$. Further,
   find $a$, $b$ such that
   $d = 5504227617645696\, a + 2922476045110123\, b$.
 \end{exer}
 
-\begin{exer}{}{exer:irred:2.24}
+\begin{exer}{}{exer:irred:euclid-infinitude-of-primes}
   Prove that there are infinitely many prime integers. (Hint: Assume
   by contradiction that $p_1, \dots, p_N$ is a complete list of all
   positive prime integers. What can you say about
   $p_1 \cdots p_N + 1$? This argument was already known to Euclid,
-  more than 2,000 years ago.)  [\ref{exer:irred:2.25}, \S{}\ref{subsec:irred:adding-roots-algebraically-closed-fields}, \ref{exer:irred:5.11}]
+  more than 2,000 years ago.)  [\ref{exer:irred:euclid-variation-poly-values}, \S{}\ref{subsec:irred:adding-roots-algebraically-closed-fields}, \ref{exer:irred:finite-field-irreds-arb-high-degree}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:2.25}
-  $\lnot$ Variation on the theme of Euclid from \Cref{exer:irred:2.24}: Let
+\begin{exer}{}{exer:irred:euclid-variation-poly-values}
+  $\lnot$ Variation on the theme of Euclid from \Cref{exer:irred:euclid-infinitude-of-primes}: Let
   $f(x) \in \Z[x]$ be a nonconstant polynomial such that $f(0) = 1$.
   Prove that infinitely many primes divide the numbers $f(n)$, as $n$
   ranges in $\Z$. (If $p_1, \dots, p_N$ were a complete list of primes
@@ -1263,13 +1263,13 @@ positive numbers is well-ordered by $\leq$; this fact is called the
 Thus, the statement of the axiom of choice is really `clear' if the
 set $Z$ is the set $\Z_{>0}$ of positive numbers. It may seem somewhat
 less so for the set $\Z$, since $\Z$ is not well-ordered by $\leq$;
-however, it takes a moment (\Cref{exer:irred:3.4}) to construct a different
+however, it takes a moment (\Cref{exer:irred:explicit-well-ordering-on-z}) to construct a different
 relation on $\Z$, making $\Z$ a well-ordered set. Thus, the axiom of
 choice is also completely transparent for $Z = \Z$ or any countable
 set (like $\Q$) for that matter.
 
 The well-ordering principle is at the basis of proofs by induction: in
-fact (cf.\ \Cref{exer:irred:3.5}) it is equivalent to the so-called principle
+fact (cf.\ \Cref{exer:irred:induction-equiv-to-well-ordering-z-pos}) it is equivalent to the so-called principle
 of induction. More is true, however. If $(Z, \preceq)$ is any woset,
 then we can consider the following `principle of induction' on $Z$:
 Let $S \subseteq Z$ be a subset such that
@@ -1419,30 +1419,30 @@ well-ordering theorem.
 
 Note that this argument relies crucially on the fact that $R$ has a
 multiplicative unit $1$, and indeed the stated fact is not true in
-general for rings without~$1$ (\Cref{exer:irred:3.9}). Also, the use of Zorn's
+general for rings without~$1$ (\Cref{exer:irred:trivial-mult-rng-on-q-no-maximal-ideals}). Also, the use of Zorn's
 lemma is not just a convenient trick; the statement is known to be
 equivalent to the axiom of choice, by work of W.~Hodges.
 
 \subsection*{Exercises}
-\begin{exer}{}{exer:irred:3.1}
+\begin{exer}{}{exer:irred:woset-is-total-order}
   Prove that every well-ordering is total.
 \end{exer}
-\begin{exer}{}{exer:irred:3.2}
+\begin{exer}{}{exer:irred:woset-iff-desc-chains-stabilize}
   Prove that a totally ordered set $(Z, \preceq)$ is a woset if and
   only if every descending chain $z_1 \succ z_2 \succ z_3 \succ \dots$
   in $Z$ stabilizes.
 \end{exer}
-\begin{exer}{}{exer:irred:3.3}
+\begin{exer}{}{exer:irred:ac-iff-surjections-have-right-inverse}
   Prove that the axiom of choice is equivalent to the statement that a
   set-function is surjective if and only if it has a right-inverse
   (cf.\ \Cref{exer:prelim:inv-of-srjctv}).
 \end{exer}
-\begin{exer}{}{exer:irred:3.4}
+\begin{exer}{}{exer:irred:explicit-well-ordering-on-z}
   \exerused{} Construct explicitly a well-ordering on $\Z$. Explain
   why you know that $\Q$ can be well-ordered, even without performing
   an explicit construction. [\S{}\ref{subsec:irred:set-theory-reprise}]
 \end{exer}
-\begin{exer}{}{exer:irred:3.5}
+\begin{exer}{}{exer:irred:induction-equiv-to-well-ordering-z-pos}
   \exerused{} Prove that the (ordinary) principle of induction is
   equivalent to the statement that $\leq$ is a well-ordering on
   $\Z_{>0}$.  (To prove by induction that $(\Z_{>0}, \leq)$ is
@@ -1450,7 +1450,7 @@ equivalent to the axiom of choice, by work of W.~Hodges.
   $\Z_{>0}$ and that $\forall n \in \Z_{>0}$ there are no integers
   between $n$ and $n+1$.) [\S{}\ref{subsec:irred:set-theory-reprise}]
 \end{exer}
-\begin{exer}{}{exer:irred:3.6}
+\begin{exer}{}{exer:irred:zorn-implies-well-ordering-thm}
   In this exercise assume the truth of Zorn's lemma and the
   conventional set-theoretic constructions; you will be proving the
   well-ordering theorem. Let $Z$ be a nonempty set, and let
@@ -1470,7 +1470,7 @@ equivalent to the axiom of choice, by work of W.~Hodges.
   \end{itemize}
   Thus every set admits a well-ordering, as stated in \Cref{thm:irred:3.3}.
 \end{exer}
-\begin{exer}{}{exer:irred:3.7}
+\begin{exer}{}{exer:irred:ac-implies-well-ordering-thm-direct}
   In this exercise assume the truth of the axiom of choice and the
   conventional set-theoretic constructions; you will be proving the
   well-ordering theorem\footnote{I learned this proof from notes of
@@ -1503,18 +1503,18 @@ equivalent to the axiom of choice, by work of W.~Hodges.
   \end{itemize}
   Thus every set admits a well-ordering, as stated in \Cref{thm:irred:3.3}.
 \end{exer}
-\begin{exer}{}{exer:irred:3.8}
+\begin{exer}{}{exer:irred:fin-gen-grp-has-maximal-subgrp}
   Prove that every nontrivial finitely generated group has a maximal
   proper subgroup. Prove that $(\Q, +)$ has no maximal proper
   subgroup.
 \end{exer}
-\begin{exer}{}{exer:irred:3.9}
+\begin{exer}{}{exer:irred:trivial-mult-rng-on-q-no-maximal-ideals}
   \exerused{} Consider the rng (= ring without~$1$; cf.\ \S{}\ref{subsec:rings:definition})
   consisting of the abelian group $(\Q, +)$ endowed with the trivial
   multiplication $qr = 0$ for all $q, r \in \Q$. Prove that this rng
   has no maximal ideals. [\S{}\ref{subsec:irred:application-existence-of-maximal-ideals}]
 \end{exer}
-\begin{exer}{}{exer:irred:3.10}
+\begin{exer}{}{exer:irred:maximal-ideals-not-corresponding-to-points}
   $\lnot$ As shown in \Cref{exer:rings:continuous-functions-compact}, every maximal ideal in the
   ring of continuous real-valued functions on a compact topological
   space $K$ consists of the functions vanishing at a point of
@@ -1525,7 +1525,7 @@ equivalent to the axiom of choice, by work of W.~Hodges.
   point, and apply \Cref{prop:irred:3.5}.)  [\ref{exer:rings:continuous-functions-compact}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:3.11}
+\begin{exer}{}{exer:irred:ufd-is-pid-iff-primes-maximal}
   Prove that a UFD $R$ is a PID if and only if every nonzero prime
   ideal in $R$ is maximal. (Hint: One direction is
   \Cref{prop:rings:PID-prime-maximal}. For the other, assume that every nonzero prime
@@ -1535,14 +1535,14 @@ equivalent to the axiom of choice, by work of W.~Hodges.
   principal.)
 \end{exer}
 
-\begin{exer}{}{exer:irred:3.12}
+\begin{exer}{}{exer:irred:minimal-primes-exist}
   $\lnot$ Let $R$ be a commutative ring, and let $I \subseteq R$ be a
   proper ideal. Prove that the set of prime ideals containing $I$ has
   minimal elements. (These are the \emph{minimal primes} of $I$.)
-  [\ref{exer:irred:1.9}]
+  [\ref{exer:irred:noeth-implies-fin-minimal-primes}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:3.13}
+\begin{exer}{}{exer:irred:nilradical-subset-intersection-of-primes}
   $\lnot$ Let $R$ be a commutative ring, and let $N$ be its nilradical
   (\Cref{exer:rings:nilpotents-form-ideal}). Let $r \in N$.
   \begin{itemize}
@@ -1559,7 +1559,7 @@ equivalent to the axiom of choice, by work of W.~Hodges.
   $R$.  [\ref{exer:rings:nilradical-in-every-prime}, \ref{fields:exer:2.8}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:3.14}
+\begin{exer}{}{exer:irred:jacobson-radical-characterization}
   $\lnot$ The \emph{Jacobson radical} of a commutative ring $R$ is the
   intersection of the maximal ideals in $R$. (Thus, the Jacobson
   radical contains the nilradical.) Prove that $r$ is in the Jacobson
@@ -1567,7 +1567,7 @@ equivalent to the axiom of choice, by work of W.~Hodges.
   R$. [\ref{exer:linalg:3.8}]
 \end{exer}
 
-\begin{exer}{}{exer:irred:3.15}
+\begin{exer}{}{exer:irred:cohens-thm-primes-fin-gen-implies-noeth}
   $\lnot$ Recall that a (commutative) ring $R$ is Noetherian if every
   ideal of $R$ is finitely generated. Assume the seemingly weaker
   condition that every prime ideal of $R$ is finitely generated. Let
@@ -1619,7 +1619,7 @@ generates an ideal of $R[x]$:
 \end{lem}
 
 The proof of this lemma is a standard application of the first
-isomorphism theorem and is left to the reader (\Cref{exer:irred:4.1}).
+isomorphism theorem and is left to the reader (\Cref{exer:irred:poly-ring-mod-ideal-iso}).
 \begin{coro}{}{coro:irred:4.2}
   If $I$ is a prime ideal of $R$, then $IR[x]$ is prime in $R[x]$.
 \end{coro}
@@ -1653,7 +1653,7 @@ references blur the distinction between this notion and the notion of
 `primitive'. I hope to ward off any possible confusion by being rather
 explicit on this point. Very primitive polynomials are primitive, but
 the converse does not hold in general, even for UFDs (cf.\
-\Cref{exer:irred:4.3}).  Perhaps the most important fact about `primitivity' is
+\Cref{exer:irred:primitive-iff-very-primitive-in-pid}).  Perhaps the most important fact about `primitivity' is
 the following easy remark.
 
 \begin{lem}{}{lem:irred:4.4}
@@ -1677,7 +1677,7 @@ the following easy remark.
 \end{proof}
 
 The analogous equivalence holds for very primitive polynomials
-(\Cref{exer:irred:4.4}).  \Cref{lem:irred:4.4} will be ultimately responsible for the fact
+(\Cref{exer:irred:product-very-primitive-iff-factors-are}).  \Cref{lem:irred:4.4} will be ultimately responsible for the fact
 that $R[x]$ is a UFD if $R$ is a UFD, which is my main objective in
 this section. If $R$ is a UFD, the notion of `primitive' has the
 following interpretation; I accompany it with the `very primitive'
@@ -1730,7 +1730,7 @@ $(a)$, $(b)$ are principal ideals, then their product $(a)(b)$ is the
 principal ideal $(ab)$.
 
 The proof of the following remarks is immediate from the definition;
-hence it is left to the reader (\Cref{exer:irred:4.5}):
+hence it is left to the reader (\Cref{exer:irred:content-primitive-part-factorization}):
 \begin{lem}{}{lem:irred:4.7}
   Let $R$ be a UFD, and let $f \in R[x]$. Then
   \begin{itemize}
@@ -1919,7 +1919,7 @@ As a measure of how delicate the statement of \Cref{thm:irred:4.14} is, note
 that the power series ring $R[[x]]$ is not necessarily a UFD if $R$ is
 a UFD; examples of this phenomenon are however not easy to
 construct. Of course $k[[x]]$ is a UFD if $k$ is a field, since
-$k[[x]]$ is a Euclidean domain in this case (\Cref{exer:irred:2.14}).  By
+$k[[x]]$ is a Euclidean domain in this case (\Cref{exer:irred:formal-power-series-euclidean}).  By
 \Cref{thm:irred:2.5}, in order to prove \Cref{thm:irred:4.14}, we have to verify that
 $R[x]$ satisfies the a.c.c.\ for principal ideals and that every
 irreducible element in $R[x]$ is prime, provided that $R$ is itself a
@@ -2001,7 +2001,7 @@ be precise,
 \end{coro}
 
 The proof amounts to tying up loose ends, and I leave it to the reader
-(\Cref{exer:irred:4.21}).  We can now prove the main result of this section. We
+(\Cref{exer:irred:establish-irred-poly-char-over-ufd}).  We can now prove the main result of this section. We
 will make systematic use of the characterization of UFDs found in
 \Cref{thm:irred:2.5}.
 
@@ -2054,13 +2054,13 @@ quotients of $R$. If $f(x) \in R[x]$, then $f(x)$ has a prime
 factorization in $K[x]$ for the simpler reason that $K[x]$ is a PID,
 hence a UFD; but if $R$ itself is a UFD, then we know that each of the
 factors may be assumed to be in $R[x]$ to begin with (cf.\
-\Cref{exer:irred:4.23}).
+\Cref{exer:irred:gauss-lemma-clear-denominators}).
 
 \begin{exam}{}{exam:irred:4.18}
   As mentioned already, \Cref{thm:irred:4.14} implies that several important
   rings, such as $\Z[x_1, \dots, x_n]$ or $\C[x_1, \dots, x_n]$,
   are UFDs; for example $\Z[x]$ is a UFD, as announced in~\S{}\ref{subsec:irred:pid-implies-ufd}.
-  Further, arguing as in \Cref{exer:irred:1.15} to reduce to the case of finitely
+  Further, arguing as in \Cref{exer:irred:acc-principal-ideals-infinite-vars} to reduce to the case of finitely
   many indeterminates, it follows that $\Z[x_1, x_2, \dots]$ is a UFD:
   this is an example of a non-Noetherian UFD, promised a while back (and
   illustrating the last missing feature of the picture presented at the
@@ -2069,27 +2069,27 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
 
 \subsection*{Exercises}
 
-\begin{exer}{}{exer:irred:4.1}
+\begin{exer}{}{exer:irred:poly-ring-mod-ideal-iso}
   \exerused{} Prove \Cref{lem:irred:4.1}. [\S{}\ref{subsec:irred:primitivity-and-content-gauss-s-lemma}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.2}
+\begin{exer}{}{exer:irred:maximal-ideal-extension-to-poly-ring-q}
   Let $R$ be a ring, and let $I$ be an ideal of $R$. Prove or disprove
   that if $I$ is maximal in $R$, then $IR[x]$ is maximal in $R[x]$.
 \end{exer}
-\begin{exer}{}{exer:irred:4.3}
+\begin{exer}{}{exer:irred:primitive-iff-very-primitive-in-pid}
   \exerused{} Let $R$ be a PID, and let $f \in R[x]$. Prove that $f$
   is primitive if and only if it is very primitive. Prove that this is
   not necessarily the case in an arbitrary UFD. [\S{}\ref{subsec:irred:primitivity-and-content-gauss-s-lemma}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.4}
+\begin{exer}{}{exer:irred:product-very-primitive-iff-factors-are}
   \exerused{} Let $R$ be a commutative ring, and let $f, g \in R[x]$.
   Prove that $fg$ is very primitive $\iff$ both $f$ and $g$ are very
   primitive. [\S{}\ref{subsec:irred:primitivity-and-content-gauss-s-lemma}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.5}
+\begin{exer}{}{exer:irred:content-primitive-part-factorization}
   \exerused{} Prove \Cref{lem:irred:4.7}. [\S{}\ref{subsec:irred:primitivity-and-content-gauss-s-lemma}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.6}
+\begin{exer}{}{exer:irred:partial-fractions-in-pid-frac-field}
   Let $R$ be a PID, and let $K$ be its field of fractions.
   \begin{itemize}
   \item Prove that every element $c \in K$ can be written as a finite
@@ -2104,7 +2104,7 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
     fractions' you learned about when you took calculus.
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:irred:4.7}
+\begin{exer}{}{exer:irred:localization-construction}
   \exerused{} A subset $S$ of a commutative ring $R$ is a
   \emph{multiplicative subset} (or \emph{multiplicatively closed}) if
   (i)~$1 \in S$ and (ii)~$s, t \in S \implies st \in S$. Define a
@@ -2135,21 +2135,21 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
     integral domain.
   \item Prove that $S^{-1}R$ is the zero-ring if and only if
     $0 \in S$.
-  \end{itemize} [\ref{exer:irred:4.8}, \ref{exer:irred:4.9}, \ref{exer:irred:4.11}, \ref{exer:irred:4.15}, \ref{fields:exer:2.16}, \ref{linrep:exer:1.4}, \ref{linrep:exer:2.5},
+  \end{itemize} [\ref{exer:irred:localization-of-module}, \ref{exer:irred:ideal-extension-contraction-localization}, \ref{exer:irred:localization-at-prime-is-local}, \ref{exer:irred:localization-of-ufd-is-ufd}, \ref{fields:exer:2.16}, \ref{linrep:exer:1.4}, \ref{linrep:exer:2.5},
   \ref{linrep:exer:2.6}, \ref{linrep:exer:2.12}, \S{}\ref{subsec:homol:derived-categories}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.8}
+\begin{exer}{}{exer:irred:localization-of-module}
   $\lnot$ Let $S$ be a multiplicative subset of a commutative ring
-  $R$, as in \Cref{exer:irred:4.7}. For every $R$-module $M$, define a relation
+  $R$, as in \Cref{exer:irred:localization-construction}. For every $R$-module $M$, define a relation
   $\sim$ on the set of pairs $(m, s)$, where $m \in M$ and $s \in S$:
   \[(m, s) \sim (m', s') \iff (\exists\, t \in S),\quad t(s'm - sm') =
     0.\] Prove that this is an equivalence relation, and define an
   $S^{-1}R$-module structure on the set $S^{-1}M$ of equivalence
   classes, compatible with the $R$-module structure on $M$. The module
-  $S^{-1}M$ is the \emph{localization} of $M$ at $S$. [\ref{exer:irred:4.9}, \ref{exer:irred:4.11},
-  \ref{exer:irred:4.14}, \ref{linrep:exer:1.4}, \ref{linrep:exer:2.5}, \ref{linrep:exer:2.6}]
+  $S^{-1}M$ is the \emph{localization} of $M$ at $S$. [\ref{exer:irred:ideal-extension-contraction-localization}, \ref{exer:irred:localization-at-prime-is-local},
+  \ref{exer:irred:localization-of-noeth-module-is-noeth}, \ref{linrep:exer:1.4}, \ref{linrep:exer:2.5}, \ref{linrep:exer:2.6}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.9}
+\begin{exer}{}{exer:irred:ideal-extension-contraction-localization}
   $\lnot$ Let $S$ be a multiplicative subset of a commutative ring
   $R$, and consider the localization operation introduced in
   Exercises~4.7 and~4.8.
@@ -2170,17 +2170,17 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
     even if $I \cap S = \emptyset$. (Hint: Let
     $S = \{1, x, x^2, \dots\}$ in $R = \C[x,y]$. What is
     $(I^e)^c$ for $I = (xy)$?)
-  \end{itemize} [\ref{exer:irred:4.10}, \ref{exer:irred:4.14}]
+  \end{itemize} [\ref{exer:irred:prime-ideal-bijection-localization}, \ref{exer:irred:localization-of-noeth-module-is-noeth}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.10}
-  $\lnot$ With notation as in \Cref{exer:irred:4.9}, prove that the assignment
+\begin{exer}{}{exer:irred:prime-ideal-bijection-localization}
+  $\lnot$ With notation as in \Cref{exer:irred:ideal-extension-contraction-localization}, prove that the assignment
   $\mathfrak{p} \mapsto S^{-1}\mathfrak{p}$ gives an
   inclusion-preserving bijection between the set of prime ideals of
   $R$ disjoint from $S$ and the set of prime ideals of
   $S^{-1}R$. (Prove that $(\mathfrak{p}^e)^c = \mathfrak{p}$ if
-  $\mathfrak{p}$ is a prime ideal disjoint from $S$.) [\ref{exer:irred:4.16}]
+  $\mathfrak{p}$ is a prime ideal disjoint from $S$.) [\ref{exer:irred:ufd-iff-localization-ufd}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.11}
+\begin{exer}{}{exer:irred:localization-at-prime-is-local}
   $\lnot$ (Notation as in Exercises~4.7 and~4.8.) A ring is said to be
   \emph{local} if it has a single maximal ideal.
 
@@ -2192,10 +2192,10 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
   Prove that there is an inclusion-preserving bijection between the
   prime ideals of $R_{\mathfrak{p}}$ and the prime ideals of $R$
   contained in $\mathfrak{p}$. Deduce that $R_{\mathfrak{p}}$ is a
-  local ring.  [\ref{exer:irred:4.12}, \ref{exer:irred:4.13}, \ref{exer:linalg:5.5}, \ref{fields:exer:2.17}, \ref{linrep:exer:2.21}]
+  local ring.  [\ref{exer:irred:module-zero-iff-zero-locally}, \ref{exer:irred:dvr-is-local-pid-localization-is-dvr}, \ref{exer:linalg:5.5}, \ref{fields:exer:2.17}, \ref{linrep:exer:2.21}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.12}
-  $\lnot$ (Notation as in \Cref{exer:irred:4.11}.) Let $R$ be a commutative
+\begin{exer}{}{exer:irred:module-zero-iff-zero-locally}
+  $\lnot$ (Notation as in \Cref{exer:irred:localization-at-prime-is-local}.) Let $R$ be a commutative
   ring, and let $M$ be an $R$-module. Prove that the following are
   equivalent\footnote{The way to think of this type of results is that
     a module $M$ over $R$ is zero if and only if it is zero `at every
@@ -2215,62 +2215,62 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
   $\mathfrak{m}$.  What can you say about $M_{\mathfrak{m}}$?)
   [\ref{linrep:exer:1.26}, \ref{linrep:exer:2.21}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.13}
+\begin{exer}{}{exer:irred:dvr-is-local-pid-localization-is-dvr}
   $\lnot$ Let $k$ be a field, and let $v$ be a discrete valuation on
   $k$.  Let $R$ be the corresponding DVR, with local parameter $t$
-  (see \Cref{exer:irred:2.20}).
+  (see \Cref{exer:irred:dvr-is-pid-local-parameter}).
   \begin{enumerate}[label=(\arabic*)]
-  \item Prove that $R$ is local (\Cref{exer:irred:4.11}), with maximal ideal
+  \item Prove that $R$ is local (\Cref{exer:irred:localization-at-prime-is-local}), with maximal ideal
     $\mathfrak{m} = (t)$. (\emph{Hint:} Note that every element of
     $R \setminus \mathfrak{m}$ is invertible.)
   \item Prove that $k$ is the field of fractions of $R$.
   \item Now let $A$ be a PID, and let $\mathfrak{p}$ be a prime ideal
     in $A$. Prove that the localization $A_{\mathfrak{p}}$ (cf.\
-    \Cref{exer:irred:4.11}) is a DVR. (\emph{Hint:} If $\mathfrak{p} = (p)$,
+    \Cref{exer:irred:localization-at-prime-is-local}) is a DVR. (\emph{Hint:} If $\mathfrak{p} = (p)$,
     define a valuation on the field of fractions of $A$ in terms of
     `divisibility by $p$'.)
   \end{enumerate} [\ref{fields:exer:2.18}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.14}
-  With notation as in \Cref{exer:irred:4.8}, define operations $N \mapsto N^e$
+\begin{exer}{}{exer:irred:localization-of-noeth-module-is-noeth}
+  With notation as in \Cref{exer:irred:localization-of-module}, define operations $N \mapsto N^e$
   and $\hat{N} \mapsto \hat{N}^c$ for submodules $N \subseteq M$,
   $\hat{N} \subseteq S^{-1}M$, respectively, analogously to the
-  operations defined in \Cref{exer:irred:4.9}. Prove that
+  operations defined in \Cref{exer:irred:ideal-extension-contraction-localization}. Prove that
   $(\hat{N}^c)^e = \hat{N}$. Prove that every localization of a
   Noetherian module is Noetherian. In particular, all localizations
   $S^{-1}R$ of a Noetherian ring are Noetherian.
 \end{exer}
-\begin{exer}{}{exer:irred:4.15}
+\begin{exer}{}{exer:irred:localization-of-ufd-is-ufd}
   $\lnot$ Let $R$ be a UFD, and let $S$ be a multiplicatively closed
-  subset of $R$ (cf.\ \Cref{exer:irred:4.7}).
+  subset of $R$ (cf.\ \Cref{exer:irred:localization-construction}).
   \begin{enumerate}[label=(\arabic*)]
   \item Prove that if $q$ is irreducible in $R$, then $q/1$ is either
     irreducible or a unit in $S^{-1}R$.
   \item Prove that if $a/s$ is irreducible in $S^{-1}R$, then $a/s$ is
     an associate of $q/1$ for some irreducible element $q$ of $R$.
   \item Prove that $S^{-1}R$ is also a UFD.
-  \end{enumerate} [\ref{exer:irred:4.16}]
+  \end{enumerate} [\ref{exer:irred:ufd-iff-localization-ufd}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.16}
+\begin{exer}{}{exer:irred:ufd-iff-localization-ufd}
   Let $R$ be a Noetherian integral domain, and let $s \in R$,
   $s \neq 0$, be a prime element. Consider the multiplicatively closed
   subset $S = \{1, s, s^2, \ldots\}$. Prove that $R$ is a UFD if and
-  only if $S^{-1}R$ is a UFD. (\emph{Hint:} By \Cref{exer:irred:2.10}, it
+  only if $S^{-1}R$ is a UFD. (\emph{Hint:} By \Cref{exer:irred:noeth-domain-ufd-iff-height-1-principal}, it
   suffices to show that every prime of height~1 is principal. Use
-  \Cref{exer:irred:4.10} to relate prime ideals in $R$ to prime ideals in the
+  \Cref{exer:irred:prime-ideal-bijection-localization} to relate prime ideals in $R$ to prime ideals in the
   localization.)
 
-  On the basis of results such as this and of \Cref{exer:irred:4.15}, one might
+  On the basis of results such as this and of \Cref{exer:irred:localization-of-ufd-is-ufd}, one might
   suspect that being factorial is a local property, that is, that $R$
   is a UFD if and only if $R_{\mathfrak{p}}$ is a UFD for all prime
   ideals $\mathfrak{p}$, if and only if $R_{\mathfrak{m}}$ is a UFD
   for all maximal ideals $\mathfrak{m}$. This is regrettably not the
   case. A ring $R$ is \emph{locally factorial} if $R_{\mathfrak{m}}$
   is a UFD for all maximal ideals $\mathfrak{m}$; factorial implies
-  locally factorial by \Cref{exer:irred:4.15}, but locally factorial rings that
+  locally factorial by \Cref{exer:irred:localization-of-ufd-is-ufd}, but locally factorial rings that
   are not factorial do exist.
 \end{exer}
-\begin{exer}{}{exer:irred:4.17}
+\begin{exer}{}{exer:irred:prime-subfield-char-0-or-p}
   \exerused Let $F$ be a field, and recall the notion of
   characteristic of a ring (\Cref{defn:rings:characteristic}); the characteristic of
   a field is either $0$ or a prime integer (\Cref{exer:rings:domain-characteristic-0-or-prime}).
@@ -2282,18 +2282,18 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
     subfield of $F$; it is called the \emph{prime subfield} of $F$.
   \end{enumerate} [\S{}\ref{subsec:irred:adding-roots-algebraically-closed-fields}, \S{}\ref{subsec:fields:basic-definitions}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.18}
+\begin{exer}{}{exer:irred:units-of-domain-poly-ring}
   $\lnot$ Let $R$ be an integral domain. Prove that the invertible
   elements in $R[x]$ are the units of $R$, viewed as constant
-  polynomials. [\ref{exer:irred:4.20}]
+  polynomials. [\ref{exer:irred:unit-in-poly-ring-general-ring}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.19}
+\begin{exer}{}{exer:irred:nilpotent-implies-1-plus-a-unit}
   \exerused An element $a \in R$ in a ring is said to be
   \emph{nilpotent} if $a^n = 0$ for some $n \geq 0$. Prove that if $a$
   is nilpotent, then $1 + a$ is a unit in $R$. [\ref{exer:linalg:7.11}, \S{}\ref{subsec:fields:a-little-affine-algebraic-geometry}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.20}
-  Generalize the result of \Cref{exer:irred:4.18} as follows: let $R$ be a
+\begin{exer}{}{exer:irred:unit-in-poly-ring-general-ring}
+  Generalize the result of \Cref{exer:irred:units-of-domain-poly-ring} as follows: let $R$ be a
   commutative ring, and let
   $f = a_0 + a_1 x + \dots + a_d x^d \in R[x]$; prove that $f$ is a
   unit in $R[x]$ if and only if $a_0$ is a unit in $R$ and
@@ -2302,17 +2302,17 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
   induction that $a_d^{i+1} b_{e-i} = 0$ for all $i \geq 0$, and
   deduce that $a_d$ is nilpotent.)
 \end{exer}
-\begin{exer}{}{exer:irred:4.21}
+\begin{exer}{}{exer:irred:establish-irred-poly-char-over-ufd}
   \exerused Establish the characterization of irreducible polynomials
   over a UFD given in \Cref{coro:irred:4.17}. [\S{}\ref{subsec:irred:r-ufd-implies-r-x-ufd}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.22}
+\begin{exer}{}{exer:irred:common-factor-in-kxy-from-field-of-fractions}
   Let $k$ be a field, and let $f$, $g$ be two polynomials in
   $k[x, y] = k[x][y]$. Prove that if $f$ and $g$ have a nontrivial
   common factor in $k(x)[y]$, then they have a nontrivial common
   factor in $k[x, y]$.
 \end{exer}
-\begin{exer}{}{exer:irred:4.23}
+\begin{exer}{}{exer:irred:gauss-lemma-clear-denominators}
   \exerused Let $R$ be a UFD, $K$ its field of fractions,
   $f(x) \in R[x]$, and assume $f(x) = \alpha(x)\beta(x)$ with
   $\alpha(x)$, $\beta(x)$ in $K[x]$. Prove that there exists a
@@ -2323,15 +2323,15 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
 
   Deduce that if $\alpha(x)\beta(x) = f(x) \in R[x]$ is monic and
   $\alpha(x) \in K[x]$ is monic, then $\alpha(x)$, $\beta(x)$ are both
-  in $R[x]$ and $\beta(x)$ is also monic.  [\S{}\ref{subsec:irred:r-ufd-implies-r-x-ufd}, \ref{exer:irred:4.24},
+  in $R[x]$ and $\beta(x)$ is also monic.  [\S{}\ref{subsec:irred:r-ufd-implies-r-x-ufd}, \ref{exer:irred:coeff-products-lie-in-r},
   \S{}\ref{subsec:fields:cyclotomic-polynomials-and-fields}]
 \end{exer}
-\begin{exer}{}{exer:irred:4.24}
-  In the same situation as in \Cref{exer:irred:4.23}, prove that the product of
+\begin{exer}{}{exer:irred:coeff-products-lie-in-r}
+  In the same situation as in \Cref{exer:irred:gauss-lemma-clear-denominators}, prove that the product of
   any coefficient of $\alpha$ with any coefficient of $\beta$ lies in
   $R$.
 \end{exer}
-\begin{exer}{}{exer:irred:4.25}
+\begin{exer}{}{exer:irred:flt-for-polynomials}
   Prove Fermat's last theorem for polynomials: the equation
   $f^n + g^n = h^n$ has no solutions in $\C[t]$ for $n > 2$
   and $f$, $g$, $h$ not all constant. (\emph{Hint:} First, prove that
@@ -2429,7 +2429,7 @@ roots.  The converse holds for degree 2 and 3, over a field:
   is irreducible if and only if it has no roots.
 \end{prop}
 \begin{proof}
-  \Cref{exer:irred:5.5}.
+  \Cref{exer:irred:deg-2-3-irred-iff-no-roots}.
 \end{proof}
 \begin{exam}{}{exam:irred:5.4}
   Let $\F_2$ be the field $\Z/2\Z$. The polynomial
@@ -2444,7 +2444,7 @@ roots.  The converse holds for degree 2 and 3, over a field:
   The reader (hopefully) constructed this field in \Cref{exer:rings:four-element-field},
   by the tiresome process of searching by hand for a suitable
   multiplication table. The reader will now have no difficulty
-  constructing much larger examples (cf.\ \Cref{exer:irred:5.6}).
+  constructing much larger examples (cf.\ \Cref{exer:irred:construct-fields-27-and-121-elements}).
 \end{exam}
 \Cref{prop:irred:5.3} is pleasant and can help to decide irreducibility over
 more general rings: for example, a primitive polynomial $f \in \Z[x]$
@@ -2566,7 +2566,7 @@ has a linear (i.e., degree~1) factor over $F$; in particular, if
 $\deg(f) > 1$, then $f$ is no longer irreducible over $F$. Given any
 polynomial $f \in k[x]$, it is easy to construct an extension of $k$
 in which $f$ factors completely as a product of linear factors
-(\Cref{exer:irred:5.13}). The case in which this already happens in $k$ itself
+(\Cref{exer:irred:extension-where-f-splits-linear}). The case in which this already happens in $k$ itself
 for every nonzero $f$ is very important, and hence it is given a name.
 \begin{defn}{}{defn:irred:5.9}
   A field $k$ is \emph{algebraically closed} if all irreducible
@@ -2591,7 +2591,7 @@ and one of the pillars of (old-fashioned) algebraic geometry. We will
 come back to all of this in \S{}\ref{sec:fields:algebraic-closure-nullstellensatz-and-a-little-algebraic}.  Is any of the finite fields we
 have encountered (such as $\Z/p\Z$, for $p$ prime) algebraically
 closed? No. Adapting Euclid's argument proving the infinitude of prime
-integers (\Cref{exer:irred:2.24}) reveals that algebraically closed fields are
+integers (\Cref{exer:irred:euclid-infinitude-of-primes}) reveals that algebraically closed fields are
 infinite.
 
 \begin{prop}{}{prop:irred:5.11}
@@ -2612,7 +2612,7 @@ infinite.
 \end{proof}
 Since finite fields are not algebraically closed, the reader may
 suspect that algebraically closed fields necessarily have
-characteristic $0$ (cf.\ \Cref{exer:irred:4.17}). This is not so: there are
+characteristic $0$ (cf.\ \Cref{exer:irred:prime-subfield-char-0-or-p}). This is not so: there are
 algebraically closed fields of any characteristic. In fact, as we will
 see in due time, every field $F$ may be embedded into an algebraically
 closed field; the smallest such extension is called the
@@ -2653,7 +2653,7 @@ makes the statement nearly trivial.
   $\lim_{z \to \infty} |f(z)| = +\infty$). The disk $|z| \leq r$ is
   compact, so the continuous function $|f(z)|$ has a minimum on it; by
   the choice of $r$, it must be somewhere in the interior of the disk,
-  say at $z = a$. The minimum modulus principle (cf.\ \Cref{exer:irred:5.16})
+  say at $z = a$. The minimum modulus principle (cf.\ \Cref{exer:irred:minimum-modulus-principle})
   then implies that $f(a) = 0$.
 \end{proof}
 By \Cref{thm:irred:5.12}, irreducibility of polynomials in $\C[x]$ is
@@ -2702,7 +2702,7 @@ situation is almost as simple:
   $ax^2 + bx + c$ with $b^2 - 4ac < 0$.
 \end{proof}
 The following remark is an immediate consequence of \Cref{prop:irred:5.13}
-and is otherwise evident from elementary calculus (\Cref{exer:irred:5.17}):
+and is otherwise evident from elementary calculus (\Cref{exer:irred:odd-degree-real-poly-has-real-root}):
 
 \begin{coro}{}{coro:irred:5.14}
   Every polynomial $f \in \R[x]$ of odd degree has a real root.
@@ -2764,7 +2764,7 @@ It is however rather useful in producing examples. For instance,
   $\Q[x]$. By \Cref{prop:irred:5.15}, it suffices to verify that there are
   irreducible polynomials in $(\Z/p\Z)[x]$ of arbitrarily large
   degree, for any prime integer $p$. This is a particular case of
-  \Cref{exer:irred:5.11}.
+  \Cref{exer:irred:finite-field-irreds-arb-high-degree}.
 \end{proof}
 
 \subsection{Eisenstein's criterion}
@@ -2855,124 +2855,124 @@ if $p$ is not prime: for example, $4$ does not divide~$\binom{4}{2}$.
 \end{exam}
 
 \subsection*{Exercises}
-\begin{exer}{}{exer:irred:5.1}
+\begin{exer}{}{exer:irred:root-multiplicity-via-derivative}
   $\lnot$ Let $f(x) \in \C[x]$. Prove that $a \in \C$
   is a root of $f$ with multiplicity $r$ if and only if
   $f(a) = f'(a) = \cdots = f^{(r-1)}(a) = 0$ and $f^{(r)}(a) \neq 0$,
   where $f^{(k)}(a)$ denotes the value of the $k$-th derivative of $f$
   at $a$. Deduce that $f(x) \in \C[x]$ has multiple roots if
-  and only if $\gcd(f(x), f'(x)) \neq 1$. [\ref{exer:irred:5.2}]
+  and only if $\gcd(f(x), f'(x)) \neq 1$. [\ref{exer:irred:irred-poly-no-multiple-roots}]
 \end{exer}
-\begin{exer}{}{exer:irred:5.2}
+\begin{exer}{}{exer:irred:irred-poly-no-multiple-roots}
   Let $F$ be a subfield of $\C$, and let $f(x)$ be an
   irreducible polynomial in $F[x]$. Prove that $f(x)$ has no multiple
   roots in $\C$. (Use Exercises~2.22 and~5.1.)
 \end{exer}
-\begin{exer}{}{exer:irred:5.3}
+\begin{exer}{}{exer:irred:even-poly-factor-closed-under-negation}
   Let $R$ be a ring, and let
   $f(x) = a_{2n} x^{2n} + a_{2n-2} x^{2n-2} + \cdots + a_2 x^2 + a_0
   \in R[x]$ be a polynomial only involving even powers of $x$. Prove
   that if $g(x)$ is a factor of $f(x)$, so is $g(-x)$.
 \end{exer}
-\begin{exer}{}{exer:irred:5.4}
+\begin{exer}{}{exer:irred:x4-plus-x2-plus-1-reducible}
   Show that $x^4 + x^2 + 1$ is reducible in $\Z[x]$. Prove that it has
   no rational roots, without finding its (complex) roots.
 \end{exer}
-\begin{exer}{}{exer:irred:5.5}
+\begin{exer}{}{exer:irred:deg-2-3-irred-iff-no-roots}
   \exerused{} Prove \Cref{prop:irred:5.3}. [\S{}\ref{subsec:irred:roots-and-reducibility}]
 \end{exer}
-\begin{exer}{}{exer:irred:5.6}
+\begin{exer}{}{exer:irred:construct-fields-27-and-121-elements}
   \exerused{} Construct fields with 27 elements and with 121 elements.
   [\S{}\ref{subsec:irred:roots-and-reducibility}]
 \end{exer}
-\begin{exer}{}{exer:irred:5.7}
+\begin{exer}{}{exer:irred:poly-determined-by-d-plus-1-values}
   Let $R$ be an integral domain, and let $f(x) \in R[x]$ be a
   polynomial of degree $d$. Prove that $f(x)$ is determined by its
   value at any $d + 1$ distinct elements of $R$.
 \end{exer}
-\begin{exer}{}{exer:irred:5.8}
+\begin{exer}{}{exer:irred:lagrange-interpolation-construction}
   $\lnot$ Let $K$ be a field, and let $a_0, \ldots, a_d$ be distinct
   elements of $K$. Given any elements $b_0, \ldots, b_d$ in $K$,
   construct explicitly a polynomial $f(x) \in K[x]$ of degree at most
   $d$ such that $f(a_0) = b_0, \ldots, f(a_d) = b_d$, and show that
   this polynomial is unique. (Hint: First solve the problem assuming
   that only one $b_i$ is not equal to zero.) This process is called
-  Lagrange interpolation. [\ref{exer:irred:5.9}]
+  Lagrange interpolation. [\ref{exer:irred:factor-polys-via-lagrange-interpolation}]
 \end{exer}
-\begin{exer}{}{exer:irred:5.9}
+\begin{exer}{}{exer:irred:factor-polys-via-lagrange-interpolation}
   $\lnot$ Pretend you can factor integers, and then use Lagrange
-  interpolation (cf.\ \Cref{exer:irred:5.8}) to give a finite algorithm to
+  interpolation (cf.\ \Cref{exer:irred:lagrange-interpolation-construction}) to give a finite algorithm to
   factor polynomials with integer coefficients over $\Q[x]$. Use your
-  algorithm to factor $(x - 1)(x - 2)(x - 3)(x - 4) + 1$. [\ref{exer:irred:5.10}]
+  algorithm to factor $(x - 1)(x - 2)(x - 3)(x - 4) + 1$. [\ref{exer:irred:product-linear-minus-1-irreducible}]
 \end{exer}
-\begin{exer}{}{exer:irred:5.10}
+\begin{exer}{}{exer:irred:product-linear-minus-1-irreducible}
   Prove that the polynomial $(x - 1)(x - 2) \cdots (x - n) - 1$ is
   irreducible in $\Q[x]$ for all $n \geq 1$. (Hint: Think along the
-  lines of \Cref{exer:irred:5.9}.)
+  lines of \Cref{exer:irred:factor-polys-via-lagrange-interpolation}.)
 \end{exer}
-\begin{exer}{}{exer:irred:5.11}
+\begin{exer}{}{exer:irred:finite-field-irreds-arb-high-degree}
   \exerused{} Let $F$ be a finite field. Prove that there are
   irreducible polynomials in $F[x]$ of arbitrarily high degree. (Hint:
-  \Cref{exer:irred:2.24}.)  [\S{}\ref{subsec:irred:irreducibility-in-c-x-r-x-q-x}]
+  \Cref{exer:irred:euclid-infinitude-of-primes}.)  [\S{}\ref{subsec:irred:irreducibility-in-c-x-r-x-q-x}]
 \end{exer}
-\begin{exer}{}{exer:irred:5.12}
+\begin{exer}{}{exer:irred:construction-on-linear-poly-gives-iso-field}
   Prove that applying the construction in \Cref{prop:irred:5.7} to an
   irreducible linear polynomial in $k[x]$ produces a field isomorphic
   to $k$.
 \end{exer}
-\begin{exer}{}{exer:irred:5.13}
+\begin{exer}{}{exer:irred:extension-where-f-splits-linear}
   \exerused{} Let $k$ be a field, and let $f \in k[x]$ be any
   polynomial.  Prove that there is an extension $k \subseteq F$ in
   which $f$ factors completely as a product of linear terms. [\S{}\ref{subsec:irred:adding-roots-algebraically-closed-fields},
   \S{}\ref{subsec:linalg:jordan-canonical-form}]
 \end{exer}
-\begin{exer}{}{exer:irred:5.14}
+\begin{exer}{}{exer:irred:embeddings-of-cubic-ext-in-r-and-c}
   How many different embeddings of the field $\Q[t]/(t^3 - 2)$ are
   there in $\R$? How many in $\C$?
 \end{exer}
-\begin{exer}{}{exer:irred:5.15}
+\begin{exer}{}{exer:irred:alg-closed-iff-poly-splits-iff-has-root}
   Prove \Cref{lem:irred:5.10}.
 \end{exer}
-\begin{exer}{}{exer:irred:5.16}
+\begin{exer}{}{exer:irred:minimum-modulus-principle}
   \exerused{} If you know about the `maximum modulus principle' in
   complex analysis: formulate and prove the `minimum modulus
   principle' used in the sketch of the proof of the fundamental
   theorem of algebra. [\S{}\ref{subsec:irred:irreducibility-in-c-x-r-x-q-x}]
 \end{exer}
-\begin{exer}{}{exer:irred:5.17}
+\begin{exer}{}{exer:irred:odd-degree-real-poly-has-real-root}
   \exerused{} Let $f \in \R[x]$ be a polynomial of odd degree. Use the
   intermediate value theorem to give an `algebra-free' proof of the
   fact that $f$ has real roots. [\S{}\ref{subsec:irred:irreducibility-in-c-x-r-x-q-x}, \S{}\ref{subsec:fields:fundamental-theorem-of-algebra}]
 \end{exer}
-\begin{exer}{}{exer:irred:5.18}
+\begin{exer}{}{exer:irred:cubic-odd-values-irreducible}
   Let $f \in \Z[x]$ be a cubic polynomial such that $f(0)$ and $f(1)$
   are odd and with odd leading coefficient. Prove that $f$ is
   irreducible in $\Q[x]$.
 \end{exer}
-\begin{exer}{}{exer:irred:5.19}
+\begin{exer}{}{exer:irred:sqrt2-irrational-via-eisenstein}
   Give a proof of the fact that $\sqrt{2}$ is not rational by using
   Eisenstein's criterion.
 \end{exer}
-\begin{exer}{}{exer:irred:5.20}
+\begin{exer}{}{exer:irred:x6-plus-4x3-plus-1-irreducible}
   Prove that $x^6 + 4x^3 + 1$ is irreducible by using Eisenstein's
   criterion.
 \end{exer}
-\begin{exer}{}{exer:irred:5.21}
+\begin{exer}{}{exer:irred:sum-of-powers-reducible-if-n-not-prime}
   Prove that $1 + x + x^2 + \cdots + x^{n-1}$ is reducible over $\Z$
   if $n$ is not prime.
 \end{exer}
-\begin{exer}{}{exer:irred:5.22}
+\begin{exer}{}{exer:irred:xn-minus-a-irreducible-squarefree}
   Let $R$ be a UFD, and let $a \in R$ be an element that is not
   divisible by the square of some irreducible element in its
   factorization. Prove that $x^n - a$ is irreducible for every integer
   $n \geq 1$.
 \end{exer}
-\begin{exer}{}{exer:irred:5.23}
+\begin{exer}{}{exer:irred:bivariate-poly-reducibility-example}
   Decide whether $y^5 + x^2 y^3 + x^3 y^2 + x$ is reducible or
   irreducible in $\C[x, y]$.
 \end{exer}
 
-\begin{exer}{}{exer:irred:5.24}
+\begin{exer}{}{exer:irred:quadric-cone-coord-ring-is-domain}
   Prove that $\C[x, y, z, w]/(xw - yz)$ is an integral domain,
   by using Eisenstein's criterion. (I used this ring as an example
   in~\S{}\ref{subsec:irred:characterization-of-ufds}, but I did not have the patience to prove that it was a
@@ -3102,7 +3102,7 @@ is not the case for arbitrary UFDs, and indeed the natural map
 \[\Z[x] \to \frac{\Z[x]}{(2)} \times
   \frac{\Z[x]}{(x)}\] is not surjective (check this!), even though
 $\gcd(2, x) = 1$. But the kernel of this map is $(2x)$; and this is
-what can be expected in general from the CRT over UFDs (\Cref{exer:irred:6.6}).
+what can be expected in general from the CRT over UFDs (\Cref{exer:irred:ufd-coprime-intersection-and-crt-injective}).
 As $\Z$ is a PID, \cref{coro:irred:6.4} holds for $\Z$ and gives the
 promised answer to a revised version of the questions posed at the
 beginning of this subsection. In fact, tracing the proof in this case
@@ -3125,7 +3125,7 @@ $r_1, \dots, r_k \in \Z$ are given, then
   \equiv r_i \bmod n_i\] for all $i$.
 
 The same procedure can be applied over any Euclidean domain $R$; see
-\Cref{exer:irred:6.7} for an example.
+\Cref{exer:irred:crt-construction-example-qx} for an example.
 
 \subsection{Gaussian integers}
 \label{subsec:irred:gaussian-integers}
@@ -3238,7 +3238,7 @@ studying this dichotomy further will be key to the result in
   $\Z[i]$ is a UFD). For this purpose, note that since $N(3) = 9$, the
   norm of a factor of $3$ would have to be a divisor of $9$, that is,
   $1$, $3$, or $9$. Gaussian integers with norm $1$ are units, and
-  those with norm $9$ are associates of $3$ (\Cref{exer:irred:6.10}); thus a
+  those with norm $9$ are associates of $3$ (\Cref{exer:irred:gaussian-int-associates-same-norm}); thus a
   nontrivial factor of $3$ would necessarily have norm equal to
   $3$. But there are no such elements in $\Z[i]$; hence $3$ is indeed
   irreducible.  The prime integer $5$ is \emph{not} a prime element of
@@ -3379,7 +3379,7 @@ machinery.
 
 \subsection*{Exercises}
 
-\begin{exer}{}{exer:irred:6.1}
+\begin{exer}{}{exer:irred:crt-exact-sequence-two-ideals}
   Generalize the CRT for two ideals, as follows. Let $I$, $J$ be
   ideals in a commutative ring $R$; prove that there is an exact
   sequence of $R$-modules
@@ -3389,7 +3389,7 @@ machinery.
   $\varphi$ is the natural map. (Also, explain why this implies the
   first part of \cref{thm:irred:6.1}, for $k = 2$.)
 \end{exer}
-\begin{exer}{}{exer:irred:6.2}
+\begin{exer}{}{exer:irred:idempotent-ring-decomposition}
   Let $R$ be a commutative ring, and let $a \in R$ be an element such
   that $a^2 = a$. Prove that $R \cong R/(a) \times R/(1 - a)$.
 
@@ -3401,23 +3401,23 @@ machinery.
   Prove that $(a) \cong R/(1 - a)$ as rings. Prove that
   $R \cong (a) \times (1 - a)$ as rings.
 \end{exer}
-\begin{exer}{}{exer:irred:6.3}
+\begin{exer}{}{exer:irred:finite-boolean-ring-is-product-of-z2}
   Recall (\Cref{exer:rings:boolean-power-set}) that a ring $R$ is called \emph{Boolean}
   if $a^2 = a$ for all $a \in R$. Let $R$ be a finite Boolean ring;
   prove that $R \cong \Z/2\Z \times \dots \times \Z/2\Z$.
 \end{exer}
-\begin{exer}{}{exer:irred:6.4}
+\begin{exer}{}{exer:irred:bound-on-pairwise-comaximal-ideals}
   Let $R$ be a finite commutative ring, and let $p$ be the smallest
   prime dividing $|R|$. Let $I_1, \dots, I_k$ be proper ideals such
   that $I_i + I_j = (1)$ for $i \neq j$. Prove that
   $k \leq \log_p |R|$. (Hint: Prove
   $|R|^{k-1} \leq |I_1| \cdots |I_k| \leq (|R|/p)^k$.)
 \end{exer}
-\begin{exer}{}{exer:irred:6.5}
+\begin{exer}{}{exer:irred:crt-map-not-surjective-example}
   Show that the map $\Z[x] \to \Z[x]/(2) \times \Z[x]/(x)$ is not
   surjective.
 \end{exer}
-\begin{exer}{}{exer:irred:6.6}
+\begin{exer}{}{exer:irred:ufd-coprime-intersection-and-crt-injective}
   \exerused{}Let $R$ be a UFD.
   \begin{itemize}
   \item Let $a, b \in R$ such that $\gcd(a, b) = 1$. Prove that
@@ -3427,11 +3427,11 @@ machinery.
     injective.
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:irred:6.7}
+\begin{exer}{}{exer:irred:crt-construction-example-qx}
   \exerused{}Find a polynomial $f \in \Q[x]$ such that
   $f \equiv 1 \bmod (x^2 + 1)$ and $f \equiv x \bmod x^{100}$.
 \end{exer}
-\begin{exer}{}{exer:irred:6.8}
+\begin{exer}{}{exer:irred:crt-znz-decomp-and-totient-formula}
   $\lnot$ Let $n \in \Z$ be a positive integer and
   $n = p_1^{a_1} \cdots p_r^{a_r}$ its prime factorization. By the
   classification theorem for finite abelian groups (or, in fact,
@@ -3452,22 +3452,22 @@ machinery.
       1).\]
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:irred:6.9}
+\begin{exer}{}{exer:irred:gaussian-int-quotient-finite}
   Let $I$ be a nonzero ideal of $\Z[i]$. Prove that $\Z[i]/I$ is
   finite.
 \end{exer}
-\begin{exer}{}{exer:irred:6.10}
+\begin{exer}{}{exer:irred:gaussian-int-associates-same-norm}
   \exerused{}Let $z, w \in \Z[i]$. Show that if $z$ and $w$ are
   associates, then $N(z) = N(w)$. Show that if $w \in (z)$ and
   $N(z) = N(w)$, then $z$ and $w$ are associates.
 \end{exer}
-\begin{exer}{}{exer:irred:6.11}
+\begin{exer}{}{exer:irred:gaussian-int-irreducibles-classification}
   Prove that the irreducible elements in $\Z[i]$ are, up to
   associates: $1 + i$; the integer primes congruent to $3 \bmod 4$;
   and the elements $a \pm bi$ with $a^2 + b^2$ an integer prime
   congruent to $1 \bmod 4$.
 \end{exer}
-\begin{exer}{}{exer:irred:6.12}
+\begin{exer}{}{exer:irred:gaussian-int-euclidean-algebraic-proof}
   $\lnot$ Prove \cref{lem:irred:6.5} without any `visual' aid. (Hint:
   Let $z = a + bi$, $w = c + di$ be Gaussian integers, with
   $w \neq 0$. Then
@@ -3478,7 +3478,7 @@ machinery.
   $q = e + if$. Prove that $|\frac{z}{w} - q| < 1$. Why does this do
   the job?)
 \end{exer}
-\begin{exer}{}{exer:irred:6.13}
+\begin{exer}{}{exer:irred:z-sqrt2-euclidean-domain}
   $\lnot$ Consider the set
   $\Z[\sqrt{2}] = \{a + b\sqrt{2} \mid a, b \in \Z\} \subseteq
   \C$.
@@ -3491,11 +3491,11 @@ machinery.
   \item Prove that $\Z[\sqrt{2}]$ has infinitely many units.
   \item Prove that $\Z[\sqrt{2}]$ is a Euclidean domain, by using the
     absolute value of $N$ as valuation. (Hint: Follow the same steps
-    as in \Cref{exer:irred:6.12}.)
+    as in \Cref{exer:irred:gaussian-int-euclidean-algebraic-proof}.)
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:irred:6.14}
-  Working as in \Cref{exer:irred:6.13}, prove that $\Z[\sqrt{-2}]$ is a
+\begin{exer}{}{exer:irred:z-sqrt-neg2-and-imaginary-quad-euclidean}
+  Working as in \Cref{exer:irred:z-sqrt2-euclidean-domain}, prove that $\Z[\sqrt{-2}]$ is a
   Euclidean domain. (Use the norm $N(a + b\sqrt{-2}) = a^2 + 2b^2$.)
 
   If you are particularly adventurous, prove that
@@ -3512,23 +3512,23 @@ machinery.
   ones for which $\Z[\sqrt{d}]$, resp., $\Z[(1 + \sqrt{d})/2]$, is
   Euclidean. For the values $d = -19, -43, -67, -163$, the ring
   $\Z[(1 + \sqrt{d})/2]$ is still a PID (cf.\ \S{}\ref{subsec:irred:euclidean-domain-implies-pid} and
-  \Cref{exer:irred:2.18} for $d = -19$); the fact that there are no other
+  \Cref{exer:irred:z-1-plus-sqrt-neg19-over-2-not-euclidean} for $d = -19$); the fact that there are no other
   negative values for which the ring of integers in $\Q(\sqrt{d})$ is
   a PID was conjectured by Gauss and only proven by Alan Baker and
   Harold Stark around 1966. Also, keep in mind that $\Z[\sqrt{-5}]$ is
-  not even a UFD, as you have proved all by yourself in \Cref{exer:irred:1.17}.
+  not even a UFD, as you have proved all by yourself in \Cref{exer:irred:z-sqrt-neg5-not-ufd}.
 \end{exer}
-\begin{exer}{}{exer:irred:6.15}
+\begin{exer}{}{exer:irred:n-cong-3-mod-4-not-sum-of-two-squares}
   Give an elementary proof (using modular arithmetic) of the fact that
   if an integer $n$ is congruent to $3$ modulo $4$, then it is not the
   sum of two squares.
 \end{exer}
-\begin{exer}{}{exer:irred:6.16}
+\begin{exer}{}{exer:irred:product-of-sums-of-two-squares}
   Prove that if $m$ and $n$ are two integers both of which can be
   written as sums of two squares, then $mn$ can also be written as the
   sum of two squares.
 \end{exer}
-\begin{exer}{}{exer:irred:6.17}
+\begin{exer}{}{exer:irred:sum-of-two-squares-characterization}
   Let $n$ be a positive integer.
   \begin{itemize}
   \item Prove that $n$ is a sum of two squares if and only if it is
@@ -3539,7 +3539,7 @@ machinery.
     with an even power in $n$.
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:irred:6.18}
+\begin{exer}{}{exer:irred:four-squares-lemma-np-eq-1-plus-a2-plus-b2}
   $\lnot$ One ingredient in the proof of Lagrange's theorem on four
   squares is the following result, which can be proven by completely
   elementary means.  Let $p > 0$ be an odd prime integer. Then there
@@ -3554,7 +3554,7 @@ machinery.
   \item Now conclude, using the pigeon-hole principle.
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:irred:6.19}
+\begin{exer}{}{exer:irred:integral-quaternions-ring-basics}
   $\lnot$ Let $\field{I} \subseteq \field{H}$ be the set of
   quaternions (cf.\ \Cref{exer:rings:quaternions}) of the form
   $\frac{a}{2}(1 + i + j + k) + bi + cj + dk$ with
@@ -3575,8 +3575,8 @@ machinery.
   The ring $\field{I}$ is called the ring of \emph{integral
     quaternions}.
 \end{exer}
-\begin{exer}{}{exer:irred:6.20}
-  $\lnot$ Let $\field{I}$ be as in \Cref{exer:irred:6.19}. Prove that
+\begin{exer}{}{exer:irred:integral-quaternions-euclidean-like}
+  $\lnot$ Let $\field{I}$ be as in \Cref{exer:irred:integral-quaternions-ring-basics}. Prove that
   $\field{I}$ shares most good properties of a Euclidean domain,
   notwithstanding the fact that it is noncommutative.
   \begin{itemize}
@@ -3591,7 +3591,7 @@ machinery.
     $\alpha z + \beta w$ for $\alpha, \beta \in \field{I}$.
   \end{itemize}
 \end{exer}
-\begin{exer}{}{exer:irred:6.21}
+\begin{exer}{}{exer:irred:lagranges-four-squares-theorem}
   Prove Lagrange's theorem on four squares. Use notation as in
   Exercises~6.19 and~6.20.
   \begin{itemize}
@@ -3603,7 +3603,7 @@ machinery.
     \overline{\beta n})$, where $\overline{\beta}$ is obtained by
     changing the signs of the coefficients of $i, j, k$. Expand, and
     deduce that $(N(z), n) \mid 1$.)
-  \item For an odd prime integer $p$, use \Cref{exer:irred:6.18} to obtain an
+  \item For an odd prime integer $p$, use \Cref{exer:irred:four-squares-lemma-np-eq-1-plus-a2-plus-b2} to obtain an
     integral quaternion $z = 1 + ai + bj$ such that $p \mid
     N(z)$. Prove that $z$ and $p$ have a common right-divisor that is
     not a unit and not an associate of $p$.
@@ -3614,7 +3614,7 @@ machinery.
     of some integral quaternion.
   \item Prove that every positive integer is the norm of some integral
     quaternion.
-  \item Finally, use the last point of \Cref{exer:irred:6.19} to deduce that
+  \item Finally, use the last point of \Cref{exer:irred:integral-quaternions-ring-basics} to deduce that
     every positive integer may be written as the sum of four perfect
     squares.
   \end{itemize}
