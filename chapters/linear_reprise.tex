@@ -2,19 +2,19 @@
 \label{chap:linrep}
 
 We come back to linear algebra, with the task of studying slightly
-more sophisticated constructions than those reviewed in \Cref{chap:linalg}. My
-main goals are to discuss some aspects of multilinear algebra, tensor
-products, and Hom, with special attention devoted to dual
-modules. Along the way we will meet several other interesting notions,
-including a first taste of projective and injective modules and of Tor
-and Ext.
+more sophisticated constructions than those reviewed in
+\Cref{chap:linalg}. My main goals are to discuss some aspects of
+multilinear algebra, tensor products, and Hom, with special attention
+devoted to dual modules. Along the way we will meet several other
+interesting notions, including a first taste of projective and
+injective modules and of Tor and Ext.
 
-As in \Cref{chap:linalg}, I will attempt to deal with the more general case of
-$R$-modules, specializing to vector spaces only when this provides a
-drastic simplification or conforms to inveterate habits. Covering the
-material at this level of generality gives me an excellent excuse to
-complement the preliminary notions described in the very first chapter
-of this book.
+As in \Cref{chap:linalg}, I will attempt to deal with the more general
+case of $R$-modules, specializing to vector spaces only when this
+provides a drastic simplification or conforms to inveterate
+habits. Covering the material at this level of generality gives me an
+excellent excuse to complement the preliminary notions described in
+the very first chapter of this book.
 
 \section{Preliminaries, reprise}
 \label{sec:linrep:preliminaries-reprise}
@@ -71,10 +71,11 @@ morphisms, functors will have to deal with this information as well.
   opposite category.
 \end{defn}
 The opposite category $\categ{C}^{\mathrm{op}}$ is obtained from
-$\categ{C}$ by `reversing the arrows'; cf.\ \Cref{exer:prelim:op-categ-def}. The fact
-that contravariant functors $G : \categ{C} \to \categ{D}$ (that is,
-covariant functors $\categ{C}^{\mathrm{op}} \to \categ{D}$) preserve
-compositions means that $\forall A, B, C \in \mathrm{Obj}(\categ{C})$,
+$\categ{C}$ by `reversing the arrows'; cf.\
+\Cref{exer:prelim:op-categ-def}. The fact that contravariant functors
+$G : \categ{C} \to \categ{D}$ (that is, covariant functors
+$\categ{C}^{\mathrm{op}} \to \categ{D}$) preserve compositions means
+that $\forall A, B, C \in \mathrm{Obj}(\categ{C})$,
 $\forall \alpha \in \Hom_{\categ{C}}(A, B)$,
 $\forall \beta \in \Hom_{\categ{C}}(B, C)$:
 \[
@@ -111,15 +112,16 @@ another category often comes with a (psychologically) `natural'
 companion assignment for morphisms, which is evidently covariant or
 contravariant. We say that this assignment is `functorial' if it
 preserves compositions. All the simple-minded operations mentioned at
-the beginning of \S{}\ref{subsec:linrep:functors} (such as viewing a ring as an abelian group
-under addition) are covariant functors: for example, the fact that a
-homomorphism of rings is in particular a homomorphism of the
-underlying abelian groups amounts to the statement that labeling each
-ring with its underlying abelian group defines a covariant functor
-$\categ{Ring} \to \categ{Ab}$. Since such functors are obtained by
-`forgetting' part of the structure of a given object, they are
-memorably called \emph{forgetful functors}. I have already mentioned
-briefly a few slightly more imaginative examples; here they are again.
+the beginning of \S{}\ref{subsec:linrep:functors} (such as viewing a
+ring as an abelian group under addition) are covariant functors: for
+example, the fact that a homomorphism of rings is in particular a
+homomorphism of the underlying abelian groups amounts to the statement
+that labeling each ring with its underlying abelian group defines a
+covariant functor $\categ{Ring} \to \categ{Ab}$. Since such functors
+are obtained by `forgetting' part of the structure of a given object,
+they are memorably called \emph{forgetful functors}. I have already
+mentioned briefly a few slightly more imaginative examples; here they
+are again.
 \begin{exam}{}{linrep:exam:1.2}
   If $R$ is a ring, we have denoted by $R^\ast$ the group of units in
   $R$; every ring homomorphism $R \to S$ induces a group homomorphism
@@ -128,50 +130,52 @@ briefly a few slightly more imaginative examples; here they are again.
   $\categ{Ring} \to \categ{Grp}$.
 \end{exam}
 \begin{exam}{}{linrep:exam:1.3}
-  The operation $\Aut_k(-)$ from Galois field extensions to
-  groups is contravariantly functorial. Indeed, if
-  $k \subseteq E \subseteq F$ is viewed as a morphism of two Galois
-  extensions ($k \subseteq E$ to $k \subseteq F$), we have a
-  corresponding group homomorphism
+  The operation $\Aut_k(-)$ from Galois field extensions to groups is
+  contravariantly functorial. Indeed, if $k \subseteq E \subseteq F$
+  is viewed as a morphism of two Galois extensions ($k \subseteq E$ to
+  $k \subseteq F$), we have a corresponding group homomorphism
   $\Aut_k(F) \to \Aut_k(E)$ defined by restriction:
   $\phi \mapsto \phi|_E$; the latter maps $E$ to $E$ by virtue of the
   Galois condition. The composition of two restrictions is a
   restriction, so the assignment is indeed functorial.
 \end{exam}
 \begin{exam}{}{linrep:exam:1.4}
-  In \S{}\ref{subsec:rings:prime-and-maximal-ideals} I have defined the spectrum of a commutative ring
-  $R$, $\mathrm{Spec}\,R$, as the set of prime ideals of $R$. If $R$,
-  $S$ are commutative rings and $\phi : R \to S$ is a ring
-  homomorphism, then the inverse image $\phi^{-1}(\mathfrak{p})$ of a
-  prime ideal $\mathfrak{p}$ is a prime ideal; thus, $\phi$ induces a
-  set-function $\phi^\ast : \mathrm{Spec}(S) \to
-  \mathrm{Spec}(R)$. This assignment is clearly functorial, so we can
-  view $\mathrm{Spec}$ as a contravariant functor from the category of
-  commutative rings to $\categ{Set}$. The reader will assign a
-  topology to $\mathrm{Spec}(R)$ (\Cref{exer:linrep:spec-zariski-topology-is-functor}), making this example
-  (even) more interesting.
+  In \S{}\ref{subsec:rings:prime-and-maximal-ideals} I have defined
+  the spectrum of a commutative ring $R$, $\mathrm{Spec}\,R$, as the
+  set of prime ideals of $R$. If $R$, $S$ are commutative rings and
+  $\phi : R \to S$ is a ring homomorphism, then the inverse image
+  $\phi^{-1}(\mathfrak{p})$ of a prime ideal $\mathfrak{p}$ is a prime
+  ideal; thus, $\phi$ induces a set-function
+  $\phi^\ast : \mathrm{Spec}(S) \to \mathrm{Spec}(R)$. This assignment
+  is clearly functorial, so we can view $\mathrm{Spec}$ as a
+  contravariant functor from the category of commutative rings to
+  $\categ{Set}$. The reader will assign a topology to
+  $\mathrm{Spec}(R)$
+  (\Cref{exer:linrep:spec-zariski-topology-is-functor}), making this
+  example (even) more interesting.
 \end{exam}
 \begin{exam}{}{linrep:exam:1.5}
-  If $S$ is a set, recall (\Cref{exam:prelims:power-set-category}) that one can construct a
-  category $\hat{S}$ whose objects are subsets of $S$ and where
-  morphisms correspond to inclusions of subsets. A presheaf of sets on
-  $S$ is a contravariant functor $\hat{S} \to \categ{Set}$. The
-  prototypical example consists of the functor which associates to
-  $U \subseteq S$ the set of functions from $U$ to a fixed set; the
-  inclusion $U \subseteq V$ is mapped to the restriction
-  $\rho \mapsto \rho|_U$. More interesting (and very useful) examples
-  may be obtained by considering richer structures. For instance, if
-  $T$ is a topological space, one can define a category whose objects
-  are the open sets in $T$ and whose morphisms are inclusions; this
-  leads to the notion of presheaf on a topological space. Standard
-  notions such as `(the groups of) continuous complex-valued functions
-  on open sets of $T$' are most naturally viewed as the datum of a
-  presheaf of abelian groups on $T$. Such concrete examples often
-  satisfy additional hypotheses, which make them \emph{sheaves}, but
-  that is a topic for another book. In a sense, studying a branch of
-  geometry (e.g., complex differential geometry) amounts to studying
-  spaces endowed with a suitable sheaf (e.g., the sheaf of complex
-  differentiable functions).
+  If $S$ is a set, recall (\Cref{exam:prelims:power-set-category})
+  that one can construct a category $\hat{S}$ whose objects are
+  subsets of $S$ and where morphisms correspond to inclusions of
+  subsets. A presheaf of sets on $S$ is a contravariant functor
+  $\hat{S} \to \categ{Set}$. The prototypical example consists of the
+  functor which associates to $U \subseteq S$ the set of functions
+  from $U$ to a fixed set; the inclusion $U \subseteq V$ is mapped to
+  the restriction $\rho \mapsto \rho|_U$. More interesting (and very
+  useful) examples may be obtained by considering richer
+  structures. For instance, if $T$ is a topological space, one can
+  define a category whose objects are the open sets in $T$ and whose
+  morphisms are inclusions; this leads to the notion of presheaf on a
+  topological space. Standard notions such as `(the groups of)
+  continuous complex-valued functions on open sets of $T$' are most
+  naturally viewed as the datum of a presheaf of abelian groups on
+  $T$. Such concrete examples often satisfy additional hypotheses,
+  which make them \emph{sheaves}, but that is a topic for another
+  book. In a sense, studying a branch of geometry (e.g., complex
+  differential geometry) amounts to studying spaces endowed with a
+  suitable sheaf (e.g., the sheaf of complex differentiable
+  functions).
 \end{exam}
 An important class of functors that are available on any category may
 be obtained as follows, and this will be a source of examples in the
@@ -219,22 +223,22 @@ category precisely with objects of another, preserving the structure
 of morphisms.  One could certainly introduce such a notion, but it
 would be exceedingly restrictive. Recall that solutions to universal
 problems, that is, just about every construction we have run across,
-are only defined up to isomorphism (\Cref{prop:prelims:initial-final-unique}). Requiring
-solutions in one context to match exactly with solutions in another
-would be problematic. The structure of an object in a category is
-adequately carried by its isomorphism class\footnote{One should not
-  take this viewpoint too far.  It is tempting to think of isomorphic
-  objects in a category as `the same', but this is also problematic
-  and does not lead (as far as I know) to a workable alternative. For
-  example, some objects in a category may have `more automorphisms'
-  than others, and this information would be discarded if we simply
-  chopped up the category into isomorphism classes, draconically
-  promoting all isomorphisms to identity morphisms.}, and a natural
-notion of `equivalence' of categories should aim at matching
-isomorphism classes, rather than individual objects. The
-\emph{morphisms} are a more essential piece of information; the
-quality of a functor is first of all measured on how it acts on
-morphisms.
+are only defined up to isomorphism
+(\Cref{prop:prelims:initial-final-unique}). Requiring solutions in one
+context to match exactly with solutions in another would be
+problematic. The structure of an object in a category is adequately
+carried by its isomorphism class\footnote{One should not take this
+  viewpoint too far.  It is tempting to think of isomorphic objects in
+  a category as `the same', but this is also problematic and does not
+  lead (as far as I know) to a workable alternative. For example, some
+  objects in a category may have `more automorphisms' than others, and
+  this information would be discarded if we simply chopped up the
+  category into isomorphism classes, draconically promoting all
+  isomorphisms to identity morphisms.}, and a natural notion of
+`equivalence' of categories should aim at matching isomorphism
+classes, rather than individual objects. The \emph{morphisms} are a
+more essential piece of information; the quality of a functor is first
+of all measured on how it acts on morphisms.
 \begin{defn}{}{linrep:1.6}
   Let $\categ{C}$, $\categ{D}$ be two categories. A covariant functor
   $F : \categ{C} \to \categ{D}$ is \emph{faithful} if for all objects
@@ -248,12 +252,13 @@ morphisms.
 `Fully faithful' functors $F : \categ{C} \to \categ{D}$ are bijective
 on morphisms, and it follows easily that they preserve isomorphism
 classes: $A \cong B$ in $\categ{C}$ if and only if $F(A) \cong F(B)$
-in $\categ{D}$ (\Cref{exer:linrep:fully-faithful-reflects-iso}). For all intents and purposes, a fully
-faithful functor $F : \categ{C} \to \categ{D}$ identifies $\categ{C}$
-with a full\footnote{See \Cref{exer:prelim:subcat} for the definition of `full'
-  subcategory.} subcategory of $\categ{D}$, even if `on objects' $F$
-may be neither injective nor surjective onto that subcategory. This
-idea is captured by the following definition:
+in $\categ{D}$ (\Cref{exer:linrep:fully-faithful-reflects-iso}). For
+all intents and purposes, a fully faithful functor
+$F : \categ{C} \to \categ{D}$ identifies $\categ{C}$ with a
+full\footnote{See \Cref{exer:prelim:subcat} for the definition of
+  `full' subcategory.} subcategory of $\categ{D}$, even if `on
+objects' $F$ may be neither injective nor surjective onto that
+subcategory. This idea is captured by the following definition:
 \begin{defn}{}{linrep:1.7}
   A covariant functor $F : \categ{C} \to \categ{D}$ is an
   \emph{equivalence of categories} if it is fully faithful and
@@ -263,21 +268,22 @@ idea is captured by the following definition:
 \end{defn}
 Two categories $\categ{C}$, $\categ{D}$ are \emph{equivalent} if there
 is a functor $F : \categ{C} \to \categ{D}$ satisfying the requirements
-in \Cref{linrep:1.7}. It is not at all immediate that this is indeed an
-equivalence relation (why is it symmetric?), but this turns out to be
-the case. In fact, an equivalence of categories $F$ has an `inverse',
-in a suitably weakened sense: a functor $G : \categ{D} \to \categ{C}$
-such that there are `natural isomorphisms' (see \S{}\ref{subsec:linrep:comparing-functors}) from
+in \Cref{linrep:1.7}. It is not at all immediate that this is indeed
+an equivalence relation (why is it symmetric?), but this turns out to
+be the case. In fact, an equivalence of categories $F$ has an
+`inverse', in a suitably weakened sense: a functor
+$G : \categ{D} \to \categ{C}$ such that there are `natural
+isomorphisms' (see \S{}\ref{subsec:linrep:comparing-functors}) from
 $F \circ G$ and $G \circ F$ to the identity. Since we will not use
 these notions too extensively, I will let the interested reader
 research the issue and find proofs.
 \begin{exam}{}{linrep:exam:1.8}
-  (Cf.\ \Cref{exer:prelim:categ-matrix}.) Construct a category by taking the objects to
-  be nonneg\-ative integers and $\Hom(m, n)$ to be the set of
-  $n \times m$ matrices with entries in a field $k$, with composition
-  defined by product of matrices (and suitable care concerning
-  matrices with no rows or columns). The resulting category is
-  equivalent to the category of finite-dimensional $k$-vector
+  (Cf.\ \Cref{exer:prelim:categ-matrix}.) Construct a category by
+  taking the objects to be nonneg\-ative integers and $\Hom(m, n)$ to
+  be the set of $n \times m$ matrices with entries in a field $k$,
+  with composition defined by product of matrices (and suitable care
+  concerning matrices with no rows or columns). The resulting category
+  is equivalent to the category of finite-dimensional $k$-vector
   spaces. Indeed, we obtain a functor from the former to the latter by
   sending $n$ to the vector space $k^n$ (endowed with the standard
   basis) and each matrix to the corresponding linear map. This functor
@@ -287,16 +293,17 @@ research the issue and find proofs.
   \S{}\ref{subsec:linalg:matrices}.
 \end{exam}
 \begin{exam}{}{linrep:exam:1.9}
-  Recall (\Cref{defn:fields:2.19}) that the coordinate ring of an affine
-  algebraic set over a field $K$ is a reduced, commutative,
+  Recall (\Cref{defn:fields:2.19}) that the coordinate ring of an
+  affine algebraic set over a field $K$ is a reduced, commutative,
   finite-type $K$-algebra. We can define the category
   $K\text{-}\categ{Aff}$ of affine $K$-algebraic sets by prescribing
   that the objects be algebraic subsets of some affine $K$-space and
   defining\footnote{The switch in the order of $S$ and $T$ is
-    reasonable: as the reader has verified in \Cref{exer:fields:poly-fns-iso-to-coordinate-ring},
-    $K[S]$ may be interpreted as the $K$-algebra of `polynomial
-    functions' on $S$; any function $\phi : S \to T$ determines a
-    pull-back of functions, $K[T] \to K[S]$.}
+    reasonable: as the reader has verified in
+    \Cref{exer:fields:poly-fns-iso-to-coordinate-ring}, $K[S]$ may be
+    interpreted as the $K$-algebra of `polynomial functions' on $S$;
+    any function $\phi : S \to T$ determines a pull-back of functions,
+    $K[T] \to K[S]$.}
   $\Hom_{K\text{-}\mathrm{Aff}}(S, T) =
   \Hom_{K\text{-}\mathrm{Alg}}(K[T], K[S])$.
 
@@ -341,13 +348,14 @@ that may do so). This notion is also called \emph{inverse}, or
   Let $\categ{I}$ be the `discrete category' consisting of two objects
   $\mathbf{1}$, $\mathbf{2}$, with only identity
   morphisms\footnote{This latter prescription is what makes the
-    category `discrete'; cf.\ \Cref{exam:prelims:category-leq}.}, and let $\mathscr{A}$
-  be a functor from $\categ{I}$ to any category $\categ{C}$; let
-  $A_1 = \mathscr{A}(\mathbf{1})$, $A_2 = \mathscr{A}(\mathbf{2})$ be
-  the two objects of $\categ{C}$ `indexed' by $\categ{I}$. Then
-  $\varprojlim \mathscr{A}$ is nothing but the product of $A_1$ and
-  $A_2$ in $\categ{C}$, as defined in \S{}\ref{subsec:prelims:products}: a limit exists if and
-  only if a product of $A_1$ and $A_2$ exists in $\categ{C}$.
+    category `discrete'; cf.\ \Cref{exam:prelims:category-leq}.}, and
+  let $\mathscr{A}$ be a functor from $\categ{I}$ to any category
+  $\categ{C}$; let $A_1 = \mathscr{A}(\mathbf{1})$,
+  $A_2 = \mathscr{A}(\mathbf{2})$ be the two objects of $\categ{C}$
+  `indexed' by $\categ{I}$. Then $\varprojlim \mathscr{A}$ is nothing
+  but the product of $A_1$ and $A_2$ in $\categ{C}$, as defined in
+  \S{}\ref{subsec:prelims:products}: a limit exists if and only if a
+  product of $A_1$ and $A_2$ exists in $\categ{C}$.
 
   We can similarly define the product of any (possibly infinite)
   family of objects in a category as the limit over the corresponding
@@ -370,7 +378,8 @@ $\categ{I}$ carries more structure.
   choose $\mathscr{K}$ as above, with $\mathscr{K}(\alpha) = \phi$ and
   $\mathscr{K}(\beta) = $ the zero-morphism. Then
   $\varprojlim \mathscr{K}$ is nothing but the kernel of $\phi$, as
-  the reader will verify (\Cref{exer:linrep:construction-recovers-kernel}).
+  the reader will verify
+  (\Cref{exer:linrep:construction-recovers-kernel}).
 \end{exam}
 \begin{exam}{(Limits over chains)}{linrep:exam:1.12}
   In another typical situation, $\categ{I}$ may consist of a totally
@@ -460,12 +469,12 @@ and such that $A$ is initial with respect to this requirement.
 \end{exam}
 I have shamelessly relied on the reader's intuition and used this
 notion already, for example when I constructed the algebraic closure
-of a field (in \S{}\ref{subsec:fields:algebraic-closure}) or whenever I have mentioned polynomial
-rings with `infinitely many variables' (e.g., in
-\Cref{exam:rings:infinite-poly-ring-fg}). More formally, $\bigcup_i A_i$ consists of
-equivalence classes of pairs $(i, a_i)$, where $a_i \in A_i$ and
-$(i, a_i)$ is equivalent to $(j, a_j)$ for $i \leq j$ if
-$a_j = \psi_{ij}(a_i)$.
+of a field (in \S{}\ref{subsec:fields:algebraic-closure}) or whenever
+I have mentioned polynomial rings with `infinitely many variables'
+(e.g., in \Cref{exam:rings:infinite-poly-ring-fg}). More formally,
+$\bigcup_i A_i$ consists of equivalence classes of pairs $(i, a_i)$,
+where $a_i \in A_i$ and $(i, a_i)$ is equivalent to $(j, a_j)$ for
+$i \leq j$ if $a_j = \psi_{ij}(a_i)$.
 
 In the context of $R$-modules, one can consider the direct sum
 $D = \bigoplus_i A_i$ and the submodule $K \subseteq D$ generated by
@@ -473,10 +482,12 @@ elements of the form $a_j - \psi_{ij}(a_i)$ for all $i \leq j$ (where
 each $A_i$ is identified with its image in $D$). Then the quotient
 $D/K$ satisfies the needed universal property, as the reader will
 check. In fact, it is no harder to perform these constructions for
-more general posets (\Cref{exer:linrep:colimits-in-set-and-mod-directed-poset}). They are somewhat more explicit
-and better behaved in the case of \emph{directed sets}: partially
-ordered sets $\categ{I}$ such that $\forall i, j \in \categ{I}$ there
-exists $k \in \categ{I}$ such that $i \leq k$, $j \leq k$.
+more general posets
+(\Cref{exer:linrep:colimits-in-set-and-mod-directed-poset}). They are
+somewhat more explicit and better behaved in the case of
+\emph{directed sets}: partially ordered sets $\categ{I}$ such that
+$\forall i, j \in \categ{I}$ there exists $k \in \categ{I}$ such that
+$i \leq k$, $j \leq k$.
 
 Several standard constructions rely on a direct limit: for example,
 \emph{germs} of functions (or, more generally, `stalks of presheaves')
@@ -539,11 +550,13 @@ constructions we have encountered along the way may be recast in these
 terms, and we will run into more instances of this situation in this
 chapter.
 \begin{exam}{}{linrep:exam:1.16}
-  The construction of the free group on a given set (\S{}\ref{sec:groups:free-groups}) is
-  concocted so that giving a set-function from a set $A$ to a group
-  $G$ is `the same as' giving a group homomorphism from $F(A)$ to $G$
-  (\S{}\ref{subsec:groups:universal-property}). What this really means is that for all sets $A$ and
-  all groups $G$ there are natural identifications
+  The construction of the free group on a given set
+  (\S{}\ref{sec:groups:free-groups}) is concocted so that giving a
+  set-function from a set $A$ to a group $G$ is `the same as' giving a
+  group homomorphism from $F(A)$ to $G$
+  (\S{}\ref{subsec:groups:universal-property}). What this really means
+  is that for all sets $A$ and all groups $G$ there are natural
+  identifications
   \[
     \Hom_{\categ{Set}}(A, S(G)) \cong \Hom_{\categ{Grp}}(F(A), G),
   \]
@@ -581,13 +594,13 @@ the prototypical example of this phenomenon.
 As every good calculus student should readily understand, this says
 that right-adjoint functors are \emph{continuous}. (Needless to say,
 left-adjoint functors turn out to commute with colimits and would
-rightly be termed \emph{cocontinuous}.)  We will not prove \Cref{linrep:1.17}
-in gory detail, but I will endeavor to convince the reader that such
-statements are easier than they look and just boil down to suitable
-applications of the universal properties defining the various
-concepts. By contrast, proving that a specific given functor preserves
-products (for instance), without appealing to abstract nonsense, may
-sometimes appear to involve some `real' work.
+rightly be termed \emph{cocontinuous}.)  We will not prove
+\Cref{linrep:1.17} in gory detail, but I will endeavor to convince the
+reader that such statements are easier than they look and just boil
+down to suitable applications of the universal properties defining the
+various concepts. By contrast, proving that a specific given functor
+preserves products (for instance), without appealing to abstract
+nonsense, may sometimes appear to involve some `real' work.
 
 Assume $G : \categ{D} \to \categ{C}$ is right-adjoint to
 $F : \categ{C} \to \categ{D}$ and
@@ -624,14 +637,15 @@ necessary in order to apply the universal properties as stated. The
 reader will likely agree that such verifications, while possibly
 somewhat involved, must be routine.
 
-\Cref{linrep:1.17} implies, for example, that right-adjoint functors preserve
-products and that they must `preserve kernels' when kernels make
-sense.
+\Cref{linrep:1.17} implies, for example, that right-adjoint functors
+preserve products and that they must `preserve kernels' when kernels
+make sense.
 \begin{exam}{(Exact functors)}{linrep:exam:1.18}
   A functor is \emph{exact} if it preserves exactness, that is, it
   sends exact sequences to exact sequences. So far we have only
   studied exactness in the context of modules over a ring
-  (\S{}\ref{subsec:rings:complexes-and-exact-sequences}), so let $R$, $S$ be rings and let
+  (\S{}\ref{subsec:rings:complexes-and-exact-sequences}), so let $R$,
+  $S$ be rings and let
   $F : R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ be an additive
   functor; $F$ is exact if and only if whenever
   \[
@@ -643,13 +657,14 @@ sense.
     \to 0
   \]
   is an exact sequence of $S$-modules. It follows easily that the
-  image of every exact complex is exact (\Cref{exer:linrep:exact-functor-characterization}).
+  image of every exact complex is exact
+  (\Cref{exer:linrep:exact-functor-characterization}).
 
   A common and very interesting situation occurs when a functor is not
   exact but preserves `some' of the exactness of sequences (we will
   encounter such examples later in this chapter, for example in
-  \S{}\ref{subsec:linrep:exactness-properties-of-tensor-flatness}). We say that an additive functor $F$ is \emph{left-exact}
-  if whenever
+  \S{}\ref{subsec:linrep:exactness-properties-of-tensor-flatness}). We
+  say that an additive functor $F$ is \emph{left-exact} if whenever
   \[
     0 \to A \xrightarrow{\phi} B \xrightarrow{\psi} C
   \]
@@ -666,13 +681,14 @@ sense.
   Right-adjoint additive functors
   $R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ are left-exact.
 \end{prop}
-As the reader will verify (\Cref{exer:linrep:right-adjoint-left-exact-left-adjoint-right-exact}), this follows from the fact
-that right-adjoint functors preserve kernels. (Note that exactness of
-$0 \to A \xrightarrow{\phi} B$ amounts to the fact that
-$\phi : A \hookrightarrow B$ identifies $A$ with $\ker \psi$.) Of
-course the corresponding co-statements hold: since left-adjoint
-functors preserve colimits and cokernels are colimits, it follows that
-left-adjoint additive functors
+As the reader will verify
+(\Cref{exer:linrep:right-adjoint-left-exact-left-adjoint-right-exact}),
+this follows from the fact that right-adjoint functors preserve
+kernels. (Note that exactness of $0 \to A \xrightarrow{\phi} B$
+amounts to the fact that $\phi : A \hookrightarrow B$ identifies $A$
+with $\ker \psi$.) Of course the corresponding co-statements hold:
+since left-adjoint functors preserve colimits and cokernels are
+colimits, it follows that left-adjoint additive functors
 $G : R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ are necessarily
 \emph{right-exact}, in the sense that if
 $A \xrightarrow{\phi} B \xrightarrow{\psi} C \to 0$ is exact, then
@@ -701,20 +717,23 @@ also exact.
 \end{exer}
 
 \begin{exer}{}{exer:linrep:grp-action-is-functor-from-groupoid}
-  Recall (\S{}\ref{sec:groups:definition-of-group}) that a group $G$ may be thought of as a groupoid
-  $\mathcal{G}$ with a single object. Prove that defining the action
-  of $G$ on an object of a category $\categ{C}$ is equivalent to
-  defining a functor $\mathcal{G} \to \categ{C}$.
+  Recall (\S{}\ref{sec:groups:definition-of-group}) that a group $G$
+  may be thought of as a groupoid $\mathcal{G}$ with a single
+  object. Prove that defining the action of $G$ on an object of a
+  category $\categ{C}$ is equivalent to defining a functor
+  $\mathcal{G} \to \categ{C}$.
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:localization-is-a-functor}
   Let $R$ be a commutative ring, and let $S \subseteq R$ be a
-  multiplicative subset in the sense of \Cref{exer:irred:localization-construction}. Prove that
+  multiplicative subset in the sense of
+  \Cref{exer:irred:localization-construction}. Prove that
   `localization is a functor': associating with every $R$-module $M$
-  the localization $S^{-1}M$ (\Cref{exer:irred:localization-of-module}) and with every
-  $R$-module homomorphism $\phi : M \to N$ the naturally induced
-  homomorphism $S^{-1}M \to S^{-1}N$ defines a covariant functor from
-  the category of $R$-modules to the category of $S^{-1}R$-modules.
+  the localization $S^{-1}M$
+  (\Cref{exer:irred:localization-of-module}) and with every $R$-module
+  homomorphism $\phi : M \to N$ the naturally induced homomorphism
+  $S^{-1}M \to S^{-1}N$ defines a covariant functor from the category
+  of $R$-modules to the category of $S^{-1}R$-modules.
   [\ref{exer:linrep:localization-is-exact-preserves-homology}]
 \end{exer}
 
@@ -724,15 +743,16 @@ also exact.
   $\categ{Fld} \to \categ{Grp}$ mapping $F$ to $F^*$ and a
   homomorphism of fields $\phi : k \to F$ (i.e., a field
   extension\footnote{Recall that there are no `zero-homomorphisms'
-    between fields; cf.\ \S{}\ref{subsec:fields:basic-definitions}.}) to the restriction
-  $\phi|_{k^*} : k^* \to F^*$ is clearly a covariant functor. On the
-  other hand, we can consider the category $\categ{Fld}^f_k$ of finite
-  extensions of a fixed field $k$. Prove that the assignment
-  $F \mapsto F^*$ on objects, together with the prescription
-  associating with every $F_1 \subseteq F_2$ the norm
-  $N_{F_1 \subseteq F_2} : F_2^* \to F_1^*$ (cf.\ \Cref{exer:fields:norm-is-multiplicative}),
-  gives a contravariant functor $\categ{Fld}^f_k \to \categ{Grp}$.
-  State and prove an analogous statement for the trace (cf.\
+    between fields; cf.\ \S{}\ref{subsec:fields:basic-definitions}.})
+  to the restriction $\phi|_{k^*} : k^* \to F^*$ is clearly a
+  covariant functor. On the other hand, we can consider the category
+  $\categ{Fld}^f_k$ of finite extensions of a fixed field $k$. Prove
+  that the assignment $F \mapsto F^*$ on objects, together with the
+  prescription associating with every $F_1 \subseteq F_2$ the norm
+  $N_{F_1 \subseteq F_2} : F_2^* \to F_1^*$ (cf.\
+  \Cref{exer:fields:norm-is-multiplicative}), gives a contravariant
+  functor $\categ{Fld}^f_k \to \categ{Grp}$.  State and prove an
+  analogous statement for the trace (cf.\
   \Cref{exer:fields:trace-is-additive}).
 \end{exer}
 
@@ -751,7 +771,8 @@ also exact.
   agree after restriction to $U \cap V$, prove that there exists a
   unique $s \in \mathcal{C}(U \cup V)$ such that $s$ restricts to
   $s_U$ on $U$ and to $s_V$ on $V$. This is essentially the condition
-  making $\mathcal{C}$ a sheaf. [\ref{exer:homol:exp-map-not-epi-of-presheaves}]
+  making $\mathcal{C}$ a
+  sheaf. [\ref{exer:homol:exp-map-not-epi-of-presheaves}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:spec-zariski-topology-is-functor}
@@ -775,18 +796,18 @@ also exact.
   $K\text{-}\categ{Aff}$ defined in \Cref{linrep:exam:1.9}.
   \begin{itemize}
   \item Denote by $h_S$ the functor
-    $\Hom_{K\text{-}\mathrm{Aff}}(\mathord{-}, S)$ (as in \S{}\ref{subsec:linrep:examples-of-functors}),
-    and let $p = \A^0_K$ be a point. Show that there is a
-    natural bijection between $S$ and $h_S(p)$. (Use
+    $\Hom_{K\text{-}\mathrm{Aff}}(\mathord{-}, S)$ (as in
+    \S{}\ref{subsec:linrep:examples-of-functors}), and let
+    $p = \A^0_K$ be a point. Show that there is a natural bijection
+    between $S$ and $h_S(p)$. (Use
     \Cref{exer:fields:points-correspond-to-maximal-ideals}.)
   \item Show how every $\phi \in \Hom_{K\text{-}\mathrm{Aff}} (S, T)$
     determines a function of sets $S \to T$.
-  \item If $S \subseteq \A^m_K$, $T \subseteq \A^n_K$,
-    show that the function $S \to T$ determined by a morphism
+  \item If $S \subseteq \A^m_K$, $T \subseteq \A^n_K$, show that the
+    function $S \to T$ determined by a morphism
     $\phi \in \Hom_{K\text{-}\mathrm{Aff}}(S, T)$ is the restriction
-    of a `polynomial function' $\A^m_K \to
-    \A^n_K$. (Part of this exercise is to make sense of what
-    this means!)
+    of a `polynomial function' $\A^m_K \to \A^n_K$. (Part of this
+    exercise is to make sense of what this means!)
   \end{itemize}
 \end{exer}
 
@@ -798,16 +819,20 @@ also exact.
   transformations\footnote{The reason why $\categ{C}$ is assumed to be
     small is that this ensures that the natural transformations
     between two functors do form a set.}. Prove that the assignment
-  $X \mapsto h_X := \Hom_{\categ{C}} (\mathord{-}, X)$ (cf.\ \S{}\ref{subsec:linrep:examples-of-functors})
-  defines a covariant functor
-  $\categ{C} \to \categ{Set}^{\categ{C}^{\mathrm{op}}}$. (Define the
-  action on morphisms in the natural way.) [\ref{exer:linrep:small-category-embeds-in-functor-category}, \ref{exer:homol:functor-category-into-abelian-is-abelian}]
+  $X \mapsto h_X := \Hom_{\categ{C}} (\mathord{-}, X)$ (cf.\
+  \S{}\ref{subsec:linrep:examples-of-functors}) defines a covariant
+  functor $\categ{C} \to
+  \categ{Set}^{\categ{C}^{\mathrm{op}}}$. (Define the action on
+  morphisms in the natural way.)
+  [\ref{exer:linrep:small-category-embeds-in-functor-category},
+  \ref{exer:homol:functor-category-into-abelian-is-abelian}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:yoneda-lemma}
   Let $\categ{C}$ be a category, $X$ an object of $\categ{C}$, and
   consider the contravariant functor
-  $h^X := \Hom_{\categ{C}} (\mathord{-}, X)$ (cf.\ \S{}\ref{subsec:linrep:examples-of-functors}). For every
+  $h^X := \Hom_{\categ{C}} (\mathord{-}, X)$ (cf.\
+  \S{}\ref{subsec:linrep:examples-of-functors}). For every
   contravariant functor $F : \categ{C} \to \categ{Set}$, prove that
   there is a bijection between the set of natural transformations
   $h^X \leadsto F$ and $F(X)$, defined as follows. The datum of a
@@ -817,19 +842,22 @@ also exact.
   $F(X)$. (Hint: Produce an inverse of the specified map. For every
   $f \in F(X)$ and every $\phi \in \Hom_{\categ{C}}(A, X)$, how do you
   construct an element of $F(A)$?) This result is called the
-  \emph{Yoneda lemma}.  [\ref{exer:linrep:small-category-embeds-in-functor-category}, \ref{exer:homol:yoneda-embedding-left-exact-reflects-exactness}]
+  \emph{Yoneda lemma}.
+  [\ref{exer:linrep:small-category-embeds-in-functor-category},
+  \ref{exer:homol:yoneda-embedding-left-exact-reflects-exactness}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:small-category-embeds-in-functor-category}
-  (Cf.\ \Cref{exer:linrep:yoneda-embedding-is-functor}.) Let $\categ{C}$ be a small category. A
-  contravariant functor $\categ{C} \to \categ{Set}$ is
-  \emph{representable} if it is naturally isomorphic to a functor
-  $h^X$ (cf.\ \S{}\ref{subsec:linrep:examples-of-functors}). In this case, $X$ `represents' the
-  functor. Prove that $\categ{C}$ is equivalent to the subcategory of
-  representable functors in
+  (Cf.\ \Cref{exer:linrep:yoneda-embedding-is-functor}.) Let
+  $\categ{C}$ be a small category. A contravariant functor
+  $\categ{C} \to \categ{Set}$ is \emph{representable} if it is
+  naturally isomorphic to a functor $h^X$ (cf.\
+  \S{}\ref{subsec:linrep:examples-of-functors}). In this case, $X$
+  `represents' the functor. Prove that $\categ{C}$ is equivalent to
+  the subcategory of representable functors in
   $\categ{Set}^{\categ{C}^{\mathrm{op}}}$. (Hint: Yoneda; see
-  \Cref{exer:linrep:yoneda-lemma}.) Thus, every (small) category is equivalent to a
-  subcategory of a functor category.
+  \Cref{exer:linrep:yoneda-lemma}.) Thus, every (small) category is
+  equivalent to a subcategory of a functor category.
 \end{exer}
 
 \begin{exer}{}{exer:linrep:left-adjoint-iff-representing-functor}
@@ -848,23 +876,26 @@ also exact.
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:construction-recovers-kernel}
-  Verify that the construction described in \Cref{linrep:exam:1.11} indeed
-  recovers the kernel of a homomorphism of $R$-modules, as
+  Verify that the construction described in \Cref{linrep:exam:1.11}
+  indeed recovers the kernel of a homomorphism of $R$-modules, as
   claimed. [\S{}\ref{subsec:linrep:limits-and-colimits}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:construction-is-inverse-limit}
-  Verify that the construction given in the proof of \Cref{linrep:1.13}
-  is an inverse limit, as claimed. [\S{}\ref{subsec:linrep:limits-and-colimits}]
+  Verify that the construction given in the proof of
+  \Cref{linrep:1.13} is an inverse limit, as
+  claimed. [\S{}\ref{subsec:linrep:limits-and-colimits}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:colimits-in-set-and-mod-directed-poset}
   Flesh out the sketch of the constructions of colimits in
-  $\categ{Set}$ and $R\text{-}\categ{Mod}$ given in \S{}\ref{subsec:linrep:limits-and-colimits}, for any
-  indexing poset.  In $\categ{Set}$, observe that the construction of
-  the colimit is simpler if the poset $\categ{I}$ is directed; that
-  is, if $\forall i, j \in \categ{I}$, there exists $k \in \categ{I}$
-  such that $i \leq k$, $j \leq k$. [\S{}\ref{subsec:linrep:limits-and-colimits}]
+  $\categ{Set}$ and $R\text{-}\categ{Mod}$ given in
+  \S{}\ref{subsec:linrep:limits-and-colimits}, for any indexing poset.
+  In $\categ{Set}$, observe that the construction of the colimit is
+  simpler if the poset $\categ{I}$ is directed; that is, if
+  $\forall i, j \in \categ{I}$, there exists $k \in \categ{I}$ such
+  that $i \leq k$, $j \leq
+  k$. [\S{}\ref{subsec:linrep:limits-and-colimits}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:i-adic-completion-exists}
@@ -881,25 +912,30 @@ also exact.
   \item Let $I = (x)$ in $R[x]$. Prove that the completion
     $\widehat{R[x]}_I$ is isomorphic to the power series ring $R[[x]]$
     defined in \S{}\ref{subsec:rings:polynomial-rings}.
-  \end{itemize} [\ref{exer:linrep:intersection-of-ideal-powers-krull}, \ref{exer:linrep:p-adic-integers-basics}]
+  \end{itemize} [\ref{exer:linrep:intersection-of-ideal-powers-krull},
+  \ref{exer:linrep:p-adic-integers-basics}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:intersection-of-ideal-powers-krull}
   Let $R$ be a commutative Noetherian ring, and let $I \subseteq R$ be
   an ideal. Then $I \cdot \bigcap_n I^n = \bigcap_n I^n$; the reader
-  will prove this in \Cref{exer:linrep:intersection-of-ideal-powers-via-artin-rees}. Assume this, and prove that
-  $\bigcap_n I^n$ equals the set of $r \in R$ such that $(1-a)r = 0$
-  for some $a \in I$. (Hint: One inclusion is elementary. For the
-  other, use the Nakayama lemma in the form of \Cref{exer:linalg:jm-eq-m-implies-1-plus-b-kills-m}. This
-  result is attributed to Krull.) For example, if $I$ is proper, then
+  will prove this in
+  \Cref{exer:linrep:intersection-of-ideal-powers-via-artin-rees}. Assume
+  this, and prove that $\bigcap_n I^n$ equals the set of $r \in R$
+  such that $(1-a)r = 0$ for some $a \in I$. (Hint: One inclusion is
+  elementary. For the other, use the Nakayama lemma in the form of
+  \Cref{exer:linalg:jm-eq-m-implies-1-plus-b-kills-m}. This result is
+  attributed to Krull.) For example, if $I$ is proper, then
   $\bigcap_n I^n = (0)$ if $R$ is an integral domain or if it is
   local.  In these cases, the natural map $R \to \hat{R}_I$ to the
-  $I$-adic completion is injective (cf.\ \Cref{exer:linrep:i-adic-completion-exists}).
+  $I$-adic completion is injective (cf.\
+  \Cref{exer:linrep:i-adic-completion-exists}).
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:p-adic-integers-basics}
-  An important example of the construction presented in \Cref{exer:linrep:i-adic-completion-exists}
-  is the ring $\Z_p$ of \emph{$p$-adic integers}: this is the limit
+  An important example of the construction presented in
+  \Cref{exer:linrep:i-adic-completion-exists} is the ring $\Z_p$ of
+  \emph{$p$-adic integers}: this is the limit
   $\varprojlim_r \Z/p^r\Z$, for a positive prime integer $p$. The
   field of fractions of $\Z_p$ is denoted $\Q_p$; elements of $\Q_p$
   are called \emph{$p$-adic numbers}.
@@ -919,9 +955,11 @@ also exact.
     $A \in \Z_p$ is invertible if and only if $a_0 \neq 0$.
   \item Prove that $\Z_p$ is a local domain, with maximal ideal
     generated by (the image in $\Z_p$ of) $p$.
-  \item Prove that $\Z_p$ is a DVR (cf.\ \Cref{exer:irred:discrete-valuation-ring-basics}).  (There is
-    an evident valuation on $\Q_p$.)
-  \end{itemize} [\S{}\ref{subsec:groups:cyclic-groups-and-modular-arithmetic}]
+  \item Prove that $\Z_p$ is a DVR (cf.\
+    \Cref{exer:irred:discrete-valuation-ring-basics}).  (There is an
+    evident valuation on $\Q_p$.)
+  \end{itemize}
+  [\S{}\ref{subsec:groups:cyclic-groups-and-modular-arithmetic}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:zhat-iso-to-end-of-q-mod-z}
@@ -937,11 +975,13 @@ also exact.
   $f(\tfrac{1}{n}) = \tfrac{g(n)}{n}$ for some integer $g(n)$, which
   may be chosen so that $0 \leq g(n) < n$.  Show that
   $g(m) \equiv g(n) \pmod{m}$ if $m \mid n$, and think about how
-  elements of $\hat{\Z}$ may be described.) [\ref{exer:linrep:zhat-universal-property-product-of-zp}]
+  elements of $\hat{\Z}$ may be described.)
+  [\ref{exer:linrep:zhat-universal-property-product-of-zp}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:zhat-universal-property-product-of-zp}
-  Let $\hat{\Z}$ be as in \Cref{exer:linrep:zhat-iso-to-end-of-q-mod-z}.
+  Let $\hat{\Z}$ be as in
+  \Cref{exer:linrep:zhat-iso-to-end-of-q-mod-z}.
   \begin{itemize}
   \item If $R$ is a commutative ring endowed with homomorphisms
     $R \to \Z/p^r\Z$ for all primes $p$ and all $r$, compatible with
@@ -979,7 +1019,9 @@ also exact.
   is exact in $S\text{-}\categ{Mod}$ whenever
   $A \xrightarrow{\phi} B \xrightarrow{\psi} C$ is exact in
   $R\text{-}\categ{Mod}$. Deduce that an exact functor sends exact
-  complexes to exact complexes. [\S{}\ref{subsec:linrep:comparing-functors}, \ref{exer:homol:exact-functors-commute-with-cohomology}]
+  complexes to exact
+  complexes. [\S{}\ref{subsec:linrep:comparing-functors},
+  \ref{exer:homol:exact-functors-commute-with-cohomology}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:faithfully-exact-iff-kills-no-nonzero-module}
@@ -997,8 +1039,9 @@ also exact.
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:localization-is-exact-preserves-homology}
-  Prove that localization (\Cref{exer:linrep:localization-is-a-functor}) is an exact functor. In fact,
-  prove that localization `preserves homology': if
+  Prove that localization
+  (\Cref{exer:linrep:localization-is-a-functor}) is an exact
+  functor. In fact, prove that localization `preserves homology': if
   \[
     M_\bullet : \cdots \to M_{i+1} \xrightarrow{d_{i+1}} M_i
     \xrightarrow{d_i} M_{i-1} \to \cdots
@@ -1011,7 +1054,9 @@ also exact.
     S^{-1}M_\bullet : \cdots \to S^{-1}M_{i+1}
     \xrightarrow{S^{-1}d_{i+1}} S^{-1}M_i \xrightarrow{S^{-1}d_i}
     S^{-1}M_{i-1} \to \cdots.
-  \] [\ref{exer:linrep:localization-is-flat}, \ref{exer:linrep:flatness-is-local-property}, \ref{exer:linrep:localization-commutes-with-tor}]
+  \] [\ref{exer:linrep:localization-is-flat},
+  \ref{exer:linrep:flatness-is-local-property},
+  \ref{exer:linrep:localization-commutes-with-tor}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:localization-is-faithfully-exact}
@@ -1034,7 +1079,8 @@ also exact.
 \begin{exer}{$\lnot$}{exer:linrep:right-adjoint-left-exact-left-adjoint-right-exact}
   Let $R$, $S$ be rings. Prove that right-adjoint functors
   $R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ are left-exact and
-  left-adjoint functors are right-exact. [\S{}\ref{subsec:linrep:comparing-functors}]
+  left-adjoint functors are
+  right-exact. [\S{}\ref{subsec:linrep:comparing-functors}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:center-of-mod-category-iso-to-center-of-ring}
@@ -1044,7 +1090,8 @@ also exact.
   $\mathrm{Id} \leadsto \mathrm{Id}$ is a commutative ring under
   composition. This is called the \emph{center} of $\categ{C}$. If $R$
   is a ring, prove that the center of $R\text{-}\categ{Mod}$ is
-  isomorphic to the center of $R$. [\ref{exer:linrep:morita-equivalence-and-center}]
+  isomorphic to the center of
+  $R$. [\ref{exer:linrep:morita-equivalence-and-center}]
 \end{exer}
 
 \section{Tensor products and the Tor functors}
@@ -1057,32 +1104,33 @@ noncommutative case without difficulty, but a bit of structure is lost
 in that case. For example, if $R$ is not commutative, then in the
 category $R\text{-}\categ{Mod}$ of left-$R$-modules the Hom-sets
 $\Hom_{R\text{-}\mathrm{Mod}} (M, N)$ are `only' abelian groups (cf.\
-the end of \S{}\ref{subsec:rings:the-category-r-mod}). A tensor product $M \otimes_R N$ can only be
-defined if $M$ is a right-$R$-module and $N$ is a left-$R$-module (in
-a sense, the two module structures annihilate each other, and what is
-left is an abelian group). By contrast, in the commutative case we
-will be able to define $M \otimes_R N$ simply as an $R$-module. In
-general, the theory goes through as in the commutative case if the
-modules carry compatible left- and right-module structures, except in
-questions such as the commutativity of tensors, where it would be
-unreasonable to expect the commutativity of $R$ to have no
-bearing. All in all, the commutative case is a little leaner, and (I
-believe) it suffices in terms of conveying the basic intuition on the
-general features of the theory.  Thus, $R$ will denote a fixed
-commutative ring, unless stated otherwise.
+the end of \S{}\ref{subsec:rings:the-category-r-mod}). A tensor
+product $M \otimes_R N$ can only be defined if $M$ is a
+right-$R$-module and $N$ is a left-$R$-module (in a sense, the two
+module structures annihilate each other, and what is left is an
+abelian group). By contrast, in the commutative case we will be able
+to define $M \otimes_R N$ simply as an $R$-module. In general, the
+theory goes through as in the commutative case if the modules carry
+compatible left- and right-module structures, except in questions such
+as the commutativity of tensors, where it would be unreasonable to
+expect the commutativity of $R$ to have no bearing. All in all, the
+commutative case is a little leaner, and (I believe) it suffices in
+terms of conveying the basic intuition on the general features of the
+theory.  Thus, $R$ will denote a fixed commutative ring, unless stated
+otherwise.
 
 \subsection{Bilinear maps and the definition of tensor product}
 \label{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product}
 If $M$ and $N$ are $R$-modules, we observed in the distant past
-(\S{}\ref{subsec:rings:products-and-coproducts}) that $M \oplus N$ serves as both the product and
-coproduct of $M$ and $N$: a situation in which a limit coincides with
-a colimit. As a set, $M \oplus N$ is just $M \times N$; the $R$-module
-structure on $M \oplus N$ is defined by componentwise addition and
-multiplication by scalars. An $R$-module homomorphism
-$M \oplus N \to P$ is determined by $R$-module homomorphisms $M \to P$
-and $N \to P$ (this is what makes $M \oplus N$ into a coproduct). But
-there is another way to map $M \times N$ to an $R$-module $P$,
-compatibly with the $R$-module structures.
+(\S{}\ref{subsec:rings:products-and-coproducts}) that $M \oplus N$
+serves as both the product and coproduct of $M$ and $N$: a situation
+in which a limit coincides with a colimit. As a set, $M \oplus N$ is
+just $M \times N$; the $R$-module structure on $M \oplus N$ is defined
+by componentwise addition and multiplication by scalars. An $R$-module
+homomorphism $M \oplus N \to P$ is determined by $R$-module
+homomorphisms $M \to P$ and $N \to P$ (this is what makes $M \oplus N$
+into a coproduct). But there is another way to map $M \times N$ to an
+$R$-module $P$, compatibly with the $R$-module structures.
 \begin{defn}{}{linrep:2.1}
   Let $M$, $N$, $P$ be $R$-modules. A function
   $\phi : M \times N \to P$ is \emph{$R$-bilinear} if
@@ -1122,8 +1170,8 @@ the subscript if the base ring is understood, but I do not recommend
 this practice. The prescription given above expresses the tensor
 product as the solution to a universal problem; therefore we know
 right away that it will be unique up to isomorphism, if it exists
-(\Cref{prop:prelims:initial-final-unique} once more), and we could proceed to study it by
-systematically using the universal property.
+(\Cref{prop:prelims:initial-final-unique} once more), and we could
+proceed to study it by systematically using the universal property.
 \begin{exam}{}{linrep:exam:2.2}
   For all $R$-modules $N$, $R \otimes_R N \cong N$. Indeed, every
   $R$-bilinear $R \times N \to P$ factors through $N$ (as is
@@ -1152,14 +1200,15 @@ $M \otimes_R N$ exists to begin with. This requires a bit of work.
   Given $R$-modules $M$ and $N$, we construct `by hand' a module
   satisfying the universal requirement. Let
   $F_R(M \times N) = R^{\oplus(M \times N)}$ be the free $R$-module on
-  $M \times N$ (\S{}\ref{subsec:rings:free-modules-and-free-algebras}). This module comes equipped with a
-  set-map $j : M \times N \to F_R(M \times N)$, universal with respect
-  to all set-maps from $M \times N$ to any $R$-module $P$; the main
-  task is to make this into an $R$-bilinear map. For example, we have
-  to identify elements in $F_R(M \times N)$ of the form
-  $j(m, n_1 + n_2)$ with elements $j(m, n_1) + j(m, n_2)$, etc. Thus,
-  let $K$ be the $R$-submodule of $F_R(M \times N)$ generated by all
-  elements
+  $M \times N$
+  (\S{}\ref{subsec:rings:free-modules-and-free-algebras}). This module
+  comes equipped with a set-map $j : M \times N \to F_R(M \times N)$,
+  universal with respect to all set-maps from $M \times N$ to any
+  $R$-module $P$; the main task is to make this into an $R$-bilinear
+  map. For example, we have to identify elements in $F_R(M \times N)$
+  of the form $j(m, n_1 + n_2)$ with elements $j(m, n_1) + j(m, n_2)$,
+  etc. Thus, let $K$ be the $R$-submodule of $F_R(M \times N)$
+  generated by all elements
   \[
     j(m, r_1 n_1 + r_2 n_2) - r_1 j(m, n_1) - r_2 j(m, n_2)
   \]
@@ -1219,8 +1268,9 @@ $\sum_i r_i(m_i \otimes n_i) = \sum_i (r_i m_i) \otimes n_i$.
 Elements of the form $m \otimes n$ (needing only one summand) are
 called \emph{pure tensors}. Dear reader, please remember that pure
 tensors are special: usually, not every element of the tensor product
-is a pure tensor. See \Cref{exer:linrep:pure-tensor-if-n-cyclic} for one situation in which every
-tensor happens to be pure, and appreciate how special that is.
+is a pure tensor. See \Cref{exer:linrep:pure-tensor-if-n-cyclic} for
+one situation in which every tensor happens to be pure, and appreciate
+how special that is.
 
 Pure tensors are nevertheless very useful, as a set of generators for
 the tensor product. For example, if two homomorphisms
@@ -1233,9 +1283,9 @@ are reduced to simple verifications for pure tensors.
 
 The tensor product $\otimes_R$ is left-adjoint to Hom. Once we parse
 what this rough statement means, it will be a near triviality; but as
-we have found out in \S{}\ref{subsec:linrep:comparing-functors}, the mere fact that $\otimes_R$ is
-left-adjoint to any functor is enough to draw interesting conclusions
-about it.
+we have found out in \S{}\ref{subsec:linrep:comparing-functors}, the
+mere fact that $\otimes_R$ is left-adjoint to any functor is enough to
+draw interesting conclusions about it.
 
 First, we note that every $R$-module $N$ defines, via $\otimes_R$, a
 new covariant functor $R\text{-}\categ{Mod} \to R\text{-}\categ{Mod}$,
@@ -1253,7 +1303,8 @@ $m \otimes n$ to $\alpha(\beta(m)) \otimes n$, so they must agree on
 all tensors.
 
 The adjunction statement compares this functor with the covariant
-functor $P \mapsto \Hom_R(N, P)$; cf.\ \S{}\ref{subsec:linrep:examples-of-functors}. We have defined
+functor $P \mapsto \Hom_R(N, P)$; cf.\
+\S{}\ref{subsec:linrep:examples-of-functors}. We have defined
 $M \otimes_R N$ so that giving an $R$-linear map $M \otimes_R N \to P$
 to an $R$-module $P$ is `the same as' giving an $R$-bilinear map
 $M \times N \to P$. Now recall the definition of $R$-bilinear map:
@@ -1281,27 +1332,29 @@ natural:
   map $\tilde\phi : M \otimes_R N \to P$. Therefore $\alpha$
   determines a well-defined element
   $\tilde\phi \in \Hom_R(M \otimes_R N, P)$.  The reader will check
-  (\Cref{exer:linrep:complete-proof-of-adjunction}) that the map $\alpha \mapsto \tilde\phi$ is
-  $R$-linear and construct an inverse.
+  (\Cref{exer:linrep:complete-proof-of-adjunction}) that the map
+  $\alpha \mapsto \tilde\phi$ is $R$-linear and construct an inverse.
 \end{proof}
 \begin{coro}{}{linrep:2.5}
   For every $R$-module $N$, the functor $\otimes_R N$ is left-adjoint
   to the functor $\Hom_R(N, \mathord{-})$.
 \end{coro}
 \begin{proof}
-  The claim is that the isomorphism found in \Cref{linrep:2.4} is natural in
-  the sense hinted at, but not fully explained, in \S{}\ref{subsec:linrep:comparing-functors}; the
-  interested reader should have no problems checking this naturality.
+  The claim is that the isomorphism found in \Cref{linrep:2.4} is
+  natural in the sense hinted at, but not fully explained, in
+  \S{}\ref{subsec:linrep:comparing-functors}; the interested reader
+  should have no problems checking this naturality.
 \end{proof}
-By \Cref{linrep:1.17} (or rather its co-version), we can conclude that for
-each $R$-module $N$, the functor $\otimes_R N$ preserves colimits, and
-so does $M \otimes_R \mathord{-}$, by the basic commutativity of
-tensor products verified in \S{}\ref{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product}. In particular, and this is good
-material for another Pavlovian reaction, $M \otimes_R \mathord{-}$ and
-$\mathord{-} \otimes_R N$ are right-exact functors (cf.\
-\Cref{linrep:exam:1.18}). These observations have several consequences, which
-make `computations' with tensor products more reasonable. Here is a
-sample:
+By \Cref{linrep:1.17} (or rather its co-version), we can conclude that
+for each $R$-module $N$, the functor $\otimes_R N$ preserves colimits,
+and so does $M \otimes_R \mathord{-}$, by the basic commutativity of
+tensor products verified in
+\S{}\ref{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product}. In
+particular, and this is good material for another Pavlovian reaction,
+$M \otimes_R \mathord{-}$ and $\mathord{-} \otimes_R N$ are
+right-exact functors (cf.\ \Cref{linrep:exam:1.18}). These
+observations have several consequences, which make `computations' with
+tensor products more reasonable. Here is a sample:
 \begin{coro}{}{linrep:2.6}
   For all $R$-modules $M_1$, $M_2$, $N$,
   \[
@@ -1329,8 +1382,9 @@ This computes all tensors for free $R$-modules:
 
 Indeed, `distributing' the direct sum identifies the left-hand side
 with the direct sum $(R^{\oplus A})^{\oplus B}$, which is isomorphic
-to the right-hand side (\Cref{exer:rings:free-module-product-sets}). For finitely generated free
-modules, this simply says that
+to the right-hand side
+(\Cref{exer:rings:free-module-product-sets}). For finitely generated
+free modules, this simply says that
 $R^{\oplus m} \otimes R^{\oplus n} \cong R^{\oplus mn}$.
 
 Note that if $e_1, \dots, e_m$ generate $M$ and $f_1, \dots, f_n$
@@ -1367,8 +1421,9 @@ $(R/I) \otimes_R N$, as needed.
   \]
 \end{coro}
 
-This follows immediately from \Cref{linrep:2.8} and the `third isomorphism
-theorem', \Cref{prop:rings:third-iso-modules}. Indeed, $I(R/J) = (I+J)/J$.
+This follows immediately from \Cref{linrep:2.8} and the `third
+isomorphism theorem', \Cref{prop:rings:third-iso-modules}. Indeed,
+$I(R/J) = (I+J)/J$.
 
 \begin{exam}{}{linrep:exam:2.10}
   $\Z/m\Z \otimes_{\Z} \Z/n\Z \cong \Z/\gcd(m,n)\Z$.  Indeed,
@@ -1382,16 +1437,17 @@ $\otimes$: tensor products may be used to transfer constructions
 involving $R$ (such as quotienting by an ideal $I$) to constructions
 involving $R$-modules (such as quotienting by a corresponding
 submodule). There are several instances of this operation; the reader
-will take a look at localization in \Cref{exer:linrep:localization-is-tensor-with-localized-ring}.
+will take a look at localization in
+\Cref{exer:linrep:localization-is-tensor-with-localized-ring}.
 
 \subsection{Exactness properties of tensor; flatness}
 \label{subsec:linrep:exactness-properties-of-tensor-flatness}
 It is important to remember that the tensor product is not an exact
 functor: left-exactness may very well fail. This can already be
 observed in the sequence appearing in the discussion following
-\Cref{linrep:2.8}: for an ideal $I$ of $R$ and an $R$-module $N$, the map
-$I \otimes_R N \to N$ induced by the inclusion $I \subseteq R$ after
-tensoring by $N$ may not be injective.
+\Cref{linrep:2.8}: for an ideal $I$ of $R$ and an $R$-module $N$, the
+map $I \otimes_R N \to N$ induced by the inclusion $I \subseteq R$
+after tensoring by $N$ may not be injective.
 
 \begin{exam}{}{linrep:exam:2.11}
   Multiplication by $2$ gives an inclusion
@@ -1410,8 +1466,8 @@ identified (via \Cref{linrep:2.6}) with the inclusion
 $M_1^{\oplus A} \subseteq M_2^{\oplus A}$.
 
 \begin{exam}{}{linrep:exam:2.12}
-  Since vector spaces are free (\Cref{linalg:1.7}), tensoring is
-  exact in $k\text{-}\categ{Vect}$: if
+  Since vector spaces are free (\Cref{linalg:1.7}), tensoring is exact
+  in $k\text{-}\categ{Vect}$: if
   \[
     0 \to V_1 \to V_2 \to V_3 \to 0
   \]
@@ -1440,18 +1496,20 @@ geometry, `flatness' is the condition expressing the fact that the
 objects in a family vary `continuously', preserving certain key
 invariants.
 \begin{exam}{}{linrep:exam:2.14}
-  Consider the affine algebraic set $V(xy)$ in the plane
-  $\A^2$ (over a fixed field $k$) and the `projection on the
-  first coordinate' $V(xy) \to \A^1$, $(x,y) \mapsto x$. In
-  terms of coordinate rings (cf.\ \S{}\ref{subsec:fields:a-little-affine-algebraic-geometry}), this map corresponds
-  to the homomorphism of $k$-algebras $k[x] \to k[x,y]/(xy)$ defined
-  by mapping $x$ to the coset $x + (xy)$ (this will be completely
-  clear to the reader who has worked out \Cref{exer:fields:poly-fns-iso-to-coordinate-ring}!). This
+  Consider the affine algebraic set $V(xy)$ in the plane $\A^2$ (over
+  a fixed field $k$) and the `projection on the first coordinate'
+  $V(xy) \to \A^1$, $(x,y) \mapsto x$. In terms of coordinate rings
+  (cf.\ \S{}\ref{subsec:fields:a-little-affine-algebraic-geometry}),
+  this map corresponds to the homomorphism of $k$-algebras
+  $k[x] \to k[x,y]/(xy)$ defined by mapping $x$ to the coset
+  $x + (xy)$ (this will be completely clear to the reader who has
+  worked out
+  \Cref{exer:fields:poly-fns-iso-to-coordinate-ring}!). This
   homomorphism defines a $k[x]$-module structure on $k[x,y]/(xy)$, and
   we can wonder whether the latter is flat in the sense of
-  \Cref{linrep:2.13}. From the geometric point of view, clearly something
-  `not flat' is going on over the point $x = 0$, so we consider the
-  inclusion of the ideal $(x)$ in $k[x]$:
+  \Cref{linrep:2.13}. From the geometric point of view, clearly
+  something `not flat' is going on over the point $x = 0$, so we
+  consider the inclusion of the ideal $(x)$ in $k[x]$:
   \[
     k[x] \xrightarrow{\cdot x} k[x].
   \]
@@ -1470,33 +1528,32 @@ invariants.
 The `failure of exactness' of the functor $\mathord{-} \otimes_R N$ is
 measured by another functor
 $R\text{-}\categ{Mod} \to R\text{-}\categ{Mod}$, called
-$\Tor^R_1(\mathord{-}, N)$: if $N$ is flat (for example, if it
-is free), then $\Tor^R_1(M, N) = 0$ for all modules $M$. In
-fact (amazingly) if
+$\Tor^R_1(\mathord{-}, N)$: if $N$ is flat (for example, if it is
+free), then $\Tor^R_1(M, N) = 0$ for all modules $M$. In fact
+(amazingly) if
 \[
   0 \to A \to B \to C \to 0
 \]
 is an exact sequence of $R$-modules, one obtains a new exact sequence
 after tensoring by any $N$:
 \[
-  \Tor^R_1(C, N) \to A \otimes_R N \to B \otimes_R N \to C
-  \otimes_R N \to 0,
+  \Tor^R_1(C, N) \to A \otimes_R N \to B \otimes_R N \to C \otimes_R N
+  \to 0,
 \]
-so if $\Tor^R_1(C, N) = 0$, then the module on the left
-vanishes; thus every short exact sequence ending in $C$ remains exact
-after tensoring by $N$ in this case. In fact (astonishingly) for all
-$N$ one can continue this sequence with more Tor-modules, obtaining a
-longer exact complex:
+so if $\Tor^R_1(C, N) = 0$, then the module on the left vanishes; thus
+every short exact sequence ending in $C$ remains exact after tensoring
+by $N$ in this case. In fact (astonishingly) for all $N$ one can
+continue this sequence with more Tor-modules, obtaining a longer exact
+complex:
 \[
-  \Tor^R_1(A, N) \to \Tor^R_1(B, N) \to
-  \Tor^R_1(C, N) \to A \otimes_R N \to B \otimes_R N \to C
-  \otimes_R N \to 0.
+  \Tor^R_1(A, N) \to \Tor^R_1(B, N) \to \Tor^R_1(C, N) \to A \otimes_R
+  N \to B \otimes_R N \to C \otimes_R N \to 0.
 \]
 This is not the end of the story: the complex may be continued even
 further by invoking new functors $\Tor^R_2(\mathord{-}, N)$,
-$\Tor^R_3(\mathord{-}, N)$, etc. These are the derived
-functors of tensor. To `compute' these functors, one may apply the
-following procedure: given an $R$-module $M$, find a free resolution
+$\Tor^R_3(\mathord{-}, N)$, etc. These are the derived functors of
+tensor. To `compute' these functors, one may apply the following
+procedure: given an $R$-module $M$, find a free resolution
 (\S{}\ref{subsec:linalg:finitely-presented-modules-and-free-resolutions})
 \[
   \cdots \to R^{\oplus S_2} \to R^{\oplus S_1} \to R^{\oplus S_0} \to
@@ -1510,42 +1567,43 @@ $M_\bullet \otimes_R N$:
 \]
 (recall again that tensor commutes with colimits, hence with direct
 sums, therefore $R^{\oplus m} \otimes_R N \cong N^{\oplus m}$); then
-take the homology of this complex (cf.\ \S{}\ref{subsec:rings:homology-and-the-snake-lemma}). Astoundingly,
+take the homology of this complex (cf.\
+\S{}\ref{subsec:rings:homology-and-the-snake-lemma}). Astoundingly,
 this will not depend (up to isomorphism) on the chosen free
 resolution, so we can define
 \[
   \Tor^R_i(M, N) := H_i(M_\bullet \otimes N).
 \]
 For example, according to this definition
-$\Tor^R_0(M, N) \cong M \otimes_R N$ (\Cref{exer:linrep:tor0-iso-to-tensor-product}), and
-$\Tor^R_i(M, N) = 0$ for all $i > 0$ and all $M$ if $N$ is
-flat (because then tensoring by $N$ is an exact functor, so tensoring
-the resolution of $M$ returns an exact sequence, thus with no
+$\Tor^R_0(M, N) \cong M \otimes_R N$
+(\Cref{exer:linrep:tor0-iso-to-tensor-product}), and
+$\Tor^R_i(M, N) = 0$ for all $i > 0$ and all $M$ if $N$ is flat
+(because then tensoring by $N$ is an exact functor, so tensoring the
+resolution of $M$ returns an exact sequence, thus with no
 homology). In fact, this proves a remarkable property of the Tor
 functors: if $\Tor^R_1(M, N) = 0$ for all $M$, then
-$\Tor^R_i(M, N) = 0$ for all $i > 0$ for all modules $M$.
-Indeed, $N$ is then flat.  At this point you may feel that something
-is a little out of balance: why focus on the functor
-$\mathord{-} \otimes_R N$, rather than $M \otimes_R \mathord{-}$?
-Since $M \otimes_R N$ is canonically isomorphic to $N \otimes_R M$ (in
-the commutative case; cf.\ \Cref{linrep:exam:2.2}), we could expect the same to
-apply to every $\Tor^R_i$: $\Tor^R_i(M, N)$ ought to
-be canonically isomorphic to $\Tor^R_i(N, M)$ for all
-$i$. Equivalently, we should be able to compute
-$\Tor^R_i(M, N)$ as the homology of $M \otimes_R N_\bullet$,
+$\Tor^R_i(M, N) = 0$ for all $i > 0$ for all modules $M$.  Indeed, $N$
+is then flat.  At this point you may feel that something is a little
+out of balance: why focus on the functor $\mathord{-} \otimes_R N$,
+rather than $M \otimes_R \mathord{-}$?  Since $M \otimes_R N$ is
+canonically isomorphic to $N \otimes_R M$ (in the commutative case;
+cf.\ \Cref{linrep:exam:2.2}), we could expect the same to apply to
+every $\Tor^R_i$: $\Tor^R_i(M, N)$ ought to be canonically isomorphic
+to $\Tor^R_i(N, M)$ for all $i$. Equivalently, we should be able to
+compute $\Tor^R_i(M, N)$ as the homology of $M \otimes_R N_\bullet$,
 where $N_\bullet$ is a free resolution of $N$.  This is indeed the
 case.
 
-In due time (\S{}\ref{sec:homol:derived-functors} and 8) we will prove this and all the other
-wonderful facts I have stated in this subsection. For now, I am asking
-the reader to believe that the Tor functors can be defined as I have
-indicated, and the facts reviewed here will suffice for simple
-computations (see for example Exercises~2.15 and 2.17) and
-applications.  In fact, we know enough about finitely generated
-modules over PIDs to get a preliminary sense of what is involved in
-proving such general facts. Recall that we have been able to establish
-that every finitely generated module $M$ over a PID $R$ has a free
-resolution of length 1:
+In due time (\S{}\ref{sec:homol:derived-functors} and 8) we will prove
+this and all the other wonderful facts I have stated in this
+subsection. For now, I am asking the reader to believe that the Tor
+functors can be defined as I have indicated, and the facts reviewed
+here will suffice for simple computations (see for example
+Exercises~2.15 and 2.17) and applications.  In fact, we know enough
+about finitely generated modules over PIDs to get a preliminary sense
+of what is involved in proving such general facts. Recall that we have
+been able to establish that every finitely generated module $M$ over a
+PID $R$ has a free resolution of length 1:
 \[
   0 \to R^{\oplus m_1} \to R^{\oplus m_0} \to M \to 0.
 \]
@@ -1568,9 +1626,9 @@ the columns:
       & & 0 & & 0 & & 0
   \end{array}
 \]
-(This will be proven in gory detail in \S{}\ref{sec:homol:derived-functors}.) Tensor the two
-`free' rows by $N$; they remain exact (tensoring commutes with direct
-sums):
+(This will be proven in gory detail in
+\S{}\ref{sec:homol:derived-functors}.) Tensor the two `free' rows by
+$N$; they remain exact (tensoring commutes with direct sums):
 \[
   \begin{array}{ccccccc}
     0 & \to & N^{\oplus a_1} & \to & N^{\oplus b_1} & \to &
@@ -1584,8 +1642,9 @@ sums):
 Now the columns (preceded and followed by $0$) are precisely the
 complexes $A_\bullet \otimes_R N$, $B_\bullet \otimes_R N$,
 $C_\bullet \otimes_R N$ whose homology `computes' the Tor modules.
-Applying the snake lemma (\Cref{lem:rings:snake-lemma}; cf.\ \Cref{rem:rings:snake-lemma-homology-restatement}) gives
-the exact sequence
+Applying the snake lemma (\Cref{lem:rings:snake-lemma}; cf.\
+\Cref{rem:rings:snake-lemma-homology-restatement}) gives the exact
+sequence
 \[
   H_1(A_\bullet \otimes_R N) \to H_1(B_\bullet \otimes_R N) \to
   H_1(C_\bullet \otimes_R N) \xrightarrow{\delta} H_0(A_\bullet
@@ -1595,23 +1654,25 @@ the exact sequence
 
 which is precisely the sequence of Tor modules conjured up above,
 \[
-  \Tor^R_1(A, N) \to \Tor^R_1(B, N) \to
-  \Tor^R_1(C, N) \xrightarrow{\delta} A \otimes_R N \to B
-  \otimes_R N \to C \otimes_R N \to 0,
+  \Tor^R_1(A, N) \to \Tor^R_1(B, N) \to \Tor^R_1(C, N)
+  \xrightarrow{\delta} A \otimes_R N \to B \otimes_R N \to C \otimes_R
+  N \to 0,
 \]
 with a $0$ on the left for good measure (due to the fact that
-$\Tor^R_2$ vanishes if $R$ is a PID; cf.\ \Cref{exer:linrep:tor-vanishes-above-degree-1-over-pid}).
+$\Tor^R_2$ vanishes if $R$ is a PID; cf.\
+\Cref{exer:linrep:tor-vanishes-above-degree-1-over-pid}).
 
-Note that $\Tor^k_i$ vanishes for $i > 0$ if $k$ is a field,
-as vector spaces are flat, and $\Tor^R_i$ vanishes for $i > 1$
-if $R$ is a PID (\Cref{exer:linrep:tor-vanishes-above-degree-1-over-pid}). These facts are not surprising, in
-view of the procedure described above for computing Tor and of the
-considerations at the end of \S{}\ref{subsec:linalg:pids-and-resolutions}: a bound on the length of free
-resolutions for modules over a ring $R$ will imply a bound on nonzero
-Tor's. For particularly nice rings (such as the rings corresponding to
-`smooth' points in algebraic geometry) this bound agrees with the
-Krull dimension; but precise results of this sort are beyond the scope
-of this book.
+Note that $\Tor^k_i$ vanishes for $i > 0$ if $k$ is a field, as vector
+spaces are flat, and $\Tor^R_i$ vanishes for $i > 1$ if $R$ is a PID
+(\Cref{exer:linrep:tor-vanishes-above-degree-1-over-pid}). These facts
+are not surprising, in view of the procedure described above for
+computing Tor and of the considerations at the end of
+\S{}\ref{subsec:linalg:pids-and-resolutions}: a bound on the length of
+free resolutions for modules over a ring $R$ will imply a bound on
+nonzero Tor's. For particularly nice rings (such as the rings
+corresponding to `smooth' points in algebraic geometry) this bound
+agrees with the Krull dimension; but precise results of this sort are
+beyond the scope of this book.
 
 \subsection*{Exercises}
 
@@ -1625,7 +1686,8 @@ $R$ denotes a fixed commutative ring.
 \begin{exer}{$?$}{exer:linrep:coprime-cyclic-tensor-is-zero-by-hand}
   Prove `by hand' (that is, without appealing to the right-exactness
   of tensor) that $\Z/n\Z \otimes_{\Z} \Z/m\Z \cong 0$ if $m$, $n$ are
-  relatively prime integers. [\S{}\ref{subsec:linrep:adjunction-with-hom-and-explicit-computations}]
+  relatively prime
+  integers. [\S{}\ref{subsec:linrep:adjunction-with-hom-and-explicit-computations}]
 \end{exer}
 \begin{exer}{}{exer:linrep:polynomial-ring-tensor-product}
   Prove that
@@ -1661,7 +1723,10 @@ $R$ denotes a fixed commutative ring.
   $S^{-1}M \cong M \otimes_R S^{-1}R$ as $R$-modules. (Use the
   universal property of the tensor product.) Through this isomorphism,
   $M \otimes_R S^{-1}R$ inherits an $S^{-1}R$-module structure.
-  [\S{}\ref{subsec:linrep:adjunction-with-hom-and-explicit-computations}, \ref{exer:linrep:dim-of-m-tensor-k-equals-rank}, \ref{exer:linrep:localization-is-flat}, \ref{exer:linrep:reprove-localization-tensor-via-associativity}]
+  [\S{}\ref{subsec:linrep:adjunction-with-hom-and-explicit-computations},
+  \ref{exer:linrep:dim-of-m-tensor-k-equals-rank},
+  \ref{exer:linrep:localization-is-flat},
+  \ref{exer:linrep:reprove-localization-tensor-via-associativity}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:linrep:tensor-and-localization-commute}
   (Cf.\ Exercises~V.4.7 and V.4.8.) Let $S$ be a multiplicative subset
@@ -1673,22 +1738,24 @@ $R$ denotes a fixed commutative ring.
     $(S^{-1}A) \otimes_R M \cong S^{-1}(A \otimes_R M)$.
   \end{itemize}
   (Both can be done `by hand', by analyzing the construction in
-  \Cref{linrep:2.3}. Both isomorphisms will be easy consequences of the
-  associativity of tensor products; cf.\ \Cref{exer:linrep:associativity-of-tensor-product}.) [\ref{exer:linrep:flatness-is-local-property}, \ref{exer:linrep:reprove-localization-tensor-via-associativity}]
+  \Cref{linrep:2.3}. Both isomorphisms will be easy consequences of
+  the associativity of tensor products; cf.\
+  \Cref{exer:linrep:associativity-of-tensor-product}.)
+  [\ref{exer:linrep:flatness-is-local-property},
+  \ref{exer:linrep:reprove-localization-tensor-via-associativity}]
 \end{exer}
 \begin{exer}{}{exer:linrep:changing-base-ring-in-tensor}
   Changing the base ring in a tensor may or may not make a difference:
   \begin{itemize}
   \item Prove that $\Q \otimes_{\Z} \Q \cong \Q \otimes_{\Q} \Q$.
-  \item Prove that
-    $\C \otimes_{\R} \C \cong \C
-    \otimes_{\C} \C$.
+  \item Prove that $\C \otimes_{\R} \C \cong \C \otimes_{\C} \C$.
   \end{itemize}
 \end{exer}
 \begin{exer}{}{exer:linrep:dim-of-m-tensor-k-equals-rank}
   Let $R$ be an integral domain, with field of fractions $K$, and let
   $M$ be a finitely generated $R$-module. The tensor product
-  $V := M \otimes_R K$ is a $K$-vector space (\Cref{exer:linrep:localization-is-tensor-with-localized-ring}). Prove
+  $V := M \otimes_R K$ is a $K$-vector space
+  (\Cref{exer:linrep:localization-is-tensor-with-localized-ring}). Prove
   that $\dim_K V$ equals the rank of $M$ as an $R$-module, in the
   sense of \Cref{linalg:5.5}.
 \end{exer}
@@ -1707,43 +1774,48 @@ $R$ denotes a fixed commutative ring.
   \item Prove that $k \subseteq F$ is Galois if and only if
     $F \otimes_k F$ is isomorphic to $F^{[F:k]}$ as a ring.
   \end{itemize}
-  (Use \Cref{linrep:2.8} to `compute' the tensor. The CRT from \S{}\ref{subsec:irred:chinese-remainder-theorem}
-  will likely be helpful.)
+  (Use \Cref{linrep:2.8} to `compute' the tensor. The CRT from
+  \S{}\ref{subsec:irred:chinese-remainder-theorem} will likely be
+  helpful.)
 \end{exer}
 \begin{exer}{$?$}{exer:linrep:complete-proof-of-adjunction}
-  Complete the proof of \Cref{linrep:2.4}. [\S{}\ref{subsec:linrep:adjunction-with-hom-and-explicit-computations}]
+  Complete the proof of
+  \Cref{linrep:2.4}. [\S{}\ref{subsec:linrep:adjunction-with-hom-and-explicit-computations}]
 \end{exer}
 \begin{exer}{}{exer:linrep:localization-is-flat}
-  Let $S$ be a multiplicative subset of $R$ (cf.\ \Cref{exer:irred:localization-construction}).
-  Prove that $S^{-1}R$ is flat over $R$. (Hint: Exercises~2.5 and
-  1.25.)
+  Let $S$ be a multiplicative subset of $R$ (cf.\
+  \Cref{exer:irred:localization-construction}).  Prove that $S^{-1}R$
+  is flat over $R$. (Hint: Exercises~2.5 and 1.25.)
 \end{exer}
 \begin{exer}{}{exer:linrep:direct-sums-of-flat-are-flat}
   Prove that direct sums of flat modules are flat.
 \end{exer}
 \begin{exer}{$?$}{exer:linrep:tor0-iso-to-tensor-product}
-  Prove that, according to the definition given in \S{}\ref{subsec:linrep:the-tor-functors},
-  $\Tor^R_0(M, N)$ is isomorphic to $M \otimes_R N$.
+  Prove that, according to the definition given in
+  \S{}\ref{subsec:linrep:the-tor-functors}, $\Tor^R_0(M, N)$ is
+  isomorphic to $M \otimes_R N$.
   [\S{}\ref{subsec:linrep:the-tor-functors}]
 \end{exer}
 \begin{exer}{$?$}{exer:linrep:tor1-r-torsion-of-n}
   Prove that for $r \in R$ a non-zero-divisor and $N$ an $R$-module,
-  the module $\Tor^R_1(R/(r), N)$ is isomorphic to the
-  $r$-torsion of $N$, that is, the submodule of elements $n \in N$
-  such that $rn = 0$ (cf.\ \S{}\ref{subsec:linalg:torsion}). (This is the reason why Tor is
-  called Tor.) [\S{}\ref{subsec:linrep:the-tor-functors}, \ref{exer:linrep:why-ext-is-called-ext-part1}]
+  the module $\Tor^R_1(R/(r), N)$ is isomorphic to the $r$-torsion of
+  $N$, that is, the submodule of elements $n \in N$ such that $rn = 0$
+  (cf.\ \S{}\ref{subsec:linalg:torsion}). (This is the reason why Tor
+  is called Tor.) [\S{}\ref{subsec:linrep:the-tor-functors},
+  \ref{exer:linrep:why-ext-is-called-ext-part1}]
 \end{exer}
 \begin{exer}{}{exer:linrep:tor1-of-quotients-iso-to-intersection-over-product}
   Let $I$, $J$ be ideals of $R$. Prove that
   $\Tor^R_1(R/I, R/J) \cong (I \cap J)/IJ$. (For example, this
   $\Tor^R_1$ vanishes if $I + J = R$, by \Cref{lem:irred:6.3}.)  Prove
-  that $\Tor^R_i(R/I, R/J)$ is isomorphic to
-  $\Tor^R_{i-1}(I, R/J)$ for $i > 1$.
+  that $\Tor^R_i(R/I, R/J)$ is isomorphic to $\Tor^R_{i-1}(I, R/J)$
+  for $i > 1$.
 \end{exer}
 \begin{exer}{$?$}{exer:linrep:tor-vanishes-above-degree-1-over-pid}
   Let $M$, $N$ be modules over a PID $R$. Prove that
-  $\Tor^R_i(M, N) = 0$ for $i \geq 2$. (Assume $M$, $N$ are
-  finitely generated, for simplicity.) [\S{}\ref{subsec:linrep:the-tor-functors}]
+  $\Tor^R_i(M, N) = 0$ for $i \geq 2$. (Assume $M$, $N$ are finitely
+  generated, for simplicity.)
+  [\S{}\ref{subsec:linrep:the-tor-functors}]
 \end{exer}
 \begin{exer}{}{exer:linrep:cyclic-module-flat-iff-free}
   Let $R$ be an integral domain. Prove that a cyclic $R$-module is
@@ -1765,40 +1837,47 @@ $R$ denotes a fixed commutative ring.
     every ideal $I$ of $R$.
   \end{itemize}
   If you believe in Tor's, now you can also show that an $R$-module
-  $M$ is flat if and only if $\Tor^R_1(R/I, M) = 0$ for all
-  ideals $I$ of $R$. [\ref{exer:linrep:flat-iff-torsion-free-over-pid}]
+  $M$ is flat if and only if $\Tor^R_1(R/I, M) = 0$ for all ideals $I$
+  of $R$. [\ref{exer:linrep:flat-iff-torsion-free-over-pid}]
 \end{exer}
 \begin{exer}{}{exer:linrep:flat-iff-torsion-free-over-pid}
   Let $R$ be a PID. Prove that an $R$-module $M$ is flat if and only
   if it is torsion-free. (If $M$ is finitely generated, the
-  classification theorem of \S{}\ref{subsec:linalg:the-classification-theorem} makes this particularly easy.
-  Otherwise, use \Cref{exer:linrep:flatness-criterion-via-monomorphisms}.) Geometrically, this says roughly that
-  an algebraic set fails to be `flat' over a nonsingular curve if and
-  only if some component of the set is contracted to a point. This
-  phenomenon is displayed in the picture in \Cref{linrep:exam:2.14}.
+  classification theorem of
+  \S{}\ref{subsec:linalg:the-classification-theorem} makes this
+  particularly easy.  Otherwise, use
+  \Cref{exer:linrep:flatness-criterion-via-monomorphisms}.)
+  Geometrically, this says roughly that an algebraic set fails to be
+  `flat' over a nonsingular curve if and only if some component of the
+  set is contracted to a point. This phenomenon is displayed in the
+  picture in \Cref{linrep:exam:2.14}.
 \end{exer}
 \begin{exer}{$\lnot$}{exer:linrep:flatness-is-local-property}
-  (Cf.\ \Cref{exer:irred:localization-at-prime-is-local}.) Prove that flatness is a local property: an
-  $R$-module $M$ is flat if and only if $M_{\mathfrak{p}}$ is a flat
-  $R_{\mathfrak{p}}$-module for all prime ideals $\mathfrak{p}$, if
-  and only if $M_{\mathfrak{m}}$ is a flat $R_{\mathfrak{m}}$-module
-  for all maximal ideals $\mathfrak{m}$. (Hint: Use Exercises~1.25 and
-  2.6.  The $\Rightarrow$ direction will be straightforward. For the
-  converse, let $A \subseteq B$ be $R$-modules, and let $K$ be the
-  kernel of the induced homomorphism
-  $A \otimes_R M \to B \otimes_R M$. Prove that the kernel of the
-  localized homomorphism
+  (Cf.\ \Cref{exer:irred:localization-at-prime-is-local}.) Prove that
+  flatness is a local property: an $R$-module $M$ is flat if and only
+  if $M_{\mathfrak{p}}$ is a flat $R_{\mathfrak{p}}$-module for all
+  prime ideals $\mathfrak{p}$, if and only if $M_{\mathfrak{m}}$ is a
+  flat $R_{\mathfrak{m}}$-module for all maximal ideals
+  $\mathfrak{m}$. (Hint: Use Exercises~1.25 and 2.6.  The
+  $\Rightarrow$ direction will be straightforward. For the converse,
+  let $A \subseteq B$ be $R$-modules, and let $K$ be the kernel of the
+  induced homomorphism $A \otimes_R M \to B \otimes_R M$. Prove that
+  the kernel of the localized homomorphism
   $A_{\mathfrak{m}} \otimes_{R_{\mathfrak{m}}} M_{\mathfrak{m}} \to
   B_{\mathfrak{m}} \otimes_{R_{\mathfrak{m}}} M_{\mathfrak{m}}$ is
-  isomorphic to $K_{\mathfrak{m}}$, and use \Cref{exer:irred:module-zero-iff-zero-locally}.) [\ref{exer:linrep:localization-commutes-with-tor}]
+  isomorphic to $K_{\mathfrak{m}}$, and use
+  \Cref{exer:irred:module-zero-iff-zero-locally}.)
+  [\ref{exer:linrep:localization-commutes-with-tor}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:linrep:localization-commutes-with-tor}
   Let $M$, $N$ be $R$-modules, and let $S$ be a multiplicative subset
-  of $R$. Use the definition of Tor given in \S{}\ref{subsec:linrep:the-tor-functors} to show
-  $S^{-1}\Tor^R_i(M, N) \cong
-  \Tor^{S^{-1}R}_i(S^{-1}M, S^{-1}N)$. (Use \Cref{exer:linrep:localization-is-exact-preserves-homology}.)
-  Use this fact to give a leaner proof that flatness is a local
-  property (\Cref{exer:linrep:flatness-is-local-property}). [\ref{exer:linrep:flat-iff-tor1-vanishes-at-maximal-ideals}]
+  of $R$. Use the definition of Tor given in
+  \S{}\ref{subsec:linrep:the-tor-functors} to show
+  $S^{-1}\Tor^R_i(M, N) \cong \Tor^{S^{-1}R}_i(S^{-1}M,
+  S^{-1}N)$. (Use
+  \Cref{exer:linrep:localization-is-exact-preserves-homology}.)  Use
+  this fact to give a leaner proof that flatness is a local property
+  (\Cref{exer:linrep:flatness-is-local-property}). [\ref{exer:linrep:flat-iff-tor1-vanishes-at-maximal-ideals}]
 \end{exer}
 \begin{exer}{$?$}{exer:linrep:flat-in-exact-sequence-with-flat-quotient}
   Let $0 \to M \to N \to P \to 0$ be an exact sequence of $R$-modules,
@@ -1808,7 +1887,9 @@ $R$ denotes a fixed commutative ring.
   \item Prove that for all $R$-modules $Q$, the induced sequence
     $0 \to M \otimes_R Q \to N \otimes_R Q \to P \otimes_R Q \to 0$ is
     exact.
-  \end{itemize} [\ref{exer:linrep:fin-gen-flat-over-noeth-local-is-free}, \S{}\ref{subsec:linrep:duality-and-exactness}]
+  \end{itemize}
+  [\ref{exer:linrep:fin-gen-flat-over-noeth-local-is-free},
+  \S{}\ref{subsec:linrep:duality-and-exactness}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:linrep:fin-gen-flat-over-noeth-local-is-free}
   Let $R$ be a commutative Noetherian local ring with (single) maximal
@@ -1818,21 +1899,26 @@ $R$ denotes a fixed commutative ring.
   \item Choose elements $m_1, \dots, m_r \in M$ whose cosets mod
     $\mathfrak{m}M$ are a basis of $M/\mathfrak{m}M$ as a vector space
     over the field $R/\mathfrak{m}$. By Nakayama's lemma,
-    $M = \langle m_1, \dots, m_r \rangle$ (\Cref{exer:linalg:nakayama-gives-generators-from-quotient-basis}).
+    $M = \langle m_1, \dots, m_r \rangle$
+    (\Cref{exer:linalg:nakayama-gives-generators-from-quotient-basis}).
   \item Obtain an exact sequence
     $0 \to N \to R^{\oplus r} \to M \to 0$, where $N$ is finitely
     generated.
   \item Prove that this sequence induces an exact sequence
     $0 \to N/\mathfrak{m}N \to (R/\mathfrak{m})^{\oplus r} \to
-    M/\mathfrak{m}M \to 0$. (Use \Cref{exer:linrep:flat-in-exact-sequence-with-flat-quotient}.)
+    M/\mathfrak{m}M \to 0$. (Use
+    \Cref{exer:linrep:flat-in-exact-sequence-with-flat-quotient}.)
   \item Deduce that $N = 0$. (Nakayama.)
   \item Conclude that $M$ is free.
   \end{itemize}
   Thus, a finitely generated module over a (Noetherian\footnote{The
     Noetherian hypothesis is actually unnecessary, but it simplifies
     the proof by allowing the use of Nakayama's lemma.}) local ring is
-  flat if and only if it is free. Compare with \Cref{exer:linalg:direct-summand-of-free-over-local-is-free}.
-  [\ref{exer:linrep:flat-iff-tor1-vanishes-at-maximal-ideals}, \ref{exer:linrep:combine-results-reprove-rank-thm}, \ref{exer:linrep:fin-gen-over-noeth-locally-free-iff-projective-iff-flat}]
+  flat if and only if it is free. Compare with
+  \Cref{exer:linalg:direct-summand-of-free-over-local-is-free}.
+  [\ref{exer:linrep:flat-iff-tor1-vanishes-at-maximal-ideals},
+  \ref{exer:linrep:combine-results-reprove-rank-thm},
+  \ref{exer:linrep:fin-gen-over-noeth-locally-free-iff-projective-iff-flat}]
 \end{exer}
 
 \section{Base change}
@@ -1843,10 +1929,14 @@ $R$ denotes a fixed commutative ring.
   Let $R$ be a commutative Noetherian ring, and let $M$ be a finitely
   generated $R$-module. Prove that $M$ is flat if and only if
   $\Tor^R_1(M, R/\mathfrak{m}) = 0$ for every maximal ideal
-  $\mathfrak{m}$ of $R$. (Use \Cref{exer:linrep:flatness-is-local-property}, and refine the argument
-  you used in \Cref{exer:linrep:fin-gen-flat-over-noeth-local-is-free}; remember that Tor localizes, by
-  \Cref{exer:linrep:localization-commutes-with-tor}. The Noetherian hypothesis is actually unnecessary,
-  but the proofs are harder without it.)
+  $\mathfrak{m}$ of $R$. (Use
+  \Cref{exer:linrep:flatness-is-local-property}, and refine the
+  argument you used in
+  \Cref{exer:linrep:fin-gen-flat-over-noeth-local-is-free}; remember
+  that Tor localizes, by
+  \Cref{exer:linrep:localization-commutes-with-tor}. The Noetherian
+  hypothesis is actually unnecessary, but the proofs are harder
+  without it.)
 \end{exer}
 
 I have championed several times the viewpoint that deep properties of
@@ -1866,8 +1956,11 @@ level.
 Before we can survey the basic definitions, we must upgrade our
 understanding of tensor products. It turns out that $M \otimes_R N$
 satisfies a more encompassing universal property than the one examined
-in \S{}\ref{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product}. Let $M$, $N$ be modules over a commutative ring $R$, as in
-\S{}\ref{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product}, and let $G$ be an abelian group, i.e., a $\Z$-module.
+in
+\S{}\ref{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product}. Let
+$M$, $N$ be modules over a commutative ring $R$, as in
+\S{}\ref{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product},
+and let $G$ be an abelian group, i.e., a $\Z$-module.
 
 \begin{defn}{}{linrep:3.1}
   A $\Z$-bilinear map $\phi : M \times N \to G$ is \emph{$R$-balanced}
@@ -1902,7 +1995,8 @@ generators by $(m, n) \mapsto m \otimes n$ is surjective; its kernel
 $K_B$ consists of the combinations
 $\sum_i (m_i, n_i) \in \Z^{\oplus(M \times N)}$ such that
 $\sum_i (m_i, n_i) \in K$, where the sum on the right is viewed in
-$R^{\oplus(M \times N)}$. The reader will verify (\Cref{exer:linrep:flat-iff-tor1-vanishes-at-maximal-ideals}) that
+$R^{\oplus(M \times N)}$. The reader will verify
+(\Cref{exer:linrep:flat-iff-tor1-vanishes-at-maximal-ideals}) that
 $K_B$ is generated by elements of the form
 \begin{align*}
   &(m, n_1 + n_2) - (m, n_1) - (m, n_2), \\
@@ -1929,10 +2023,11 @@ $\Z$-bilinear, $R$-balanced maps. Therefore, we have proved:
   $\tilde\phi(m \otimes n) = \phi(m, n)$ for all $m \in M$, $n \in N$.
 \end{lem}
 
-The universal property explored in \S{}\ref{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product} is recovered as the
-statement that if $G$ is an $R$-module and $\phi$ is $R$-bilinear,
-then the induced group homomorphism $M \otimes_R N \to G$ is in fact
-an $R$-linear map.
+The universal property explored in
+\S{}\ref{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product}
+is recovered as the statement that if $G$ is an $R$-module and $\phi$
+is $R$-bilinear, then the induced group homomorphism
+$M \otimes_R N \to G$ is in fact an $R$-linear map.
 \begin{rem}{}{linrep:rem:3.3}
   Balanced maps $\phi : M \times N \to G$ may be defined as soon as
   $M$ is a right-$R$-module and $N$ is a left-$R$-module, even if $R$
@@ -1947,8 +2042,8 @@ an $R$-linear map.
 \subsection{Bimodules; adjunction again}
 \label{subsec:linrep:bimodules-adjunction-again}
 The enhanced universal property for the tensor will allow us to
-upgrade the adjunction formula given in \Cref{linrep:2.4}. This requires the
-introduction of yet another notion.
+upgrade the adjunction formula given in \Cref{linrep:2.4}. This
+requires the introduction of yet another notion.
 
 \begin{defn}{}{linrep:3.4}
   Let $R$, $S$ be two commutative\footnote{Once more, the
@@ -2006,9 +2101,9 @@ once one understands what the statement says.
   \]
   where the second equality holds by the $R$-linearity of $\alpha$ and
   the third by the definition of the $R$-module structure on
-  $\Hom_S(N, P)$. Thus $\phi$ is $R$-balanced. By \Cref{linrep:3.2}, such a
-  map determines (and is determined by) a homomorphism of abelian
-  groups $\tilde\phi : M \otimes_R N \to P$, with
+  $\Hom_S(N, P)$. Thus $\phi$ is $R$-balanced. By \Cref{linrep:3.2},
+  such a map determines (and is determined by) a homomorphism of
+  abelian groups $\tilde\phi : M \otimes_R N \to P$, with
   $\phi(m, n) = \tilde\phi(m \otimes n)$. I claim that $\tilde\phi$ is
   $S$-linear. Indeed, for all $s \in S$ and all pure tensors
   $m \otimes n$,
@@ -2024,8 +2119,8 @@ once one understands what the statement says.
   are clearly inverses of each other.
 \end{proof}
 
-If $R = S$, we recover the adjunction formula of \Cref{linrep:2.4}; note that
-in this case the isomorphism is clearly $R$-linear.
+If $R = S$, we recover the adjunction formula of \Cref{linrep:2.4};
+note that in this case the isomorphism is clearly $R$-linear.
 
 \subsection{Restriction and extension of scalars}
 \label{subsec:linrep:restriction-and-extension-of-scalars}
@@ -2042,9 +2137,10 @@ $R\text{-}\categ{Mod} \to S\text{-}\categ{Mod}$ may be defined, also
 `extending scalars', but for which I do not know a good name.
 
 \pheader{Restriction of scalars.} Let $f : R \to S$ be a ring
-homomorphism, and let $N$ be an $S$-module. Recall (\S{}\ref{subsec:rings:definition-of-left-r-module}) that
-this means that we have chosen an action of the ring $S$ on the
-abelian group $N$, that is, a ring homomorphism
+homomorphism, and let $N$ be an $S$-module. Recall
+(\S{}\ref{subsec:rings:definition-of-left-r-module}) that this means
+that we have chosen an action of the ring $S$ on the abelian group
+$N$, that is, a ring homomorphism
 $\sigma : S \to \mathrm{End}_{\categ{Ab}}(N)$.  Composing with $f$,
 $\sigma \circ f : R \to S \to \mathrm{End}_{\categ{Ab}}(N)$ defines an
 action of $R$ on the abelian group $N$, and hence an $R$-module
@@ -2066,18 +2162,20 @@ $S\text{-}\categ{Mod} \to R\text{-}\categ{Mod}$ induced from $f$ by
 restriction of scalars. Note that $f_*$ is trivially exact, because
 the kernels and images of a homomorphism of modules are the same
 regardless of the base ring. In view of the considerations in
-\Cref{linrep:exam:1.18}, this hints that $f_*$ may have both a left-adjoint and a
-right-adjoint functor, and this will be precisely the case
-(\Cref{linrep:3.6}).
+\Cref{linrep:exam:1.18}, this hints that $f_*$ may have both a
+left-adjoint and a right-adjoint functor, and this will be precisely
+the case (\Cref{linrep:3.6}).
 
 \pheader{Extension of scalars} is defined from $R\text{-}\categ{Mod}$
 to $S\text{-}\categ{Mod}$, by associating to an $R$-module $M$ the
 tensor product $f^*(M) := M \otimes_R S$, which (as we have seen in
-\S{}\ref{subsec:linrep:bimodules-adjunction-again}) carries naturally an $S$-module structure. This association
-is evidently covariantly functorial. If
-$R^{\oplus B} \to R^{\oplus A} \to M \to 0$ is a presentation of $M$
-(cf.\ \S{}\ref{subsec:linalg:finitely-presented-modules-and-free-resolutions}), tensoring by $S$ gives (by the right-exactness of
-tensor) a presentation of $f^*(M)$:
+\S{}\ref{subsec:linrep:bimodules-adjunction-again}) carries naturally
+an $S$-module structure. This association is evidently covariantly
+functorial. If $R^{\oplus B} \to R^{\oplus A} \to M \to 0$ is a
+presentation of $M$ (cf.\
+\S{}\ref{subsec:linalg:finitely-presented-modules-and-free-resolutions}),
+tensoring by $S$ gives (by the right-exactness of tensor) a
+presentation of $f^*(M)$:
 $S^{\oplus B} \to S^{\oplus A} \to M \otimes_R S \to 0$.  Intuitively,
 this says that $f^*(M)$ is the module defined by `the same generators
 and relations' as $M$, but with coefficients in $S$.
@@ -2085,7 +2183,8 @@ and relations' as $M$, but with coefficients in $S$.
 The third functor, denoted $f^!$, also acts from
 $R\text{-}\categ{Mod}$ to $S\text{-}\categ{Mod}$ and is yet another
 natural way to combine the ingredients we have at our disposal: if $M$
-is an $R$-module, I have pointed out in \S{}\ref{subsec:linrep:bimodules-adjunction-again} that
+is an $R$-module, I have pointed out in
+\S{}\ref{subsec:linrep:bimodules-adjunction-again} that
 $f^!(M) := \Hom_R(S, M)$ may be given a natural $S$-module structure
 (by setting $s\alpha(s') := \alpha(ss')$). This is again evidently a
 covariantly functorial prescription.
@@ -2107,20 +2206,20 @@ covariantly functorial prescription.
     &\cong \Hom_R(M, \Hom_S(S, N)) \\
     &\cong \Hom_S(M \otimes_R S, N) = \Hom_S(f^*(M), N),
   \end{align*}
-  where I have used \Cref{linrep:3.5}. These bijections are canonical, proving
-  that $f^*$ is left-adjoint to $f_*$.
+  where I have used \Cref{linrep:3.5}. These bijections are canonical,
+  proving that $f^*$ is left-adjoint to $f_*$.
 
   Similarly, there is a canonical isomorphism $N \cong N \otimes_S S$
-  (\Cref{linrep:exam:2.2}); thus $N \otimes_S S \cong f_*(N)$ as $R$-modules, and
-  for every $R$-module $M$,
+  (\Cref{linrep:exam:2.2}); thus $N \otimes_S S \cong f_*(N)$ as
+  $R$-modules, and for every $R$-module $M$,
   \begin{align*}
     \Hom_R(f_*(N), M)
     &\cong \Hom_R(N \otimes_S S, M) \\
     &\cong \Hom_S(N, \Hom_R(S, M))
       = \Hom_S(N, f^!(M))
   \end{align*}
-  again by \Cref{linrep:3.5}. This shows that $f^!$ is right-adjoint to $f_*$,
-  concluding the proof.
+  again by \Cref{linrep:3.5}. This shows that $f^!$ is right-adjoint
+  to $f_*$, concluding the proof.
 \end{proof}
 
 \begin{rem}{(Warning)}{linrep:rem:3.7}
@@ -2146,7 +2245,8 @@ In the following exercises, $R$, $S$ denote commutative rings.
     &(m_1 + m_2, n) - (m_1, n) - (m_2, n), \\
     &(rm, n) - (m, rn),
   \end{align*}
-  with $m, m_1, m_2 \in M$, $n, n_1, n_2 \in N$, $r \in R$.  [\S{}\ref{subsec:linrep:balanced-maps}]
+  with $m, m_1, m_2 \in M$, $n, n_1, n_2 \in N$, $r \in R$.
+  [\S{}\ref{subsec:linrep:balanced-maps}]
 \end{exer}
 \begin{exer}{}{exer:linrep:canonical-map-tensor-restriction-of-scalars}
   If $f : R \to S$ is a ring homomorphism and $M$, $N$ are $S$-modules
@@ -2161,11 +2261,17 @@ In the following exercises, $R$, $S$ denote commutative rings.
   \[
     M \otimes_R (N \otimes_S P) \cong (M \otimes_R N) \otimes_S P.
   \]
-  In this sense, $\otimes$ is `associative'. [\ref{exer:linrep:reprove-localization-tensor-via-associativity}, \S{}\ref{subsec:linrep:multilinear-symmetric-alternating-maps}]
+  In this sense, $\otimes$ is
+  `associative'. [\ref{exer:linrep:reprove-localization-tensor-via-associativity},
+  \S{}\ref{subsec:linrep:multilinear-symmetric-alternating-maps}]
 \end{exer}
 \begin{exer}{$?$}{exer:linrep:reprove-localization-tensor-via-associativity}
-  Use the associativity of the tensor product (\Cref{exer:linrep:canonical-map-tensor-restriction-of-scalars}) to prove
-  again the formulas given in \Cref{exer:linrep:tensor-and-localization-commute}. (Use \Cref{exer:linrep:localization-is-tensor-with-localized-ring}.) [\ref{exer:linrep:tensor-and-localization-commute}]
+  Use the associativity of the tensor product
+  (\Cref{exer:linrep:canonical-map-tensor-restriction-of-scalars}) to
+  prove again the formulas given in
+  \Cref{exer:linrep:tensor-and-localization-commute}. (Use
+  \Cref{exer:linrep:localization-is-tensor-with-localized-ring}.)
+  [\ref{exer:linrep:tensor-and-localization-commute}]
 \end{exer}
 \begin{exer}{}{exer:linrep:base-change-functors-commute-with-limits}
   Let $f : R \to S$ be a ring homomorphism. Prove that $f^!$ commutes
@@ -2189,7 +2295,8 @@ In the following exercises, $R$, $S$ denote commutative rings.
   Let $\iota : k \subseteq F$ be a finite field extension, and let $W$
   be an $F$-vector space of finite dimension $n$. Compute the
   dimension of $\iota_*(W)$ as a $k$-vector space (where $\iota_*$ is
-  restriction of scalars; cf.\ \S{}\ref{subsec:linrep:restriction-and-extension-of-scalars}).
+  restriction of scalars; cf.\
+  \S{}\ref{subsec:linrep:restriction-and-extension-of-scalars}).
 \end{exer}
 \begin{exer}{}{exer:linrep:dim-of-extension-of-scalars-field-ext}
   Let $\iota : k \subseteq F$ be a finite field extension, and let $V$
@@ -2224,14 +2331,14 @@ In the following exercises, $R$, $S$ denote commutative rings.
   $R$-module. Prove that $f^*(M)$ is a flat $S$-module.
 \end{exer}
 \begin{exer}{}{exer:linrep:composition-rules-for-base-change-functors}
-  In `geometric' contexts (such as the one hinted at in \Cref{linrep:rem:3.7}),
-  one would actually work with categories which are opposite to the
-  category of commutative rings; cf.\ \Cref{linrep:exam:1.9}. A ring homomorphism
-  $f : R \to S$ corresponds to a morphism
-  $f^\circ : S^\circ \to R^\circ$ in the opposite category, and we can
-  simply define $(f^\circ)_*$, etc., to be $f_*$, etc. For morphisms
-  $f^\circ : S^\circ \to R^\circ$ and $g^\circ : T^\circ \to S^\circ$
-  in the opposite category, prove that
+  In `geometric' contexts (such as the one hinted at in
+  \Cref{linrep:rem:3.7}), one would actually work with categories
+  which are opposite to the category of commutative rings; cf.\
+  \Cref{linrep:exam:1.9}. A ring homomorphism $f : R \to S$
+  corresponds to a morphism $f^\circ : S^\circ \to R^\circ$ in the
+  opposite category, and we can simply define $(f^\circ)_*$, etc., to
+  be $f_*$, etc. For morphisms $f^\circ : S^\circ \to R^\circ$ and
+  $g^\circ : T^\circ \to S^\circ$ in the opposite category, prove that
   \begin{itemize}
   \item
     $(f^\circ \circ g^\circ)_* \cong (f^\circ)_* \circ (g^\circ)_*$,
@@ -2256,7 +2363,9 @@ In the following exercises, $R$, $S$ denote commutative rings.
   \begin{itemize}
   \item Prove that, for all $R$-modules $M$,
     $f^!(M) \cong \{m \in M \mid \forall a \in I,\, am = 0\}$, while
-    $f^*(M) \cong M/IM$. (\Cref{exer:rings:hom-contravariant-left-exact-from-ses} may help.)
+    $f^*(M) \cong
+    M/IM$. (\Cref{exer:rings:hom-contravariant-left-exact-from-ses}
+    may help.)
   \item Prove that, for all $S$-modules $N$, $f^! f_*(N) \cong N$ and
     $f^* f_*(N) \cong N$.
   \item Prove that $f_*$ is fully faithful (\Cref{linrep:1.6}).
@@ -2289,18 +2398,19 @@ In the following exercises, $R$, $S$ denote commutative rings.
   particular case of the fact that two commutative rings are Morita
   equivalent if and only if they are isomorphic. In fact, this more
   general statement is perhaps easier (!) to prove than the particular
-  case worked out in this exercise. Recall (\Cref{exer:linrep:center-of-mod-category-iso-to-center-of-ring}) that if $R$
-  is any ring, then the center of $R\text{-}\categ{Mod}$ is isomorphic
-  to the center of $R$. It is not difficult to deduce from this that
-  if $R\text{-}\categ{Mod}$ and $S\text{-}\categ{Mod}$ are equivalent,
-  then the centers of $R$ and $S$ are isomorphic. So if two
-  commutative rings $R$ and $S$ are Morita equivalent, then they must
-  be isomorphic.  The commutativity is crucial in this statement: for
-  example, it can be shown that any ring $R$ is Morita equivalent to
-  the ring of matrices\footnote{I was once told that
-    $M_{n,n}(\C)$ is `not seriously noncommutative' since it
-    is Morita equivalent to $\C$, which is commutative.}
-  $M_{n,n}(R)$, for all $n > 0$.
+  case worked out in this exercise. Recall
+  (\Cref{exer:linrep:center-of-mod-category-iso-to-center-of-ring})
+  that if $R$ is any ring, then the center of $R\text{-}\categ{Mod}$
+  is isomorphic to the center of $R$. It is not difficult to deduce
+  from this that if $R\text{-}\categ{Mod}$ and $S\text{-}\categ{Mod}$
+  are equivalent, then the centers of $R$ and $S$ are isomorphic. So
+  if two commutative rings $R$ and $S$ are Morita equivalent, then
+  they must be isomorphic.  The commutativity is crucial in this
+  statement: for example, it can be shown that any ring $R$ is Morita
+  equivalent to the ring of matrices\footnote{I was once told that
+    $M_{n,n}(\C)$ is `not seriously noncommutative' since it is Morita
+    equivalent to $\C$, which is commutative.}  $M_{n,n}(R)$, for all
+  $n > 0$.
 \end{exer}
 
 \section{Multilinear algebra}
@@ -2350,7 +2460,8 @@ particular that there are canonical isomorphisms
 $(M_1 \otimes_R M_2) \otimes_R M_3 \cong M_1 \otimes_R (M_2 \otimes_R
 M_3)$ for all $R$-modules $M_1$, $M_2$, $M_3$. In this sense, the
 tensor product is associative\footnote{In fact, the tensor product is
-  associative in a fancier sense; cf.\ \Cref{exer:linrep:canonical-map-tensor-restriction-of-scalars}.} in
+  associative in a fancier sense; cf.\
+  \Cref{exer:linrep:canonical-map-tensor-restriction-of-scalars}.} in
 $R\text{-}\categ{Mod}$, and we are indeed authorized to use the
 notation $M_1 \otimes_R \cdots \otimes_R M_\ell$.
 
@@ -2463,7 +2574,8 @@ and $W$ is the smallest submodule making the multilinear map $\wedge$
 alternating. The image of a pure tensor is denoted by using $\wedge$
 rather than $\otimes$:
 $m_1 \otimes \dots \otimes m_\ell \mapsto m_1 \wedge \dots \wedge
-m_\ell$.  The reader will verify (\Cref{exer:linrep:wedge-power-universal-property-and-sym-power}) that
+m_\ell$.  The reader will verify
+(\Cref{exer:linrep:wedge-power-universal-property-and-sym-power}) that
 $\bigwedge^\ell_R(M)$ may indeed be constructed as I have just
 claimed, and the reader will produce an analogous construction for the
 symmetric power $\mathrm{S}^\ell_R(M)$.
@@ -2505,9 +2617,10 @@ If $M$ is free, we can be very precise:
   note that since $M$ is free, every element of $M$ is expressed
   uniquely as a combination of the $e_i$'s; hence $\phi_I$ is
   well-defined for all elements of $M^\ell$. Further, $\phi_I$ is
-  evidently alternating (\Cref{exer:linrep:multilinear-map-phi-i-alternating}). Thus, it factors uniquely
-  through an $R$-linear map $\phi_I : \bigwedge^\ell_R(M) \to R$, with
-  the property that
+  evidently alternating
+  (\Cref{exer:linrep:multilinear-map-phi-i-alternating}). Thus, it
+  factors uniquely through an $R$-linear map
+  $\phi_I : \bigwedge^\ell_R(M) \to R$, with the property that
   \[
     \phi_I(e_{j_1} \wedge \dots \wedge e_{j_\ell}) = \begin{cases}
       (-1)^\sigma & \text{if } \exists \text{ a permutation } \sigma
@@ -2549,11 +2662,11 @@ proof of Lemma~\ref{linrep:4.3}.)
 \end{prop}
 
 This is immediate, since the standard properties of the determinant
-(obtained in \S{}\ref{subsec:linalg:the-determinant}) prove that it is a multilinear, alternating
-map of the columns, and the determinant of the identity matrix is $1$.
-For this reason, the top exterior power of a free module $F$ (that is,
-$\bigwedge^r_R(F)$ if $F$ has rank $r$) is called the
-\emph{determinant} of $F$, denoted $\det(F)$.
+(obtained in \S{}\ref{subsec:linalg:the-determinant}) prove that it is
+a multilinear, alternating map of the columns, and the determinant of
+the identity matrix is $1$.  For this reason, the top exterior power
+of a free module $F$ (that is, $\bigwedge^r_R(F)$ if $F$ has rank $r$)
+is called the \emph{determinant} of $F$, denoted $\det(F)$.
 
 More generally, the functions $\phi_I$ give an explicit isomorphism
 between $\bigwedge^\ell_k(k^r)$ and $k^{\binom{r}{\ell}}$.
@@ -2653,16 +2766,19 @@ commutative algebra:
   into the notion of blow-up, a particularly important class of
   regular maps). The brave reader will try to explore the Rees algebra
   of the ideal $I = (x, y)$ in the polynomial ring $k[x, y]$ over a
-  field $k$ (\Cref{exer:linrep:rees-algebra-example-iso-to-quotient}), which is the simplest interesting
-  instance of this construction (well, the second simplest: the
-  simplest example may be \Cref{exer:rings:rees-algebra}).
+  field $k$ (\Cref{exer:linrep:rees-algebra-example-iso-to-quotient}),
+  which is the simplest interesting instance of this construction
+  (well, the second simplest: the simplest example may be
+  \Cref{exer:rings:rees-algebra}).
 \end{exam}
 
 The additional information carried by the grading on a ring is very
 substantial, and the theory of graded rings and algebras is extremely
 rich. For example, projective algebraic geometry may be developed by
-using graded rings along the same lines we sketched in \S{}\ref{subsec:fields:a-little-affine-algebraic-geometry} for
-the affine case. As I mentioned at the end of \S{}\ref{subsec:fields:a-little-affine-algebraic-geometry}, this
+using graded rings along the same lines we sketched in
+\S{}\ref{subsec:fields:a-little-affine-algebraic-geometry} for the
+affine case. As I mentioned at the end of
+\S{}\ref{subsec:fields:a-little-affine-algebraic-geometry}, this
 provides a `globalization' procedure which leads to important
 technical advantages.
 
@@ -2696,7 +2812,8 @@ those ideals which appear as kernels of graded homomorphisms.
 \end{lem}
 \begin{proof}
   (i)$\iff$(ii) is the very definition of homogeneous ideal;
-  (ii)$\iff$(iii) is left to the reader (\Cref{exer:linrep:graded-algebra-lemma-equivalence}).
+  (ii)$\iff$(iii) is left to the reader
+  (\Cref{exer:linrep:graded-algebra-lemma-equivalence}).
 
   (ii)$\implies$(iv): Assuming (ii) holds, define a grading on $S/I$
   by letting the piece of degree $i$ consist of ($0$ and) the cosets
@@ -2732,8 +2849,10 @@ $\ker\phi_i$.
 \end{exam}
 
 Projective algebraic geometry (almost) follows the blueprint of affine
-algebraic geometry reviewed in \S{}\ref{subsec:fields:a-little-affine-algebraic-geometry}, but using only homogeneous
-ideals in $k[x_1, \dots, x_n]$ (taken with the usual grading).
+algebraic geometry reviewed in
+\S{}\ref{subsec:fields:a-little-affine-algebraic-geometry}, but using
+only homogeneous ideals in $k[x_1, \dots, x_n]$ (taken with the usual
+grading).
 
 \subsection{Tensor algebras}
 \label{subsec:linrep:tensor-algebras}
@@ -2765,10 +2884,11 @@ and is extended by linearity. Similarly, we can define the
   \[
     \alpha \wedge \beta = (-1)^{ij}\, \beta \wedge \alpha
   \]
-  (\Cref{exer:linrep:skew-commutativity-of-exterior-algebra}), where I use $\wedge$ to denote the operation in
-  $\bigwedge^*_R(M)$. The reader should recognize this formula from
-  the theory of differential forms; differential forms provide perhaps
-  the most important example of an exterior algebra.
+  (\Cref{exer:linrep:skew-commutativity-of-exterior-algebra}), where I
+  use $\wedge$ to denote the operation in $\bigwedge^*_R(M)$. The
+  reader should recognize this formula from the theory of differential
+  forms; differential forms provide perhaps the most important example
+  of an exterior algebra.
 \end{rem}
 The definitions of symmetric and exterior powers were concocted so as
 to yield surjective graded homomorphisms of algebras
@@ -2792,12 +2912,14 @@ these ideals must then be generated by homogeneous elements.
   as graded $R$-algebras.
 \end{lem}
 \begin{proof}
-  We have observed in \S{}\ref{subsec:linrep:very-small-detour-graded-algebra} that the kernel of a graded homomorphism
-  is the direct sum of the kernels of the induced homomorphisms in
-  each degree; the statement of the lemma then follows easily from the
-  explicit descriptions of the kernels of the canonical projections
-  from the tensor powers to the symmetric and exterior powers, given
-  in \S{}\ref{subsec:linrep:symmetric-and-exterior-powers}.
+  We have observed in
+  \S{}\ref{subsec:linrep:very-small-detour-graded-algebra} that the
+  kernel of a graded homomorphism is the direct sum of the kernels of
+  the induced homomorphisms in each degree; the statement of the lemma
+  then follows easily from the explicit descriptions of the kernels of
+  the canonical projections from the tensor powers to the symmetric
+  and exterior powers, given in
+  \S{}\ref{subsec:linrep:symmetric-and-exterior-powers}.
 \end{proof}
 \begin{rem}{}{linrep:4.13}
   In some cases it is also possible to construct subalgebras of
@@ -2871,10 +2993,13 @@ Lemma~\ref{linrep:4.12}).
   The free case is particularly easy to understand. For instance,
   $\mathrm{S}^*_R(R^{\oplus r}) \cong R[x_1, \dots, x_r]$. Indeed, the
   polynomial ring satisfies the appropriate universal property with
-  respect to mapping to commutative rings (cf.\ \S{}\ref{subsec:rings:universal-property-of-polynomial-rings} and
-  \S{}\ref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}). Likewise, $\mathrm{T}^*_R(R^{\oplus r})$ should be
-  thought of as a `noncommutative' polynomial ring, in which the $r$
-  indeterminates do not commute with each other (cf.\ \S{}\ref{subsec:rings:free-modules-and-free-algebras}).
+  respect to mapping to commutative rings (cf.\
+  \S{}\ref{subsec:rings:universal-property-of-polynomial-rings} and
+  \S{}\ref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}). Likewise,
+  $\mathrm{T}^*_R(R^{\oplus r})$ should be thought of as a
+  `noncommutative' polynomial ring, in which the $r$ indeterminates do
+  not commute with each other (cf.\
+  \S{}\ref{subsec:rings:free-modules-and-free-algebras}).
 \end{exam}
 
 Of course the constructions $\mathrm{T}^*_R$, $\mathrm{S}^*_R$,
@@ -2893,9 +3018,9 @@ not hard to show that the sequence\footnote{The shift
   0 \to L \cdot \mathrm{S}^{*-1}_R(M) \to \mathrm{S}^*_R(M) \to
   \mathrm{S}^*_R(N) \to 0
 \]
-is exact. This is often useful in computations (cf.\ \Cref{exer:linrep:rees-algebra-example-iso-to-quotient}). I
-will leave any further such explorations to the more motivated
-readers.
+is exact. This is often useful in computations (cf.\
+\Cref{exer:linrep:rees-algebra-example-iso-to-quotient}). I will leave
+any further such explorations to the more motivated readers.
 
 \subsection*{Exercises}
 
@@ -2903,10 +3028,12 @@ In the following exercises, $R$ denotes a commutative ring and $k$
 denotes a field.
 
 \begin{exer}{$*$}{exer:linrep:wedge-power-universal-property-and-sym-power}
-  Verify that the module $\bigwedge^\ell_R(M)$ constructed in \S{}\ref{subsec:linrep:symmetric-and-exterior-powers}
-  does satisfy the universal property for alternating multilinear
-  maps.  Construct a module $\mathrm{S}^\ell_R(M)$ satisfying the
-  universal property for symmetric multilinear maps. [\S{}\ref{subsec:linrep:symmetric-and-exterior-powers}]
+  Verify that the module $\bigwedge^\ell_R(M)$ constructed in
+  \S{}\ref{subsec:linrep:symmetric-and-exterior-powers} does satisfy
+  the universal property for alternating multilinear maps.  Construct
+  a module $\mathrm{S}^\ell_R(M)$ satisfying the universal property
+  for symmetric multilinear
+  maps. [\S{}\ref{subsec:linrep:symmetric-and-exterior-powers}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:tensor-sym-wedge-powers-as-functors}
@@ -2949,7 +3076,8 @@ denotes a field.
 
 \begin{exer}{$*$}{exer:linrep:multilinear-map-phi-i-alternating}
   Verify that the multilinear map $\phi_I$ defined in the proof of
-  Lemma~\ref{linrep:4.3} is alternating. [\S{}\ref{subsec:linrep:symmetric-and-exterior-powers}]
+  Lemma~\ref{linrep:4.3} is
+  alternating. [\S{}\ref{subsec:linrep:symmetric-and-exterior-powers}]
 \end{exer}
 \begin{exer}{}{exer:linrep:linear-independence-iff-wedge-nonzero}
   Let $V$ be a vector space, and let $v_1, \dots, v_\ell \in V$. Prove
@@ -2972,17 +3100,20 @@ denotes a field.
   $(w_1 \wedge \dots \wedge w_\ell) \wedge u$ in $\bigwedge^*_k(V)$?)
 
   Deduce that there is an injective function from the Grassmannian of
-  $\ell$-di\-men\-sional subspaces of $V$ (\Cref{exer:linalg:grassmannian-cell-decomposition}) to the
+  $\ell$-di\-men\-sional subspaces of $V$
+  (\Cref{exer:linalg:grassmannian-cell-decomposition}) to the
   projective space $\mathbf{P}(\bigwedge^\ell_k V)$: the Grassmannian
   is identified with the set of `pure wedges' in the projectivization
   of the exterior power $\bigwedge^\ell_k(V)$. This is called the
-  \emph{Pl\"ucker embedding} of the Grassmannian. [\ref{exer:linrep:grassmannian-2-4-as-projective-quadric}]
+  \emph{Pl\"ucker embedding} of the
+  Grassmannian. [\ref{exer:linrep:grassmannian-2-4-as-projective-quadric}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:grassmannian-2-4-as-projective-quadric}
-  The Pl\"ucker embedding described in Exercise~\ref{exer:linrep:plucker-embedding-well-defined}
-  realizes the Grassmannian $\mathrm{Gr}_k(2,4)$ of $2$-dimensional
-  subspaces of $k^4$ as a subset of the projectivization of
+  The Pl\"ucker embedding described in
+  Exercise~\ref{exer:linrep:plucker-embedding-well-defined} realizes
+  the Grassmannian $\mathrm{Gr}_k(2,4)$ of $2$-dimensional subspaces
+  of $k^4$ as a subset of the projectivization of
   $\bigwedge^2_k(k^4) \cong k^6$:
   $\mathrm{Gr}_k(2,4) \subseteq \mathbf{P}^5_k$. Choose projective
   coordinates (\Cref{exer:fields:affine-to-projective-space-covering})
@@ -2993,18 +3124,20 @@ denotes a field.
   \[
     \mathbf{V}(x_{12}x_{34} - x_{13}x_{24} + x_{14}x_{23})
   \]
-  (notation as in \Cref{exer:fields:homog-vanishing-well-defined-covering}). (Remember that you know how to
-  write every point of $\mathrm{Gr}_k(2,4)$: look back at Exercise
-  VI.2.14.)
+  (notation as in
+  \Cref{exer:fields:homog-vanishing-well-defined-covering}). (Remember
+  that you know how to write every point of $\mathrm{Gr}_k(2,4)$: look
+  back at Exercise VI.2.14.)
 
   Thus, $\mathrm{Gr}_k(2,4)$ may be viewed as a projective algebraic
   set. In fact, all Grassmannians may be similarly realized as
   projective algebraic sets (in the sense of
-  Exercise~\ref{exer:linrep:homog-ideal-vanishing-well-defined-proj-set}) via the corresponding Pl\"ucker
-  embeddings.
+  Exercise~\ref{exer:linrep:homog-ideal-vanishing-well-defined-proj-set})
+  via the corresponding Pl\"ucker embeddings.
 
   Prove that $\mathrm{Gr}_k(2,4)$ may be covered with six copies of
-  $\mathbf{A}^4_k$. (Recall from \Cref{exer:fields:affine-to-projective-space-covering} that
+  $\mathbf{A}^4_k$. (Recall from
+  \Cref{exer:fields:affine-to-projective-space-covering} that
   $\mathbf{P}^5_k$ may be covered with six copies of $\mathbf{A}^5_k$;
   prove that the intersection of each with $\mathrm{Gr}_k(2,4)$ may be
   identified with $\mathbf{A}^4_k$ in a natural way.)
@@ -3048,8 +3181,9 @@ denotes a field.
   that the condition `$F(c_0, \dots, c_n) = 0$ for all $F \in I$' for
   a point $(c_0 : \cdots : c_n) \in \mathbf{P}^n_k$ is well-defined:
   it does not depend on the representative $(c_0, \dots, c_n)$ chosen
-  for the point $(c_0 : \cdots : c_n)$. (Cf.\ \Cref{exer:fields:homog-vanishing-well-defined-covering}, but
-  note that not all $F$ in $I$ are homogeneous.)
+  for the point $(c_0 : \cdots : c_n)$. (Cf.\
+  \Cref{exer:fields:homog-vanishing-well-defined-covering}, but note
+  that not all $F$ in $I$ are homogeneous.)
 
   Thus, every homogeneous ideal $I \subseteq k[x_0, \dots, x_n]$
   determines a `projective algebraic set'
@@ -3059,16 +3193,20 @@ denotes a field.
   \]
   Note that $\mathbf{V}((x_0, \dots, x_n)) = \emptyset$. The ideal
   $(x_0, \dots, x_n) = \bigoplus_{i > 0} k[x_0, \dots, x_n]_i$ is
-  irreverently called the \emph{irrelevant ideal}. [\ref{exer:linrep:grassmannian-2-4-as-projective-quadric}, \ref{exer:linrep:weak-homogeneous-nullstellensatz}]
+  irreverently called the \emph{irrelevant
+    ideal}. [\ref{exer:linrep:grassmannian-2-4-as-projective-quadric},
+  \ref{exer:linrep:weak-homogeneous-nullstellensatz}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:weak-homogeneous-nullstellensatz}
-  (Cf.\ Exercise~\ref{exer:linrep:homog-ideal-vanishing-well-defined-proj-set}.) Prove the `weak homogeneous
-  Nullstellensatz': if $k$ is algebraically closed and
-  $I \subseteq k[x_0, \dots, x_n]$ is a homogeneous ideal, then
-  $\mathbf{V}(I) = \emptyset$ if and only if $I$ is either
-  $k[x_0, \dots, x_n]$ or the irrelevant ideal $(x_0, \dots, x_n)$.
-  (Translate this into a question about $\mathbf{A}^{n+1}_k$.)
+  (Cf.\
+  Exercise~\ref{exer:linrep:homog-ideal-vanishing-well-defined-proj-set}.)
+  Prove the `weak homogeneous Nullstellensatz': if $k$ is
+  algebraically closed and $I \subseteq k[x_0, \dots, x_n]$ is a
+  homogeneous ideal, then $\mathbf{V}(I) = \emptyset$ if and only if
+  $I$ is either $k[x_0, \dots, x_n]$ or the irrelevant ideal
+  $(x_0, \dots, x_n)$.  (Translate this into a question about
+  $\mathbf{A}^{n+1}_k$.)
 \end{exer}
 
 \begin{exer}{}{exer:linrep:weyl-algebra-presentation}
@@ -3081,7 +3219,8 @@ denotes a field.
   \end{equation}
   where $a_i(x) \in k[x]$. Here $x$ acts on a polynomial
   $f(x) \in k[x]$ by multiplication by $x$, while $\partial_x$ acts by
-  taking a formal derivative (as in \S{}\ref{subsec:fields:separable-polynomials}). With the evident
+  taking a formal derivative (as in
+  \S{}\ref{subsec:fields:separable-polynomials}). With the evident
   operations, differential operators form a ring, called the
   \emph{(first) Weyl algebra}. Note that the Weyl algebra is
   noncommutative: for example, $(x\partial_x)f(x) = xf'(x)$, while
@@ -3127,14 +3266,15 @@ denotes a field.
 \end{exer}
 \begin{exer}{$\lnot$}{exer:linrep:rees-algebra-is-noetherian}
   Prove that the Rees algebra $\mathrm{Rees}_R(I)$ of an ideal $I$ is
-  Noetherian if $R$ is Noetherian. [\ref{exer:linrep:artin-rees-lemma}]
+  Noetherian if $R$ is
+  Noetherian. [\ref{exer:linrep:artin-rees-lemma}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:artin-rees-lemma}
   Let $R$ be a Noetherian ring, $I$ an ideal of $R$, and consider the
   Rees algebra $\mathrm{Rees}_R(I) = \bigoplus_{\ell \geq 0} I^\ell$.
-  By Exercise~\ref{exer:linrep:rees-algebra-is-noetherian}, $\mathrm{Rees}_R(I)$ is
-  Noetherian.
+  By Exercise~\ref{exer:linrep:rees-algebra-is-noetherian},
+  $\mathrm{Rees}_R(I)$ is Noetherian.
   \begin{itemize}
   \item For $\ell \geq 0$, let $J_\ell \subseteq I^\ell$ be ideals of
     $R$, and view $J := \bigoplus_{\ell \geq 0} J_\ell$ as a
@@ -3149,14 +3289,16 @@ denotes a field.
     $J_{s+1} \subseteq I^{s+1} J_0 + I^s J_1 + \dots + I J_s$ (as
     ideals of $R$).
   \item Prove that $J_{s+\ell} = I^\ell J_s$ for all $\ell \geq 0$.
-    This is a particular case of the `Artin-Rees' lemma. [\ref{exer:linrep:intersection-of-ideal-powers-via-artin-rees}]
+    This is a particular case of the `Artin-Rees'
+    lemma. [\ref{exer:linrep:intersection-of-ideal-powers-via-artin-rees}]
   \end{itemize}
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:intersection-of-ideal-powers-via-artin-rees}
   Let $R$ be a Noetherian ring, and let $I$ be an ideal of $R$. Prove
   that $I \cdot \bigcap_{n \geq 0} I^n = \bigcap_{n \geq 0} I^n$.
-  (Hint: Exercise~\ref{exer:linrep:artin-rees-lemma}.) [\ref{exer:linrep:intersection-of-ideal-powers-krull}]
+  (Hint: Exercise~\ref{exer:linrep:artin-rees-lemma}.)
+  [\ref{exer:linrep:intersection-of-ideal-powers-krull}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:rees-algebra-example-iso-to-quotient}
@@ -3166,10 +3308,12 @@ denotes a field.
   polynomial ring $k[x, y, s, t]$ by the ideal $(tx - sy)$. Deduce
   that, in this case, the Rees algebra of $I$ is isomorphic to the
   symmetric algebra $\mathrm{S}^*_{k[x,y]}(I)$. (For the last point,
-  use the exact sequence mentioned at the end of \S{}\ref{subsec:linrep:tensor-algebras}. It will be
-  helpful to have an explicit presentation of $I$ as a
-  $k[x,y]$-module; for this, looking back at \Cref{exer:linalg:free-resolution-of-z-over-zxy} may
-  help.) [\S{}\ref{subsec:linrep:very-small-detour-graded-algebra}, \S{}\ref{subsec:linrep:tensor-algebras}]
+  use the exact sequence mentioned at the end of
+  \S{}\ref{subsec:linrep:tensor-algebras}. It will be helpful to have
+  an explicit presentation of $I$ as a $k[x,y]$-module; for this,
+  looking back at \Cref{exer:linalg:free-resolution-of-z-over-zxy} may
+  help.) [\S{}\ref{subsec:linrep:very-small-detour-graded-algebra},
+  \S{}\ref{subsec:linrep:tensor-algebras}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:koszul-complex-definition}
@@ -3236,7 +3380,8 @@ Corollary~\ref{linrep:2.5}:
 
 What about the `contravariant' flavor of Hom:
 $M \mapsto h_N(M) := \Hom_{R\text{-Mod}}(M, N)$ (this functor was
-discussed in general terms in \S{}\ref{subsec:linrep:examples-of-functors})?
+discussed in general terms in
+\S{}\ref{subsec:linrep:examples-of-functors})?
 
 \begin{prop}{}{linrep:5.2}
   For every $R$-module $N$, the functor $\Hom_R(-, N)$ is
@@ -3326,15 +3471,18 @@ is an exact sequence of $R$-modules, then the induced sequence
   0 \to \Hom_R(C, N) \to \Hom_R(B, N) \to \Hom_R(A, N)
 \]
 is also exact. The diligent reader has verified this already `by hand'
-in the distant past (\Cref{exer:rings:hom-contravariant-left-exact-from-ses}), without appealing to
-adjunction. Direct proofs of the left-exactness of both Hom functors
-are straightforward and instructive.
+in the distant past
+(\Cref{exer:rings:hom-contravariant-left-exact-from-ses}), without
+appealing to adjunction. Direct proofs of the left-exactness of both
+Hom functors are straightforward and instructive.
 
 \subsection{Dual modules}
 \label{subsec:linrep:dual-modules}
 We will explore further the exactness (and lack of exactness) of Hom
-in \S{}\ref{sec:linrep:projective-and-injective-modules-and-the-ext-functors}. Before doing that, however, I want to examine one important
-particular case of the contravariant aspect of the Hom functor.
+in
+\S{}\ref{sec:linrep:projective-and-injective-modules-and-the-ext-functors}. Before
+doing that, however, I want to examine one important particular case
+of the contravariant aspect of the Hom functor.
 
 \begin{defn}{}{linrep:5.4}
   Let $M$ be an $R$-module. The \emph{dual} $M^\vee$ of $M$ is the
@@ -3399,8 +3547,9 @@ side to the right-hand side in the statement of
 Corollary~\ref{linrep:5.7}: direct sums become direct products through
 the contravariant Hom (Corollary~\ref{linrep:5.3}).  However, a direct
 product of finitely many modules happens to be isomorphic to their
-direct sum (as we have known for a long time: \Cref{prop:rings:direct-sum-product-coproduct}),
-hence the second part of the statement.
+direct sum (as we have known for a long time:
+\Cref{prop:rings:direct-sum-product-coproduct}), hence the second part
+of the statement.
 
 \begin{rem}{}{linrep:5.8}
   If $S$ is infinite, $R^S$ is `much larger' than $R^{\oplus S}$: the
@@ -3411,17 +3560,18 @@ hence the second part of the statement.
 
 \begin{rem}{}{linrep:5.9}
   Note that the set $S$ is not determined by the isomorphism class of
-  a free module $F = R^{\oplus S}$. We proved in \Cref{linalg:1.11} (if
-  $R$ is an integral domain) that the cardinality of $S$ is determined
-  by the isomorphism class of $F$, but of course $S$ itself, say as a
-  subset of $F$, is not. In fact, recall (\S{}\ref{subsec:linalg:linear-independence-and-bases}) that the choice
-  of a specific isomorphism $F \cong R^{\oplus S}$ is equivalent to
-  the choice of a basis of $F$. Now, the isomorphism appearing in
-  Corollary~\ref{linrep:5.7} requires knowledge of $S$; indeed, we
-  will verify in a moment (Example~\ref{linrep:5.11}) that this
-  isomorphism, even in the finite case, does depend on the choice of a
-  basis. It is not canonical! The reader should endeavor to remember
-  this slogan: a finite-rank free module---for example, a
+  a free module $F = R^{\oplus S}$. We proved in \Cref{linalg:1.11}
+  (if $R$ is an integral domain) that the cardinality of $S$ is
+  determined by the isomorphism class of $F$, but of course $S$
+  itself, say as a subset of $F$, is not. In fact, recall
+  (\S{}\ref{subsec:linalg:linear-independence-and-bases}) that the
+  choice of a specific isomorphism $F \cong R^{\oplus S}$ is
+  equivalent to the choice of a basis of $F$. Now, the isomorphism
+  appearing in Corollary~\ref{linrep:5.7} requires knowledge of $S$;
+  indeed, we will verify in a moment (Example~\ref{linrep:5.11}) that
+  this isomorphism, even in the finite case, does depend on the choice
+  of a basis. It is not canonical! The reader should endeavor to
+  remember this slogan: a finite-rank free module---for example, a
   finite-dimensional vector space---is isomorphic to its dual, but not
   canonically.
 \end{rem}
@@ -3440,7 +3590,8 @@ This remark can be clarified by means of the following notion.
 
 The isomorphism $(R^n)^\vee \cong R^n$ of Corollary~\ref{linrep:5.7}
 is obtained precisely by matching $e_i$ and $\check{e}_i$: this will
-be crystal clear to the reader who works out \Cref{exer:linrep:direct-computation-dual-of-free-module}. In
+be crystal clear to the reader who works out
+\Cref{exer:linrep:direct-computation-dual-of-free-module}. In
 particular, the vectors $\check{e}_i$ do form a basis of $(R^n)^\vee$.
 
 \begin{exam}{}{linrep:5.11}
@@ -3458,7 +3609,8 @@ particular, the vectors $\check{e}_i$ do form a basis of $(R^n)^\vee$.
 \end{exam}
 
 The fact that duality leads to noncanonical isomorphisms is somewhat
-unpleasant, but something magical will happen soon (\S{}\ref{subsec:linrep:duals-and-matrices-biduality}): we will
+unpleasant, but something magical will happen soon
+(\S{}\ref{subsec:linrep:duals-and-matrices-biduality}): we will
 recover a canonical---that is, independent of any choice---isomorphism
 (on finite-rank free modules) by applying the duality functor twice.
 Whatever twist is introduced by the duality functor will be untwisted
@@ -3494,10 +3646,11 @@ gives the sequence
   \tag{$*$}
   0 \to \Z^\vee \xrightarrow{\gamma} \Z^\vee \to 0
 \end{equation}
-since the dual of $\Z/2\Z$ is zero (\Cref{exer:linrep:z2z-dual-is-zero}). The map $\gamma$ in
-this sequence is the dual of the multiplication by $2$.  If
-$f : \Z \to \Z$ is an element of $\Z^\vee$, then $\gamma(f)$ is
-obtained by composition:
+since the dual of $\Z/2\Z$ is zero
+(\Cref{exer:linrep:z2z-dual-is-zero}). The map $\gamma$ in this
+sequence is the dual of the multiplication by $2$.  If $f : \Z \to \Z$
+is an element of $\Z^\vee$, then $\gamma(f)$ is obtained by
+composition:
 \[
   \begin{tikzcd}
     \Z \ar[r, "\gamma(f)"] \ar[dr, "\cdot 2"'] &
@@ -3511,8 +3664,9 @@ $\Z^\vee$) is not in the image of $\gamma$. Thus $\gamma$ is not
 surjective, and the sequence $(*)$ is not exact.
 
 There are situations in which duality is exact; we will understand
-this better after digesting \S{}\ref{sec:linrep:projective-and-injective-modules-and-the-ext-functors}, but the following observation will
-suffice for now.
+this better after digesting
+\S{}\ref{sec:linrep:projective-and-injective-modules-and-the-ext-functors},
+but the following observation will suffice for now.
 \begin{prop}{}{linrep:5.13}
   Let
   \[
@@ -3528,8 +3682,9 @@ suffice for now.
 \end{prop}
 
 This is also not new to the diligent readers, as it is a particular
-case of \Cref{exer:rings:exact-seq-with-free-quotient-splits} and, further, it is a consequence of Exercise
-2.23. But here is a direct argument:
+case of \Cref{exer:rings:exact-seq-with-free-quotient-splits} and,
+further, it is a consequence of Exercise 2.23. But here is a direct
+argument:
 
 \begin{proof}
   Lemma~\ref{linrep:5.12} takes care of all but the surjectivity of
@@ -3556,13 +3711,13 @@ case of \Cref{exer:rings:exact-seq-with-free-quotient-splits} and, further, it i
       bend right, "\rho"'] & 0
     \end{tikzcd}
   \]
-  By construction, $\nu \circ \rho = \id_P$. Now let
-  $n \in N$. Then $\nu(\rho(\nu(n))) = \nu(n)$, giving
-  $\nu(n - \rho(\nu(n))) = 0$. By the exactness of the given sequence,
-  $\exists m \in M$ such that $n - \rho(\nu(n)) = \mu(m)$. The element
-  $m$ is unique, since $\mu$ is injective. Setting $g(n) := f(m)$
-  gives the necessary extension. Indeed, $g$ is immediately checked to
-  be $R$-linear, and $g(\mu(m)) = f(m)$ by definition.
+  By construction, $\nu \circ \rho = \id_P$. Now let $n \in N$. Then
+  $\nu(\rho(\nu(n))) = \nu(n)$, giving $\nu(n - \rho(\nu(n))) = 0$. By
+  the exactness of the given sequence, $\exists m \in M$ such that
+  $n - \rho(\nu(n)) = \mu(m)$. The element $m$ is unique, since $\mu$
+  is injective. Setting $g(n) := f(m)$ gives the necessary
+  extension. Indeed, $g$ is immediately checked to be $R$-linear, and
+  $g(\mu(m)) = f(m)$ by definition.
 \end{proof}
 
 \begin{coro}{}{linrep:5.14}
@@ -3618,21 +3773,25 @@ appear as duals of other modules:
   $M^\vee$.
 \end{proof}
 
-The diligent reader has proved this already in \Cref{exer:linalg:hom-torsion-free-if-target-torsion-free} and
+The diligent reader has proved this already in
+\Cref{exer:linalg:hom-torsion-free-if-target-torsion-free} and
 probably by a more direct way than what we did just now, but never
 mind. In any case, remember that dualizing kills torsion. Practice
-this by working out \Cref{exer:linrep:compute-dual-of-fin-gen-module-over-pid}.  Even if not every module is the
-dual of a module, we may wonder whether an arbitrarily given module
-$M$ has some relation with a suitably chosen dual, and this is indeed
-the case: there is a canonical map to the \emph{double-dual},
+this by working out
+\Cref{exer:linrep:compute-dual-of-fin-gen-module-over-pid}.  Even if
+not every module is the dual of a module, we may wonder whether an
+arbitrarily given module $M$ has some relation with a suitably chosen
+dual, and this is indeed the case: there is a canonical map to the
+\emph{double-dual},
 \[
   \omega : M \to M^{\vee\vee}.
 \]
 To define this, consider the $R$-bilinear map $M^\vee \times M \to R$
 sending $(f, m)$ to $f(m)$. For every $m \in M$, we get\footnote{The
   reader with a categorical frame of mind can view this a little more
-  formally by working out \Cref{exer:linrep:canonical-bijection-hom-dual-swap}.} an $R$-linear map
-$M^\vee \to R$, $f \mapsto f(m)$, in other words, an element
+  formally by working out
+  \Cref{exer:linrep:canonical-bijection-hom-dual-swap}.} an $R$-linear
+map $M^\vee \to R$, $f \mapsto f(m)$, in other words, an element
 $\omega(m)$ of $M^{\vee\vee}$. It is immediately checked that $\omega$
 is $R$-linear.
 
@@ -3648,16 +3807,18 @@ $F \cong F^\vee \cong F^{\vee\vee}$, may seem a priori bound to make
 the situation even worse --- surely, if we compose two noncanonical
 maps, then we cannot expect to get something canonical, right? Well,
 we do in this case, since this composition is nothing but the map
-$\omega$ (\Cref{exer:linrep:composition-of-isos-is-canonical-biduality-map}) and $\omega$ knows nothing about choices of
-bases or other such ambiguities. Therefore, our slogan admits the
-following addendum: finite-rank free modules are noncanonically
-isomorphic to their duals and canonically isomorphic to their
-double-duals.  In terms of matrices (and keeping in mind that duality
-is exact on free modules) this is perhaps not too surprising. After
-all, taking the transpose of a matrix twice simply gives the matrix
-back; thus, even if making sense of the homomorphism corresponding to
-the transpose of a matrix may depend on the choice of a basis, surely
-such a choice is inessential if the transpose is taken twice.
+$\omega$
+(\Cref{exer:linrep:composition-of-isos-is-canonical-biduality-map})
+and $\omega$ knows nothing about choices of bases or other such
+ambiguities. Therefore, our slogan admits the following addendum:
+finite-rank free modules are noncanonically isomorphic to their duals
+and canonically isomorphic to their double-duals.  In terms of
+matrices (and keeping in mind that duality is exact on free modules)
+this is perhaps not too surprising. After all, taking the transpose of
+a matrix twice simply gives the matrix back; thus, even if making
+sense of the homomorphism corresponding to the transpose of a matrix
+may depend on the choice of a basis, surely such a choice is
+inessential if the transpose is taken twice.
 
 Incidentally, a module $M$ is \emph{reflexive} if the corresponding
 map $\omega$ is an isomorphism. Thus, reflexive modules are
@@ -3667,8 +3828,9 @@ necessarily torsion-free and finite-rank free modules are reflexive.
 \label{subsec:linrep:duality-on-vector-spaces}
 In all these considerations, the case of vector spaces over a field
 $k$ is only special in that vector spaces are free. Collecting the
-foregoing observations (including \Cref{exer:linrep:hom-from-free-iso-dual-tensor-n}) for this particular
-case, we have the following:
+foregoing observations (including
+\Cref{exer:linrep:hom-from-free-iso-dual-tensor-n}) for this
+particular case, we have the following:
 \begin{itemize}
 \item Duality is a contravariant, exact functor on $k\text{-Vect}$.
 \item If $V, W$ are vector spaces, then
@@ -3688,7 +3850,8 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
 \subsection*{Exercises}
 \begin{exer}{$*$}{exer:linrep:hom-from-free-iso-dual-tensor-n}
   Prove that if $F$ is a free $R$-module of finite rank and $N$ is any
-  $R$-module, then $\Hom_R(F, N) \cong F^\vee \otimes_R N$.  [\S{}\ref{subsec:linrep:duality-on-vector-spaces}]
+  $R$-module, then $\Hom_R(F, N) \cong F^\vee \otimes_R N$.
+  [\S{}\ref{subsec:linrep:duality-on-vector-spaces}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:epi-mono-characterization-via-hom}
@@ -3702,7 +3865,9 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   surjective for all $N$. Prove that the converse to the first
   statement holds and the converse to the second statement does not
   hold. However, show that if $\alpha$ admits a left-inverse, then
-  $\alpha^*$ is surjective for all $N$. [\ref{exer:linrep:exactness-criterion-via-hom-dual}, \ref{exer:linrep:injective-iff-hom-surjective-for-injectives}]
+  $\alpha^*$ is surjective for all
+  $N$. [\ref{exer:linrep:exactness-criterion-via-hom-dual},
+  \ref{exer:linrep:injective-iff-hom-surjective-for-injectives}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:exactness-criterion-via-hom-dual}
@@ -3716,12 +3881,11 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
     \xrightarrow{\alpha^*} \Hom_R(A,N) \to 0
   \]
   is exact for all $R$-modules $N$. (You have done most of this
-  already, in \Cref{exer:linrep:epi-mono-characterization-via-hom}. To show
-  $\ker\beta \subseteq \image\alpha$, choose
-  $N = B/\image(\alpha)$.) Remember that the converse does
-  not hold, since in general $\Hom_R(-,N)$ is not exact.  What extra
-  hypothesis on $\alpha$ would guarantee the exactness of $(*)$ for
-  all $N$?
+  already, in \Cref{exer:linrep:epi-mono-characterization-via-hom}. To
+  show $\ker\beta \subseteq \image\alpha$, choose
+  $N = B/\image(\alpha)$.) Remember that the converse does not hold,
+  since in general $\Hom_R(-,N)$ is not exact.  What extra hypothesis
+  on $\alpha$ would guarantee the exactness of $(*)$ for all $N$?
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:hom-i-r-mod-i-restriction-map-zero}
@@ -3730,23 +3894,27 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   the image of this map is $0$.  Prove that
   $\Hom_R(I/I^2, R/I) \cong \Hom_R(I, R/I)$. (This module is important
   in algebraic geometry, as it carries the information of a `normal
-  bundle' in good situations.)  [\ref{exer:linrep:ext1-of-quotient-iso-to-hom-normal-bundle}]
+  bundle' in good situations.)
+  [\ref{exer:linrep:ext1-of-quotient-iso-to-hom-normal-bundle}]
 \end{exer}
 
 \begin{exer}{$*$}{exer:linrep:evaluation-map-dual-tensor-free-iso-hom}
   Prove that the evaluation map $M^\vee \otimes_R F \to \Hom_R(M,F)$
   is an isomorphism if $F$ is free of finite rank, providing an
-  alternative proof of Proposition~\ref{linrep:5.5}. [\S{}\ref{subsec:linrep:dual-modules}]
+  alternative proof of
+  Proposition~\ref{linrep:5.5}. [\S{}\ref{subsec:linrep:dual-modules}]
 \end{exer}
 
 \begin{exer}{$*$}{exer:linrep:z2z-dual-is-zero}
-  Show that $(\Z/2\Z)^\vee = \Hom_{\Z}(\Z/2\Z, \Z) = 0$.  [\S{}\ref{subsec:linrep:duality-and-exactness}]
+  Show that $(\Z/2\Z)^\vee = \Hom_{\Z}(\Z/2\Z, \Z) = 0$.
+  [\S{}\ref{subsec:linrep:duality-and-exactness}]
 \end{exer}
 
 \begin{exer}{$*$}{exer:linrep:direct-computation-dual-of-free-module}
   Prove `directly' that $(R^{\oplus S})^\vee \cong R^S$: how does an
   $R$-linear map $R^{\oplus S} \to R$ determine a function $S \to R$,
-  and what is the inverse of this correspondence? [\S{}\ref{subsec:linrep:duals-of-free-modules}]
+  and what is the inverse of this correspondence?
+  [\S{}\ref{subsec:linrep:duals-of-free-modules}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:hom-m-mvee-equiv-bilinear-map}
@@ -3764,12 +3932,12 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   injective, and it is \emph{nonsingular} if they are isomorphisms.
   The notions coincide if $M$ is a finite-dimensional vector space.
   Prove that the `standard inner product' in $R^n$ (defined in
-  \Cref{exer:linalg:on-r-iff-orthonormal-columns-rows}) is nondegenerate. If $M$ is free of rank $n$, let
-  $(e_1, \dots, e_n)$ be a basis of $M$, and let $A = (a_{ij})$ be the
-  matrix with entries $a_{ij} = \phi(e_i, e_j)$. Prove that $\phi$ is
-  nondegenerate if and only if $\det(A)$ is nonzero, and it is
-  nonsingular if and only if $\det(A)$ is a unit. (Cf.\ Proposition
-  VI.6.5.)
+  \Cref{exer:linalg:on-r-iff-orthonormal-columns-rows}) is
+  nondegenerate. If $M$ is free of rank $n$, let $(e_1, \dots, e_n)$
+  be a basis of $M$, and let $A = (a_{ij})$ be the matrix with entries
+  $a_{ij} = \phi(e_i, e_j)$. Prove that $\phi$ is nondegenerate if and
+  only if $\det(A)$ is nonzero, and it is nonsingular if and only if
+  $\det(A)$ is a unit. (Cf.\ Proposition VI.6.5.)
 \end{exer}
 
 \begin{exer}{}{exer:linrep:dual-map-is-transpose-matrix}
@@ -3778,7 +3946,8 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
 
 \begin{exer}{$*$}{exer:linrep:compute-dual-of-fin-gen-module-over-pid}
   Let $M$ be a finitely generated module over a PID, of rank $r$.
-  `Compute' the dual $M^\vee$. [\S{}\ref{subsec:linrep:duals-and-matrices-biduality}]
+  `Compute' the dual
+  $M^\vee$. [\S{}\ref{subsec:linrep:duals-and-matrices-biduality}]
 \end{exer}
 
 \begin{exer}{$*$}{exer:linrep:canonical-bijection-hom-dual-swap}
@@ -3787,7 +3956,8 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   $N = M^\vee$, the left-hand side has a distinguished element, namely
   the identity $M^\vee \to M^\vee$.  Prove that the corresponding
   element on the right is the map $\omega : M \to M^{\vee\vee}$
-  defined in \S{}\ref{subsec:linrep:duals-and-matrices-biduality}. [\S{}\ref{subsec:linrep:duals-and-matrices-biduality}]
+  defined in
+  \S{}\ref{subsec:linrep:duals-and-matrices-biduality}. [\S{}\ref{subsec:linrep:duals-and-matrices-biduality}]
 \end{exer}
 
 \begin{exer}{$*$}{exer:linrep:composition-of-isos-is-canonical-biduality-map}
@@ -3808,8 +3978,9 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
 \begin{exer}{$\lnot$}{exer:linrep:annihilator-of-subspace-basics}
   Let $V$ be a vector space, and let $W \subseteq V$ be a subspace.
   The \emph{annihilator} of $W$ is\footnote{The notation is inspired
-    by \Cref{exer:linalg:orthogonal-complement-is-subspace-dim-n-minus-1}, which is a particular case of this
-    problem. Do you see why?}
+    by
+    \Cref{exer:linalg:orthogonal-complement-is-subspace-dim-n-minus-1},
+    which is a particular case of this problem. Do you see why?}
   \[
     W^\perp := \{\,\check{v} \in V^\vee \mid (\forall w \in W),\,
     \check{v}(w) = 0\,\}.
@@ -3818,22 +3989,26 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   $\dim W = r$, prove that $\dim W^\perp = n - r$. Assuming $V$ is
   finite dimensional, prove that, under the canonical isomorphism
   $V^{\vee\vee} \cong V$, $W^{\perp\perp}$ maps isomorphically to
-  $W$. [\ref{exer:linrep:annihilator-iso-dual-via-exact-seq-free}, \ref{exer:linrep:grassmannian-bijection-with-dual-grassmannian}]
+  $W$. [\ref{exer:linrep:annihilator-iso-dual-via-exact-seq-free},
+  \ref{exer:linrep:grassmannian-bijection-with-dual-grassmannian}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:annihilator-iso-dual-via-exact-seq-free}
   Let $0 \to F_1 \to F_2 \to F_3 \to 0$ be an exact sequence of free
   $R$-modules. Viewing $F_1$ as a submodule of $F_2$ and extrapolating
-  the notation introduced for vector spaces in \Cref{exer:linrep:annihilator-of-subspace-basics}, prove
-  that $F_1^\perp \cong F_3^\vee$.
+  the notation introduced for vector spaces in
+  \Cref{exer:linrep:annihilator-of-subspace-basics}, prove that
+  $F_1^\perp \cong F_3^\vee$.
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:grassmannian-bijection-with-dual-grassmannian}
   Let $V$ be a vector space of dimension $n$. Prove that there is a
   natural bijection between the Grassmannian $\mathrm{Gr}(r, V)$ of
-  $r$-dimensional subspaces of $V$ (cf.\ \Cref{exer:linalg:grassmannian-cell-decomposition}) and the
+  $r$-dimensional subspaces of $V$ (cf.\
+  \Cref{exer:linalg:grassmannian-cell-decomposition}) and the
   Grassmannian $\mathrm{Gr}(n-r, V^\vee)$ of $(n-r)$-dimensional
-  subspaces of the dual of $V$. (Use \Cref{exer:linrep:annihilator-of-subspace-basics}.) In particular,
+  subspaces of the dual of $V$. (Use
+  \Cref{exer:linrep:annihilator-of-subspace-basics}.) In particular,
   the Grassmannian $\mathrm{Gr}_k(n-1, n)$ has the same structure as
   the projective space $\mathbf{P}V = \mathrm{Gr}_k(1, n)$. We could
   in fact define the projective space associated to a vector space $V$
@@ -3873,39 +4048,42 @@ As usual, $R$ is a fixed commutative ring unless stated otherwise.
   Let $R$ be a ring, not necessarily commutative, and let $M$ be a
   left-$R$-module. Prove that $M^\vee$ carries a natural
   right-$R$-module structure. Prove that $R$ is isomorphic as a ring
-  to the opposite ring $R^\circ$. (Cf.\ \Cref{exer:rings:opposite-ring}.)
+  to the opposite ring $R^\circ$. (Cf.\
+  \Cref{exer:rings:opposite-ring}.)
 \end{exer}
 
 \section{Projective and injective modules and the Ext functors}
 \label{sec:linrep:projective-and-injective-modules-and-the-ext-functors}
 
-We have seen in \S{}\ref{subsec:linrep:adjunction-again} that the Hom functors are left-exact, and not
-exact in general. Studying this matter further leads us along a path
-parallel to the one traveled in the case of tensor products. In that
-case, we singled out a class of special (`flat') modules for which
-$\otimes$ is exact, and we discovered that the lack of exactness of
-tensor products may be precisely measured in terms of a whole
-collection of new (`Tor') functors. Precisely the same situation
-occurs for the covariant and contravariant flavors of Hom, and I will
-close the chapter by summarizing this story.
+We have seen in \S{}\ref{subsec:linrep:adjunction-again} that the Hom
+functors are left-exact, and not exact in general. Studying this
+matter further leads us along a path parallel to the one traveled in
+the case of tensor products. In that case, we singled out a class of
+special (`flat') modules for which $\otimes$ is exact, and we
+discovered that the lack of exactness of tensor products may be
+precisely measured in terms of a whole collection of new (`Tor')
+functors. Precisely the same situation occurs for the covariant and
+contravariant flavors of Hom, and I will close the chapter by
+summarizing this story.
 
 This brief overview should suffice for standard applications the
 reader may encounter. I am also hoping that it will serve as
 motivation for the next chapter: the wonderful facts that I will
 present here without proof (on Ext functors, analogous to the facts
-about Tor that were left without proof in \S{}\ref{subsec:linrep:the-tor-functors}) could be proven in
-detail by ad hoc methods, without too much effort; but they find their
-most natural setting in the wider apparatus of homological algebra and
-were in fact at the root of its development. The reader who bears with
-us throughout \Cref{chap:homol} will see complete proofs of all the facts
+about Tor that were left without proof in
+\S{}\ref{subsec:linrep:the-tor-functors}) could be proven in detail by
+ad hoc methods, without too much effort; but they find their most
+natural setting in the wider apparatus of homological algebra and were
+in fact at the root of its development. The reader who bears with us
+throughout \Cref{chap:homol} will see complete proofs of all the facts
 advertised here and substantially more.
 
 As in the rest of the chapter, $R$ will be a commutative ring. As
 elsewhere, the hypothesis of commutativity is essentially unnecessary;
 it has the convenient consequence that the objects defined below (such
-as $\Ext^i_R(M, N)$ for two $R$-modules $M$ and $N$) are
-naturally endowed with an $R$-module structure. If $R$ is not
-necessarily commutative, they are `just' abelian groups.
+as $\Ext^i_R(M, N)$ for two $R$-modules $M$ and $N$) are naturally
+endowed with an $R$-module structure. If $R$ is not necessarily
+commutative, they are `just' abelian groups.
 
 \subsection{Projectives and injectives}
 \label{subsec:linrep:projectives-and-injectives}
@@ -3958,13 +4136,15 @@ following straightforward translations:
   Taken as a module over itself, $R$ is projective (because
   $\Hom_R(R, M)$ is canonically isomorphic to $M$, for all modules
   $M$) but not injective in general (since the duality functor
-  $\Hom_R(-, R)$ is not exact in general; cf.\ \S{}\ref{subsec:linrep:adjunction-again}).
+  $\Hom_R(-, R)$ is not exact in general; cf.\
+  \S{}\ref{subsec:linrep:adjunction-again}).
 \end{exam}
 
 A variation on the theme of Lemma~\ref{linrep:6.2} rephrases the
 projective/injective conditions in terms of the splitting of sequences
-(cf.\ the end of \S{}\ref{subsec:rings:complexes-and-exact-sequences}). For example, assume that $P$ is
-projective; then I claim that every exact sequence
+(cf.\ the end of
+\S{}\ref{subsec:rings:complexes-and-exact-sequences}). For example,
+assume that $P$ is projective; then I claim that every exact sequence
 \[
   0 \to L \xrightarrow{\lambda} M \xrightarrow{\mu} P \to 0
 \]
@@ -3986,11 +4166,12 @@ manifestly does not split.
 
 It is not difficult to show that these properties in fact characterize
 projective and injective modules. With the terminology introduced in
-\S{}\ref{subsec:rings:complexes-and-exact-sequences}, a module $P$ is projective if and only if every
-epimorphism $M \to P$ is a split epimorphism, and a module $Q$ is
-injective if and only if every monomorphism $Q \to M$ is a split
-monomorphism. Dotting all the i's and crossing all the t's is left to
-the enterprising reader (\Cref{exer:linrep:projective-injective-splitting-characterization}).
+\S{}\ref{subsec:rings:complexes-and-exact-sequences}, a module $P$ is
+projective if and only if every epimorphism $M \to P$ is a split
+epimorphism, and a module $Q$ is injective if and only if every
+monomorphism $Q \to M$ is a split monomorphism. Dotting all the i's
+and crossing all the t's is left to the enterprising reader
+(\Cref{exer:linrep:projective-injective-splitting-characterization}).
 
 \subsection{Projective modules}
 \label{subsec:linrep:projective-modules}
@@ -4050,12 +4231,14 @@ these facts. For example, if $P_1$ and $P_2$ are both projective, the
 functor $\Hom_R(P_1, \Hom_R(P_2, -))$ is exact; by adjunction, this is
 the functor $\Hom_R(P_1 \otimes_R P_2, -)$; since this is exact,
 $P_1 \otimes_R P_2$ is projective. A proof via adjunction of the fact
-that projective modules are flat is straightforward (\Cref{exer:linrep:projective-modules-are-flat-via-adjunction}),
-using the (nontrivial) fact that $R\text{-Mod}$ has enough injectives,
+that projective modules are flat is straightforward
+(\Cref{exer:linrep:projective-modules-are-flat-via-adjunction}), using
+the (nontrivial) fact that $R\text{-Mod}$ has enough injectives,
 discussed below. As it happens, finitely generated flat modules over,
 e.g., Noetherian rings, are projective; the diligent reader has
 already done all the work necessary to prove this, and will wrap it up
-in \Cref{exer:linrep:fin-gen-over-noeth-locally-free-iff-projective-iff-flat}.
+in
+\Cref{exer:linrep:fin-gen-over-noeth-locally-free-iff-projective-iff-flat}.
 
 The fact that free modules are projective implies that $R\text{-Mod}$
 has \emph{enough projectives}: this means that every $R$-module $M$
@@ -4069,8 +4252,8 @@ free modules, it can in principle be `easier' to construct a
 projective resolution. The magic of homological algebra shows that
 projective resolutions may be used in place of free resolutions in
 (for example) computing Tor-modules. This will be clear once we go
-through some homological algebra machinery, in \Cref{chap:homol}, especially
-\S{}\ref{sec:homol:double-complexes}.
+through some homological algebra machinery, in \Cref{chap:homol},
+especially \S{}\ref{sec:homol:double-complexes}.
 
 \subsection{Injective modules}
 \label{subsec:linrep:injective-modules}
@@ -4194,7 +4377,10 @@ $rD = D$ for every non-zero-divisor $r \in R$, that is, if we can
 Going from friendly PIDs like $\Z$ to arbitrary rings may still seem
 challenging, but here is where some of our previous work pays
 off. Recall that for every ring homomorphism $f : S \to R$ we have
-defined in \S{}\ref{subsec:linrep:restriction-and-extension-of-scalars} a functor\footnote{Watch out --- in \S{}\ref{subsec:linrep:restriction-and-extension-of-scalars} the
+defined in
+\S{}\ref{subsec:linrep:restriction-and-extension-of-scalars} a
+functor\footnote{Watch out --- in
+  \S{}\ref{subsec:linrep:restriction-and-extension-of-scalars} the
   homomorphism goes from $R$ to $S$, so the definition of $f^!$ may
   look backwards here.}  $f^! : S\text{-Mod} \to R\text{-Mod}$, by
 setting $f^!(M) = \Hom_S(R, M)$. This functor preserves injectives:
@@ -4206,7 +4392,8 @@ setting $f^!(M) = \Hom_S(R, M)$. This functor preserves injectives:
 \end{lem}
 
 \begin{rem}{}{linrep:6.10}
-  Similarly, $f^*$ preserves projectives (\Cref{exer:linrep:restriction-of-scalars-of-projective-is-projective}).
+  Similarly, $f^*$ preserves projectives
+  (\Cref{exer:linrep:restriction-of-scalars-of-projective-is-projective}).
 \end{rem}
 
 \begin{proof}
@@ -4276,12 +4463,13 @@ algebraic geometry.
   Corollary~\ref{linrep:6.12} may be refined, proving that every
   module can in fact be realized as a submodule of a product
   $\Hom_{\Z}(R, \Q/\Z)^S$ (this is injective, by
-  Corollary~\ref{linrep:6.11} and \Cref{exer:linrep:direct-sum-of-injectives-iff-each-is}).  That is, products
-  of $\iota^!(\Q/\Z) = \Hom_{\Z}(R, \Q/\Z)$ play for injectives the
-  role played by free modules (= coproducts of $R = \iota^*(\Z)$) for
-  projectives. (Not surprisingly, they are said to be \emph{cofree}.)
-  It follows that every injective $R$-module is a direct summand of
-  $\Hom_{\Z}(R, \Q/\Z)^S$ for some $S$.
+  Corollary~\ref{linrep:6.11} and
+  \Cref{exer:linrep:direct-sum-of-injectives-iff-each-is}).  That is,
+  products of $\iota^!(\Q/\Z) = \Hom_{\Z}(R, \Q/\Z)$ play for
+  injectives the role played by free modules (= coproducts of
+  $R = \iota^*(\Z)$) for projectives. (Not surprisingly, they are said
+  to be \emph{cofree}.)  It follows that every injective $R$-module is
+  a direct summand of $\Hom_{\Z}(R, \Q/\Z)^S$ for some $S$.
 \end{rem}
 
 \subsection{The Ext functors}
@@ -4297,9 +4485,9 @@ natural to expect two corresponding sequences of functors.  Amazingly,
 the same `bifunctors' $\Ext^i_R(-, -)$ work for both! For all
 $R$-modules $M$ and $N$, we have the following:
 \begin{itemize}
-\item For all $i \geq 0$, $\Ext^i_R(M, -)$ and
-  $\Ext^i_R(-, N)$ are covariant, resp., contravariant,
-  functors $R\text{-Mod} \to R\text{-Mod}$.
+\item For all $i \geq 0$, $\Ext^i_R(M, -)$ and $\Ext^i_R(-, N)$ are
+  covariant, resp., contravariant, functors
+  $R\text{-Mod} \to R\text{-Mod}$.
 \item For $i = 0$, $\Ext^0_R(M, N) = \Hom_R(M, N)$.
 \item For every exact sequence $0 \to A \to B \to C \to 0$ of
   $R$-modules, there are long exact sequences
@@ -4318,9 +4506,9 @@ $R$-modules $M$ and $N$, we have the following:
   \end{gather*}
   for suitable natural connecting morphisms $\delta_i$, $\delta^i$.
 \end{itemize}
-This will be proven in \Cref{chap:homol}. In any case, just knowing that such
-wonderful things exist gives us enough information to be able to play
-with them a little. For example,
+This will be proven in \Cref{chap:homol}. In any case, just knowing
+that such wonderful things exist gives us enough information to be
+able to play with them a little. For example,
 \begin{itemize}
 \item if $\Ext^1_R(P, -) = 0$, then $P$ is projective;
 \item if $\Ext^1_R(-, Q) = 0$, then $Q$ is injective.
@@ -4328,9 +4516,9 @@ with them a little. For example,
 Indeed, the exactness of the corresponding $\Hom_R(P, -)$, resp.,
 $\Hom_R(-, Q)$, follows immediately from the exact sequences displayed
 above.  In fact, pushing the envelope a little will tell us much
-more. Recall the procedure that defines $\Tor^R_i(-, N)$ from
-the functor $- \otimes_R N$: to compute the value of these functors at
-a module $M$,
+more. Recall the procedure that defines $\Tor^R_i(-, N)$ from the
+functor $- \otimes_R N$: to compute the value of these functors at a
+module $M$,
 \begin{itemize}
 \item find a free resolution of $M$:
   $\dots \to R^{\oplus S_2} \to R^{\oplus S_1} \to R^{\oplus S_0} \to
@@ -4344,24 +4532,25 @@ a module $M$,
 \end{itemize}
 I also pointed out that projective resolutions may be used in place of
 free resolutions.\footnote{In fact, resolutions by flat modules
-  suffice; this will be proven in \Cref{chap:homol}.} This strategy is an
-example of the general procedure used to `derive' functors. Can you
+  suffice; this will be proven in \Cref{chap:homol}.} This strategy is
+an example of the general procedure used to `derive' functors. Can you
 dream up how the same strategy may be applied in order to compute
 Ext-modules? Don't read ahead until you have thought a little about
 this!
 
-$*$ Welcome back. In the case of $\Ext^i_R(M,N)$, there would
-seem to be two natural and possibly different ways to go:
+$*$ Welcome back. In the case of $\Ext^i_R(M,N)$, there would seem to
+be two natural and possibly different ways to go:
 \begin{itemize}
 \item One could start from a projective resolution of $M$:
   $\dots \to P_2 \to P_1 \to P_0 \to M \to 0$; apply the contravariant
   $\Hom_R(-, N)$ to the projective part, obtaining a new complex
   $\Hom_R(M_\bullet, N)$, i.e.,
   $\Hom_R(P_0,N) \to \Hom_R(P_1,N) \to \Hom_R(P_2,N) \to \dots$, and
-  take cohomology,\footnote{Recall from \S{}\ref{subsec:rings:complexes-and-exact-sequences} that the homology
-    of complexes with increasing (rather than decreasing) indices is
-    called cohomology; this is usually denoted $H^*$, with `upper'
-    indices.} proposing the definition
+  take cohomology,\footnote{Recall from
+    \S{}\ref{subsec:rings:complexes-and-exact-sequences} that the
+    homology of complexes with increasing (rather than decreasing)
+    indices is called cohomology; this is usually denoted $H^*$, with
+    `upper' indices.} proposing the definition
   $\Ext^i_R(M,N) := H^i(\Hom_R(M_\bullet, N))$.
 \item Or one could start from an injective resolution of $N$:
   $0 \to N \to Q^0 \to Q^1 \to Q^2 \to \dots$; apply the covariant
@@ -4372,12 +4561,12 @@ seem to be two natural and possibly different ways to go:
   $\Ext^i_R(M,N) := H^i(\Hom_R(M, N^\bullet))$.
 \end{itemize}
 These definitions are independent of all choices and agree with each
-other! Again, the reader will have to wait for \Cref{chap:homol} to see a
-proof that this is the case and that the resulting modules do satisfy
-the requirements spelled out at the beginning of this subsection. As
-in the case of Tor, the impatient reader can get a good feel for the
-needed arguments by working out the case of finitely generated modules
-over PIDs, making good use of the snake lemma.
+other! Again, the reader will have to wait for \Cref{chap:homol} to
+see a proof that this is the case and that the resulting modules do
+satisfy the requirements spelled out at the beginning of this
+subsection. As in the case of Tor, the impatient reader can get a good
+feel for the needed arguments by working out the case of finitely
+generated modules over PIDs, making good use of the snake lemma.
 
 The reader who is willing to take my word for now and believe all
 these beautiful results is already in a position to perform many
@@ -4385,92 +4574,89 @@ computations and to understand injective/projective modules (even)
 better. For example,
 
 \begin{prop}{}{linrep:6.14}
-  An $R$-module $P$ is projective if and only if
-  $\Ext^1_R(P, -) = 0$, if and only if
-  $\Ext^i_R(P, -) = 0$ for all $i > 0$. An $R$-module $Q$ is
-  injective if and only if $\Ext^1_R(-, Q) = 0$, if and only
-  if $\Ext^i_R(-, Q) = 0$ for all $i > 0$.
+  An $R$-module $P$ is projective if and only if $\Ext^1_R(P, -) = 0$,
+  if and only if $\Ext^i_R(P, -) = 0$ for all $i > 0$. An $R$-module
+  $Q$ is injective if and only if $\Ext^1_R(-, Q) = 0$, if and only if
+  $\Ext^i_R(-, Q) = 0$ for all $i > 0$.
 \end{prop}
 
 \begin{proof}
   The second assertion: we have seen that $Q$ is injective if
   $\Ext^1_R(-, Q) = 0$, and this is trivially the case if
-  $\Ext^i_R(-, Q) = 0$ for all $i > 0$. So we just have to
-  prove that $\Ext^i_R(-, Q) = 0$ for all $i > 0$ if $Q$ is
-  injective. This is immediate from the second definition given above:
-  if $Q$ is injective, then $0 \to Q \to Q \to 0 \to 0 \to \dots$ is
-  an injective resolution of $Q$; thus, for an $R$-module $M$,
+  $\Ext^i_R(-, Q) = 0$ for all $i > 0$. So we just have to prove that
+  $\Ext^i_R(-, Q) = 0$ for all $i > 0$ if $Q$ is injective. This is
+  immediate from the second definition given above: if $Q$ is
+  injective, then $0 \to Q \to Q \to 0 \to 0 \to \dots$ is an
+  injective resolution of $Q$; thus, for an $R$-module $M$,
   $\Ext^i_R(M, Q)$ is the cohomology of the complex
   $\Hom_R(M,Q) \to 0 \to 0 \to \dots$, giving
-  $\Ext^0_R(M,Q) = \Hom_R(M,Q)$ and
-  $\Ext^i_R(M,Q) = 0$ for $i > 0$ and all $M$. The first
-  assertion is proven similarly, using the first definition given
-  above for Ext.
+  $\Ext^0_R(M,Q) = \Hom_R(M,Q)$ and $\Ext^i_R(M,Q) = 0$ for $i > 0$
+  and all $M$. The first assertion is proven similarly, using the
+  first definition given above for Ext.
 \end{proof}
 
 \subsection{\texorpdfstring{$\Ext^*_{\Z}(G, \Z)$}{Ext*\_Z(G, Z)}}
 \label{subsec:linrep:ext-Z-G-Z}
 I will attempt to convince the reader that computing Ext modules is
 not too unreasonable, by discussing the computation of
-$\Ext^*_{\Z}(G, \Z)$ for an arbitrary finitely generated
-abelian group $G$.
+$\Ext^*_{\Z}(G, \Z)$ for an arbitrary finitely generated abelian group
+$G$.
 \begin{itemize}
 \item Since Hom commutes with finite direct sums
   (Corollary~\ref{linrep:5.3}), so does Ext; this is an easy
   consequence of the definitions given above.
 \item By the classification theorem for finitely generated abelian
-  groups, we are reduced to computing $\Ext^i_{\Z}(\Z, \Z)$
-  and $\Ext^i_{\Z}(\Z/m\Z, \Z)$, for all $m > 0$ and
-  $i \geq 0$.
+  groups, we are reduced to computing $\Ext^i_{\Z}(\Z, \Z)$ and
+  $\Ext^i_{\Z}(\Z/m\Z, \Z)$, for all $m > 0$ and $i \geq 0$.
 \item The first module is $\Hom_{\Z}(\Z,\Z) \cong \Z$ for $i = 0$, and
   it is $0$ for $i > 0$: indeed, this follows from
   Proposition~\ref{linrep:6.14}, since $\Z$ is projective.
 \item The second module: use the projective resolution
   $0 \to \Z \xrightarrow{\cdot m} \Z \to \Z/m\Z \to 0$; this yields
-  that $\Ext^i_{\Z}(\Z/m\Z, \Z)$ is the cohomology of the
-  complex
+  that $\Ext^i_{\Z}(\Z/m\Z, \Z)$ is the cohomology of the complex
   \[
     0 \to \Hom_{\Z}(\Z,\Z) \xrightarrow{\cdot m} \Hom_{\Z}(\Z,\Z) \to
     0 \to \dots,
   \]
   that is, $0 \to \Z \xrightarrow{\cdot m} \Z \to 0 \to \dots$,
   confirming that
-  $\Ext^0_{\Z}(\Z/m\Z, \Z) = \Hom_{\Z}(\Z/m\Z, \Z) = 0$ ($\Z$
-  has no torsion) and computing
-  $\Ext^1_{\Z}(\Z/m\Z, \Z) \cong \Z/m\Z$, with vanishing
-  $\Ext^2$ and higher.
-\item The conclusion is that $\Ext^0_{\Z}(G, \Z)$ picks up the
-  free part of $G$, while $\Ext^1_{\Z}(G, \Z)$ is isomorphic
-  to the torsion part, and $\Ext^i_{\Z}(G, \Z) = 0$ for
-  $i \geq 2$ (as should have been expected; cf.\ \Cref{exer:linrep:ext-vanishes-above-degree-1-over-pid}).
+  $\Ext^0_{\Z}(\Z/m\Z, \Z) = \Hom_{\Z}(\Z/m\Z, \Z) = 0$ ($\Z$ has no
+  torsion) and computing $\Ext^1_{\Z}(\Z/m\Z, \Z) \cong \Z/m\Z$, with
+  vanishing $\Ext^2$ and higher.
+\item The conclusion is that $\Ext^0_{\Z}(G, \Z)$ picks up the free
+  part of $G$, while $\Ext^1_{\Z}(G, \Z)$ is isomorphic to the torsion
+  part, and $\Ext^i_{\Z}(G, \Z) = 0$ for $i \geq 2$ (as should have
+  been expected; cf.\
+  \Cref{exer:linrep:ext-vanishes-above-degree-1-over-pid}).
 \end{itemize}
 In particular, if $G$ is a finite abelian group, then
-$G \cong \Ext^1_{\Z}(G, \Z)$; as it happens, this isomorphism
-is not canonical.
+$G \cong \Ext^1_{\Z}(G, \Z)$; as it happens, this isomorphism is not
+canonical.
 
 Another Ext computation gives a different interpretation of this
 group. The exact sequence $0 \to \Z \to \Q \to \Q/\Z \to 0$ is an
-injective resolution of $\Z$; thus, $\Ext^*_{\Z}(G, \Z)$ is
-the cohomology of
+injective resolution of $\Z$; thus, $\Ext^*_{\Z}(G, \Z)$ is the
+cohomology of
 \[
   0 \to \Hom_{\Z}(G, \Q) \to \Hom_{\Z}(G, \Q/\Z) \to 0 \to \dots.
 \]
 If $G$ is torsion (for example, if $G$ is finite), it follows that
-$\Ext^1_{\Z}(G, \Z)$ is isomorphic to $\Hom_{\Z}(G,
-\Q/\Z)$. This group is the \emph{Pontryagin dual} of $G$, denoted
-$\hat{G}$. Thus, we have verified that if $G$ is a finite abelian
-group, then $G$ is isomorphic (not canonically) to its Pontryagin dual
+$\Ext^1_{\Z}(G, \Z)$ is isomorphic to $\Hom_{\Z}(G, \Q/\Z)$. This
+group is the \emph{Pontryagin dual} of $G$, denoted $\hat{G}$. Thus,
+we have verified that if $G$ is a finite abelian group, then $G$ is
+isomorphic (not canonically) to its Pontryagin dual
 $\hat{G} = \Hom_{\Z}(G, \Q/\Z)$. Of course this fact is not difficult
 to check directly, but it is immediate from the point of view of Ext.
 
 Finally, the notation \emph{Ext} is due to the fact that one can
-construct a bijection between the group $\Ext^1_R(M, N)$ and
-the set of equivalence classes of \emph{extensions} of $M$ by $N$,
-that is, of exact sequences $0 \to N \to E \to M \to 0$, modulo a
-suitable isomorphism relation (cf.\ \S{}\ref{subsec:groups2:exact-sequences-of-groups-extension-problem}). For example, the
-direct sum $E = M \oplus N$ corresponds to the $0$ element of this Ext
-group. The diligent reader will construct this bijection in the
-exercises.
+construct a bijection between the group $\Ext^1_R(M, N)$ and the set
+of equivalence classes of \emph{extensions} of $M$ by $N$, that is, of
+exact sequences $0 \to N \to E \to M \to 0$, modulo a suitable
+isomorphism relation (cf.\
+\S{}\ref{subsec:groups2:exact-sequences-of-groups-extension-problem}). For
+example, the direct sum $E = M \oplus N$ corresponds to the $0$
+element of this Ext group. The diligent reader will construct this
+bijection in the exercises.
 
 As usual, $R$ denotes a fixed commutative ring.
 
@@ -4478,7 +4664,8 @@ As usual, $R$ denotes a fixed commutative ring.
 \begin{exer}{$*$}{exer:linrep:projective-injective-splitting-characterization}
   Prove that an $R$-module $P$ is projective if and only if every
   epimorphism $M \to P$ splits and $Q$ is injective if and only if
-  every monomorphism $Q \to M$ splits. [\S{}\ref{subsec:linrep:projectives-and-injectives}]
+  every monomorphism $Q \to M$
+  splits. [\S{}\ref{subsec:linrep:projectives-and-injectives}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:generalize-prop-to-projective-modules}
@@ -4490,7 +4677,9 @@ As usual, $R$ denotes a fixed commutative ring.
   Prove that an $R$-linear map $A \to B$ is injective if and only if
   the induced map $\Hom_R(B, Q) \to \Hom_R(A, Q)$ is surjective for
   all injective modules $Q$. (Hint: $R\text{-Mod}$ has enough
-  injectives.) This strengthens the result of \Cref{exer:linrep:epi-mono-characterization-via-hom}.  [\ref{exer:linrep:projective-modules-are-flat-via-adjunction}]
+  injectives.) This strengthens the result of
+  \Cref{exer:linrep:epi-mono-characterization-via-hom}.
+  [\ref{exer:linrep:projective-modules-are-flat-via-adjunction}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:direct-sum-of-projectives-iff-each-is}
@@ -4507,13 +4696,16 @@ As usual, $R$ denotes a fixed commutative ring.
 
 \begin{exer}{$\lnot$}{exer:linrep:restriction-of-scalars-of-projective-is-projective}
   If $f : S \to R$ is a ring homomorphism and $P$ is a projective
-  $S$-module, then $f^*(P)$ is a projective $R$-module. [\S{}\ref{subsec:linrep:injective-modules}]
+  $S$-module, then $f^*(P)$ is a projective
+  $R$-module. [\S{}\ref{subsec:linrep:injective-modules}]
 \end{exer}
 
 \begin{exer}{$*$}{exer:linrep:projective-modules-are-flat-via-adjunction}
   Give a proof of the fact that projective modules are flat, using
   adjunction. (Hint: $R\text{-Mod}$ has enough injectives, and
-  \Cref{exer:linrep:injective-iff-hom-surjective-for-injectives}.) [\S{}\ref{subsec:linrep:projective-modules}, \ref{exer:linrep:combine-results-reprove-rank-thm}]
+  \Cref{exer:linrep:injective-iff-hom-surjective-for-injectives}.)
+  [\S{}\ref{subsec:linrep:projective-modules},
+  \ref{exer:linrep:combine-results-reprove-rank-thm}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:combine-results-reprove-rank-thm}
@@ -4529,17 +4721,19 @@ As usual, $R$ denotes a fixed commutative ring.
 \begin{exer}{}{exer:linrep:fin-gen-over-pid-free-iff-projective-iff-flat}
   Prove that a finitely generated module over a PID is free if and
   only if it is projective if and only if it is flat. (Do this `by
-  hand', without invoking \Cref{exer:linrep:fin-gen-over-noeth-locally-free-iff-projective-iff-flat}.)
+  hand', without invoking
+  \Cref{exer:linrep:fin-gen-over-noeth-locally-free-iff-projective-iff-flat}.)
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:fin-gen-over-local-ring-projective-iff-free}
   Prove that a finitely generated module over a local ring is
   projective if and only if it is free. (You have already done this,
-  in \Cref{exer:linalg:direct-summand-of-free-over-local-is-free}.) Besides PIDs and local rings, there are other
-  classes of rings for which projective and free modules coincide.
-  Topological considerations suggested to \name{Serre} that projective
-  modules over a polynomial ring over a field should necessarily be
-  free, but it took two decades to prove that this is indeed the case.
+  in \Cref{exer:linalg:direct-summand-of-free-over-local-is-free}.)
+  Besides PIDs and local rings, there are other classes of rings for
+  which projective and free modules coincide.  Topological
+  considerations suggested to \name{Serre} that projective modules
+  over a polynomial ring over a field should necessarily be free, but
+  it took two decades to prove that this is indeed the case.
   [\ref{exer:linrep:fin-gen-over-noeth-locally-free-iff-projective-iff-flat}]
 \end{exer}
 
@@ -4549,7 +4743,9 @@ As usual, $R$ denotes a fixed commutative ring.
   $R$. Prove that a finitely generated module over a Noetherian ring
   is locally free if and only if it is projective if and only if it is
   flat. (Use the results of Exercises~2.24 and~6.11.) The hypothesis
-  of finite generation is necessary (cf.\ \Cref{exer:linrep:q-is-flat-not-projective-as-z-module}).  [\ref{exer:linrep:fin-gen-over-pid-free-iff-projective-iff-flat}]
+  of finite generation is necessary (cf.\
+  \Cref{exer:linrep:q-is-flat-not-projective-as-z-module}).
+  [\ref{exer:linrep:fin-gen-over-pid-free-iff-projective-iff-flat}]
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:q-is-flat-not-projective-as-z-module}
@@ -4559,14 +4755,16 @@ As usual, $R$ denotes a fixed commutative ring.
 
 \begin{exer}{$*$}{exer:linrep:injective-over-pid-iff-divisible}
   Prove that a module over a PID is injective if and only if it is
-  divisible. (Use Baer's criterion.) [\S{}\ref{subsec:linrep:injective-modules}]
+  divisible. (Use Baer's criterion.)
+  [\S{}\ref{subsec:linrep:injective-modules}]
 \end{exer}
 
 \begin{exer}{$*$}{exer:linrep:direct-sum-of-injectives-iff-each-is}
   Prove that $Q_1 \oplus Q_2$ is injective if and only if $Q_1$, $Q_2$
   are both injective. More generally, prove that if
   $\{Q_i\}_{i \in I}$ is a family of $R$-modules, then $\prod_i Q_i$
-  is injective if and only if each $Q_i$ is injective.  [\S{}\ref{subsec:linrep:injective-modules},
+  is injective if and only if each $Q_i$ is injective.
+  [\S{}\ref{subsec:linrep:injective-modules},
   \ref{exer:homol:direct-sum-projectives-injectives-abelian-category}]
 \end{exer}
 
@@ -4576,13 +4774,14 @@ As usual, $R$ denotes a fixed commutative ring.
 \end{exer}
 
 \begin{exer}{}{exer:linrep:hom-iso-to-ext0}
-  Prove that $\Hom_R(M, N) \cong \Ext^0_R(M, N)$, using any of
-  the definitions provided for $\Ext^i_R(M, N)$.
+  Prove that $\Hom_R(M, N) \cong \Ext^0_R(M, N)$, using any of the
+  definitions provided for $\Ext^i_R(M, N)$.
 \end{exer}
 
 \begin{exer}{$*$}{exer:linrep:ext-vanishes-above-degree-1-over-pid}
-  Prove that if $R$ is a PID, then $\Ext^i_R(M, N) = 0$ for
-  all $i \geq 2$ and all $R$-modules $M$, $N$. [\S{}\ref{subsec:linrep:ext-Z-G-Z}]
+  Prove that if $R$ is a PID, then $\Ext^i_R(M, N) = 0$ for all
+  $i \geq 2$ and all $R$-modules $M$,
+  $N$. [\S{}\ref{subsec:linrep:ext-Z-G-Z}]
 \end{exer}
 
 \begin{exer}{}{exer:linrep:compute-ext-of-r-mod-r-with-m}
@@ -4593,14 +4792,15 @@ As usual, $R$ denotes a fixed commutative ring.
 \begin{exer}{}{exer:linrep:ext1-of-quotient-iso-to-hom-normal-bundle}
   Let $I$ be an ideal of $R$. Prove that
   $\Ext^1_R(R/I, R/I) \cong \Hom_R(I/I^2, R/I)$.  (Cf.\
-  \Cref{exer:linrep:hom-i-r-mod-i-restriction-map-zero}. This says that this Ext module essentially computes
-  the normal bundle of an embedding.)
+  \Cref{exer:linrep:hom-i-r-mod-i-restriction-map-zero}. This says
+  that this Ext module essentially computes the normal bundle of an
+  embedding.)
 \end{exer}
 
 \begin{exer}{$\lnot$}{exer:linrep:why-ext-is-called-ext-part1}
-  In \Cref{exer:linrep:tor1-r-torsion-of-n} we have seen why Tor is called Tor. Why is Ext
-  called Ext? Let $M$, $N$, $E$ be $R$-modules. An \emph{extension} of
-  $M$ by $N$ is an exact sequence
+  In \Cref{exer:linrep:tor1-r-torsion-of-n} we have seen why Tor is
+  called Tor. Why is Ext called Ext? Let $M$, $N$, $E$ be
+  $R$-modules. An \emph{extension} of $M$ by $N$ is an exact sequence
   \[
     \tag{$*$} 0 \to N \to E \to M \to 0.
   \]
@@ -4613,16 +4813,17 @@ As usual, $R$ denotes a fixed commutative ring.
     \end{tikzcd}
   \]
   linking them. (Note that, by the snake lemma, the middle arrow must
-  then be an isomorphism: cf.\ \Cref{exer:rings:short-five-lemma-via-snake-lemma}.) Extensions that are
-  isomorphic to the standard sequence
+  then be an isomorphism: cf.\
+  \Cref{exer:rings:short-five-lemma-via-snake-lemma}.) Extensions that
+  are isomorphic to the standard sequence
   $0 \to N \to N \oplus M \to M \to 0$ are `trivial'.
 
   Every extension $E$ as above determines an element
-  $\xi = \xi(E) \in \Ext^1_R(M, N)$ as follows. The sequence
-  $(*)$ induces a long exact sequence of Ext, i.e.,
+  $\xi = \xi(E) \in \Ext^1_R(M, N)$ as follows. The sequence $(*)$
+  induces a long exact sequence of Ext, i.e.,
   \[
-    \dots \to \Hom_R(E, N) \to \Hom_R(N, N) \to \Ext^1_R(M, N)
-    \to \dots,
+    \dots \to \Hom_R(E, N) \to \Hom_R(N, N) \to \Ext^1_R(M, N) \to
+    \dots,
   \]
   and we let $\xi(E)$ be the image in $\Ext^1_R(M, N)$ of the
   distinguished element $\id_N \in \Hom_R(N, N)$.
@@ -4633,10 +4834,10 @@ As usual, $R$ denotes a fixed commutative ring.
 \end{exer}
 
 \begin{exer}{}{exer:linrep:ext1-bijection-with-extensions}
-  \Cref{exer:linrep:why-ext-is-called-ext-part1} teaches us that extensions determine elements of
-  $\Ext^1_R$. We get an even sharper statement by constructing
-  an inverse to the map $\xi$: for every element
-  $\kappa \in \Ext^1_R(M, N)$, we will construct an extension
+  \Cref{exer:linrep:why-ext-is-called-ext-part1} teaches us that
+  extensions determine elements of $\Ext^1_R$. We get an even sharper
+  statement by constructing an inverse to the map $\xi$: for every
+  element $\kappa \in \Ext^1_R(M, N)$, we will construct an extension
   $e(\kappa)$ such that $\xi(e(\kappa)) = \kappa$ and such that
   $e(\xi(E))$ is isomorphic to $E$.
   \begin{itemize}
@@ -4645,8 +4846,8 @@ As usual, $R$ denotes a fixed commutative ring.
     $\pi : F \twoheadrightarrow M$. Since $F$ is free (hence
     projective), a piece of the long exact sequence of Ext, i.e.,
     \[
-      \dots \to \Hom_R(K, N) \to \Ext^1_R(M, N) \to
-      \Ext^1_R(F, N) = 0 \to \dots,
+      \dots \to \Hom_R(K, N) \to \Ext^1_R(M, N) \to \Ext^1_R(F, N) = 0
+      \to \dots,
     \]
     tells us that there exists a homomorphism $k : K \to N$ mapping to
     the element $\kappa \in \Ext^1_R(M, N)$.
@@ -4665,11 +4866,10 @@ As usual, $R$ denotes a fixed commutative ring.
     $\xi(e(\kappa)) = \kappa$.
   \end{itemize}
   The upshot is that there is a natural bijection between
-  $\Ext^1_R(M, N)$ and the set of isomorphism classes of
-  extensions of $M$ by $N$. Hence the name. `Higher'
-  $\Ext^i_R$ ($i > 1$) may also be treated similarly: for
-  example, $\Ext^2_R(M, N)$ can be analyzed in terms of
-  two-step extensions consisting of exact sequences
+  $\Ext^1_R(M, N)$ and the set of isomorphism classes of extensions of
+  $M$ by $N$. Hence the name. `Higher' $\Ext^i_R$ ($i > 1$) may also
+  be treated similarly: for example, $\Ext^2_R(M, N)$ can be analyzed
+  in terms of two-step extensions consisting of exact sequences
   $0 \to N \to E_1 \to E_2 \to M \to 0$, where two such extensions are
   `isomorphic' if there is a diagram
   \[

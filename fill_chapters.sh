@@ -32,6 +32,9 @@ fi
 changed=0
 
 for f in "${files[@]}"; do
+    chapter="$(basename "$f" .tex)"
+    echo "Working on chapter: $chapter"
+
     tmp="$(mktemp --suffix=.tex)"
     cp "$f" "$tmp"
     emacs --batch -l "$WORKER" "$tmp" >/dev/null 2>&1
