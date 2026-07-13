@@ -10,6 +10,10 @@
 \def\themycounter{\arabic{chapter}.\arabic{section}.\arabic{mycounter}}
 \def\theHmycounter{\theHchapter.\theHsection.\arabic{mycounter}}
 
+\newcounter{exercounter}[section]
+\def\theexercounter{\arabic{chapter}.\arabic{section}.\arabic{exercounter}}
+\def\theHexercounter{\theHchapter.\theHsection.\arabic{exercounter}}
+
 \makeatletter
 \renewcommand{\theequation}
 {\textcolor{purple}{\sffamily{\arabic{chapter}.\arabic{section}.\arabic{equation}}}}
@@ -85,7 +89,7 @@
 ]{fact}{Fact}{defstyle, colframe=\factColor}{}
 
 \newtcbtheorem[
-  use counter from=thm,
+  use counter*=exercounter,
   crefname={exercise}{exercises},
   Crefname={Exercise}{Exercises}
 ]%

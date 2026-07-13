@@ -10,6 +10,10 @@
 \def\themycounter{\arabic{chapter}.\arabic{section}.\arabic{mycounter}}
 \def\theHmycounter{\theHchapter.\theHsection.\arabic{mycounter}}
 
+\newcounter{exercounter}[section]
+\def\theexercounter{\arabic{chapter}.\arabic{section}.\arabic{exercounter}}
+\def\theHexercounter{\theHchapter.\theHsection.\arabic{exercounter}}
+
 \makeatletter
 \renewcommand{\theequation}
 {\arabic{chapter}.\arabic{section}.\arabic{equation}}
@@ -25,11 +29,12 @@
   \egroup\par%
 }
 
-\newcommand{\declarefastthm}[4]{%
-  % #1 = env name, #2 = display name, #3 = crefname, #4 = Crefname
+\newcommand{\declarefastthm}[5]{%
+  % #1 = env name, #2 = display name, #3 = crefname, #4 = Crefname,
+  % #5 = counter to step
   \newenvironment{#1}[2]{%
-    \refstepcounter{mycounter}%
-    \par\noindent\textbf{#2~\themycounter.}~##1%
+    \refstepcounter{#5}%
+    \par\noindent\textbf{#2~\csname the#5\endcsname.}~##1%
     \def\@thislabel{##2}%
     \expandafter\ifx\@thislabel\@empty\else\label{##2}\fi
   }{\par}%
@@ -37,13 +42,13 @@
   \Crefname{#4}{#4}{#4 s}%
 }
 
-\declarefastthm{thm}{Theorem}{theorem}{Theorem}
-\declarefastthm{axm}{Axiom}{axiom}{Axiom}
-\declarefastthm{lem}{Lemma}{lemma}{Lemma}
-\declarefastthm{prop}{Proposition}{proposition}{Proposition}
-\declarefastthm{coro}{Corollary}{corollary}{Corollary}
-\declarefastthm{rem}{Remark}{remark}{Remark}
-\declarefastthm{defn}{Definition}{definition}{Definition}
-\declarefastthm{fact}{Fact}{fact}{Fact}
-\declarefastthm{exer}{Exercise}{exercise}{Exercise}
-\declarefastthm{exam}{Example}{example}{Example}
+\declarefastthm{thm}{Theorem}{theorem}{Theorem}{mycounter}
+\declarefastthm{axm}{Axiom}{axiom}{Axiom}{mycounter}
+\declarefastthm{lem}{Lemma}{lemma}{Lemma}{mycounter}
+\declarefastthm{prop}{Proposition}{proposition}{Proposition}{mycounter}
+\declarefastthm{coro}{Corollary}{corollary}{Corollary}{mycounter}
+\declarefastthm{rem}{Remark}{remark}{Remark}{mycounter}
+\declarefastthm{defn}{Definition}{definition}{Definition}{mycounter}
+\declarefastthm{fact}{Fact}{fact}{Fact}{mycounter}
+\declarefastthm{exer}{Exercise}{exercise}{Exercise}{exercounter}
+\declarefastthm{exam}{Example}{example}{Example}{mycounter}

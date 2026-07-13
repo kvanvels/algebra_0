@@ -1,5 +1,5 @@
-LUALATEX = lualatex -file-line-error -interaction=nonstopmode
-PDFLATEX = pdflatex -file-line-error -interaction=nonstopmode
+LUALATEX = lualatex -file-line-error -interaction=nonstopmode -synctex=1
+PDFLATEX = pdflatex -file-line-error -interaction=nonstopmode -synctex=1
 MASTER   = master
 FASTMASTER = master_fastcheck
 
