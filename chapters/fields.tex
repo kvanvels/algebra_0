@@ -108,9 +108,9 @@ procedure starting from an irreducible polynomial $f(x) \in k[x]$ with
 coefficients in a field and producing an extension $K$ of $k$ in which
 $f(t)$ has a root. Explicitly,
 \[K = \frac{k[t]}{(f(t))}\] is such an extension
-(\Cref{prop:irred:5.7}). The quotient is a field because $k[t]$ is a
+(\Cref{prop:irred:quotient-by-irreducible-poly-is-a-field}). The quotient is a field because $k[t]$ is a
 PID;\@ hence irreducible elements generate maximal ideals---prime
-because of the UFD property (cf.\ \Cref{thm:irred:2.5}) and then
+because of the UFD property (cf.\ \Cref{thm:irred:ufd-characterization}) and then
 maximal because nonzero prime ideals are maximal in a PID (cf.\
 \Cref{prop:rings:PID-prime-maximal}). The coset of $t$ is a root of
 $f(x)$ when this is viewed as an element of $K[x]$. The degree of the
@@ -153,7 +153,7 @@ be the whole of $K$.
 I have always found the notation $k(\alpha)$ somewhat unfortunate,
 since it suggests that all such extensions are in some way isomorphic
 and possibly all isomorphic to the field $k(t)$ of rational functions
-in one indeterminate $t$ (cf.\ \Cref{defn:irred:4.13}). This is not
+in one indeterminate $t$ (cf.\ \Cref{defn:irred:field-of-rational-functions}). This is not
 true, although it is clear that every element of $k(\alpha)$ may be
 written as a rational function in $\alpha$ with coefficients in $k$
 (\Cref{exer:fields:k-alpha-is-rational-fns-in-alpha}).  In any case,
@@ -222,12 +222,12 @@ $t - \sqrt{2}$ over $\R$.
 
 The alert reader will have noticed that the proof of
 \cref{prop:fields:evaluation-map-simple-extension-dichotomy} is essentially a rehash of the argument proving
-the `versality' part of \Cref{prop:irred:5.7}.
+the `versality' part of \Cref{prop:irred:quotient-by-irreducible-poly-is-a-field}.
 \begin{exam}{}{exam:fields:exam:1.4}
   Consider the extension $\Q \subseteq \R$.
 
   The polynomial $x^2 - 2 \in \Q[x]$ has roots in $\R$: therefore, by
-  \Cref{prop:irred:5.7} there exists a homomorphism (hence a field
+  \Cref{prop:irred:quotient-by-irreducible-poly-is-a-field} there exists a homomorphism (hence a field
   extension)
   \[\epsilon : \frac{\Q[t]}{(t^2 - 2)} \hookrightarrow \R,\]
   such that the image of (the coset of) $t$ is a root $\alpha$ of
@@ -596,7 +596,7 @@ forms a field:
   that $\Q \subseteq \overline{\Q}$ is not a finite extension, because
   in it there are elements of arbitrarily high degree over $\Q$:
   indeed, there exist irreducible polynomials in $\Q[x]$ of
-  arbitrarily high degree, as we observed in \Cref{coro:irred:5.16}.
+  arbitrarily high degree, as we observed in \Cref{coro:irred:irreducible-polys-of-arbitrary-degree-exist}.
   Elements of $\overline{\Q}$ are called \emph{algebraic numbers}; the
   complex numbers in the complement of $\overline{\Q}$ are
   transcendental over $\Q$ (by definition); they are simply called
@@ -1095,7 +1095,7 @@ geometry, will simply be irresistible.
 
 \subsection{Algebraic closure}%
 \label{subsec:fields:algebraic-closure}
-Recall (\Cref{defn:irred:5.9}) that a field $K$ is algebraically
+Recall (\Cref{defn:irred:algebraically-closed-field}) that a field $K$ is algebraically
 closed if all irreducible polynomials in $K[x]$ have degree $1$, that
 is, if every polynomial in $K[x]$ factors completely as a product of
 linear terms.  Equivalently
@@ -1175,7 +1175,7 @@ this step.
   where $a_i \in k[T]$. I claim that this cannot be done: indeed, we
   can construct an extension $k \subseteq F$ where the polynomials
   $f_1(x), \dots, f_n(x)$ have roots $\alpha_1, \dots, \alpha_n$,
-  respectively (apply \Cref{prop:irred:5.7} $n$ times);
+  respectively (apply \Cref{prop:irred:quotient-by-irreducible-poly-is-a-field} $n$ times);
   view~\eqref{eq:fields:2.4-star} as an identity in $F[T]$, and plug
   in $t_{f_i} = \alpha_i$, obtaining
   \[
@@ -1185,7 +1185,7 @@ this step.
   which is nonsense.
 
   Since $I$ is proper, it is contained in a maximal ideal
-  $\mathfrak{m}$ (\Cref{prop:irred:3.5}). Thus, we obtain a field
+  $\mathfrak{m}$ (\Cref{prop:irred:proper-ideal-contained-in-maximal}). Thus, we obtain a field
   extension
   \[
     k \subseteq K := \frac{k[T]}{\mathfrak{m}};
@@ -1245,7 +1245,7 @@ extension $k \subseteq \overline{k}$ is tautologically algebraic. To
 verify that $\overline{k}$ is algebraically closed, let
 $k \subseteq \overline{k}(\alpha)$ be a simple algebraic
 extension. The minimal polynomial of $\alpha$ has a root in $L$ since
-$L$ is algebraically closed, so by versality (\Cref{prop:irred:5.7})
+$L$ is algebraically closed, so by versality (\Cref{prop:irred:quotient-by-irreducible-poly-is-a-field})
 there exists an embedding $\overline{k}(\alpha) \subseteq L$. We can
 then view $\alpha$ as an element of $L$;
 $k \subseteq \overline{k} \subseteq \overline{k}(\alpha)$ is a
@@ -1271,7 +1271,7 @@ Next, we deal with uniqueness. It may be tempting to try to set things
 up in such a way that algebraic closures would end up being solutions
 to a universal problem; this would guarantee uniqueness by abstract
 nonsense.  However, we run into the same obstacle encountered in
-\Cref{prop:irred:5.7}: morphisms between extensions depend on choices
+\Cref{prop:irred:quotient-by-irreducible-poly-is-a-field}: morphisms between extensions depend on choices
 of roots of polynomials, so that algebraic closures are not
 `universal' in the most straightforward sense of the term. Therefore,
 a bit of independent work is needed.
@@ -1583,7 +1583,7 @@ $A$ is an ideal or not; it is clear that
 $\mathcal{V}(A) = \mathcal{V}(I)$ where $I$ is the ideal generated by
 $A$
 (\Cref{exer:fields:vanishing-set-of-ideal-generated-by-a}). \name{Hilbert}'s
-basis theorem (\Cref{thm:irred:1.2}) tells us something rather
+basis theorem (\Cref{thm:irred:quotient-of-noetherian-poly-ring-is-noetherian}) tells us something rather
 interesting: $K[x_1, \dots, x_n]$ is Noetherian when $K$ is a field;
 hence every ideal $I$ is generated by a finite number of
 elements. Thus, for every ideal $I$ there exist polynomials
@@ -1718,7 +1718,7 @@ we see what the Nullstellensatz has to do with the `zeros' of an ideal
 \end{prop}
 \begin{proof}
   If $I = (1)$, then $\mathcal{V}(I) = \emptyset$ by definition.
-  Conversely, assume that $I \neq (1)$. By \Cref{prop:irred:3.5}, $I$
+  Conversely, assume that $I \neq (1)$. By \Cref{prop:irred:proper-ideal-contained-in-maximal}, $I$
   is then contained in a maximal ideal $\mathfrak{m}$. Since $K$ is
   algebraically closed, by \cref{coro:fields:maximal-ideals-of-poly-ring-alg-closed} we have
   $\mathfrak{m} = (x_1 - c_1, \dots, x_n - c_n)$ for some
@@ -2557,12 +2557,12 @@ definition, $\zeta$ satisfies
   t^7 - 1 = (t-1)(t^6 + t^5 + \dots + t + 1);
 \]
 as $\zeta \neq 1$, $\zeta$ must satisfy the cyclotomic polynomial
-$t^6 + \dots + 1$. This is irreducible (\Cref{exam:irred:5.19}); hence
+$t^6 + \dots + 1$. This is irreducible (\Cref{exam:irred:cyclotomic-polynomial-irreducible}); hence
 again we find that $\zeta$ has degree $6$ over $\Q$, and
 \cref{coro:fields:constructible-degree-power-of-two} implies that the regular $7$-gon cannot be
 constructed with straightedge and compass.  Of course $7$ is not too
 special: if $p$ is a positive prime integer, the cyclotomic polynomial
-of degree $p-1$ is irreducible (\Cref{exam:irred:5.19} again); hence
+of degree $p-1$ is irreducible (\Cref{exam:irred:cyclotomic-polynomial-irreducible} again); hence
 $[\Q(\zeta_p) : \Q] = p - 1$, where $\zeta_p$ is the complex $p$th
 root of $1$ with argument $2\pi/p$. Therefore, \cref{coro:fields:constructible-degree-power-of-two}
 reveals that if $p$ is prime, then the regular $p$-gon can be
@@ -2751,7 +2751,7 @@ be.
 
   The construction of a splitting field and the given bound on the
   degree are an easy application of our basic simple extension found
-  in \Cref{prop:irred:5.7}. Arguing inductively, assume the splitting
+  in \Cref{prop:irred:quotient-by-irreducible-poly-is-a-field}. Arguing inductively, assume the splitting
   field has been constructed and the bound has been proved for all
   fields and all polynomials of degree $(\deg f - 1)$. Let $q(t)$ be
   any irreducible factor of $f(t)$ over $k$; then
@@ -2952,7 +2952,7 @@ of distinct factors in an algebraic closure, right? Wrong.
   \]
   is irreducible: by Eisenstein's criterion it is irreducible in
   $\F_p[t][x]$ (since $(t)$ is prime in $\F_p[t]$), hence in
-  $\F_p(t)[x]$ by \Cref{prop:irred:4.16}. Let $u$ be a root of this
+  $\F_p(t)[x]$ by \Cref{prop:irred:irreducible-in-ufd-stays-irreducible-in-fraction-field}. Let $u$ be a root of this
   polynomial in an extension $L$ of $\F_p(t)$ (for example $L$ could
   be the algebraic closure of $\F_p(t)$, or more modestly a splitting
   field for the polynomial). Then
@@ -3589,7 +3589,7 @@ the \emph{Galois field} of order $q$.
 \begin{exam}{}{exam:fields:exam:5.3}
   Let $p$ be a prime integer. Then I claim that the polynomial
   $x^4 + 1$ is reducible\footnote{Of course $x^4 + 1$ is irreducible
-    over $\Z$. This example shows that \Cref{prop:irred:5.15} cannot
+    over $\Z$. This example shows that \Cref{prop:irred:irreducibility-via-reduction-mod-p} cannot
     be turned into an `if and only if' statement.} over $\F_p$ (and
   therefore over every finite field).
 
@@ -3770,7 +3770,7 @@ what is this group?
   Let $e = |\phi|$. Then $\phi^e = \id$; hence $x^{p^e} = x$ for all
   $x \in \F_{p^d}$. In other words, the (nonzero) polynomial
   $x^{p^e} - x$ has $p^d$ roots in $\F_{p^d}$; this implies
-  $p^d \leq p^e$ (\Cref{lem:irred:5.1}). Equivalently, $d \leq e$,
+  $p^d \leq p^e$ (\Cref{lem:irred:polynomial-root-count-bound}). Equivalently, $d \leq e$,
   yielding $|\Aut_{\F_p}(\F_{p^d})| \leq |\phi|$. But then these two
   numbers must be equal, since the order of an element always divides
   the order of the group
@@ -3841,7 +3841,7 @@ irreducible over $\Q$. We will prove these facts in short order.
   \[
     \Phi_p(x) = \frac{x^p - 1}{x - 1} = x^{p-1} + \dots + 1
   \]
-  is the particular case encountered in \Cref{exam:irred:5.19}, where
+  is the particular case encountered in \Cref{exam:irred:cyclotomic-polynomial-irreducible}, where
   we proved that $\Phi_p(x)$ is indeed irreducible.
 \end{exam}
 What if $n$ is not prime?
@@ -3939,7 +3939,7 @@ in particular because separability sneaks into the standard argument
   For all positive $n$, $\Phi_n(x) \in \Z[x]$ is irreducible over
   $\Q$.  (Since $\Phi_n(x)$ is monic, irreducibility in $\Q[x]$ is
   equivalent to irreducibility in $\Z[x]$; cf.\
-  \Cref{coro:irred:4.17}.)
+  \Cref{coro:irred:irreducible-in-poly-ring-iff-irreducible-in-fraction-field-and-primitive}.)
 \end{prop}
 \begin{proof}
   Arguing by contradiction, assume $\Phi_n(x)$ is reducible. Then its
@@ -6009,7 +6009,7 @@ fact, argue as follows:
 \item By \name{Dirichlet}'s theorem, we can then choose distinct
   primes $p_i$ such that $p_i \equiv 1 \pmod{n_i}$.
 \item Let $n = p_1 \cdots p_r$; by the Chinese Remainder Theorem
-  (\Cref{thm:irred:6.1}),
+  (\Cref{thm:irred:chinese-remainder-theorem}),
   $(\Z/n\Z)^\ast \cong (\Z/p_1\Z)^\ast \times \dots \times
   (\Z/p_r\Z)^\ast$, and the $i$-th factor on the right-hand side is
   cyclic of order $p_i - 1$, a multiple of $n_i$.
