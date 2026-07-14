@@ -54,7 +54,10 @@ sequences: if $M$, $N$, $P$ are $R$-modules and
 \[0 \longrightarrow N \longrightarrow M \longrightarrow P
   \longrightarrow 0\] is an exact sequence of $R$-modules, then $M$ is
 Noetherian if and only if both $N$ and $P$ are Noetherian
-(\Cref{prop:rings:noetherian-subquotient}). An easy and useful
+(\Cref{prop:rings:noetherian-subquotient}, restated here using the
+language introduced in
+\cref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}).
+An easy and useful
 consequence of this fact is that every finitely generated module over
 a Noetherian ring is Noetherian
 (\Cref{coro:rings:fg-module-over-noetherian-is-noetherian}).
@@ -89,9 +92,9 @@ ideals.
   reader will verify that $N$ is a submodule of $M$. Since $M$ is
   Noetherian, $N$ is finitely generated, say
   $N = \langle n_1, \dots, n_r \rangle$. Now
-  $n_k \in N \implies n_k \in N_i$ for some $i$; by picking the
-  largest such $i$, we see that $\exists i$ such that all
-  $n_1, \dots, n_r$ are contained in $N_i$. But then
+  $n_k \in N \implies n_k \in N_{i_k}$ for some $i_k$; letting $i$ be
+  the largest among $i_1, \dots, i_r$, we see that $\exists i$ such
+  that all $n_1, \dots, n_r$ are contained in $N_i$. But then
   $N \subseteq N_i$, and since $N_i \subseteq N_{i+1} \subseteq \dots$
   are all contained in $N = N_i$, it follows that
   $N_i = N_{i+1} = N_{i+2} = \dots$ as needed.
@@ -195,7 +198,9 @@ that $e \geq d_i$ for all $i$, this says that
 has degree $< e$. Iterating this procedure, we obtain a finite list of
 polynomials $\beta_1(x), \dots, \beta_r(x) \in R[x]$ such that
 \[\alpha(x) - \beta_1(x) f_1(x) - \dots - \beta_r(x) f_r(x)\]
-has degree $< d$. But this places this element in $M \cap I$;
+has degree $< d$. (If $\deg\alpha(x) < d$ to begin with, we may choose
+$\beta_1(x) = \dots = \beta_r(x) = 0$ with the same result.) But this
+places this element in $M \cap I$;
 therefore $\exists c_1, \dots, c_s \in R$ such that
 \[\alpha(x) - \beta_1(x)f_1(x) - \dots - \beta_r(x)f_r(x)
   = c_1 g_1(x) + \dots + c_s g_s(x),\] and we are done, since this
@@ -445,10 +450,11 @@ Remember that in this section all rings are taken to be
   series $R[[x]]$ (cf.~\Cref{subsec:rings:polynomial-rings}) is
   also Noetherian. (Hint: The order of a power series
   $\sum_{i=0}^{\infty} a_i x^i$ is the smallest $i$ for which
-  $a_i \neq 0$; the dominant coefficient is then $a_i$. Let
-  $A_i \subseteq R$ be the set of dominant coefficients of series of
-  order $i$ in $I$, together with $0$. Prove that $A_i$ is an ideal of
-  $R$ and $A_0 \subseteq A_1 \subseteq A_2 \subseteq \dots$. This
+  $a_i \neq 0$; the dominant coefficient is then $a_i$. Let $I$ be an
+  ideal of $R[[x]]$ and let $A_i \subseteq R$ be the set of dominant
+  coefficients of series of order $i$ in $I$, together with $0$. Prove
+  that $A_i$ is an ideal of $R$ and
+  $A_0 \subseteq A_1 \subseteq A_2 \subseteq \dots$. This
   sequence stabilizes since $R$ is Noetherian, and each $A_i$ is
   finitely generated for the same reason. Now adapt the proof of
   \cref{lem:irred:hilberts-basis-theorem}.)
@@ -469,7 +475,7 @@ Remember that in this section all rings are taken to be
   containing $I$ has minimal elements (the \emph{minimal primes} of
   $I$).  Prove that if $R$ is Noetherian, then the set of minimal
   primes of $I$ is finite. (Hint: Let $\mathscr{F}$ be the family of
-  ideals that do not have finitely many minimal primes. If
+  ideals that have infinitely many minimal primes. If
   $\mathscr{F} \neq \emptyset$, note that $\mathscr{F}$ must have a
   maximal element $I$, and $I$ is not prime itself.  Find ideals
   $J_1$, $J_2$ strictly larger than $I$, such that
@@ -891,8 +897,9 @@ easy, but the gap between PIDs and Euclidean domains can in fact be
 described very sharply: PIDs may be characterized as domains
 satisfying a weaker requirement than `division with remainder'. More
 precisely, a \emph{Dedekind--Hasse valuation} is a valuation $v$ such
-that for all $a$, $b$, either $(a,b) = (b)$ (that is, $b$ divides $a$)
-or there exists $r \in (a,b)$ such that $v(r) < v(b)$. This latter
+that for all $a$ and all nonzero $b$, either $(a,b) = (b)$ (that is,
+$b$ divides $a$) or there exists a nonzero $r \in (a,b)$ such that
+$v(r) < v(b)$. This latter
 condition amounts to requiring that there exist $q, s \in R$ such that
 $as = bq + r$ with $v(r) < v(b)$; hence a Euclidean valuation (for
 which we may in fact choose $s = 1$) is a Dedekind--Hasse
@@ -1178,7 +1185,7 @@ Euclidean domain later in this chapter
   DVRs are Euclidean domains. In particular, they must be PIDs. Check
   this directly, as follows. Let $R$ be a DVR, and let $t \in R$ be an
   element such that $v(t) = 1$. Prove that if $I \subseteq R$ is any
-  nonzero ideal, then $I = (t^k)$ for some $k \geq 1$. (The element
+  nonzero ideal, then $I = (t^k)$ for some $k \geq 0$. (The element
   $t$ is called a `local parameter' of $R$.)
   [\ref{exer:irred:dvr-is-local-pid-localization-is-dvr},
   \ref{exer:fields:two-curves-c1-c2-comparison}]
@@ -1460,7 +1467,9 @@ $I$.  The argument for arbitrary rings is a classic application of
 Zorn's lemma.  In fact, this is the first application given by M.~Zorn
 in his 1935 article introducing a `maximum principle' (now known as
 Zorn's lemma).  The result had earlier been proven by Krull, using the
-well-ordering theorem.
+well-ordering theorem. The commutativity hypothesis is not needed, if
+one adopts the definition of maximal ideal as `maximal in the set of
+proper ideals'.
 
 \begin{proof}
   The set $\mathscr{I}$ of proper ideals of $R$ containing $I$ is
@@ -1649,8 +1658,8 @@ known to be equivalent to the axiom of choice, by work of W.~Hodges.
   \item If $\mathscr{F} \neq \emptyset$, prove that it has a maximal
     element $I$.
   \item Prove that $R/I$ is Noetherian.
-  \item Prove that there are ideals $J_1$, $J_2$ containing $I$, such
-    that $J_1 J_2 \subseteq I$.
+  \item Prove that there are ideals $J_1$, $J_2$ properly containing
+    $I$, such that $J_1 J_2 \subseteq I$.
   \item Give a structure of $R/I$-module to $I/J_1 J_2$ and
     $J_1/J_1 J_2$.
   \item Prove that $I/J_1 J_2$ is a finitely generated $R/I$-module.
@@ -1791,7 +1800,7 @@ greatest interest in the applications.
 \begin{defn}{}{defn:irred:content-of-a-polynomial}
   Let $R$ be a UFD. The \emph{content} of a nonzero polynomial
   $f \in R[x]$, denoted $\operatorname{cont} f$, is the gcd of its
-  coefficients.
+  coefficients. The content of $0$ is defined to be $0$.
 \end{defn}
 Of course the content of a polynomial is only defined up to units. I
 find this ambiguity distasteful. What is uniquely determined is the
@@ -2190,8 +2199,9 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
     $p_i^{r_i}$ are relatively prime.
   \item If
     $\sum_i \frac{a_i}{p_i^{r_i}} = \sum_j \frac{b_j}{q_j^{s_j}}$ are
-    two such expressions, prove that (up to reshuffling) $p_i = q_i$,
-    $r_i = s_i$, and $a_i \equiv b_i \pmod{p_i^{r_i}}$.
+    two such expressions, prove that (up to reshuffling) $p_i$ and
+    $q_i$ are associates, $r_i = s_i$, and
+    $a_i \equiv b_i \pmod{p_i^{r_i}}$.
   \item Relate this to the process of integration by `partial
     fractions' you learned about when you took calculus.
   \end{itemize}
@@ -2226,7 +2236,7 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
     $f : R \to R'$ such that $f(s)$ is invertible in $R'$ for every
     $s \in S$.
   \item Prove that $S^{-1}R$ is an integral domain if $R$ is an
-    integral domain.
+    integral domain and $0 \notin S$.
   \item Prove that $S^{-1}R$ is the zero-ring if and only if
     $0 \in S$.
   \end{itemize} [\ref{exer:irred:localization-of-module},
@@ -2344,8 +2354,8 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
     ideal $\mathfrak{m} = (t)$. (\emph{Hint:} Note that every element
     of $R \setminus \mathfrak{m}$ is invertible.)
   \item Prove that $k$ is the field of fractions of $R$.
-  \item Now let $A$ be a PID, and let $\mathfrak{p}$ be a prime ideal
-    in $A$. Prove that the localization $A_{\mathfrak{p}}$ (cf.\
+  \item Now let $A$ be a PID, and let $\mathfrak{p}$ be a nonzero prime
+    ideal in $A$. Prove that the localization $A_{\mathfrak{p}}$ (cf.\
     \Cref{exer:irred:localization-at-prime-is-local}) is a
     DVR. (\emph{Hint:} If $\mathfrak{p} = (p)$, define a valuation on
     the field of fractions of $A$ in terms of `divisibility by $p$'.)
@@ -2466,9 +2476,9 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
 \begin{exer}{}{exer:irred:flt-for-polynomials}
   Prove Fermat's last theorem for polynomials: the equation
   $f^n + g^n = h^n$ has no solutions in $\C[t]$ for $n > 2$ and $f$,
-  $g$, $h$ not all constant. (\emph{Hint:} First, prove that $f$, $g$,
-  $h$ may be assumed to be relatively prime. Next, the polynomial
-  $1 - t^n$ factorizes in $\C[t]$ as $\prod_{i=1}^{n}(1 - \zeta^i t)$
+  $g$, $h$ relatively prime and not all constant. (\emph{Hint:} The
+  polynomial $1 - t^n$ factorizes in $\C[t]$ as
+  $\prod_{i=1}^{n}(1 - \zeta^i t)$
   for $\zeta = e^{2\pi i/n}$; deduce that
   $f^n = \prod_{i=1}^{n}(h - \zeta^i g)$. Use unique factorization in
   $\C[t]$ to conclude that each of the factors $h - \zeta^i g$ is an
@@ -2479,8 +2489,9 @@ factors may be assumed to be in $R[x]$ to begin with (cf.\
   $\nu$ are suitable complex numbers. What's wrong with this?)
 
   The same pattern of proof would work in any environment where unique
-  factorization is available; if adjoining to $\Z$ an $n$-th root of
-  $1$ led to a unique factorization domain, the full-fledged Fermat's
+  factorization is available; if adjoining to $\Z$ a primitive $n$-th
+  root of $1$ and roots of other elements as needed in this argument
+  led to a unique factorization domain, the full-fledged Fermat's
   last theorem would be as easy to prove as indicated in this
   exercise.  This is not the case, a fact famously missed by G.\
   Lam\'e as he announced a `proof' of Fermat's last theorem to the
@@ -2942,8 +2953,7 @@ stated for $\Z$, but it holds for every ring $R$.
   Argue by contradiction. Assume $f = gh$ in $R[x]$, with both
   $d = \deg g$ and $e = \deg h$ less than $n = \deg f$; write
   \[g = b_0 + b_1 x + \cdots + b_d x^d, \quad h = c_0 + c_1 x + \cdots
-    + c_e x^e,\] and note that necessarily $d > 0$ and $e >
-  0$. Consider $f$ modulo $\mathfrak{p}$: thus
+    + c_e x^e.\] Consider $f$ modulo $\mathfrak{p}$: thus
   \[\underline{f} = \underline{g}\,\underline{h}
     \quad \text{in } (R/\mathfrak{p})[x],\] where $\underline{f}$
   denotes $f$ modulo $\mathfrak{p}$, etc.
@@ -2953,9 +2963,10 @@ stated for $\Z$, but it holds for every ring $R$.
   $R/\mathfrak{p}$. Since $R/\mathfrak{p}$ is an integral domain,
   factors of $\underline{f}$ must also be monomials: that is,
   necessarily
-  \[\underline{g} = \underline{b_d} x^d,
-    \quad \underline{h} = \underline{c_e} x^e.\] Since $d > 0$,
-  $e > 0$, this implies $b_0 \in \mathfrak{p}$,
+  \[\underline{g} = \underline{b_{d'}} x^{d'},
+    \quad \underline{h} = \underline{c_{e'}} x^{e'}\] with
+  $d' \leq d < n$, $e' \leq e < n$. Since $d' + e' = n$, we have
+  $d' > 0$, $e' > 0$, and this implies $b_0 \in \mathfrak{p}$,
   $c_0 \in \mathfrak{p}$.
 
   But then $a_0 = b_0 c_0 \in \mathfrak{p}^2$, contradicting the
@@ -3127,8 +3138,8 @@ if $p$ is not prime: for example, $4$ does not divide~$\binom{4}{2}$.
   if $n$ is not prime.
 \end{exer}
 \begin{exer}{}{exer:irred:xn-minus-a-irreducible-squarefree}
-  Let $R$ be a UFD, and let $a \in R$ be an element that is not
-  divisible by the square of some irreducible element in its
+  Let $R$ be a UFD, and let $a \in R$ be a non-unit element that is
+  not divisible by the square of some irreducible element in its
   factorization. Prove that $x^n - a$ is irreducible for every integer
   $n \geq 1$.
 \end{exer}
@@ -3353,8 +3364,9 @@ $\Z[i] \to \Z^{\geq 0}$.
   either one of the vertices of this lattice (in which case $z$ is a
   multiple of $w$, so that the division $z/w$ can be performed in
   $\Z[i]$, with remainder $0$) or it sits inside one of the `boxes' of
-  the lattice. In the latter case, pick any of the vertices of that
-  box, that is, a multiple $qw$ of $w$, and let $r = z - qw$. Then we
+  the lattice. In the latter case, pick any vertex of the box on the
+  side closest to $z$; this is a multiple $qw$ of $w$, and let
+  $r = z - qw$. Then we
   have obtained
   \[z = qw + r,\] and the norm of $r$ is the square of the length of
   the segment between $qw$ and $z$. Since this segment is contained in
@@ -3737,14 +3749,14 @@ machinery.
   $\lnot$ Let $\field{I} \subseteq \field{H}$ be the set of
   quaternions (cf.\ \Cref{exer:rings:quaternions}) of the form
   $\frac{a}{2}(1 + i + j + k) + bi + cj + dk$ with
-  $a, b, c, d \in \Z$.
+  $a, b, c, d \in \Z$. These are called \emph{integral quaternions}.
   \begin{itemize}
   \item Prove that $\field{I}$ is a (noncommutative) subring of the
     ring of quaternions.
   \item Prove that the norm $N(w)$ (\Cref{exer:rings:quaternion-norm})
     of an integral quaternion $w \in \field{I}$ is an integer and
     $N(w_1 w_2) = N(w_1)N(w_2)$.
-  \item Prove $\field{I}$ has exactly $24$ units in $\field{I}$:
+  \item Prove $\field{I}$ has exactly $24$ units:
     $\pm 1, \pm i, \pm j, \pm k$, and
     $\frac{1}{2}(\pm 1 \pm i \pm j \pm k)$.
   \item Prove that every $w \in \field{I}$ is an associate of an

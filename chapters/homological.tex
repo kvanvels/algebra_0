@@ -1203,7 +1203,9 @@ $\psi$ and $\psi$ is a cokernel of $\varphi$, and
   \end{itemize}
   Indeed, the first assertion is trivial; the second and third amount
   to the explicit construction of fibered products and coproducts
-  mentioned in \Cref{exam:homol:pullbacks-exist-in-abelian-category}.
+  mentioned in \Cref{exam:homol:pullbacks-exist-in-abelian-category}
+  (up to an isomorphism accounting for the signs in the case of
+  coproducts).
 \end{exam}
 
 \subsection{The snake lemma, again}
@@ -2214,7 +2216,7 @@ resolutions, in
 \Cref{subsec:linalg:finitely-presented-modules-and-free-resolutions}.
 The complex $\iota(A)$,
 \[
-  \dots \longrightarrow 0 \longrightarrow 0 \xrightarrow{d^1} A
+  \dots \longrightarrow 0 \longrightarrow 0 \xrightarrow{d^{-1}} A
   \xrightarrow{d^0} 0 \longrightarrow 0 \longrightarrow \dots,
 \]
 is a resolution of $A$, but not a very interesting one. Resolutions
@@ -2607,10 +2609,10 @@ $\image\nu^{i-1}$? I claim it is $0$. Indeed, if $n$ comes from
 $N^{i-1}$, then a preimage in $M^i$ of $\nu^{i-1}(n)$ may be obtained
 by taking a preimage of $n$ in $M^{i-1}$ and mapping it to $M^i$; but
 since the central column is a complex, this preimage maps to $0$ in
-$M^{i+1}$. It follows that $\delta(n) = 0$ in this case:
+$M^{i+1}$. It follows that $\delta$ maps $\nu^{i-1}(n)$ to $0$:
 % TODO: diagram showing the degenerate chase producing delta(n) = 0
 % when n comes from im nu^{i-1} (page 599)
-Therefore, $\delta$ factors through $\image\nu^{i-1}$.  Since
+Therefore, $\delta$ factors through the quotient by $\image\nu^{i-1}$.  Since
 $\ker\nu^i / \image\nu^{i-1}$ is nothing but the cohomology
 $H^i(N^\bullet)$, we have obtained a morphism
 \[
@@ -2949,7 +2951,7 @@ will try to clarify these last cryptic remarks
 
   Every complex $(L^\bullet, \lambda^\bullet)$ determines a complex
   $\ker^\bullet$, with the object\footnote{Of course $\ker$ and
-    $\coker$ mean the target and source of the arrows $\ker$ and
+    $\coker$ mean the source and target of the arrows $\ker$ and
     $\coker$, respectively.}  $\ker\lambda^{i+1}$ in degree $i$,
   connected by zero-morphisms, and a complex $\coker^\bullet$, with
   the object $\coker\lambda^{i-1}$ in degree $i$, also connected by
@@ -3567,7 +3569,7 @@ of morphisms
   Since $\ell \in \ker d^i_{L^\bullet}$, the last term vanishes. This
   shows that
   \[
-    \beta^i(\ell) - \alpha^i(\ell) \in \image d^i_{M^\bullet},
+    \beta^i(\ell) - \alpha^i(\ell) \in \image d^{i-1}_{M^\bullet},
   \]
   proving that $\beta^i(\ell) - \alpha^i(\ell)$ vanishes in
   $H^i(M^\bullet)$, as needed.
@@ -3736,8 +3738,10 @@ and~7.7).
   Let
   $\alpha_k^\bullet, \beta_k^\bullet : L^\bullet_k \to M_k^\bullet$,
   $k = 0, 1$, be morphisms of cochain complexes. Assume that
-  $\alpha_0 \sim \beta_0$, $\alpha_1 \sim \beta_1$. Prove that
-  $\alpha_0 \oplus \alpha_1 \sim \beta_0 \oplus \beta_1$ as morphisms
+  $\alpha_0^\bullet \sim \beta_0^\bullet$,
+  $\alpha_1^\bullet \sim \beta_1^\bullet$. Prove that
+  $\alpha_0^\bullet \oplus \alpha_1^\bullet \sim \beta_0^\bullet \oplus
+  \beta_1^\bullet$ as morphisms
   $L^\bullet_0 \oplus L^\bullet_1 \to M_0^\bullet \oplus M_1^\bullet$.
   [\Cref{subsec:homol:homotopy}]
 \end{exer}
@@ -5671,7 +5675,9 @@ We will capitalize on these considerations in the next section.
   the identity functor and that there is a natural
   \emph{transformation} (not an isomorphism in general)
   $\mathscr{I} \circ \mathscr{P} \rightsquigarrow \id_{\categ{K}^-
-    (\categ{A})}$. [\Cref{subsec:homol:viewpoint-shift},
+    (\categ{A})}$ such that the composition
+  $\mathscr{P} \circ (\mathscr{I} \circ \mathscr{P}) \rightsquigarrow
+  \mathscr{P}$ is an isomorphism. [\Cref{subsec:homol:viewpoint-shift},
   \Cref{subsec:homol:universal-property-of-the-derived-functor}]
 \end{exer}
 \begin{exer}{}{exer:homol:chain-of-quasi-isos-gives-homotopy-equivalence}
@@ -5788,7 +5794,7 @@ We will capitalize on these considerations in the next section.
   as in \Cref{subsec:homol:poor-man-s-derived-category}, this is
   $\mathscr{P} \circ \iota$. It is clear that
   $H^0 \circ \mathscr{P} \circ \iota$ is the identity functor on
-  $\categ{A}$.  Prove that there is a natural transformation from the
+  $\categ{A}$.  Prove that there is a natural isomorphism from the
   identity functor on $\widehat{\categ{A}}$ to
   $\mathscr{P} \circ \iota \circ
   H^0$. [\Cref{subsec:homol:viewpoint-shift}]
@@ -5973,7 +5979,7 @@ to begin with.
 
 This may be viewed as a nuisance. On the contrary, it is one of the
 main values of deriving categories and functors. Recasting an additive
-functors $\mathscr{F} : \categ{A} \to \categ{B}$ at the level of
+functor $\mathscr{F} : \categ{A} \to \categ{B}$ at the level of
 derived categories, one gets access to interesting new invariants even
 when starting from (the equivalent copy in the derived category of)
 $\categ{A}$ itself.
@@ -6038,71 +6044,91 @@ is $\categ{L}\mathscr{F}$ good for, then?
 
 \begin{prop}{}{prop:homol:left-derived-functor-universal-property}
   The left-derived functor $\categ{L}\mathscr{F}$ satisfies the
-  following universal property:
-  \begin{itemize}
-  \item There is a natural transformation
-    \[
-      \categ{L}\mathscr{F} \circ \mathscr{P}_{\categ{A}}
-      \rightsquigarrow \mathscr{P}_{\categ{B}} \circ
-      \categ{K}(\mathscr{F});
-    \]
-  \item for every functor
-    $\mathscr{G} : \categ{K}^-(\categ{P}(\categ{A})) \to
-    \categ{K}^-(\categ{P}(\categ{B}))$ and every natural
-    transformation
-    $\gamma : \mathscr{G} \circ \mathscr{P}_{\categ{A}}
-    \rightsquigarrow \mathscr{P}_{\categ{B}} \circ
-    \categ{K}(\mathscr{F})$, there is a unique (up to natural
-    isomorphism) natural transformation
-    $\mathscr{G} \rightsquigarrow \categ{L}\mathscr{F}$ inducing a
-    factorization of $\gamma$:
-    $\mathscr{G} \circ \mathscr{P}_{\categ{A}} \rightsquigarrow
+  following universal property: There is a natural transformation
+  $\eta : \categ{L}\mathscr{F} \circ \mathscr{P}_{\categ{A}}
+  \rightsquigarrow \mathscr{P}_{\categ{B}} \circ
+  \categ{K}(\mathscr{F})$ such that for every functor
+  $\mathscr{G} : \categ{K}^-(\categ{P}(\categ{A})) \to
+  \categ{K}^-(\categ{P}(\categ{B}))$ and every natural
+  transformation
+  $\gamma : \mathscr{G} \circ \mathscr{P}_{\categ{A}}
+  \rightsquigarrow \mathscr{P}_{\categ{B}} \circ
+  \categ{K}(\mathscr{F})$, there is a unique (up to natural
+  isomorphism) natural transformation
+  $\mathscr{G} \rightsquigarrow \categ{L}\mathscr{F}$ inducing a
+  factorization of $\gamma$ as follows:
+  \[
+    \mathscr{G} \circ \mathscr{P}_{\categ{A}} \rightsquigarrow
     \categ{L}\mathscr{F} \circ \mathscr{P}_{\categ{A}}
-    \rightsquigarrow \mathscr{P}_{\categ{B}} \circ
-    \categ{K}(\mathscr{F})$.
-  \end{itemize}
+    \overset{\eta}{\rightsquigarrow} \mathscr{P}_{\categ{B}} \circ
+    \categ{K}(\mathscr{F}).
+  \]
   Thus, excuse our poor diagram, for it is doing its best to commute,
   and any choice of a bottom side other than $\categ{L}\mathscr{F}$
   would make it commute even less.
 \end{prop}
 \begin{proof}
   If we have done our homework (and in particular
-  \Cref{exer:homol:resolution-functor-p-i-properties}), then we know
-  that there is a natural transformation
+  \Cref{exer:homol:resolution-functor-p-i-properties}), then we have
+  defined a certain natural transformation
   \[
     \mathscr{I}_{\categ{A}} \circ \mathscr{P}_{\categ{A}}
     \rightsquigarrow \id_{\categ{K}^-(\categ{A})};
   \]
   composing on the left by
-  $\mathscr{P}_{\categ{B}} \circ \categ{K}(\mathscr{F})$ gives the
-  first point, since
+  $\mathscr{P}_{\categ{B}} \circ \categ{K}(\mathscr{F})$ defines a
+  transformation $\eta$ as stated, since
   $\categ{L}\mathscr{F} = \mathscr{P}_{\categ{B}} \circ
   \categ{K}(\mathscr{F}) \circ \mathscr{I}_{\categ{A}}$, by
-  definition.
+  definition. Concretely, for every $L^\bullet$,
+  $\eta_{L^\bullet} : \categ{L}\mathscr{F} \circ
+  \mathscr{P}_{\categ{A}}(L^\bullet) = \mathscr{P}_{\categ{B}} \circ
+  \categ{K}(\mathscr{F})(\mathscr{P}_{\categ{A}}(L^\bullet)) \to
+  \mathscr{P}_{\categ{B}} \circ \categ{K}(\mathscr{F})(L^\bullet)$ is
+  the morphism induced by the morphism
+  $\mathscr{P}_{\categ{A}}(L^\bullet) \to L^\bullet$ associated with
+  the chosen projective resolution.
 
-  To verify the second point, note that every natural transformation
+  Every natural transformation
   $\mathscr{G} \rightsquigarrow \categ{L}\mathscr{F}$ will induce a
-  natural transformation $\gamma$ as in the statement, by the first
-  point; on the other hand, every factorization of $\gamma$,
-  \[
-    \mathscr{G} \circ \mathscr{P}_{\categ{A}} \rightsquigarrow
-    \categ{L}\mathscr{F} \circ \mathscr{P}_{\categ{A}}
-    \rightsquigarrow \mathscr{P}_{\categ{B}} \circ
-    \categ{K}(\mathscr{F}),
-  \]
-  comes from one and only one (up to natural isomorphism) natural
-  transformation $\mathscr{G} \rightsquigarrow \categ{L}\mathscr{F}$,
-  because this can be recovered by composing on the right by
+  natural transformation $\gamma$ as in the statement. We have to
+  verify that every
+  $\gamma : \mathscr{G} \circ \mathscr{P}_{\categ{A}} \rightsquigarrow
+  \mathscr{P}_{\categ{B}} \circ \categ{K}(\mathscr{F})$ is induced in
+  this fashion, by one and only one (up to natural isomorphism)
+  natural transformation $\mathscr{G} \rightsquigarrow
+  \categ{L}\mathscr{F}$. The uniqueness follows because we can
+  reconstruct the transformation
+  $\mathscr{G} \rightsquigarrow \categ{L}\mathscr{F}$ from $\gamma$,
+  by horizontally composing on the right by
   $\id_{\mathscr{I}_{\categ{A}}}$ (and again using
-  \Cref{exer:homol:resolution-functor-p-i-properties}):
+  \Cref{exer:homol:resolution-functor-p-i-properties}, to obtain an
+  isomorphism
+  $\id_{\categ{K}^-(\categ{P}(\categ{A}))} \cong \mathscr{P}_{\categ{A}}
+  \circ \mathscr{I}_{\categ{A}}$):
   \[
     \mathscr{G} \overset{\sim}{\rightsquigarrow} \mathscr{G} \circ
     \mathscr{P}_{\categ{A}} \circ \mathscr{I}_{\categ{A}}
-    \rightsquigarrow \mathscr{P}_{\categ{B}} \circ
+    \overset{\gamma \cdot
+      \id_{\mathscr{I}_{\categ{A}}}}{\rightsquigarrow} \mathscr{P}_{\categ{B}} \circ
     \categ{K}(\mathscr{F}) \circ \mathscr{I}_{\categ{A}} =
     \categ{L}\mathscr{F}.
   \]
-  This concludes the proof.
+
+  Concretely, for all $P^\bullet$ in $\categ{K}^-(\categ{P}(\categ{A}))$,
+  the resolution morphism
+  $\mu_{P^\bullet} : \mathscr{P}_{\categ{A}}(P^\bullet) \to P^\bullet$
+  is an isomorphism in $\categ{K}^-(\categ{P}(\categ{A}))$; then
+  (writing $P^\bullet$ for $\mathscr{I}_{\categ{A}}(P^\bullet)$ for
+  notation's sake)
+  \[
+    \mathscr{G}(P^\bullet) \overset{\mathscr{G}(\mu_{P^\bullet}^{-1})}
+    {\rightsquigarrow} \mathscr{G} \circ \mathscr{P}_{\categ{A}}(P^\bullet)
+    \overset{\gamma_{P^\bullet}}{\rightsquigarrow} \mathscr{P}_{\categ{B}}
+    \circ \categ{K}(\mathscr{F})(P^\bullet) = \categ{L}\mathscr{F}(P^\bullet).
+  \]
+  It is straightforward to verify that this natural transformation
+  induces $\gamma$.
 \end{proof}
 
 The reader should formulate the universal property satisfied by the
@@ -6117,7 +6143,7 @@ natural transformations go `backwards'.
   consequence. Let $\categ{A}$, $\categ{B}$, $\categ{C}$ be abelian
   categories, and let $\mathscr{F} : \categ{A} \to \categ{B}$,
   $\mathscr{G} : \categ{B} \to \categ{C}$ be additive functors. Assume
-  that $\categ{A}$ and $\categ{B}$ have enough projectives, so that
+  that $\categ{B}$ and $\categ{C}$ have enough projectives, so that
   the derived functors $\categ{L}\mathscr{F}$ and
   $\categ{L}\mathscr{G}$ are defined, as well as the derived functor
   $\categ{L}(\mathscr{G} \circ \mathscr{F})$. Then there is a natural
@@ -6158,8 +6184,8 @@ natural transformations go `backwards'.
 \label{subsec:homol:taking-cohomology}
 
 The content of \Cref{prop:homol:left-derived-functor-universal-property} is again in line with
-our main strategy: in moving from $\categ{A}$ to $\categ{B}$, the left
-derived functor $\mathscr{F}$ is the functor that preserves `as much
+our main strategy: in moving from $\categ{A}$ to $\categ{D}^-(\categ{A})$, the
+left-derived functor $\categ{L}\mathscr{F}$ is the functor that preserves `as much
 cohomological information as possible' regarding bounded-above
 complexes, in the sense that it is the closest one can get to
 extending $\mathscr{F} : \categ{A} \to \categ{B}$ to a functor
@@ -6914,7 +6940,8 @@ $G\text{-}\categ{Mod}$ may be called $G$-modules.
 For a $G$-module $M$, $M^G$ denotes the set of elements that are fixed
 under the action of $G$: these are reasonably called the
 \emph{invariants} of the action. Note that $M^G$ is an abelian group
-carrying a trivial action of $G$; it is clear that setting $M \to M^G$
+carrying a trivial action of $G$; it is clear that the assignment
+$M \mapsto M^G$
 defines a covariant functor
 $\cdot^G : G\text{-}\categ{Mod} \to \categ{Ab}$. Both
 $G\text{-}\categ{Mod}$ and $\categ{Ab}$ are abelian categories, and it
@@ -7245,7 +7272,7 @@ $H_\bullet(\Z, M)$
   $\mathscr{F} : \categ{A} \to \categ{B}$ be an additive functor.
   Assume $\categ{A}$ has enough projectives, so that
   $\categ{L}_i\mathscr{F}$ is defined. Prove that
-  $\categ{L}_0(\mathscr{F})$ is a right-exact functor, determining the
+  $\categ{L}_0\mathscr{F}$ is a right-exact functor, determining the
   same higher derived functors $\categ{L}_i$, $i > 0$, as
   $\mathscr{F}$.
 \end{exer}
@@ -7342,7 +7369,8 @@ $H_\bullet(\Z, M)$
   extends to a unique morphism of $\delta$-functors
   $\{\mathscr{T}^i\} \to \{\mathscr{S}^i\}$.
 
-  Universal $\delta$-functors are of course unique up to isomorphism.
+  Universal $\delta$-functors $\{\mathscr{T}^i\}$ with fixed
+  $\mathscr{T}^0$ are of course unique up to isomorphism.
 
   It is not hard (but it involves a fair number of diagram chases) to
   show that a $\delta$-functor $\{\mathscr{T}^i\}$ is universal if for
@@ -7869,7 +7897,7 @@ bounded case.
 \begin{exam}{}{exam:homol:hom-tensor-double-complex-example}
   Operations such as $\Hom_{\categ{A}}$ or $\otimes$ determine double
   complexes. For a `first quadrant' example, let $L^\bullet$, resp.,
-  $M^\bullet$, be a complex in $\categ{C}^{\le 0}(\categ{A})$, resp.\
+  $M^\bullet$, be a complex in $\categ{C}^{\le 0}(\categ{A})$, resp.,
   $\categ{C}^{\ge 0}(\categ{A})$:
   \[\begin{tikzcd}
       \dots \arrow[r] & L^{-2} \arrow[r] & L^{-1} \arrow[r] & L^0
@@ -8263,7 +8291,7 @@ promised a moment ago.
   $T^\bullet$.
   \begin{itemize}
   \item Assume that $(*)$ is a resolution of $N^\bullet$ in
-    $\categ{C}^{\le}(\categ{A}')$. Then $T^\bullet$ is
+    $\categ{C}^{\le 0}(\categ{A}')$. Then $T^\bullet$ is
     quasi-isomorphic to $N^\bullet$ in $\categ{C}^{\le 0}(\categ{A})$
     (that is, it is a resolution of $N^\bullet$ in the sense used in
     \Cref{subsec:homol:from-objects-to-complexes} and following).
@@ -9261,7 +9289,7 @@ Further, we can let $A' := \image\alpha$ and let
   $\beta'(\alpha(a)) := [\beta(a)]$;
 \item $\gamma' : E' \to A'$ be defined by $\gamma'([e]) := \gamma(e)$,
 \end{itemize}
-where $[e]$ denotes the class of $e \in E$ in $E'$. (Since
+where $[e]$ denotes the class of $e \in \ker d$ in $E'$. (Since
 $\beta \circ \gamma(e) = d(e) = 0$,
 $\gamma(e) \in \ker\beta = \image\alpha = A'$.) All needed
 verifications (such as the independence on the representative $e$ of
@@ -9776,7 +9804,7 @@ put together by working out
   complexes, a `universal Euler characteristic' $\chi$ is defined for
   bounded complexes in these categories (see
   \Cref{exer:homol:grothendieck-grp-euler-char-abelian-category}). Prove
-  that if
+  that if $A$, $B$, $C$ are bounded complexes in $\categ{A}$ and
   \[
     \begin{tikzpicture}[baseline=(current bounding box.center)]
       \node (A) at (1,1.3) {$A$}; \node (C) at (0,0)
@@ -9903,7 +9931,7 @@ put together by working out
   Let ${}_vE_r$ be the spectral sequence of a first-quadrant double
   complex from the vertical filtration, as in
   \Cref{subsec:homol:spectral-sequences}. Prove that
-  ${}_vE_r^{i,j} = {}_vE_\infty^{i,j}$ for $r > j+1$.
+  ${}_vE_r^{i,j} = {}_vE_\infty^{i,j}$ for $r > \max(i, j+1)$.
 \end{exer}
 
 \begin{exer}{\exerused{}}{exer:homol:spectral-seq-for-composite-derived-functors}

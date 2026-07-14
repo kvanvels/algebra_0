@@ -1733,7 +1733,7 @@ matter on his/her own; cf.\ \Cref{exer:rings:third-iso-ideals}.
   two-sided ideals are $\{0\}$ and $R$. A nonzero ring with this
   property is said to be \emph{simple}; by
   \Cref{exer:rings:division-ring-ideals}, fields are the only simple
-  commutative rings.
+  commutative rings, and division rings are simple.
 
   Prove that $\mathcal{M}_n(\R)$ is simple. (Use
   \Cref{exer:rings:matrix-ideal-entries-converse}.)
@@ -1923,11 +1923,11 @@ It is clear that $IJ \subseteq I \cap J$: every element $ij$ with
 $i \in I$ and $j \in J$ is in $I$ (because $I$ is a right-ideal) and
 in $J$ (because $J$ is a left-ideal); therefore $I \cap J$ contains
 all products $ij$, and hence it must contain the ideal $IJ$ they
-generate. Sometime the product agrees with the intersection:
+generate. Sometimes the product agrees with the intersection:
 \[
   (4) \cap (3) = (12) = (4) \cdot (3) \quad \text{in } \Z;
 \]
-and sometime it does not:
+and sometimes it does not:
 \[
   (4) \cap (6) = (12) \neq (24) = (4) \cdot (6).
 \]
@@ -1998,7 +1998,7 @@ are uniquely\footnote{This assertion has to be taken with a grain of
     f(x)(q_1(x) - q_2(x)) = r_2(x) - r_1(x);
   \]
   if $r_2(x) \neq r_1(x)$, then $r_2(x) - r_1(x)$ has degree
-  $< \deg f(x)$, while $f(x)(q_1(x) - q_2(x))$ has degree
+  $< \deg f(x)$ and $f(x)(q_1(x) - q_2(x)) \neq 0$ has degree
   $\geq \deg f(x)$, giving a contradiction. Therefore
   $r_1(x) = r_2(x)$, and $q_1(x) = q_2(x)$ follows right away since
   monic polynomials are non-zero-divisors.
@@ -2507,7 +2507,11 @@ after we develop (much) more machinery.
     for some $p \in K$. (Hint: You will use the compactness of $K$ and
     (ii).)
   \end{enumerate}
-  Conclude that $p \mapsto M_p$ defines a bijection from $K$ to the
+  If further $K$ is Hausdorff (and, as Bourbaki would have it, compact
+  spaces are Hausdorff), then Urysohn's lemma shows that for any two
+  points $p \neq q$ in $K$ there exists a function $f \in R$ such that
+  $f(p) = 0$ and $f(q) = 1$. If this is the case, conclude that
+  $p \mapsto M_p$ defines a bijection from $K$ to the
   set of maximal ideals of $R$. (The set of maximal ideals of a
   commutative ring $R$ is called the \emph{maximal spectrum} of $R$;
   it is contained in the (prime) spectrum $\operatorname{Spec} R$
@@ -3027,7 +3031,7 @@ $M$.
 \begin{exer}{}{exer:rings:Q-vector-unique}
   Let $G$ be an abelian group. Prove that if $G$ has a structure of
   $\Q$-vector space, then it has only one such structure. (Hint: First
-  prove that every element of $G$ has necessarily infinite
+  prove that every nonidentity element of $G$ has necessarily infinite
   order. Alternative hint: The unique ring homomorphism $\Z \to \Q$ is
   an epimorphism.)
 \end{exer}
@@ -3057,7 +3061,7 @@ $M$.
 \begin{exer}{\exerused}{exer:rings:Rx-module-structures}
   Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove
   that there is a natural bijection between the set of $R[x]$-module
-  structures on $M$ and
+  structures on $M$ (extending the given $R$-module structure) and
   $\End_{R\text{-}\categ{Mod}}(M)$. [\Cref{subsec:linalg:linear-transformations-of-free-modules-actions-of-polynomial-rings}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:bijective-iso}
@@ -3594,7 +3598,7 @@ hints; we will see it in
     A_2)}$. [\Cref{subsec:linrep:adjunction-with-hom-and-explicit-computations}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:hom-free-dual}
-  Let $R$ be a ring, and let $F = R^{\oplus n}$ be a finitely
+  Let $R$ be a commutative ring, and let $F = R^{\oplus n}$ be a finitely
   generated free $R$-module. Prove that
   $\Hom_{R\text{-}\categ{Mod}}(F, R) \cong F$. On the other hand, find
   an example of a ring $R$ and a nonzero $R$-module $M$ such that
@@ -3614,7 +3618,7 @@ hints; we will see it in
   \ref{exer:rings:hom-free-product}]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-free-product}
-  Let $R$ be a ring. If $A$ is any set, prove that
+  Let $R$ be a commutative ring. If $A$ is any set, prove that
   $\Hom_{R\text{-}\categ{Mod}}(R^{\oplus A}, R)$ satisfies the
   universal property for the product of the family
   $\{R_a\}_{a \in A}$, where $R_a \cong R$ for all $a$; thus,

@@ -838,11 +838,12 @@ theorem.
 \label{subsec:groups2:sylow-iii}
 The third (and last) Sylow theorem gives a good handle on the number
 of $p$-Sylow subgroups of a given finite group $G$. This is especially
-useful in establishing the existence of normal subgroups of $G$: since
-all $p$-Sylow subgroups of a group are conjugates of each other (by
-the second Sylow theorem), if there is only one $p$-Sylow subgroup,
-then that subgroup must be normal.\footnote{For an alternative
-  viewpoint, see \Cref{exer:groups2:characteristic-subgrp-basics}.}
+useful in establishing the existence of normal subgroups of $G$: all
+$p$-Sylow subgroups of a group are conjugates of each other (by
+the second Sylow theorem), so a $p$-Sylow subgroup is normal if and
+only if $G$ has \emph{only one} $p$-Sylow
+subgroup.\footnote{For the right-to-left implication in this comment,
+  see the third point in \Cref{exer:groups2:characteristic-subgrp-basics}.}
 \begin{thm}{Third Sylow theorem}{thm:groups2:sylow-iii}
   Let $p$ be a prime integer, and let $G$ be a finite group of order
   $|G| = p^r m$. Assume that $p$ does not divide $m$. Then the number
@@ -904,7 +905,7 @@ the exercises at the end of this section.
   $p^r$; hence it is not simple.
 \end{proof}
 Of course the same argument gives the same conclusion for every group
-of order $mp^r$, where $(m, p) = 1$ and the only divisor $d$ of $m$
+of order $mp^r$, where $\gcd(m, p) = 1$ and the only divisor $d$ of $m$
 such that $d \equiv 1 \bmod p$ is $d = 1$.
 \begin{exam}{}{}
   There are no simple groups of order 2002.
@@ -1083,11 +1084,14 @@ group of order 6 is isomorphic to $D_6 \cong S_3$.
   $G \cong \Z/p\Z$ for some positive prime integer $p$.
 \end{exer}
 \begin{exer}{}{exer:groups2:simple-iff-only-triv-hom-images}
-  \exerused{} Prove that a nontrivial group $G$ is simple if and only
-  if its only homomorphic images (i.e., groups $G'$ such that there is
-  an onto homomorphism $G \to G'$) are the trivial group and $G$
-  itself (up to
-  isomorphism). [\Cref{subsec:groups2:composition-factors-schreier-s-theorem}]
+  \exerused{} Prove that a nontrivial finite group $G$ is simple if
+  and only if its only homomorphic images (i.e., groups $G'$ such that
+  there is an onto homomorphism $G \to G'$) are the trivial group and
+  $G$ itself (up to isomorphism). (Note: One implication is true for
+  arbitrary groups, while $\Z[\frac{1}{2}]/\Z$ is a non-simple group
+  which is isomorphic to its nontrivial homomorphic images, as the
+  reader may enjoy
+  verifying.) [\Cref{subsec:groups2:composition-factors-schreier-s-theorem}]
 \end{exer}
 \begin{exer}{}{exer:groups2:simple-grp-hom-injective}
   Let $G$ be a simple group, and assume $\varphi : G \to G'$ is a
@@ -1230,14 +1234,15 @@ group of order 6 is isomorphic to $D_6 \cong S_3$.
 \end{exer}
 
 \begin{exer}{}{exer:groups2:unique-divisor-cong-1-implies-not-simple}
-  Let $G$ be a finite group, $n = |G|$, and $p$ be a prime divisor of
-  $n$.  Assume that the only divisor of $n$ that is congruent to $1$
-  modulo $p$ is $1$. Prove that $G$ is not simple.
+  Let $G$ be a finite noncommutative group, $n = |G|$, and $p$ be a
+  prime divisor of $n$.  Assume that the only divisor of $n$ that is
+  congruent to $1$ modulo $p$ is $1$. Prove that $G$ is not simple.
 \end{exer}
 
 \begin{exer}{}{exer:groups2:simple-grp-ord-divides-np-factorial}
   $\lnot$ Let $N_p$ denote the number of $p$-Sylow subgroups of a
-  group $G$.  Prove that if $G$ is simple, then $|G|$ divides $N_p!$
+  group $G$.  Prove that if a noncommutative group $G$ is simple, then
+  $|G|$ divides $N_p!$
   for all primes $p$ in the factorization of $|G|$. More generally,
   prove that if $G$ is simple and $H$ is a subgroup of $G$ of index
   $N > 1$, then $|G|$ divides $N!$. (Hint:
@@ -1264,9 +1269,8 @@ group of order 6 is isomorphic to $D_6 \cong S_3$.
     fifteen elements of order 2 or
     4. (\cref{exer:groups2:simple-grp-ord-divides-np-factorial} will
     likely be helpful.)
-  \item If there are fifteen 2-Sylow subgroups, prove that there
-    exists an element $g \in G$ of order 2 contained in at least two
-    of them. Prove that the centralizer of $g$ has index 5.
+  \item Show that in fact $G$ has \emph{exactly five} 2-Sylow
+    subgroups.
   \end{itemize}
   Conclude that every simple group\footnote{The reader will prove
     later (\Cref{exer:groups2:a5-unique-simple-grp-ord-60}) that there
@@ -1560,7 +1564,7 @@ This phenomenon holds in complete generality:
 \end{proof}
 One nice consequence of the Jordan-H\"older theorem is the following
 observation. A series is a \emph{refinement} of another series if all
-terms of the first appear in the second.
+terms of the second appear in the first.
 
 \begin{prop}{}{prop:groups2:schreier-finite}
   Any two normal series of a finite group ending with $\{e\}$ admit
@@ -1751,8 +1755,8 @@ cyclic\footnote{Thus, a composition series should be called `simple';
   cyclic.
 \end{exam}
 \begin{coro}{}{coro:groups2:solvable-normal}
-  Let $N$ be a normal subgroup of a group $G$. Then $G$ is solvable if
-  and only if both $N$ and $G/N$ are solvable.
+  Let $N$ be a normal subgroup of a finite group $G$. Then $G$ is
+  solvable if and only if both $N$ and $G/N$ are solvable.
 \end{coro}
 
 \begin{proof}
@@ -1923,7 +1927,9 @@ elements of $S_n$ in a straightforward but inconvenient way:
     8 & 1 & 2 & 7 & 5 & 3 & 4 & 6 \end{pmatrix}
 \]
 would stand for the element in $S_8$ sending $\mathbf{1}$ to
-$\mathbf{8}$, $\mathbf{2}$ to $\mathbf{1}$, etc.
+$\mathbf{8}$, $\mathbf{2}$ to $\mathbf{1}$, etc. (Here I return to the
+convention in \Cref{sec:groups:examples-of-groups} and let $S_A$ act
+on $A$ on the \emph{right}.)
 
 There is clearly ``too much'' information here (the first row should
 be implicit), and at the same time it seems hard to find out anything
@@ -2723,7 +2729,7 @@ fact the smallest order of a nonsimple, nonsolvable group; cf.\
   Prove that for $n \geq 5$ there are no nontrivial actions of $A_n$
   on any set $S$ with $|S| < n$. Construct\footnote{You can think
     algebraically if you want; if you prefer geometry, visualize pairs
-    of opposite sides on a tetrahedron.} a nontrivial action of $A_4$
+    of opposite edges on a tetrahedron.} a nontrivial action of $A_4$
   on a set $S$, $|S| = 3$. Is there a nontrivial action of $A_4$ on a
   set $S$ with $|S| = 2$?
 \end{exer}
@@ -2913,10 +2919,12 @@ We are going to `solve' the extension problem in the particular case
 in which $H$ is also a subgroup of $G$, intersecting $N$ at $\{e\}$.
 \begin{defn}{}{defn:groups2:split-extension}
   An exact sequence of groups
-  \[1 \longrightarrow N \longrightarrow G \longrightarrow H
+  \[1 \longrightarrow N \xrightarrow{\varphi} G \xrightarrow{\psi} H
     \longrightarrow 1\] (or the corresponding extension) is said to
-  \emph{split} if $H$ may be identified with a subgroup of $G$, so
-  that $N \cap H = \{e\}$.
+  \emph{split} if $\psi$ has a right inverse.
+
+  In this case $H$ may be identified with a subgroup of $G$ so that
+  $N \cap H = \{e\}$.
 \end{defn}
 
 We encountered this terminology
@@ -3463,7 +3471,7 @@ common to state the result in two equivalent forms.
   Let $G$ be a finite nontrivial abelian group. Then
   \begin{itemize}
   \item there exist prime integers $p_1, \dots, p_r$ and positive
-    integers $n_{ij}$ such that $|G| = \prod_{i,j} p_i^{n_{i,j}}$ and
+    integers $n_{ij}$ such that $|G| = \prod_{i,j} p_i^{n_{ij}}$ and
     \[G \cong \bigoplus_{i,j} \frac{\Z}{p_i^{n_{ij}}\Z}\,;\]
   \item there exist positive integers $1 < d_1 \mid \cdots \mid d_s$
     such that $|G| = d_1 \cdots d_s$ and
@@ -3722,7 +3730,7 @@ evaporates in the process.
 \begin{exer}{}{exer:groups2:subgrp-with-given-invariant-divisors}
   $\lnot$ Let $G$ be a finite abelian $p$-group, with elementary
   divisors $p^{n_1}, \dots, p^{n_r}$ ($n_1 \geq n_2 \geq \dots$).
-  Prove that $G$ has a subgroup $H$ with invariant divisors
+  Prove that $G$ has a subgroup $H$ with elementary divisors
   $p^{m_1}, \dots, p^{m_s}$ ($m_1 \geq m_2 \geq \dots$) if and only if
   $s \leq r$ and $m_i \leq n_i$ for $i = 1, \dots, s$. (Hint: One
   direction is immediate. For the other, with notation as in

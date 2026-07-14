@@ -93,7 +93,7 @@ dictate.\footnote{Not without exceptions; see for example permutation
   rise to one.
 \end{exam}
 
-\begin{exam}{}{}
+\begin{exam}{}{exam:groups:sets-of-numbers}
   The reader should check carefully (cf.\
   \Cref{exer:groups:sets-of-numbers}) that $(\Z, +)$, $(\Q, +)$,
   $(\R, +)$, $(\C, +)$, and several variations using $\cdot$ (for
@@ -217,8 +217,8 @@ conventional `power' notation can then be used:\footnote{In the
   \Cref{subsec:groups:commutative-groups}.} $g^0 = e_G$, and for a
 positive integer $n$
 \[
-  g^n = \underbrace{g \cdots g}_{n \text{ times}}, \qquad g^{-n} =
-  \underbrace{g^{-1} \cdots g^{-1}}_{n \text{ times}}.
+  g^n = \underbrace{g \bullet \cdots \bullet g}_{n \text{ times}}, \qquad g^{-n} =
+  \underbrace{g^{-1} \bullet \cdots \bullet g^{-1}}_{n \text{ times}}.
 \]
 It is easy to check that then $\forall g \in G$ and
 $\forall m, n \in \Z$
@@ -462,14 +462,14 @@ case.
 \subsection*{Exercises}
 
 \begin{exer}{\exerused}{exer:groups:group-as-automorphisms}
-  Write a careful proof that every group is the group of isomorphisms
-  of a groupoid. In particular, every group is the group of
+  Write a careful proof that every group is the group of automorphisms
+  of an object of a groupoid. In particular, every group is the group of
   automorphisms of some object in some
   category. [\Cref{subsec:groups:symmetric-groups}]
 \end{exer}
 \begin{exer}{\exerused}{exer:groups:sets-of-numbers}
   Consider the `sets of numbers' listed in
-  \Cref{subsec:groups:groups-and-groupoids}, and decide which are
+  \Cref{exam:groups:sets-of-numbers}, and decide which are
   made into groups by conventional operations such as $+$ and
   $\cdot$. Even if the answer is negative (for example, $(\R, \cdot)$
   is not a group), see if variations on the definition of these sets
@@ -1108,7 +1108,8 @@ later sections (cf.\ \Cref{exam:groups:cyclic-formal-intro}).
   relation.
 \end{exer}
 \begin{exer}{}{exer:groups:znz-n-elements}
-  Prove that $\Z/n\Z$ consists of precisely $n$ elements.
+  Prove that if $n > 0$, then $\Z/n\Z$ consists of precisely $n$
+  elements.
 \end{exer}
 
 \begin{exer}{\exerused}{exer:groups:odd-square-mod-8}
@@ -1145,7 +1146,7 @@ later sections (cf.\ \Cref{exam:groups:cyclic-formal-intro}).
   \item Prove that if $\gcd(m,n) = 1$, then $\gcd(2m+n, 2n) = 1$. (Use
     \Cref{exer:groups:bezout}.)
   \item Prove that if $\gcd(r,2n) = 1$, then
-    $\gcd\!\left(\frac{r+n}{2}, n\right) = 1$. (Ditto.)
+    $\gcd\!\left(\frac{r-n}{2}, n\right) = 1$. (Ditto.)
   \item Conclude that the function $[m]_n \mapsto [2m+n]_{2n}$ is a
     bijection between $(\Z/n\Z)^*$ and $(\Z/2n\Z)^*$.
   \end{itemize}
@@ -2486,7 +2487,7 @@ function denoted $j$ earlier.
   The key point is again that every element of $\Z^{\oplus A}$ may be
   written uniquely as a \emph{finite} sum
   \[
-    \sum_{a \in A} m_a j(a), \quad m_a \neq 0 \text{ for only finitely
+    \sum_{a \in A} m_a j_a, \quad m_a \neq 0 \text{ for only finitely
       many } a;
   \]
   once this is understood, the argument is precisely the same as for
@@ -2741,9 +2742,9 @@ $\varphi \circ \alpha$ is the trivial homomorphism (denoted `$0$' in
 the diagram) factors uniquely through $\ker\varphi$:
 \[
   \begin{tikzcd}
-    K \arrow[rr, "0"] \arrow[dr, "\alpha"'] & & G' \\
+    K \arrow[rr, "0"] \arrow[dr, "\alpha"'] \arrow[ddr, dashed, "\exists!\,\bar\alpha"'] & & G' \\
     & G \arrow[ur, "\varphi"'] & \\
-    & \ker\varphi \arrow[u, dashed, "\exists!\,\bar\alpha"'] &
+    & \ker\varphi \arrow[u, hook, "i"] &
   \end{tikzcd}
 \]
 \end{prop}
@@ -3221,7 +3222,8 @@ not true in $\categ{Grp}$ (cf.\
   theorem for abelian groups mentioned in the text says that every
   finitely generated abelian group is a coproduct of cyclic groups in
   $\categ{Ab}$. The reader may be tempted to conjecture that every
-  finitely generated group is a coproduct in $\categ{Grp}$. Show that
+  finitely generated group is a coproduct of cyclic groups in
+  $\categ{Grp}$. Show that
   this is not the case, by proving that $S_3$ is not a coproduct of
   cyclic groups.
 \end{exer}
@@ -3674,7 +3676,7 @@ The innocent-looking
 fundamental importance. If $H$ is normal, then the one equivalence
 relation $\sim\, = \sim_L\, = \sim_R$ corresponding to $H$ satisfies
 both $(\dagger)$ and $(\dagger\dagger)$ (by
-\Cref{prop:groups:coset-description-dagger} and its mirror
+\Cref{prop:groups:sim-l-satisfies-dagger} and its mirror
 statement), and hence (by
 \Cref{prop:groups:quotient-group-universal-property}) the
 quotient
@@ -3686,7 +3688,7 @@ has a natural group structure.
 \begin{defn}{Quotient group of $G$ modulo $H$}{defn:groups:quotient-group-modulo-h}
   Let $H$ be a normal subgroup of a group $G$. The \emph{quotient
     group of $G$ modulo $H$}, denoted\footnote{In a large display I
-    sometime use the full `fraction' notation $\frac{G}{H}$.} $G/H$,
+    sometimes use the full `fraction' notation $\frac{G}{H}$.} $G/H$,
   is the group $G/\!\sim$ obtained from the relation $\sim$ defined
   above. In terms of (left-)cosets, the product in $G/H$ is defined by
   \[
@@ -3722,9 +3724,9 @@ property is extremely useful, so I will grace it with theorem status:
   We only need to match the stated universal property with the one we
   proved in
   \Cref{prop:groups:quotient-group-universal-property}, and
-  indeed,
+  indeed, $H \subseteq \ker\varphi$, that is,
   \[
-    H \subseteq \ker\varphi \iff (\forall h \in H) : \varphi(h) =
+    (\forall h \in H) : \varphi(h) =
     e_{G'}
   \]
   is equivalent to
@@ -4773,7 +4775,8 @@ have trivial cokernel (cf.\
 \begin{exer}{\exerused}{exer:groups:cauchy-abelian}
   Assume $G$ is a finite abelian group, and let $p$ be a prime divisor
   of $|G|$. Prove that there exists an element in $G$ of order
-  $p$. (Hint: Let $g$ be any element of $G$, and consider the subgroup
+  $p$. (Hint: Let $g \neq e$ be an element of $G$, and consider the
+  subgroup
   $\langle g \rangle$; use the fact that this subgroup is cyclic to
   show that there is an element $h \in \langle g \rangle$ in $G$ of
   prime order $q$. If $q = p$, you are done; otherwise, use the
@@ -4883,8 +4886,14 @@ on it in this chapter.
 
 \subsection{Actions on sets}
 \label{subsec:groups:actions-on-sets}
-Spelling out our definition of action in case $A$ is a set, so that
-$\Aut_{\categ{C}}(A)$ is the symmetric group $S_A$, we get the
+We are going to spell out our definition of action in case $A$ is a
+set, so that $\Aut_{\categ{C}}(A)$ is the symmetric group $S_A$. Here
+I will revert to the usual functional notation for elements of $S_A$,
+so the action of $f \in S_A$ on $a \in A$ will be denoted by $f(a)$,
+and for $f, g \in S_A$, the composition $g \circ f$ acts by
+$(g \circ f)(a) = g(f(a))$. (This amounts to replacing the group $S_A$
+of \Cref{subsec:groups:symmetric-groups} with its (isomorphic)
+`opposite', cf.\ \Cref{exer:groups:opposite-group}.) We get the
 following:
 
 \begin{defn}{Action on a set}{defn:groups:action-on-a-set}
@@ -4942,6 +4951,14 @@ is the only element $g$ of $G$ such that $ga = a$ for all $a \in A$,
 that is, `fixing' every element of $A$. An action is \emph{free} if
 the identity $e_G$ is the only element fixing \emph{any} element of
 $A$.
+
+With the notational convention adopted in this section, $S_A$ acts on
+the left on $A$. With the convention of
+\Cref{subsec:groups:symmetric-groups}, it acts on the right. In any
+case, every right-action may be turned into a left-action with due
+care (cf.\ \Cref{exer:groups:opposite-group}). Therefore it is not
+restrictive to just consider left-actions; from now on, an `action'
+will be understood to be a left-action, unless stated otherwise.
 
 \begin{exam}{}{exam:groups:action-by-left-multiplication-conjugation}
   Every group $G$ acts in a natural way on the underlying set $G$. The
@@ -5178,11 +5195,11 @@ independently check in
     \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \qquad
     \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}
   \]
-  on the plane is to respectively flip the plane about the $y$-axis
+  on the plane is to respectively flip the plane about the $x$-axis
   and to rotate it $90^\circ$ clockwise about the origin. With this in
   mind, construct an action of $D_8$ on $\R^2$.
 \end{exer}
-\begin{exer}{}{exer:groups:opposite-group}
+\begin{exer}{\exerused}{exer:groups:opposite-group}
   If $G = (G, \cdot)$ is a group, we can define an `opposite' group
   $G^\circ = (G, \bullet)$ supported on the same set $G$, by
   prescribing
@@ -5195,8 +5212,10 @@ independently check in
     isomorphism if and only if $G$ is commutative.
   \item Show that $G^\circ \cong G$ (even if $G$ is not commutative!).
   \item Show that giving a right-action of $G$ on a set $A$ is the
-    same as giving a homomorphism $G^\circ \to S_A$, that is, a
-    left-action of $G^\circ$ on $A$.
+    same as giving a homomorphism $G^\circ \to S_A$ (with the
+    convention for $S_A$ adopted in this section, see the beginning of
+    \Cref{subsec:groups:actions-on-sets}), that is, a left-action of
+    $G^\circ$ on $A$.
   \item Show that the notions of left- and right-actions coincide `on
     the nose' for \emph{commutative} groups. (That is, if
     $(g,a) \mapsto ag$ defines a right-action of a commutative group
