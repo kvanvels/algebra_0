@@ -19,3 +19,10 @@
 % \begin{exer}{\lnot}{...}), outside any $...$. Plain amssymb's \lnot
 % is strictly math-only and errors there, so make it math-tolerant too.
 \renewcommand{\lnot}{\ensuremath{\neg}}
+
+% \greekfont (fonts.tex) is a fontspec \newfontfamily, unavailable
+% under plain pdflatex; stubbed to a no-op so chapter text using it
+% still compiles here. (Fast mode already can't render the polytonic
+% Greek characters themselves without fontspec, regardless of this
+% stub -- this only prevents an undefined-control-sequence error.)
+\newcommand{\greekfont}{}
