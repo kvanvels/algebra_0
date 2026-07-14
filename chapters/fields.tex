@@ -223,7 +223,7 @@ $t - \sqrt{2}$ over $\R$.
 The alert reader will have noticed that the proof of
 \cref{prop:fields:evaluation-map-simple-extension-dichotomy} is essentially a rehash of the argument proving
 the `versality' part of \Cref{prop:irred:quotient-by-irreducible-poly-is-a-field}.
-\begin{exam}{}{exam:fields:exam:1.4}
+\begin{exam}{}{exam:fields:embedding-via-real-root-of-quadratic}
   Consider the extension $\Q \subseteq \R$.
 
   The polynomial $x^2 - 2 \in \Q[x]$ has roots in $\R$: therefore, by
@@ -471,7 +471,7 @@ consequence, reminiscent of Lagrange's theorem:
 \end{coro}
 As with Lagrange's theorem, judicious use of this result will make
 otherwise mysterious statements melt into trivialities.
-\begin{exam}{}{exam:fields:exam:1.12}
+\begin{exam}{}{exam:fields:odd-degree-element-as-polynomial-in-square}
   Let $k \subseteq F$ be a field extension, and let $\alpha \in F$ be
   an algebraic element over $k$, of odd degree. Then I claim that
   $\alpha$ may be written as a polynomial in $\alpha^2$, with
@@ -588,7 +588,7 @@ forms a field:
   \]
   Then $E$ is a field.
 \end{coro}
-\begin{exam}{}{exam:fields:exam:1.17}
+\begin{exam}{}{exam:fields:algebraic-numbers-infinite-degree-over-q}
   Let $\overline{\Q} \subseteq \C$ be the set of complex numbers that
   are algebraic over $\Q$; then $\overline{\Q}$ is a field, by
   \cref{coro:fields:algebraic-elements-form-a-field}, and the extension
@@ -661,7 +661,7 @@ prove a precise statement to this effect in due time
 (\Cref{prop:fields:primitive-element-theorem}). The reader already has enough tools to
 contemplate easy (but interesting) examples, such as the
 following. This should serve as an encouragement to look at many more.
-\begin{exam}{}{exam:fields:exam:1.19}
+\begin{exam}{}{exam:fields:sqrt2-sqrt3-linear-dependence}
   Consider the extension $\Q \subseteq \Q(\sqrt{2}, \sqrt{3})$.
 
   By \cref{prop:fields:finitely-generated-tfae-finite-algebraic} we know that this is a finite (hence
@@ -778,7 +778,7 @@ following. This should serve as an encouragement to look at many more.
 \end{exer}
 
 \begin{exer}{}{exer:fields:subfields-iso-to-cubic-and-quadratic-ext}
-  (Cf.\ \cref{exam:fields:exam:1.4}.)
+  (Cf.\ \cref{exam:fields:embedding-via-real-root-of-quadratic}.)
   \begin{itemize}
   \item Prove that there is exactly one subfield of $\R$ isomorphic to
     $\Q[t]/(t^2 - 2)$.
@@ -809,7 +809,7 @@ following. This should serve as an encouragement to look at many more.
     $p(x) \mid f(x)$.
   \item Show that the minimal polynomial of $\alpha$ is the minimal
     polynomial of a certain $k$-linear transformation of $F$, in the
-    sense of \Cref{linalg:6.12}.
+    sense of \Cref{defn:linalg:minimal-polynomial}.
   \end{itemize}
 \end{exer}
 
@@ -843,7 +843,7 @@ following. This should serve as an encouragement to look at many more.
   This gives an effective way to find a polynomial satisfied by an
   element of an extension. Use it to find a polynomial satisfied by
   $\sqrt{2} + \sqrt{3}$ over $\Q$, and compare this method with the
-  one used in \cref{exam:fields:exam:1.19}.
+  one used in \cref{exam:fields:sqrt2-sqrt3-linear-dependence}.
 \end{exer}
 
 \begin{exer}{}{exer:fields:norm-is-multiplicative}
@@ -852,7 +852,7 @@ following. This should serve as an encouragement to look at many more.
   $N_{k \subseteq F}(\alpha)$, is the determinant of the linear
   transformation of $F$ given by multiplication by $\alpha$ (cf.\
   \Cref{exer:fields:char-poly-of-mult-by-alpha-kills-alpha},
-  \Cref{linalg:6.4}). Prove that the norm is multiplicative: for
+  \Cref{defn:linalg:determinant-of-transformation}). Prove that the norm is multiplicative: for
   $\alpha, \beta \in F$,
   \[
     N_{k \subseteq F}(\alpha\beta) = N_{k \subseteq F}(\alpha)\, N_{k
@@ -974,7 +974,7 @@ following. This should serve as an encouragement to look at many more.
 \end{exer}
 
 \begin{exer}{}{exer:fields:k-sqrt-a-sqrt-b-degree-formula}
-  Generalize the situation examined in \cref{exam:fields:exam:1.19}:
+  Generalize the situation examined in \cref{exam:fields:sqrt2-sqrt3-linear-dependence}:
   let $k$ be a field of characteristic $\neq 2$, and let $a, b \in k$
   be elements that are not squares in $k$; prove that
   $k(\sqrt{a}, \sqrt{b}) = k(\sqrt{a} + \sqrt{b})$.
@@ -1034,7 +1034,7 @@ following. This should serve as an encouragement to look at many more.
     and $F$ is algebraic over $k({\{\alpha_i\}}_{i \in I})$.
   \item Prove that transcendence bases exist. (Zorn)
   \item Prove that any two transcendence bases for $F$ over $k$ have
-    the same cardinality. (Mimic the proof of \Cref{linalg:1.9}. Don't
+    the same cardinality. (Mimic the proof of \Cref{prop:linalg:basis-cardinality-comparison}. Don't
     feel too bad if you prefer to deal only with the case of finite
     transcendence bases.)
   \end{itemize}
@@ -1430,7 +1430,7 @@ argument to elementary linear algebra.
   \[ {\left\{ \frac{1}{\alpha - c} \right\}}_{c \in k};
   \]
   this is an uncountable subset of $F$; therefore it is linearly
-  dependent over $k$ (\Cref{linalg:1.9}). That is, there exist
+  dependent over $k$ (\Cref{prop:linalg:basis-cardinality-comparison}). That is, there exist
   distinct $c_1, \dots, c_m \in k$ and nonzero coefficients
   $\lambda_1, \dots, \lambda_m \in k$ such that
   \[
@@ -1632,7 +1632,7 @@ Studying affine algebraic sets is the business of affine algebraic
 geometry. The aim is to understand `geometric' properties of these
 sets in terms of `algebraic' properties of corresponding ideals or
 other algebraic entities associated with them.
-\begin{exam}{}{exam:fields:exam:2.12}
+\begin{exam}{}{exam:fields:cusp-algebraic-set-picture}
   Here are pictures of two algebraic subsets of $\A^2_{\R}$: the first
   is $\mathcal{V}((y - x^2))$; the second is
   $\mathcal{V}((y^2 - x^3))$. What feature of the ideal $(y^2 - x^3)$
@@ -1656,7 +1656,7 @@ definitions.
 The reader should check that $\sqrt{I}$ is indeed an ideal; it may be
 characterized as the intersection of all prime ideals containing $I$
 (\Cref{exer:fields:radical-ideal-nilradical-correspondence}).
-\begin{exam}{}{exam:fields:exam:2.14}
+\begin{exam}{}{exam:fields:nilpotent-in-radical-of-zero-ideal}
   An element of a commutative ring $R$ is nilpotent if and only if it
   is in the radical of the ideal $(0)$ (cf.\
   \Cref{exer:irred:nilpotent-implies-1-plus-a-unit}). The reader has
@@ -2080,7 +2080,7 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in
   Let $K$ be an algebraically closed field. Consider the two `curves'
   $C_1 : y = x^2$, $C_2 : y^2 = x^3$ in $\A^2_K$ (pictures of the real
   points of these algebraic sets are shown in
-  \cref{exam:fields:exam:2.12}).
+  \cref{exam:fields:cusp-algebraic-set-picture}).
   \begin{itemize}
   \item Prove that $K[C_1] \cong K[t] = K[\A^1_K]$, while $K[C_2]$ may
     be identified with the subring $K[t^2, t^3]$ of $K[t]$ consisting
@@ -2484,7 +2484,7 @@ that is (by \cref{thm:fields:constructible-iff-quadratic-tower}), $\cos 3^\circ$
 constructible. Of course once $A = (\cos\theta, 0)$ is constructed, so
 is the angle $\theta$.  Here is another example of a `constructive'
 application of \cref{thm:fields:constructible-iff-quadratic-tower}:
-\begin{exam}{}{exam:fields:exam:3.5}
+\begin{exam}{}{exam:fields:regular-pentagon-constructible}
   Regular pentagons are constructible. Indeed, it suffices to
   construct the point $A = (\cos(2\pi/5), 0)$, and it so happens that
   $\gamma = \cos(2\pi/5)$ satisfies
@@ -2784,12 +2784,12 @@ be.
   observation to the given $\iota$ and to the identity $k \to k$
   proves the statement (as both $G$ and $F$ are isomorphic to $L$).
 \end{proof}
-\begin{exam}{}{exam:fields:exam:4.3}
+\begin{exam}{}{exam:fields:splitting-field-of-x-squared-plus-one}
   By definition, $\Q(i)$ is the splitting field of $x^2 + 1$ over
   $\Q$, and $\C$ is the splitting field for the same polynomial, over
   $\R$.
 \end{exam}
-\begin{exam}{}{exam:fields:exam:4.4}
+\begin{exam}{}{exam:fields:splitting-field-of-x8-minus-1}
   The splitting field $F$ of $x^8 - 1$ over $\Q$ is generated by
   $\zeta := e^{2\pi i/8}$: indeed, the roots of $x^8 - 1$ are all the
   $8$th roots of $1$, and all of them are powers of $\zeta$. In fact,
@@ -2806,10 +2806,10 @@ be.
   the splitting field of $x^4 + 1$ (a.k.a.\ the splitting field of
   $x^8 - 1$) is $\Q(i, \sqrt{2})$. Analyzing
   $\Q \subseteq \Q(i, \sqrt{2})$ (as we did for the extension in
-  \cref{exam:fields:exam:1.19}) shows that its group of automorphisms
+  \cref{exam:fields:sqrt2-sqrt3-linear-dependence}) shows that its group of automorphisms
   over $\Q$ is $\Z/2\Z \times \Z/2\Z$.
 \end{exam}
-\begin{exam}{}{exam:fields:exam:4.5}
+\begin{exam}{}{exam:fields:splitting-field-of-x4-minus-1}
   Variation on the theme: $x^4 - 1$. The situation changes if instead
   of $x^4 + 1$ we consider $x^4 - 1$: this polynomial factors over
   $\Q$,
@@ -2819,13 +2819,13 @@ be.
   and it follows that the splitting field is the same as for
   $x^2 + 1$, that is, just $\Q(i)$.
 \end{exam}
-\begin{exam}{}{exam:fields:exam:4.6}
+\begin{exam}{}{exam:fields:splitting-field-of-x4-plus-2}
   Variation on the theme: $x^4 + 2$. The overoptimistic reader may now
   hope that the difference between the splitting fields of $x^4 + 1$
   vs.\ $x^4 - 1$ over $\Q$ is just due to the fact that the first
   polynomial is irreducible over $\Q$ and the second is not. This
   example will nip any such guess in the bud. With notation as in
-  \cref{exam:fields:exam:4.4}, the roots of $x^4 + 2$ are
+  \cref{exam:fields:splitting-field-of-x8-minus-1}, the roots of $x^4 + 2$ are
   \[
     \sqrt[4]{2}\,\zeta,\quad \sqrt[4]{2}\,\zeta^3,\quad
     \sqrt[4]{2}\,\zeta^5,\quad \sqrt[4]{2}\,\zeta^7.
@@ -2928,12 +2928,12 @@ touch them with a root. This makes splitting fields normal extensions:
   this conclusion; cf.\
   \Cref{exer:linalg:injective-not-surjective-example-on-kt}.
 \end{rem}
-\begin{exam}{}{exam:fields:exam:4.10}
+\begin{exam}{}{exam:fields:roots-expressible-via-i-and-fourth-root-of-2}
   If a complex root of an irreducible polynomial $p(x) \in \Q[x]$ may
   be expressed as a polynomial in $i$ and $\sqrt[4]{2}$ with rational
   coefficients, then all roots of $p(x)$ may be expressed likewise in
   terms of $i$ and $\sqrt[4]{2}$. Indeed, we have checked
-  (\cref{exam:fields:exam:4.6}) that $\Q(i, \sqrt[4]{2})$ is a
+  (\cref{exam:fields:splitting-field-of-x4-plus-2}) that $\Q(i, \sqrt[4]{2})$ is a
   splitting field over $\Q$; hence it is a normal extension of $\Q$.
 \end{exam}
 
@@ -2944,7 +2944,7 @@ product of linear factors and we are not `purposely' repeating one of
 the factors (as in ${(x-1)}^2(x-2)$), then these will be distinct. For
 example, surely irreducible polynomials necessarily split as products
 of distinct factors in an algebraic closure, right? Wrong.
-\begin{exam}{}{exam:fields:exam:4.11}
+\begin{exam}{}{exam:fields:xp-minus-t-irreducible-over-function-field}
   Let $p$ be a prime, and consider the field $\F_p(t)$ of rational
   functions over $\F_p$. Then the polynomial
   \[
@@ -2977,7 +2977,7 @@ pathology can occur in characteristic $0$.
   \emph{inseparable} if it has multiple factors over its splitting
   field.
 \end{defn}
-Thus, the polynomial $x^p - t$ in \cref{exam:fields:exam:4.11} is
+Thus, the polynomial $x^p - t$ in \cref{exam:fields:xp-minus-t-irreducible-over-function-field} is
 inseparable. I suppose the terminology reflects the fact that we
 cannot `separate' its roots: they come clumped together like quarks in
 a proton, and we cannot take them apart.
@@ -3038,7 +3038,7 @@ in $F[x]$.
   $f'(x)$. But then ${(x-\alpha)}^2 \mid f(x)$; hence $f(x)$ is
   inseparable.
 \end{proof}
-For example, the polynomial $x^p - t$ of \cref{exam:fields:exam:4.11}
+For example, the polynomial $x^p - t$ of \cref{exam:fields:xp-minus-t-irreducible-over-function-field}
 may be seen to be inseparable without invoking splitting fields: the
 derivative of $x^p - t$ equals $px^{p-1} = 0$ in characteristic $p$,
 and $\gcd(x^p - t, 0) = x^p - t \neq 1$. This example captures one of
@@ -3129,7 +3129,7 @@ it is not necessarily surjective.
   of the statement follows from \cref{prop:fields:perfect-iff-irreducibles-separable}.
 \end{proof}
 The reader now sees why I have chosen the somewhat unusual field
-$\F_p(t)$ in \Cref{exam:fields:exam:4.11}: we need a field of positive
+$\F_p(t)$ in \Cref{exam:fields:xp-minus-t-irreducible-over-function-field}: we need a field of positive
 characteristic, but no example of irreducible inseparable polynomial
 can be found over $\F_p$, by \cref{coro:fields:finite-fields-are-perfect}; to concoct an
 example, we need to enlarge the field so that it is infinite and to
@@ -3300,7 +3300,7 @@ for the minimal polynomial of $\beta$? It does, by virtue of
 \begin{exer}{}{exer:fields:aut-grp-order-splitting-field-x4-plus-2}
   Find the order of the automorphism group of the splitting field of
   $x^4 + 2$ over $\Q$ (cf.\
-  \Cref{exam:fields:exam:4.6}). [\S{}\ref{subsec:fields:splitting-fields-and-normal-extensions}]
+  \Cref{exam:fields:splitting-field-of-x4-plus-2}). [\S{}\ref{subsec:fields:splitting-fields-and-normal-extensions}]
 \end{exer}
 \begin{exer}{}{exer:fields:q-sqrt2-not-a-splitting-field}
   Prove that the field $\Q(\sqrt{2})$ is not the splitting field of
@@ -3507,7 +3507,7 @@ The material in \S{}\ref{sec:fields:field-extensions-ii} provides us
 with the main tools needed to tackle several key examples. In this
 section we study finite and cyclotomic fields, and we return to the
 question of when a finite extension is in fact simple (cf.\
-\Cref{exam:fields:exam:1.19}).
+\Cref{exam:fields:sqrt2-sqrt3-linear-dependence}).
 
 \subsection{Finite fields}
 \label{subsec:fields:finite-fields}
@@ -3586,7 +3586,7 @@ order $q$; it makes sense to adopt\footnote{Keep in mind that $\F_q$
   is not the ring $\Z/q\Z$ unless $q$ is prime: if $q$ is composite,
   then $\Z/q\Z$ is not an integral domain.}  $\F_q$. This is called
 the \emph{Galois field} of order $q$.
-\begin{exam}{}{exam:fields:exam:5.3}
+\begin{exam}{}{exam:fields:x4-plus-1-reducible-mod-every-prime}
   Let $p$ be a prime integer. Then I claim that the polynomial
   $x^4 + 1$ is reducible\footnote{Of course $x^4 + 1$ is irreducible
     over $\Z$. This example shows that \Cref{prop:irred:irreducibility-via-reduction-mod-p} cannot
@@ -3696,7 +3696,7 @@ The picture I am trying to convey is the following: the $q^n$ roots of
 $x^{q^n} - x$ clump into disjoint subsets, with each subset collecting
 the roots of each and every irreducible polynomial of degree
 $d \mid n$ in $F[x]$.
-\begin{exam}{}{exam:fields:exam:5.7}
+\begin{exam}{}{exam:fields:irreducible-polys-over-f2-worked-example}
   Let's contemplate the case $q = 2$: $\F_2 = \Z/2\Z$.
   \begin{itemize}
   \item $n = 1$: the polynomial $x^2 - x$ factors as the product of
@@ -3834,7 +3834,7 @@ It is clear that $\Phi_n(x)$ is a monic polynomial of degree
 $\varphi(n)$.  It is perhaps a little less immediate that $\Phi_n(x)$
 has rational (in fact, integer) coefficients and that it is
 irreducible over $\Q$. We will prove these facts in short order.
-\begin{exam}{}{exam:fields:exam:5.10}
+\begin{exam}{}{exam:fields:cyclotomic-polynomial-for-prime-n}
   If $n = p$ is prime, then every nonidentity element of
   $\mu_p \cong C_p$ is a generator: every $p$-th root of $1$ is
   primitive except $1$ itself.  Therefore
@@ -3906,7 +3906,7 @@ fact.  Explicitly,
   in $\C[x]$. But this forces $r(x) = 0$ (otherwise we would have
   $\deg r(x) \geq \deg f(x)$). Therefore $\Phi_n(x) = q(x) \in \Z[x]$.
 \end{proof}
-\begin{exam}{}{exam:fields:exam:5.13}
+\begin{exam}{}{exam:fields:cyclotomic-polynomial-nonprime-computation}
   The reader can spend some quality time computing explicitly the
   cyclotomic polynomials $\Phi_n(x)$ for several nonprime numbers $n$,
   working inductively and capitalizing on the fact that we know
@@ -4005,13 +4005,13 @@ very neat.
   agrees with the action of $j([m_1]_n [m_2]_n)$, showing that $j$ is
   a homomorphism and concluding the proof.
 \end{proof}
-\begin{exam}{}{exam:fields:exam:5.17}
-  The reader should consider \Cref{exam:fields:exam:4.4} again: by
+\begin{exam}{}{exam:fields:aut-group-of-x8-minus-1-splitting-field}
+  The reader should consider \Cref{exam:fields:splitting-field-of-x8-minus-1} again: by
   what we have just proved, the automorphism group of the splitting
   field of $x^8 - 1$ is isomorphic to the group of units in $\Z/8\Z$;
   this group is immediately seen to be isomorphic to
   $(\Z/2\Z) \times (\Z/2\Z)$, confirming the claim made in
-  \Cref{exam:fields:exam:4.4}.
+  \Cref{exam:fields:splitting-field-of-x8-minus-1}.
 \end{exam}
 The constructibility of the regular $n$-gon by straightedge and
 compass is of course equivalent to the constructibility of the complex
@@ -4028,7 +4028,7 @@ a little Galois theory.
 \label{subsec:fields:separability-and-simple-extensions}
 All the examples of field extensions we have encountered so far were
 simple extensions, although sometimes this may not be completely
-apparent at first (cf.\ \Cref{exam:fields:exam:1.19}). There is a good
+apparent at first (cf.\ \Cref{exam:fields:sqrt2-sqrt3-linear-dependence}). There is a good
 reason for this: most of the examples we have seen were separable
 extensions, and we can now prove that a finite separable extension is
 necessarily simple. Here is a nice criterion for simplicity (which
@@ -4155,10 +4155,10 @@ found in \cref{coro:fields:aut-group-order-bounded-by-degree} to all finite sepa
   distinct roots since $\alpha$ is separable over $k$; therefore
   $|\Aut_k(F)| = [F : k]$, again by \cref{coro:fields:aut-group-order-bounded-by-degree}.
 \end{proof}
-\begin{exam}{}{exam:fields:exam:5.21}
+\begin{exam}{}{exam:fields:nonsimple-extension-via-inseparable-elements}
   By \cref{prop:fields:primitive-element-theorem}, if we want to construct a nonsimple
   finite extension, we have to use inseparable elements; to produce an
-  example, we jazz up \Cref{exam:fields:exam:4.11} a little. Consider
+  example, we jazz up \Cref{exam:fields:xp-minus-t-irreducible-over-function-field} a little. Consider
   the field of rational functions $F = \F_p(u, v)$ in two variables
   over $\F_p$ and the subfield $k = \F_p(s, t)$, where $s = u^p$ and
   $t = v^p$. Then $k \subseteq F$ is an algebraic extension; the
@@ -4452,7 +4452,7 @@ situations guaranteeing that the inclusions appearing in
 \cref{lem:fields:galois-correspondence-inclusion-reversing} are equalities, making the Galois correspondence
 a bijection. This is precisely where we are heading. The first
 observation is that this is not always the case:
-\begin{exam}{}{exam:fields:exam:6.4}
+\begin{exam}{}{exam:fields:cube-root-of-2-trivial-automorphism-group}
   Consider the extension $\Q \subseteq \Q(\sqrt[3]{2})$. Since
   $[\Q(\sqrt[3]{2}) : \Q] = 3$ is prime, the only intermediate fields
   are $\Q$ and $\Q(\sqrt[3]{2})$ (by
@@ -4620,7 +4620,7 @@ ways\footnote{In fact, precisely $[F : k]_s = [F : k] = |\Aut_k(F)|$
   if $K = \bar{k}$ and hence for all $K \supseteq F$.}  to embed $F$
 in $K$, but they all have the same image $F$.
 
-The mysterious comments at the end of \Cref{exam:fields:exam:1.4} are
+The mysterious comments at the end of \Cref{exam:fields:embedding-via-real-root-of-quadratic} are
 now hopefully clear.  Galois extensions of a field $k$ are
 well-defined subfields of $\bar{k}$, preserved by automorphisms of
 $\bar{k}$ over $k$. Contrast this situation with the non-Galois
@@ -4640,7 +4640,7 @@ $F_2 \subseteq \bar{k}$.
   the extension.
 \end{defn}
 To reiterate, the extension $\Q \subseteq \Q(\sqrt[3]{2})$ is not a
-Galois extension: as we have observed in \Cref{exam:fields:exam:6.4},
+Galois extension: as we have observed in \Cref{exam:fields:cube-root-of-2-trivial-automorphism-group},
 $\Aut_{\Q}(\Q( \sqrt[3]{2}))$ is trivial (hence, for example,
 condition (3) of \cref{thm:fields:galois-extension-tfae} does not hold).
 
@@ -4658,7 +4658,7 @@ A Galois extension $k \subseteq F$ is \emph{cyclic}, \emph{abelian},
 etc., if the corresponding group of automorphisms $\Aut_k(F)$ is
 cyclic, abelian, etc. For example, $\Q \subseteq \Q(\zeta_8)$ is an
 abelian, but not cyclic, Galois extension (cf.\
-\cref{prop:fields:cyclotomic-field-aut-group-is-units-mod-n} and \Cref{exam:fields:exam:5.17}).
+\cref{prop:fields:cyclotomic-field-aut-group-is-units-mod-n} and \Cref{exam:fields:aut-group-of-x8-minus-1-splitting-field}).
 
 \subsection{The fundamental theorem of Galois theory, I}
 \label{subsec:fields:the-fundamental-theorem-of-galois-theory-i}
@@ -4718,7 +4718,7 @@ $\Aut_E(F)$, and $k$ at the bottom to $\Aut_k(F)$.
 The content of \cref{thm:fields:fundamental-theorem-of-galois-theory} is that the lattice of
 intermediate fields of a Galois extension $k \subseteq F$ and the
 lattice of subgroups of the corresponding Galois group are identical.
-\begin{exam}{}{exam:fields:exam:6.13}
+\begin{exam}{}{exam:fields:f2-f64-subgroup-lattice-example}
   For finite fields, this coincidence of lattices was essentially
   proven `by hand' in \cref{coro:fields:finite-field-extension-iff-divides} and
   \cref{prop:fields:finite-field-aut-group-cyclic-frobenius}. For example, the extension
@@ -4734,9 +4734,9 @@ direction: finding the lattice of subgroups of a finite group is
 essentially a combinatorial problem, and through the Galois
 correspondence it determines the lattice of intermediate fields of a
 corresponding Galois extension.
-\begin{exam}{}{exam:fields:exam:6.14}
+\begin{exam}{}{exam:fields:sqrt2-sqrt3-galois-group-lattice}
   The extension $\Q(\sqrt{2}, \sqrt{3}) = \Q(\sqrt{2} + \sqrt{3})$
-  studied in \Cref{exam:fields:exam:1.19} is the splitting field of
+  studied in \Cref{exam:fields:sqrt2-sqrt3-linear-dependence} is the splitting field of
   the polynomial $t^4 - 10t^2 + 1$, so it is Galois. We found that its
   Galois group is $\Z/2\Z \times \Z/2\Z$; the lattice of subgroups of
   this group is: $\{(0,0)\}$ at the top, with three index-2 subgroups
@@ -4747,7 +4747,7 @@ corresponding Galois extension.
   $\Q(\sqrt{3})$, $\Q(\sqrt{6})$ in the middle, and $\Q$ at the
   bottom. (The intermediate fields are determined by recalling the
   generators of the corresponding subgroups, as found in
-  \Cref{exam:fields:exam:1.19}: the flip $\sqrt{3} \mapsto -\sqrt{3}$
+  \Cref{exam:fields:sqrt2-sqrt3-linear-dependence}: the flip $\sqrt{3} \mapsto -\sqrt{3}$
   leaves $\Q(\sqrt{2})$ fixed, etc.) Galois theory tells us that there
   is no other intermediate field.
 \end{exam}
@@ -4759,7 +4759,7 @@ corresponding Galois group, if the extension is Galois: one writes the
 group label $\Aut_k(F)$ on the segment from $k$ to $F$, and
 $\Aut_E(F)$ on the segment from $E$ to $F$.
 
-\Cref{exam:fields:exam:6.4} shows that the extension $k \subseteq E$
+\Cref{exam:fields:cube-root-of-2-trivial-automorphism-group} shows that the extension $k \subseteq E$
 need not be a Galois extension: $\Q(\sqrt[3]{2})$ is an intermediate
 field for the extension of $\Q$ into the splitting field for the
 polynomial $t^3 - 2$ (which is Galois, by part (1) of
@@ -4785,7 +4785,7 @@ fundamental theorem of Galois theory:
 \end{thm}
 The `problem' with $\Q \subseteq \Q(\sqrt[3]{2})$ is that the
 automorphism group of the splitting field of $t^3 - 2$ is $S_3$ (as we
-will soon be able to verify: cf.\ \Cref{exam:fields:exam:7.19}). The
+will soon be able to verify: cf.\ \Cref{exam:fields:cubic-galois-group-via-discriminant}). The
 subgroup corresponding to $\Q(\sqrt[3]{2})$ has index $3$; hence (as
 we know, since we are well acquainted with $S_3$) it is not normal.
 
@@ -4990,7 +4990,7 @@ I will leave to the reader the pleasure of verifying that if both
 $k \subseteq F$ and $k \subseteq K$ are Galois, then $KF$ is also
 Galois over $k$, and so is $F \cap K$
 (\Cref{exer:fields:composite-and-intersection-of-galois-are-galois}).
-\begin{exam}{}{exam:fields:exam:6.18}
+\begin{exam}{}{exam:fields:cyclotomic-extension-general-field}
   We have studied cyclotomic fields $\Q(\zeta_n)$ as extensions of
   $\Q$; $\Q(\zeta_n)$ is the splitting field of $x^n - 1$, so these
   extensions are Galois; we have proved (\Cref{prop:fields:cyclotomic-field-aut-group-is-units-mod-n}) that
@@ -5547,7 +5547,7 @@ of this problem by noting that even realizing $S_n$ as a Galois group
 over $\Q$ (for all $n$) is not so easy, although it is true that for
 every $n$ there are infinitely many polynomials of degree $n$ in
 $\Z[x]$ whose splitting fields have Galois group $S_n$ over $\Q$ (see
-\Cref{exam:fields:exam:7.20} and
+\Cref{exam:fields:galois-group-sp-from-real-root-count} and
 \Cref{exer:fields:infinitely-many-poly-with-galois-grp-sp} for the
 case $n = p$ prime). If you want a memorable example to carry with
 you, \name{Schur} showed (1931) that the splitting field of the
@@ -5820,7 +5820,7 @@ $\mathrm{char}\,k$ does not divide the relevant degrees.
   $\Aut_k(L(\zeta))$ by its normal subgroup
   $\Aut_{k(\zeta)}(L(\zeta))$. Both $\Aut_{k(\zeta)}(L(\zeta))$ (as
   shown above) and $\Aut_k(k(\zeta))$ (an abelian group; cf.\
-  \Cref{exam:fields:exam:6.18}) are solvable, and it follows that
+  \Cref{exam:fields:cyclotomic-extension-general-field}) are solvable, and it follows that
   $\Aut_k(L(\zeta))$ is solvable as promised, by
   \Cref{coro:groups2:solvable-normal}. Since $F$ is an intermediate
   field and Galois over $k$, by the fundamental theorem $\Aut_k(F)$ is
@@ -5929,7 +5929,7 @@ $\Delta \in k$) if and only if $G \subseteq A_n$. This proves
   $D$. Then the Galois group of $f(x)$ is contained in the alternating
   group $A_n$ if and only if $D$ is a square in $k$.
 \end{lem}
-\begin{exam}{}{exam:fields:exam:7.19}
+\begin{exam}{}{exam:fields:cubic-galois-group-via-discriminant}
   \Cref{lem:fields:galois-group-in-alternating-iff-discriminant-square} and a discriminant computation are all that
   is needed to compute the Galois group of an irreducible cubic
   polynomial $f(x) = x^3 + ax^2 + bx + c$. It would be futile to try
@@ -5957,7 +5957,7 @@ The reader will have no difficulty locating a discussion of the
 different possibilities for polynomials of degree $4$ and detailed
 information for higher degree polynomials. I will just highlight the
 following simple observation.
-\begin{exam}{}{exam:fields:exam:7.20}
+\begin{exam}{}{exam:fields:galois-group-sp-from-real-root-count}
   Let $f(x) \in \Q[x]$ be an irreducible polynomial of degree $p$,
   where $p$ is prime. Assume that $f(x)$ has $p - 2$ real roots and
   $2$ nonreal, complex roots. Then the Galois group of $f(x)$ is
