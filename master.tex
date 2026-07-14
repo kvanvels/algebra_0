@@ -82,18 +82,27 @@
 %   height = 8.0in
 % }
 
+\makeatletter
 \fancypagestyle{style}{%
   \fancyhf{}%
-  %\fancyfoot[LE,RO]{\thepage}  
-  %\fancyhead[LE,RO]{\sffamily{\rightmark}}
-  %\fancyhead[LO,RE]{\sffamily{\leftmark}}
-  \fancyhead[LE,RO]{\sffamily{\thepage}}%
-  \fancyhead[LO]{\sffamily{\rightmark}}%
-  \fancyhead[RE]{\sffamily{\leftmark}}%
-  %\fancyhead[LO]{\sffamily{\leftmark}}
+  %\fancyfoot[LE,RO]{\thepage}
+  % \if@twoside is set by the documentclass's oneside/twoside option,
+  % so flipping that option alone is enough to pick the right header
+  % here -- no separate switch to remember. Twoside gets the classic
+  % outer-edge page number with alternating section/chapter running
+  % heads; oneside (no even/odd distinction) gets a fixed L/R layout.
+  \if@twoside
+    \fancyhead[LE,RO]{\sffamily{\thepage}}%
+    \fancyhead[LO]{\sffamily{\rightmark}}%
+    \fancyhead[RE]{\sffamily{\leftmark}}%
+  \else
+    \fancyhead[L]{\sffamily{\rightmark}}%
+    \fancyhead[R]{\sffamily{\thepage}}%
+  \fi
   %\renewcommand{\headrulewidth}{1pt}
   %\renewcommand{\footrulewidth}{1pt}
 }
+\makeatother
 \pagestyle{style}
 
 \renewcommand{\chaptermark}[1]%
