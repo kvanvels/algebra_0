@@ -115,7 +115,7 @@ reason supporting this psychological fact.
 \subsection{Additive categories}
 \label{subsec:homol:additive-categories}
 
-\begin{defn}{}{homol:1.1}
+\begin{defn}{}{defn:homol:additive-category}
   A category $\categ{A}$ is \emph{additive} if it has a zero-object,
   $\categ{A}$ has both finite products and finite coproducts, and each
   set of morphisms $\mathrm{Hom}_{\categ{A}}(A, B)$ is endowed with an
@@ -138,7 +138,7 @@ kernels and cokernels in $\categ{A}$, by adopting the categorical
 definitions as suitable limits and colimits
 (\Cref{exam:linrep:equalizer-as-limit}). Here are those definitions again, expanded
 for intelligibility:
-\begin{defn}{}{homol:1.2}
+\begin{defn}{}{defn:homol:kernel}
   Let $\varphi : A \to B$ be a morphism in an additive category
   $\categ{A}$. A morphism $\iota : K \to A$ is a \emph{kernel} of
   $\varphi$ if $\varphi \circ \iota = 0$ and for all morphisms
@@ -194,7 +194,7 @@ $\beta_1, \beta_2 : B \to Z$,
 $\beta_1 \circ \varphi = \beta_2 \circ \varphi \implies \beta_1 =
 \beta_2$. One benefit of working in an additive category is that these
 definitions simplify a little:
-\begin{lem}{}{homol:1.3}
+\begin{lem}{}{lem:homol:mono-epi-via-zero-morphisms}
   A morphism $\varphi : A \to B$ in an additive category is a
   monomorphism if and only if for all $\zeta : Z \to A$,
   \[
@@ -212,7 +212,7 @@ definitions simplify a little:
 \end{proof}
 
 Are kernels necessarily monomorphisms? Yes:
-\begin{lem}{}{homol:1.4}
+\begin{lem}{}{lem:homol:kernels-monos-cokernels-epis}
   In any additive category, kernels are monomorphisms and cokernels
   are epimorphisms.
 \end{lem}
@@ -248,7 +248,7 @@ acquired by early exposure to $\categ{Set}$.
     \end{tikzcd}\] Since
   $\gamma \circ \coker\varphi = 0 = 0 \circ \coker\varphi$, the
   uniqueness forces $\gamma = 0$.  This proves that $\coker\varphi$ is
-  an epimorphism, by Lemma~\ref{homol:1.3}.
+  an epimorphism, by Lemma~\ref{lem:homol:mono-epi-via-zero-morphisms}.
 
   The proof that kernels are monomorphisms is analogous and is left to
   the reader (\Cref{exer:homol:basic-abelian-category-lemmas}).
@@ -265,7 +265,7 @@ does have kernels or cokernels in an additive category, the basic
 qualities of that morphism can be detected `as usual' by looking at
 $\ker\varphi$ and $\coker\varphi$. This is the case for monomorphisms
 and epimorphisms:
-\begin{lem}{}{homol:1.5}
+\begin{lem}{}{lem:homol:mono-epi-via-trivial-kernel-cokernel}
   Let $\varphi : A \to B$ be a morphism in an additive category. Then
   $\varphi$ is a monomorphism if and only if $0 \to A$ is its kernel,
   and $\varphi$ is an epimorphism if and only if $B \to 0$ is its
@@ -278,7 +278,7 @@ Compare this statement with \Cref{prop:rings:kernels-cokernels}!
   Let's do kernels this time.  First assume $\varphi : A \to B$ is a
   monomorphism. If $\zeta : Z \to A$ is any morphism such that the
   composition $Z \to A \to B$ is $0$, then $\zeta$ is $0$ by
-  Lemma~\ref{homol:1.3}, and in particular $\zeta$ factors (uniquely)
+  Lemma~\ref{lem:homol:mono-epi-via-zero-morphisms}, and in particular $\zeta$ factors (uniquely)
   through $0 \to A$. This proves that $0 \to A$ is a kernel of
   $\varphi$, as stated.  Conversely, assume that $0 \to A$ is a kernel
   for $\varphi : A \to B$, and let $\zeta : Z \to A$ be a morphism
@@ -296,7 +296,7 @@ Compare this statement with \Cref{prop:rings:kernels-cokernels}!
   (\Cref{exer:homol:basic-abelian-category-lemmas}).
 \end{proof}
 % ?
-In view of Lemma~\ref{homol:1.5}, we should be able to use diagrams
+In view of Lemma~\ref{lem:homol:mono-epi-via-trivial-kernel-cokernel}, we should be able to use diagrams
 \[
   0 \to A \to B, \quad A \to B \to 0
 \]
@@ -320,7 +320,7 @@ monomorphisms and cokernels are epimorphisms in an additive category,
 there is no guarantee that monomorphisms should necessarily be kernels
 and epimorphisms should be cokernels. In the end, we simply demand
 these additional features explicitly.
-\begin{defn}{}{homol:1.6}
+\begin{defn}{}{defn:homol:abelian-category}
   An additive category $\categ{A}$ is \emph{abelian} if kernels and
   cokernels exist in $\categ{A}$; every monomorphism is the kernel of
   some morphism; and every epimorphism is the cokernel of some
@@ -332,12 +332,12 @@ for every ring $R$. The prototype of an abelian category is
 $\categ{Ab}$: this\footnote{There is nothing particularly
   `commutative' about an abelian category.} is why these categories
 are called abelian.  Since kernels are necessarily monomorphisms (by
-Lemma~\ref{homol:1.4}), we see that in an \emph{abelian} category we
+Lemma~\ref{lem:homol:kernels-monos-cokernels-epis}), we see that in an \emph{abelian} category we
 can adopt a mantra entirely analogous to the useful `kernel $\iff$
 submodule' of \S{}\ref{subsec:rings:submodules-and-quotients} vintage:
 in abelian categories, the slogan would be `kernel $\iff$
 monomorphism' (and similarly for cokernels vs.  epimorphisms).
-\begin{rem}{}{homol:1.7}
+\begin{rem}{}{rem:homol:subobject-quotient-notation}
   Just as it is convenient to think of monomorphisms
   $A \rightarrowtail B$ as defining $A$ as a `subobject' of $B$, it is
   occasionally convenient to think of epimorphisms as `quotients': if
@@ -349,7 +349,7 @@ monomorphism' (and similarly for cokernels vs.  epimorphisms).
 The very existence of kernels and cokernels links these two notions
 tightly in an abelian category:
 
-\begin{lem}{}{homol:1.8}
+\begin{lem}{}{lem:homol:kernel-is-kernel-of-its-cokernel}
   In an abelian category $\categ{A}$, every kernel is the kernel of
   its cokernel; every cokernel is the cokernel of its kernel.
 \end{lem}
@@ -380,8 +380,8 @@ tightly in an abelian category:
   the cokernel of its kernel $K \to A$, as stated.
 \end{proof}
 % ?
-Putting together Lemma~\ref{homol:1.8} and Lemma~\ref{homol:1.5}, we
-can rephrase Definition~\ref{homol:1.6} by listing the following
+Putting together Lemma~\ref{lem:homol:kernel-is-kernel-of-its-cokernel} and Lemma~\ref{lem:homol:mono-epi-via-trivial-kernel-cokernel}, we
+can rephrase Definition~\ref{defn:homol:abelian-category} by listing the following
 requirements on a category $\categ{A}$:
 \begin{itemize}
 \item $\categ{A}$ is additive;
@@ -411,13 +411,13 @@ in an exact sequence. One of our many Pavlovian reactions would make
 us want to deduce that $A \to B$ is an isomorphism, because this is
 the case in $R\text{-}\categ{Mod}$, and this indeed works in any
 abelian category:
-\begin{lem}{}{homol:1.9}
+\begin{lem}{}{lem:homol:mono-and-epi-implies-iso}
   Let $\varphi : A \to B$ be a morphism in an abelian category
   $\categ{A}$, and assume that $\varphi$ is both a monomorphism and an
   epimorphism. Then $\varphi$ is an isomorphism.
 \end{lem}
 
-\begin{rem}{}{homol:1.10}
+\begin{rem}{}{rem:homol:mono-epi-iso-fails-in-additive-categories}
   This fact does not hold in general additive categories. In fact, the
   reader will encounter in
   \Cref{exer:homol:category-of-short-exact-sequences-properties} an
@@ -427,10 +427,10 @@ abelian category:
 \end{rem}
 % ?
 \begin{proof}
-  By Lemma~\ref{homol:1.5} the kernel of $\varphi$ is $0 \to A$, since
+  By Lemma~\ref{lem:homol:mono-epi-via-trivial-kernel-cokernel} the kernel of $\varphi$ is $0 \to A$, since
   $\varphi$ is a monomorphism. Similarly, $B \to 0$ is a cokernel of
   $\varphi$. Further, $\varphi$ is the cokernel of $0 \to A$ and the
-  kernel of $B \to 0$, by Lemma~\ref{homol:1.8}.
+  kernel of $B \to 0$, by Lemma~\ref{lem:homol:kernel-is-kernel-of-its-cokernel}.
 
   Now consider the identity $B \to B$:
   \[\begin{tikzcd}
@@ -496,7 +496,7 @@ B$. Both exist, since $\categ{A}$ is additive.
 
 The presence of these objects, and of kernels and cokernels, gives us
 access to other interesting constructions.
-\begin{exam}{}{homol:exam:1.11}
+\begin{exam}{}{exam:homol:pullbacks-exist-in-abelian-category}
   For instance, fibered products (or `pull-backs') exist in any
   abelian category, just as in $R\text{-}\categ{Mod}$ (cf.\
   \Cref{exer:rings:fibered-product}). Consider a diagram
@@ -566,10 +566,10 @@ $A \times B$ making the following diagram commute:
     & B
   \end{tikzcd}\] Now I claim that this morphism
 $(\pi_A, \pi_B) : A \sqcup B \to A \times B$ is both a monomorphism
-and an epimorphism. By Lemma~\ref{homol:1.9}, this (and a simple
+and an epimorphism. By Lemma~\ref{lem:homol:mono-and-epi-implies-iso}, this (and a simple
 induction) will prove
 
-\begin{prop}{}{homol:1.12}
+\begin{prop}{}{prop:homol:finite-products-coproducts-coincide}
   In an abelian category, finite products and coproducts coincide.
 \end{prop}
 
@@ -621,7 +621,7 @@ our experience with $R\text{-}\categ{Mod}$.
   Indeed, $i_A$ is a monomorphism since
   $A \xrightarrow{i_A} A \sqcup B \xrightarrow{\pi_A} A$ is the
   identity; hence it is a kernel (definition of abelian category!);
-  hence it is the kernel of its cokernel (Lemma~\ref{homol:1.8}).
+  hence it is the kernel of its cokernel (Lemma~\ref{lem:homol:kernel-is-kernel-of-its-cokernel}).
 
   By the same token, $\pi_A : A \sqcup B \to A$ is the cokernel of
   $i_B : B \to A \sqcup B$ and $i_B : B \to A \sqcup B$ is the kernel
@@ -648,7 +648,7 @@ our experience with $R\text{-}\categ{Mod}$.
   composition $K \to B \xrightarrow{\id} B$. That is, $K \to B$ is
   actually the zero-morphism; a fortiori, $\iota = 0$: the kernel of
   $A \sqcup B \to A \times B$ is $0$, so this morphism is indeed a
-  monomorphism (by Lemma~\ref{homol:1.5}).
+  monomorphism (by Lemma~\ref{lem:homol:mono-epi-via-trivial-kernel-cokernel}).
 \end{itemize}
 
 The same technique (or an appeal to the opposite category) proves that
@@ -661,10 +661,10 @@ The same technique (or an appeal to the opposite category) proves that
 I will happily leave this to the reader
 (\Cref{exer:homol:coproduct-to-product-map-is-epi}).
 
-This will conclude the proof of Proposition~\ref{homol:1.12}, by
-Lemma~\ref{homol:1.9}.
+This will conclude the proof of Proposition~\ref{prop:homol:finite-products-coproducts-coincide}, by
+Lemma~\ref{lem:homol:mono-and-epi-implies-iso}.
 % ?
-In view of Proposition~\ref{homol:1.12}, we can adopt for any abelian
+In view of Proposition~\ref{prop:homol:finite-products-coproducts-coincide}, we can adopt for any abelian
 category $\categ{A}$ the convention of identifying $A \sqcup B$ and
 $A \times B$, calling this object (defined up to isomorphism) the
 \emph{direct sum} of $A$ and $B$, denoted $A \oplus B$. This object
@@ -695,7 +695,7 @@ the context of an abelian category, and yet the decomposition holds
 just as well: every morphism may be written as an epimorphism,
 followed by an isomorphism, followed by a monomorphism.  Here is the
 precise statement:
-\begin{thm}{}{homol:1.13}
+\begin{thm}{}{thm:homol:canonical-decomposition-of-morphism}
   Every morphism $\varphi : A \to B$ in an abelian category
   $\categ{A}$ may be decomposed as
   \[\begin{tikzcd}
@@ -717,7 +717,7 @@ context we are exploring: unlike groups, rings, etc., the objects of a
 general abelian category are not `just' sets endowed with extra
 structure.\footnote{However, we will soon recover a sense in which
   images in abelian categories can be `understood' in set-theoretic
-  terms: see \Cref{homol:2.7}.} But look at your mental image of what
+  terms: see \Cref{lem:homol:kernel-image-via-elements}.} But look at your mental image of what
 the image of a function $\varphi$ is; mine looks like this:
 \begin{center}
   \begin{tikzpicture}[baseline=(current bounding box.center)]
@@ -743,7 +743,7 @@ initial with the property of being a subobject of $B$ through which
 $\varphi$ factors. This intuition is precisely captured by
 $\ker(\coker\varphi)$, once we adapt to thinking of `subobjects' as
 `monomorphisms':
-\begin{lem}{}{homol:1.14}
+\begin{lem}{}{lem:homol:kernel-of-cokernel-factorization-properties}
   Let $\varphi : A \to B$ be a morphism in an abelian category, and
   let $\iota : K \to B$ be the kernel of the cokernel of $\varphi$.
   Then
@@ -754,11 +754,11 @@ $\ker(\coker\varphi)$, once we adapt to thinking of `subobjects' as
   \end{itemize}
 \end{lem}
 
-By Lemma~\ref{homol:1.4}, $\iota$ is a monomorphism. It is clear that
+By Lemma~\ref{lem:homol:kernels-monos-cokernels-epis}, $\iota$ is a monomorphism. It is clear that
 $\varphi$ factors through $\iota$: the composition
 $A \to B \to \coker\varphi$ is the zero-morphism, so there is a
 naturally induced $A \to K$ by the universal property of kernels. The
-more interesting part of the statement of \Cref{homol:1.14} asserts
+more interesting part of the statement of \Cref{lem:homol:kernel-of-cokernel-factorization-properties} asserts
 that if $\lambda : L \rightarrowtail B$ is any monomorphism through
 which $\varphi$ also factors, then $\iota$ must factor uniquely
 through $\lambda$:
@@ -789,18 +789,18 @@ through $\lambda$:
     K \to B \xrightarrow{\coker\lambda} \operatorname{Cok}\lambda
   \]
   is the zero-morphism. Since $\lambda : L \to B$ is the kernel of its
-  cokernel (Lemma~\ref{homol:1.8}), it follows that there is a unique
+  cokernel (Lemma~\ref{lem:homol:kernel-is-kernel-of-its-cokernel}), it follows that there is a unique
   morphism $K \to L$ making the diagram commute, as stated.
 \end{proof}
 
-\begin{defn}{}{homol:1.15}
+\begin{defn}{}{defn:homol:image-and-coimage}
   Let $\varphi : A \to B$ be a morphism in an abelian category. The
   \emph{image} of $\varphi$, denoted $\image\varphi$, is
   $\ker(\coker\varphi)$. The \emph{coimage} of $\varphi$, denoted
   $\operatorname{coim}\varphi$, is $\coker(\ker\varphi)$.
 \end{defn}
 
-Lemma~\ref{homol:1.14} motivates the first definition: every
+Lemma~\ref{lem:homol:kernel-of-cokernel-factorization-properties} motivates the first definition: every
 monomorphism through which $\varphi$ factors must factor uniquely
 through $\image\varphi$. (Of course in this context the source of
 $\image\varphi$ is only defined up to (unique) isomorphism, as is
@@ -808,7 +808,7 @@ every solution to a universal problem.) As for the second definition,
 the reader will formulate the universal property satisfied by
 $\operatorname{coim}\varphi$
 (\Cref{exer:homol:universal-property-of-coimage}). With the convention
-mentioned in \Cref{homol:1.7} and allowing for some abuse of language,
+mentioned in \Cref{rem:homol:subobject-quotient-notation} and allowing for some abuse of language,
 the (target of the) coimage of $\varphi : A \to B$ is the `quotient'
 $A/\ker\varphi$.
 
@@ -819,7 +819,7 @@ $\overline{\varphi} : A \to K$,
     A \arrow[r, "\overline{\varphi}"] \arrow[rr, bend right,
     "\varphi"'] & K \arrow[r, hook] & B,
   \end{tikzcd}\] should be an epimorphism. This is indeed the case:
-\begin{lem}{}{homol:1.16}
+\begin{lem}{}{lem:homol:image-coimage-induced-morphisms}
   Let $\varphi : A \to B$ be a morphism in an abelian category, and
   let $\image\varphi : K \to B$,
   $\operatorname{coim}\varphi : A \to C$ be its image and coimage,
@@ -838,7 +838,7 @@ $\overline{\varphi} : A \to K$,
       \ker\coker\overline{\varphi}"] & K \arrow[r, two heads,
       "\coker\overline{\varphi}"] & \operatorname{Cok}.
     \end{tikzcd}\] Recall that every epimorphism is the cokernel of
-  its kernel (Lemma~\ref{homol:1.8}); in particular,
+  its kernel (Lemma~\ref{lem:homol:kernel-is-kernel-of-its-cokernel}); in particular,
   $\coker\overline{\varphi} = \coker(\image\overline{\varphi})$.  Now,
   $K' \to K$ is a monomorphism through which $\varphi$ factors:
   \[\begin{tikzcd}
@@ -847,11 +847,11 @@ $\overline{\varphi} : A \to K$,
     \end{tikzcd}\] Therefore, $K' \to B$ is a monomorphism through
   which $\varphi$ factors and `preceding' $\image\varphi : K \to
   B$. Since the image of $\varphi$ is initial among such morphisms (as
-  proven in Lemma~\ref{homol:1.14}), necessarily
+  proven in Lemma~\ref{lem:homol:kernel-of-cokernel-factorization-properties}), necessarily
   $\image\overline{\varphi}$ is an isomorphism. It follows that
   $0 = \coker\image\overline{\varphi} = \coker\overline{\varphi}$,
   proving that $\overline{\varphi}$ is an epimorphism by
-  Lemma~\ref{homol:1.5}.
+  Lemma~\ref{lem:homol:mono-epi-via-trivial-kernel-cokernel}.
 \end{proof}
 % ?
 To summarize the situation, we have the following commutative diagram
@@ -877,16 +877,16 @@ We now see that this amounts to the statement that \emph{in an abelian
   category, there is an induced isomorphism linking the coimage and
   the image of every morphism.}
 
-\begin{proof}[Proof of \cref{homol:1.13}]
+\begin{proof}[Proof of \cref{thm:homol:canonical-decomposition-of-morphism}]
   A unique morphism $\psi : K \to C$ making the above diagram commute
   exists, by the universal property of $\image\varphi$
-  (Lemma~\ref{homol:1.14}), as well as by the universal property of
+  (Lemma~\ref{lem:homol:kernel-of-cokernel-factorization-properties}), as well as by the universal property of
   $\operatorname{coim}\varphi$. Since
   $\underline{\varphi} \circ \psi = \image\varphi$ is a monomorphism,
   so is $\psi$. Since
   $\psi \circ \overline{\varphi} = \operatorname{coim}\varphi$ is an
   epimorphism, so is $\psi$. It follows that $\psi$ is an isomorphism
-  (Lemma~\ref{homol:1.9}), and letting $\tilde{\varphi} : C \to K$ be
+  (Lemma~\ref{lem:homol:mono-and-epi-implies-iso}), and letting $\tilde{\varphi} : C \to K$ be
   the inverse of $\psi$ concludes the proof.
 \end{proof}
 Loosely speaking, we can say that, in an abelian category, `image and
@@ -951,7 +951,7 @@ immaterial.
   definition for kernel given in \Cref{exam:linrep:equalizer-as-limit}, and verify
   that the ordinary notion of cokernel in $R\text{-}\categ{Mod}$
   satisfies this categorical requirement. Verify that your definition
-  agrees with the one given in Definition~\ref{homol:1.2}.
+  agrees with the one given in Definition~\ref{defn:homol:kernel}.
 \end{exer}
 \begin{exer}{}{exer:homol:kernel-characterized-by-hom-exactness}
   Let $\varphi : A \to B$ be a morphism in an additive category
@@ -971,14 +971,14 @@ immaterial.
   Let $\categ{A}$ be an additive category.
   \begin{itemize}
   \item Let $\iota : K \to A$ be a kernel in $\categ{A}$; prove that
-    $\iota$ is a monomorphism. (Cf.\ Lemma~\ref{homol:1.4}.)
+    $\iota$ is a monomorphism. (Cf.\ Lemma~\ref{lem:homol:kernels-monos-cokernels-epis}.)
   \item Let $\varphi : A \to B$ be a morphism in $\categ{A}$. If
     $\varphi$ has a cokernel, prove that $\varphi$ is an epimorphism
     if and only if $B \to 0$ is its cokernel. (Cf.\
-    Lemma~\ref{homol:1.5}.)
+    Lemma~\ref{lem:homol:mono-epi-via-trivial-kernel-cokernel}.)
   \item If $\categ{A}$ is abelian, prove that every kernel in
     $\categ{A}$ is the kernel of its cokernel. (Cf.\
-    Lemma~\ref{homol:1.8}.)
+    Lemma~\ref{lem:homol:kernel-is-kernel-of-its-cokernel}.)
   \end{itemize} [\S{}\ref{subsec:homol:abelian-categories}]
 \end{exer}
 \begin{exer}{}{exer:homol:opposite-of-abelian-is-abelian}
@@ -1097,9 +1097,9 @@ immaterial.
 \begin{exer}{}{exer:homol:coimage-to-target-is-mono}
   \exerused{} Let $A \to B$ be a morphism in an abelian category, with
   coimage $A \to C$, and let $C \to B$ be the induced morphism. Prove
-  that $C \to B$ is a monomorphism. (Cf.\ Lemma~\ref{homol:1.16}; you
-  should not use Theorem~\ref{homol:1.13}, since
-  Lemma~\ref{homol:1.16} was used in its proof.)
+  that $C \to B$ is a monomorphism. (Cf.\ Lemma~\ref{lem:homol:image-coimage-induced-morphisms}; you
+  should not use Theorem~\ref{thm:homol:canonical-decomposition-of-morphism}, since
+  Lemma~\ref{lem:homol:image-coimage-induced-morphisms} was used in its proof.)
   [\S{}\ref{subsec:homol:images-canonical-decomposition-of-morphisms}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:homol:epi-mono-factorization-is-coim-image}
@@ -1141,7 +1141,7 @@ objects and morphisms in an abelian category:
 \end{enumerate}
 The first condition makes the sequence a `complex'; it tells us that
 $\varphi$ factors through $\ker\psi$. As $\ker\psi$ is a monomorphism,
-the universal property of images (Lemma~\ref{homol:1.14}) yields a
+the universal property of images (Lemma~\ref{lem:homol:kernel-of-cokernel-factorization-properties}) yields a
 unique factorization of $\image\varphi$ through $\ker\psi$.
 Similarly, the second condition tells us that $\ker\psi$ factors
 through $\ker(\coker\varphi) = \image\varphi$.  This implies that
@@ -1167,7 +1167,7 @@ $\psi$ and $\psi$ is a cokernel of $\varphi$, and
 \[\begin{tikzcd}
     0 \arrow[r] & A \arrow[r, "\varphi"] & B \arrow[r] & 0
   \end{tikzcd}\] is exact if and only if $\varphi$ is an isomorphism.
-\begin{exam}{}{homol:2.1}
+\begin{exam}{}{exam:homol:direct-sum-exact-sequence}
   There is a natural exact sequence
   \[\begin{tikzcd}
       0 \arrow[r] & A \arrow[r] & A \oplus B \arrow[r] & B \arrow[r] &
@@ -1175,7 +1175,7 @@ $\psi$ and $\psi$ is a cokernel of $\varphi$, and
     \end{tikzcd}\] where $A \oplus B$ is the direct sum defined in
   \S{}\ref{subsec:homol:products-coproducts-and-direct-sums}.
 \end{exam}
-\begin{exam}{}{homol:2.2}
+\begin{exam}{}{exam:homol:fibered-diagram-exact-sequence}
   For a slightly more interesting example, consider a diagram
   \[\begin{tikzcd}
       D \arrow[r, "\varphi'"] \arrow[d, "\psi'"'] & B \arrow[d, "\psi"] \\
@@ -1194,7 +1194,7 @@ $\psi$ and $\psi$ is a cokernel of $\varphi$, and
         0 \arrow[r] & D \arrow[r] & A \oplus B \arrow[r] & C,
       \end{tikzcd}\] is exact if and only if $D$ may be identified
     with the fibered product $A \times_C B$ (cf.\
-    Example~\ref{homol:exam:1.11});
+    Example~\ref{exam:homol:pullbacks-exist-in-abelian-category});
   \item likewise, the sequence
     \[\begin{tikzcd}
         D \arrow[r] & A \oplus B \arrow[r] & C \arrow[r] & 0
@@ -1203,7 +1203,7 @@ $\psi$ and $\psi$ is a cokernel of $\varphi$, and
   \end{itemize}
   Indeed, the first assertion is trivial; the second and third amount
   to the explicit construction of fibered products and coproducts
-  mentioned in Example~\ref{homol:exam:1.11}.
+  mentioned in Example~\ref{exam:homol:pullbacks-exist-in-abelian-category}.
 \end{exam}
 
 \subsection{The snake lemma, again}
@@ -1227,7 +1227,7 @@ an arrow-theoretic alternative for the definition of $\delta$.
 This is perhaps not completely immediate.
 
 As practice, note the following:
-\begin{lem}{}{homol:2.3}
+\begin{lem}{}{lem:homol:epimorphisms-stable-under-pullback}
   Let
   \[\begin{tikzcd}
       A \times_C B \arrow[r, "\varphi'"] \arrow[d, "\psi'"'] &
@@ -1244,15 +1244,15 @@ is considerably subtler.
 
 \begin{proof}
   First, observe that if $\varphi : A \to C$ is an epimorphism, so is
-  the map $A \oplus B \to C$ considered in Example~\ref{homol:2.2}.
+  the map $A \oplus B \to C$ considered in Example~\ref{exam:homol:fibered-diagram-exact-sequence}.
   Since epimorphisms are cokernels in an abelian category and
-  cokernels are cokernels of their kernels (Lemma~\ref{homol:1.8}), we
+  cokernels are cokernels of their kernels (Lemma~\ref{lem:homol:kernel-is-kernel-of-its-cokernel}), we
   see that $A \oplus B \to C$ is the cokernel of the natural morphism
   \[
     A \times_C B \to A \oplus B.
   \]
   To prove that $\varphi'$ is an epimorphism, it suffices
-  (Lemma~\ref{homol:1.3}) to show that if $\zeta : B \to Z$ is a
+  (Lemma~\ref{lem:homol:mono-epi-via-zero-morphisms}) to show that if $\zeta : B \to Z$ is a
   morphism for which $\zeta \circ \varphi' = 0$, then $\zeta = 0$.
 
   For this, consider the morphism
@@ -1284,11 +1284,11 @@ is considerably subtler.
 Here is a quicker proof (for those who have done their homework): if
 $\varphi$ is an epimorphism, then $A \oplus B \to C$ is an
 epimorphism, so the diagram is a push-out as well as a pull-back
-(Example~\ref{homol:2.2}). By
+(Example~\ref{exam:homol:fibered-diagram-exact-sequence}). By
 \Cref{exer:homol:pullback-kernel-comparison-iso},
 $\coker\varphi' = \coker\varphi = 0$; therefore $\varphi'$ is an
 epimorphism. The reader should have no difficulty now proving the
-statement dual to Lemma~\ref{homol:2.3}, for fibered coproducts
+statement dual to Lemma~\ref{lem:homol:epimorphisms-stable-under-pullback}, for fibered coproducts
 (\Cref{exer:homol:pushout-preserves-monomorphism}).  Going back to the
 snake lemma, start from a commutative diagram linking two exact
 sequences in an abelian category:
@@ -1329,7 +1329,7 @@ resp., push-out, diagrams:
     L_0 \arrow[r, "\alpha_0"] \arrow[d] & M_0 \arrow[d] \\
     \coker\lambda \arrow[r, "\alpha_0'"'] & (\coker\lambda)
     \amalg_{L_0} M_0.
-  \end{tikzcd}\] By Lemma~\ref{homol:2.3}, $\beta_1'$ is an
+  \end{tikzcd}\] By Lemma~\ref{lem:homol:epimorphisms-stable-under-pullback}, $\beta_1'$ is an
 epimorphism since $\beta_1$ is an epimorphism, and $\ker\beta_1$,
 $\ker\beta_1'$ have matching sources by
 \Cref{exer:homol:pullback-kernel-comparison-iso}. Analogous (dual)
@@ -1409,7 +1409,7 @@ construction in
 usually resolved once and for all at the start, when the key universal
 properties are established, and it is not necessary to belabor them
 later.  Still, it is true that element-theoretic arguments are usually
-easier to concoct. Lemma~\ref{homol:2.3} appears to be a good example:
+easier to concoct. Lemma~\ref{lem:homol:epimorphisms-stable-under-pullback} appears to be a good example:
 in terms of elements the statement of this lemma is completely
 obvious, less so from the diagrammatic point of
 view. \Cref{exer:homol:quotient-iso-image-kernel-two-morphisms} gives
@@ -1428,10 +1428,10 @@ theorem (discussed in \S{}\ref{subsec:homol:what-is-missing}) will
 obliterate the actual usefulness of the construction, since it
 provides us with a much stronger result.  Thus, I will ask the reader
 to wade through some material, with the understanding that the result
-that I will quote thereafter (\Cref{homol:2.9}) will make that
+that I will quote thereafter (\Cref{thm:homol:freyd-mitchell-theorem}) will make that
 material immediately obsolete.
 
-My excuse is that while proving \Cref{homol:2.9} is beyond the scope
+My excuse is that while proving \Cref{thm:homol:freyd-mitchell-theorem} is beyond the scope
 of this book, the construction which I am about to describe is
 entirely within our reach, and good propaganda for the philosophy
 underlying the functor of points; this is important in, e.g.,
@@ -1595,7 +1595,7 @@ $\alpha : W \twoheadrightarrow Z$),
 by sending $z$ to $w = z \circ \alpha$. Of course the zero-morphism is
 mapped to the zero-morphism, so this is indeed a morphism in
 $\categ{Set}^*$.
-\begin{defn}{}{homol:2.4}
+\begin{defn}{}{defn:homol:elements-of-an-object}
   Let $A$ be an object of a small abelian category $\categ{A}$. The
   pointed set $\hat{A}$ of `elements of $A$' is the colimit of
   $\mathscr{H}_A$:
@@ -1647,7 +1647,7 @@ $\hat{A}$ if and only if $z_1 \sim z_2$.
 One useful preliminary observation is that the only morphism
 representing the distinguished `element' is the zero-morphism and that
 we can detect whether a morphism is $0$ by working in $\categ{Set}^*$:
-\begin{lem}{}{homol:2.5}
+\begin{lem}{}{lem:homol:element-relation-characterization}
   $z \sim 0 \iff z = 0$. Further, a morphism $\varphi : A \to B$ in
   $\categ{A}$ is $0$ if and only if $\hat{\varphi}(z) = 0$ for all
   $z \in \hat{A}$.
@@ -1661,7 +1661,7 @@ we can detect whether a morphism is $0$ by working in $\categ{Set}^*$:
       W \arrow[r, two heads] & Z \arrow[r, "z"] & A
     \end{tikzcd}\] Since $W \twoheadrightarrow Z$ is an epimorphism,
   this diagram commutes if and only if $z = 0$
-  (Lemma~\ref{homol:1.3}), as claimed.
+  (Lemma~\ref{lem:homol:mono-epi-via-zero-morphisms}), as claimed.
 
   For the second statement, consider the situation
   \[\begin{tikzcd}
@@ -1681,11 +1681,11 @@ $0$, which we can do\footnote{Note that I am not saying that
   $\varphi = \psi$ if and only if $\hat{\varphi}(z) = \hat{\psi}(z)$
   for all `elements' $z$; this is unfortunately not the case (cf.\
   \Cref{exer:homol:element-functor-not-faithful}).} at the level of
-pointed sets (hence, by chasing elements!) by Lemma~\ref{homol:2.5}.
+pointed sets (hence, by chasing elements!) by Lemma~\ref{lem:homol:element-relation-characterization}.
 
 Concerning monomorphisms and epimorphisms,
 
-\begin{lem}{}{homol:2.6}
+\begin{lem}{}{lem:homol:mono-epi-via-elements}
   Let $\varphi : A \to B$ be a morphism in $\categ{A}$. Then
   \begin{itemize}
   \item $\varphi$ is a monomorphism if and only if $\hat{\varphi}$ is
@@ -1707,7 +1707,7 @@ Concerning monomorphisms and epimorphisms,
       A \arrow[r, two heads, "\varphi"] & B \\
       A \times_B Z \arrow[u, "z'"] \arrow[r, "\varphi'"'] & Z
       \arrow[u, "z"']
-    \end{tikzcd}\] By Lemma~\ref{homol:2.3}, $\varphi'$ is an
+    \end{tikzcd}\] By Lemma~\ref{lem:homol:epimorphisms-stable-under-pullback}, $\varphi'$ is an
   epimorphism. It follows that $\varphi \circ z' \sim z$, that is,
   $\hat{\varphi}(z') = z$.  This shows that $\hat{\varphi}$ is
   surjective.  Conversely, assume
@@ -1726,7 +1726,7 @@ Next, let's verify that the notions of `kernel' and `image' in an
 abelian category $\categ{A}$ match precisely their simple-minded
 counterparts in $\categ{Set}^*$.
 
-\begin{lem}{}{homol:2.7}
+\begin{lem}{}{lem:homol:kernel-image-via-elements}
   With notation as above, let $\varphi : A \to B$ be a morphism in a
   small abelian category $\categ{A}$, and let
   $\hat{\varphi} : \hat{A} \to \hat{B}$ be the corresponding function
@@ -1755,10 +1755,10 @@ counterparts in $\categ{Set}^*$.
   $\coker\varphi$ (this is the definition of `image' (cf.\
   \S{}\ref{subsec:homol:images-canonical-decomposition-of-morphisms});
   the fact that $A \to I$ is an epimorphism is part of the content of
-  Theorem~\ref{homol:1.13}).
+  Theorem~\ref{thm:homol:canonical-decomposition-of-morphism}).
 
   To simplify the notation, let $j = \image\varphi$. Then (by
-  Lemma~\ref{homol:2.6}) $\hat{\jmath}$ is an injective function
+  Lemma~\ref{lem:homol:mono-epi-via-elements}) $\hat{\jmath}$ is an injective function
   $\hat{I} \to \hat{B}$, mapping a representative $z : Z \to I$ to
   $j \circ z : Z \to B$; we have to verify that
   $\hat{\jmath}(I) = \image\hat{\varphi}$. To verify that
@@ -1768,7 +1768,7 @@ counterparts in $\categ{Set}^*$.
       A \times_I Z \arrow[r, two heads] \arrow[d, "z'"'] & Z \arrow[d, "z"] \\
       A \arrow[r, two heads] & I
     \end{tikzcd}\] The bottom map is an epimorphism by virtue of
-  Lemma~\ref{homol:2.3}, since the top map in the fiber square is an
+  Lemma~\ref{lem:homol:epimorphisms-stable-under-pullback}, since the top map in the fiber square is an
   epimorphism. This shows that
   $\varphi \circ z' \sim \hat{\jmath}(z)$; that is,
   $\hat{\jmath}(z) = \hat{\varphi}(z')$ is in the image of
@@ -1801,7 +1801,7 @@ counterparts in $\categ{Set}^*$.
 
 Finally, let's check that the functor is exact:
 
-\begin{prop}{}{homol:2.8}
+\begin{prop}{}{prop:homol:exactness-via-elements}
   Let $\categ{A}$ be a small abelian category. Then a sequence
   \[\begin{tikzcd}
       A \arrow[r, "\varphi"] & B \arrow[r, "\psi"] & C
@@ -1814,10 +1814,10 @@ Finally, let's check that the functor is exact:
 \end{prop}
 
 \begin{proof}
-  This now follows immediately from Lemma~\ref{homol:2.7}: exactness
+  This now follows immediately from Lemma~\ref{lem:homol:kernel-image-via-elements}: exactness
   in $\categ{A}$ means that $\image\varphi = \ker\psi$, and exactness
   in $\categ{Set}^*$ means that the image of $\hat{\varphi}$ equals
-  $\hat{\psi}^{-1}(0)$. By Lemma~\ref{homol:2.7}, these conditions are
+  $\hat{\psi}^{-1}(0)$. By Lemma~\ref{lem:homol:kernel-image-via-elements}, these conditions are
   equivalent.
 \end{proof}
 
@@ -1835,7 +1835,7 @@ has several shortcomings:
     but I will not pursue this possibility here.}
 \item While we can check that a diagram commutes in $\categ{A}$ by
   performing some computation in $\categ{Set}^*$ (cf.\ the comments
-  following Lemma~\ref{homol:2.5}), I have stopped short of claiming
+  following Lemma~\ref{lem:homol:element-relation-characterization}), I have stopped short of claiming
   that the functor $\categ{A} \to \hat{A}$ is \emph{faithful}, that
   is, that it induces injective functions
   $\Hom_{\categ{A}}(A,B) \to \Hom_{\categ{Set}^*}(\hat{A},\hat{B})$
@@ -1855,7 +1855,7 @@ Here another miracle occurs: it is in fact possible to construct fully
 faithful, exact functors from any given (small) abelian category to a
 category of modules. Here is the precise statement, which will be left
 without proof in this book:
-\begin{thm}{Freyd--Mitchell theorem}{homol:2.9}
+\begin{thm}{Freyd--Mitchell theorem}{thm:homol:freyd-mitchell-theorem}
   Let $\categ{A}$ be a small abelian category. Then there is a fully
   faithful, exact functor $\categ{A} \to R\text{-}\categ{Mod}$ for a
   suitable ring $R$.
@@ -1920,7 +1920,7 @@ unapologetically, and often so would the simpler considerations of
       A \arrow[r, "\alpha'"'] & A \amalg_D B
     \end{tikzcd}\] in an abelian category. Prove that if $\alpha$ is a
   monomorphism, then $\alpha'$ is a monomorphism. (Cf.\
-  Lemma~\ref{homol:2.3}.)
+  Lemma~\ref{lem:homol:epimorphisms-stable-under-pullback}.)
   [\S{}\ref{subsec:homol:the-snake-lemma-again}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:homol:four-lemma-in-abelian-categories}
@@ -1955,7 +1955,7 @@ unapologetically, and often so would the simpler considerations of
 \begin{exer}{}{exer:homol:mono-iff-injective-on-elements}
   \exerused{} Prove that a morphism $\varphi : A \to B$ in a small
   abelian category is a monomorphism if and only if it is injective on
-  `elements'. (Cf.\ Lemma~\ref{homol:2.6}.)
+  `elements'. (Cf.\ Lemma~\ref{lem:homol:mono-epi-via-elements}.)
   [\S{}\ref{subsec:homol:working-with-elements-in-a-small-abelian-category}]
 \end{exer}
 \begin{exer}{}{exer:homol:elements-of-kernel-identified-with-preimage}
@@ -1964,7 +1964,7 @@ unapologetically, and often so would the simpler considerations of
   Prove that the set of `elements' of $K$ may be identified with
   $\hat{\varphi}^{-1}(0)$, where $\hat{\varphi} : \hat{A} \to \hat{B}$
   is the induced function on the corresponding sets of elements. (Cf.\
-  Lemma~\ref{homol:2.7}.)
+  Lemma~\ref{lem:homol:kernel-image-via-elements}.)
   [\S{}\ref{subsec:homol:working-with-elements-in-a-small-abelian-category}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:homol:id-and-neg-id-same-element}
@@ -2012,7 +2012,7 @@ unapologetically, and often so would the simpler considerations of
       L & M \arrow[l, "\lambda"'] \arrow[r, "\nu"] & N.
     \end{tikzcd}\] Prove that\footnote{Here $\lambda(\ker\nu)$ denotes
     the image of the restriction of $\lambda$ to the source of
-    $\ker\nu$, etc.; see \Cref{homol:1.7} for `quotients'.}
+    $\ker\nu$, etc.; see \Cref{rem:homol:subobject-quotient-notation} for `quotients'.}
   \[
     \frac{\image\lambda}{\lambda(\ker\nu)} \cong
     \frac{\image\nu}{\nu(\ker\lambda)}.
@@ -2165,9 +2165,9 @@ $M^i$:
 \]
 Setting $H_i(M_\bullet) = H^{-i}(M^{-\bullet})$ gives homology from
 cohomology, if desired.
-\begin{rem}{}{homol:3.1}
+\begin{rem}{}{rem:homol:cohomology-definition-parsing}
   In an abelian category, the definition of cohomology should be
-  parsed as follows (cf. Remark~\ref{homol:1.7}). Let $I \to M^i$ be
+  parsed as follows (cf. Remark~\ref{rem:homol:subobject-quotient-notation}). Let $I \to M^i$ be
   $\image d^{i-1}$, and let $K \to M^i$ be $\ker d^i$; since
   $M^\bullet$ is a complex, $\image d^{i-1}$ factors through
   $\ker d^i$, giving a monomorphism $I \to K$; then $H^i(M^\bullet)$
@@ -2178,7 +2178,7 @@ cohomology, if desired.
 The following definition will undergo a few refinements later in the
 chapter:
 
-\begin{defn}{}{homol:3.2}
+\begin{defn}{}{defn:homol:resolution-preliminary}
   (Preliminary) A \emph{resolution} of an object $A$ is a complex
   whose cohomology is concentrated in degree 0 and isomorphic to $A$.
 \end{defn}
@@ -2188,7 +2188,7 @@ common abuse of language glosses over this point. In fact, this
 isomorphism in cohomology should be induced by a morphism at the level
 of complexes, from the given complex to the complex called $\iota(A)$
 later in this section. The notion of quasi-isomorphism
-(Definition~\ref{homol:4.3}) will give us the correct framework in
+(Definition~\ref{defn:homol:quasi-isomorphism}) will give us the correct framework in
 which to talk about resolutions precisely.  It is common to assume
 that resolutions $M^\bullet$ are `bounded' above or below, that is,
 $M^i = 0$ for $i > 0$ or $i < 0$. For example, a complex
@@ -2308,7 +2308,7 @@ Everything that should be checked in order to prove that
 $\categ{C}(\categ{A})$ is indeed a category should be evident. The
 following is also essentially evident, but a little more interesting:
 
-\begin{lem}{}{homol:3.3}
+\begin{lem}{}{lem:homol:category-of-complexes-is-abelian}
   $\categ{C}(\categ{A})$ is an abelian category.
 \end{lem}
 
@@ -2429,7 +2429,7 @@ These operations turn out to be more important than they may look at
 first. The importance of the following example is, on the contrary,
 apparent. I claim that cohomology is a functor:
 
-\begin{lem}{}{homol:3.4}
+\begin{lem}{}{lem:homol:cohomology-is-additive-functor}
   For every integer $i$, the assignment
   \[
     H^i : M^\bullet \longmapsto H^i(M^\bullet)
@@ -2543,7 +2543,7 @@ the element $\ell$, does not change its image in
 $\coker(\lambda^0)$. Thus $\delta$ is well-defined. As we have seen in
 \S{}\ref{subsec:homol:the-snake-lemma-again}, it is relatively
 straightforward to provide an arrow-theoretic version of this
-construction; but we have also seen (\Cref{homol:2.9}) that we do not
+construction; but we have also seen (\Cref{thm:homol:freyd-mitchell-theorem}) that we do not
 need to do that, so I will stay with elements in what follows.  Now we
 will upgrade this construction, in what should come across as a very
 natural development. In fact, what we are going to do could be
@@ -2616,7 +2616,7 @@ $H^i(N^\bullet)$, we have obtained a morphism
 \[
   \delta^i : H^i(N^\bullet) \to H^{i+1}(L^\bullet).
 \]
-On the other hand, each $H^i$ is a functor (\Cref{homol:3.4}); thus
+On the other hand, each $H^i$ is a functor (\Cref{lem:homol:cohomology-is-additive-functor}); thus
 there are natural morphisms
 \[
   H^i(L^\bullet) \longrightarrow H^i(M^\bullet) \longrightarrow
@@ -2644,7 +2644,7 @@ generalizing the sequence for $H^0$ and $H^1$ obtained in the snake
 lemma. The attentive reader must have seen the next result coming all
 along:
 
-\begin{thm}{Long exact cohomology sequence}{homol:3.5}
+\begin{thm}{Long exact cohomology sequence}{thm:homol:long-exact-cohomology-sequence}
   The sequence determined as above by a short exact sequence of
   complexes is an exact sequence.
 \end{thm}
@@ -2904,8 +2904,8 @@ will try to clarify these last cryptic remarks
   d^\bullet_{L^\bullet})$. [\S{}\ref{subsec:homol:the-category-of-complexes}]
 \end{exer}
 \begin{exer}{}{exer:homol:arrow-theoretic-proof-of-snake-lemma-variant}
-  Provide an arrow-theoretic proof of \Cref{homol:3.4} (cf.\
-  \Cref{homol:3.1}).
+  Provide an arrow-theoretic proof of \Cref{lem:homol:cohomology-is-additive-functor} (cf.\
+  \Cref{rem:homol:cohomology-definition-parsing}).
 \end{exer}
 \begin{exer}{}{exer:homol:exact-functors-commute-with-cohomology}
   Let $\categ{A}$, $\categ{B}$ be abelian categories. An additive
@@ -2939,7 +2939,7 @@ will try to clarify these last cryptic remarks
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:details-of-long-exact-cohomology-sequence}
   Provide the gory details for the long exact cohomology sequence
-  (\Cref{homol:3.5}). [\S{}\ref{subsec:homol:the-long-exact-cohomology-sequence},
+  (\Cref{thm:homol:long-exact-cohomology-sequence}). [\S{}\ref{subsec:homol:the-long-exact-cohomology-sequence},
   \ref{exer:homol:reduce-long-exact-seq-to-snake-lemma}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:reduce-long-exact-seq-to-snake-lemma}
@@ -3167,7 +3167,7 @@ are all exact, the sequence of complexes
   \longrightarrow L[1]^\bullet \longrightarrow 0
 \]
 is exact.
-\begin{prop}{}{homol:4.1}
+\begin{prop}{}{prop:homol:mapping-cone-exact-triangle}
   There is an exact triangle
   \[
     \begin{tikzpicture}[baseline=(current bounding box.center)]
@@ -3185,7 +3185,7 @@ is exact.
 
 \begin{proof}
   The existence of the triangle is a direct consequence of
-  \Cref{homol:3.5}; all we have to check is that the connecting
+  \Cref{thm:homol:long-exact-cohomology-sequence}; all we have to check is that the connecting
   morphism indeed agrees with the morphism induced by
   $\alpha^\bullet$.  Chasing the diagram
   \[\begin{tikzcd}[column sep=small]
@@ -3206,7 +3206,7 @@ is exact.
   this verifies the claim.
 \end{proof}
 
-\begin{coro}{}{homol:4.2}
+\begin{coro}{}{coro:homol:quasi-iso-iff-mapping-cone-exact}
   Let $\alpha^\bullet : L^\bullet \to M^\bullet$ be a morphism of
   cochain complexes. Then the induced morphism
   $H^\bullet(L^\bullet) \to H^\bullet(M^\bullet)$ is an isomorphism if
@@ -3229,20 +3229,20 @@ considered above.
 
 A component of our main strategy consists of understanding when
 cochain complexes `have a good reason' to have the same cohomology.
-\Cref{homol:4.2} provides us with such a reason. The morphisms singled
+\Cref{coro:homol:quasi-iso-iff-mapping-cone-exact} provides us with such a reason. The morphisms singled
 out in that statement have a name:
 
-\begin{defn}{}{homol:4.3}
+\begin{defn}{}{defn:homol:quasi-isomorphism}
   A morphism $\alpha^\bullet$ of cochain complexes is a
   \emph{quasi-isomorphism} if it induces an isomorphism in cohomology.
 \end{defn}
 
-By \Cref{homol:4.2}, this condition is equivalent to the exactness of
+By \Cref{coro:homol:quasi-iso-iff-mapping-cone-exact}, this condition is equivalent to the exactness of
 the mapping cone of $\alpha^\bullet$.
 
-\begin{exam}{}{homol:4.4}
+\begin{exam}{}{exam:homol:resolution-as-quasi-isomorphism}
   The datum of a resolution $M^\bullet$ of an object $A$ of an abelian
-  category $\categ{A}$, as in \Cref{homol:3.2} and with $M^i = 0$ for
+  category $\categ{A}$, as in \Cref{defn:homol:resolution-preliminary} and with $M^i = 0$ for
   $i > 0$, is the same as the datum of a quasi-isomorphism
   \[
     M^\bullet \xrightarrow{\text{q-iso.}} \iota(A)
@@ -3261,7 +3261,7 @@ the mapping cone of $\alpha^\bullet$.
 
 Thus, quasi-isomorphisms may be viewed as generalizations of more
 simple-minded resolutions. Also note that the mapping cone of a
-resolution as in \Cref{homol:4.4} is obtained (as the reader should
+resolution as in \Cref{exam:homol:resolution-as-quasi-isomorphism} is obtained (as the reader should
 check) by shifting the complex `one step to the left' and completing
 it with $A$, obtaining the \emph{exact} complex:
 \[
@@ -3272,20 +3272,20 @@ it with $A$, obtaining the \emph{exact} complex:
 This is nothing but our other point of view on resolutions (as in
 \S{}\ref{subsec:linalg:finitely-presented-modules-and-free-resolutions}).
 
-\begin{rem}{}{homol:4.5}
+\begin{rem}{}{rem:homol:quasi-isomorphisms-form-a-category}
   Quasi-isomorphisms with fixed target (resp., source) form a category
   in a natural way, which I will leave to the reader to make
   precise. In particular, resolutions in
   $\categ{C}^{\leq 0}(\categ{A})$ (resp.,
   $\categ{C}^{\geq 0}(\categ{A})$) of a given object of $\categ{A}$,
-  as in \Cref{homol:4.4}, form a category.
+  as in \Cref{exam:homol:resolution-as-quasi-isomorphism}, form a category.
 \end{rem}
 
 Wouldn't it be nice if quasi-isomorphisms were actual isomorphisms,
 that is, if they were invertible? In general, they are not. The
 following example will arise several times to ward off any such hopes.
 
-\begin{exam}{}{homol:4.6}
+\begin{exam}{}{exam:homol:quasi-iso-not-homotopy-invertible}
   In $\categ{C}(\categ{Ab})$, the morphism of complexes
   \[\begin{tikzcd}[column sep=small]
       \dots \arrow[r] & 0 \arrow[r] \arrow[d] & \Z \arrow[r, "\cdot
@@ -3358,7 +3358,7 @@ quasi-isomorphisms. The details of this construction are somewhat
 involved and are best left to more advanced texts. But we will be able
 to capture its essence in this book, at least in lucky cases (when the
 abelian category has `enough injectives' or `enough projectives'; see
-\Cref{defn:homol:5.7}).
+\Cref{defn:homol:enough-projectives-injectives}).
 
 The derived category has the unfortunate reputation of being an overly
 abstract notion, and there are fundamental questions about whether it
@@ -3392,7 +3392,7 @@ invertible! This says that complexes that are nonzero in
 $\categ{C}(\categ{A})$ may become zero-objects in the derived
 category.
 
-\begin{lem}{}{homol:4.7}
+\begin{lem}{}{lem:homol:functor-invariant-under-quasi-iso-basic-properties}
   Let $\categ{D}$ be an additive category, and let
   $\mathscr{F} : \categ{C}(\categ{A}) \to \categ{D}$ be an additive
   functor such that $\mathscr{F}(\rho^\bullet)$ is an isomorphism for
@@ -3492,7 +3492,7 @@ homology.
 Here is the translation into algebra of this pleasant geometric
 situation:
 
-\begin{defn}{}{homol:4.8}
+\begin{defn}{}{defn:homol:homotopy}
   A \emph{homotopy} $h$ between two morphisms of cochain complexes
   $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$ is a
   collection of morphisms
@@ -3512,7 +3512,7 @@ situation:
 We are dealing here with cochain complexes; this accounts for the fact
 that while in the topological situation (where we were interested in
 \emph{chains} rather than cochains) the homotopy would shift
-dimensions up, in \Cref{homol:4.8} it shifts degrees down.
+dimensions up, in \Cref{defn:homol:homotopy} it shifts degrees down.
 
 Aside from its topological motivation, homotopy is not too easy to
 visualize. The following diagram is \emph{not} assumed to be
@@ -3527,7 +3527,7 @@ The morphisms $h^i$ do not usually define a morphism of complexes
 $L^\bullet \to M[-1]^\bullet$: the lozenges in this diagram are not
 required to commute.
 
-\begin{defn}{}{homol:4.9}
+\begin{defn}{}{defn:homol:homotopy-equivalence}
   A morphism $\alpha^\bullet : L^\bullet \to M^\bullet$ is a
   \emph{homotopy equivalence} if there is a morphism
   $\beta^\bullet : M^\bullet \to L^\bullet$ such that
@@ -3545,7 +3545,7 @@ Further, these relations are clearly compatible with simple operations
 of morphisms
 (\Cref{exer:homol:homotopy-compatible-with-direct-sum,exer:homol:homotopy-compatible-with-composition}).
 
-\begin{prop}{}{homol:4.10}
+\begin{prop}{}{prop:homol:homotopic-morphisms-agree-on-cohomology}
   If $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$ are
   homotopic morphisms of complexes, then $\alpha^\bullet$,
   $\beta^\bullet$ induce the same morphisms on cohomology:
@@ -3558,7 +3558,7 @@ of morphisms
   $H^i(M^\bullet)$ under the morphisms induced by $\alpha^\bullet$,
   $\beta^\bullet$ are represented by $\alpha^i(\ell)$,
   $\beta^i(\ell)$. Since $\alpha^\bullet$, $\beta^\bullet$ are
-  homotopic, according to \Cref{homol:4.8} there are morphisms $h^i$
+  homotopic, according to \Cref{defn:homol:homotopy} there are morphisms $h^i$
   such that
   \[
     \beta^i(\ell) - \alpha^i(\ell) = d^{i-1}_{M^\bullet}(h^i(\ell)) +
@@ -3574,11 +3574,11 @@ of morphisms
 \end{proof}
 
 For example, if $\alpha^\bullet$ is homotopic to the identity, then by
-\Cref{homol:4.2} the cone of $\alpha^\bullet$ must be exact. It is a
+\Cref{coro:homol:quasi-iso-iff-mapping-cone-exact} the cone of $\alpha^\bullet$ must be exact. It is a
 good exercise to verify this fact directly
 (\Cref{exer:homol:cone-of-null-homotopic-morphism-is-exact}).
 
-\begin{coro}{}{homol:4.11}
+\begin{coro}{}{coro:homol:homotopy-equivalent-complexes-isomorphic-cohomology}
   Homotopy equivalent complexes have isomorphic cohomology.
 \end{coro}
 
@@ -3588,13 +3588,13 @@ good exercise to verify this fact directly
   $\beta^\bullet \circ \alpha^\bullet$ and
   $\alpha^\bullet \circ \beta^\bullet$ are both homotopic to the
   identity induce inverse morphisms in cohomology, by
-  \Cref{homol:4.10}.
+  \Cref{prop:homol:homotopic-morphisms-agree-on-cohomology}.
 \end{proof}
 
-\begin{rem}{}{homol:4.12}
+\begin{rem}{}{rem:homol:homotopy-equivalence-stronger-than-quasi-iso}
   In other words, homotopy equivalences of complexes are
   quasi-isomorphisms. This does not yet solve the `problem' that
-  quasi-isomorphisms are not invertible, since \Cref{homol:4.6} shows
+  quasi-isomorphisms are not invertible, since \Cref{exam:homol:quasi-iso-not-homotopy-invertible} shows
   that quasi-isomorphisms may well not be invertible even up to
   homotopy.  In other words, `homotopy equivalence' is a more
   restrictive notion than `quasi-isomorphism'. One reason to study
@@ -3608,7 +3608,7 @@ good exercise to verify this fact directly
   relation.
 \end{rem}
 
-\Cref{homol:4.11} is the main technical reason that makes the strategy
+\Cref{coro:homol:homotopy-equivalent-complexes-isomorphic-cohomology} is the main technical reason that makes the strategy
 presented in
 \S{}\ref{subsec:homol:reminder-of-basic-definitions-general-strategy}
 work, in a class of interesting examples. As we will see in due time,
@@ -3622,14 +3622,14 @@ categories and
 \[
   \mathscr{F} : \categ{A} \longrightarrow \categ{B}
 \]
-is an additive functor (\Cref{homol:1.1}). Then $\mathscr{F}$ induces
+is an additive functor (\Cref{defn:homol:additive-category}). Then $\mathscr{F}$ induces
 an additive functor preserving the grading
 \[
   \categ{C}(\mathscr{F}) : \categ{C}(\categ{A}) \longrightarrow
   \categ{C}(\categ{B}).
 \]
 
-\begin{lem}{}{homol:4.13}
+\begin{lem}{}{lem:homol:functor-preserves-homotopy}
   With $\mathscr{F}$ as above, if $\alpha^\bullet \sim \beta^\bullet$
   in $\categ{C}(\categ{A})$, then
   $\categ{C}(\mathscr{F})(\alpha^\bullet) \sim
@@ -3667,10 +3667,10 @@ quasi-isomorphisms
 an additive functor does not preserve quasi-isomorphisms (while an
 exact functor does).
 
-\Cref{homol:4.13} implies that the conclusion of \Cref{homol:4.11}
+\Cref{lem:homol:functor-preserves-homotopy} implies that the conclusion of \Cref{coro:homol:homotopy-equivalent-complexes-isomorphic-cohomology}
 holds true after applying an additive functor:
 
-\begin{thm}{}{homol:4.14}
+\begin{thm}{}{thm:homol:homotopy-equivalence-preserved-under-functor}
   Let $\mathscr{F} : \categ{A} \to \categ{B}$ be an additive functor
   between two abelian categories. If $L^\bullet$, $M^\bullet$ are
   homotopy equivalent complexes in $\categ{C}(\categ{A})$, then the
@@ -3687,11 +3687,11 @@ preparatory work, so it is left to the reader
 (\Cref{exer:homol:homotopy-equiv-functor-cohomology-iso}).
 
 I am gracing this statement with theorem status because it is at the
-root of the strategy I am pursuing. The content of \Cref{homol:4.14}
+root of the strategy I am pursuing. The content of \Cref{thm:homol:homotopy-equivalence-preserved-under-functor}
 is that any mechanism associating to a mathematical object a cochain
 complex determined up to homotopy will give rise to a slew of
 interesting invariants: apply your favorite additive functor to any
-such complex, take cohomology, and \Cref{homol:4.14} guarantees that
+such complex, take cohomology, and \Cref{thm:homol:homotopy-equivalence-preserved-under-functor} guarantees that
 the result will be independent of the specific chosen complex. This is
 (part of) the reason underlying the various claims of independence on
 choices made in \S{}\ref{subsec:linrep:the-tor-functors} and
@@ -3770,7 +3770,7 @@ and~7.7).
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:cone-of-null-homotopic-morphism-is-exact}
   Let $\alpha^\bullet$ be a morphism of complexes, homotopic to the
-  identity. Prove directly (without appealing to \Cref{homol:4.2})
+  identity. Prove directly (without appealing to \Cref{coro:homol:quasi-iso-iff-mapping-cone-exact})
   that the mapping cone of $\alpha^\bullet$ is
   exact. [\S{}\ref{subsec:homol:homotopy}]
 \end{exer}
@@ -3807,7 +3807,7 @@ and~7.7).
 
   Prove that two cochain maps
   $\alpha^\bullet, \beta^\bullet : L^\bullet \to M^\bullet$ are
-  homotopic in the sense of \Cref{homol:4.8} if and only if they
+  homotopic in the sense of \Cref{defn:homol:homotopy} if and only if they
   extend to a cochain morphism
   $(-\alpha^\bullet, h^\bullet, \beta^\bullet) : MCyl(\id_{L^\bullet})
   \to M^\bullet$.
@@ -3878,13 +3878,13 @@ and~7.7).
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:additive-vs-exact-functors-quasi-iso-preservation}
   Prove that, in general, additive functors do not preserve
-  quasi-isomorphisms. (Hint: \Cref{homol:4.6}.) Prove that exact
+  quasi-isomorphisms. (Hint: \Cref{exam:homol:quasi-iso-not-homotopy-invertible}.) Prove that exact
   functors do. (Hint: Use the mapping cone.)
   [\S{}\ref{subsec:homol:homotopy},
   \S{}\ref{sec:homol:projective-and-injective-resolutions-and-the-derived-category}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:homotopy-equiv-functor-cohomology-iso}
-  Prove \Cref{homol:4.14}. [\S{}\ref{subsec:homol:homotopy}]
+  Prove \Cref{thm:homol:homotopy-equivalence-preserved-under-functor}. [\S{}\ref{subsec:homol:homotopy}]
 \end{exer}
 
 \section{The homotopic category. Complexes of projectives and
@@ -3897,7 +3897,7 @@ quasi-isomorphisms are (by definition!) the morphisms of cochain
 complexes preserving cohomology and therefore may be deemed to
 `capture the cohomology of a complex', the stronger notion of homotopy
 equivalence is in fact more natural from the point of view of
-applications. This is the moral of \Cref{homol:4.14}: homotopy
+applications. This is the moral of \Cref{thm:homol:homotopy-equivalence-preserved-under-functor}: homotopy
 equivalent complexes have the same cohomology for a much better reason
 than complexes linked by a quasi-isomorphism. If our general aim is to
 understand what it means to make all quasi-isomorphisms invertible
@@ -3928,11 +3928,11 @@ consider any additive functor
 transforming quasi-isomorphisms into isomorphisms. The simplest such
 functor is cohomology; the universal one is the functor from
 $\categ{C}(\categ{A})$ to the mystifying derived category
-$\categ{D}(\categ{A})$. We have verified in \Cref{homol:4.10} that
+$\categ{D}(\categ{A})$. We have verified in \Cref{prop:homol:homotopic-morphisms-agree-on-cohomology} that
 homotopic maps induce the same morphism in cohomology. Might this not
 be the case for any functor $\mathscr{F}$ as above? It is!
 
-\begin{lem}{}{lem:homol:5.1}
+\begin{lem}{}{lem:homol:quasi-iso-inverting-functor-respects-homotopy}
   Let $\mathscr{F} : \categ{C}(\categ{A}) \longrightarrow \categ{D}$
   be an additive functor such that $\mathscr{F}(\rho^\bullet)$ is an
   isomorphism in $\categ{D}$ for all quasi-isomorphisms $\rho^\bullet$
@@ -3946,7 +3946,7 @@ be the case for any functor $\mathscr{F}$ as above? It is!
   Equivalently (as $\mathscr{F}$ is additive), we verify that if
   $\alpha^\bullet \sim 0$, then $\mathscr{F}(\alpha^\bullet) = 0$.
 
-  By \Cref{homol:4.7}, it suffices to show that $\alpha^\bullet$
+  By \Cref{lem:homol:functor-invariant-under-quasi-iso-basic-properties}, it suffices to show that $\alpha^\bullet$
   factors through an exact complex. This exact complex is the mapping
   cone $MC(\id_{L^\bullet})^\bullet$ of the identity
   $\id_{L^\bullet} : L^\bullet \to L^\bullet$. Recall
@@ -3960,7 +3960,7 @@ be the case for any functor $\mathscr{F}$ as above? It is!
     a + d^i_{L^\bullet}(b)\bigr).
   \]
   Since the identity is trivially a quasi-isomorphism,
-  $MC(\id_{L^\bullet})$ is an exact complex (\Cref{homol:4.2}). The
+  $MC(\id_{L^\bullet})$ is an exact complex (\Cref{coro:homol:quasi-iso-iff-mapping-cone-exact}). The
   morphism
   \[
     L^i \to MC(\id_{L^\bullet})^i, \qquad b \mapsto (0, b)
@@ -3982,7 +3982,7 @@ be the case for any functor $\mathscr{F}$ as above? It is!
   to check now is that the collection $\pi^i$ defines a morphism of
   complexes: this will show that $\alpha^\bullet$ factors through the
   exact complex $MC(\id_{L^\bullet})^\bullet$, hence that
-  $\mathscr{F}(\alpha^\bullet) = 0$ (by \Cref{homol:4.7}), concluding
+  $\mathscr{F}(\alpha^\bullet) = 0$ (by \Cref{lem:homol:functor-invariant-under-quasi-iso-basic-properties}), concluding
   the proof of this lemma. That is, we have to verify that
   \[
     d^{i-1}_{M^\bullet} \circ \pi^{i-1} = \pi^i \circ
@@ -4019,7 +4019,7 @@ be the case for any functor $\mathscr{F}$ as above? It is!
   $\alpha^\bullet \sim 0$.
 \end{proof}
 
-Lemma~\ref{lem:homol:5.1} tells us that every functor transforming
+Lemma~\ref{lem:homol:quasi-iso-inverting-functor-respects-homotopy} tells us that every functor transforming
 quasi-isomorphisms into isomorphisms must factor through the category
 obtained from $\categ{C}(\categ{A})$ by identifying together homotopic
 morphisms. It is time to define this category.
@@ -4027,7 +4027,7 @@ morphisms. It is time to define this category.
 \subsection{Definition of the homotopic category of complexes}
 \label{subsec:homol:definition-of-the-homotopic-category-of-complexes}
 
-\begin{defn}{}{defn:homol:5.2}
+\begin{defn}{}{defn:homol:homotopy-category}
   Let $\categ{A}$ be an abelian category. The \emph{homotopy category}
   $\categ{K}(\categ{A})$ of cochain complexes in $\categ{A}$ is the
   category whose objects are the cochain complexes in $\categ{A}$
@@ -4070,7 +4070,7 @@ will also play a crucially important role.
 
 As to the general structure underlying the homotopic category,
 
-\begin{lem}{}{lem:homol:5.3}
+\begin{lem}{}{lem:homol:homotopy-category-is-additive}
   Let $\categ{A}$ be an abelian category. Then the homotopic category
   $\categ{K}(\categ{A})$ of complexes is an additive category.
 \end{lem}
@@ -4106,10 +4106,10 @@ $\categ{K}(\categ{A})$. The homotopic category is obtained from
 $\categ{C}(\categ{A})$ by making all homotopy equivalences invertible
 on the nose.
 
-We can then reinterpret Lemma~\ref{lem:homol:5.1} as the following
+We can then reinterpret Lemma~\ref{lem:homol:quasi-iso-inverting-functor-respects-homotopy} as the following
 `factorization' result:
 
-\begin{prop}{}{prop:homol:5.4}
+\begin{prop}{}{prop:homol:functor-factors-through-homotopy-category}
   Let $\mathscr{F} : \categ{C}(\categ{A}) \longrightarrow \categ{D}$
   be an additive functor such that $\mathscr{F}(\rho^\bullet)$ is an
   isomorphism in $\categ{D}$ for all quasi-isomorphisms $\rho^\bullet$
@@ -4138,12 +4138,12 @@ categories:
     \categ{K}^-(\categ{A}) \arrow[d] & \categ{K}^+(\categ{A})
     \arrow[d] \\
     \categ{D}^-(\categ{A}) & \categ{D}^+(\categ{A})
-  \end{tikzcd}\] A particular case of Proposition~\ref{prop:homol:5.4}
+  \end{tikzcd}\] A particular case of Proposition~\ref{prop:homol:functor-factors-through-homotopy-category}
 is the fact that the cohomology functor on $\categ{C}(\categ{A})$
 (resp., $\categ{C}^-(\categ{A})$, $\categ{C}^+(\categ{A})$) descends
 to a functor on $\categ{K}(\categ{A})$ (resp.,
 $\categ{K}^-(\categ{A})$, $\categ{K}^+(\categ{A})$). This fact also
-follows directly from \Cref{homol:4.10}: homotopic maps induce the
+follows directly from \Cref{prop:homol:homotopic-morphisms-agree-on-cohomology}: homotopic maps induce the
 same morphism in cohomology.
 
 \subsection{Complexes of projective and injective objects}
@@ -4152,7 +4152,7 @@ same morphism in cohomology.
 We should now ask `how far' $\categ{K}(\categ{A})$ may be from
 $\categ{D}(\categ{A})$. We have inverted all homotopy equivalences in
 $\categ{K}(\categ{A})$, but not all quasi-isomorphisms are homotopy
-equivalences: keep \Cref{homol:4.6} in mind. If we want to think of
+equivalences: keep \Cref{exam:homol:quasi-iso-not-homotopy-invertible} in mind. If we want to think of
 $\categ{K}(\categ{A})$ as a first approximation to
 $\categ{D}(\categ{A})$, we should focus on complexes for which there
 is essentially no distinction between quasi-isomorphisms and homotopy
@@ -4164,7 +4164,7 @@ $R$-module $M$ is `projective' if the functor $\Hom_R(M, \_)$ is exact
 and it is `injective' if $\Hom_R(\_, M)$ is exact. We can adopt these
 definitions in any abelian category:
 
-\begin{defn}{}{defn:homol:5.5}
+\begin{defn}{}{defn:homol:projective-injective-object}
   Let $\categ{A}$ be an abelian category. An object $P$ of $\categ{A}$
   is \emph{projective} if the functor $\Hom_{\categ{A}}(P, \_)$ is
   exact. An object $Q$ is \emph{injective} if the functor
@@ -4201,14 +4201,14 @@ injective, objects. Of course these are not abelian categories in any
 interesting case. Note that an abelian category may well have no
 nontrivial projective or injective objects.
 
-\begin{exam}{}{exam:homol:5.6}
+\begin{exam}{}{exam:homol:finite-abelian-groups-no-proj-inj}
   The category of finite abelian groups is abelian (surprise,
   surprise), but contains no nontrivial projective or injective
   objects
   (\Cref{exer:homol:no-nontrivial-proj-inj-finite-abelian-groups}).
 \end{exam}
 
-\begin{defn}{}{defn:homol:5.7}
+\begin{defn}{}{defn:homol:enough-projectives-injectives}
   An abelian category $\categ{A}$ has \emph{enough projectives} if for
   every object $A$ in $\categ{A}$ there exists a projective object $P$
   in $\categ{A}$ and an epimorphism $P \twoheadrightarrow A$. The
@@ -4226,7 +4226,7 @@ challenging: free modules and their direct summands are projective,
 \Cref{prop:linrep:projective-iff-direct-summand-of-free}) and enough injectives (this is challenging; we
 verified it in \Cref{coro:linrep:module-embeds-in-injective}).
 
-Example~\ref{exam:homol:5.6} shows that we should not expect an
+Example~\ref{exam:homol:finite-abelian-groups-no-proj-inj} shows that we should not expect an
 abelian category $\categ{A}$ to have either property. An important
 case in which one can show that there are enough injectives is the
 category of sheaves of abelian groups over a topological space; this
@@ -4243,7 +4243,7 @@ As I already mentioned, we will be interested in certain subcategories
 of $\categ{K}(\categ{A})$ determined by complexes of projective or
 injective objects of $\categ{A}$.
 
-\begin{defn}{}{defn:homol:5.8}
+\begin{defn}{}{defn:homol:bounded-complexes-of-projectives-injectives}
   I will denote by $\categ{K}^-(\categ{P})$ the full subcategory of
   $\categ{K}(\categ{A})$ consisting of bounded-above complexes of
   projective objects of $\categ{A}$, and I will denote by
@@ -4254,7 +4254,7 @@ injective objects of $\categ{A}$.
 
 The main result of the rest of this section is the following:
 
-\begin{thm}{}{thm:homol:5.9}
+\begin{thm}{}{thm:homol:quasi-iso-of-bounded-proj-inj-complexes-is-homotopy-equivalence}
   Let $\categ{A}$ be an abelian category, and let
   $\alpha^\bullet : P_0^\bullet \to P_1^\bullet$, resp.,
   $\alpha^\bullet : Q_0^\bullet \to Q_1^\bullet$, be a
@@ -4263,7 +4263,7 @@ The main result of the rest of this section is the following:
   $\alpha^\bullet$ is a homotopy equivalence.
 \end{thm}
 
-\begin{coro}{}{coro:homol:5.10}
+\begin{coro}{}{coro:homol:quasi-isos-are-isomorphisms-in-bounded-proj-inj}
   In $\categ{K}^-(\categ{P})$ and $\categ{K}^+(\categ{I})$, (homotopy
   classes of) quasi-isomorphisms are isomorphisms.
 \end{coro}
@@ -4278,7 +4278,7 @@ $\categ{D}^-(\categ{A})$ (in a sense that will be made more precise);
 similarly, $\categ{K}^+(\categ{I})$ acts as a concrete realization of
 $\categ{D}^+(\categ{A})$ if $\categ{A}$ has enough injectives.
 
-The proof of Theorem~\ref{thm:homol:5.9} will require a few
+The proof of Theorem~\ref{thm:homol:quasi-iso-of-bounded-proj-inj-complexes-is-homotopy-equivalence} will require a few
 preliminaries, which further clarify the role played by complexes of
 projective and injective objects with regard to homotopies.
 
@@ -4298,7 +4298,7 @@ the identity does turn out to be homotopic to $0$.
 
 To verify this, we study special conditions that ensure that morphisms
 are homotopic to $0$.
-\begin{lem}{}{lem:homol:5.11}
+\begin{lem}{}{lem:homol:zero-cohomology-morphism-null-homotopic}
   Let $P^\bullet$ be a complex of projective objects of an abelian
   category $\categ{A}$ such that $P^i = 0$ for $i > 0$, and let
   $L^\bullet$ be a complex in $\categ{C}(\categ{A})$ such that
@@ -4374,7 +4374,7 @@ $i < 0$.
   \circ h^{i-1}$, which is precisely what we need for the induction
   step.
 \end{proof}
-\begin{coro}{}{coro:homol:5.12}
+\begin{coro}{}{coro:homol:morphism-to-exact-complex-null-homotopic}
   Let $P^\bullet$ be a bounded-above cochain complex of projectives of
   an abelian category $\categ{A}$, and let $L^\bullet$ be an exact
   complex in $\categ{C}(\categ{A})$.
@@ -4384,10 +4384,10 @@ $i < 0$.
 \end{coro}
 
 This follows immediately from (a harmless shift of)
-Lemma~\ref{lem:homol:5.11}, since every morphism to an exact complex
+Lemma~\ref{lem:homol:zero-cohomology-morphism-null-homotopic}, since every morphism to an exact complex
 has no choice but to induce the zero-morphism in cohomology.
 
-The `injective' version of Corollary~\ref{coro:homol:5.12} is that
+The `injective' version of Corollary~\ref{coro:homol:morphism-to-exact-complex-null-homotopic} is that
 morphisms from an exact complex $L^\bullet$ to a bounded-below complex
 $Q^\bullet$ of injectives are necessarily homotopy equivalent to $0$.
 
@@ -4396,10 +4396,10 @@ $Q^\bullet$ are required to live in the `bounded' versions
 $\categ{C}^-(\categ{P})$, $\categ{C}^+(\categ{I})$: all objects should
 vanish in degree sufficiently high or low. This furnishes the `start'
 of the inductive construction of the homotopy in the proof of
-Lemma~\ref{lem:homol:5.11}. It is an essentially inescapable feature
+Lemma~\ref{lem:homol:zero-cohomology-morphism-null-homotopic}. It is an essentially inescapable feature
 of the theory.
 
-\begin{coro}{}{coro:homol:5.13}
+\begin{coro}{}{coro:homol:bounded-exact-complex-homotopy-trivial}
   Let $P^\bullet$ (resp., $Q^\bullet$) be a bounded-above exact
   complex of projectives (resp., a bounded-below exact complex of
   injectives). Then $P^\bullet$ (resp., $Q^\bullet$) is homotopy
@@ -4409,19 +4409,19 @@ of the theory.
   \Cref{exer:homol:exact-bounded-complex-proj-inj-homotopy-trivial}.
 \end{proof}
 
-Corollary~\ref{coro:homol:5.13} is the first manifestation of the
-principle captured more fully by Theorem~\ref{thm:homol:5.9}: we have
+Corollary~\ref{coro:homol:bounded-exact-complex-homotopy-trivial} is the first manifestation of the
+principle captured more fully by Theorem~\ref{thm:homol:quasi-iso-of-bounded-proj-inj-complexes-is-homotopy-equivalence}: we have
 just verified that, for suitably bounded complexes of projectives or
 injectives, `quasi-isomorphic to $0$' is the same as `homotopy
 equivalent to $0$'.
 
-Another consequence of Lemma~\ref{lem:homol:5.11} is the following
+Another consequence of Lemma~\ref{lem:homol:zero-cohomology-morphism-null-homotopic} is the following
 remark, showing that quasi-isomorphisms are `non-zero-divisors' up to
 homotopy, with respect to morphisms from complexes of projectives.
 This will be useful in the next section, for example to show that
 certain lifts are uniquely defined up to homotopy.
 
-\begin{lem}{}{lem:homol:5.14}
+\begin{lem}{}{lem:homol:quasi-iso-lifting-uniqueness-setup}
   Let $\categ{A}$ be an abelian category, and let
   $\rho^\bullet : L^\bullet \to M^\bullet$ be a quasi-isomorphism in
   $\categ{C}(\categ{A})$. Let $P^\bullet$ be a bounded-above complex
@@ -4470,8 +4470,8 @@ certain lifts are uniquely defined up to homotopy.
   is a morphism of complexes.
 
   Now, $\rho^\bullet$ is a quasi-isomorphism by hypothesis. Therefore
-  $MC(\rho)^\bullet$ is an exact complex (\Cref{homol:4.2}). Applying
-  Corollary~\ref{coro:homol:5.12}, it follows that $\beta^\bullet$ is
+  $MC(\rho)^\bullet$ is an exact complex (\Cref{coro:homol:quasi-iso-iff-mapping-cone-exact}). Applying
+  Corollary~\ref{coro:homol:morphism-to-exact-complex-null-homotopic}, it follows that $\beta^\bullet$ is
   homotopic to zero. But $\alpha^\bullet$ is the composition
   \[\begin{tikzcd}
       P^\bullet \arrow[r, "\beta^\bullet"] & MC(\rho)[-1]^\bullet =
@@ -4482,10 +4482,10 @@ certain lifts are uniquely defined up to homotopy.
   $\alpha^\bullet \sim 0$, concluding the proof.
 \end{proof}
 
-\begin{exam}{}{exam:homol:5.15}
+\begin{exam}{}{exam:homol:composition-zero-but-morphism-nonzero-example}
   To see that $\alpha^\bullet$ may not be zero on the nose even if
   $\rho^\bullet \circ \alpha^\bullet = 0$, look back again at
-  \Cref{homol:4.6}:
+  \Cref{exam:homol:quasi-iso-not-homotopy-invertible}:
   \[\begin{tikzcd}[column sep=small]
       P^\bullet: & \dots \arrow[r] & 0 \arrow[r] \arrow[d] & \Z
       \arrow[r, "\id"] \arrow[d, "\id"'] & \Z \arrow[r] \arrow[d,
@@ -4499,22 +4499,22 @@ certain lifts are uniquely defined up to homotopy.
     \end{tikzcd}\] Here $\rho^\bullet$ (the map
   $L^\bullet \to M^\bullet$, which is $\pi$ in the nonzero degree) is
   a quasi-isomorphism, and $\rho^\bullet \circ \alpha^\bullet =
-  0$. According to Lemma~\ref{lem:homol:5.14}, the (nonzero) morphism
+  0$. According to Lemma~\ref{lem:homol:quasi-iso-lifting-uniqueness-setup}, the (nonzero) morphism
   $\alpha^\bullet$ is homotopic to $0$. (Indeed, a homotopy is
   immediately visible.  What is it?)
 \end{exam}
 
-\subsection{Proof of Theorem~\ref{thm:homol:5.9}}%
+\subsection{Proof of Theorem~\ref{thm:homol:quasi-iso-of-bounded-proj-inj-complexes-is-homotopy-equivalence}}%
 \label{subsec:homol:proof-of-theorem-5-9}
 
-\Cref{thm:homol:5.9} will follow from a more general observation: a
+\Cref{thm:homol:quasi-iso-of-bounded-proj-inj-complexes-is-homotopy-equivalence} will follow from a more general observation: a
 quasi-isomorphism \emph{to} a complex of projectives, resp.,
 \emph{from} a complex of injectives\footnote{That is, going `the wrong
   way': projectives like being the sources of morphisms, and
   injectives like to be targets.}, has a \emph{right}, resp.,
 \emph{left}, homotopy inverse.
 
-\begin{prop}{}{prop:homol:5.16}
+\begin{prop}{}{prop:homol:quasi-iso-to-projective-complex-has-homotopy-inverse}
   Let $\categ{A}$ be an abelian category, and let $L^\bullet$ be a
   complex in $\categ{C}(\categ{A})$. Let $P^\bullet$ in
   $\categ{C}^-(\categ{P})$ be a bounded-above complex of projectives,
@@ -4533,14 +4533,14 @@ quasi-isomorphism \emph{to} a complex of projectives, resp.,
 \begin{proof}
   Since $\alpha^\bullet : L^\bullet \to P^\bullet$ is a
   quasi-isomorphism, the mapping cone $MC(\alpha)^\bullet$ of $\alpha$
-  is an exact complex (\Cref{homol:4.2}). Let $\rho^\bullet$ be the
+  is an exact complex (\Cref{coro:homol:quasi-iso-iff-mapping-cone-exact}). Let $\rho^\bullet$ be the
   morphism of complexes
   \[
     \rho^\bullet = (0, \id_{P^\bullet}) : P^\bullet \to L[1]^\bullet
     \oplus P^\bullet = MC(\alpha)^\bullet.
   \]
   Since $MC(\alpha)^\bullet$ is exact, $\rho^\bullet$ is homotopic to
-  zero by Corollary~\ref{coro:homol:5.12}. Therefore, there exist
+  zero by Corollary~\ref{coro:homol:morphism-to-exact-complex-null-homotopic}. Therefore, there exist
   morphisms
   \[
     \hat h^i : P^i \to MC(\alpha)^{i-1} = L^i \oplus P^{i-1}
@@ -4601,12 +4601,12 @@ quasi-isomorphism \emph{to} a complex of projectives, resp.,
 \end{proof}
 
 Taking $L^\bullet$ to be a suitably bounded complex of projectives or
-injectives finally establishes Theorem~\ref{thm:homol:5.9}:
+injectives finally establishes Theorem~\ref{thm:homol:quasi-iso-of-bounded-proj-inj-complexes-is-homotopy-equivalence}:
 
-\begin{proof}[Proof of \cref{thm:homol:5.9}]
+\begin{proof}[Proof of \cref{thm:homol:quasi-iso-of-bounded-proj-inj-complexes-is-homotopy-equivalence}]
   We will give the argument for projectives.
 
-  By Proposition~\ref{prop:homol:5.16}, since $P_1^\bullet$ is in
+  By Proposition~\ref{prop:homol:quasi-iso-to-projective-complex-has-homotopy-inverse}, since $P_1^\bullet$ is in
   $\categ{C}^-(\categ{P})$ and
   $\alpha^\bullet : P_0^\bullet \to P_1^\bullet$ is a
   quasi-isomorphism, there exists a morphism of complexes
@@ -4616,10 +4616,10 @@ injectives finally establishes Theorem~\ref{thm:homol:5.9}:
   \]
   This implies that
   $H^\bullet(\alpha^\bullet) \circ H^\bullet(\beta^\bullet) = \id$
-  (\Cref{homol:4.10}). Since $H^\bullet(\alpha^\bullet)$ is
+  (\Cref{prop:homol:homotopic-morphisms-agree-on-cohomology}). Since $H^\bullet(\alpha^\bullet)$ is
   invertible, so is $H^\bullet(\beta^\bullet)$: therefore,
   $\beta^\bullet$ is a quasi-isomorphism. Now $P_0^\bullet$ is also in
-  $\categ{C}^-(\categ{P})$; hence by Proposition~\ref{prop:homol:5.16}
+  $\categ{C}^-(\categ{P})$; hence by Proposition~\ref{prop:homol:quasi-iso-to-projective-complex-has-homotopy-inverse}
   there exists a morphism of complexes
   $\alpha^{\bullet\prime} : P_0^\bullet \to P_1^\bullet$ such that
   $\beta^\bullet \circ \alpha^{\bullet\prime} \sim
@@ -4645,7 +4645,7 @@ injectives finally establishes Theorem~\ref{thm:homol:5.9}:
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:functor-factors-through-homotopic-category}
   Prove
-  \Cref{prop:homol:5.4}. [\S{}\ref{subsec:homol:definition-of-the-homotopic-category-of-complexes}]
+  \Cref{prop:homol:functor-factors-through-homotopy-category}. [\S{}\ref{subsec:homol:definition-of-the-homotopic-category-of-complexes}]
 \end{exer}
 \begin{exer}{}{exer:homol:projective-injective-in-any-category-set-example}
   Provide a reasonable definition of `projective' and `injective'
@@ -4846,7 +4846,7 @@ injectives finally establishes Theorem~\ref{thm:homol:5.9}:
     homotopy equivalent. (This may turn out to be challenging. If so,
     wait until you have covered
     \S{}\ref{sec:homol:projective-and-injective-resolutions-and-the-derived-category},
-    in particular \Cref{thm:homol:6.6}.)
+    in particular \Cref{thm:homol:projective-resolution-functor-exists}.)
   \end{itemize}
   [\ref{exer:homol:chain-of-quasi-isos-gives-homotopy-equivalence}]
 \end{exer}
@@ -4855,7 +4855,7 @@ injectives finally establishes Theorem~\ref{thm:homol:5.9}:
   category}
 \label{sec:homol:projective-and-injective-resolutions-and-the-derived-category}
 
-Theorem~\ref{thm:homol:5.9} is very good news. It tells us that if we
+Theorem~\ref{thm:homol:quasi-iso-of-bounded-proj-inj-complexes-is-homotopy-equivalence} is very good news. It tells us that if we
 are willing and able to change our viewpoint and adopt bounded
 complexes of projectives or injectives as our natural environment,
 then we will have an excellent handle on the subtle notion of
@@ -4865,8 +4865,8 @@ behaved than arbitrary quasi-isomorphisms. For example, homotopy
 equivalence of complexes is manifestly an equivalence relation
 (\Cref{exer:homol:homotopy-and-homotopy-equiv-are-equiv-relations}),
 while quasi-isomorphism is not (see the discussion following
-\Cref{homol:4.6}). Further, homotopy equivalences are preserved by
-every additive functor (\Cref{homol:4.14}), while general
+\Cref{exam:homol:quasi-iso-not-homotopy-invertible}). Further, homotopy equivalences are preserved by
+every additive functor (\Cref{thm:homol:homotopy-equivalence-preserved-under-functor}), while general
 quasi-isomorphisms are not
 (\Cref{exer:homol:additive-vs-exact-functors-quasi-iso-preservation}).
 
@@ -4896,7 +4896,7 @@ as a full subcategory of $\categ{K}(\categ{A})$
 Let us begin by recalling (and sharpening) our definition of
 projective/injective resolutions of an object $A$.
 
-\begin{defn}{}{defn:homol:6.1}
+\begin{defn}{}{defn:homol:projective-injective-resolution}
   Let $A$ be an object of an abelian category $\categ{A}$.
 
   A \emph{projective resolution} of $A$ is a quasi-isomorphism
@@ -4912,7 +4912,7 @@ By common abuse of language, I will often refer to $P^\bullet$ or
 $Q^\bullet$ as \emph{the} resolution, leaving the quasi-isomorphism
 understood.
 
-\begin{rem}{}{rem:homol:6.2}
+\begin{rem}{}{rem:homol:resolution-terminology-caveat}
   The terminology is potentially confusing, since it hints that the
   resolutions themselves may be projective/injective as objects of the
   abelian category $\categ{C}(\categ{A})$, or of its bounded
@@ -4921,7 +4921,7 @@ understood.
 \end{rem}
 
 Projective or injective resolutions need not exist: as I pointed out
-(\Cref{exam:homol:5.6}), an abelian category may have no nontrivial
+(\Cref{exam:homol:finite-abelian-groups-no-proj-inj}), an abelian category may have no nontrivial
 projective or injective objects. It is however clear that such
 resolutions exist \emph{if} the category has enough
 projectives/injectives: if $\categ{A}$ has enough projectives, then
@@ -4940,7 +4940,7 @@ $\categ{A}$ has enough injectives, then every object $A$ has an
 injective resolution.
 
 Now consider the category of homotopy classes of quasi-isomorphisms
-with target $\iota(A)$ (cf. \Cref{homol:4.5}): this is a `homotopic
+with target $\iota(A)$ (cf. \Cref{rem:homol:quasi-isomorphisms-form-a-category}): this is a `homotopic
 category of resolutions' of $A$. I claim that projective resolutions,
 if they exist, are \emph{initial} in this category.  (Analogously,
 injective resolutions are \emph{final} in the homotopic category of
@@ -4950,7 +4950,7 @@ As the reader knows, this means that projective resolutions are
 supposed to map uniquely (in $\categ{K}(\categ{A})$) to every
 resolution of $A$. The following key lemma proves this and more:
 
-\begin{lem}{}{lem:homol:6.3}
+\begin{lem}{}{lem:homol:resolution-lifting-property}
   Let $A$ be an object of an abelian category $\categ{A}$. Let
   $M^\bullet$ be a resolution of $A$, and let $P^\bullet$ be any
   complex in $\categ{C}^{\le 0}(\categ{P})$. Let
@@ -5016,7 +5016,7 @@ resolution of $A$. The following key lemma proves this and more:
 
   This proves the existence of
   $\alpha^\bullet : P^\bullet \to M^\bullet$. Its uniqueness up to
-  homotopy follows immediately from Lemma~\ref{lem:homol:5.11}.
+  homotopy follows immediately from Lemma~\ref{lem:homol:zero-cohomology-morphism-null-homotopic}.
 \end{proof}
 
 Summarizing, if $\categ{A}$ contains enough projectives, then every
@@ -5031,12 +5031,12 @@ unique up to isomorphism
 (\Cref{prop:prelims:initial-final-unique}). Here, this says the
 following:
 
-\begin{prop}{}{prop:homol:6.4}
+\begin{prop}{}{prop:homol:resolutions-are-homotopy-equivalent}
   Any two projective (resp., injective) resolutions of an object $A$
   of an abelian category $\categ{A}$ are homotopy equivalent.
 \end{prop}
 
-(This is also a direct consequence of Lemma~\ref{lem:homol:6.3}.)
+(This is also a direct consequence of Lemma~\ref{lem:homol:resolution-lifting-property}.)
 
 The moral I extract from these considerations is that if an abelian
 category $\categ{A}$ has enough (say) projectives, then we can
@@ -5045,7 +5045,7 @@ $\categ{K}^{\le 0}(\categ{P})$, determined up to homotopy. This can in
 fact be done functorially, in the sense that morphisms in $\categ{A}$
 can be lifted to morphisms of corresponding projective resolutions:
 
-\begin{prop}{}{prop:homol:6.5}
+\begin{prop}{}{prop:homol:morphism-lifts-to-resolutions-uniquely-up-to-homotopy}
   Let $A_0$, $A_1$ be objects of an abelian category $\categ{A}$, and
   let $P_i^\bullet$ be a projective resolution of $A_i$, $i = 0,
   1$. Then every morphism $\varphi : A_0 \to A_1$ in $\categ{A}$ is
@@ -5060,10 +5060,10 @@ can be lifted to morphisms of corresponding projective resolutions:
   $H^0(P_0^\bullet) \to H^0(P_1^\bullet)$. The complex $P_0^\bullet$
   consists of projectives, and $P_1^\bullet$ is a resolution of $A_1$;
   therefore a lift $\alpha^\bullet$ exists and is unique up to
-  homotopy, as an immediate consequence of Lemma~\ref{lem:homol:6.3}.
+  homotopy, as an immediate consequence of Lemma~\ref{lem:homol:resolution-lifting-property}.
 \end{proof}
 
-The assignment provided by Proposition~\ref{prop:homol:6.5} is clearly
+The assignment provided by Proposition~\ref{prop:homol:morphism-lifts-to-resolutions-uniquely-up-to-homotopy} is clearly
 covariant. The bottom line is that the part of $\categ{A}$ consisting
 of objects with (say) projective resolutions is equivalent to a full
 subcategory of $\categ{K}^-(\categ{P})$. Dear reader, please formalize
@@ -5087,17 +5087,17 @@ subcategory which is equivalent to $\categ{A}$: the (homotopy)
 category of projective resolutions of objects of $\categ{A}$. While a
 priori each object of $\categ{A}$ corresponds to many projective
 resolutions, these are all homotopy equivalent to one another (by
-Proposition~\ref{prop:homol:6.4}), hence isomorphic in
+Proposition~\ref{prop:homol:resolutions-are-homotopy-equivalent}), hence isomorphic in
 $\categ{K}^-(\categ{P})$; morphisms in $\categ{A}$ correspond
 precisely to homotopy classes of morphisms between projective
-resolutions (by Proposition~\ref{prop:homol:6.5}), hence to morphisms
+resolutions (by Proposition~\ref{prop:homol:morphism-lifts-to-resolutions-uniquely-up-to-homotopy}), hence to morphisms
 in $\categ{K}^-(\categ{P})$.
 
 In practice, this says that we can use this subcategory of
 $\categ{K}^-(\categ{P})$ as a replacement for the original abelian
 category $\categ{A}$. We are very close to achieving our goal of
 identifying the `essential nature' of cohomology: since homotopy
-equivalent complexes have the same cohomology (by \Cref{homol:4.14})
+equivalent complexes have the same cohomology (by \Cref{thm:homol:homotopy-equivalence-preserved-under-functor})
 and additive functors preserve homotopy equivalence, objects of
 $\categ{K}^-(\categ{P})$ are ideal carriers of cohomology invariants:
 while applying an additive functor to objects of $\categ{A}$ in
@@ -5131,7 +5131,7 @@ up to homotopy equivalence in $\categ{C}(\categ{A})$).
 
 This is indeed the case.
 
-\begin{thm}{}{thm:homol:6.6}
+\begin{thm}{}{thm:homol:projective-resolution-functor-exists}
   Assume the abelian category $\categ{A}$ has enough projectives, and
   let $L^\bullet$ be a complex in $\categ{C}^-(\categ{A})$.  Then
   there exists a bounded-above complex of projectives $P^\bullet$ and
@@ -5151,7 +5151,7 @@ I will call a complex $P^\bullet$ as in the statement a `projective
 resolution of $L^\bullet$'; this is a slight abuse of language, since
 it forgets the specific quasi-isomorphism $P^\bullet \to L^\bullet$.
 
-As always, there is a mirror statement to Theorem~\ref{thm:homol:6.6}
+As always, there is a mirror statement to Theorem~\ref{thm:homol:projective-resolution-functor-exists}
 for injectives, which I will leave to the reader to formulate
 precisely. It is a particularly good exercise for the reader to
 construct a stand-alone proof for the injective case.
@@ -5200,7 +5200,7 @@ construct a stand-alone proof for the injective case.
   $d^i_{L^\bullet}$.  The square is a pull-back (cf. Examples~1.11 and
   2.2). The morphism $\hat\lambda^{i+1}$ on the right is an
   epimorphism by induction, and it follows that the morphism on the
-  left is also an epimorphism, by \Cref{homol:2.3}. A projective
+  left is also an epimorphism, by \Cref{lem:homol:epimorphisms-stable-under-pullback}. A projective
   object $P^i$ with an epimorphism to the fibered product exists
   because $\categ{A}$ has enough projectives; the composition
   $\lambda^i : P^i \to L^i$ is then also an epimorphism, as
@@ -5222,7 +5222,7 @@ construct a stand-alone proof for the injective case.
     \ker d^{i+1}_{P^\bullet} \longrightarrow \ker d^{i+1}_{L^\bullet}.
   \]
   As the diagram is a pull-back, this implies (as observed in
-  \Cref{homol:2.2}) that it is a push-out as well, and
+  \Cref{exam:homol:fibered-diagram-exact-sequence}) that it is a push-out as well, and
   (\Cref{exer:homol:pullback-kernel-comparison-iso} again) it follows
   that the induced morphism $\coker\pi \to \coker d^i_{L^\bullet}$ is
   an isomorphism. As noted, this is nothing but
@@ -5281,7 +5281,7 @@ construct a stand-alone proof for the injective case.
       \arrow[r, "\overline\lambda^\bullet"'] & L^\bullet
     \end{tikzcd}\] Both $\lambda^\bullet$ and
   $\overline\lambda^\bullet$ are quasi-isomorphisms; therefore so is
-  $\tilde\lambda^\bullet$.  Theorem~\ref{thm:homol:5.9} implies then
+  $\tilde\lambda^\bullet$.  Theorem~\ref{thm:homol:quasi-iso-of-bounded-proj-inj-complexes-is-homotopy-equivalence} implies then
   that $\tilde\lambda^\bullet$ is a homotopy equivalence, as needed.
 
   \emph{Lifting morphisms.} Let
@@ -5321,7 +5321,7 @@ construct a stand-alone proof for the injective case.
       P^\bullet \arrow[r, "\text{q-iso.}"] & L^\bullet
     \end{tikzcd}\] It follows that
   $\alpha_1^\bullet - \alpha_0^\bullet \sim 0$, by
-  Lemma~\ref{lem:homol:5.14}, and this concludes the proof.
+  Lemma~\ref{lem:homol:quasi-iso-lifting-uniqueness-setup}, and this concludes the proof.
 \end{proof}
 
 \subsection{Poor man's derived category}
@@ -5335,7 +5335,7 @@ universal problem presented in
 \S{}\ref{subsec:homol:quasi-isomorphisms-and-derived-categories}. The
 precise statement is the following.
 
-By \Cref{prop:homol:5.4}, the functor
+By \Cref{prop:homol:functor-factors-through-homotopy-category}, the functor
 $\categ{C}(\categ{A}) \to \categ{D}(\categ{A})$ factors through the
 homotopic category; this of course holds for the bounded versions of
 these categories as well. Thus, we have functors
@@ -5347,7 +5347,7 @@ we obtain functors
   \categ{K}^+(\categ{I}) \to \categ{D}^+(\categ{A}).
 \]
 
-\begin{thm}{}{thm:homol:6.7}
+\begin{thm}{}{thm:homol:derived-category-equivalence-via-resolutions}
   Let $\categ{A}$ be an abelian category with enough projectives.
   Then the functor $\categ{K}^-(\categ{P}) \to \categ{D}^-(\categ{A})$
   is an equivalence of categories.
@@ -5357,11 +5357,11 @@ we obtain functors
   equivalence of categories.
 \end{thm}
 
-Theorem~\ref{thm:homol:6.7} is proven in full detail in any more
+Theorem~\ref{thm:homol:derived-category-equivalence-via-resolutions} is proven in full detail in any more
 complete treatment of homological algebra. Since we have not actually
 constructed $\categ{D}^-(\categ{A})$, we cannot really prove this
 statement here; but we now know enough to appreciate why
-Theorem~\ref{thm:homol:6.7} should be true, in the sense that
+Theorem~\ref{thm:homol:derived-category-equivalence-via-resolutions} should be true, in the sense that
 $\categ{K}^-(\categ{P})$, $\categ{K}^+(\categ{I})$ satisfy the
 expected universal properties. I will deal with the projective side of
 the story, since the injective side mirrors it faithfully.
@@ -5370,7 +5370,7 @@ Assume that $\categ{A}$ has enough projectives. Define a functor
 $\mathscr{P} : \categ{C}^-(\categ{A}) \to \categ{K}^-(\categ{P})$ by
 associating with every bounded-above complex $L^\bullet$ any
 projective resolution $\mathscr{P}(L^\bullet)$ of $L^\bullet$ (which
-exists by Theorem~\ref{thm:homol:6.6}) and with every morphism
+exists by Theorem~\ref{thm:homol:projective-resolution-functor-exists}) and with every morphism
 $\alpha^\bullet : L^\bullet \to M^\bullet$ in $\categ{C}^-(\categ{A})$
 the morphism $\mathscr{P}(\alpha^\bullet)$ in $\categ{K}^-(\categ{P})$
 lifting $\alpha^\bullet$.
@@ -5393,18 +5393,18 @@ Note that there is a very large element of arbitrariness in the choice
 of $\mathscr{P}$: I am not prescribing any particular recipe for
 choosing a projective resolution rather than another. But all such
 resolutions are homotopically equivalent, as proven in
-Theorem~\ref{thm:homol:6.6}; therefore different choices would only
+Theorem~\ref{thm:homol:projective-resolution-functor-exists}; therefore different choices would only
 move the resolutions in their isomorphism class in
 $\categ{K}^-(\categ{P})$.
 
-\begin{rem}{}{rem:homol:6.8}
+\begin{rem}{}{rem:homol:resolution-functor-choice-independence}
   There is an efficient way to clarify (and defuse) this
   arbitrariness. Suppose $\mathscr{P}$, $\mathscr{P}'$ are two choices
   for the resolution functor
   $\categ{C}^-(\categ{A}) \to \categ{K}^-(\categ{P})$. Thus, we have
   chosen two projective resolutions $\mathscr{P}(L^\bullet)$,
   $\mathscr{P}'(L^\bullet)$ for each object $L^\bullet$ in
-  $\categ{C}^-(\categ{A})$. By Theorem~\ref{thm:homol:6.6}, there is a
+  $\categ{C}^-(\categ{A})$. By Theorem~\ref{thm:homol:projective-resolution-functor-exists}, there is a
   homotopy equivalence between $\mathscr{P}(L^\bullet)$ and
   $\mathscr{P}'(L^\bullet)$, that is, an isomorphism
   $\rho_{L^\bullet} : \mathscr{P}(L^\bullet) \to
@@ -5443,7 +5443,7 @@ Choose any functor $\mathscr{P}$ as above. I claim that
 $\mathscr{P} : \categ{C}^-(\categ{A}) \to \categ{K}^-(\categ{P})$ is
 essentially a solution to the universal problem defining the derived
 category $\categ{D}^-(\categ{A})$. Here is a more precise statement:
-\begin{thm}{}{thm:homol:6.9}
+\begin{thm}{}{thm:homol:resolution-functor-properties}
   With notation as above, we have the following.
   \begin{itemize}
   \item If $\rho^\bullet$ is a quasi-isomorphism in
@@ -5476,7 +5476,7 @@ category $\categ{D}^-(\categ{A})$. Here is a more precise statement:
 
 The fact that the diagram does not commute on the nose should not be
 too disturbing. It corresponds to the fact (stated in
-Theorem~\ref{thm:homol:6.7}) that there is `only' an equivalence of
+Theorem~\ref{thm:homol:derived-category-equivalence-via-resolutions}) that there is `only' an equivalence of
 categories between $\categ{K}^-(\categ{P})$ and
 $\categ{D}^-(\categ{A})$, not a hard and fast `isomorphism'. As I
 already pointed out in
@@ -5486,7 +5486,7 @@ be expected in a categorical context.
 \begin{proof}
   For the first point, let $\rho^\bullet : L^\bullet \to M^\bullet$ be
   any morphism in $\categ{C}^-(\categ{A})$. By
-  Theorem~\ref{thm:homol:6.6}, $\rho^\bullet$ lifts to a morphism of
+  Theorem~\ref{thm:homol:projective-resolution-functor-exists}, $\rho^\bullet$ lifts to a morphism of
   resolutions: we have a diagram
   \[\begin{tikzcd}[column sep=large]
       \mathscr{P}(L^\bullet) \arrow[r, "\rho'^\bullet"] \arrow[d,
@@ -5500,7 +5500,7 @@ be expected in a categorical context.
   is $\rho'^\bullet$ (since the diagram commutes up to homotopy; hence
   it commutes after taking cohomology); it follows that
   $\mathscr{P}(\rho^\bullet)$ is an isomorphism in this case, by
-  \Cref{coro:homol:5.10}.
+  \Cref{coro:homol:quasi-isos-are-isomorphisms-in-bounded-proj-inj}.
 
   To prove the factorization property, define
   $\widetilde{\mathscr{F}} : \categ{K}^-(\categ{P}) \to \categ{D}$ by
@@ -5515,7 +5515,7 @@ be expected in a categorical context.
 
   The fact that the action of $\widetilde{\mathscr{F}}$ on morphisms
   is well-defined is precisely the content of
-  Lemma~\ref{lem:homol:5.1}: homotopic morphisms have the same image
+  Lemma~\ref{lem:homol:quasi-iso-inverting-functor-respects-homotopy}: homotopic morphisms have the same image
   in $\categ{D}$. It is immediate that $\widetilde{\mathscr{F}}$ is a
   functor, and we have to check the statement about commutativity up
   to isomorphism of the diagram and the uniqueness of
@@ -5554,7 +5554,7 @@ be expected in a categorical context.
     \end{tikzcd}\] where $\alpha'^\bullet$ is a homotopy lift of
   $\alpha^\bullet$.  This diagram commutes up to homotopy, so the
   previous one commutes on the nose, again by
-  Lemma~\ref{lem:homol:5.1}.
+  Lemma~\ref{lem:homol:quasi-iso-inverting-functor-respects-homotopy}.
 
   To see that $\widetilde{\mathscr{F}}$ is unique up to isomorphism,
   let $F : \categ{K}^-(\categ{P}) \to \categ{D}$ be another functor
@@ -5596,13 +5596,13 @@ full subcategory of these categories.
 To reiterate the key point, there is a clear advantage in stopping
 short of taking cohomology. Resolving a complex $L^\bullet$ by a
 complex $P^\bullet$ of (say) projectives, thanks to
-Theorem~\ref{thm:homol:6.6}, gives us an entity which certainly
+Theorem~\ref{thm:homol:projective-resolution-functor-exists}, gives us an entity which certainly
 captures the cohomological information of $L^\bullet$ but that can
 still be manipulated with the entire range of tools available in
 dealing with complexes. For example, we can apply to $P^\bullet$ any
 additive functor and still obtain a complex whose cohomology only
 depends on the original complex $L^\bullet$ (by
-\Cref{homol:4.14}). The cohomology of $L^\bullet$ is only one example
+\Cref{thm:homol:homotopy-equivalence-preserved-under-functor}). The cohomology of $L^\bullet$ is only one example
 of the cohomological invariants that may be extracted from
 $L^\bullet$; viewing $L^\bullet$ in the derived category gives direct
 access to all these invariants.
@@ -5664,7 +5664,7 @@ We will capitalize on these considerations in the next section.
   \S{}\ref{subsec:homol:poor-man-s-derived-category}. Prove that
   $\mathscr{P}$ induces a functor
   $\categ{K}^-(\categ{A}) \to \categ{K}^-(\categ{P})$, which I will
-  also denote by $\mathscr{P}$.  (Use \Cref{lem:homol:5.14}.) Next,
+  also denote by $\mathscr{P}$.  (Use \Cref{lem:homol:quasi-iso-lifting-uniqueness-setup}.) Next,
   let $\mathscr{I}$ be the embedding
   $\categ{K}^-(\categ{P}) \to \categ{K}^-(\categ{A})$. Prove that
   $\mathscr{P} \circ \mathscr{I}$ is naturally \emph{isomorphic} to
@@ -5721,7 +5721,7 @@ We will capitalize on these considerations in the next section.
       \arrow[r] & 0
     \end{tikzcd}\] as a complex in $\categ{C}(\categ{Ab})$. Find
   explicitly a projective resolution of this complex produced by the
-  argument at the beginning of the proof of \Cref{thm:homol:6.6}.
+  argument at the beginning of the proof of \Cref{thm:homol:projective-resolution-functor-exists}.
 \end{exer}
 \begin{exer}{$\lnot$}{exer:homol:nonzero-derived-morphism-zero-in-cohomology-example}
   Show that the morphism induced in $\categ{D}^-(\categ{Ab})$ by the
@@ -5757,7 +5757,7 @@ We will capitalize on these considerations in the next section.
   % exists at each spot
   Prove that a `true' lift as indicated by the dashed arrows does not
   exist but that one exists up to homotopy (as prescribed by
-  \Cref{thm:homol:6.6}). [\S{}\ref{subsec:homol:from-objects-to-complexes}]
+  \Cref{thm:homol:projective-resolution-functor-exists}). [\S{}\ref{subsec:homol:from-objects-to-complexes}]
 \end{exer}
 \begin{exer}{}{exer:homol:nonzero-derived-morphism-domain-example}
   Let $R$ be an integral domain, and let $r$ be a nonzero, nonunit
@@ -5774,7 +5774,7 @@ We will capitalize on these considerations in the next section.
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:uniqueness-of-derived-functor-nat-iso}
   Complete the proof that the functor $\widetilde{\mathscr{F}}$ in
-  \Cref{thm:homol:6.9} is unique up to natural
+  \Cref{thm:homol:resolution-functor-properties} is unique up to natural
   isomorphism. [\S{}\ref{subsec:homol:poor-man-s-derived-category}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:nat-transformation-identity-to-p-iota-h0}
@@ -5783,7 +5783,7 @@ We will capitalize on these considerations in the next section.
   $\widehat{\categ{A}}$ be the subcategory of $\categ{K}^-(\categ{P})$
   whose objects have cohomology concentrated in degree $0$. Choosing
   (arbitrarily) a projective resolution for every object $A$ of
-  $\categ{A}$ and lifting morphisms as in \Cref{prop:homol:6.5}, we
+  $\categ{A}$ and lifting morphisms as in \Cref{prop:homol:morphism-lifts-to-resolutions-uniquely-up-to-homotopy}, we
   obtain a functor $\categ{A} \to \widehat{\categ{A}}$; with notation
   as in \S{}\ref{subsec:homol:poor-man-s-derived-category}, this is
   $\mathscr{P} \circ \iota$. It is clear that
@@ -5878,7 +5878,7 @@ equally clear that if $\alpha^\bullet$ is a morphism of cochain
 complexes in $\categ{C}(\categ{A})$, then the collection
 $\mathscr{F}(\alpha^i)$ defines a morphism in $\categ{C}(\categ{B})$,
 and that this assignment is functorial. Now, we already checked
-(\Cref{homol:4.13}) that homotopic morphisms in $\categ{C}(\categ{A})$
+(\Cref{lem:homol:functor-preserves-homotopy}) that homotopic morphisms in $\categ{C}(\categ{A})$
 are sent to homotopic morphisms in $\categ{C}(\categ{B})$; it follows
 that $\mathscr{F}$ induces a functor
 $\categ{K}(\mathscr{F}) : \categ{K}(\categ{A}) \to
@@ -5912,13 +5912,13 @@ Assuming that $\categ{B}$ has enough projectives, the natural way to
 `fix' this problem is to apply a corresponding functor
 $\mathscr{P}_{\categ{B}}$ constructed as in
 \S{}\ref{subsec:homol:poor-man-s-derived-category}, associating with
-each complex a projective resolution. By \Cref{lem:homol:5.14},
+each complex a projective resolution. By \Cref{lem:homol:quasi-iso-lifting-uniqueness-setup},
 $\mathscr{P}_{\categ{B}}$ sends homotopic morphisms to homotopic
 morphisms; hence $\mathscr{P}_{\categ{B}}$ also descends to a functor
 defined on the homotopic category
 (cf. \Cref{exer:homol:resolution-functor-p-i-properties}).
 
-\begin{defn}{}{defn:homol:7.1}
+\begin{defn}{}{defn:homol:left-derived-functor}
   The \emph{left-derived functor} of $\mathscr{F}$ is the composition
   \[\begin{tikzcd}[column sep=large]
       \categ{K}^-(\categ{P}(\categ{A})) \arrow[r,
@@ -5980,7 +5980,7 @@ $\categ{A}$ itself.
 
 Exactness plays an important role in these considerations:
 
-\begin{exam}{}{exam:homol:7.2}
+\begin{exam}{}{exam:homol:exact-functor-preserves-degree-zero-objects}
   Suppose that $\mathscr{F}$ is (additive and) exact. Then I claim
   that $\widehat{\categ{A}}$ is sent to $\widehat{\categ{B}}$ by
   $\categ{L}\mathscr{F}$.
@@ -6010,7 +6010,7 @@ Exactness plays an important role in these considerations:
   $\widehat{\categ{A}}$, resp., $\widehat{\categ{B}}$.
 \end{exam}
 
-The moral of Example~\ref{exam:homol:7.2} is that deriving exact
+The moral of Example~\ref{exam:homol:exact-functor-preserves-degree-zero-objects} is that deriving exact
 functors is relatively straightforward, and we cannot expect to learn
 anything new about an exact functor by deriving it. We will mostly be
 interested in deriving functors that are not exact on the nose but
@@ -6036,7 +6036,7 @@ Well, in general there isn't
 (\Cref{exer:homol:derived-functor-nat-transformation-not-iso-example}). What
 is $\categ{L}\mathscr{F}$ good for, then?
 
-\begin{prop}{}{prop:homol:7.3}
+\begin{prop}{}{prop:homol:left-derived-functor-universal-property}
   The left-derived functor $\categ{L}\mathscr{F}$ satisfies the
   following universal property:
   \begin{itemize}
@@ -6109,11 +6109,11 @@ The reader should formulate the universal property satisfied by the
 \emph{right}-derived functor. In this case, not surprisingly, all
 natural transformations go `backwards'.
 
-\begin{rem}{}{rem:homol:7.4}
+\begin{rem}{}{rem:homol:composition-of-derived-functors-remark}
   The fact that there is a natural transformation
   $\mathscr{I} \circ \mathscr{P} \rightsquigarrow \id$
   (\Cref{exer:homol:resolution-functor-p-i-properties}), used in the
-  proof of Proposition~\ref{prop:homol:7.3}, has another interesting
+  proof of Proposition~\ref{prop:homol:left-derived-functor-universal-property}, has another interesting
   consequence. Let $\categ{A}$, $\categ{B}$, $\categ{C}$ be abelian
   categories, and let $\mathscr{F} : \categ{A} \to \categ{B}$,
   $\mathscr{G} : \categ{B} \to \categ{C}$ be additive functors. Assume
@@ -6157,7 +6157,7 @@ natural transformations go `backwards'.
 \subsection{Taking cohomology}
 \label{subsec:homol:taking-cohomology}
 
-The content of Proposition~\ref{prop:homol:7.3} is again in line with
+The content of Proposition~\ref{prop:homol:left-derived-functor-universal-property} is again in line with
 our main strategy: in moving from $\categ{A}$ to $\categ{B}$, the left
 derived functor $\mathscr{F}$ is the functor that preserves `as much
 cohomological information as possible' regarding bounded-above
@@ -6191,7 +6191,7 @@ $\categ{D}^-(\categ{A})$), but it will be the source of the only
 applications we will really consider at any level of depth, and
 historically this is how derived functors arose originally.
 
-\begin{defn}{}{defn:homol:7.5}
+\begin{defn}{}{defn:homol:ith-left-derived-functor}
   Let $\categ{A}$, $\categ{B}$ be abelian categories, and assume that
   $\categ{A}$ has enough projectives. Let
   $\mathscr{F} : \categ{A} \to \categ{B}$ be an additive functor. The
@@ -6219,9 +6219,9 @@ result does not depend on the choice of the projective resolution:
 this is clear from the path of concepts that led us here, and it is
 directly implied by
 \begin{itemize}
-\item \Cref{prop:homol:6.4}, showing that any two projective
+\item \Cref{prop:homol:resolutions-are-homotopy-equivalent}, showing that any two projective
   resolutions are homotopy equivalent, in conjunction with
-\item \Cref{homol:4.14}, showing that the images of homotopy
+\item \Cref{thm:homol:homotopy-equivalence-preserved-under-functor}, showing that the images of homotopy
   equivalent complexes via an additive functor have isomorphic
   cohomology.
 \end{itemize}
@@ -6256,7 +6256,7 @@ both enough projectives and injectives (as seen in
 covariant/contravariant functor $R\text{-Mod} \to R\text{-Mod}$ can be
 derived on the left and on the right.
 
-\begin{exam}{}{exam:homol:7.6}
+\begin{exam}{}{exam:homol:tor-as-derived-tensor}
   Every $R$-module $N$ determines a functor
   \[
     \_ \otimes_R N : M \mapsto M \otimes_R N
@@ -6290,7 +6290,7 @@ derived on the left and on the right.
   \S{}\ref{sec:homol:double-complexes}.
 \end{exam}
 
-\begin{exam}{}{exam:homol:7.7}
+\begin{exam}{}{exam:homol:ext-as-derived-hom}
   Similarly, $\Hom_R$ admits a right-derived functor
   $\categ{R}\Hom_R$, and its manifestations as the right-derived
   functors of $\Hom_R(M, \_)$ are the Ext modules:
@@ -6341,7 +6341,7 @@ prove that every short exact sequence
 derived functors'; the sequences for Tor and Ext encountered in
 \Cref{chap:linrep} will be particular cases. Surely the reader expects
 this general fact to follow one way or the other from the long exact
-cohomology sequence (\Cref{homol:3.5}); that reader will not be
+cohomology sequence (\Cref{thm:homol:long-exact-cohomology-sequence}); that reader will not be
 disappointed.
 
 From a more sophisticated perspective, what happens is that derived
@@ -6357,7 +6357,7 @@ do exact sequences of complexes in the abelian case explored in
 Since we do not have the machinery of triangulated categories at our
 disposal, we have to resort to bringing the action back to the
 ordinary category of complexes, with the aim of using
-\Cref{homol:3.5}.  The key point is therefore the following: assuming
+\Cref{thm:homol:long-exact-cohomology-sequence}.  The key point is therefore the following: assuming
 that $\categ{A}$ has enough projectives and that
 \[\begin{tikzcd}
     0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0
@@ -6368,7 +6368,7 @@ in $\categ{C}(\categ{A})$?
 Yes. This is often called the `horseshoe lemma', after the shape of
 the main diagram appearing in its proof.
 
-\begin{lem}{}{lem:homol:7.8}
+\begin{lem}{}{lem:homol:exact-sequence-of-projective-resolutions}
   Let
   \[\begin{tikzcd}
       0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0
@@ -6468,12 +6468,12 @@ this part is nothing but the original short exact sequence $(*)$.
   P_N^0$. Continuing inductively constructs $P_M^\bullet$ as required.
 \end{proof}
 
-Lemma~\ref{lem:homol:7.8} tells us that we can lift exact sequences of
+Lemma~\ref{lem:homol:exact-sequence-of-projective-resolutions} tells us that we can lift exact sequences of
 objects to exact sequences of projective resolutions. Morally, we
 would like to say that the functor $\mathscr{P}$ assigning to every
 object of $\categ{A}$ a projective resolution in
 $\categ{K}(\categ{A})$ is `exact'; but as $\categ{K}(\categ{A})$ is
-not abelian, this is simply not an option. Lemma~\ref{lem:homol:7.8}
+not abelian, this is simply not an option. Lemma~\ref{lem:homol:exact-sequence-of-projective-resolutions}
 gets as close as possible to such a statement. In fact, from the
 construction of $P_M^\bullet$ given in the proof, it is easy to show
 (\Cref{exer:homol:mapping-cone-description-of-pm-from-pl-pn}) that
@@ -6512,7 +6512,7 @@ the context.
 We should also note that once short exact sequences are lifted, we can
 in fact lift every complex; this will be needed later. Here is the
 precise statement:
-\begin{coro}{}{coro:homol:7.9}
+\begin{coro}{}{coro:homol:cartan-eilenberg-resolution-of-complex}
   Let
   \[\begin{tikzcd}[column sep=large]
       M^\bullet: & \dots \arrow[r] & M^{-3} \arrow[r] & M^{-2}
@@ -6541,7 +6541,7 @@ precise statement:
   $I^{i+1}$ is its image, and $H^i$ is the cohomology at $M^i$. Choose
   arbitrary projective resolutions $P_{I^i}$, $P_{H^i}$ of $I^i$ and
   $H^i$, for all $i$. Then the horseshoe lemma
-  (Lemma~\ref{lem:homol:7.8}) yields projective resolutions of $K^i$
+  (Lemma~\ref{lem:homol:exact-sequence-of-projective-resolutions}) yields projective resolutions of $K^i$
   and short exact sequences
   \[\begin{tikzcd}
       0 \arrow[r] & P_{I^i}^\bullet \arrow[r] & P_{K^i}^\bullet
@@ -6567,8 +6567,8 @@ precise statement:
   $P_{M^\bullet}^\bullet$ is exact.)
 \end{proof}
 
-\begin{rem}{}{rem:homol:7.10}
-  The proof of Corollary~\ref{coro:homol:7.9} shows that the
+\begin{rem}{}{rem:homol:cartan-eilenberg-resolution-naturality}
+  The proof of Corollary~\ref{coro:homol:cartan-eilenberg-resolution-of-complex} shows that the
   resolution $P_{M^\bullet}^\bullet$, i.e.,
   \[\begin{tikzcd}[column sep=large]
       \dots \arrow[r, "d^{-4}"] & P_{M^\bullet}^{-3} \arrow[r,
@@ -6587,7 +6587,7 @@ Coming back to the issue at hand, we are one step away from the
 promised long exact sequence of derived functors. The last ingredient
 is the following:
 
-\begin{lem}{}{lem:homol:7.11}
+\begin{lem}{}{lem:homol:exact-sequence-with-projective-term-functor-properties}
   Let $\categ{A}$ be an abelian category, and let
   \[\begin{tikzcd}
       0 \arrow[r] & L^\bullet \arrow[r] & M^\bullet \arrow[r] &
@@ -6624,7 +6624,7 @@ Note that we are not asking $\mathscr{F}$ to be exact in any sense.
 Now the long exact sequence of left-derived functors is an immediate
 consequence of the long exact cohomology sequence.
 
-\begin{thm}{}{thm:homol:7.12}
+\begin{thm}{}{thm:homol:long-exact-sequence-of-derived-functors}
   Let $\mathscr{F} : \categ{A} \to \categ{B}$ be an additive functor
   of abelian categories, and assume $\categ{A}$ has enough
   projectives. Every exact sequence
@@ -6664,12 +6664,12 @@ necessary to prove this to the reader
 (\Cref{exer:homol:morphisms-of-ses-induce-morphisms-of-les}).
 
 \begin{proof}
-  By Lemma~\ref{lem:homol:7.8}, the given exact sequence is induced by
+  By Lemma~\ref{lem:homol:exact-sequence-of-projective-resolutions}, the given exact sequence is induced by
   an exact sequence of projective resolutions
   \[\begin{tikzcd}
       0 \arrow[r] & P_L^\bullet \arrow[r] & P_M^\bullet \arrow[r] &
       P_N^\bullet \arrow[r] & 0.
-    \end{tikzcd}\] By Lemma~\ref{lem:homol:7.11}, the corresponding
+    \end{tikzcd}\] By Lemma~\ref{lem:homol:exact-sequence-with-projective-term-functor-properties}, the corresponding
   sequence
   \[\begin{tikzcd}
       0 \arrow[r] & \mathscr{F}(P_L^\bullet) \arrow[r] &
@@ -6678,12 +6678,12 @@ necessary to prove this to the reader
     \end{tikzcd}\] in $\categ{C}(\categ{B})$ is exact. As the
   cohomology objects of these complexes are precisely the left-derived
   functors of $\mathscr{F}$, the long exact cohomology sequence
-  determined by this sequence (by \Cref{homol:3.5}) gives a long exact
+  determined by this sequence (by \Cref{thm:homol:long-exact-cohomology-sequence}) gives a long exact
   sequence as stated.
 \end{proof}
 
 Once more in the style of \S{}\ref{subsec:homol:triangles},
-Theorem~\ref{thm:homol:7.12} tells us that the triangle
+Theorem~\ref{thm:homol:long-exact-sequence-of-derived-functors} tells us that the triangle
 \[
   \begin{tikzpicture}[baseline=(current bounding box.center)]
     \node (L) at (1,1.3)
@@ -6740,7 +6740,7 @@ lies in the fact that $\otimes$ is right-exact, while $\Hom$ is
 left-exact: any additive functor can be derived to the left or to the
 right (in the presence of enough projectives, resp., enough
 injectives), and the derived functors will fit in long exact sequences
-as proven in Theorem~\ref{thm:homol:7.12}; but only functors
+as proven in Theorem~\ref{thm:homol:long-exact-sequence-of-derived-functors}; but only functors
 satisfying a measure of exactness can be recovered directly from their
 derived versions.
 
@@ -6750,7 +6750,7 @@ $\mathscr{F} : \categ{A} \to \categ{B}$, where $\categ{A}$ and
 $\categ{B}$ are abelian categories and $\categ{A}$ has enough
 projectives, and we now assume that $\mathscr{F}$ is right-exact.
 
-\begin{prop}{}{prop:homol:7.13}
+\begin{prop}{}{prop:homol:right-exact-functor-derived-functor-degree-zero}
   Let $\mathscr{F} : \categ{A} \to \categ{B}$ be a right-exact
   additive functor. Then $\categ{L}_i\mathscr{F} = 0$ for $i < 0$, and
   $\categ{L}_0\mathscr{F}$ is naturally isomorphic to $\mathscr{F}$.
@@ -6777,7 +6777,7 @@ projectives, and we now assume that $\mathscr{F}$ is right-exact.
   \mathscr{F}(M)$.
 
   If $\varphi : M_0 \to M_1$ is a morphism in $\categ{A}$, by
-  Proposition~\ref{prop:homol:6.5} there exists a morphism of
+  Proposition~\ref{prop:homol:morphism-lifts-to-resolutions-uniquely-up-to-homotopy} there exists a morphism of
   projective resolutions
   $\alpha^\bullet : P_0^\bullet \to P_1^\bullet$ inducing $\varphi$:
   there is a commutative diagram
@@ -6810,7 +6810,7 @@ projectives, and we now assume that $\mathscr{F}$ is right-exact.
   $\nu : \categ{L}_0\mathscr{F} \to \mathscr{F}$ is a natural
   isomorphism.
 \end{proof}
-Going back to Theorem~\ref{thm:homol:7.12}, we see that if
+Going back to Theorem~\ref{thm:homol:long-exact-sequence-of-derived-functors}, we see that if
 $\mathscr{F}$ is right-exact, then the tail end of the long exact
 sequence of left-derived functors for $\mathscr{F}$ consists of an
 application of $\mathscr{F}$ itself. Thus, the situation in this case
@@ -6892,7 +6892,7 @@ $\mathscr{F}$ (up to natural isomorphism); but this is no cause for
 great excitement, since all other $\categ{L}_i\mathscr{F}$,
 $\categ{R}^i\mathscr{F}$ vanish in this case
 (\Cref{exer:homol:exact-functor-vanishing-higher-derived-functors}). As
-already pointed out in Example~\ref{exam:homol:7.2}, one should not
+already pointed out in Example~\ref{exam:homol:exact-functor-preserves-degree-zero-objects}, one should not
 expect to learn anything new from an exact functor by deriving it.
 
 \subsection{Example: A little group cohomology}
@@ -6936,7 +6936,7 @@ The $i$-th right-derived functor of $\cdot^G$ is denoted $H^i(G,
 of $G$-modules
 \[\begin{tikzcd}
     0 \arrow[r] & L \arrow[r] & M \arrow[r] & N \arrow[r] & 0
-  \end{tikzcd}\] we obtain (from Theorem~\ref{thm:homol:7.12}) a long
+  \end{tikzcd}\] we obtain (from Theorem~\ref{thm:homol:long-exact-sequence-of-derived-functors}) a long
 exact sequence of abelian groups:
 \[\begin{tikzcd}
     0 \arrow[r] & L^G \arrow[r] & M^G \arrow[r] & N^G \arrow[r] &
@@ -6947,7 +6947,7 @@ $H^i(G, M) = \operatorname{Ext}^i_{\Z[G]}(\Z, M)$; as we know already
 (and as will finally be verified in
 \S{}\ref{sec:homol:double-complexes}), this can be computed by an
 injective resolution of $M$ or by a projective resolution of $\Z$.
-\begin{exam}{}{exam:homol:7.14}
+\begin{exam}{}{exam:homol:group-cohomology-resolution-for-z}
   Take $G = \Z$. Then $\Z[G]$ is the ring $\Z[x,x^{-1}]$ of Laurent
   polynomials. As $\Z[x,x^{-1}]/(1-x) \cong \Z$, with the trivial
   action (check this!), the complex
@@ -6973,7 +6973,7 @@ injective resolution of $M$ or by a projective resolution of $\Z$.
   and $H^i(\Z, M) = 0$ for all $i < 0$ and $i \ge 2$.
 \end{exam}
 
-\begin{exam}{Finite cyclic groups}{exam:homol:7.15}
+\begin{exam}{Finite cyclic groups}{exam:homol:group-cohomology-resolution-for-cyclic-group}
   Let $G = C_m$ be a cyclic group of order $m$; then
   $\Z[G] \cong \Z[x]/(x^m - 1)$. Again it is not difficult to produce
   a projective resolution of $\Z$ (with trivial action) in the
@@ -7043,7 +7043,7 @@ is the group of $k$-cochains of $G$ with values in $M$.
 
 We can now summarize what we have found as follows:
 
-\begin{prop}{}{prop:homol:7.16}
+\begin{prop}{}{prop:homol:group-cohomology-via-cochain-complex}
   Let $G$ be a finite group, and let $M$ be a $G$-module. Then the
   group cohomology $H^i(G, M)$ is the cohomology of the cochain
   complex induced by $(\dagger)$:
@@ -7059,13 +7059,13 @@ $\alpha : G \to M$ in $C^1(G, M)$,
   d_G^0(a)(g) = ga - a, \qquad d_G^1(\alpha)(g_1, g_2) =
   g_1\alpha(g_2) - \alpha(g_1g_2) + \alpha(g_1).
 \]
-\begin{exam}{}{exam:homol:7.17}
+\begin{exam}{}{exam:homol:galois-group-acts-on-multiplicative-group}
   Let $G$ be the Galois group of a finite Galois extension
   $k \subseteq F$. Then $G$ acts on the multiplicative group $F^*$ of
   $F$, and we can view $F^*$ as a $G$-module.
 \end{exam}
 
-\begin{prop}{Hilbert's theorem 90}{prop:homol:7.18}
+\begin{prop}{Hilbert's theorem 90}{prop:homol:hilberts-theorem-90}
   $H^1(G, F^*) = 0$.
 \end{prop}
 
@@ -7103,13 +7103,13 @@ for all $g \in G$. But this says precisely that $\alpha$ is in the
 image of $d_G^0$, proving that $\ker d_G^1 / \image d_G^0 = 0$, as
 claimed.
 
-Claim~\ref{prop:homol:7.18} is significant: it goes under the name of
+Claim~\ref{prop:homol:hilberts-theorem-90} is significant: it goes under the name of
 \emph{Hilbert's theorem 90}, because in the case in which $G$ is the
 Galois group of a finite cyclic extension, it recovers precisely the
 classical result with this name. The reader had the opportunity to
 prove this particular case in
 \Cref{exer:fields:hilberts-theorem-90-multiplicative} and now will
-enjoy the chance to verify that indeed Claim~\ref{prop:homol:7.18}
+enjoy the chance to verify that indeed Claim~\ref{prop:homol:hilberts-theorem-90}
 implies Hilbert's result
 (\Cref{exer:homol:hilbert-90-from-vanishing-group-cohomology}).
 
@@ -7123,7 +7123,7 @@ $M$ the module
 \]
 (just as the elements of $M^G$ are called invariants, elements of
 $M_G$ are called \emph{coinvariants} of the action). For example, in
-Example~\ref{exam:homol:7.14} we verified that
+Example~\ref{exam:homol:group-cohomology-resolution-for-z} we verified that
 $H^1(\Z, M) = M_{\Z} = H_0(\Z, M)$. The reader should now have no
 difficulty computing simple examples, such as the homology
 $H_\bullet(\Z, M)$
@@ -7150,19 +7150,19 @@ $H_\bullet(\Z, M)$
   $\categ{C}(\mathscr{F})(\alpha^\bullet)$.
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:derived-functor-nat-transformation-not-iso-example}
-  With notation as in \Cref{prop:homol:7.3}, prove that the natural
+  With notation as in \Cref{prop:homol:left-derived-functor-universal-property}, prove that the natural
   transformation
   $\categ{L}\mathscr{F} \circ \mathscr{P}_{\categ{A}} \rightsquigarrow
   \mathscr{P}_{\categ{B}} \circ \categ{K}(\mathscr{F})$ is not
   necessarily an isomorphism. (Hint: View the quasi-isomorphism in
-  \Cref{homol:4.6} as a projective resolution in
+  \Cref{exam:homol:quasi-iso-not-homotopy-invertible} as a projective resolution in
   $\Z\text{-}\categ{Mod}$, and take
   $\mathscr{F} : \Z\text{-}\categ{Mod} \to
   (\Z/2\Z)\text{-}\categ{Mod}$ to be $\_\otimes_{\Z} (\Z/2\Z)$.)
   [\S{}\ref{subsec:homol:universal-property-of-the-derived-functor}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:composition-of-derived-functors}
-  (Cf.\ \Cref{rem:homol:7.4}.) Let $\categ{A}$, $\categ{B}$,
+  (Cf.\ \Cref{rem:homol:composition-of-derived-functors-remark}.) Let $\categ{A}$, $\categ{B}$,
   $\categ{C}$ be abelian categories, and let
   $\mathscr{F} : \categ{A} \to \categ{B}$,
   $\mathscr{G} : \categ{B} \to \categ{C}$ be additive functors. Assume
@@ -7176,7 +7176,7 @@ $H_\bullet(\Z, M)$
   isomorphic. [\S{}\ref{subsec:homol:universal-property-of-the-derived-functor}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:mapping-cone-description-of-pm-from-pl-pn}
-  With notation as in \Cref{lem:homol:7.8}, show that there is a
+  With notation as in \Cref{lem:homol:exact-sequence-of-projective-resolutions}, show that there is a
   morphism $\rho^\bullet : P_N[-1]^\bullet \to P_L^\bullet$ such that
   $P_M^\bullet$ is homotopy equivalent to the mapping cone
   $MC(\rho)^\bullet$. (Hint: Look at the proof of the lemma; use the
@@ -7187,8 +7187,8 @@ $H_\bullet(\Z, M)$
 \begin{exer}{$\lnot$}{exer:homol:cartan-eilenberg-resolution-computes-cohomology}
   Let $\categ{B}$, $\categ{C}$ be abelian categories, and assume
   $\categ{B}$ has enough projectives, so that Cartan-Eilenberg
-  resolutions can be constructed, as in \Cref{coro:homol:7.9} (cf.\
-  also \Cref{rem:homol:7.10}). Let
+  resolutions can be constructed, as in \Cref{coro:homol:cartan-eilenberg-resolution-of-complex} (cf.\
+  also \Cref{rem:homol:cartan-eilenberg-resolution-naturality}). Let
   $\mathscr{G} : \categ{B} \to \categ{C}$ be an additive functor, and
   let $M^\bullet : \dots \to M^{-2} \to M^{-1} \to M^0 \to 0$ be a
   complex in $\categ{B}$. Let
@@ -7199,7 +7199,7 @@ $H_\bullet(\Z, M)$
   complex
   $\dots \to \mathscr{G}(P_{M^\bullet}^{-2}) \to
   \mathscr{G}(P_{M^\bullet}^{-1}) \to \mathscr{G}(P_{M^\bullet}^0) \to
-  0$. (Hint: With notation as in the proof of \Cref{coro:homol:7.9},
+  0$. (Hint: With notation as in the proof of \Cref{coro:homol:cartan-eilenberg-resolution-of-complex},
   for all $i$ and $j$ we have exact sequences
   $0 \to P_{K^j}^i \to P_{M^j}^i \to P_{I^{j+1}}^i \to 0$ and
   $0 \to P_{I^j}^i \to P_{K^j}^i \to P_{H^j}^i \to 0$. Note that these
@@ -7210,14 +7210,14 @@ $H_\bullet(\Z, M)$
   H^q(\mathscr{G}(P_{M^\bullet}^\bullet))$, where cohomology is
   computed with respect to the $M$-degree. Also note that, by
   construction, $H^q(P_{M^\bullet}^\bullet)$ is a projective
-  resolution of $H^q(M^\bullet)$; cf.\ \Cref{rem:homol:7.10}. This
+  resolution of $H^q(M^\bullet)$; cf.\ \Cref{rem:homol:cartan-eilenberg-resolution-naturality}. This
   will be an ingredient in the comparison of derived functors for the
   composition of two functors by means of spectral sequences; cf.\
   \Cref{exer:homol:cartan-eilenberg-computes-composite-derived-functor,exer:homol:spectral-seq-for-composite-derived-functors}.
   [\ref{exer:homol:spectral-seq-for-composite-derived-functors}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:morphisms-of-ses-induce-morphisms-of-les}
-  Complete the proof of Theorem~\ref{thm:homol:7.12} by showing that
+  Complete the proof of Theorem~\ref{thm:homol:long-exact-sequence-of-derived-functors} by showing that
   morphisms of short exact sequences induce morphisms of the
   corresponding long exact sequences of derived
   functors. [\S{}\ref{subsec:homol:long-exact-sequence-of-derived-functors}]
@@ -7371,7 +7371,7 @@ $H_\bullet(\Z, M)$
   universal $\delta$-functor. (Hint: To efface
   $\categ{R}^i\mathscr{F}$ for $i > 0$, use injectives. To efface
   $H^i$ for $i > 0$, stare at the sequence of complexes mentioned
-  right before the statement of \Cref{homol:4.1}.)
+  right before the statement of \Cref{prop:homol:mapping-cone-exact-triangle}.)
 
   The upshot is that in order to verify that a given collection of
   functors agrees with the derived functors of a given (say)
@@ -7414,8 +7414,8 @@ $H_\bullet(\Z, M)$
 \begin{exer}{\exerused{}}{exer:homol:hilbert-90-from-vanishing-group-cohomology}
   Deduce Hilbert's theorem 90 (as stated in
   \Cref{exer:fields:hilberts-theorem-90-multiplicative}) as a
-  consequence of the vanishing of Claim~\ref{prop:homol:7.18}.  (Hint:
-  Use the result of Example~\ref{exam:homol:7.15}.)
+  consequence of the vanishing of Claim~\ref{prop:homol:hilberts-theorem-90}.  (Hint:
+  Use the result of Example~\ref{exam:homol:group-cohomology-resolution-for-cyclic-group}.)
   [\S{}\ref{subsec:homol:example-a-little-group-cohomology}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:group-homology-of-z-with-coefficients}
@@ -7476,7 +7476,7 @@ $\categ{L}_\bullet\mathscr{F}(P)$ is the cohomology of
 This says that projective objects are `$\mathscr{F}$-acyclic' with
 respect to left-derived functors:
 
-\begin{defn}{}{defn:homol:8.1}
+\begin{defn}{}{defn:homol:f-acyclic-object}
   Let $\mathscr{F}$ be an additive functor. An object $M$ of
   $\categ{A}$ is \emph{$\mathscr{F}$-acyclic} (w.r.t.\ left-derived
   functors) if $\categ{L}_i\mathscr{F}(M) = 0$ for $i \ne 0$.
@@ -7492,7 +7492,7 @@ context we can just talk about `$\mathscr{F}$-acyclic' objects.
 While projectives are acyclic for every right-exact functor, a given
 functor $\mathscr{F}$ may admit other $\mathscr{F}$-acyclic objects.
 
-\begin{exam}{}{exam:homol:8.2}
+\begin{exam}{}{exam:homol:flat-modules-are-tor-acyclic}
   Let $R$ be a commutative ring. Recall (\Cref{defn:linrep:flat-module}) that an
   $R$-module $M$ is \emph{flat} if $\_ \otimes_R M$ is exact, or
   equivalently (by the symmetry of $\otimes$) if $M \otimes_R \_$ is
@@ -7514,7 +7514,7 @@ projective resolutions, in order to compute Tor. We are going to
 verify that $\mathscr{F}$-acyclic resolutions suffice in order to
 compute $\categ{L}_i\mathscr{F}$.
 
-\begin{thm}{}{thm:homol:8.3}
+\begin{thm}{}{thm:homol:derived-functor-via-acyclic-resolution}
   Let $\mathscr{F} : \categ{A} \to \categ{B}$ be a right-exact functor
   of abelian categories, and assume $\categ{A}$ has enough
   projectives. Let
@@ -7557,8 +7557,8 @@ compute $\categ{L}_i\mathscr{F}$.
       0 \arrow[r] & K \arrow[r] & A^0 \arrow[r] & M \arrow[r] & 0
     \end{tikzcd}
   \]
-  Applying Theorem~\ref{thm:homol:7.12} (and
-  Proposition~\ref{prop:homol:7.13}), we obtain a long exact sequence
+  Applying Theorem~\ref{thm:homol:long-exact-sequence-of-derived-functors} (and
+  Proposition~\ref{prop:homol:right-exact-functor-derived-functor-degree-zero}), we obtain a long exact sequence
   ending with
   \[\begin{tikzcd}
       \categ{L}_1\mathscr{F}(A^0) \arrow[r] &
@@ -7594,7 +7594,7 @@ compute $\categ{L}_i\mathscr{F}$.
     H^{-i}(\categ{C}(\mathscr{F})(A^\bullet)).
   \]
   On the other hand, the other terms in the long exact sequence
-  obtained by applying Theorem~\ref{thm:homol:7.12} to $(*)$ give
+  obtained by applying Theorem~\ref{thm:homol:long-exact-sequence-of-derived-functors} to $(*)$ give
   \[\begin{tikzcd}
       \dots \arrow[r] & \categ{L}_i\mathscr{F}(A^0) \arrow[r] &
       \categ{L}_i\mathscr{F}(M) \arrow[r] &
@@ -7609,7 +7609,7 @@ compute $\categ{L}_i\mathscr{F}$.
   and concludes the proof.
 \end{proof}
 
-\begin{exam}{}{exam:homol:8.4}
+\begin{exam}{}{exam:homol:flat-resolution-computes-tor}
   Let $R$ be a commutative ring, and let
   \[\begin{tikzcd}
       F_\bullet : & \dots \arrow[r] & F_2 \arrow[r] & F_1 \arrow[r] &
@@ -7620,11 +7620,11 @@ compute $\categ{L}_i\mathscr{F}$.
     \Tor^R_i(M, N) \cong H_i(F_\bullet \otimes_R N).
   \]
   Indeed, flat modules are acyclic with respect to $\_ \otimes N$
-  (Example~\ref{exam:homol:8.2}), so this is now a consequence of
-  Theorem~\ref{thm:homol:8.3}.
+  (Example~\ref{exam:homol:flat-modules-are-tor-acyclic}), so this is now a consequence of
+  Theorem~\ref{thm:homol:derived-functor-via-acyclic-resolution}.
 \end{exam}
 
-Theorem~\ref{thm:homol:8.3} raises an interesting possibility: since
+Theorem~\ref{thm:homol:derived-functor-via-acyclic-resolution} raises an interesting possibility: since
 $\mathscr{F}$-acyclic objects suffice in order to compute the derived
 functors of $\mathscr{F}$ (at least when $\mathscr{F}$ is
 right-exact), the reader can imagine that there may be situations in
@@ -7637,7 +7637,7 @@ such examples in more advanced treatments of the subject. (See
 situation.)
 
 There is an alternative viewpoint on the question addressed by
-Theorem~\ref{thm:homol:8.3}. Let $A^\bullet$ be an
+Theorem~\ref{thm:homol:derived-functor-via-acyclic-resolution}. Let $A^\bullet$ be an
 $\mathscr{F}$-acyclic resolution of an object $M$, and let
 $P_M^\bullet$ be a projective resolution. I will apply
 $\categ{C}(\mathscr{F})$ and place the resulting complexes as sides of
@@ -7651,7 +7651,7 @@ an array:
     {} & & & & \mathscr{F}(P_M^{-2}) \arrow[u] \\
     & & & & \vdots \arrow[u] \arrow[dotted, from=2-1, to=2-5]
     \arrow[dotted, from=3-1, to=3-5] \arrow[dotted, from=4-1, to=4-5]
-  \end{tikzcd}\] The result of Theorem~\ref{thm:homol:8.3} is that
+  \end{tikzcd}\] The result of Theorem~\ref{thm:homol:derived-functor-via-acyclic-resolution} is that
 taking cohomology of the top row of this diagram gives the same result
 as taking cohomology of the rightmost column. Might there not be a way
 to `interpolate' between these two cohomologies, by cleverly filling
@@ -7778,7 +7778,7 @@ complexes.
 
 \emph{Double complexes} capture this construction:
 
-\begin{defn}{}{defn:homol:8.5}
+\begin{defn}{}{defn:homol:double-complex}
   A \emph{double (cochain) complex} on an abelian category $\categ{A}$
   is an array of objects $M^{i,j}$ of $\categ{A}$, $i, j \in \Z$,
   endowed with morphisms
@@ -7833,14 +7833,14 @@ along diagonals:
 % purely illustrates Definition~8.6 below, no separate mathematical
 % content.
 
-\begin{defn}{}{defn:homol:8.6}
+\begin{defn}{}{defn:homol:total-complex}
   The \emph{total complex} $TC(M)^\bullet$ of a double complex
   $M^{\bullet,\bullet}$ is defined by setting
   $TC(M)^k := \bigoplus_{i+j=k} M^{i,j}$, with differentials (written
   stenographically) $d_{tot} = d_h + \delta_v$.
 \end{defn}
 
-\begin{prop}{}{prop:homol:8.7}
+\begin{prop}{}{prop:homol:total-complex-is-a-complex}
   $(TC(M)^\bullet, d_{tot}^\bullet)$ is indeed a complex.
 \end{prop}
 \begin{proof}
@@ -7866,7 +7866,7 @@ complexes will be needed in the applications we will see, I will
 happily leave such complications aside and limit the discussion to the
 bounded case.
 
-\begin{exam}{}{exam:homol:8.8}
+\begin{exam}{}{exam:homol:hom-tensor-double-complex-example}
   Operations such as $\Hom_{\categ{A}}$ or $\otimes$ determine double
   complexes. For a `first quadrant' example, let $L^\bullet$, resp.,
   $M^\bullet$, be a complex in $\categ{C}^{\le 0}(\categ{A})$, resp.\
@@ -7980,7 +7980,7 @@ situations, however, in which one can conclude immediately that the
 total complex is exact, and this is at the root of the applications I
 will present. The statement is neat and memorable:
 
-\begin{thm}{}{thm:homol:8.9}
+\begin{thm}{}{thm:homol:acyclic-assembly-lemma}
   Let $\categ{A}$ be an abelian category, and let
   \[
     (*) \qquad
@@ -8003,7 +8003,7 @@ The proof will yield a more precise statement on the vanishing of
 individual degrees of the cohomology of the total complex
 (\Cref{exer:homol:vanishing-total-complex-cohomology-from-exact-rows}).
 
-\emph{Mutatis mutandis}, Theorem~\ref{thm:homol:8.9} holds for
+\emph{Mutatis mutandis}, Theorem~\ref{thm:homol:acyclic-assembly-lemma} holds for
 complexes in $\categ{C}^{\ge 0}(\categ{C}^{\ge 0}(\categ{A}))$, with
 microscopic adjustments to the proof; I will take this for granted in
 the applications. In fact, the boundedness hypothesis can be relaxed:
@@ -8012,7 +8012,7 @@ of the two $\categ{C}$ is bounded. The point is that the proof relies
 on an inductive argument, which goes through as soon as it has a place
 to start. The reader is welcome to explore all these ramifications.
 
-In terms of double complexes, Theorem~\ref{thm:homol:8.9} says that
+In terms of double complexes, Theorem~\ref{thm:homol:acyclic-assembly-lemma} says that
 the total complex of a (suitably bounded) double complex is exact if
 the rows or the columns of the double complex are exact.
 
@@ -8089,8 +8089,8 @@ the rows or the columns of the double complex are exact.
   the basic steps performed for $i = 2$.
 \end{proof}
 
-\begin{exam}{}{exam:homol:8.10}
-  Here is a taste of how convenient Theorem~\ref{thm:homol:8.9} is.
+\begin{exam}{}{exam:homol:acyclic-assembly-application}
+  Here is a taste of how convenient Theorem~\ref{thm:homol:acyclic-assembly-lemma} is.
   Let $P^\bullet$ be a complex in $\categ{C}^{\le 0}(\categ{A})$,
   where each $P^i$ is projective, and let $L^\bullet$ be an
   \emph{exact} complex in $\categ{C}^{\ge 0}(\categ{A})$. Since $P^i$
@@ -8101,33 +8101,33 @@ the rows or the columns of the double complex are exact.
       \arrow[r] & \Hom_{\categ{A}}(P^{-1}, L^\bullet) \arrow[r] &
       \Hom_{\categ{A}}(P^{-2}, L^\bullet) \arrow[r] & \dots
     \end{tikzcd}\] satisfies the hypothesis of the second statement
-  given in Theorem~\ref{thm:homol:8.9} (in the symmetrically bounded
-  version).  According to Theorem~\ref{thm:homol:8.9}, the
+  given in Theorem~\ref{thm:homol:acyclic-assembly-lemma} (in the symmetrically bounded
+  version).  According to Theorem~\ref{thm:homol:acyclic-assembly-lemma}, the
   corresponding total complex is exact; as seen in
-  Example~\ref{exam:homol:8.8} (cf.\
+  Example~\ref{exam:homol:hom-tensor-double-complex-example} (cf.\
   \Cref{exer:homol:cohomology-of-total-hom-complex-is-hom-in-k}), this
   says that $\Hom_{\categ{K}(\categ{A})}(P^\bullet, L[i]^\bullet) = 0$
   for all $i$. In other words, \emph{every cochain morphism from a
     bounded-above complex of projectives to a bounded-below exact
     complex is homotopic to $0$}. This recovers
-  \Cref{coro:homol:5.12}, up to easy adjustments, taking care of the
+  \Cref{coro:homol:morphism-to-exact-complex-null-homotopic}, up to easy adjustments, taking care of the
   boundedness hypothesis on $L^\bullet$.
 \end{exam}
 
 \subsection{Total complexes and resolutions}
 \label{subsec:homol:total-complexes-and-resolutions}
 
-Example~\ref{exam:homol:8.10} illustrates well the power of results
-such as Theorem~\ref{thm:homol:8.9}: the nuts-and-bolts-style
+Example~\ref{exam:homol:acyclic-assembly-application} illustrates well the power of results
+such as Theorem~\ref{thm:homol:acyclic-assembly-lemma}: the nuts-and-bolts-style
 arguments used in
 \S{}\ref{sec:homol:the-homotopic-category-complexes-of-projectives-and}
-are bypassed, and statements such as \Cref{coro:homol:5.12} are placed
+are bypassed, and statements such as \Cref{coro:homol:morphism-to-exact-complex-null-homotopic} are placed
 in a clarifying context\footnote{But I strongly believe in the
   pedagogic usefulness of first going through the nuts and
   bolts!}. The same strategy will allow us to revisit the question
 examined in \S{}\ref{subsec:homol:resolution-by-acyclic-objects},
 letting a double complex draw the conclusion of
-Theorem~\ref{thm:homol:8.3}. We will then finally be able to go back
+Theorem~\ref{thm:homol:derived-functor-via-acyclic-resolution}. We will then finally be able to go back
 to the last remaining mystery concerning Tor and Ext, dealing with why
 we can compute these functors `by resolving either argument'. This
 will conclude a large circle of ideas, begun in \Cref{chap:linrep}.
@@ -8141,7 +8141,7 @@ constructions are actually straightforward.
 We have studied in \S{}\ref{subsec:homol:from-objects-to-complexes}
 the problem of constructing complexes of projectives (for example)
 that are quasi-isomorphic to a given complex $N^\bullet$:
-\Cref{thm:homol:6.6} accomplishes this. I have called the
+\Cref{thm:homol:projective-resolution-functor-exists} accomplishes this. I have called the
 corresponding quasi-isomorphism a (projective) \emph{resolution} of
 $N^\bullet$. Now that we are working in
 $\categ{C}^{\le 0}(\categ{C}^{\le 0}(\categ{A}))$, this looks like an
@@ -8233,7 +8233,7 @@ $M_N^{\bullet,\bullet}$:
 This involves a sign change in the vertical differentials of the
 $M$-part, due to the shift.
 
-\begin{prop}{}{prop:homol:8.11}
+\begin{prop}{}{prop:homol:total-complex-of-cone-is-mapping-cone-of-totalizations}
   The total complex of $M_N^{\bullet,\bullet}$ is the mapping cone of
   $TC(\alpha)^\bullet$:
   \[
@@ -8247,7 +8247,7 @@ can safely be left to the reader
 consequence compares the different notions of `resolution', as
 promised a moment ago.
 
-\begin{thm}{}{thm:homol:8.12}
+\begin{thm}{}{thm:homol:balancing-derived-functors}
   Let $\categ{A}$ be an abelian category, and denote by $\categ{A}'$
   the category $\categ{C}^{\le 0}(\categ{A})$. Let $N^\bullet$ be an
   object of $\categ{A}'$, and let
@@ -8278,14 +8278,14 @@ promised a moment ago.
   \end{itemize}
 \end{thm}
 
-The statement of Theorem~\ref{thm:homol:8.12} extends that of
-Theorem~\ref{thm:homol:8.9}; its proof is a nearly immediate
+The statement of Theorem~\ref{thm:homol:balancing-derived-functors} extends that of
+Theorem~\ref{thm:homol:acyclic-assembly-lemma}; its proof is a nearly immediate
 consequence of the latter. As I mentioned at the beginning of
 \S{}\ref{subsec:homol:exactness-of-the-total-complex}, these
 statements are vastly generalized by the machinery of \emph{spectral
   sequences}, which provide a general framework for the computation of
 the cohomology of the total complex of a double complex. We will
-recover Theorem~\ref{thm:homol:8.12} once we have learned a bit about
+recover Theorem~\ref{thm:homol:balancing-derived-functors} once we have learned a bit about
 spectral sequences in \S{}\ref{subsec:homol:spectral-sequences}, but
 it is not hard (and it is a good exercise) to prove this statement by
 hand, as I proceed to do.
@@ -8294,27 +8294,27 @@ hand, as I proceed to do.
   The second statement follows from the first, by flipping the
   corresponding double complex about the main diagonal.
 
-  The first statement follows from Theorem~\ref{thm:homol:8.9} and
-  Proposition~\ref{prop:homol:8.11}. Indeed, let
+  The first statement follows from Theorem~\ref{thm:homol:acyclic-assembly-lemma} and
+  Proposition~\ref{prop:homol:total-complex-of-cone-is-mapping-cone-of-totalizations}. Indeed, let
   $M_N^{\bullet,\bullet}$ be the exact complex
   \[\begin{tikzcd}
       \dots \arrow[r] & M^{-2,\bullet} \arrow[r] & M^{-1,\bullet}
       \arrow[r] & M^{0,\bullet} \arrow[r] & N^\bullet \arrow[r] & 0
       \arrow[r] & \dots
-    \end{tikzcd}\] by Theorem~\ref{thm:homol:8.9}, $TC(M_N)^\bullet$
-  is exact; by Proposition~\ref{prop:homol:8.11} this is the mapping
+    \end{tikzcd}\] by Theorem~\ref{thm:homol:acyclic-assembly-lemma}, $TC(M_N)^\bullet$
+  is exact; by Proposition~\ref{prop:homol:total-complex-of-cone-is-mapping-cone-of-totalizations} this is the mapping
   cone of the induced morphism $T^\bullet \to N^\bullet$, and it
-  follows (\Cref{homol:4.2}) that this morphism is a
+  follows (\Cref{coro:homol:quasi-iso-iff-mapping-cone-exact}) that this morphism is a
   quasi-isomorphism, as needed.
 \end{proof}
 
-To appreciate the usefulness of Theorem~\ref{thm:homol:8.12}, again in
+To appreciate the usefulness of Theorem~\ref{thm:homol:balancing-derived-functors}, again in
 the context of our (hard) work in
 \S{}\ref{sec:homol:projective-and-injective-resolutions-and-the-derived-category},
 note that it provides us with a convenient bridge between resolving
-\emph{objects} (see \Cref{lem:homol:6.3}) and resolving
-\emph{complexes} (as in \Cref{thm:homol:6.6}).  Indeed, by
-\Cref{coro:homol:7.9} (which relies on the horseshoe lemma, therefore
+\emph{objects} (see \Cref{lem:homol:resolution-lifting-property}) and resolving
+\emph{complexes} (as in \Cref{thm:homol:projective-resolution-functor-exists}).  Indeed, by
+\Cref{coro:homol:cartan-eilenberg-resolution-of-complex} (which relies on the horseshoe lemma, therefore
 on resolving individual objects of $\categ{A}$) every bounded-above
 complex $N^\bullet$ in an abelian category with enough projectives may
 be viewed as the complex induced in $H^0$ from a complex
@@ -8324,15 +8324,15 @@ be viewed as the complex induced in $H^0$ from a complex
   \end{tikzcd}\] where $P^{i,\bullet}$ is a projective resolution of
 $N^i$. The total complex of $P^{\bullet,\bullet}$ is then a projective
 resolution of $N^\bullet$, by the second statement in
-Theorem~\ref{thm:homol:8.12}. This reproduces the main content of
-\Cref{thm:homol:6.6}, bypassing the nastiest details of the proof
+Theorem~\ref{thm:homol:balancing-derived-functors}. This reproduces the main content of
+\Cref{thm:homol:projective-resolution-functor-exists}, bypassing the nastiest details of the proof
 given in
 \S{}\ref{sec:homol:projective-and-injective-resolutions-and-the-derived-category}.
 
-As mentioned in \Cref{rem:homol:7.10}, double complexes of projectives
+As mentioned in \Cref{rem:homol:cartan-eilenberg-resolution-naturality}, double complexes of projectives
 (or, working in $\categ{C}^{\ge 0}$, injectives) resolving a given
 complex (and satisfying the additional condition explained in
-\Cref{rem:homol:7.10}) are called \emph{Cartan-Eilenberg
+\Cref{rem:homol:cartan-eilenberg-resolution-naturality}) are called \emph{Cartan-Eilenberg
   resolutions}. Their systematic use can simplify the material I
 presented in
 \S{}\ref{sec:homol:projective-and-injective-resolutions-and-the-derived-category}
@@ -8348,7 +8348,7 @@ complexes), go back to the question we studied in
 subsection by lining up the complexes obtained by applying an additive
 functor $\mathscr{F}$ to an $\mathscr{F}$-acyclic resolution
 $A^\bullet$ of an object $M$ and to a projective resolution of the
-same object, as sides of an array.  \Cref{coro:homol:7.9} tells us how
+same object, as sides of an array.  \Cref{coro:homol:cartan-eilenberg-resolution-of-complex} tells us how
 to fill the rest of the array: start from
 \[
   (*) \qquad
@@ -8357,7 +8357,7 @@ to fill the rest of the array: start from
     \arrow[r] & M \arrow[r] & 0 \arrow[r] & \dots
   \end{tikzcd}
 \]
-which is exact by hypothesis; using \Cref{coro:homol:7.9}, view $(*)$
+which is exact by hypothesis; using \Cref{coro:homol:cartan-eilenberg-resolution-of-complex}, view $(*)$
 as the complex induced in $H^0$ by an exact complex
 \[
   (**) \qquad
@@ -8391,7 +8391,7 @@ $P_M^i$. Now apply $\mathscr{F}$:
   \end{tikzcd}\] Since each $P_M^i$ is projective and each $A^i$ is
 $\mathscr{F}$-acyclic, every row and every column of (the lower part
 of) this diagram is exact. Therefore we can apply
-Theorem~\ref{thm:homol:8.12} to the complex
+Theorem~\ref{thm:homol:balancing-derived-functors} to the complex
 \[\begin{tikzcd}
     \mathscr{F}(P^{\bullet,\bullet}) : & \dots \arrow[r] &
     \mathscr{F}(P^{-2,\bullet}) \arrow[r] &
@@ -8406,7 +8406,7 @@ $\categ{C}(\mathscr{F})(P_M^\bullet)$. It follows that
   H^i(\categ{C}(\mathscr{F})(P_M^\bullet)) \cong
   \categ{L}_i\mathscr{F}(M),
 \]
-which was the conclusion of Theorem~\ref{thm:homol:8.3}.
+which was the conclusion of Theorem~\ref{thm:homol:derived-functor-via-acyclic-resolution}.
 
 This example illustrates the general strategy of other applications of
 double complexes: the cohomologies of two complexes are shown to be
@@ -8415,7 +8415,7 @@ interpolating between them. This strategy finally justifies the claims
 that Tor and Ext functors can be computed by resolving either one of
 their arguments.
 
-\begin{thm}{}{thm:homol:8.13}
+\begin{thm}{}{thm:homol:tor-is-balanced}
   Let $M, N$ be modules over a commutative ring $R$, and let
   $P_M^\bullet$, resp., $P_N^\bullet$, be projective resolutions of
   $M$, resp., $N$. Then
@@ -8428,13 +8428,13 @@ their arguments.
 The first term was our official definition of Tor, as originally given
 in \S{}\ref{subsec:linrep:the-tor-functors} (where we used free
 resolutions); see also
-\Cref{exam:homol:7.6}. Theorem~\ref{thm:homol:8.13} makes good on our
+\Cref{exam:homol:tor-as-derived-tensor}. Theorem~\ref{thm:homol:tor-is-balanced} makes good on our
 old promise (also made in \S{}\ref{subsec:linrep:the-tor-functors}) to
 show that the Tor functors could be computed by resolving the second
 factor rather than the first.
 
 \begin{proof}
-  Apply Theorem~\ref{thm:homol:8.12} to the complex
+  Apply Theorem~\ref{thm:homol:balancing-derived-functors} to the complex
   \[
     (*) \qquad
     \begin{tikzcd}
@@ -8450,7 +8450,7 @@ factor rather than the first.
     TC(P_M^\bullet \otimes_R P_N^\bullet)^\bullet \text{ is
       quasi-isomorphic to } M \otimes_R P_N^\bullet,
   \]
-  by the first statement in Theorem~\ref{thm:homol:8.12}. On the other
+  by the first statement in Theorem~\ref{thm:homol:balancing-derived-functors}. On the other
   hand, since each $P_M^i$ is projective, the complex
   $P_M^i \otimes_R P_N^\bullet$ is a resolution of $P_M^i \otimes N$;
   that is, the cohomology of each $P_M^i \otimes_R P_N^\bullet$ is
@@ -8461,11 +8461,11 @@ factor rather than the first.
     TC(P_M^\bullet \otimes_R P_N^\bullet)^\bullet \text{ is
       quasi-isomorphic to } P_M^\bullet \otimes N,
   \]
-  by the second statement in Theorem~\ref{thm:homol:8.12}. The result
+  by the second statement in Theorem~\ref{thm:homol:balancing-derived-functors}. The result
   follows.
 \end{proof}
 
-\begin{thm}{}{thm:homol:8.14}
+\begin{thm}{}{thm:homol:ext-is-balanced}
   Let $M, N$ be modules over a commutative ring $R$, and let
   $P_M^\bullet$, resp., $Q_N^\bullet$, be a projective resolution of
   $M$, resp., an injective resolution of $N$. Then
@@ -8475,9 +8475,9 @@ factor rather than the first.
   \]
 \end{thm}
 
-The proof of Theorem~\ref{thm:homol:8.14} is left to the reader
+The proof of Theorem~\ref{thm:homol:ext-is-balanced} is left to the reader
 (\Cref{exer:homol:ext-via-proj-or-inj-resolution-agree}):
-Example~\ref{exam:homol:8.8} and the strategy extensively discussed
+Example~\ref{exam:homol:hom-tensor-double-complex-example} and the strategy extensively discussed
 above will hopefully make this a very easy task.
 
 This statement completes the verification of all claims concerning Tor
@@ -8516,7 +8516,7 @@ notes.
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:total-differential-squares-to-zero}
   Verify carefully that $d_{tot} \circ d_{tot} = 0$ (cf.\
-  Proposition~\ref{prop:homol:8.7}). [\S{}\ref{subsec:homol:complexes-of-complexes}]
+  Proposition~\ref{prop:homol:total-complex-is-a-complex}). [\S{}\ref{subsec:homol:complexes-of-complexes}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:sign-flip-gives-isomorphic-double-complex}
   We have obtained a double complex from a commutative array of
@@ -8529,7 +8529,7 @@ notes.
   \S{}\ref{subsec:homol:exactness-of-the-total-complex}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:cohomology-of-total-hom-complex-is-hom-in-k}
-  With notation as in Example~\ref{exam:homol:8.8}, prove that the
+  With notation as in Example~\ref{exam:homol:hom-tensor-double-complex-example}, prove that the
   $i$-th cohomology of the total complex of
   $\Hom_{\categ{A}}(L^\bullet, M^\bullet)$ is isomorphic to
   $\Hom_{\categ{K}(\categ{A})}(L^\bullet, M^\bullet[i])$. (Warning:
@@ -8546,7 +8546,7 @@ notes.
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:total-complex-of-mn-is-mapping-cone}
   Prove
-  Proposition~\ref{prop:homol:8.11}. [\S{}\ref{subsec:homol:total-complexes-and-resolutions}]
+  Proposition~\ref{prop:homol:total-complex-of-cone-is-mapping-cone-of-totalizations}. [\S{}\ref{subsec:homol:total-complexes-and-resolutions}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:homol:cartan-eilenberg-computes-composite-derived-functor}
   Let $\categ{A}$, $\categ{B}$, $\categ{C}$ be abelian categories, and
@@ -8562,7 +8562,7 @@ notes.
   projective resolution of $A$. Let $P_{\mathscr{F}M^\bullet}^\bullet$
   be a Cartan-Eilenberg resolution of the complex
   $\mathscr{F}M^\bullet$ (as constructed in
-  \Cref{coro:homol:7.9}). Consider the complex
+  \Cref{coro:homol:cartan-eilenberg-resolution-of-complex}). Consider the complex
   \[
     (\dagger) \qquad
     \begin{tikzcd}
@@ -8580,13 +8580,13 @@ notes.
   \mathscr{F})(A)$.
 
   (Hint: Prove that the cohomology of each term of $(\dagger)$ is
-  concentrated in degree $0$, and apply Theorem~\ref{thm:homol:8.12}.)
+  concentrated in degree $0$, and apply Theorem~\ref{thm:homol:balancing-derived-functors}.)
   [\S{}\ref{subsec:homol:universal-property-of-the-derived-functor},
   \ref{exer:homol:cartan-eilenberg-resolution-computes-cohomology},
   \ref{exer:homol:spectral-seq-for-composite-derived-functors}]
 \end{exer}
 \begin{exer}{\exerused{}}{exer:homol:ext-via-proj-or-inj-resolution-agree}
-  Prove Theorem~\ref{thm:homol:8.14}: Let $M, N$ be modules over a
+  Prove Theorem~\ref{thm:homol:ext-is-balanced}: Let $M, N$ be modules over a
   commutative ring $R$, and let $P_M^\bullet$, resp., $Q_N^\bullet$,
   be a projective resolution of $M$, resp., an injective resolution of
   $N$; prove that
@@ -8774,7 +8774,7 @@ notes.
     $E^\bullet : \dots \to E^{-2} \to E^{-1} \to E^0 \to A \to 0$ be
     an $\mathscr{F}$-exact resolution of $A$. Then
     $\categ{T}^i\mathscr{F}_B \cong H^i(\mathscr{F}_B(E^\bullet))$.
-    (Hint: Mimic the proof of Theorem~\ref{thm:homol:8.3}.)
+    (Hint: Mimic the proof of Theorem~\ref{thm:homol:derived-functor-via-acyclic-resolution}.)
   \end{itemize}
   The upshot is that the interplay of the two functors $\mathscr{F}^A$
   and $\mathscr{F}_B$ allows us to define $\categ{T}^i\mathscr{F}_B$
@@ -8893,7 +8893,7 @@ construction is applied to $\categ{K}(\categ{A})$, rather than the
 simpler-minded $\categ{C}(\categ{A})$: for one thing, one might as
 well start from $\categ{K}(\categ{A})$, since the functor
 $\categ{C}(\categ{A}) \to \categ{D}(\categ{A})$ will have to factor
-through the homotopic category (Proposition~\ref{prop:homol:5.4}). In
+through the homotopic category (Proposition~\ref{prop:homol:functor-factors-through-homotopy-category}). In
 any case it just so happens that, unfortunately, quasi-isomorphisms do
 not form a localizing class of morphisms in $\categ{C}(\categ{A})$,
 while their homotopy classes \emph{are} localizing in
@@ -9084,7 +9084,7 @@ triangle
     {$+1$};
   \end{tikzpicture}
 \]
-obtained in Proposition~\ref{homol:4.1}. In general, a
+obtained in Proposition~\ref{prop:homol:mapping-cone-exact-triangle}. In general, a
 \emph{cohomological functor} on a triangulated category is an additive
 functor to an abelian category, mapping distinguished triangles to
 exact triangles and hence inducing long exact sequences. Thus,
@@ -9151,7 +9151,7 @@ hand, the reader can now verify
 (Exercise~\ref{exer:homol:mapping-cone-of-mono-quasi-iso-to-cokernel})
 that there is a quasi-isomorphism $MC(\alpha)^\bullet \to N^\bullet$:
 this can be shown by computing explicitly another mapping cone and
-applying Corollary~\ref{homol:4.2}. Thus, in the derived category the
+applying Corollary~\ref{coro:homol:quasi-iso-iff-mapping-cone-exact}. Thus, in the derived category the
 standard distinguished triangle
 \[
   \begin{tikzpicture}[baseline=(current bounding box.center)]
@@ -9225,7 +9225,7 @@ intrinsic notational complexity. I will limit myself to a very scant
 description of the concept and some information linking it back to
 \S{}\ref{subsec:homol:total-complexes-and-resolutions}. My motivation
 is that, in the literature, references to results such as
-\Cref{thm:homol:8.12} are often replaced by sentences such as `by an
+\Cref{thm:homol:balancing-derived-functors} are often replaced by sentences such as `by an
 immediate spectral sequence argument\dots', and I should try to
 explain to the reader what this means.
 
@@ -9307,7 +9307,7 @@ Thus, one exact triangle produces a whole sequence of triangles and in
 particular a sequence of objects $E_i$, each endowed with a
 differential $d_i$, such that $E_{i+1} = \ker d_i / \image d_i$.
 
-\begin{defn}{}{defn:homol:9.2}
+\begin{defn}{}{defn:homol:spectral-sequence}
   A \emph{spectral sequence} $\{(E_i, d_i)\}_{i=1,2,\dots}$ is a
   sequence of objects $E_i$ and morphisms $d_i : E_i \to E_i$ in an
   abelian category, such that $d_i \circ d_i = 0$ and
@@ -9338,7 +9338,7 @@ realizing $E_{i+1}$ as a \emph{subquotient}\footnote{That is, as a
 Define\footnote{Here I am implicitly working in a category
   $R\text{-}\categ{Mod}$ of modules over a ring, containing the given
   abelian category $\categ{A}$ (invoking the Freyd--Mitchell theorem,
-  Theorem~\ref{homol:2.9}). The infinite unions and intersections used
+  Theorem~\ref{thm:homol:freyd-mitchell-theorem}). The infinite unions and intersections used
   here make sense in $R\text{-}\categ{Mod}$; the limits and the
   corresponding $E_\infty$ are therefore defined as objects in
   $R\text{-}\categ{Mod}$ and in general not as objects of $\categ{A}$.
@@ -9409,7 +9409,7 @@ $M^{i,j} = 0$ for $i < 0$, $j < 0$:
     \arrow[u,"\delta_v"] & \cdots
   \end{tikzcd}\] As always, zero-objects to the left and below the
 given part of the diagram are implicit; we are assuming (as in
-\Cref{defn:homol:8.5}) that the diagram anticommutes, so that the
+\Cref{defn:homol:double-complex}) that the diagram anticommutes, so that the
 differential of the total complex $TC(M)^\bullet$ is simply
 $d_h + \delta_v$. Analogous results can be obtained if $M^{i,j} = 0$
 for $i > 0$, $j > 0$ and in fact under more relaxed hypotheses; such
@@ -9506,7 +9506,7 @@ cohomology degrees:
     & 0
   \end{tikzcd}\]
 
-\begin{defn}{}{defn:homol:9.3}
+\begin{defn}{}{defn:homol:spectral-sequence-of-double-complex}
   The \emph{spectral sequence of the double complex}
   $M^{\bullet,\bullet}$ (with respect to the vertical filtration) is
   the spectral sequence determined by this exact couple.
@@ -9520,7 +9520,7 @@ to a spectral sequence ${}_hE$.
 All terms ${}_vE_r$ of the spectral sequence are subquotients of the
 first one, ${}_vE_1 = H^\bullet(\operatorname{gr}_v^\bullet(T))$.
 
-\begin{rem}{}{homol:9.4}
+\begin{rem}{}{rem:homol:spectral-sequence-differential-degree}
   The differential $d_r = \beta_r \circ \gamma_r$ acts by increasing
   the cohomological degree $k$ by $1$ and the filtration degree $m$ by
   $r$: indeed, $\gamma_r$ is simply
@@ -9534,7 +9534,7 @@ first one, ${}_vE_1 = H^\bullet(\operatorname{gr}_v^\bullet(T))$.
 Interest in the sequence rests on the interpretation for its limit in
 the statement that follows, which also summarizes the situation.
 
-\begin{thm}{}{homol:9.5}
+\begin{thm}{}{thm:homol:spectral-sequence-of-a-double-complex}
   Let $M^{\bullet,\bullet}$ be a double complex in an abelian
   category. Assume that $M^{i,j} = 0$ for $i < 0$, $j < 0$, and let
   $T^\bullet$ be the total complex of $M^{\bullet,\bullet}$. Then,
@@ -9624,10 +9624,8 @@ the statement that follows, which also summarizes the situation.
   \]
   as stated.
 \end{proof}
-% Theorem 9.5 is a substantial generalization of Theorems 8.9 and
-% 8.12. To see that it implies Theorem 8.12, note again that
-Theorem~\ref{homol:9.5} is a substantial generalization of
-Theorems~8.9 and~8.12. To see that it implies \Cref{thm:homol:8.12},
+Theorem~\ref{thm:homol:spectral-sequence-of-a-double-complex} is a substantial generalization of
+\Cref{thm:homol:acyclic-assembly-lemma,thm:homol:balancing-derived-functors}. To see that it implies \Cref{thm:homol:balancing-derived-functors},
 note again that
 \[
   \operatorname{gr}_v^k(T) = \bigoplus_m \frac{T_m^k}{T_{m+1}^k} \cong
@@ -9646,12 +9644,12 @@ concentrated in degree $0$, then ${}_vE_1$ is simply the complex
 hence ${}_vE_2$ is the cohomology of this complex, and higher
 differentials of the spectral sequence are $0$ by degree
 considerations. It follows that the sequence collapses at ${}_vE_2$,
-and by Theorem~\ref{homol:9.5} this says that
+and by Theorem~\ref{thm:homol:spectral-sequence-of-a-double-complex} this says that
 $\operatorname{gr}_v(H^\bullet(T^\bullet))$ is isomorphic to the
 cohomology of $(*)$. In this case we clearly have
 $\operatorname{gr}_v(H^\bullet(T^\bullet)) \cong
 H^\bullet(T^\bullet)$, so the conclusion reproduces the corresponding
-statement in \Cref{thm:homol:8.12}. This is what is meant by the
+statement in \Cref{thm:homol:balancing-derived-functors}. This is what is meant by the
 incantation `by an immediate spectral sequence argument' I mentioned
 in the beginning of this subsection.  This reasoning and other
 applications of the spectral sequence of a double complex are easier
@@ -9703,7 +9701,7 @@ this as
     \cdots
   \end{tikzcd}\] In general, ${}_vE_r$ is the cohomology of
 ${}_vE_{r-1}$, and its differential increases $m$ by $r$ and $k$ by
-$1$ (Remark~\ref{homol:9.4}); that is, $(i,j) \mapsto (i+r, j-(r-1))$.
+$1$ (Remark~\ref{rem:homol:spectral-sequence-differential-degree}); that is, $(i,j) \mapsto (i+r, j-(r-1))$.
 Pictorially, differentials at different stages act like this:
 \[
   \underset{{}_vE_1}{
@@ -9728,21 +9726,21 @@ Pictorially, differentials at different stages act like this:
 \]
 and so on. This picture of a `rotating' differential may be the image
 that most people have in mind when they think of a spectral
-sequence. The argument sketched above, deriving \Cref{thm:homol:8.12}
-from Theorem~\ref{homol:9.5}, is probably clearer from this point of
+sequence. The argument sketched above, deriving \Cref{thm:homol:balancing-derived-functors}
+from Theorem~\ref{thm:homol:spectral-sequence-of-a-double-complex}, is probably clearer from this point of
 view: if the cohomology of the columns is concentrated in degree $0$,
 then ${}_vE_1$ is concentrated along the bottom row of the array. It
 is then clear that all differentials $d_i$ for $i \ge 2$ will have to
 be zero, since either their source or their target is zero. Thus the
 sequence collapses at ${}_vE_2$ and yields the cohomology of the total
-complex by Theorem~\ref{homol:9.5}. The other situation considered in
-\Cref{thm:homol:8.12} can be analyzed by using the sequence ${}_hE_i$
+complex by Theorem~\ref{thm:homol:spectral-sequence-of-a-double-complex}. The other situation considered in
+\Cref{thm:homol:balancing-derived-functors} can be analyzed by using the sequence ${}_hE_i$
 obtained from the horizontal filtration.
 
 Of course, spectral sequences are not limited to these simple
 applications. The \emph{Grothendieck spectral sequence} `computes' the
 derived functor of the composition of two functors\footnote{For a
-  different viewpoint on this question, see \Cref{rem:homol:7.4}.}:
+  different viewpoint on this question, see \Cref{rem:homol:composition-of-derived-functors-remark}.}:
 for example, if $\mathscr{F} : \categ{A} \to \categ{B}$ and
 $\mathscr{G} : \categ{B} \to \categ{C}$ are two right-exact functors
 and $\mathscr{F}$ sends projectives to projectives, then there is a
@@ -9924,7 +9922,7 @@ Exercise~\ref{exer:homol:spectral-seq-for-composite-derived-functors}.
   projective resolution of $A$. Let $P_{\mathscr{F}M^\bullet}^\bullet$
   be a Cartan--Eilenberg resolution of the complex
   $\mathscr{F}M^\bullet$ (as constructed in
-  \Cref{coro:homol:7.9}). Consider the complex
+  \Cref{coro:homol:cartan-eilenberg-resolution-of-complex}). Consider the complex
   \[
     (\dagger) \qquad \dots \longrightarrow
     \mathscr{G}(P_{\mathscr{F}M^{-2}}^\bullet) \longrightarrow
@@ -9950,7 +9948,7 @@ Exercise~\ref{exer:homol:spectral-seq-for-composite-derived-functors}.
   \S{}\ref{subsec:homol:spectral-sequences}. Prove that it abuts to
   $\categ{L}_\bullet(\mathscr{G} \circ \mathscr{F})(A)$.
 
-  (Use the `horizontal' version of Theorem~\ref{homol:9.5}, together
+  (Use the `horizontal' version of Theorem~\ref{thm:homol:spectral-sequence-of-a-double-complex}, together
   with the computation of the cohomology of the total complex from
   \Cref{exer:homol:cartan-eilenberg-computes-composite-derived-functor}.)
   [\S{}\ref{subsec:homol:universal-property-of-the-derived-functor},
