@@ -1,7 +1,6 @@
 LUALATEX = lualatex -file-line-error -interaction=nonstopmode -synctex=1
 PDFLATEX = pdflatex -file-line-error -interaction=nonstopmode -synctex=1
 MASTER   = master
-FASTMASTER = master_fastcheck
 
 .PHONY: pdf quick check_syntax check_fast clean chktex warnings
 
@@ -33,18 +32,18 @@ quick:
 check_syntax:
 	$(LUALATEX) --draftmode $(MASTER)
 
-# Much faster reference/syntax-only check: plain pdflatex (no OpenType
-# font loading) against master_fastcheck.tex, which swaps in
-# fonts_fast.tex (no fontspec/unicode-math) and environments_fast.tex
-# (plain-text theorem environments instead of tcolorbox's
-# colored/breakable boxes -- the actual bottleneck). Same \label/\ref
+# Much faster reference/syntax-only check: plain pdflatex against the
+# same master.tex, with \fastbuildtrue set at the top of the file to
+# swap in fonts_fast.tex/environments_fast.tex. Same \label/\ref
 # behavior, ~3x faster. NEVER represents the real book's appearance;
 # only use it to check references/errors, never to review layout.
-# \include writes aux files named after each chapter, shared with the
-# real master -- run `make clean` before switching between the two to
-# avoid stale cross-contaminated aux state.
+# Requires \fastbuildtrue to be set in master.tex first (it toggles
+# back to lualatex/tcolorbox otherwise, which plain pdflatex can't
+# process). \include writes per-chapter aux files shared with the real
+# build -- run `make clean` after flipping the switch to avoid stale
+# cross-contaminated aux state.
 check_fast:
-	$(PDFLATEX) --draftmode $(FASTMASTER)
+	$(PDFLATEX) --draftmode $(MASTER)
 
 # Fail if the log contains any warning/error other than Overfull/Underfull box warnings.
 warnings: pdf
@@ -73,8 +72,4 @@ clean:
 	       $(MASTER).log $(MASTER).out $(MASTER).run.xml \
 	       $(MASTER).synctex.gz $(MASTER).toc $(MASTER).pdf \
 	       $(MASTER).idx $(MASTER).ind $(MASTER).ilg \
-	       $(FASTMASTER).aux $(FASTMASTER).bbl $(FASTMASTER).bcf $(FASTMASTER).blg \
-	       $(FASTMASTER).log $(FASTMASTER).out $(FASTMASTER).run.xml \
-	       $(FASTMASTER).synctex.gz $(FASTMASTER).toc $(FASTMASTER).pdf \
-	       $(FASTMASTER).idx $(FASTMASTER).ind $(FASTMASTER).ilg \
 	       chapters/*.aux *.aux

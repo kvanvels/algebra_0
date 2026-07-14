@@ -1,5 +1,19 @@
 \documentclass[onecolumn,oneside,12pt,leqno]{book}
 
+% Set \fastbuildtrue for a fast plain-pdflatex reference/syntax-check
+% build: fonts_fast.tex (no fontspec/unicode-math OpenType loading)
+% and environments_fast.tex (plain-text theorem environments instead
+% of tcolorbox's colored/breakable boxes -- the real bottleneck).
+% Same \label/\ref/\Cref behavior, ~3x faster, but NEVER represents
+% the real book's appearance -- only use it to check references and
+% catch errors, never to review layout. Requires pdflatex, not
+% lualatex (unicode-math needs lualatex/xelatex, which is the whole
+% reason this switch exists). Run `make clean` after flipping this,
+% since \include writes per-chapter aux files shared between both
+% modes.
+\newif\iffastbuild
+\fastbuildfalse
+
 \usepackage{imakeidx}
 \makeindex
 \usepackage{amsmath}
@@ -9,7 +23,11 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{tikz-cd}
-\input{fonts}
+\iffastbuild
+  \input{fonts_fast}
+\else
+  \input{fonts}
+\fi
 \usepackage{microtype}
 \usepackage{paralist}
 \usepackage{enumitem}
@@ -26,7 +44,11 @@
 \usepackage[style=numeric]{biblatex}
 \addbibresource{mybib.bib}
 \input{colors}
-\input{environments}
+\iffastbuild
+  \input{environments_fast}
+\else
+  \input{environments}
+\fi
 
 \titleformat{\chapter}[display]
   {\normalfont\sffamily\huge\bfseries\color{black}}
@@ -123,7 +145,15 @@
 \definecolor{neonBlue}{RGB}{0,180,255}
 \definecolor{neonGreen}{RGB}{57,255,20}
 
-\newcommand{\categ}[1]{{\color{UCLA_Blue}\mathbfsfup{#1}}}
+% \mathbfsfup is a unicode-math math alphabet (borrowed from
+% LibertinusSans-Bold in fonts.tex) -- it doesn't exist without
+% unicode-math, so \categ needs a plain-\mathsf fallback under
+% fonts_fast.tex.
+\iffastbuild
+  \newcommand{\categ}[1]{{\color{UCLA_Blue}\mathsf{#1}}}
+\else
+  \newcommand{\categ}[1]{{\color{UCLA_Blue}\mathbfsfup{#1}}}
+\fi
 \newcommand{\imagtwo}{{\color{neonBlue}\mathbf{i}}}
 \newcommand{\schwartz}{\mathcal{S}}
 \newcommand{\one}{\mbfone}
@@ -226,14 +256,14 @@
   chapters/preface,
   chapters/intro,
   chapters/prelims,
-  chapters/groups,
-  chapters/rings,
-  chapters/groups2,
-  chapters/irreducibility,
-  chapters/linear_algebra,
-  chapters/fields,
-  chapters/linear_reprise,
-  chapters/homological,
+  % chapters/groups,
+  % chapters/rings,
+  % chapters/groups2,
+  % chapters/irreducibility,
+  % chapters/linear_algebra,
+  % chapters/fields,
+  % chapters/linear_reprise,
+  % chapters/homological,
 }
 
 \begin{document}
