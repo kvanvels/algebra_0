@@ -93,7 +93,7 @@ larger field is an algebra, and hence a \emph{vector space} over the
 smaller one (by the very definition of algebra; cf.\
 \Cref{exam:rings:ring-hom-defines-module}).
 
-\begin{defn}{}{defn:fields:1.1}
+\begin{defn}{}{defn:fields:finite-extension-degree}
   A field extension $k \subseteq F$ is \emph{finite}, of \emph{degree}
   $n$, if $F$ has (finite) dimension $\dim F = n$ as a vector space
   over $k$. The extension is \emph{infinite} otherwise.
@@ -122,7 +122,7 @@ unfortunately not the case, but as it happens, it is the case in a
 large class of examples. As I often do, I promise that the situation
 will clarify itself considerably once we have accumulated more general
 knowledge; in this case, the relevant fact will be
-\Cref{prop:fields:5.19}.
+\Cref{prop:fields:primitive-element-theorem}.
 
 Also recall that we proved that these extensions are almost universal
 with respect to the problem of extending $k$ so that the polynomial
@@ -140,7 +140,7 @@ smallest subfield of $F$ containing both $k$ and $\alpha$ is denoted
 $k(\alpha)$; that is, $k(\alpha)$ is the intersection of all subfields
 of $F$ containing $k$ and $\alpha$.
 
-\begin{defn}{}{defn:fields:1.2}
+\begin{defn}{}{defn:fields:simple-extension}
   A field extension $k \subseteq F$ is \emph{simple} if there exists
   an element $\alpha \in F$ such that $F = k(\alpha)$.
 \end{defn}
@@ -161,7 +161,7 @@ it is easy to classify simple extensions: they are either isomorphic
 to $k(t)$ or they are of the prototypical kind recalled above.  Here
 is the precise statement.
 
-\begin{prop}{}{prop:fields:1.3}
+\begin{prop}{}{prop:fields:evaluation-map-simple-extension-dichotomy}
   Let $k \subseteq k(\alpha)$ be a simple extension. Consider the
   evaluation map $\epsilon : k[t] \to k(\alpha)$, defined by
   $f(t) \mapsto f(\alpha)$.  Then we have the following:
@@ -221,7 +221,7 @@ $t - \sqrt{2}$ over $\R$.
 \end{proof}
 
 The alert reader will have noticed that the proof of
-\cref{prop:fields:1.3} is essentially a rehash of the argument proving
+\cref{prop:fields:evaluation-map-simple-extension-dichotomy} is essentially a rehash of the argument proving
 the `versality' part of \Cref{prop:irred:5.7}.
 \begin{exam}{}{exam:fields:exam:1.4}
   Consider the extension $\Q \subseteq \R$.
@@ -231,7 +231,7 @@ the `versality' part of \Cref{prop:irred:5.7}.
   extension)
   \[\epsilon : \frac{\Q[t]}{(t^2 - 2)} \hookrightarrow \R,\]
   such that the image of (the coset of) $t$ is a root $\alpha$ of
-  $x^2 - 2$. \Cref{prop:fields:1.3} simply identifies the image of
+  $x^2 - 2$. \Cref{prop:fields:evaluation-map-simple-extension-dichotomy} simply identifies the image of
   this homomorphism with $\Q(\alpha) \subseteq \R$.  This is hopefully
   crystal clear; however, note that even this simple example shows
   that the induced morphism $\epsilon$ is not unique (hence the `lack
@@ -263,7 +263,7 @@ this issue aside for now.
 One way to recover uniqueness is to incorporate the choice of the root
 in the data. This leads to the following refinement of the
 (uni)versality statement, adapted for future applications.
-\begin{prop}{}{prop:fields:1.5}
+\begin{prop}{}{prop:fields:isomorphism-extends-to-simple-extensions}
   Let $k_1 \subseteq F_1 = k_1(\alpha_1)$,
   $k_2 \subseteq F_2 = k_2(\alpha_2)$ be two finite simple
   extensions. Let $p_1(t) \in k_1[t]$, resp., $p_2(t) \in k_2[t]$, be
@@ -287,7 +287,7 @@ in the data. This leads to the following refinement of the
   $p_1(t)$ to $p_2(t)$, it induces an isomorphism
   \[\frac{k_1[t]}{(p_1(t))} \xrightarrow{\;\sim\;}
     \frac{k_2[t]}{(p_2(t))}.\] Composing with the isomorphisms found
-  in \cref{prop:fields:1.3} gives $j$:
+  in \cref{prop:fields:evaluation-map-simple-extension-dichotomy} gives $j$:
   \[j : k_1(\alpha_1) \xrightarrow{\;\sim\;} \frac{k_1[t]}{(p_1(t))}
     \xrightarrow{\;\sim\;} \frac{k_2[t]}{(p_2(t))}
     \xrightarrow{\;\sim\;} k_2(\alpha_2),\] as needed.
@@ -308,13 +308,13 @@ c$. I will denote the group of such automorphisms by $\Aut_k(F)$. This
 is probably the most important object of study in this chapter, so I
 should make its definition official:
 
-\begin{defn}{}{defn:fields:1.6}
+\begin{defn}{}{defn:fields:automorphism-group-of-extension}
   Let $k \subseteq F$ be a field extension. The \emph{group of
     automorphisms of the extension}, denoted $\Aut_k(F)$, is the group
   of field automorphisms $j : F \to F$ such that $j|_k = \id_k$.
 \end{defn}
 
-\begin{coro}{}{coro:fields:1.7}
+\begin{coro}{}{coro:fields:aut-group-order-bounded-by-degree}
   Let $k \subseteq F = k(\alpha)$ be a simple finite extension, and
   let $p(x)$ be the minimal polynomial of $\alpha$ over $k$. Then
   $|\Aut_k(F)|$ equals the number of distinct roots of $p(x)$ in $F$;
@@ -331,15 +331,15 @@ should make its definition official:
   is necessarily a root of $p(x)$. This shows that $|\Aut_k(F)|$ is no
   larger than the number of roots of $p(x)$.
 
-  On the other hand, by \cref{prop:fields:1.5} every choice of a root
+  On the other hand, by \cref{prop:fields:isomorphism-extends-to-simple-extensions} every choice of a root
   of $p(t)$ determines a lift of the identity to an element
   $j \in \Aut_k(F)$, establishing the other inequality.
 \end{proof}
-\cref{coro:fields:1.7} is our first hint of the powerful interaction
+\cref{coro:fields:aut-group-order-bounded-by-degree} is our first hint of the powerful interaction
 between group theory and the theory of field extensions; this theme
 will haunt us throughout the chapter.
 
-The proof of \cref{coro:fields:1.7} really sets up a bijection between
+The proof of \cref{coro:fields:aut-group-order-bounded-by-degree} really sets up a bijection between
 the roots of an irreducible polynomial $p(t) \in k[t]$ in a larger
 field $F$ and the group $\Aut_k(F)$. A particularly optimistic reader
 may then hope that the roots of $p(t)$ come endowed with a group
@@ -367,10 +367,10 @@ fully appreciated until we develop substantially more material.)
 
 \subsection{Finite and algebraic extensions}%
 \label{subsec:fields:finite-and-algebraic-extensions}
-The dichotomy encountered in \cref{prop:fields:1.3} provides us with
+The dichotomy encountered in \cref{prop:fields:evaluation-map-simple-extension-dichotomy} provides us with
 one of the most important definitions in field theory:
 
-\begin{defn}{}{defn:fields:1.8}
+\begin{defn}{}{defn:fields:algebraic-transcendental-element}
   Let $k \subseteq F$ be a field extension, and let $\alpha \in
   F$. Then $\alpha$ is \emph{algebraic} over $k$, of \emph{degree} $n$
   if $n = [k(\alpha) : k]$ is finite; $\alpha$ is
@@ -379,7 +379,7 @@ one of the most important definitions in field theory:
   The extension $k \subseteq F$ is \emph{algebraic} if every
   $\alpha \in F$ is algebraic over $k$.
 \end{defn}
-By \cref{prop:fields:1.3}, $\alpha \in F$ is algebraic over $k$ if and
+By \cref{prop:fields:evaluation-map-simple-extension-dichotomy}, $\alpha \in F$ is algebraic over $k$ if and
 only if there exists a nonzero polynomial $f(x) \in k[x]$ such that
 $f(\alpha) = 0$. The minimal polynomial of $\alpha$ is the monic
 polynomial of smallest degree satisfying this condition; as we have
@@ -388,7 +388,7 @@ algebraic over $k$, then every element of $k(\alpha)$ may in fact be
 written as a \emph{polynomial} with coefficients in $k$.
 
 \emph{Finite extensions are necessarily algebraic:}
-\begin{lem}{}{lem:fields:1.9}
+\begin{lem}{}{lem:fields:finite-implies-algebraic-bounded-degree}
   Let $k \subseteq F$ be a finite extension. Then every $\alpha \in F$
   is algebraic over $k$, of degree $\leq [F : k]$.
 \end{lem}
@@ -407,7 +407,7 @@ something along these lines holds; understanding the situation
 requires a more careful look at finiteness conditions.  First of all,
 compositions of finite extensions are finite extensions, and the
 degree behaves nicely with respect to this operation:
-\begin{prop}{}{prop:fields:1.10}
+\begin{prop}{}{prop:fields:degree-multiplicative-in-tower}
   Let $k \subseteq E \subseteq F$ be field extensions. Then
   $k \subseteq F$ is finite if and only if both $k \subseteq E$ and
   $E \subseteq F$ are finite.  In this case,
@@ -464,7 +464,7 @@ this is not accidental; the reader should take it as another hint that
 the world of groups and the world of fields have deep interaction. As
 in the case of groups, we draw the immediate (but powerful)
 consequence, reminiscent of Lagrange's theorem:
-\begin{coro}{}{coro:fields:1.11}
+\begin{coro}{}{coro:fields:intermediate-degrees-divide}
   Let $k \subseteq F$ be a finite extension, and let $E$ be an
   intermediate field (that is, $k \subseteq E \subseteq F$). Then both
   $[E : k]$ and $[F : E]$ divide $[F : k]$.
@@ -483,7 +483,7 @@ otherwise mysterious statements melt into trivialities.
   what can we say about the degree $d$ of $k(\alpha)$ over
   $k(\alpha^2)$?  Since $\alpha$ satisfies the polynomial
   $t^2 - \alpha^2 \in k(\alpha^2)[t]$, $d \leq 2$. On the other hand,
-  $d$ divides $[k(\alpha) : k]$ by \cref{coro:fields:1.11}, and
+  $d$ divides $[k(\alpha) : k]$ by \cref{coro:fields:intermediate-degrees-divide}, and
   $[k(\alpha) : k]$ is odd, so $d \neq 2$.  Therefore $d = 1$, proving
   $k(\alpha) = k(\alpha^2)$, and in particular
   $\alpha \in k(\alpha^2)$, which is the claim.
@@ -500,19 +500,19 @@ many variables.  Something along the same lines is going to occur
 here. An extension $k \subseteq F$ is finite if and only if $\dim_k F$
 is finite, that is, if and only if $F$ is a finite $k$-algebra. The
 other finiteness condition takes the following form.
-\begin{defn}{}{defn:fields:1.13}
+\begin{defn}{}{defn:fields:finitely-generated-extension}
   A field extension $k \subseteq F$ is \emph{finitely generated} if
   there exist $\alpha_1, \dots, \alpha_n \in F$ such that
   \[
     F = k(\alpha_1)(\alpha_2)\dots(\alpha_n).
   \]
 \end{defn}
-\begin{rem}{}{rem:fields:1.14}
+\begin{rem}{}{rem:fields:finite-type-algebra-vs-finitely-generated-field}
   This is not the same as saying that $F$ is generated by the
   $\alpha_i$'s as a (finite-type) $k$-algebra: even in the case of
   simple extensions, if $\alpha$ is transcendental, then the natural
   evaluation map $\epsilon : k[t] \to k(\alpha)$ of
-  \cref{prop:fields:1.3} is not onto. However, this is an epimorphism
+  \cref{prop:fields:evaluation-map-simple-extension-dichotomy} is not onto. However, this is an epimorphism
   of rings in the categorical sense, as the reader will check
   (\Cref{exer:fields:evaluation-map-is-epimorphism}); thus, the
   `categorical spirit' behind the finite-type condition is preserved
@@ -537,7 +537,7 @@ containing $k(\alpha_1), \dots, k(\alpha_n)$ (it is the
 the elements $\alpha_i$ is irrelevant.  Coming back to the issue of
 finite vs.\ algebraic, these two notions do coincide for finitely
 generated extensions.
-\begin{prop}{}{prop:fields:1.15}
+\begin{prop}{}{prop:fields:finitely-generated-tfae-finite-algebraic}
   Let $k \subseteq F = k(\alpha_1, \dots, \alpha_n)$ be a finitely
   generated field extension. Then the following are equivalent:
   \begin{enumerate}[label=(\roman*)]
@@ -549,7 +549,7 @@ generated extensions.
   of the degrees of $\alpha_i$ over $k$.
 \end{prop}
 \begin{proof}
-  \cref{lem:fields:1.9} shows that (i)$\implies$(ii);
+  \cref{lem:fields:finite-implies-algebraic-bounded-degree} shows that (i)$\implies$(ii);
   (ii)$\implies$(iii) trivially. Thus, we only need to prove that
   (iii)$\implies$(i), and to bound the degree of $F$ over $k$ in the
   process.  Assume that each $\alpha_i$ is algebraic over $k$, and let
@@ -558,7 +558,7 @@ generated extensions.
   \Cref{exer:fields:restr-scalars-degree-inequality}, each extension
   $k(\alpha_1, \dots, \alpha_{i-1}) \subseteq k(\alpha_1, \dots,
   \alpha_i)$ is finite, of degree $\leq d_i$. Applying
-  \cref{prop:fields:1.10} to the composition of extensions
+  \cref{prop:fields:degree-multiplicative-in-tower} to the composition of extensions
   \[
     k \subseteq k(\alpha_1) \subseteq k(\alpha_1, \alpha_2) \subseteq
     \dots \subseteq k(\alpha_1, \dots, \alpha_n) = F
@@ -566,7 +566,7 @@ generated extensions.
   proves that $k \subseteq F$ is finite and
   $[F : k] \leq d_1 \dots d_n$, as needed.
 \end{proof}
-While rather straightforward, \cref{prop:fields:1.15} has always
+While rather straightforward, \cref{prop:fields:finitely-generated-tfae-finite-algebraic} has always
 seemed remarkable to us: it says (in particular) that if $\alpha$ and
 $\beta$ are algebraic over a field $k$, then so are
 $\alpha \pm \beta$, $\alpha\beta$, $\alpha\beta^{-1}$, and any other
@@ -577,11 +577,11 @@ $f(x)$ of which $\alpha$ is a root and a polynomial $g(x)$ of which
 $\beta$ is a root, how do we construct a polynomial $h(x)$ such that
 (for example) $h(\alpha + \beta) = 0$? The answer is that we do not
 need to perform any such construction, by virtue of
-\cref{prop:fields:1.15}.  One immediate consequence of this
+\cref{prop:fields:finitely-generated-tfae-finite-algebraic}.  One immediate consequence of this
 observation is that the set of algebraic elements of any extension
 forms a field:
 
-\begin{coro}{}{coro:fields:1.16}
+\begin{coro}{}{coro:fields:algebraic-elements-form-a-field}
   Let $k \subseteq F$ be a field extension. Let
   \[
     E = \{\alpha \in F \mid \alpha \text{ is algebraic over } k\}.
@@ -591,7 +591,7 @@ forms a field:
 \begin{exam}{}{exam:fields:exam:1.17}
   Let $\overline{\Q} \subseteq \C$ be the set of complex numbers that
   are algebraic over $\Q$; then $\overline{\Q}$ is a field, by
-  \cref{coro:fields:1.16}, and the extension
+  \cref{coro:fields:algebraic-elements-form-a-field}, and the extension
   $\Q \subseteq \overline{\Q}$ is (tautologically) algebraic. Note
   that $\Q \subseteq \overline{\Q}$ is not a finite extension, because
   in it there are elements of arbitrarily high degree over $\Q$:
@@ -610,10 +610,10 @@ forms a field:
   transcendental (\name{Gelfond}--\name{Schneider}, 1934). No one
   knows whether $\pi^e$, $\pi + e$, or $\pi e$ are transcendental.
 \end{exam}
-Another consequence of \cref{prop:fields:1.15} is the important fact
+Another consequence of \cref{prop:fields:finitely-generated-tfae-finite-algebraic} is the important fact
 that compositions of algebraic extensions are algebraic (whether
 finitely generated or not):
-\begin{coro}{}{coro:fields:1.18}
+\begin{coro}{}{coro:fields:algebraic-in-tower-iff-both-algebraic}
   Let $k \subseteq E \subseteq F$ be field extensions. Then
   $k \subseteq F$ is algebraic if and only if both $k \subseteq E$ and
   $E \subseteq F$ are algebraic.
@@ -640,17 +640,17 @@ finitely generated or not):
   \[
     k \subseteq k(e_0, \dots, e_{n-1})
   \]
-  is a finite extension by \cref{prop:fields:1.15}, since each $e_i$
+  is a finite extension by \cref{prop:fields:finitely-generated-tfae-finite-algebraic}, since each $e_i$
   is in $E$ and therefore algebraic over $k$. By
-  \cref{prop:fields:1.10},
+  \cref{prop:fields:degree-multiplicative-in-tower},
   \[
     k \subseteq k(e_0, \dots, e_{n-1}, \alpha)
   \]
   is finite. This implies that $\alpha$ is algebraic over $k$, as
-  needed, by \cref{lem:fields:1.9}.
+  needed, by \cref{lem:fields:finite-implies-algebraic-bounded-degree}.
 \end{proof}
 We will essentially deal only with finitely generated extensions, and
-\cref{prop:fields:1.15} will simplify our work considerably. Also,
+\cref{prop:fields:finitely-generated-tfae-finite-algebraic} will simplify our work considerably. Also,
 since finitely generated extensions are compositions of simple
 extensions, the reader should expect that we will give a careful look
 at automorphisms of such extensions.
@@ -658,13 +658,13 @@ at automorphisms of such extensions.
 It may in fact come as a surprise that, in many cases, finitely
 generated extensions turn out to be simple to begin with; we will
 prove a precise statement to this effect in due time
-(\Cref{prop:fields:5.19}). The reader already has enough tools to
+(\Cref{prop:fields:primitive-element-theorem}). The reader already has enough tools to
 contemplate easy (but interesting) examples, such as the
 following. This should serve as an encouragement to look at many more.
 \begin{exam}{}{exam:fields:exam:1.19}
   Consider the extension $\Q \subseteq \Q(\sqrt{2}, \sqrt{3})$.
 
-  By \cref{prop:fields:1.15} we know that this is a finite (hence
+  By \cref{prop:fields:finitely-generated-tfae-finite-algebraic} we know that this is a finite (hence
   algebraic) extension, of degree at most $4$.
 
   Thus any five elements in $\Q(\sqrt{2}, \sqrt{3})$ must be linearly
@@ -702,7 +702,7 @@ following. This should serve as an encouragement to look at many more.
     \Q \subseteq \Q(\sqrt{2}+\sqrt{3}) \subseteq
     \Q(\sqrt{2},\sqrt{3}).
   \]
-  By \cref{coro:fields:1.11},
+  By \cref{coro:fields:intermediate-degrees-divide},
   \[
     4 = [\Q(\sqrt{2}+\sqrt{3}) : \Q] \leq [\Q(\sqrt{2},\sqrt{3}) :
     \Q].
@@ -720,7 +720,7 @@ following. This should serve as an encouragement to look at many more.
   \[
     \Q \subseteq \Q(\sqrt{2}) \subseteq \Q(\sqrt{2},\sqrt{3}),
   \]
-  \cref{prop:fields:1.10} tells us that
+  \cref{prop:fields:degree-multiplicative-in-tower} tells us that
   $[\Q(\sqrt{2},\sqrt{3}) : \Q(\sqrt{2})] = 2$.  That is, a
   side-effect of the computation carried out above is that the
   polynomial $t^2 - 3$ must be irreducible over $\Q(\sqrt{2})$; this
@@ -732,7 +732,7 @@ following. This should serve as an encouragement to look at many more.
   $\sqrt{2}+\sqrt{3}$ `looked so much like' $\sqrt{2}+\sqrt{3}$ is not
   surprising. Indeed, since
   $\Q(\sqrt{2}) \subseteq \Q(\sqrt{2},\sqrt{3})$ is a simple
-  extension, we know (cf.\ \cref{prop:fields:1.5} and following) that
+  extension, we know (cf.\ \cref{prop:fields:isomorphism-extends-to-simple-extensions} and following) that
   there is an automorphism of $\Q(\sqrt{2},\sqrt{3})$ fixing
   $\Q(\sqrt{2})$ (and hence $\Q$) and swapping $\sqrt{3}$ and
   $-\sqrt{3}$.  Similarly, there is an automorphism fixing
@@ -744,7 +744,7 @@ following. This should serve as an encouragement to look at many more.
 
   In fact, at this point we know that
   $G = \Aut_{\Q}(\Q(\sqrt{2},\sqrt{3}))$ must consist of $4$ elements
-  (by \cref{coro:fields:1.7}) and has at least two elements of order
+  (by \cref{coro:fields:aut-group-order-bounded-by-degree}) and has at least two elements of order
   $2$ (both automorphisms found above have order $2$). This is enough
   to conclude that $G$ is not a cyclic group, and hence it must be
   isomorphic to the group $\Z/2\Z \times \Z/2\Z$.
@@ -804,7 +804,7 @@ following. This should serve as an encouragement to look at many more.
   \item Suppose $p(x) \in k[x]$ is an irreducible monic polynomial
     such that $p(\alpha) = 0$; prove that $p(x)$ is the minimal
     polynomial of $\alpha$ over $k$, in the sense of
-    \cref{prop:fields:1.3}.
+    \cref{prop:fields:evaluation-map-simple-extension-dichotomy}.
   \item Let $f(x) \in k[x]$. Prove that $f(\alpha) = 0$ if and only if
     $p(x) \mid f(x)$.
   \item Show that the minimal polynomial of $\alpha$ is the minimal
@@ -992,7 +992,7 @@ following. This should serve as an encouragement to look at many more.
     minimal polynomial of $\xi$.
   \item Prove that $\sqrt{2 - \sqrt{2}} \in \Q(\xi)$. (Hint:
     $(a+b)(a-b) = a^2 - b^2$.)
-  \item By \cref{prop:fields:1.5}, sending $\xi$ to
+  \item By \cref{prop:fields:isomorphism-extends-to-simple-extensions}, sending $\xi$ to
     $\sqrt{2 - \sqrt{2}}$ defines an automorphism of $\Q(\xi)$ over
     $\Q$. Find the matrix of this automorphism w.r.t.\ the basis
     $1, \xi, \xi^2, \xi^3$.
@@ -1103,7 +1103,7 @@ linear terms.  Equivalently
 $K[x]$ is of the form $(x - c)$, for $c \in K$. Now that we have a
 little more vocabulary, we can recast this definition yet again, as
 follows.
-\begin{lem}{}{lem:fields:2.1}
+\begin{lem}{}{lem:fields:algebraically-closed-tfae}
   For a field $K$, the following are equivalent:
   \begin{enumerate}[label=(\roman*)]
   \item $K$ is algebraically closed.
@@ -1114,7 +1114,7 @@ follows.
 \end{lem}
 The proof is a straightforward application of the definitions and a
 good exercise (\Cref{exer:fields:alg-closed-equivalent-conditions}).
-\begin{defn}{}{defn:fields:2.2}
+\begin{defn}{}{defn:fields:algebraic-closure}
   An \emph{algebraic closure} of a field $k$ is an algebraic extension
   $k \subseteq \overline{k}$ such that $\overline{k}$ is algebraically
   closed.
@@ -1129,7 +1129,7 @@ ensures that no other intermediate field $L$,
 \]
 may be algebraically closed: indeed, $L \subseteq \overline{k}$ would
 be a nontrivial algebraic extension, contradicting
-\cref{lem:fields:2.1}. In fact, the only subfield of $\overline{k}$
+\cref{lem:fields:algebraically-closed-tfae}. In fact, the only subfield of $\overline{k}$
 containing all roots of all nonconstant polynomials in $k[x]$ is
 $\overline{k}$ itself
 (\Cref{exer:fields:intermediate-field-splitting-all-is-closure});
@@ -1137,7 +1137,7 @@ thus, the algebraic closure of a field is `as small as possible'
 subject to this requirement. Not surprisingly, $\overline{k}$ turns
 out to be unique up to isomorphism, so that we can speak of \emph{the}
 algebraic closure of $k$.
-\begin{thm}{}{thm:fields:2.3}
+\begin{thm}{}{thm:fields:algebraic-closure-exists-and-unique}
   Every field $k$ admits an algebraic closure
   $k \subseteq \overline{k}$; this extension is unique up to
   isomorphism.
@@ -1150,7 +1150,7 @@ an algebraic closure of $k$.
 The construction is done in steps, each step including `one more root'
 of all nonconstant polynomials in $k[x]$. Here is a formalization of
 this step.
-\begin{lem}{}{lem:fields:2.4}
+\begin{lem}{}{lem:fields:extension-where-every-poly-has-root}
   Let $k$ be a field. Then there exists an extension $k \subseteq K$
   such that every nonconstant polynomial $f(x) \in k[x]$ has at least
   one root in $K$.
@@ -1194,7 +1194,7 @@ this step.
   nonconstant) polynomial $f(x)$ has a root in $K$, namely the coset
   of $t_f$.
 \end{proof}
-The field constructed in \cref{lem:fields:2.4} contains at least one
+The field constructed in \cref{lem:fields:extension-where-every-poly-has-root} contains at least one
 root of each nonconstant polynomial $f(x) \in k[x]$, but this is not
 good enough: we are seeking a field which contains all roots of such
 polynomials. Equivalently, not only should $f(x)$ have (at least) one
@@ -1205,7 +1205,7 @@ consider a whole chain of extensions
 \[
   k \subseteq K_1 \subseteq K_2 \subseteq K_3 \subseteq \dots
 \]
-where $K_1$ is obtained from $k$ by applying \cref{lem:fields:2.4},
+where $K_1$ is obtained from $k$ by applying \cref{lem:fields:extension-where-every-poly-has-root},
 $K_2$ is similarly obtained from $K_1$, etc.
 
 Now consider the union $L$ of this chain\footnote{This is an example
@@ -1215,7 +1215,7 @@ $a, b \in L$, there is an $i$ such that $a, b \in K_i$; we can define
 $a + b$, $a \cdot b$ in $L$ by adopting their definition in $K_i$, and
 the result does not depend on the choice of $i$. It follows easily
 that $L$ is a field.
-\begin{fact}{}{fact:fields:2.5}
+\begin{fact}{}{fact:fields:union-of-chain-is-algebraically-closed}
   The field $L$ is algebraically closed.
 \end{fact}
 \begin{proof}
@@ -1227,7 +1227,7 @@ that $L$ is a field.
 \paragraph{Proof of the existence of algebraic closures.}
 The existence of algebraic closures is now completely transparent,
 because of the following simple observation:
-\begin{lem}{}{lem:fields:2.6}
+\begin{lem}{}{lem:fields:algebraic-elements-in-closed-field-form-a-field}
   Let $k \subseteq L$ be a field extension, with $L$ algebraically
   closed.  Let
   \[
@@ -1240,7 +1240,7 @@ The construction reviewed above provides us with an algebraically
 closed field $L$ containing any given field $k$, so the lemma is all
 we need to prove.
 
-By \cref{coro:fields:1.16}, $\overline{k}$ is a field, and the
+By \cref{coro:fields:algebraic-elements-form-a-field}, $\overline{k}$ is a field, and the
 extension $k \subseteq \overline{k}$ is tautologically algebraic. To
 verify that $\overline{k}$ is algebraically closed, let
 $k \subseteq \overline{k}(\alpha)$ be a simple algebraic
@@ -1251,13 +1251,13 @@ then view $\alpha$ as an element of $L$;
 $k \subseteq \overline{k} \subseteq \overline{k}(\alpha)$ is a
 composition of algebraic extensions, so
 $k \subseteq \overline{k}(\alpha)$ is algebraic
-(\cref{coro:fields:1.18}), and in particular $\alpha$ is algebraic
+(\cref{coro:fields:algebraic-in-tower-iff-both-algebraic}), and in particular $\alpha$ is algebraic
 over $k$. But then $\alpha \in \overline{k}$, by definition of the
 latter. It follows that $\overline{k}$ is algebraically closed, by
-\cref{lem:fields:2.1}.\ \qed{}\footnote{Something isn't correct
+\cref{lem:fields:algebraically-closed-tfae}.\ \qed{}\footnote{Something isn't correct
   here. No proof environment.}
 
-\begin{rem}{}{rem:fields:2.7}
+\begin{rem}{}{rem:fields:zorns-lemma-used-for-algebraic-closure}
   Zorn's lemma was sneakily used in this proof (we used the existence
   of maximal ideals, which relies upon Zorn's lemma), and it is
   natural to wonder whether the existence of algebraic closures may be
@@ -1275,7 +1275,7 @@ nonsense.  However, we run into the same obstacle encountered in
 of roots of polynomials, so that algebraic closures are not
 `universal' in the most straightforward sense of the term. Therefore,
 a bit of independent work is needed.
-\begin{lem}{}{lem:fields:2.8}
+\begin{lem}{}{lem:fields:algebraic-extension-embeds-in-algebraically-closed}
   Let $k \subseteq L$ be a field extension, with $L$ algebraically
   closed.  Let $k \subseteq F$ be any algebraic extension. Then there
   exists a morphism of extensions $i : F \to L$.
@@ -1322,11 +1322,11 @@ As pointed out above, $i$ is by no means unique!
   and let $h(x) = i_G(g(x))$. Then $h(x)$ is an irreducible polynomial
   over $H$, and it has a root $\beta$ in $L$ (this is where we use the
   hypothesis that $L$ is algebraically closed!). We are in the
-  situation considered in \cref{prop:fields:1.5}: we have an
+  situation considered in \cref{prop:fields:isomorphism-extends-to-simple-extensions}: we have an
   isomorphism of fields $i_G : G \to H$; we have simple extensions
   $G(\alpha)$, $H(\beta)$; and $\alpha$, $\beta$ are roots of
   irreducible polynomials $g(x)$, $h(x) = i_G(g(x))$. By
-  \cref{prop:fields:1.5}, $i_G$ lifts to an isomorphism
+  \cref{prop:fields:isomorphism-extends-to-simple-extensions}, $i_G$ lifts to an isomorphism
   \[
     i_{G(\alpha)} : G(\alpha) \to H(\beta) \subseteq L
   \]
@@ -1340,11 +1340,11 @@ isomorphism $\overline{k}_1 \to \overline{k}$ extending the identity
 on $k$.
 
 Since $k \subseteq \overline{k}_1$ is algebraic and $\overline{k}$ is
-algebraically closed, by \cref{lem:fields:2.8} there exists a
+algebraically closed, by \cref{lem:fields:algebraic-extension-embeds-in-algebraically-closed} there exists a
 homomorphism $i : \overline{k}_1 \to \overline{k}$ extending the
 identity on $k$; this homomorphism is trivially injective, since
 $\overline{k}_1$ is a field. It is also surjective, by
-\cref{lem:fields:2.1}: otherwise
+\cref{lem:fields:algebraically-closed-tfae}: otherwise
 $\overline{k}_1 \subseteq \overline{k}$ is a nontrivial algebraic
 extension, contradicting the fact that $\overline{k}_1$ is
 algebraically closed. Therefore $i$ is an isomorphism, as
@@ -1386,14 +1386,14 @@ definitions in algebraic geometry, and we will get a small taste of
 this in the next section; but the theorem itself is best understood in
 the context of the considerations on `finiteness' mentioned in
 \S{}\ref{subsec:fields:finite-and-algebraic-extensions}; see
-especially \cref{rem:fields:1.14}. I pointed out that if
+especially \cref{rem:fields:finite-type-algebra-vs-finitely-generated-field}. I pointed out that if
 $k \subseteq F$ is finitely generated as a field extension, then $F$
 need not be finitely generated (that is, `finite-type') as a
 $k$-algebra, and I raised the question of understanding extensions $F$
 that are finite-type $k$-algebras. The following result answers this
 question. It is my favorite version of the Nullstellensatz; therefore
 I will name it so:
-\begin{thm}{Nullstellensatz}{thm:fields:2.9}
+\begin{thm}{Nullstellensatz}{thm:fields:nullstellensatz}
   Let $k \subseteq F$ be a field extension, and assume that $F$ is a
   finite-type $k$-algebra. Then $k \subseteq F$ is a finite (hence
   algebraic) extension.
@@ -1403,7 +1403,7 @@ pointed out in
 \S{}\ref{subsec:rings:finitely-generated-vs-finite-type}, an algebra
 $k \to S$ may very well be of finite type (as an algebra), without
 being finite (i.e., finitely generated as a module): $S = k[t]$ is an
-obvious example. The content of \cref{thm:fields:2.9} is that the
+obvious example. The content of \cref{thm:fields:nullstellensatz} is that the
 distinction between finite-type and finite disappears if $S$ is a
 field.
 
@@ -1415,7 +1415,7 @@ argument to elementary linear algebra.
   extension, and assume that $F$ is finitely generated as an algebra
   over $k$; in particular, it is finitely generated as a field
   extension. We have to prove that $k \subseteq F$ is a finite
-  extension, or equivalently (by \cref{prop:fields:1.15}) that it is
+  extension, or equivalently (by \cref{prop:fields:finitely-generated-tfae-finite-algebraic}) that it is
   algebraic, that is, that every $\alpha \in F \setminus k$ is the
   root of a nonzero $f(x) \in k[x]$.
 
@@ -1446,14 +1446,14 @@ argument to elementary linear algebra.
   $f(\alpha) = 0$ for a nonzero $f(x) \in k[x]$, and we are done.
 \end{proof}
 Regardless of its proof, the form of the Nullstellensatz given in
-\cref{thm:fields:2.9} does not look much like the other results I have
+\cref{thm:fields:nullstellensatz} does not look much like the other results I have
 mentioned as associated with it. For one thing, it is not too clear
-why \cref{thm:fields:2.9} should be called a theorem on the `position
+why \cref{thm:fields:nullstellensatz} should be called a theorem on the `position
 of zeros'. The result deserves a little more attention.
 
 The form stated at the beginning of this section is obtained as
 follows:
-\begin{coro}{}{coro:fields:2.10}
+\begin{coro}{}{coro:fields:maximal-ideals-of-poly-ring-alg-closed}
   Let $K$ be an algebraically closed field, and let $I$ be an ideal of
   $K[x_1, \dots, x_n]$. Then $I$ is maximal if and only if
   \[
@@ -1475,8 +1475,8 @@ follows:
   \]
   is a field extension. The field $L$ is finitely generated as a
   $K$-algebra; therefore $K \subseteq L$ is an algebraic extension by
-  \cref{thm:fields:2.9}. Since $K$ is algebraically closed, this
-  implies that $L = K$ (\cref{lem:fields:2.1}); therefore, there is a
+  \cref{thm:fields:nullstellensatz}. Since $K$ is algebraically closed, this
+  implies that $L = K$ (\cref{lem:fields:algebraically-closed-tfae}); therefore, there is a
   surjective homomorphism
   \[
     \phi : K[x_1, \dots, x_n] \to K
@@ -1489,13 +1489,13 @@ follows:
   $\mathfrak{m} = (x_1 - c_1, \dots, x_n - c_n)$, as needed.
 \end{proof}
 Note how very (trivially) false the statement of
-\cref{coro:fields:2.10} is over fields which are not algebraically
+\cref{coro:fields:maximal-ideals-of-poly-ring-alg-closed} is over fields which are not algebraically
 closed: $(x^2 + 1)$ is maximal in $\R[x]$. No such silliness may occur
 over $\C$, for any number of variables.
 
 \subsection{A little affine algebraic geometry}%
 \label{subsec:fields:a-little-affine-algebraic-geometry}
-\cref{coro:fields:2.10} is one of the main reasons why `classical'
+\cref{coro:fields:maximal-ideals-of-poly-ring-alg-closed} is one of the main reasons why `classical'
 algebraic geometry developed over $\C$ rather than fields such as $\R$
 or $\Q$: it may be interpreted as saying that if $K$ is algebraically
 closed, then there is a natural bijection between the points of the
@@ -1538,7 +1538,7 @@ simply $\ker\phi$, which is the maximal ideal
 $(x_1 - c_1, \dots, x_n - c_n)$.
 
 This correspondence $p \mapsto \mathcal{I}(p)$ may be defined over
-every field; the content of \cref{coro:fields:2.10} is that every
+every field; the content of \cref{coro:fields:maximal-ideals-of-poly-ring-alg-closed} is that every
 maximal ideal of $K[x_1, \dots, x_n]$ corresponds to a point of
 $\A^n_K$ in this way, if $K$ is algebraically closed.
 
@@ -1615,7 +1615,7 @@ phenomenon
 (\Cref{exer:fields:subsets-as-vanishing-sets-infinite-vs-finite}). The
 way around it is to restrict our attention to subsets of $\A^n_K$
 which are of the form $\mathcal{V}(I)$ for some ideal $I$.
-\begin{defn}{}{defn:fields:2.11}
+\begin{defn}{}{defn:fields:algebraic-set}
   An \emph{(affine) algebraic set} is a subset $S \subseteq \A^n_K$
   such that there exists an ideal $I \subseteq K[x_1, \dots, x_n]$ for
   which $S = \mathcal{V}(I)$.
@@ -1645,7 +1645,7 @@ of any set is $(x^2)$ in $K[x]$: wherever $x^2$ vanishes, so does $x$;
 hence if $x^2 \in \mathcal{I}(S)$ for a set $S$, then
 $x \in \mathcal{I}(S)$ as well. This motivates the following
 definitions.
-\begin{defn}{}{defn:fields:2.13}
+\begin{defn}{}{defn:fields:radical-ideal}
   Let $I$ be an ideal in a commutative ring $R$. The \emph{radical} of
   $I$ is the ideal
   \[
@@ -1668,7 +1668,7 @@ characterized as the intersection of all prime ideals containing $I$
   $\mathfrak{p} \subseteq \sqrt{\mathfrak{p}}$ (the other inclusion
   holds trivially for all ideals).
 \end{exam}
-\begin{lem}{}{lem:fields:2.15}
+\begin{lem}{}{lem:fields:vanishing-ideal-is-radical}
   Let $K$ be a field, and let $S$ be a subset of $\A^n_K$. Then the
   ideal $\mathcal{I}(S)$ is a radical ideal of $K[x_1, \dots, x_n]$.
 \end{lem}
@@ -1711,7 +1711,7 @@ radical, and
 Here is where the Nullstellensatz comes to our aid, and here is where
 we see what the Nullstellensatz has to do with the `zeros' of an ideal
 ($ = \mathcal{V}$ of that ideal).
-\begin{prop}{Weak Nullstellensatz}{prop:fields:2.16}
+\begin{prop}{Weak Nullstellensatz}{prop:fields:weak-nullstellensatz}
   Let $K$ be an algebraically closed field, and let
   $I \subseteq K[x_1, \dots, x_n]$ be an ideal. Then
   $\mathcal{V}(I) = \emptyset$ if and only if $I = (1)$.
@@ -1720,7 +1720,7 @@ we see what the Nullstellensatz has to do with the `zeros' of an ideal
   If $I = (1)$, then $\mathcal{V}(I) = \emptyset$ by definition.
   Conversely, assume that $I \neq (1)$. By \Cref{prop:irred:3.5}, $I$
   is then contained in a maximal ideal $\mathfrak{m}$. Since $K$ is
-  algebraically closed, by \cref{coro:fields:2.10} we have
+  algebraically closed, by \cref{coro:fields:maximal-ideals-of-poly-ring-alg-closed} we have
   $\mathfrak{m} = (x_1 - c_1, \dots, x_n - c_n)$ for some
   $c_1, \dots, c_n \in K$; so for all $f(x_1, \dots, x_n) \in I$ there
   exist $g_1, \dots, g_n \in K[x_1, \dots, x_n]$ such that
@@ -1740,7 +1740,7 @@ This is encouraging, but it does not seem to really prove that
 $\mathcal{V}$ is injective. As it happens, however, it does: we can
 derive from the `weak' Nullstellensatz the following stronger result,
 which does imply injectivity:
-\begin{prop}{Strong Nullstellensatz}{prop:fields:2.17}
+\begin{prop}{Strong Nullstellensatz}{prop:fields:strong-nullstellensatz}
   Let $K$ be an algebraically closed field, and let
   $I \subseteq K[x_1, \dots, x_n]$ be an ideal. Then
   \[
@@ -1753,7 +1753,7 @@ which does imply injectivity:
 \end{prop}
 \begin{proof}
   Note that $\mathcal{I}(\mathcal{V}(I))$ is a radical ideal (by
-  \cref{lem:fields:2.15}). It follows immediately from the definitions
+  \cref{lem:fields:vanishing-ideal-is-radical}). It follows immediately from the definitions
   that $I \subseteq \mathcal{I}(\mathcal{V}(I))$; therefore
   \[
     \sqrt{I} \subseteq \mathcal{I}(\mathcal{V}(I)) =
@@ -1838,14 +1838,14 @@ $\mathcal{V}(x)$) in the ``$x$-axis'' (viewed as $\A^1_K$). Similarly,
 $\mathcal{V}(1 - fy)$ is a way to realize the Zariski open set
 $\A^n_K \setminus \mathcal{V}(f)$ as a Zariski closed subset in a
 space $\A^{n+1}_K$ of dimension one higher. The proof of
-\cref{prop:fields:2.17} hinges on this fact, and this fact is also an
+\cref{prop:fields:strong-nullstellensatz} hinges on this fact, and this fact is also an
 important building block in the basic set-up of algebraic geometry,
 since it can be used to show that the Zariski topology has a basis
 consisting of (sets which are isomorphic in a suitable sense to)
 affine algebraic sets.  I will officially record the conclusion we
 were able to establish concerning the functions $\mathcal{V}$,
 $\mathcal{I}$:
-\begin{coro}{}{coro:fields:2.18}
+\begin{coro}{}{coro:fields:algebraic-sets-radical-ideals-correspondence}
   Let $K$ be an algebraically closed field. Then for any $n \geq 0$
   the functions
   \[
@@ -1859,7 +1859,7 @@ $\mathcal{I}$:
   are inverses of each other.
 \end{coro}
 \begin{proof}
-  \cref{prop:fields:2.17} shows that $\mathcal{I} \circ \mathcal{V}$
+  \cref{prop:fields:strong-nullstellensatz} shows that $\mathcal{I} \circ \mathcal{V}$
   is the identity on radical ideals, so $\mathcal{V}$ is injective,
   and $\mathcal{V}$ is surjective by definition of affine algebraic
   set. It follows that $\mathcal{V}$ is a bijection and $\mathcal{I}$
@@ -1873,7 +1873,7 @@ level of $K$-algebras. We say that a ring is \emph{reduced} if it has
 no nonzero nilpotents; then $R/I$ is reduced if and only if $I$ is a
 radical ideal
 (\Cref{exer:fields:radical-ideal-nilradical-correspondence}).
-\begin{defn}{}{defn:fields:2.19}
+\begin{defn}{}{defn:fields:coordinate-ring}
   Let $S \subseteq \A^n_K$ be an algebraic set. The \emph{coordinate
     ring} of $S$ is the quotient\footnote{The notation `$K[S]$' is
     fairly standard, although it may lead to confusion with the usual
@@ -1891,7 +1891,7 @@ commutative $K$-algebra of finite type. The reader will establish a
 functions' on $S$, in
 \Cref{exer:fields:poly-fns-iso-to-coordinate-ring}. One way to think
 about the Nullstellensatz (in its manifestation as
-\cref{coro:fields:2.18}) is that, if $K$ is algebraically closed, then
+\cref{coro:fields:algebraic-sets-radical-ideals-correspondence}) is that, if $K$ is algebraically closed, then
 every reduced commutative $K$-algebra of finite type $R$ may be
 realized as the coordinate ring of an affine algebraic set $S$; the
 points of $S$ correspond in a natural way to the maximal ideals of $R$
@@ -1935,7 +1935,7 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in
 \subsection*{Exercises}
 
 \begin{exer}{}{exer:fields:alg-closed-equivalent-conditions}
-  Prove \cref{lem:fields:2.1}.
+  Prove \cref{lem:fields:algebraically-closed-tfae}.
 \end{exer}
 \begin{exer}{}{exer:fields:intermediate-field-splitting-all-is-closure}
   Let $k \subseteq \bar{k}$ be an algebraic closure, and let $L$ be an
@@ -1955,7 +1955,7 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in
     \neq 0
   \]
   in $k(x)$. (This fact is used in the proof of
-  \cref{thm:fields:2.9}.)
+  \cref{thm:fields:nullstellensatz}.)
 \end{exer}
 \begin{exer}{}{exer:fields:vanishing-set-of-ideal-generated-by-a}
   Let $K$ be a field, let $A$ be a subset of $K[x_1, \dots, x_n]$, and
@@ -1975,7 +1975,7 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in
   topology on $\A^n_K$.
 \end{exer}
 \begin{exer}{}{exer:fields:radical-ideal-nilradical-correspondence}
-  With notation as in \cref{defn:fields:2.13}:
+  With notation as in \cref{defn:fields:radical-ideal}:
   \begin{itemize}
   \item Prove that the set $\sqrt{I}$ is an ideal of $R$.
   \item Prove that $\sqrt{I}$ corresponds to the nilradical of $R/I$
@@ -2300,7 +2300,7 @@ $X = (x,0)$ and $Y = (y,0)$. It follows that determining which figures
 are constructible by straightedge and compass is equivalent to
 determining which numbers may be realized as coordinates of a
 constructible point.
-\begin{defn}{}{defn:fields:3.1}
+\begin{defn}{}{defn:fields:constructible-number}
   A real number $r$ is \emph{constructible} if the point $(r, 0)$ is
   constructible with straightedge and compass (assuming $O = (0,0)$
   and $P = (1,0)$, as above). I will denote by
@@ -2314,7 +2314,7 @@ constructible point.
   complex numbers.
 \end{defn}
 Summarizing the foregoing discussion, we have proved:
-\begin{lem}{}{lem:fields:3.2}
+\begin{lem}{}{lem:fields:constructible-point-iff-coords-constructible}
   A point $(x,y)$ is constructible by straightedge and compass if and
   only if $x + iy \in \mathcal{C}_{\C}$, if and only if
   $x, y \in \mathcal{C}_{\R}$.
@@ -2322,7 +2322,7 @@ Summarizing the foregoing discussion, we have proved:
 The next obvious question is what kind of structure these sets of
 constructible numbers carry, and this prompts us to look at a few more
 basic straightedge-and-compass constructions.
-\begin{lem}{}{lem:fields:3.3}
+\begin{lem}{}{lem:fields:constructible-numbers-form-a-field}
   The subset $\mathcal{C}_{\R} \subseteq \R$ of constructible numbers
   is a subfield of $\R$. Likewise, $\mathcal{C}_{\C}$ is a subfield of
   $\C$, and in fact $\mathcal{C}_{\C} = \mathcal{C}_{\R}(i)$.
@@ -2365,7 +2365,7 @@ extensions $\Q \subseteq \mathcal{C}_{\R} \subseteq
 \label{subsec:fields:constructible-numbers-and-quadratic-extensions}
 Our goal is to prove the following amazingly explicit description of
 $\mathcal{C}_{\R}$ (immediately implying one for $\mathcal{C}_{\C}$).
-\begin{thm}{}{thm:fields:3.4}
+\begin{thm}{}{thm:fields:constructible-iff-quadratic-tower}
   Let $\gamma \in \R$. Then $\gamma \in \mathcal{C}_{\R}$ if and only
   if there exist real numbers $\delta_1, \dots, \delta_k$ such that
   for all $j = 1, \dots, k$,
@@ -2480,10 +2480,10 @@ and this expression shows that
   \cos 3^\circ \in
   \Q(\sqrt{2},\sqrt{3},\sqrt{5})\bigl(\sqrt{5+\sqrt{5}}\bigr);
 \]
-that is (by \cref{thm:fields:3.4}), $\cos 3^\circ$ is
+that is (by \cref{thm:fields:constructible-iff-quadratic-tower}), $\cos 3^\circ$ is
 constructible. Of course once $A = (\cos\theta, 0)$ is constructed, so
 is the angle $\theta$.  Here is another example of a `constructive'
-application of \cref{thm:fields:3.4}:
+application of \cref{thm:fields:constructible-iff-quadratic-tower}:
 \begin{exam}{}{exam:fields:exam:3.5}
   Regular pentagons are constructible. Indeed, it suffices to
   construct the point $A = (\cos(2\pi/5), 0)$, and it so happens that
@@ -2494,7 +2494,7 @@ application of \cref{thm:fields:3.4}:
   (in fact, $\gamma$ is half of the inverse of the golden ratio:
   $\gamma = \frac{\sqrt{5}-1}{4}$). It follows that
   $4\gamma \in \Q(\sqrt{5})$, and hence it is constructible by
-  \cref{thm:fields:3.4}. In fact, the proof shows how to construct
+  \cref{thm:fields:constructible-iff-quadratic-tower}. In fact, the proof shows how to construct
   $\sqrt{5}$, so the reader should now have no difficulty producing a
   straightedge-and-compass construction of a regular pentagon
   (\Cref{exer:fields:construct-regular-pentagon}).
@@ -2509,23 +2509,23 @@ application of \cref{thm:fields:3.4}:
 
 \subsection{Famous impossibilities}%
 \label{subsec:fields:famous-impossibilities}
-\cref{thm:fields:3.4} easily settles the three problems mentioned in
+\cref{thm:fields:constructible-iff-quadratic-tower} easily settles the three problems mentioned in
 \S{}\ref{subsec:fields:constructions-by-straightedge-and-compass}, via
 the following immediate consequence:
-\begin{coro}{}{coro:fields:3.6}
+\begin{coro}{}{coro:fields:constructible-degree-power-of-two}
   Let $\gamma \in \mathcal{C}_{\C}$ be a constructible number. Then
   $[\Q(\gamma) : \Q]$ is a power of $2$.
 \end{coro}
 \begin{proof}
-  By \cref{lem:fields:3.3} and \cref{thm:fields:3.4}, there exist
+  By \cref{lem:fields:constructible-numbers-form-a-field} and \cref{thm:fields:constructible-iff-quadratic-tower}, there exist
   $\delta_1, \dots, \delta_k \in \R$ such that
   $\gamma \in \Q(\delta_1, \dots, \delta_k, i)$, and each $\delta_j$
   has degree $\leq 2$ over $\Q(\delta_1, \dots,
-  \delta_{j-1})$. Repeated application of \cref{prop:fields:1.10}
+  \delta_{j-1})$. Repeated application of \cref{prop:fields:degree-multiplicative-in-tower}
   shows that $[\Q(\delta_1, \dots, \delta_k, i) : \Q]$ is a power of
   $2$, and since
   $\Q \subseteq \Q(\gamma) \subseteq \Q(\delta_1, \dots, \delta_k,
-  i)$, the statement follows from \cref{coro:fields:1.11}.
+  i)$, the statement follows from \cref{coro:fields:intermediate-degrees-divide}.
 \end{proof}
 In particular, constructible real numbers must satisfy the same
 condition.  Consider the problem of trisecting an angle. We know we
@@ -2543,11 +2543,11 @@ It does not satisfy $t^3 + 1$; therefore its minimal polynomial over
 $\Q$ is a factor of $t^6 - t^3 + 1$. However, this polynomial is
 irreducible over $\Q$ (substitute $t \mapsto t-1$, and apply
 Eisenstein's criterion), so $[\Q(\gamma) : \Q] = 6$. By
-\cref{coro:fields:3.6}, $\gamma$ is not constructible. Therefore there
+\cref{coro:fields:constructible-degree-power-of-two}, $\gamma$ is not constructible. Therefore there
 exist constructible angles which cannot be trisected.  Similarly,
 cubes cannot be doubled because that would imply the constructibility
 of $\sqrt[3]{2}$, which has degree $3$ over $\Q$, contradicting
-\cref{coro:fields:3.6}. Squaring circles amounts to constructing
+\cref{coro:fields:constructible-degree-power-of-two}. Squaring circles amounts to constructing
 $\pi$, and $\pi$ is not even algebraic (although, as I have mentioned,
 the proof of this fact is not elementary), so this is also not
 possible.  As another example, constructing a regular $7$-gon would
@@ -2559,12 +2559,12 @@ definition, $\zeta$ satisfies
 as $\zeta \neq 1$, $\zeta$ must satisfy the cyclotomic polynomial
 $t^6 + \dots + 1$. This is irreducible (\Cref{exam:irred:5.19}); hence
 again we find that $\zeta$ has degree $6$ over $\Q$, and
-\cref{coro:fields:3.6} implies that the regular $7$-gon cannot be
+\cref{coro:fields:constructible-degree-power-of-two} implies that the regular $7$-gon cannot be
 constructed with straightedge and compass.  Of course $7$ is not too
 special: if $p$ is a positive prime integer, the cyclotomic polynomial
 of degree $p-1$ is irreducible (\Cref{exam:irred:5.19} again); hence
 $[\Q(\zeta_p) : \Q] = p - 1$, where $\zeta_p$ is the complex $p$th
-root of $1$ with argument $2\pi/p$. Therefore, \cref{coro:fields:3.6}
+root of $1$ with argument $2\pi/p$. Therefore, \cref{coro:fields:constructible-degree-power-of-two}
 reveals that if $p$ is prime, then the regular $p$-gon can be
 constructed only if $p - 1$ is a power of $2$. This is even more
 restrictive than it looks at first, since if $p = 2^k + 1$ is prime,
@@ -2585,7 +2585,7 @@ and it just so happens that
       2\sqrt{2(17+\sqrt{17})}}}{16},
 \]
 as noted by \name{Gauss} at age 19. Therefore (by
-\cref{thm:fields:3.4}) the $17$-gon is constructible by straightedge
+\cref{thm:fields:constructible-iff-quadratic-tower}) the $17$-gon is constructible by straightedge
 and compass. As I have announced already, the situation will be
 further clarified soon, allowing us to bypass heavy-duty trigonometry.
 \subsection*{Exercises}
@@ -2717,7 +2717,7 @@ $F$ is equivalent to requiring that the product $f_1(x) \cdots f_r(x)$
 splits over $F$. That is, for our purposes it is not restrictive to
 assume that $\mathcal{F}$ consists of a single polynomial
 $f(x) \in k[x]$.
-\begin{defn}{}{defn:fields:4.1}
+\begin{defn}{}{defn:fields:splitting-field}
   Let $k$ be a field, and let $f(x) \in k[x]$ be a polynomial of
   degree $d$. The \emph{splitting field} for $f(x)$ over $k$ is an
   extension $F$ of $k$ such that
@@ -2730,11 +2730,11 @@ $f(x) \in k[x]$.
 Note that it is clear that a splitting field exists: given
 $f(x) \in k[x]$, the subfield $F \subseteq \bar{k}$ generated over $k$
 by the roots of $f(x)$ in $\bar{k}$ satisfies the requirements in
-\cref{defn:fields:4.1}.  But I have written \emph{the} splitting
+\cref{defn:fields:splitting-field}.  But I have written \emph{the} splitting
 field, and this is justified by the uniqueness part of the following
 basic observation, which also evaluates `how big' this extension can
 be.
-\begin{lem}{}{lem:fields:4.2}
+\begin{lem}{}{lem:fields:splitting-field-uniqueness}
   Let $k$ be a field, and let $f(x) \in k[x]$. Then the splitting
   field $F$ for $f(x)$ over $k$ is unique up to isomorphism, and
   $[F:k] \leq (\deg f)!$.
@@ -2772,7 +2772,7 @@ be.
   isomorphisms of splitting fields as stated, let $G$ be a splitting
   field for $g(x)$ and consider the composition
   $k' \to k \subseteq \bar{k}$. Since the extension $k' \subseteq G$
-  is algebraic, by \cref{lem:fields:2.8} there exists a morphism of
+  is algebraic, by \cref{lem:fields:algebraic-extension-embeds-in-algebraically-closed} there exists a morphism of
   extensions $\tilde\iota : G \to \bar{k}$ over $k'$.  Since $G$ is
   generated over $k'$ by the roots of $g(x)$ in $G$, we have
   \[
@@ -2797,7 +2797,7 @@ be.
   over $\Q$; therefore $F = \Q(\zeta)$ is `already' the splitting
   field of $x^4 + 1$. The degree of $F$ over $\Q$ is
   $[\Q(\zeta) : \Q] = 4$, way less than the bounds $8!$, $4 !$
-  obtained in \cref{lem:fields:4.2}.
+  obtained in \cref{lem:fields:splitting-field-uniqueness}.
 
   To understand this splitting field even better, note that
   $i = \zeta^2$ is in $F$, and so is $\sqrt{2} = \zeta + \zeta^7$;
@@ -2863,12 +2863,12 @@ story. They are even more special than they may appear to be at first:
 it turns out that not only do they split the given polynomial, but
 they also automatically split any irreducible polynomial which dares
 touch them with a root. This makes splitting fields normal extensions:
-\begin{defn}{}{defn:fields:4.7}
+\begin{defn}{}{defn:fields:normal-extension}
   A field extension $k \subseteq F$ is \emph{normal} if for every
   irreducible polynomial $f(x) \in k[x]$, $f(x)$ has a root in $F$ if
   and only if $f(x)$ splits as a product of linear factors over $F$.
 \end{defn}
-\begin{thm}{}{thm:fields:4.8}
+\begin{thm}{}{thm:fields:finite-normal-iff-splitting-field}
   A field extension $k \subseteq F$ is finite and normal if and only
   if $F$ is the splitting field of some polynomial $f(x) \in k[x]$.
 \end{thm}
@@ -2886,9 +2886,9 @@ touch them with a root. This makes splitting fields normal extensions:
   $\bar{k}$, let $\beta \in \bar{k}$ be any other root of $p(x)$; we
   are going to show that $\beta \in F$. This will prove that $F$
   contains all roots of $p(x)$, implying that $k \subseteq F$ is
-  normal, and $k \subseteq F$ is finite by \cref{lem:fields:4.2}.
+  normal, and $k \subseteq F$ is finite by \cref{lem:fields:splitting-field-uniqueness}.
 
-  By \cref{prop:fields:1.5}, there exists an isomorphism
+  By \cref{prop:fields:isomorphism-extends-to-simple-extensions}, there exists an isomorphism
   $\iota : k(\alpha) \to k(\beta)$ extending the identity on $k$ and
   sending $\alpha \mapsto \beta$. We also consider the subfield
   $F(\beta) \subseteq \bar{k}$, viewed as an extension of
@@ -2896,7 +2896,7 @@ touch them with a root. This makes splitting fields normal extensions:
   field of $f(x)$ over $k(\alpha)$: indeed, it contains all the roots
   of $f(x)$ and is generated over $k$ (and hence over $k(\alpha)$) by
   these roots. By the same token, $F(\beta)$ is the splitting field
-  for $f(x)$ over $k(\beta)$. By \cref{lem:fields:4.2}, $\iota$
+  for $f(x)$ over $k(\beta)$. By \cref{lem:fields:splitting-field-uniqueness}, $\iota$
   extends to an isomorphism $\iota' : F \to F(\beta)$. Since $\iota$
   restricts to the identity on $k$, $\iota'$ is an isomorphism of
   $k$-vector spaces; in particular, $\dim_k F = \dim_k F(\beta)$ (keep
@@ -2909,7 +2909,7 @@ touch them with a root. This makes splitting fields normal extensions:
   must also be an isomorphism. In other words, $[F(\beta) : F] = 1$;
   that is, $\beta \in F$ as needed.
 \end{proof}
-\begin{rem}{}{rem:fields:4.9}
+\begin{rem}{}{rem:fields:embedding-extension-diagram-subtlety}
   This argument is somewhat delicate. With notation as in the proof,
   the diagram
   \[
@@ -2971,7 +2971,7 @@ of distinct factors in an algebraic closure, right? Wrong.
 I have always found this example difficult to visualize, because of
 intuition developed in characteristic $0$, and as we will see, no such
 pathology can occur in characteristic $0$.
-\begin{defn}{}{defn:fields:4.12}
+\begin{defn}{}{defn:fields:separable-polynomial}
   Let $k$ be a field. A polynomial $f(x) \in k[x]$ is \emph{separable}
   if it has no multiple factors over its splitting field; $f(x)$ is
   \emph{inseparable} if it has multiple factors over its splitting
@@ -2982,9 +2982,9 @@ inseparable. I suppose the terminology reflects the fact that we
 cannot `separate' its roots: they come clumped together like quarks in
 a proton, and we cannot take them apart.
 
-Of course \cref{defn:fields:4.12} does not depend on the chosen
+Of course \cref{defn:fields:separable-polynomial} does not depend on the chosen
 splitting field, since these are unique up to isomorphism
-(\cref{lem:fields:4.2}).  In fact, to detect separability, we can use
+(\cref{lem:fields:splitting-field-uniqueness}).  In fact, to detect separability, we can use
 any field in which the polynomial splits as a product of linear
 factors (by
 \Cref{exer:fields:splitting-field-maps-into-any-splitting-ext}). The
@@ -3003,7 +3003,7 @@ Of course this is a purely formal operation; no limiting process is at
 work over arbitrary fields. Still, all expected properties of
 derivatives hold, as the reader should check: for example,
 $(fg)' = f'g + fg'$ as usual.
-\begin{lem}{}{lem:fields:4.13}
+\begin{lem}{}{lem:fields:separable-iff-coprime-to-derivative}
   Let $k$ be a field, and let $f(x) \in k[x]$. Then $f(x)$ is
   separable if and only if $f(x)$ and $f'(x)$ are relatively prime.
 \end{lem}
@@ -3043,13 +3043,13 @@ may be seen to be inseparable without invoking splitting fields: the
 derivative of $x^p - t$ equals $px^{p-1} = 0$ in characteristic $p$,
 and $\gcd(x^p - t, 0) = x^p - t \neq 1$. This example captures one of
 the key features of inseparability:
-\begin{lem}{}{lem:fields:4.14}
+\begin{lem}{}{lem:fields:inseparable-irreducible-implies-zero-derivative}
   Let $k$ be a field, and let $f(x) \in k[x]$ be an inseparable
   irreducible polynomial. Then $f'(x) = 0$.
 \end{lem}
 \begin{proof}
   Since $f(x)$ is inseparable, $f(x)$ and $f'(x)$ have a common
-  irreducible factor $q(x)$ by \cref{lem:fields:4.13}; but as $f(x)$
+  irreducible factor $q(x)$ by \cref{lem:fields:separable-iff-coprime-to-derivative}; but as $f(x)$
   is itself irreducible, $q(x)$ must be an associate of $f(x)$, and in
   particular its degree is larger than the degree of $f'(x)$ if
   $f'(x) \neq 0$. As $q(x) \mid f'(x)$, the only option is that
@@ -3058,11 +3058,11 @@ the key features of inseparability:
 This already tells us that irreducible polynomials are necessarily
 separable in characteristic $0$: in characteristic $0$, the derivative
 of a nonconstant polynomial clearly cannot vanish. In fact,
-\cref{lem:fields:4.14} gives us a precise picture of what inseparable,
+\cref{lem:fields:inseparable-irreducible-implies-zero-derivative} gives us a precise picture of what inseparable,
 irreducible polynomials must look like. If
 $f(x) = \sum_{i=0}^n a_i x^i$ is irreducible and inseparable, then the
 characteristic of the field must be a positive prime $p$, and by
-\cref{lem:fields:4.14} we must have
+\cref{lem:fields:inseparable-irreducible-implies-zero-derivative} we must have
 \[
   f'(x) = \sum_{i=0}^n i a_i x^{i-1} = 0;
 \]
@@ -3079,7 +3079,7 @@ will refine this picture further by working out
 \Cref{exer:fields:inseparable-degree-decomposition} and following.)
 This leads us to a precise result linking separability and a flavor of
 fields that we have not yet run into.
-\begin{defn}{}{defn:fields:4.15}
+\begin{defn}{}{defn:fields:frobenius-homomorphism}
   Let $k$ be a field of characteristic $p > 0$. The \emph{Frobenius
     homomorphism} is the map $k \to k$ defined by $x \mapsto x^p$.
 \end{defn}
@@ -3087,12 +3087,12 @@ The Frobenius homomorphism may not look like a homomorphism of rings,
 but it is (\Cref{exer:fields:freshmans-dream-char-p}). It must be
 injective, as is every nontrivial ring homomorphism from a field; but
 it is not necessarily surjective.
-\begin{defn}{}{defn:fields:4.16}
+\begin{defn}{}{defn:fields:perfect-field}
   A field $k$ is \emph{perfect} if $\operatorname{char} k = 0$ or if
   $\operatorname{char} k > 0$ and the Frobenius homomorphism is
   surjective.
 \end{defn}
-\begin{prop}{}{prop:fields:4.17}
+\begin{prop}{}{prop:fields:perfect-iff-irreducibles-separable}
   Let $k$ be a field. Then $k$ is perfect if and only if all
   irreducible polynomials in $k[x]$ are separable.
 \end{prop}
@@ -3118,7 +3118,7 @@ it is not necessarily surjective.
   is a homomorphism. But this contradicts the irreducibility of
   $f(x)$, so there is no such polynomial.
 \end{proof}
-\begin{coro}{}{coro:fields:4.18}
+\begin{coro}{}{coro:fields:finite-fields-are-perfect}
   Finite fields are perfect. Therefore, over finite fields,
   irreducible polynomials are separable.
 \end{coro}
@@ -3126,12 +3126,12 @@ it is not necessarily surjective.
   The Frobenius map is injective (because it is a homomorphism of
   fields), so it is surjective over finite fields, by the pigeon-hole
   principle.  Therefore finite fields are perfect, and the second part
-  of the statement follows from \cref{prop:fields:4.17}.
+  of the statement follows from \cref{prop:fields:perfect-iff-irreducibles-separable}.
 \end{proof}
 The reader now sees why I have chosen the somewhat unusual field
 $\F_p(t)$ in \Cref{exam:fields:exam:4.11}: we need a field of positive
 characteristic, but no example of irreducible inseparable polynomial
-can be found over $\F_p$, by \cref{coro:fields:4.18}; to concoct an
+can be found over $\F_p$, by \cref{coro:fields:finite-fields-are-perfect}; to concoct an
 example, we need to enlarge the field so that it is infinite and to
 throw in an element (that is, $t$) for which there is no $p$-th root,
 that is, which is not in the image of Frobenius.
@@ -3144,13 +3144,13 @@ language of field extensions. If $k \subseteq F$ is an extension and
 $\alpha \in F$ is algebraic over $k$, we say that $\alpha$ is
 \emph{separable over $k$} if the minimal polynomial of $\alpha$ over
 $k$ is separable; $\alpha$ is \emph{inseparable} otherwise.
-\begin{defn}{}{defn:fields:4.19}
+\begin{defn}{}{defn:fields:separable-extension}
   An algebraic field extension $k \subseteq F$ is \emph{separable} if
   every $\alpha \in F$ is separable over $k$.
 \end{defn}
-With this terminology, \cref{prop:fields:4.17} may be restated in the
+With this terminology, \cref{prop:fields:perfect-iff-irreducibles-separable} may be restated in the
 following more impressive form:
-\begin{prop}{}{prop:fields:4.20}
+\begin{prop}{}{prop:fields:perfect-iff-algebraic-extensions-separable}
   A field $k$ is perfect if and only if every algebraic extension of
   $k$ is separable.
 \end{prop}
@@ -3162,20 +3162,20 @@ seriously consider will be separable. One convenient feature of
 separable extensions is the following alternative description of the
 separability condition.
 
-We have seen (\cref{lem:fields:2.8}) that every algebraic extension
+We have seen (\cref{lem:fields:algebraic-extension-embeds-in-algebraically-closed}) that every algebraic extension
 $k \subseteq F$ may be embedded in an algebraic closure
 $k \subseteq \bar{k}$, and I pointed out that this can in general be
 done in many different ways.  If finite, the number of different
 homomorphisms $F \to \bar{k}$ extending the identity on $k$ is denoted
 by ${[F : k]}_s$.
-\begin{defn}{}{defn:fields:4.21}
+\begin{defn}{}{defn:fields:separable-degree}
   The number ${[F : k]}_s$ is the \emph{separable degree} of $F$ over
   $k$.
 \end{defn}
 It is clear that this number is independent of the chosen algebraic
 closure $k \subseteq \bar{k}$. What does it have to do with
 separability?
-\begin{lem}{}{lem:fields:4.22}
+\begin{lem}{}{lem:fields:separable-degree-equals-distinct-roots}
   Let $k \subseteq k(\alpha)$ be a simple algebraic extension. Then
   ${[k(\alpha) : k]}_s$ equals the number of distinct roots in
   $\bar{k}$ of the minimal polynomial of $\alpha$. In particular,
@@ -3184,21 +3184,21 @@ separability?
 \end{lem}
 \begin{proof}
   The proof is essentially (and not by coincidence) a rehash of the
-  proof of \cref{coro:fields:1.7}. Associate with each
+  proof of \cref{coro:fields:aut-group-order-bounded-by-degree}. Associate with each
   $\iota : k(\alpha) \to \bar{k}$ extending $\id_k$ the image
   $\iota(\alpha)$, which must be a root of the minimal polynomial of
   $\alpha$. This correspondence is injective, since $\iota(\alpha)$
   determines $\iota$ (as $\iota$ extends the identity on $k$). To see
   it is surjective, let $\beta \in \bar{k}$ be any other root, and
   consider the extension $k(\beta) \subseteq \bar{k}$; by
-  \cref{prop:fields:1.5} there is an isomorphism
+  \cref{prop:fields:isomorphism-extends-to-simple-extensions} there is an isomorphism
   $k(\alpha) \to k(\beta)$ sending $\alpha$ to $\beta$, and composing
   with the embedding $k(\beta) \subseteq \bar{k}$ defines the
   corresponding $\iota$, as needed.
 \end{proof}
 Thus, the `separable degree' does detect separability, for simple
 extensions. Further, it is multiplicative over successive extensions:
-\begin{lem}{}{lem:fields:4.23}
+\begin{lem}{}{lem:fields:separable-degree-multiplicative-in-tower}
   Let $k \subseteq E \subseteq F$ be algebraic extensions. Then
   ${[F : k]}_s$ is finite if and only if both ${[F : E]}_s$,
   ${[E : k]}_s$ are finite, and in this case
@@ -3207,7 +3207,7 @@ extensions. Further, it is multiplicative over successive extensions:
 \end{lem}
 \begin{proof}
   Different embeddings of $E$ into $\bar{k}$ extend to different
-  embeddings of $F$ into $\bar{k}$, by \cref{lem:fields:2.8}; and
+  embeddings of $F$ into $\bar{k}$, by \cref{lem:fields:algebraic-extension-embeds-in-algebraically-closed}; and
   embeddings of $F$ into $\bar{k}$ extending the identity on $E$
   extend a fortiori the identity on $k$. Therefore, if any of
   ${[F : E]}_s$, ${[E : k]}_s$ is infinite, then so is ${[F : k]}_s$.
@@ -3220,10 +3220,10 @@ extensions. Further, it is multiplicative over successive extensions:
   $F \to \bar{k}$, which can be done in ${[F : E]}_s$ ways. There are
   precisely ${[F : E]}_s {[E : k]}_s$ ways to do this, as stated.
 \end{proof}
-\Cref{lem:fields:4.22,lem:fields:4.23} allow us to recast separability
+\Cref{lem:fields:separable-degree-equals-distinct-roots,lem:fields:separable-degree-multiplicative-in-tower} allow us to recast separability
 of finite extensions entirely in the light of counting embeddings in
 an algebraic closure:
-\begin{prop}{}{prop:fields:4.24}
+\begin{prop}{}{prop:fields:separable-extension-tfae}
   Let $k \subseteq F$ be a finite extension. Then
   $[F : k]_s \leq [F : k]$, and the following are equivalent:
   \begin{enumerate}[label=(\roman*)]
@@ -3236,8 +3236,8 @@ an algebraic closure:
 \begin{proof}
   Since $F$ is finite over $k$, it is finitely generated. Let
   $F = k(\alpha_1, \dots, \alpha_r)$. Then using
-  \cref{lem:fields:4.23}, \cref{lem:fields:4.22}, and
-  \cref{prop:fields:1.10},
+  \cref{lem:fields:separable-degree-multiplicative-in-tower}, \cref{lem:fields:separable-degree-equals-distinct-roots}, and
+  \cref{prop:fields:degree-multiplicative-in-tower},
   \begin{align*} {[F : k]}_s &= {[k(\alpha_1, \dots,
       \alpha_{r-1})(\alpha_r) : k(\alpha_1, \dots, \alpha_{r-1})]}_s
                                \cdots [k(\alpha_1) : k]_s \\
@@ -3253,21 +3253,21 @@ an algebraic closure:
   then it is separable over the field
   $k(\alpha_1, \dots, \alpha_{i-1})$
   (\Cref{exer:fields:separability-inherited-by-intermediate-fields}),
-  so the inequality is an equality by \cref{lem:fields:4.22}.
+  so the inequality is an equality by \cref{lem:fields:separable-degree-equals-distinct-roots}.
 
   (iii) $\Rightarrow$ (ii): Assume $[F : k]_s = [F : k]$, and let
   $\alpha \in F$. We have $k \subseteq k(\alpha) \subseteq F$; hence
-  by \cref{lem:fields:4.23}
+  by \cref{lem:fields:separable-degree-multiplicative-in-tower}
   \[ [F : k(\alpha)]_s [k(\alpha) : k]_s = [F : k]_s = [F : k] = [F :
     k(\alpha)][k(\alpha) : k].
   \]
   Since both separable degrees are less than or equal to their plain
   counterparts, the equality implies
   $[k(\alpha) : k]_s = [k(\alpha) : k]$, proving that $\alpha$ is
-  separable, by \cref{lem:fields:4.22}. Therefore the extension
-  $k \subseteq F$ is separable according to \cref{defn:fields:4.19}.
+  separable, by \cref{lem:fields:separable-degree-equals-distinct-roots}. Therefore the extension
+  $k \subseteq F$ is separable according to \cref{defn:fields:separable-extension}.
 
-  (ii) $\Rightarrow$ (i) is immediate from \cref{defn:fields:4.19},
+  (ii) $\Rightarrow$ (i) is immediate from \cref{defn:fields:separable-extension},
   since finite extensions are finitely generated.
 \end{proof}
 For example, if $\alpha$ is separable over $k$, then every
@@ -3275,8 +3275,8 @@ $\beta \in k(\alpha)$ is separable. This would seem rather mysterious
 from the definition alone: why should the fact that the minimal
 polynomial of $\alpha$ has distinct roots in $\bar{k}$ imply the same
 for the minimal polynomial of $\beta$? It does, by virtue of
-\cref{prop:fields:4.24}.
-\begin{rem}{}{rem:fields:4.25}
+\cref{prop:fields:separable-extension-tfae}.
+\begin{rem}{}{rem:fields:separable-degree-divides-degree}
   While we have only proved $[F : k]_s \leq [F : k]$, one can in fact
   prove that $[F : k]_s$ divides $[F : k]$: in fact, $[F : k]_s$ is
   the degree of a certain intermediate field $F_{\mathrm{sep}}$ over
@@ -3319,7 +3319,7 @@ for the minimal polynomial of $\beta$? It does, by virtue of
   $k[x]$. Prove that the intersection $F_1 \cap F_2$ and the composite
   $F_1 F_2$ (the smallest subfield of $\bar{k}$ containing both $F_1$
   and $F_2$) are both also splitting fields over
-  $k$. (\cref{thm:fields:4.8} is likely going to be helpful.)
+  $k$. (\cref{thm:fields:finite-normal-iff-splitting-field} is likely going to be helpful.)
 \end{exer}
 \begin{exer}{}{exer:fields:normal-iff-fixed-by-every-automorphism}
   Let $k \subseteq F = k(\alpha)$ be a simple algebraic
@@ -3528,7 +3528,7 @@ Also recall (\Cref{rem:rings:wedderburn}) that, by a theorem of
 Wedderburn, every finite division ring is in fact a finite
 field. Thus, relaxing the hypothesis of commutativity in this
 subsection would not lead to a different classification.
-\begin{thm}{}{thm:fields:5.1}
+\begin{thm}{}{thm:fields:finite-fields-classification}
   Let $q = p^d$ be a power of a prime integer $p$. Then the polynomial
   $x^q - x$ is separable over $\F_p$, and the splitting field of
   $x^q - x$ over $\F_p$ is a field with precisely $q$ elements.
@@ -3539,7 +3539,7 @@ subsection would not lead to a different classification.
   Let $F$ be the splitting field of $x^q - x$ over $\F_p$. Let $E$ be
   the set of roots of $f(x) = x^q - x$ in $F$. Since
   $f'(x) = qx^{q-1} - 1 = -1$ (as $q = 0$ in characteristic $p$), we
-  have $(f(x), f'(x)) = 1$; hence (\cref{lem:fields:4.13}) $f(x)$ is
+  have $(f(x), f'(x)) = 1$; hence (\cref{lem:fields:separable-iff-coprime-to-derivative}) $f(x)$ is
   separable, and $E$ consists of precisely $q$ elements. I claim that
   $E$ is a field, and it follows that $E = F$. Indeed, $F$ is
   generated by the roots of $f(x)$; hence the smallest subfield of $F$
@@ -3572,13 +3572,13 @@ subsection would not lead to a different classification.
   has $q$ roots in $F$ (that is, all elements of $F$!); it follows
   that $F$ is a splitting field for $x^q - x$, as stated.
 \end{proof}
-\begin{coro}{}{coro:fields:5.2}
+\begin{coro}{}{coro:fields:finite-field-of-order-q-exists-unique}
   For every prime power $q$ there exists one and only one finite field
   of order $q$, up to isomorphism.
 \end{coro}
 \begin{proof}
-  This follows immediately from \cref{thm:fields:5.1} and the
-  uniqueness of splitting fields (\cref{lem:fields:4.2}).
+  This follows immediately from \cref{thm:fields:finite-fields-classification} and the
+  uniqueness of splitting fields (\cref{lem:fields:splitting-field-uniqueness}).
 \end{proof}
 Since there is exactly one isomorphism class of fields of order $q$
 for any given prime power $q$, we can devise a notation for a field of
@@ -3607,14 +3607,14 @@ the \emph{Galois field} of order $q$.
   of $x^{p^2} - x$, that is, in $\F_{p^2}$. If $\alpha$ is a root of
   $x^4 + 1$ in $\F_{p^2}$, we have the extensions
   $\F_p \subseteq \F_p(\alpha) \subseteq \F_{p^2}$; therefore
-  (\cref{coro:fields:1.11}) $[\F_p(\alpha) : \F_p]$ divides
+  (\cref{coro:fields:intermediate-degrees-divide}) $[\F_p(\alpha) : \F_p]$ divides
   $[\F_{p^2} : \F_p] = 2$. That is, $\alpha$ has degree $1$ or $2$
   over $\F_p$. But then its minimal polynomial is a factor of degree
   $1$ or $2$ of $(x^4+1)$, showing that the latter is reducible.
 \end{exam}
-\cref{thm:fields:5.1} has many interesting consequences, and we sample
+\cref{thm:fields:finite-fields-classification} has many interesting consequences, and we sample
 a few in the rest of this subsection.
-\begin{coro}{}{coro:fields:5.4}
+\begin{coro}{}{coro:fields:finite-field-extension-iff-divides}
   Let $p$ be a prime, and let $d \leq e$ be positive integers. Then
   there is an extension $\F_{p^d} \subseteq \F_{p^e}$ if and only if
   $d \mid e$. Further, if $d \mid e$, then there is exactly one such
@@ -3625,7 +3625,7 @@ a few in the rest of this subsection.
   If there is an extension as stated, then
   $\F_p \subseteq \F_{p^d} \subseteq \F_{p^e}$; hence
   $[\F_{p^d} : \F_p]$ divides $[\F_{p^e} : \F_p]$ by
-  \cref{coro:fields:1.11}. This says precisely that $d \mid e$.
+  \cref{coro:fields:intermediate-degrees-divide}. This says precisely that $d \mid e$.
 
   Conversely, assume that $d \mid e$. As
   \[
@@ -3634,7 +3634,7 @@ a few in the rest of this subsection.
   we see that $p^d - 1$ divides $p^e - 1$, and consequently
   $x^{p^d - 1} - 1$ divides $x^{p^e - 1} - 1$
   (\Cref{exer:irred:power-minus-1-divisibility}). Therefore
-  $(x^{p^d} - x) \mid (x^{p^e} - x)$. By \cref{thm:fields:5.1},
+  $(x^{p^d} - x) \mid (x^{p^e} - x)$. By \cref{thm:fields:finite-fields-classification},
   $\F_{p^e}$ is a splitting field for the second polynomial. It
   follows that it contains a unique copy of the splitting field for
   the first polynomial
@@ -3650,13 +3650,13 @@ a few in the rest of this subsection.
 \end{proof}
 These results can be translated into rather precise information on the
 structure of the polynomial ring over a finite field. For example,
-\begin{coro}{}{coro:fields:5.5}
+\begin{coro}{}{coro:fields:irreducible-polys-of-every-degree-over-finite-field}
   Let $F$ be a finite field. Then for all integers $n \geq 1$ there
   exist irreducible polynomials of degree $n$ in $F[x]$.
 \end{coro}
 \begin{proof}
   We know $F = \F_{p^d}$ for some prime $p$ and some $d \geq 1$.  By
-  \cref{coro:fields:5.4} there is an extension
+  \cref{coro:fields:finite-field-extension-iff-divides} there is an extension
   $\F_{p^d} \subseteq \F_{p^{dn}}$, generated by an element
   $\alpha$. Then $[\F_{p^{dn}} : \F_{p^d}] = n$, and it follows that
   the minimal polynomial of $\alpha$ over $F = \F_{p^d}$ is an
@@ -3665,7 +3665,7 @@ structure of the polynomial ring over a finite field. For example,
 In fact, our analysis of extensions of finite fields tells us about
 explicit factorizations, leading to an inductive algorithm to find all
 irreducible polynomials in $\F_q[x]$:
-\begin{coro}{}{coro:fields:5.6}
+\begin{coro}{}{coro:fields:factorization-of-xqn-minus-x}
   Let $F = \F_q$ be a finite field, and let $n$ be a positive
   integer. Then the factorization of $x^{q^n} - x$ in $F[x]$ consists
   of all irreducible monic polynomials of degree $d$, as $d$ ranges
@@ -3673,13 +3673,13 @@ irreducible polynomials in $\F_q[x]$:
   polynomials factor completely in $\F_{q^n}$.
 \end{coro}
 \begin{proof}
-  By \cref{thm:fields:5.1}, $\F_{q^n}$ is the splitting field of
+  By \cref{thm:fields:finite-fields-classification}, $\F_{q^n}$ is the splitting field of
   $x^{q^n} - x$ over $\F_p$, and hence over $\F_q = F$.
 
   If $f(x)$ is a monic irreducible polynomial of degree $d$, then
   $F[x]/(f(x)) \cong F(\alpha)$ is an extension of degree $d$ of $F$,
   that is, an isomorphic copy of $\F_{q^d}$. By
-  \cref{coro:fields:5.4}, if $d \mid n$, then there is an embedding of
+  \cref{coro:fields:finite-field-extension-iff-divides}, if $d \mid n$, then there is an embedding of
   $\F_{q^d}$ in $\F_{q^n}$. But then $\alpha$ must be a root of
   $x^{q^n} - x$, and hence $x^{q^n} - x$ is a multiple of $f(x)$, as
   this is the minimal polynomial of $\alpha$. This proves that every
@@ -3690,7 +3690,7 @@ irreducible polynomials in $\F_q[x]$:
   then $\F_{q^n}$ contains a root $\alpha$ of $f(x)$; we have the
   extensions $F = \F_q \subseteq \F_q(\alpha) \subseteq \F_{q^n}$, and
   $\F_q(\alpha) \cong \F_{q^d}$ for $d = \deg \alpha$. It follows that
-  $d \mid n$, again by \cref{coro:fields:5.4}.
+  $d \mid n$, again by \cref{coro:fields:finite-field-extension-iff-divides}.
 \end{proof}
 The picture I am trying to convey is the following: the $q^n$ roots of
 $x^{q^n} - x$ clump into disjoint subsets, with each subset collecting
@@ -3720,7 +3720,7 @@ $d \mid n$ in $F[x]$.
       \frac{\F_2[x]}{(x^3+x^2+1)} \cong \frac{\F_2[x]}{(x^3+x+1)}.
     \]
     We know that these two fields must be isomorphic because of
-    \cref{thm:fields:5.1}; it is instructive to find an explicit
+    \cref{thm:fields:finite-fields-classification}; it is instructive to find an explicit
     isomorphism between them
     (\Cref{exer:fields:explicit-iso-of-cubic-ext-of-f2}).
   \item $n = 4$ and $5$: these cases are left to the enjoyment of the
@@ -3752,17 +3752,17 @@ work allows us to be much more precise. Restricting our attention to
 the extensions $\F_p \subseteq \F_{p^d}$, for a prime $p$, we know
 these can be realized as simple extensions by an element with minimal
 polynomial of degree $d$. This polynomial is necessarily separable
-($\F_p$ is perfect), so \cref{coro:fields:1.7} immediately gives us
+($\F_p$ is perfect), so \cref{coro:fields:aut-group-order-bounded-by-degree} immediately gives us
 the size of the automorphism group: $|\Aut_{\F_p}(\F_{p^d})| = d$. But
 what is this group?
-\begin{prop}{}{prop:fields:5.8}
+\begin{prop}{}{prop:fields:finite-field-aut-group-cyclic-frobenius}
   $\Aut_{\F_p}(\F_{p^d})$ is cyclic, generated by the Frobenius
   isomorphism.
 \end{prop}
 \begin{proof}
   Let $\phi$ be the Frobenius homomorphism $\F_{p^d} \to \F_{p^d}$:
   $\phi(x) = x^p$. The Frobenius homomorphism is an isomorphism on a
-  finite field (\cref{coro:fields:4.18}) and restricts to the identity
+  finite field (\cref{coro:fields:finite-fields-are-perfect}) and restricts to the identity
   on $\F_p$ (\Cref{exer:fields:frobenius-on-fp-is-identity}), so
   $\phi \in \Aut_{\F_p}(\F_{p^d})$. Since we know a priori the size of
   this group, all we have to show is that the order of $\phi$ is $d$.
@@ -3781,9 +3781,9 @@ Two last comments on finite fields are in order:
 \item For $n$ large enough, the stupendously large (but finite) field
   $\F_{p^{n!}}$ works as an approximation of the algebraic closure
   $\bar{\F}_p$: indeed, this field contains roots of all polynomials
-  of degree $\leq n$ in $\F_p[x]$, by \cref{coro:fields:5.6}. This
+  of degree $\leq n$ in $\F_p[x]$, by \cref{coro:fields:factorization-of-xqn-minus-x}. This
   observation can be turned into the explicit construction of an
-  algebraic closure of $\F_p$: by \cref{coro:fields:5.4} there are
+  algebraic closure of $\F_p$: by \cref{coro:fields:finite-field-extension-iff-divides} there are
   extensions
   \[
     \F_p \subseteq \F_{p^2} \subseteq \F_{p^6} \subseteq \F_{p^{4!}}
@@ -3793,7 +3793,7 @@ Two last comments on finite fields are in order:
     construction requires the notion of direct limit; cf.\
     \S{}\ref{subsec:linrep:limits-and-colimits}.}  gives a copy of
   $\bar{\F}_p$.
-\item Finite fields form a category, which (by \cref{coro:fields:5.4})
+\item Finite fields form a category, which (by \cref{coro:fields:finite-field-extension-iff-divides})
   should strongly remind the reader of the `toy' category encountered
   in \Cref{exer:prelim:dvbty-cat-Z}. There is an important difference,
   however: in that category every object has exactly one automorphism,
@@ -3826,7 +3826,7 @@ where $\varphi$ is Euler's totient function (cf.\
       (m,n)=1}} (x - \zeta_n^m)
 \]
 is a polynomial of degree $\varphi(n)$.
-\begin{defn}{}{defn:fields:5.9}
+\begin{defn}{}{defn:fields:cyclotomic-polynomial}
   The polynomial $\Phi_n(x)$ is called the \emph{$n$-th cyclotomic
     polynomial}.
 \end{defn}
@@ -3845,7 +3845,7 @@ irreducible over $\Q$. We will prove these facts in short order.
   we proved that $\Phi_p(x)$ is indeed irreducible.
 \end{exam}
 What if $n$ is not prime?
-\begin{lem}{}{lem:fields:5.11}
+\begin{lem}{}{lem:fields:xn-minus-one-factors-into-cyclotomics}
   For all positive integers $n$,
   \[
     x^n - 1 = \prod_{1 \leq d \mid n} \Phi_d(x).
@@ -3875,15 +3875,15 @@ What if $n$ is not prime?
   as claimed.
 \end{proof}
 This argument brings us back to simple group-theoretic
-considerations. The reader can check that \cref{lem:fields:5.11}
+considerations. The reader can check that \cref{lem:fields:xn-minus-one-factors-into-cyclotomics}
 implies immediately the result of
 \Cref{exer:groups:euler-totient-sum-formula}, by comparing degrees of
 both sides of the stated identity.
 
-\cref{lem:fields:5.11} yields an inductive computation of cyclotomic
+\cref{lem:fields:xn-minus-one-factors-into-cyclotomics} yields an inductive computation of cyclotomic
 polynomials; the fact that $\Phi_n(x) \in \Z[x]$ follows from this
 fact.  Explicitly,
-\begin{coro}{}{coro:fields:5.12}
+\begin{coro}{}{coro:fields:cyclotomic-polynomials-have-integer-coefficients}
   The cyclotomic polynomials $\Phi_n(x)$ have integer coefficients.
 \end{coro}
 \begin{proof}
@@ -3898,7 +3898,7 @@ fact.  Explicitly,
     x^n - 1 = f(x)q(x) + r(x),
   \]
   with $r(x) = 0$ or $\deg r(x) < \deg f(x)$. On the other hand, by
-  \cref{lem:fields:5.11}, $x^n - 1 = f(x)\Phi_n(x)$ in
+  \cref{lem:fields:xn-minus-one-factors-into-cyclotomics}, $x^n - 1 = f(x)\Phi_n(x)$ in
   $\C[x]$. Therefore
   \[
     f(x)(\Phi_n(x) - q(x)) = r(x)
@@ -3935,7 +3935,7 @@ coefficients are known to get as large as one pleases for
 $n \to \infty$.  The irreducibility of $\Phi_n(x)$ is a bit trickier,
 in particular because separability sneaks into the standard argument
 (which is why I had to wait until now to present it).
-\begin{prop}{}{prop:fields:5.14}
+\begin{prop}{}{prop:fields:cyclotomic-polynomial-irreducible-over-q}
   For all positive $n$, $\Phi_n(x) \in \Z[x]$ is irreducible over
   $\Q$.  (Since $\Phi_n(x)$ is monic, irreducibility in $\Q[x]$ is
   equivalent to irreducibility in $\Z[x]$; cf.\
@@ -3970,33 +3970,33 @@ in particular because separability sneaks into the standard argument
   This implies that $x^n - 1 \in \F_p[x]$ has a multiple factor; that
   is, it is inseparable. However, its derivative
   $nx^{n-1} \in \F_p[x]$ is nonzero (because $p$ does not divide $n$
-  by assumption), and \cref{lem:fields:4.13} implies that $x^n - 1$ is
+  by assumption), and \cref{lem:fields:separable-iff-coprime-to-derivative} implies that $x^n - 1$ is
   separable in $\F_p[x]$. This contradiction shows that our assumption
   that $\Phi_n(x)$ is reducible must be nonsense, proving the
   statement.
 \end{proof}
-\begin{defn}{}{defn:fields:5.15}
+\begin{defn}{}{defn:fields:cyclotomic-field}
   The splitting field $\Q(\zeta_n)$ for the polynomial $x^n - 1$ over
   $\Q$ is the \emph{$n$-th cyclotomic field}.
 \end{defn}
-By \cref{prop:fields:5.14}, $\Q(\zeta_n)$ is an extension of $\Q$ of
+By \cref{prop:fields:cyclotomic-polynomial-irreducible-over-q}, $\Q(\zeta_n)$ is an extension of $\Q$ of
 degree $\varphi(n)$; $\Phi_n(x)$ is the minimal polynomial of
 $\zeta_n$.  As usual, we now preoccupy ourselves with the automorphism
 group of this extension, and as in previous examples the situation is
 very neat.
-\begin{prop}{}{prop:fields:5.16}
+\begin{prop}{}{prop:fields:cyclotomic-field-aut-group-is-units-mod-n}
   $\Aut_{\Q}(\Q(\zeta_n))$ is isomorphic to the group of units in
   $\Z/n\Z$.
 \end{prop}
 \begin{proof}
   We know that $\Aut_{\Q}(\Q(\zeta_n))$ has cardinality $\varphi(n)$
-  (\cref{coro:fields:1.7}; the roots are distinct since $\Phi_n(x)$ is
+  (\cref{coro:fields:aut-group-order-bounded-by-degree}; the roots are distinct since $\Phi_n(x)$ is
   separable), so all we need to do is exhibit an injective
   homomorphism $j : (\Z/n\Z)^* \to \Aut_{\Q}(\Q(\zeta_n))$. For
   $[m]_n \in (\Z/n\Z)^*$, that is, for $m$ an integer relatively prime
   to $n$, let $j([m]_n)$ be the unique automorphism
   $\Q(\zeta_n) \to \Q(\zeta_n)$ sending $\zeta_n$ to $\zeta_n^m$ (cf.\
-  \cref{prop:fields:1.5}); this is evidently independent of the
+  \cref{prop:fields:isomorphism-extends-to-simple-extensions}); this is evidently independent of the
   representative $m$. Then $j$ is clearly injective, and
   \[
     j([m_1]_n) \circ j([m_2]_n)(\zeta_n) = j([m_1]_n)(\zeta_n^{m_2}) =
@@ -4016,7 +4016,7 @@ very neat.
 The constructibility of the regular $n$-gon by straightedge and
 compass is of course equivalent to the constructibility of the complex
 number $\zeta_n$. Since we now know that
-$[\Q(\zeta_n) : \Q] = \varphi(n)$, \cref{coro:fields:3.6} tells us
+$[\Q(\zeta_n) : \Q] = \varphi(n)$, \cref{coro:fields:constructible-degree-power-of-two} tells us
 that the regular $n$-gon is constructible by straightedge and compass
 only if $\varphi(n)$ is a power of $2$. This condition can be chased a
 little further
@@ -4033,7 +4033,7 @@ reason for this: most of the examples we have seen were separable
 extensions, and we can now prove that a finite separable extension is
 necessarily simple. Here is a nice criterion for simplicity (which
 does not involve any separability condition):
-\begin{prop}{}{prop:fields:5.18}
+\begin{prop}{}{prop:fields:simple-iff-finitely-many-intermediate-fields}
   An algebraic extension $k \subseteq F$ is simple if and only if the
   number of distinct intermediate fields $k \subseteq E \subseteq F$
   is finite.
@@ -4073,7 +4073,7 @@ does not involve any separability condition):
   \dots \subseteq F$, and we would have infinitely many intermediate
   fields), hence finite since it is algebraic.  If $k$ is a finite
   field, then so is $F$, and the extension is automatically simple by
-  \cref{coro:fields:5.4}; thus we may assume that $k$ is infinite, and
+  \cref{coro:fields:finite-field-extension-iff-divides}; thus we may assume that $k$ is infinite, and
   we have to show that every finitely generated algebraic extension
   $F = k(\alpha_1, \dots, \alpha_r)$ is simple.
 
@@ -4094,11 +4094,11 @@ does not involve any separability condition):
   $k(\alpha, \beta) = k(c\alpha + \beta)$ is simple.
 \end{proof}
 Here is the connection with separability:
-\begin{prop}{}{prop:fields:5.19}
+\begin{prop}{}{prop:fields:primitive-element-theorem}
   Every finite separable extension is simple.
 \end{prop}
 \begin{proof}
-  Arguing inductively as in the proof of \cref{prop:fields:5.18}, we
+  Arguing inductively as in the proof of \cref{prop:fields:simple-iff-finitely-many-intermediate-fields}, we
   may assume $F = k(\alpha, \beta)$, with $\alpha$ and $\beta$
   separable (and in particular algebraic) over $k$, and we may assume
   $k$ is an infinite field.
@@ -4125,38 +4125,38 @@ Here is the connection with separability:
   \]
   to distinct elements $\iota(\gamma) = \iota(\alpha)c + \iota(\beta)$
   (each $\iota$ extends $\id_k$, so $\iota(c) = c$). Since the
-  cardinality of $I$ is $[F : k]_s$ (\cref{defn:fields:4.21}) and each
+  cardinality of $I$ is $[F : k]_s$ (\cref{defn:fields:separable-degree}) and each
   $\iota(\gamma)$ is a root of the minimal polynomial of $\gamma$ over
   $k$, we have
   \[ [F : k]_s \leq [k(\gamma) : k] \leq [F : k].
   \]
   By assumption the extension is separable, so $[F : k]_s = [F : k]$
-  by \cref{prop:fields:4.24}, implying $[k(\gamma) : k] = [F : k]$ and
+  by \cref{prop:fields:separable-extension-tfae}, implying $[k(\gamma) : k] = [F : k]$ and
   finally $F = k(\gamma)$, concluding the proof.
 \end{proof}
-\cref{prop:fields:5.19} is a good illustration of why separability is
+\cref{prop:fields:primitive-element-theorem} is a good illustration of why separability is
 a technically desirable condition. To stress the point even further,
 note that we are now in a position to extend the convenient inequality
-found in \cref{coro:fields:1.7} to all finite separable extensions:
-\begin{coro}{}{coro:fields:5.20}
+found in \cref{coro:fields:aut-group-order-bounded-by-degree} to all finite separable extensions:
+\begin{coro}{}{coro:fields:aut-group-order-equals-degree-iff-normal}
   Let $k \subseteq F$ be a finite, separable extension. Then
   $|\Aut_k(F)| \leq [F : k]$, with equality if and only if
   $k \subseteq F$ is a normal extension.
 \end{coro}
 \begin{proof}
   Since $k \subseteq F$ is finite and separable,
-  \cref{prop:fields:5.19} implies it is simple: $F = k(\alpha)$ for
+  \cref{prop:fields:primitive-element-theorem} implies it is simple: $F = k(\alpha)$ for
   some $\alpha \in F$. The inequality follows immediately from
-  \cref{coro:fields:1.7}, and equality holds if and only if the
+  \cref{coro:fields:aut-group-order-bounded-by-degree}, and equality holds if and only if the
   minimal polynomial $f(x)$ of $\alpha$ factors into distinct linear
   factors in $F$. In this case $F$ is the splitting field of $f(x)$,
-  so it is normal over $k$ by \cref{thm:fields:4.8}.  Conversely, if
+  so it is normal over $k$ by \cref{thm:fields:finite-normal-iff-splitting-field}.  Conversely, if
   $F$ is normal over $k$, then $f(x)$ splits completely in $F$ and has
   distinct roots since $\alpha$ is separable over $k$; therefore
-  $|\Aut_k(F)| = [F : k]$, again by \cref{coro:fields:1.7}.
+  $|\Aut_k(F)| = [F : k]$, again by \cref{coro:fields:aut-group-order-bounded-by-degree}.
 \end{proof}
 \begin{exam}{}{exam:fields:exam:5.21}
-  By \cref{prop:fields:5.19}, if we want to construct a nonsimple
+  By \cref{prop:fields:primitive-element-theorem}, if we want to construct a nonsimple
   finite extension, we have to use inseparable elements; to produce an
   example, we jazz up \Cref{exam:fields:exam:4.11} a little. Consider
   the field of rational functions $F = \F_p(u, v)$ in two variables
@@ -4170,12 +4170,12 @@ found in \cref{coro:fields:1.7} to all finite separable extensions:
   $k \subseteq k(cu + v) \subseteq F$. If any two choices $c$, $c'$
   led to the same intermediate field, then we would deduce that
   $k(u, v) = k(cu+v)$ by arguing as in the proof of
-  \cref{prop:fields:5.18}. In particular, we would have
+  \cref{prop:fields:simple-iff-finitely-many-intermediate-fields}. In particular, we would have
   $[k(cu + v) : k] = p^2$. But this is not the case, since
   $(cu + v)^p = c^p s + t \in k(s, t) = k$; hence the minimal
   polynomial of $cu + v$ over $k$ has degree at most $p$. Since
   $k = \F_p(s, t)$ is infinite, there are infinitely many intermediate
-  fields, and it follows (by \cref{prop:fields:5.18}) that $F$ is not
+  fields, and it follows (by \cref{prop:fields:simple-iff-finitely-many-intermediate-fields}) that $F$ is not
   a simple extension of $k$.
 \end{exam}
 
@@ -4213,7 +4213,7 @@ found in \cref{coro:fields:1.7} to all finite separable extensions:
   Let $p$ be a prime integer. View the Frobenius automorphism
   $\phi : \F_{p^d} \to \F_{p^d}$ as a linear transformation of the
   $\F_p$-vector space $\F_{p^d}$.  Find the rational canonical form of
-  $\phi$. (Adapt the proof of \cref{prop:fields:5.8} to show that the
+  $\phi$. (Adapt the proof of \cref{prop:fields:finite-field-aut-group-cyclic-frobenius} to show that the
   minimal polynomial of $\phi$ is $x^d - 1$.)
 \end{exer}
 \begin{exer}{}{exer:fields:factorization-of-phi-p-over-fp}
@@ -4402,11 +4402,11 @@ and groups of permutations of the roots give automorphisms of these
 intermediate fields. With this in mind, it is not surprising that
 splitting fields should come to the fore; the fact that one can
 characterize such fields in terms of groups of automorphisms
-(\Cref{thm:fields:6.9} below) will be key to the whole
+(\Cref{thm:fields:galois-extension-tfae} below) will be key to the whole
 discussion. Before wading into these waters, we should formalize the
 precise relation between groups of automorphisms of an extension and
 intermediate fields.
-\begin{defn}{}{defn:fields:6.1}
+\begin{defn}{}{defn:fields:fixed-field}
   Let $k \subseteq F$ be a field extension, and let
   $G \subseteq \Aut_k(F)$ be a group of automorphisms of the
   extension. The \emph{fixed field} of $G$ is the intermediate field
@@ -4424,10 +4424,10 @@ correspondence
 sending the intermediate field $E$ to the subgroup $\Aut_E(F)$ of
 $\Aut_k(F)$ and the subgroup $G \subseteq \Aut_k(F)$ to the fixed
 field $F^G$.
-\begin{defn}{}{defn:fields:6.2}
+\begin{defn}{}{defn:fields:galois-correspondence}
   This is known as the \emph{Galois correspondence}.
 \end{defn}
-\begin{lem}{}{lem:fields:6.3}
+\begin{lem}{}{lem:fields:galois-correspondence-inclusion-reversing}
   The Galois correspondence is inclusion-reversing: for all subgroups
   $G$ of $\Aut_k(F)$ and all intermediate fields
   $k \subseteq E \subseteq F$:
@@ -4449,19 +4449,19 @@ field $F^G$.
 \end{proof}
 Of course the reader should start wondering whether there are
 situations guaranteeing that the inclusions appearing in
-\cref{lem:fields:6.3} are equalities, making the Galois correspondence
+\cref{lem:fields:galois-correspondence-inclusion-reversing} are equalities, making the Galois correspondence
 a bijection. This is precisely where we are heading. The first
 observation is that this is not always the case:
 \begin{exam}{}{exam:fields:exam:6.4}
   Consider the extension $\Q \subseteq \Q(\sqrt[3]{2})$. Since
   $[\Q(\sqrt[3]{2}) : \Q] = 3$ is prime, the only intermediate fields
   are $\Q$ and $\Q(\sqrt[3]{2})$ (by
-  \cref{coro:fields:1.11}). Concerning $\Aut_{\Q}(\Q(\sqrt[3]{2}))$:
+  \cref{coro:fields:intermediate-degrees-divide}). Concerning $\Aut_{\Q}(\Q(\sqrt[3]{2}))$:
   since $\sqrt[3]{2} \in \R$, we have an extension
   $\Q(\sqrt[3]{2}) \subseteq \R$; since $\sqrt[3]{2}$ is the only cube
   root of $2$ in $\R$, the minimal polynomial $t^3 - 2$ of
   $\sqrt[3]{2}$ has a single root in $\Q(\sqrt[3]{2})$. By
-  \cref{coro:fields:1.7}, $\Aut_{\Q}(\Q(\sqrt[3]{2}))$ consists of a
+  \cref{coro:fields:aut-group-order-bounded-by-degree}, $\Aut_{\Q}(\Q(\sqrt[3]{2}))$ consists of a
   single element: it is trivial.
 
   Thus, in this example the Galois correspondence acts between a set
@@ -4474,11 +4474,11 @@ observation is that this is not always the case:
   the corresponding automorphism group is not injective in general.
 \end{exam}
 This example shows that the inclusion $E \subseteq F^{\Aut_E(F)}$ in
-\cref{lem:fields:6.3} may be proper: $\Q$ is properly contained in
+\cref{lem:fields:galois-correspondence-inclusion-reversing} may be proper: $\Q$ is properly contained in
 $\Q(\sqrt[3]{2})$, which is the fixed field of the (only) subgroup of
 $\Aut_{\Q}(\Q(\sqrt[3]{2}))$. Fortunately, the situation with the
 other inclusion is more constrained:
-\begin{prop}{}{prop:fields:6.5}
+\begin{prop}{}{prop:fields:fixed-field-degree-equals-group-order}
   Let $k \subseteq F$ be a finite extension, and let $G$ be a subgroup
   of $\Aut_k(F)$. Then $|G| = [F : F^G]$, and $G = \Aut_{F^G}(F)$.  In
   particular, the Galois correspondence (from intermediate fields to
@@ -4487,12 +4487,12 @@ other inclusion is more constrained:
 Proving this fact leads us to examining very carefully finite
 extensions of the type $F^G \subseteq F$. Surprisingly, these turn out
 to satisfy just about every property we have encountered so far:
-\begin{lem}{}{lem:fields:6.6}
+\begin{lem}{}{lem:fields:fixed-field-extension-is-finite-simple-normal-separable}
   Let $k \subseteq F$ be a finite extension, and let $G$ be a subgroup
   of $\Aut_k(F)$. Then $F^G \subseteq F$ is a finite, simple, normal,
   separable extension.
 \end{lem}
-\begin{rem}{}{rem:fields:6.7}
+\begin{rem}{}{rem:fields:orbit-of-root-under-automorphisms}
   The key to this lemma is the following observation, which is worth
   highlighting. If $\alpha \in F$ and $g \in G$, note that $g\alpha$
   must be a root of the minimal polynomial of $\alpha$ over $k$; there
@@ -4508,52 +4508,52 @@ to satisfy just about every property we have encountered so far:
   it has distinct roots. Finally, note that
   $\deg q_\alpha(t) \leq |G|$.
 \end{rem}
-\begin{proof}[Proof of \cref{lem:fields:6.6}]
+\begin{proof}[Proof of \cref{lem:fields:fixed-field-extension-is-finite-simple-normal-separable}]
   The extension $F^G \subseteq F$ is finite because $k \subseteq F$ is
-  finite. Let $\alpha \in F$; by \cref{rem:fields:6.7}, $\alpha$ is a
+  finite. Let $\alpha \in F$; by \cref{rem:fields:orbit-of-root-under-automorphisms}, $\alpha$ is a
   root of a separable polynomial $q_\alpha(t)$ with coefficients in
   $F^G$. It follows that $\alpha$ is separable over $F^G$; hence the
-  extension is separable according to \cref{defn:fields:4.12}.
+  extension is separable according to \cref{defn:fields:separable-polynomial}.
 
   Since $F^G \subseteq F$ is finite and separable, it is simple by
-  \cref{prop:fields:5.19}; let $\alpha$ be a generator. The polynomial
+  \cref{prop:fields:primitive-element-theorem}; let $\alpha$ be a generator. The polynomial
   $q_\alpha(t)$ splits in $F$, and $F$ is generated over $F^G$ by the
   roots of $q_\alpha(t)$ (indeed, $\alpha_1 = \alpha$ suffices to
   generate $F$ over $F^G$); therefore, $F$ is a splitting field for
   $q_\alpha(t)$ over $F^G$ according to
-  \cref{defn:fields:4.1}. Therefore $F^G \subseteq F$ is normal by
-  \cref{thm:fields:4.8}, and we are done.
+  \cref{defn:fields:splitting-field}. Therefore $F^G \subseteq F$ is normal by
+  \cref{thm:fields:finite-normal-iff-splitting-field}, and we are done.
 \end{proof}
-\begin{proof}[Proof of \cref{prop:fields:6.5}]
-  By \cref{lem:fields:6.3}, $G$ is a subgroup of $\Aut_{F^G}(F)$, and
+\begin{proof}[Proof of \cref{prop:fields:fixed-field-degree-equals-group-order}]
+  By \cref{lem:fields:galois-correspondence-inclusion-reversing}, $G$ is a subgroup of $\Aut_{F^G}(F)$, and
   in particular $|G| \leq |\Aut_{F^G}(F)|$. In order to verify that
   $G = \Aut_{F^G}(F)$, it suffices to prove the converse
-  inequality. By \cref{lem:fields:6.6}, $F = F^G(\alpha)$ for some
+  inequality. By \cref{lem:fields:fixed-field-extension-is-finite-simple-normal-separable}, $F = F^G(\alpha)$ for some
   $\alpha \in F$; therefore $|\Aut_{F^G}(F)|$ equals the number of
   distinct roots in $F$ of the minimal polynomial of $\alpha$ over
-  $F^G$ (by \cref{coro:fields:1.7}). With notation as in
-  \cref{rem:fields:6.7}, $\alpha$ is a root of
+  $F^G$ (by \cref{coro:fields:aut-group-order-bounded-by-degree}). With notation as in
+  \cref{rem:fields:orbit-of-root-under-automorphisms}, $\alpha$ is a root of
   $q_\alpha(x) \in F^G[x]$; hence the minimal polynomial of $\alpha$
   is a factor of $q_\alpha(x)$.  Since by construction the number of
   roots of $q_\alpha(x)$ is $\leq |G|$, we obtain
   $|\Aut_{F^G}(F)| \leq |G|$, as needed.
 
   To verify that $[F : F^G] = |G|$, just note that
-  $[F : F^G] = |\Aut_{F^G}(F)|$ by \cref{coro:fields:5.20}, since
-  $F^G \subseteq F$ is normal and separable by \cref{lem:fields:6.6}.
+  $[F : F^G] = |\Aut_{F^G}(F)|$ by \cref{coro:fields:aut-group-order-equals-degree-iff-normal}, since
+  $F^G \subseteq F$ is normal and separable by \cref{lem:fields:fixed-field-extension-is-finite-simple-normal-separable}.
 \end{proof}
-\begin{rem}{}{rem:fields:6.8}
+\begin{rem}{}{rem:fields:galois-correspondence-fails-for-infinite-extensions}
   The hypothesis that the extension is finite in
-  \cref{prop:fields:6.5} is necessary: the Galois correspondence is
+  \cref{prop:fields:fixed-field-degree-equals-group-order} is necessary: the Galois correspondence is
   not necessarily surjective in the infinite case. Not all is lost,
   though: one can give a suitable topology to the group of
   automorphisms and limit the Galois correspondence to closed
   subgroups of the automorphism group, recovering results such as
-  \cref{prop:fields:6.5}. The reader is welcome to explore this
+  \cref{prop:fields:fixed-field-degree-equals-group-order}. The reader is welcome to explore this
   further---we will not be able to take this more general point of
   view here.
 \end{rem}
-\begin{thm}{}{thm:fields:6.9}
+\begin{thm}{}{thm:fields:galois-extension-tfae}
   Let $k \subseteq F$ be a finite field extension. Then the following
   are equivalent:
   \begin{enumerate}[label=(\arabic*)]
@@ -4570,28 +4570,28 @@ to satisfy just about every property we have encountered so far:
 \end{thm}
 \begin{proof}
   Most of the needed implications have been proven along the way.
-  $(1) \iff (2)$ by \cref{thm:fields:4.8}; $(2) \Rightarrow (3)$ by
-  \cref{coro:fields:5.20}. $(3) \iff (4)$ follows from
-  \cref{prop:fields:6.5}, applied to the extension
-  $F^{\Aut_k(F)} \subseteq F$: by \cref{prop:fields:6.5}, we have
+  $(1) \iff (2)$ by \cref{thm:fields:finite-normal-iff-splitting-field}; $(2) \Rightarrow (3)$ by
+  \cref{coro:fields:aut-group-order-equals-degree-iff-normal}. $(3) \iff (4)$ follows from
+  \cref{prop:fields:fixed-field-degree-equals-group-order}, applied to the extension
+  $F^{\Aut_k(F)} \subseteq F$: by \cref{prop:fields:fixed-field-degree-equals-group-order}, we have
   $[F : F^{\Aut_k(F)}] = |\Aut_k(F)|$; since
   $k \subseteq F^{\Aut_k(F)} \subseteq F$, it follows that
   $k = F^{\Aut_k(F)}$ if and only if $|\Aut_k(F)| = [F : k]$.
-  $(4) \Rightarrow (2)$ by \cref{lem:fields:6.6}.
+  $(4) \Rightarrow (2)$ by \cref{lem:fields:fixed-field-extension-is-finite-simple-normal-separable}.
 
   $(2) \iff (6)$ holds by
   \Cref{exer:fields:normal-iff-fixed-by-every-automorphism}, since
-  finite separable extensions are simple (\cref{prop:fields:5.19}).
+  finite separable extensions are simple (\cref{prop:fields:primitive-element-theorem}).
 
   To prove $(5) \Rightarrow (4)$, let $E = F^{\Aut_k(F)}$; by
-  \cref{prop:fields:6.5}, $\Aut_E(F) = \Aut_k(F)$.  Assuming that the
+  \cref{prop:fields:fixed-field-degree-equals-group-order}, $\Aut_E(F) = \Aut_k(F)$.  Assuming that the
   Galois correspondence is bijective, it follows that
   $k = E = F^{\Aut_k(F)}$, giving (4).
 
   Finally, we prove that $(1) \Rightarrow (5)$. Since $k \subseteq F$
   is a finite extension, we already know that the Galois
   correspondence from intermediate fields to subgroups of $\Aut_k(F)$
-  has a right inverse (\cref{prop:fields:6.5}), so it suffices to show
+  has a right inverse (\cref{prop:fields:fixed-field-degree-equals-group-order}), so it suffices to show
   it has a left-inverse. Therefore, it suffices to verify that every
   intermediate field $E$ equals the fixed field of the corresponding
   subgroup $\Aut_E(F)$. Let $E$ be an intermediate field. By (1), $F$
@@ -4601,12 +4601,12 @@ to satisfy just about every property we have encountered so far:
   $(1) \iff (4)$, this implies that $E = F^{\Aut_E(F)}$, and we are
   done.
 \end{proof}
-\begin{defn}{}{defn:fields:6.10}
+\begin{defn}{}{defn:fields:galois-extension}
   A finite extension $k \subseteq F$ is \emph{Galois} if it satisfies
-  any of the conditions listed in \cref{thm:fields:6.9}.
+  any of the conditions listed in \cref{thm:fields:galois-extension-tfae}.
 \end{defn}
 \emph{Warning:} We will not study the Galois condition for infinite
-extensions (cf.\ \cref{rem:fields:6.8}). Thus Galois extensions will
+extensions (cf.\ \cref{rem:fields:galois-correspondence-fails-for-infinite-extensions}). Thus Galois extensions will
 implicitly be finite in what follows.
 
 Condition (6) is technically useful and helps with visualizing the
@@ -4634,7 +4634,7 @@ $k \subseteq F_1$, $k \subseteq F_2$, since both $F_1$ and $F_2$ are
 well-defined as subfields of $\bar{k}$, so their composite $F_1 F_2$
 is independent of the choice of embeddings $F_1 \subseteq \bar{k}$,
 $F_2 \subseteq \bar{k}$.
-\begin{defn}{}{defn:fields:6.11}
+\begin{defn}{}{defn:fields:galois-group}
   If $k \subseteq F$ is a Galois extension, the corresponding
   automorphism group $\Aut_k(F)$ is called the \emph{Galois group} of
   the extension.
@@ -4642,14 +4642,14 @@ $F_2 \subseteq \bar{k}$.
 To reiterate, the extension $\Q \subseteq \Q(\sqrt[3]{2})$ is not a
 Galois extension: as we have observed in \Cref{exam:fields:exam:6.4},
 $\Aut_{\Q}(\Q( \sqrt[3]{2}))$ is trivial (hence, for example,
-condition (3) of \cref{thm:fields:6.9} does not hold).
+condition (3) of \cref{thm:fields:galois-extension-tfae} does not hold).
 
 On the other hand, we have already run into several examples of Galois
 extensions: the examples of splitting fields we have seen in
 \S{}\ref{subsec:fields:splitting-fields-and-normal-extensions} are all
 Galois extensions. The `Galois fields' of
 \S{}\ref{subsec:fields:finite-fields} are (surprise, surprise) Galois
-extensions of their prime subfields, by \cref{thm:fields:5.1}. The
+extensions of their prime subfields, by \cref{thm:fields:finite-fields-classification}. The
 cyclotomic fields
 (\S{}\ref{subsec:fields:cyclotomic-polynomials-and-fields}) are Galois
 extensions of $\Q$.
@@ -4658,7 +4658,7 @@ A Galois extension $k \subseteq F$ is \emph{cyclic}, \emph{abelian},
 etc., if the corresponding group of automorphisms $\Aut_k(F)$ is
 cyclic, abelian, etc. For example, $\Q \subseteq \Q(\zeta_8)$ is an
 abelian, but not cyclic, Galois extension (cf.\
-\cref{prop:fields:5.16} and \Cref{exam:fields:exam:5.17}).
+\cref{prop:fields:cyclotomic-field-aut-group-is-units-mod-n} and \Cref{exam:fields:exam:5.17}).
 
 \subsection{The fundamental theorem of Galois theory, I}
 \label{subsec:fields:the-fundamental-theorem-of-galois-theory-i}
@@ -4683,7 +4683,7 @@ this stage, this is what we know:\footnote{`Separability' does not
   \[ [E : k] = [\Aut_k(F) : \Aut_E(F)]:
   \]
   this follows from Lagrange's theorem (\cref{coro:groups:lagrange})
-  and its field theory counterpart (\cref{prop:fields:1.10}).
+  and its field theory counterpart (\cref{prop:fields:degree-multiplicative-in-tower}).
 \item The extension $k \subseteq E$ is not necessarily Galois. (Once
   more $\Q(\sqrt[3]{2})$ gives a counterexample, since it can be
   viewed as intermediate in the splitting field of $t^3 - 2$ over
@@ -4691,19 +4691,19 @@ this stage, this is what we know:\footnote{`Separability' does not
 \end{itemize}
 The fact that the Galois correspondence is a bijection may be upgraded
 as follows:
-\begin{thm}{}{thm:fields:6.12}
+\begin{thm}{}{thm:fields:fundamental-theorem-of-galois-theory}
   Let $k \subseteq F$ be a Galois extension. The Galois correspondence
   is an inclusion-reversing isomorphism of the lattice of intermediate
   subfields of $k \subseteq F$ with the lattice of subgroups of
-  $\Aut_k(F)$. That is (with notation as in \cref{lem:fields:6.3}), if
+  $\Aut_k(F)$. That is (with notation as in \cref{lem:fields:galois-correspondence-inclusion-reversing}), if
   $E_1$, $E_2$ are intermediate fields and $G_1$, $G_2$ are the
   corresponding subgroups of $\Aut_k(F)$, then $E_1 \cap E_2$
   corresponds to $\langle G_1, G_2 \rangle$ and $E_1 E_2$ corresponds
   to $G_1 \cap G_2$.
 \end{thm}
 \begin{proof}
-  This follows immediately from \cref{thm:fields:6.9} and
-  \cref{lem:fields:6.3}, which gives
+  This follows immediately from \cref{thm:fields:galois-extension-tfae} and
+  \cref{lem:fields:galois-correspondence-inclusion-reversing}, which gives
   \[
     \Aut_{E_1 E_2}(F) = G_1 \cap G_2, \qquad F^{\langle G_1, G_2
       \rangle} = E_1 \cap E_2,
@@ -4715,13 +4715,13 @@ extensions, with a parallel notation for subgroups: the field $F$ at
 the top corresponds to $\{e\}$, an intermediate field $E$ to
 $\Aut_E(F)$, and $k$ at the bottom to $\Aut_k(F)$.
 
-The content of \cref{thm:fields:6.12} is that the lattice of
+The content of \cref{thm:fields:fundamental-theorem-of-galois-theory} is that the lattice of
 intermediate fields of a Galois extension $k \subseteq F$ and the
 lattice of subgroups of the corresponding Galois group are identical.
 \begin{exam}{}{exam:fields:exam:6.13}
   For finite fields, this coincidence of lattices was essentially
-  proven `by hand' in \cref{coro:fields:5.4} and
-  \cref{prop:fields:5.8}. For example, the extension
+  proven `by hand' in \cref{coro:fields:finite-field-extension-iff-divides} and
+  \cref{prop:fields:finite-field-aut-group-cyclic-frobenius}. For example, the extension
   $\F_2 \subseteq \F_{64}$ is Galois, with cyclic Galois group $C_6$,
   generated by the Frobenius automorphism $\phi$. The divisors of $6$
   are $1, 2, 3, 6$, corresponding to subgroups $\{e\}$,
@@ -4729,7 +4729,7 @@ lattice of subgroups of the corresponding Galois group are identical.
   intermediate fields $\F_{64}$, $\F_8$, $\F_4$, and $\F_2$,
   respectively.
 \end{exam}
-\cref{thm:fields:6.12} is often used in the `groups to fields'
+\cref{thm:fields:fundamental-theorem-of-galois-theory} is often used in the `groups to fields'
 direction: finding the lattice of subgroups of a finite group is
 essentially a combinatorial problem, and through the Galois
 correspondence it determines the lattice of intermediate fields of a
@@ -4763,7 +4763,7 @@ $\Aut_E(F)$ on the segment from $E$ to $F$.
 need not be a Galois extension: $\Q(\sqrt[3]{2})$ is an intermediate
 field for the extension of $\Q$ into the splitting field for the
 polynomial $t^3 - 2$ (which is Galois, by part (1) of
-\cref{thm:fields:6.9}), but as we have seen, it is not Galois. The
+\cref{thm:fields:galois-extension-tfae}), but as we have seen, it is not Galois. The
 splitting field has degree $6$ over $\Q$ and is a quadratic extension
 of $\Q(\sqrt[3]{2})$. This is in fact the typical situation: every
 finite separable extension may be enlarged to a Galois extension
@@ -4774,7 +4774,7 @@ $k$ in an intermediate field $E$ of a Galois extension $k \subseteq F$
 is Galois is central to the theory. The outcome of the discussion will
 be very neat, and this is possibly the most striking part of the
 fundamental theorem of Galois theory:
-\begin{thm}{}{thm:fields:6.15}
+\begin{thm}{}{thm:fields:galois-correspondence-normal-subgroups}
   Let $k \subseteq F$ be a Galois extension, and let $E$ be an
   intermediate field. Then $k \subseteq E$ is Galois if and only if
   $\Aut_E(F)$ is normal in $\Aut_k(F)$; in this case, there is an
@@ -4819,7 +4819,7 @@ action of $\Aut_k(F)$ on the set $I$ of embeddings of $E$ in $\bar{k}$
 extending the identity, and prove that, as an $\Aut_k(F)$-set, $I$ is
 isomorphic to the set of left-cosets of $\Aut_E(F)$ in
 $\Aut_k(F)$. This will be our `meaningful bijection', and after this
-is done \Cref{thm:fields:6.15} will look perfectly reasonable.  Fix an
+is done \Cref{thm:fields:galois-correspondence-normal-subgroups} will look perfectly reasonable.  Fix an
 embedding $F \subseteq \bar{k}$ of $F$ in an algebraic closure of $k$,
 and let $I$ be the set of embeddings $\iota : E \to \bar{k}$ extending
 the identity on $k$. It is a good idea to view $k \subseteq E$ as an
@@ -4831,12 +4831,12 @@ $\iota(E) \subseteq F$ for some $\iota \in I$.
 \item For all $\iota \in I$, $\iota(E) \subseteq F$.
 
   Indeed, $k \subseteq E$ is simple (finite and separable
-  $\Rightarrow$ simple, \Cref{prop:fields:5.19}). If $E = k(\alpha)$,
+  $\Rightarrow$ simple, \Cref{prop:fields:primitive-element-theorem}). If $E = k(\alpha)$,
   then $\iota$ is determined by $\iota(\alpha)$, which is necessarily
   a root of the minimal polynomial of $\alpha$ over $k$. But
   $k \subseteq F$ is normal and contains some root $\iota(\alpha)$ of
   this polynomial; hence $F$ contains all of them
-  (\Cref{defn:fields:4.7}). That is, $\iota(\alpha) \in F$ for all
+  (\Cref{defn:fields:normal-extension}). That is, $\iota(\alpha) \in F$ for all
   $\iota \in I$, implying $\iota(k(\alpha)) \subseteq F$ for all
   $\iota \in I$.
 \item Let $\iota \in I$, and let $g \in \Aut_k(F)$; then
@@ -4849,11 +4849,11 @@ $\iota(E) \subseteq F$ for some $\iota \in I$.
 \item The action of $\Aut_k(F)$ on $I$ is transitive.
 
   This follows from the `uniqueness of splitting fields',
-  \Cref{lem:fields:4.2}.  Indeed, let $\iota_1, \iota_2 \in I$. Both
+  \Cref{lem:fields:splitting-field-uniqueness}.  Indeed, let $\iota_1, \iota_2 \in I$. Both
   $\iota_1(E)$, $\iota_2(E)$ contain $k$, and $F$ is a splitting field
-  over $k$ (part~(1) of \Cref{thm:fields:6.9}); hence $F$ is a
+  over $k$ (part~(1) of \Cref{thm:fields:galois-extension-tfae}); hence $F$ is a
   splitting field (for the same polynomial) over both $\iota_1(E)$ and
-  $\iota_2(E)$. By \Cref{lem:fields:4.2}, there exists an automorphism
+  $\iota_2(E)$. By \Cref{lem:fields:splitting-field-uniqueness}, there exists an automorphism
   $g : F \to F$ extending the isomorphism
   $\iota_2 \circ \iota_1^{-1} : \iota_1(E) \to \iota_2(E)$.  Then
   $g \in \Aut_k(F)$ (since $\iota_2 \circ \iota_1^{-1}$ restricts to
@@ -4873,9 +4873,9 @@ $E = \iota(E)$, that is, the stabilizer of $\iota$. At this point,
 to conclude the promised result in the last bullet above.
 
 I view this observation as an integral part of the fundamental theorem
-of Galois theory. The conventional statement (\Cref{thm:fields:6.15})
+of Galois theory. The conventional statement (\Cref{thm:fields:galois-correspondence-normal-subgroups})
 is an essentially immediate consequence of this fact.
-\begin{proof}[Proof of \cref{thm:fields:6.15}]
+\begin{proof}[Proof of \cref{thm:fields:galois-correspondence-normal-subgroups}]
   As observed above, the $\Aut_k(F)$-stabilizer of $\iota \in I$
   equals $\Aut_{\iota(E)}(F)$. By
   \Cref{prop:groups:stabilizer-conjugation}, stabilizers of different
@@ -4884,7 +4884,7 @@ is an essentially immediate consequence of this fact.
   $\Aut_{\iota(E)}(F) = \Aut_E(F)$.  This implies that $\iota(E) = E$
   for all $\iota \in I$, since the Galois correspondence is bijective
   for the Galois extension $k \subseteq F$. It follows that
-  $k \subseteq E$ satisfies condition~(6) of \Cref{thm:fields:6.9};
+  $k \subseteq E$ satisfies condition~(6) of \Cref{thm:fields:galois-extension-tfae};
   hence it is Galois.
 
   Conversely, assume that $k \subseteq E$ is Galois; by the same
@@ -4898,11 +4898,11 @@ is an essentially immediate consequence of this fact.
   virtue of the first isomorphism theorem for groups,
   \Cref{coro:groups:first-isomorphism-theorem}.
 \end{proof}
-\begin{rem}{}{rem:fields:6.16}
+\begin{rem}{}{rem:fields:galois-theory-covering-space-analogy}
   There is a parallel between Galois theory and the theory of covering
   spaces in topology. In this analogy, Galois extensions correspond to
   regular covers; the Galois group of an extension corresponds to the
-  group of deck transformations; and \Cref{thm:fields:6.15}
+  group of deck transformations; and \Cref{thm:fields:galois-correspondence-normal-subgroups}
   corresponds to the fact that the quotient of a regular cover by a
   normal subgroup of the group of deck transformations is again a
   regular cover. More general (connected) covers correspond to more
@@ -4934,10 +4934,10 @@ Suppose $k \subseteq F$ and $k \subseteq K$ are two finite extensions
 contained in a larger extension of $k$ (for example, we could choose
 specific embeddings $F \subseteq \bar{k}$, $K \subseteq \bar{k}$ in an
 algebraic closure of $k$). Then we can consider the composite $KF$
-(cf.\ \Cref{lem:fields:6.3}) of $F$, $K$ in the larger extension. It
+(cf.\ \Cref{lem:fields:galois-correspondence-inclusion-reversing}) of $F$, $K$ in the larger extension. It
 is natural to question how the Galois condition behaves under this
 operation.
-\begin{prop}{}{prop:fields:6.17}
+\begin{prop}{}{prop:fields:galois-extension-lifted-by-compositum}
   Suppose $k \subseteq F$ is a Galois extension and $k \subseteq K$ is
   any finite extension. Then $K \subseteq KF$ is a Galois extension,
   and $\Aut_K(KF) \cong \Aut_{F \cap K}(F)$.
@@ -4968,7 +4968,7 @@ The situation is depicted in the lattice:
   $K$ (and hence on $k$), then $\sigma$ restricts to a homomorphism
   $F \to \sigma(F)$ extending the identity on $k$. Since
   $k \subseteq F$ is Galois, $\sigma(F) = F$ (condition~(6) in
-  \Cref{thm:fields:6.9}). Thus, `restriction' defines a natural group
+  \Cref{thm:fields:galois-extension-tfae}). Thus, `restriction' defines a natural group
   homomorphism $\rho : \Aut_K(KF) \to \Aut_k(F)$.
 
   I claim that $\rho$ is injective. Indeed, by definition every
@@ -4982,8 +4982,8 @@ The situation is depicted in the lattice:
   $F^G \supseteq F \cap K$. Conversely, suppose $\alpha \in F^G$; then
   $K(\alpha)$ is in the fixed field of $\Aut_K(KF)$, which is $K$
   itself since $K \subseteq KF$ is Galois (condition~(4) of
-  \Cref{thm:fields:6.9}). That is, $\alpha \in K$, and it follows that
-  $F^G = F \cap K$. By \Cref{prop:fields:6.5},
+  \Cref{thm:fields:galois-extension-tfae}). That is, $\alpha \in K$, and it follows that
+  $F^G = F \cap K$. By \Cref{prop:fields:fixed-field-degree-equals-group-order},
   $G = \Aut_{F \cap K}(F)$, concluding the proof.
 \end{proof}
 I will leave to the reader the pleasure of verifying that if both
@@ -4993,13 +4993,13 @@ Galois over $k$, and so is $F \cap K$
 \begin{exam}{}{exam:fields:exam:6.18}
   We have studied cyclotomic fields $\Q(\zeta_n)$ as extensions of
   $\Q$; $\Q(\zeta_n)$ is the splitting field of $x^n - 1$, so these
-  extensions are Galois; we have proved (\Cref{prop:fields:5.16}) that
+  extensions are Galois; we have proved (\Cref{prop:fields:cyclotomic-field-aut-group-is-units-mod-n}) that
   $\Aut_{\Q}(\Q(\zeta_n))$ is isomorphic to the group of units in
   $\Z/n\Z$.
 
   Now let $k$ be any field of characteristic zero. The splitting field
   of $x^n - 1$ over $k$ is the composite $k(\zeta)$ of $k$ and
-  $\Q(\zeta)$.  By \Cref{prop:fields:6.17} the extension
+  $\Q(\zeta)$.  By \Cref{prop:fields:galois-extension-lifted-by-compositum} the extension
   $k \subseteq k(\zeta)$ is Galois, and $\Aut_k(k(\zeta))$ is
   isomorphic to a subgroup of the group of units of $\Z/n\Z$. In
   particular, it is abelian.
@@ -5008,7 +5008,7 @@ The previous example gives an important class of abelian Galois
 extensions. Remarkably, we can classify all cyclic Galois extensions,
 if we impose some restriction on the base field $k$.
 
-\begin{prop}{}{prop:fields:6.19}
+\begin{prop}{}{prop:fields:galois-cyclic-via-root-of-unity}
   Let $k \subseteq F$ be an extension of degree $m$. Assume that $k$
   contains a primitive $m$-th root of $1$ and $\mathrm{char}\,k$ does
   not divide\footnote{We will apply this result in
@@ -5022,7 +5022,7 @@ That is, under the given hypotheses on $k$, the cyclic Galois
 extensions of $k$ are precisely those of the form
 $k \subseteq k(\sqrt[m]{c})$, with $c \in k$. This is part of Kummer
 theory, a basic tool in the study of abelian
-extensions. \Cref{prop:fields:6.19} will be a key ingredient in our
+extensions. \Cref{prop:fields:galois-cyclic-via-root-of-unity} will be a key ingredient in our
 application of Galois theory to the solvability of polynomial
 equations.
 \begin{proof}
@@ -5037,7 +5037,7 @@ equations.
   are in $F$, and $F$ is generated by them; therefore $F$ is the
   splitting field of the separable (since $\mathrm{char}\,k$ does not
   divide $m$) polynomial $x^m - c$ over $k$; hence
-  (\Cref{thm:fields:6.9}, part~(1)) $k \subseteq F$ is Galois. To see
+  (\Cref{thm:fields:galois-extension-tfae}, part~(1)) $k \subseteq F$ is Galois. To see
   that $\Aut_k(F)$ is cyclic, note that every $\phi \in \Aut_k(F)$ is
   determined by $\phi(\delta)$, which is necessarily a root of
   $x^m - c$; therefore $\phi(\delta) = \zeta^i \delta$ for some $i$,
@@ -5070,7 +5070,7 @@ equations.
   \]
   that is, $\delta^m$ is fixed by $\phi$, and hence by the whole of
   $\Aut_k(F)$. Since $k \subseteq F$ is Galois, this implies
-  $\delta^m \in k$ (\Cref{thm:fields:6.9}, part~(4)). That is,
+  $\delta^m \in k$ (\Cref{thm:fields:galois-extension-tfae}, part~(4)). That is,
   $\delta$ satisfies the stated conditions.
 \end{proof}
 
@@ -5078,7 +5078,7 @@ equations.
 
 \begin{exer}{}{exer:fields:galois-correspondence-inclusion-reversing}
   Prove
-  \Cref{lem:fields:6.3}. [\S{}\ref{subsec:fields:the-galois-correspondence-and-galois-extensions}]
+  \Cref{lem:fields:galois-correspondence-inclusion-reversing}. [\S{}\ref{subsec:fields:the-galois-correspondence-and-galois-extensions}]
 \end{exer}
 \begin{exer}{}{exer:fields:quadratic-ext-char-neq-2-galois}
   Prove that quadratic extensions in characteristic $\neq 2$ are
@@ -5104,7 +5104,7 @@ equations.
   \ref{exer:fields:simple-generator-iff-moved-by-outside-auts}]
 \end{exer}
 \begin{exer}{}{exer:fields:simple-generator-iff-moved-by-outside-auts}
-  We have proved (\Cref{prop:fields:5.19}) that all finite separable
+  We have proved (\Cref{prop:fields:primitive-element-theorem}) that all finite separable
   extensions $k \subseteq E$ are simple. Let $k \subseteq F$ be a
   Galois closure of $k \subseteq E$
   (\Cref{exer:fields:galois-closure-existence-universal-property}). For
@@ -5128,7 +5128,7 @@ equations.
   Let $p > 0$ be prime, and let $d \mid e$ be positive integers, so
   that there is an extension $\F_{p^d} \subseteq \F_{p^e}$. Prove that
   $\Aut_{\F_{p^d}}(\F_{p^e})$ is cyclic, and describe a generator of
-  this group. (This generalizes \Cref{prop:fields:5.8}; use Galois
+  this group. (This generalizes \Cref{prop:fields:finite-field-aut-group-cyclic-frobenius}; use Galois
   theory.)
 \end{exer}
 \begin{exer}{}{exer:fields:smallest-prime-degree-intermediate-galois}
@@ -5227,12 +5227,12 @@ equations.
 \end{exer}
 \begin{exer}{}{exer:fields:kummer-cyclic-ext-with-root-of-unity-radical}
   \Cref{exer:fields:hilberts-theorem-90-multiplicative} should remind
-  the reader of the proof of \Cref{prop:fields:6.19}, and for good
+  the reader of the proof of \Cref{prop:fields:galois-cyclic-via-root-of-unity}, and for good
   reasons. Assume that $k \subseteq F$ is a cyclic Galois extension of
   degree $m$ and that $k$ contains a primitive $m$-th root $\zeta$ of
   $1$. Use Hilbert's theorem 90 to prove that $F = k(\delta)$ for a
   $\delta$ such that $\delta^m \in k$, thereby recovering one
-  direction of the statement of \Cref{prop:fields:6.19}. (Hint: What
+  direction of the statement of \Cref{prop:fields:galois-cyclic-via-root-of-unity}. (Hint: What
   is $N_{k \subseteq F}(\zeta^{-1})$?) The case of Hilbert's theorem
   90 needed here is due to \name{Kummer}.
 \end{exer}
@@ -5279,14 +5279,14 @@ power.
 
 \subsection{Fundamental theorem of algebra}
 \label{subsec:fields:fundamental-theorem-of-algebra}
-\Cref{thm:fields:6.15} and a little group theory are essentially all
+\Cref{thm:fields:galois-correspondence-normal-subgroups} and a little group theory are essentially all
 that is needed\footnote{I am cheating a little, actually, since the
   intermediate value theorem will also be used behind the scenes. This
   is not too surprising: the completeness of $\R$ must enter the proof
   somewhere.}  to give an algebraic proof of the fundamental theorem
 of algebra, promised back in
 \S{}\ref{subsec:irred:irreducibility-in-c-x-r-x-q-x}.
-\begin{thm}{}{thm:fields:7.1}
+\begin{thm}{}{thm:fields:fundamental-theorem-of-algebra}
   $\C$ is algebraically closed.
 \end{thm}
 
@@ -5350,7 +5350,7 @@ more explicit condition is given in
 these are all `negative' results: we have not as yet proved that if
 $\varphi(n)$ is a power of $2$, then the regular $n$-gon is
 constructible. This is where Galois theory comes into the picture.
-\begin{prop}{}{prop:fields:7.2}
+\begin{prop}{}{prop:fields:prime-power-degree-galois-has-subfield-chain}
   Let $k \subseteq F$ be a Galois extension, and assume
   $[F : k] = p^r$ for some prime $p$ and $r \geq 0$. Then there exist
   intermediate fields
@@ -5363,12 +5363,12 @@ constructible. This is where Galois theory comes into the picture.
 
 \begin{proof}
   As the Galois correspondence is bijective for Galois extensions
-  (\Cref{thm:fields:6.9}, part~(5)), this statement follows
+  (\Cref{thm:fields:galois-extension-tfae}, part~(5)), this statement follows
   immediately from the fact that a group of order $p^r$, with $p$
   prime, has a complete series of $p$-subgroups; cf.\ for example the
   discussion following the statement of \Cref{thm:groups2:sylow-iii}.
 \end{proof}
-\begin{thm}{}{thm:fields:7.3}
+\begin{thm}{}{thm:fields:constructible-n-gon-criterion}
   The regular $n$-gon is constructible by straightedge and compass if
   and only if $\varphi(n)$ is a power of $2$.
 \end{thm}
@@ -5379,13 +5379,13 @@ constructible. This is where Galois theory comes into the picture.
   The extension $\Q \subseteq \Q(\zeta_n)$ is Galois (it is the
   splitting field of $\Phi_n(x)$), of order
   $[\Q(\zeta_n) : \Q] = \varphi(n) = 2^r$
-  (\Cref{prop:fields:5.14}). \Cref{prop:fields:7.2} shows that the
-  condition given in \Cref{thm:fields:3.4} is satisfied and therefore
+  (\Cref{prop:fields:cyclotomic-polynomial-irreducible-over-q}). \Cref{prop:fields:prime-power-degree-galois-has-subfield-chain} shows that the
+  condition given in \Cref{thm:fields:constructible-iff-quadratic-tower} is satisfied and therefore
   that $\zeta_n$ is constructible, as needed.
 \end{proof}
 For example, $\varphi(17) = 16 = 2^4$; the Galois group of
 $\Q(\zeta_{17})$ over $\Q$ is isomorphic to $(\Z/17\Z)^\ast$ (by
-\Cref{prop:fields:5.16}), and therefore (\Cref{thm:groups2:6.10}) it
+\Cref{prop:fields:cyclotomic-field-aut-group-is-units-mod-n}), and therefore (\Cref{thm:groups2:6.10}) it
 is cyclic, of order $16$. A generator of $(\Z/17\Z)^\ast$ is
 $[6]_{17}$; it follows that $\Aut_{\Q}(\Q(\zeta_{17}))$ is generated
 by the automorphism $\sigma$ defined by
@@ -5487,7 +5487,7 @@ that they are invariant under permutations of $t_1, \dots, t_n$
 following important result, which has a particularly simple proof
 thanks to Galois theory.
 \begin{thm}{Fundamental theorem on symmetric
-    functions}{thm:fields:7.4}
+    functions}{thm:fields:fundamental-theorem-symmetric-functions}
   Let $K$ be a field, and let $\phi \in K(t_1, \dots, t_n)$. Then
   $\phi$ is symmetric if and only if it is a rational function (with
   coefficients in $K$) of the elementary symmetric functions
@@ -5503,7 +5503,7 @@ which we can do unambiguously since $\Z$ is initial in $\categ{Ring}$.
   $K$. Then $F$ is a splitting field of the separable polynomial
   $P_n(x)$ over $k$.  In particular $k \subseteq F$ is a Galois
   extension, and $|\Aut_k(F)| = [F : k] \leq n!$ by
-  \Cref{lem:fields:4.2}. The symmetric group $S_n$ acts (faithfully)
+  \Cref{lem:fields:splitting-field-uniqueness}. The symmetric group $S_n$ acts (faithfully)
   on $F$ by permuting $t_1, \dots, t_n$, and this action is the
   identity on $k = K(s_1, \dots, s_n)$ since each $s_i$ is
   symmetric. Thus $S_n$ may be identified with a subgroup of
@@ -5514,12 +5514,12 @@ which we can do unambiguously since $\Z$ is initial in $\categ{Ring}$.
   invariant under the $S_n$ action on $t_1, \dots, t_n$ if and only if
   $\phi \in k = K(s_1, \dots, s_n)$, which is the statement.
 \end{proof}
-It is not difficult to strengthen the result of \Cref{thm:fields:7.4}
+It is not difficult to strengthen the result of \Cref{thm:fields:fundamental-theorem-symmetric-functions}
 and prove that every symmetric polynomial is in fact a polynomial in
 the elementary symmetric functions. Note that the argument given in
 the proof amounts to the following result, which should be recorded
 for individual attention:
-\begin{lem}{}{lem:fields:7.5}
+\begin{lem}{}{lem:fields:symmetric-functions-extension-is-galois-sn}
   Let $K$ be a field, $t_1, \dots, t_n$ indeterminates, and let
   $s_1, \dots, s_n$ be the elementary symmetric functions on
   $t_1, \dots, t_n$. Then the extension
@@ -5530,7 +5530,7 @@ for individual attention:
 This result and Cayley's theorem (\Cref{thm:groups:cayleys-theorem})
 immediately yield the following:
 
-\begin{coro}{}{coro:fields:7.6}
+\begin{coro}{}{coro:fields:every-finite-group-is-a-galois-group}
   Let $G$ be a finite group. Then there exists a Galois extension
   $k \subseteq F$ such that $\Aut_k(F) \cong G$.
 \end{coro}
@@ -5539,7 +5539,7 @@ immediately yield the following:
   \Cref{exer:fields:every-finite-grp-is-a-galois-grp}.
 \end{proof}
 It is not known whether $k$ may be chosen to be $\Q$ in
-\Cref{coro:fields:7.6}. The proof hinted at above realizes $k$ as a
+\Cref{coro:fields:every-finite-group-is-a-galois-group}. The proof hinted at above realizes $k$ as a
 rather large field, and it is not at all clear how one may `descend'
 from this field to $\Q$. This is the \emph{inverse Galois problem}, a
 subject of current research. The reader can appreciate the difficulty
@@ -5562,12 +5562,12 @@ $\Q$. The inverse Galois problem may be rephrased as asking whether
 every finite group is a quotient of the Galois group of $\Q$ over
 $\Q$. I have already mentioned that this object (which may be
 interpreted as the `fundamental group of $\Q$'; cf.\
-\Cref{rem:fields:6.16}) is mysterious and extremely
+\Cref{rem:fields:galois-theory-covering-space-analogy}) is mysterious and extremely
 interesting.\footnote{According to J.~S.\ \name{Milne}, the `most
   interesting object in mathematics' is the \'etale fundamental group
   of the projective line over $\Q$ with the three points
   $0, 1, \infty$ removed. This is an extension of the Galois group of
-  $\Q$ over $\Q$.}  Going back to \Cref{lem:fields:7.5}, the
+  $\Q$ over $\Q$.}  Going back to \Cref{lem:fields:symmetric-functions-extension-is-galois-sn}, the
 alternating group $A_n$ has index $2$ in $S_n$, so it corresponds to a
 quadratic extension of $K(s_1, \dots, s_n)$ via the Galois
 correspondence. It is easy to determine a generator of this extension:
@@ -5586,9 +5586,9 @@ note that the discriminant
 \]
 is invariant under the action of all permutations, and therefore it
 belongs to the field $K(s_1, \dots, s_n)$ by
-\Cref{thm:fields:7.4}. This proves
+\Cref{thm:fields:fundamental-theorem-symmetric-functions}. This proves
 
-\begin{coro}{}{coro:fields:7.7}
+\begin{coro}{}{coro:fields:alternating-group-as-galois-group}
   With notation as above, the extension
   $K(s_1, \dots, s_n)(\sqrt{D}) \subseteq K(t_1, \dots, t_n)$ is
   Galois, with Galois group $A_n$.
@@ -5622,7 +5622,7 @@ equation
 in terms of the coefficients $a_i$ and basic operations such as taking
 roots. This would be a solution `by radicals' of the equation. Well,
 such a formula simply does not exist:
-\begin{thm}{}{thm:fields:7.8}
+\begin{thm}{}{thm:fields:abel-ruffini-theorem}
   The general polynomial equation of degree $5$ or higher admits no
   solution by radicals.
 \end{thm}
@@ -5634,7 +5634,7 @@ should not have characteristic $2$ in the case of the quadratic
 formula. An easy way to avoid any such snag is to work in
 characteristic zero: this has the main technical advantage of ensuring
 automatic separability of polynomials $x^m - 1$, whose roots define
-the `radicals'; cf.\ \Cref{prop:fields:6.19}.  Therefore, we will
+the `radicals'; cf.\ \Cref{prop:fields:galois-cyclic-via-root-of-unity}.  Therefore, we will
 assume in what follows that the ground field has characteristic $0$.
 The `general polynomial' is the `universal' polynomial $P_n(x)$
 introduced in
@@ -5659,7 +5659,7 @@ where for all $i = 1, \dots, r$ we have
 $\delta_i^{m_i} \in k(\delta_1, \dots, \delta_{i-1})$ for some
 exponent $m_i$.
 
-\begin{defn}{}{defn:fields:7.9}
+\begin{defn}{}{defn:fields:radical-extension}
   Extensions of this type are called \emph{radical extensions}.
 \end{defn}
 Some facts about radical extensions are immediate from the definition:
@@ -5668,9 +5668,9 @@ extensions and $F$, $K$ are subfields of a larger field, then
 $k \subseteq FK$ is radical
 (\Cref{exer:fields:composite-with-radical-ext-is-radical}). Further,
 radical extensions are composites of cyclic ones provided the
-appropriate roots of $1$ are in $k$, by \Cref{prop:fields:6.19}. Also,
+appropriate roots of $1$ are in $k$, by \Cref{prop:fields:galois-cyclic-via-root-of-unity}. Also,
 
-\begin{lem}{}{lem:fields:7.10}
+\begin{lem}{}{lem:fields:separable-radical-extension-embeds-in-galois-radical}
   Every separable radical extension is contained in a Galois radical
   extension.
 \end{lem}
@@ -5678,7 +5678,7 @@ appropriate roots of $1$ are in $k$, by \Cref{prop:fields:6.19}. Also,
 \begin{proof}
   Let $k \subseteq F$ be a separable radical extension. In particular
   $k \subseteq F$ is finite and separable, so $F = k(\alpha)$ for some
-  $\alpha \in F$ (\Cref{prop:fields:5.19}). Let $p(x)$ be the minimal
+  $\alpha \in F$ (\Cref{prop:fields:primitive-element-theorem}). Let $p(x)$ be the minimal
   polynomial of $\alpha$ over $k$. The splitting field $L$ of $p(x)$
   over $k$ may be obtained as the composite of $\sigma(F)$ as $\sigma$
   ranges over the embeddings of $F$ in $\bar{k}$, extending $\id_k$:
@@ -5686,13 +5686,13 @@ appropriate roots of $1$ are in $k$, by \Cref{prop:fields:6.19}. Also,
   $\sigma(\alpha)$, which range over all roots of $p(x)$. As a
   composite of radical extensions, $L$ is radical over $k$. As a
   splitting field of a separable polynomial, $L$ is Galois over $k$
-  (\Cref{thm:fields:6.9}, part~(1)), and we are done.
+  (\Cref{thm:fields:galois-extension-tfae}, part~(1)), and we are done.
 \end{proof}
 Galois theory will allow us to relate solvability by radicals of a
 polynomial $f(x)$ with a precise statement on the splitting field of
 $f(x)$. Here is a first formalization of this connection:
 
-\begin{lem}{}{lem:fields:7.11}
+\begin{lem}{}{lem:fields:solvable-by-radicals-iff-galois-radical-extension}
   Let $k$ be a field of characteristic $0$, and let $f(x) \in k[x]$ be
   an irreducible polynomial. Then there exists a formula solving
   $f(x)$ by radicals if and only if the splitting field of $f(x)$ is
@@ -5713,7 +5713,7 @@ $f(x)$. Here is a first formalization of this connection:
   the corresponding radical extensions gives one, possibly larger,
   radical extension of $k$ containing all roots of $f(x)$. Therefore,
   the splitting field of $f(x)$ is contained in a radical extension of
-  $k$. By \Cref{lem:fields:7.10}, this extension may be assumed to be
+  $k$. By \Cref{lem:fields:separable-radical-extension-embeds-in-galois-radical}, this extension may be assumed to be
   Galois, as needed.
 \end{proof}
 In a nutshell, we will understand solvability of polynomial equations
@@ -5723,7 +5723,7 @@ characterize these extensions in terms of their Galois groups. It
 turns out that the right condition (modulo technical considerations)
 is that the Galois group should be solvable.
 
-\begin{defn}{}{defn:fields:7.12}
+\begin{defn}{}{defn:fields:solvable-extension}
   A Galois extension $k \subseteq F$ is \emph{solvable} if $\Aut_k(F)$
   is a solvable group.
 \end{defn}
@@ -5740,14 +5740,14 @@ solvable groups have cyclic composition factors
 resp., solvable, extension $k \subseteq F$ `has enough roots of $1$'
 if $k$ contains a primitive $M$-th root of $1$ for a common multiple
 $M$ of the order of the corresponding cyclic factors.
-\begin{lem}{}{lem:fields:7.13}
+\begin{lem}{}{lem:fields:radical-iff-solvable-with-roots-of-unity}
   Let $k \subseteq F$ be a Galois extension, with
   $\mathrm{char}\,k = 0$.  Provided it has enough roots of $1$,
   $k \subseteq F$ is radical if and only if it is solvable.
 \end{lem}
 \begin{proof}
   Modulo the fundamental theorem of Galois theory, this is a
-  straightforward generalization of \Cref{prop:fields:6.19}.
+  straightforward generalization of \Cref{prop:fields:galois-cyclic-via-root-of-unity}.
 
   Indeed, assume that $k \subseteq F$ is radical:
   \[
@@ -5764,25 +5764,25 @@ $M$ of the order of the corresponding cyclic factors.
   with $G_i = \Aut_{k(\delta_1,\dots,\delta_i)}(F)$. Note that $F$ is
   Galois over each intermediate field. Each extension
   $k(\delta_1, \dots, \delta_{i-1}) \subseteq k(\delta_1, \dots,
-  \delta_i)$ satisfies the hypothesis of \Cref{prop:fields:6.19}, and
+  \delta_i)$ satisfies the hypothesis of \Cref{prop:fields:galois-cyclic-via-root-of-unity}, and
   it follows that it is Galois and cyclic. By the fundamental theorem
-  (\Cref{thm:fields:6.15}) each $G_i$ is normal in the previous
+  (\Cref{thm:fields:galois-correspondence-normal-subgroups}) each $G_i$ is normal in the previous
   $G_{i-1}$, with cyclic quotient, and it follows that $G$ is solvable
   (\Cref{prop:groups2:solvable-equiv}~(ii)). The same argument in
-  reverse, using the converse implication in \Cref{prop:fields:6.19},
+  reverse, using the converse implication in \Cref{prop:fields:galois-cyclic-via-root-of-unity},
   proves that solvable extensions with enough roots of $1$ are
   radical.
 \end{proof}
 How do we account for the possible absence of the needed roots of $1$?
 Surprisingly, this affects the statement in a rather minor way.
-\begin{prop}{}{prop:fields:7.14}
+\begin{prop}{}{prop:fields:solvable-iff-contained-in-galois-radical}
   Let $k$ be a field of characteristic $0$, and let $k \subseteq F$ be
   a Galois extension. Then $k \subseteq F$ is solvable if and only if
   it is contained in a Galois radical extension.
 \end{prop}
 
-The characteristic $0$ in \Cref{prop:fields:7.14} is an overshoot; as
-in \Cref{prop:fields:6.19}, it would suffice to require that
+The characteristic $0$ in \Cref{prop:fields:solvable-iff-contained-in-galois-radical} is an overshoot; as
+in \Cref{prop:fields:galois-cyclic-via-root-of-unity}, it would suffice to require that
 $\mathrm{char}\,k$ does not divide the relevant degrees.
 \begin{proof}
   Assume $\Aut_k(F)$ is solvable. Let $M$ be a common multiple of the
@@ -5790,7 +5790,7 @@ $\mathrm{char}\,k$ does not divide the relevant degrees.
   $M$-th root of $1$ in an algebraic closure $\bar{k}$ of $k$. The
   splitting field $k(\zeta)$ of $x^M - 1$ over $k$ is Galois over $k$
   ($x^M - 1$ is separable since $k$ has characteristic $0$). By
-  \Cref{prop:fields:6.17}, the extension $k(\zeta) \subseteq F(\zeta)$
+  \Cref{prop:fields:galois-extension-lifted-by-compositum}, the extension $k(\zeta) \subseteq F(\zeta)$
   is also Galois, with Galois group isomorphic to
   $\Aut_{k(\zeta) \cap F}(F)$.  It follows that
   $\Aut_{k(\zeta)}(F(\zeta))$ is solvable, since
@@ -5798,19 +5798,19 @@ $\mathrm{char}\,k$ does not divide the relevant degrees.
   latter is solvable by assumption. (See the comment following
   \Cref{coro:groups2:solvable-normal}.) Since
   $k(\zeta) \subseteq F(\zeta)$ has enough roots of $1$,
-  \Cref{lem:fields:7.13} implies that it is radical. So is
+  \Cref{lem:fields:radical-iff-solvable-with-roots-of-unity} implies that it is radical. So is
   $k \subseteq F(\zeta)$, since $k \subseteq k(\zeta)$ is itself
   trivially radical. This proves that $k \subseteq F$ is contained in
   a radical extension, hence in a Galois radical extension by
-  \Cref{lem:fields:7.10}.
+  \Cref{lem:fields:separable-radical-extension-embeds-in-galois-radical}.
 
   Conversely, assume that $k \subseteq F$ is Galois and contained in a
   radical Galois extension $k \subseteq L$. Let $M$ be a common
   multiple of the orders of cyclic factors in this extension, and let
   $\zeta$ be a primitive $M$-th root of $1$. The composite $L(\zeta)$
-  is Galois and radical over $k(\zeta)$ (\Cref{prop:fields:6.17} and
+  is Galois and radical over $k(\zeta)$ (\Cref{prop:fields:galois-extension-lifted-by-compositum} and
   \Cref{exer:fields:composite-with-radical-ext-is-radical}); further,
-  it has enough roots of $1$. By \Cref{lem:fields:7.13},
+  it has enough roots of $1$. By \Cref{lem:fields:radical-iff-solvable-with-roots-of-unity},
   $k(\zeta) \subseteq L(\zeta)$ is solvable. It follows that
   $k \subseteq L(\zeta)$ is solvable. Indeed, this extension is Galois
   (\Cref{exer:fields:composite-and-intersection-of-galois-are-galois});
@@ -5831,35 +5831,35 @@ $\mathrm{char}\,k$ does not divide the relevant degrees.
 \end{proof}
 We may have lost sight of where we were heading; but we are ready to
 reconnect with the study of solutions to polynomial equations.
-\begin{defn}{}{defn:fields:7.15}
+\begin{defn}{}{defn:fields:galois-group-of-a-polynomial}
   The \emph{Galois group} $\mathrm{Gal}_k(f(x))$ of a separable
   polynomial $f(x) \in k[x]$ is the Galois group of the splitting
   field of $f(x)$ over $k$.
 \end{defn}
-\begin{coro}{}{coro:fields:7.16}
+\begin{coro}{}{coro:fields:solvability-by-radicals-criterion}
   Let $k$ be a field of characteristic $0$, and let $f(x) \in k[x]$ be
   an irreducible polynomial. Then $f(x)$ is solvable by radicals if
   and only if its Galois group is solvable.
 \end{coro}
 
 \begin{proof}
-  This is an immediate consequence of \Cref{lem:fields:7.11} and
-  \Cref{prop:fields:7.14}.
+  This is an immediate consequence of \Cref{lem:fields:solvable-by-radicals-iff-galois-radical-extension} and
+  \Cref{prop:fields:solvable-iff-contained-in-galois-radical}.
 \end{proof}
-\Cref{coro:fields:7.16} is called \emph{\name{Galois}' criterion}.
+\Cref{coro:fields:solvability-by-radicals-criterion} is called \emph{\name{Galois}' criterion}.
 \name{Ruffini} (1799) and \name{Abel} (1824) had previously
 established that general formulas in radicals for the solutions of
 equations of degree $\geq 5$ do not exist (that is,
-\Cref{thm:fields:7.8}); but it was \name{Galois} who identified the
-precise condition given in \Cref{coro:fields:7.16}. Of course,
-\Cref{thm:fields:7.8} follows immediately from \name{Galois}'
+\Cref{thm:fields:abel-ruffini-theorem}); but it was \name{Galois} who identified the
+precise condition given in \Cref{coro:fields:solvability-by-radicals-criterion}. Of course,
+\Cref{thm:fields:abel-ruffini-theorem} follows immediately from \name{Galois}'
 criterion:
 
-\begin{proof}[Proof of \cref{thm:fields:7.8}]
-  By \Cref{lem:fields:7.5}, the Galois group of the general polynomial
+\begin{proof}[Proof of \cref{thm:fields:abel-ruffini-theorem}]
+  By \Cref{lem:fields:symmetric-functions-extension-is-galois-sn}, the Galois group of the general polynomial
   of degree $n$ is $S_n$. The group $S_n$ is not solvable for
   $n \geq 5$ (\Cref{coro:groups2:4.21}); hence the statement follows
-  from \Cref{coro:fields:7.16}.
+  from \Cref{coro:fields:solvability-by-radicals-criterion}.
 \end{proof}
 In fact, we could now do more: we know that $S_3$ and $S_4$ are
 solvable (cf.\ \Cref{exer:groups2:grp-ord-lt-120-neq-60-solvable});
@@ -5882,9 +5882,9 @@ few straightforward observations.  To begin with, recall that an
 element of $\Aut_k(F)$ must send roots of a polynomial $f(x) \in k[x]$
 to roots of the same polynomial, and if $f(x)$ is irreducible and $F$
 is its splitting field, then there are automorphisms of $F$ sending
-any root of $f(x)$ to any other root (\Cref{prop:fields:1.5},
-\Cref{lem:fields:4.2}). This observation may be rephrased as follows:
-\begin{lem}{}{lem:fields:7.17}
+any root of $f(x)$ to any other root (\Cref{prop:fields:isomorphism-extends-to-simple-extensions},
+\Cref{lem:fields:splitting-field-uniqueness}). This observation may be rephrased as follows:
+\begin{lem}{}{lem:fields:galois-group-acts-transitively-on-roots}
   Let $f(x) \in k[x]$ be a separable irreducible polynomial of degree
   $n$. Then $\mathrm{Gal}_k(f(x))$ acts transitively on the set of
   roots of $f(x)$ in $\bar{k}$. In particular, $\mathrm{Gal}_k(f(x))$
@@ -5895,11 +5895,11 @@ Of course a subgroup of $S_n$ is transitive if the corresponding
 action on $\{1, \dots, n\}$ is transitive; the diligent reader has run
 across this terminology in
 \Cref{exer:groups2:transitive-subgrps-s3-s4}.  The reader will easily
-produce a statement analogous to \Cref{lem:fields:7.17} in case $f(x)$
+produce a statement analogous to \Cref{lem:fields:galois-group-acts-transitively-on-roots} in case $f(x)$
 is reducible. Of course the action is not transitive in this case, and
 if the factors of $f(x)$ have degrees $n_1, \dots, n_r$, then
 $\mathrm{Gal}_k(f(x))$ is contained in a subgroup of $S_n$ isomorphic
-to $S_{n_1} \times \dots \times S_{n_r}$.  \Cref{lem:fields:7.17} (or
+to $S_{n_1} \times \dots \times S_{n_r}$.  \Cref{lem:fields:galois-group-acts-transitively-on-roots} (or
 its `reducible' variations) already give some information. For
 example, we see that the Galois group of a separable irreducible cubic
 can only be $A_3$ or $S_3$, since these are the only transitive
@@ -5923,14 +5923,14 @@ whole Galois group; therefore, $D \in k$. Odd permutations move
 $\Delta$ (if $\mathrm{char}\,k \neq 2$), and even permutations fix it;
 therefore $\Delta$ is fixed by the Galois group $G$ (in other words,
 $\Delta \in k$) if and only if $G \subseteq A_n$. This proves
-\begin{lem}{}{lem:fields:7.18}
+\begin{lem}{}{lem:fields:galois-group-in-alternating-iff-discriminant-square}
   Let $k$ be a field of characteristic $\neq 2$, and let
   $f(x) \in k[x]$ be a separable polynomial with discriminant
   $D$. Then the Galois group of $f(x)$ is contained in the alternating
   group $A_n$ if and only if $D$ is a square in $k$.
 \end{lem}
 \begin{exam}{}{exam:fields:exam:7.19}
-  \Cref{lem:fields:7.18} and a discriminant computation are all that
+  \Cref{lem:fields:galois-group-in-alternating-iff-discriminant-square} and a discriminant computation are all that
   is needed to compute the Galois group of an irreducible cubic
   polynomial $f(x) = x^3 + ax^2 + bx + c$. It would be futile to try
   to remember the discriminant
@@ -5946,7 +5946,7 @@ $\Delta \in k$) if and only if $G \subseteq A_n$. This proves
   for suitable $p$ and $q$. This does not change $D$ (shifting all
   roots $\alpha_i$ by the same amount has no effect on the differences
   $\alpha_i - \alpha_j$), yet $D = -4p^3 - 27q^2$ is a little more
-  memorable. By \Cref{lem:fields:7.18} and the preceding
+  memorable. By \Cref{lem:fields:galois-group-in-alternating-iff-discriminant-square} and the preceding
   considerations, the Galois group is $A_3$ if $D$ is a square and
   $S_3$ otherwise. For example, $x^3 - 2$ has Galois group $S_3$ over
   $\Q$, since $D = -108$ is not a square in $\Q$; $x^3 - 3x + 1$ has
@@ -6016,7 +6016,7 @@ fact, argue as follows:
 \item It follows that $(\Z/n\Z)^\ast$ has a subgroup $H$ such that
   $G \cong (\Z/n\Z)^\ast / H$.
 \item Since $(\Z/n\Z)^\ast \cong \Aut_{\Q}(\Q(\zeta_n))$
-  (\Cref{prop:fields:5.16}) and cyclotomic fields are Galois over
+  (\Cref{prop:fields:cyclotomic-field-aut-group-is-units-mod-n}) and cyclotomic fields are Galois over
   $\Q$, $H$ corresponds to an intermediate field $F$,
   $\Q \subseteq F \subseteq \Q(\zeta_n)$.
 \item Since $\Aut_{\Q}(\Q(\zeta_n))$ is abelian, $H$ is automatically
