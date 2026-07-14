@@ -136,7 +136,7 @@ $0$) and to add or subtract morphisms; two morphisms $\alpha$, $\beta$
 are equal if and only if $\alpha - \beta = 0$. One can also talk about
 kernels and cokernels in $\categ{A}$, by adopting the categorical
 definitions as suitable limits and colimits
-(\Cref{linrep:exam:1.11}). Here are those definitions again, expanded
+(\Cref{exam:linrep:equalizer-as-limit}). Here are those definitions again, expanded
 for intelligibility:
 \begin{defn}{}{homol:1.2}
   Let $\varphi : A \to B$ be a morphism in an additive category
@@ -948,7 +948,7 @@ immaterial.
 \end{exer}
 \begin{exer}{}{exer:homol:categorical-cokernel-definition}
   Give a categorical definition of cokernel in the spirit of the
-  definition for kernel given in \Cref{linrep:exam:1.11}, and verify
+  definition for kernel given in \Cref{exam:linrep:equalizer-as-limit}, and verify
   that the ordinary notion of cokernel in $R\text{-}\categ{Mod}$
   satisfies this categorical requirement. Verify that your definition
   agrees with the one given in Definition~\ref{homol:1.2}.
@@ -1025,7 +1025,7 @@ immaterial.
   Let $T$ be a topological space. Recall that a presheaf on $T$ with
   values in a category $\categ{A}$ is a contravariant functor from a
   certain category associated with $T$ to $\categ{A}$
-  (\Cref{linrep:exam:1.5}). Define the \emph{category} of
+  (\Cref{exam:linrep:presheaf-of-sets}). Define the \emph{category} of
   $\categ{A}$-valued presheaves on $T$. Prove that presheaves on $T$
   with values in an abelian category form an abelian category. (Hint:
   \Cref{exer:homol:functor-category-into-abelian-is-abelian}.)
@@ -1863,12 +1863,12 @@ without proof in this book:
 \emph{Caveat:} In this statement $R$ is not necessarily commutative;
 $R\text{-}\categ{Mod}$ denotes the category of left-$R$-modules.  For
 a reminder on the full \& faithful terminology, see
-\Cref{linrep:1.6}. Briefly, a functor $F : \categ{A} \to \categ{C}$ is
+\Cref{defn:linrep:faithful-full-functor}. Briefly, a functor $F : \categ{A} \to \categ{C}$ is
 fully faithful if it induces a bijection
 $\Hom_{\categ{A}}(A,B) \to \Hom_{\categ{C}}(F(A),F(B))$ for all
 objects $A$, $B$ in $\categ{A}$. In practice, such a functor
 identifies $\categ{A}$ with a subcategory of $\categ{C}$. The
-exactness (cf.\ \Cref{linrep:exam:1.18}) of the functor
+exactness (cf.\ \Cref{exam:linrep:exact-functor-definition-example}) of the functor
 $\categ{A} \to R\text{-}\categ{Mod}$ ensures that kernels and
 cokernels match in the two environments, and so on (note that the
 functor is automatically faithfully exact; see
@@ -4159,7 +4159,7 @@ is essentially no distinction between quasi-isomorphisms and homotopy
 equivalences.
 
 It turns out that there are such complexes: those consisting of
-projective or injective objects. Recall (\Cref{linrep:6.1}) that an
+projective or injective objects. Recall (\Cref{defn:linrep:projective-injective-module}) that an
 $R$-module $M$ is `projective' if the functor $\Hom_R(M, \_)$ is exact
 and it is `injective' if $\Hom_R(\_, M)$ is exact. We can adopt these
 definitions in any abelian category:
@@ -4171,7 +4171,7 @@ definitions in any abelian category:
   $\Hom_{\categ{A}}(\_, Q)$ is exact.
 \end{defn}
 
-General remarks such as \Cref{linrep:6.2} or the comments about
+General remarks such as \Cref{lem:linrep:projective-lifting-criterion} or the comments about
 splitting of sequences at the end of
 \S{}\ref{subsec:linrep:projectives-and-injectives} hold in any abelian
 category, and a good exercise for the reader is to collect all such
@@ -4223,8 +4223,8 @@ in
 in particular, we have already observed that, for every commutative
 ring $R$, $R\text{-Mod}$ has enough projectives (this is not
 challenging: free modules and their direct summands are projective,
-\Cref{linrep:6.4}) and enough injectives (this is challenging; we
-verified it in \Cref{linrep:6.12}).
+\Cref{prop:linrep:projective-iff-direct-summand-of-free}) and enough injectives (this is challenging; we
+verified it in \Cref{coro:linrep:module-embeds-in-injective}).
 
 Example~\ref{exam:homol:5.6} shows that we should not expect an
 abelian category $\categ{A}$ to have either property. An important
@@ -4689,7 +4689,7 @@ injectives finally establishes Theorem~\ref{thm:homol:5.9}:
   Let $\categ{A}$ be an abelian category, and let $\categ{C}$ be a
   small category. Assume that $\categ{A}$ contains all products
   indexed by any set\footnote{Recall that `infinite' products may be
-    defined as limits; see \Cref{linrep:exam:1.10}.}; for example,
+    defined as limits; see \Cref{exam:linrep:product-as-limit-over-discrete-category}.}; for example,
   $R\text{-Mod}$ satisfies this condition for every ring $R$. For an
   object $A$ of $\categ{A}$ and a set $S$, denote by $A^S$ the product
   of $A$ indexed by $S$. Note that any set-map $S \to T$ determines a
@@ -5430,7 +5430,7 @@ $\categ{K}^-(\categ{P})$.
   This says that there is a unique natural
   isomorphism\footnote{`Natural transformations' were rapidly defined
     in \S{}\ref{subsec:linrep:comparing-functors},
-    \Cref{linrep:1.15}. They are the most sensible notion of a
+    \Cref{defn:linrep:natural-transformation}. They are the most sensible notion of a
     morphism between functors. A natural \emph{isomorphism} is a
     natural transformation that is an isomorphism on each object.}
   between any two choices $\mathscr{P}$, $\mathscr{P}'$ of functors of
@@ -5904,7 +5904,7 @@ However, additive functors do \emph{not} preserve projectivity or
 injectivity in general. Why should they? For example, `tensor' does
 not preserve projectives\footnote{Note that tensor is right-exact, and
   it is so because it is left-adjoint to another functor; see
-  \Cref{linrep:2.5}. Functors that are left-adjoints to right-exact
+  \Cref{coro:linrep:tensor-hom-adjunction}. Functors that are left-adjoints to right-exact
   functors do preserve projectives:
   \Cref{exer:homol:left-adjoint-preserves-projectives}.}
 (\Cref{exer:homol:no-projective-abelian-grp-is-tensor-image}).
@@ -6240,7 +6240,7 @@ cohomology of the image of an injective resolution of $M$, i.e.,
 So far, I have always implicitly assumed that $\mathscr{F}$ was a
 \emph{covariant} functor. \emph{Contravariant} functors
 $\categ{A} \to \categ{B}$ should be viewed as covariant functors
-$\categ{A}^{op} \to \categ{B}$ (\Cref{linrep:1.1}); the roles of
+$\categ{A}^{op} \to \categ{B}$ (\Cref{defn:linrep:covariant-functor}); the roles of
 injectives and projectives should therefore be swapped. Thus, the
 right-derived functors of an additive contravariant functor
 $\categ{A} \to \categ{B}$ will be defined if $\categ{A}$ has enough
@@ -6921,7 +6921,7 @@ $G\text{-}\categ{Mod}$ and $\categ{Ab}$ are abelian categories, and it
 takes a moment to realize that $\cdot^G$ is a left-exact functor: the
 reader should either check this directly or do
 \Cref{exer:homol:invariants-functor-right-adjoint-trivial-action} and
-then remember \Cref{linrep:1.19}. The reader should in fact
+then remember \Cref{prop:linrep:right-adjoint-additive-functors-left-exact}. The reader should in fact
 contemplate why this functor is not right-exact: if $G$ acts trivially
 on a coset $[m]$ of a quotient $M/L$, there is no reason \emph{a
   priori} why $G$ should act trivially on a representative $m$.
@@ -7493,7 +7493,7 @@ While projectives are acyclic for every right-exact functor, a given
 functor $\mathscr{F}$ may admit other $\mathscr{F}$-acyclic objects.
 
 \begin{exam}{}{exam:homol:8.2}
-  Let $R$ be a commutative ring. Recall (\Cref{linrep:2.13}) that an
+  Let $R$ be a commutative ring. Recall (\Cref{defn:linrep:flat-module}) that an
   $R$-module $M$ is \emph{flat} if $\_ \otimes_R M$ is exact, or
   equivalently (by the symmetry of $\otimes$) if $M \otimes_R \_$ is
   exact. Flat modules are acyclic with respect to tensor products, in
