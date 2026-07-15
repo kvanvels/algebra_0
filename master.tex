@@ -28,6 +28,8 @@
 \else
   \input{fonts}
 \fi
+\usepackage[normalem]{ulem} % \tolean{}/\leaned{} markers below; normalem keeps \emph italic.
+\usepackage{etoolbox} % \ifblank, used by \tolean{}/\leaned{}'s optional note
 \usepackage{microtype}
 \usepackage{paralist}
 \usepackage{enumitem}
@@ -119,6 +121,27 @@
 
 \newcommand{\TODOREF}[1]{\textcolor{red}{[\textbf{REF?} #1]}}
 \newcommand{\TODOCITE}[1]{\textcolor{red}{[\textbf{CITE?} #1]}}
+
+% Marks a statement (definition/proposition/exercise/etc.) as needing
+% to be added to the Algebra0Lean project. Underlines the text in
+% place so it stays readable in context. Optional first argument is a
+% margin note (e.g. which Lean declaration this became, or hints on
+% how to formalize it) rendered in the PDF as a reminder:
+%   \tolean{A partition of $X$ is ...}
+%   \tolean[Formalized as IsPartition.]{A partition of $X$ is ...}
+% Once it's been ported, swap the macro name to \leaned (same
+% signature) instead of deleting the wrapper, so remaining/completed
+% work stays greppable:
+%   grep -c '\\tolean\[\|\\tolean{' chapters/*.tex   -- still to do
+%   grep -c '\\leaned\[\|\\leaned{' chapters/*.tex   -- done
+% \leaned is a true no-op on the rendered text: no underline, and its
+% optional note is source-only documentation (e.g. which declaration
+% this became) -- it is intentionally never printed in the PDF.
+\newcommand{\tolean}[2][]{%
+  \uline{#2}%
+  \ifblank{#1}{}{\marginpar{\footnotesize #1}}%
+}
+\newcommand{\leaned}[2][]{#2}
 
 \newcommand{\pheader}[1]{\textbf{#1}}
 \newcommand{\name}[1]{\textcolor{brown}{\textsc{#1}}} %So Aspell can ignore it.
@@ -265,14 +288,14 @@
   % chapters/preface,
   % chapters/intro,
   chapters/prelims,
-  chapters/groups,
-  chapters/rings,
-  chapters/groups2,
-  chapters/irreducibility,
-  chapters/linear_algebra,
-  chapters/fields,
-  chapters/linear_reprise,
-  chapters/homological,
+  % chapters/groups,
+  % chapters/rings,
+  % chapters/groups2,
+  % chapters/irreducibility,
+  % chapters/linear_algebra,
+  % chapters/fields,
+  % chapters/linear_reprise,
+  % chapters/homological,
 }
 
 \begin{document}
