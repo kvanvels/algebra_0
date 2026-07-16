@@ -754,6 +754,7 @@ exponents.
 \label{sec:rings:the-category-ring}
 \subsection{Ring homomorphisms}
 \label{subsec:rings:ring-homomorphisms}
+\tolean[Claude]{
 \emph{Ring homomorphisms} are defined in the natural way: if $R$, $S$
 are rings, a function $\varphi : R \to S$ is a \emph{ring
   homomorphism} if it preserves both operations and the identity
@@ -771,14 +772,17 @@ and finally
 \[
   \varphi(1_R) = 1_S.
 \]
-It is evident that rings form a category, with ring homomorphisms as
-morphisms. I will denote this category by $\categ{Ring}$.  The
+}
+
+\tolean[Claude]{It is evident that rings form a category, with ring homomorphisms as
+morphisms.} I will denote this category by $\categ{Ring}$.  \tolean[Claude]{The
 zero-ring is clearly final in $\categ{Ring}$. However, note that it is
 \emph{not} initial: because of the requirement that ring homomorphisms
 send $1$ to $1$, the only rings to which zero-rings map
 homomorphically are the zero-rings
-(\Cref{exer:rings:zero-ring-domain}).
+(\Cref{exer:rings:zero-ring-domain}).}
 
+\tolean[Claude]{
 The category $\categ{Ring}$ does have initial objects: the ring of
 integers $\Z$ (with the usual operations $+$, $\cdot$) is initial in
 $\categ{Ring}$. Indeed, for every ring $R$ we can define a group
@@ -798,7 +802,9 @@ axiom. This ring homomorphism is unique, since it is determined by the
 requirement that $\varphi(1) = 1_R$ and by the fact that $\varphi$
 preserves addition. Thus for every ring $R$ there exists one and only
 one ring homomorphism $\Z \to R$, showing that $\Z$ is initial in
-$\categ{Ring}$.  This should already convince the reader that $\Z$ is
+$\categ{Ring}$.
+}
+This should already convince the reader that $\Z$ is
 a very special ring. There is in fact nothing arbitrary about $\Z$:
 knowledge of the group $\Z$ determines the ring structure of $\Z$, as
 will be underscored below. This is one of the main reasons why I
@@ -806,7 +812,7 @@ included the `identity' axiom in the list in \Cref{defn:rings:ring}:
 there are many nonisomorphic structures of `ring without identity' on
 the group $(\Z, +)$ (cf.\ \Cref{exer:rings:z-mz-isomorphic-groups}),
 but only one structure of ring with identity
-(\Cref{exer:rings:unique-ring-structure-on-z}).  Ring homomorphisms
+(\Cref{exer:rings:unique-ring-structure-on-z}).  \tolean[Claude]{Ring homomorphisms
 preserve units: that is, if $u$ is a (left-, resp., right-) unit in
 $R$ and $\varphi : R \to S$ is a ring homomorphism, then $\varphi(u)$
 is a (left-, resp., right-) unit. Indeed, if $v$ is a (right-, say)
@@ -814,7 +820,7 @@ inverse of $u$, then
 \[
   \varphi(u)\varphi(v) = \varphi(uv) = \varphi(1_R) = 1_S,
 \]
-so that $\varphi(v)$ is a (right-) inverse of $\varphi(u)$.  On the
+so that $\varphi(v)$ is a (right-) inverse of $\varphi(u)$.}  On the
 other hand, the image of a non-zero-divisor by a ring homomorphism may
 well be a zero-divisor: for example, the canonical projection
 $\pi : \Z \to \Z/6\Z$ is a ring homomorphism, and $2$ is a
@@ -850,7 +856,7 @@ For example, $(i, \Z[x_1, \ldots, x_n])$ is an object of
 $\mathscr{R}_A$, where $i : A \to \Z[x_1, \ldots, x_n]$ sends $a_k$ to
 $x_k$.
 \begin{prop}{}{prop:rings:poly-universal}
-  $(i, \Z[x_1, \ldots, x_n])$ is initial in $\mathscr{R}_A$.
+  \tolean[Claude]{$(i, \Z[x_1, \ldots, x_n])$ is initial in $\mathscr{R}_A$.}
 \end{prop}
 \begin{proof}
   Let $(j, R)$ be an arbitrary object of $\mathscr{R}_A$; we have to
@@ -887,20 +893,20 @@ $x_k$.
   the proof.
 \end{proof}
 \begin{exam}{}{exam:rings:poly-universal-n1}
-  For $n = 1$, \Cref{prop:rings:poly-universal} says that if $s$ is
+  \tolean[Claude]{For $n = 1$, \Cref{prop:rings:poly-universal} says that if $s$ is
   any element of a ring $S$, then there is a unique ring homomorphism
   $\Z[x] \to S$ sending $x$ to $s$ and `extending' the unique ring
-  homomorphism $\iota : \Z \to S$. In this case the commutativity of
+  homomorphism $\iota : \Z \to S$.} In this case the commutativity of
   $S$ is immaterial (why?).
 \end{exam}
 \begin{exam}{}{exam:rings:poly-universal-general}
-  More generally, let $\alpha : R \to S$ be a fixed ring homomorphism,
+  \tolean[Claude]{More generally, let $\alpha : R \to S$ be a fixed ring homomorphism,
   and let $s \in S$ be an element commuting with $\alpha(r)$ for all
   $r \in R$. Then there is a unique ring homomorphism
   $\bar{\alpha} : R[x] \to S$ extending $\alpha$ and sending $x$ to
-  $s$ (\Cref{exer:rings:poly-extension-property}).
+  $s$.} (\Cref{exer:rings:poly-extension-property})
 
-  In particular, we get an `evaluation map' for polynomials over
+  \tolean[Claude]{In particular, we get an `evaluation map' for polynomials over
   commutative rings as follows. Given a polynomial
   $f(x) = \sum_{i \geq 0} a_i x^i \in R[x]$, every $r \in R$
   determines an element
@@ -908,10 +914,10 @@ $x_k$.
     f(r) = \sum_{i \geq 0} a_i r^i\,;
   \]
   this may be viewed as $\bar{\alpha}(f(x))$, where $\bar{\alpha}$ is
-  obtained as above with $\alpha = \id_R : R \to R$ and $s = r$.
+  obtained as above with $\alpha = \id_R : R \to R$ and $s = r$.}
 
-  Thus, every polynomial $f(x)$ determines a \emph{polynomial
-    function} $f : R \to R$, defined by $r \mapsto f(r)$. It is a good
+  \tolean[Claude]{Thus, every polynomial $f(x)$ determines a \emph{polynomial
+    function} $f : R \to R$, defined by $r \mapsto f(r)$.} It is a good
   idea to keep the two concepts of `polynomial' and `polynomial
   \emph{function}' well distinct (cf.\
   \Cref{exer:rings:z2-poly-function}).
@@ -919,13 +925,16 @@ $x_k$.
 
 \subsection{Monomorphisms and epimorphisms}
 \label{subsec:rings:monomorphisms-and-epimorphisms}
+\tolean[Claude]{
 The \emph{kernel} of a homomorphism $\varphi : R \to S$ of rings is
 \[
   \ker \varphi := \{r \in R \mid \varphi(r) = 0\}\,;
 \]
 that is, it is nothing but the kernel of $\varphi$ when the latter is
-viewed as a homomorphism of groups. As such, $\ker \varphi$ is a
-subgroup of $(R, +)$; it satisfies an even stronger
+viewed as a homomorphism of groups.
+}
+\tolean[Claude]{As such, $\ker \varphi$ is a
+subgroup of $(R, +)$;} it satisfies an even stronger
 requirement,\footnote{Note that $\ker \varphi$ cannot be a
   sub\emph{ring} in any reasonable sense, according to our definition
   of ring, since it does not contain a multiplicative identity in all
@@ -937,6 +946,7 @@ The reader may hope that an analog to
 \Cref{prop:groups:monomorphism-characterization} holds in
 $\categ{Ring}$, and this is indeed the case:
 \begin{prop}{}{prop:rings:mono-equiv}
+  \tolean[Claude]{
   For a ring homomorphism $\varphi : R \to S$, the following are
   equivalent:
   \begin{enumerate}[label=(\alph*)]
@@ -944,6 +954,7 @@ $\categ{Ring}$, and this is indeed the case:
   \item $\ker \varphi = \{0\}$;
   \item $\varphi$ is injective (as a set-function).
   \end{enumerate}
+  }
 \end{prop}
 \begin{proof}
   We prove (a) $\implies$ (b), leaving the rest to the reader. Assume
@@ -973,20 +984,22 @@ By \Cref{prop:rings:mono-equiv}, if $S \to R$ is a monomorphism, then
 $S$ may be identified with a subset of $R$; the following definition
 formalizes this situation.
 \begin{defn}{Subring}{defn:rings:subring}
+  \tolean[Claude]{
   A \emph{subring} $S$ of a ring $R$ is a ring whose underlying set is
   a subset of $R$ and such that the inclusion function
   $S \hookrightarrow R$ is a ring homomorphism.
+  }
 \end{defn}
-Equivalently, a subring of $R$ is a subset $S \subseteq R$ which
+\tolean[Claude]{Equivalently, a subring of $R$ is a subset $S \subseteq R$ which
 contains $1_R$ and satisfies the ring axioms with respect to the
 operations $+$, $\cdot$ induced from $R$. It is immediately checked
 that $S \subseteq R$ is a subring if it is a subgroup of $(R, +)$, it
-is closed with respect to $\cdot$, and it contains $1_R$. As a
+is closed with respect to $\cdot$, and it contains $1_R$.} \tolean[Claude]{As a
 nonexample, the zero-ring is \emph{not} a subring of a nonzero ring
-$R$ (because it does not contain $1_R$).  \Cref{prop:rings:mono-equiv}
+$R$ (because it does not contain $1_R$).}  \Cref{prop:rings:mono-equiv}
 may induce the reader to believe that $\categ{Ring}$ and $\categ{Grp}$
 are rather similar from this general categorical standpoint. But a new
-phenomenon occurs concerning epimorphisms. A surjective map of rings
+phenomenon occurs concerning epimorphisms. \tolean[Claude]{A surjective map of rings
 is certainly an epimorphism in $\categ{Ring}$, since it is already an
 epimorphism in $\categ{Set}$---we have run into this argument earlier
 (e.g., `(c) $\implies$ (a)' in
@@ -994,14 +1007,14 @@ epimorphism in $\categ{Set}$---we have run into this argument earlier
 $\categ{Set}$, $\categ{Grp}$, and $\categ{Ab}$, epimorphisms need not
 be surjective\footnote{Unfortunately, some references \emph{define}
   ring epimorphisms as `surjective ring homomorphisms'; this should be
-  discouraged.} in $\categ{Ring}$. Indeed, consider the inclusion
+  discouraged.} in $\categ{Ring}$.} Indeed, consider the inclusion
 homomorphism of rings
 \[
   \iota : \Z \hookrightarrow \Q\,;
 \]
 $\iota$ is not surjective, and hence it is not an epimorphism in
 $\categ{Set}$ or $\categ{Ab}$ (can the reader `describe'
-$\coker\iota$? \Cref{exer:rings:z-in-q-cokernel}); but it \emph{is} an
+$\coker\iota$? \Cref{exer:rings:z-in-q-cokernel}); \tolean[Claude]{but it \emph{is} an
 epimorphism of rings.  Indeed, if $\alpha_1$, $\alpha_2$ are parallel
 ring homomorphisms
 \[
@@ -1022,13 +1035,14 @@ is the same for both.\footnote{Note that $\alpha(q)$ must have a
   $1/q$. In particular, $\alpha_1(q^{-1}) = \alpha_2(q^{-1})$ must
   agree, since they must equal this unique inverse of $\alpha(q)$;
   cf.\ \cref{prop:rings:units}.} Thus, $\iota$ satisfies the
-categorical requirement for epimorphisms (cf.\
+categorical requirement for epimorphisms.} (cf.\
 \Cref{subsec:prelims:functions:monomorphisms-and-epimorphisms}).
-\emph{Warning:} Thus, in $\categ{Ring}$, a homomorphism may well be
-both a monomorphism and an epimorphism without being an isomorphism!
+\emph{Warning:} \tolean[Claude]{Thus, in $\categ{Ring}$, a homomorphism may well be
+both a monomorphism and an epimorphism without being an isomorphism!}
 
 \subsection{Products}
 \label{subsec:rings:products}
+\tolean[Claude]{
 \textit{Products} exist in $\categ{Ring}$: if $R_1$, $R_2$ are rings,
 then $R_1 \times R_2$ may be defined by endowing the direct product of
 groups $R_1 \times R_2$ (cf.\ \Cref{subsec:groups:products-et-al})
@@ -1041,9 +1055,10 @@ $\forall (a_1, a_2), (b_1, b_2) \in R_1 \times R_2$,
 \[
   (a_1, a_2) \cdot (b_1, b_2) := (a_1 \cdot b_1, a_2 \cdot b_2).
 \]
-The identity in $R_1 \times R_2$ is $(1_{R_1}, 1_{R_2})$. The reader
-will check (\Cref{exer:rings:componentwise-product}) that
+The identity in $R_1 \times R_2$ is $(1_{R_1}, 1_{R_2})$.
 $R_1 \times R_2$ is indeed a categorical product in $\categ{Ring}$.
+}
+(\Cref{exer:rings:componentwise-product})
 The reader should keep in mind that in general this is \emph{not} the
 only ring structure one can define on the direct product of underlying
 groups. For example, as mentioned in
@@ -1074,17 +1089,19 @@ This is as good a place as any to expand a little on one of the main
 examples of rings, and one that is not quite as special as the
 examples reviewed in
 \Cref{subsec:rings:first-examples-and-special-classes-of-rings}.
+\tolean[Claude]{
 For every abelian group $G$, the group
 $\End_{\categ{Ab}}(G) := \Hom_{\categ{Ab}}(G, G)$ of endomorphisms of
 $G$ is a ring, under the operations of addition and composition (as
 discussed in the paragraph preceding \Cref{defn:rings:ring}). Indeed,
 associativity follows from the category axioms, and distributivity is
 immediately checked.
+}
 
 It is instructive to examine carefully the endomorphism ring of the
 abelian group $(\Z, +)$:
 \begin{prop}{}{prop:rings:endab-Z}
-  $\End_{\categ{Ab}}(\Z) \cong \Z$ as rings.
+  \tolean[Claude]{$\End_{\categ{Ab}}(\Z) \cong \Z$ as rings.}
 \end{prop}
 \begin{proof}
   Consider the function
@@ -1139,23 +1156,25 @@ $\End_{\categ{Ab}}(G)$ is a ring for every abelian group $G$.  Some of
 the notions reviewed in
 \Cref{subsec:rings:first-examples-and-special-classes-of-rings} are
 expressed very concretely in these endomorphism rings; for example,
-the group of units in $\End_{\categ{Ab}}(G)$ is nothing but
-$\Aut_{\categ{Ab}}(G)$.  Every ring $R$ interacts with the ring of
-endomorphisms of the underlying abelian group $(R, +)$. For $r \in R$,
+\tolean[Claude]{the group of units in $\End_{\categ{Ab}}(G)$ is nothing but
+$\Aut_{\categ{Ab}}(G)$.}  Every ring $R$ interacts with the ring of
+endomorphisms of the underlying abelian group $(R, +)$. \tolean[Claude]{For $r \in R$,
 define left- and right-multiplication by $r$ by $\lambda_r$, $\mu_r$,
 respectively. That is, $\forall a \in R$,
 \[
   \lambda_r(a) = ra, \qquad \mu_r(a) = ar.
 \]
+}
 The following observation is nothing more than easy notation juggling,
 but it is useful; it is a `ring analog' of Cayley's theorem
 (\Cref{thm:groups:cayleys-theorem}):
 \begin{prop}{}{prop:rings:Cayley-ring}
-  Let $R$ be a ring. Then the function $r \mapsto \lambda_r$ is an
+  \tolean[Claude]{Let $R$ be a ring. Then the function $r \mapsto \lambda_r$ is an
   injective ring homomorphism
   \[
     \lambda : R \to \End_{\categ{Ab}}(R).
   \]
+  }
 \end{prop}
 \begin{proof}
   For any $r \in R$ and for all $a, b \in R$, distributivity gives
@@ -1193,13 +1212,15 @@ but it is useful; it is a `ring analog' of Cayley's theorem
   \]
   Of course $\lambda_1$ is the identity, completing the verification.
 \end{proof}
+\tolean[Claude]{
 The function $\mu : R \to \End_{\categ{Ab}}(R)$ defined by
-$r \mapsto \mu_r$ is `almost' a ring homomorphism: the reader will
-check (\Cref{exer:rings:right-mult-cayley}) that
+$r \mapsto \mu_r$ is `almost' a ring homomorphism:
 \[
   \mu_{r+s} = \mu_r + \mu_s, \qquad \mu_{rs} = \mu_s \circ \mu_r,
 \]
-and $\mu_1 = \id_R$. That is, $\mu$ would in fact be a ring
+and $\mu_1 = \id_R$.
+}
+(\Cref{exer:rings:right-mult-cayley}) That is, $\mu$ would in fact be a ring
 homomorphism if we `reversed' multiplication\footnote{This issue is
   entirely analogous to the business of right-actions vs.\
   left-actions; cf.\
@@ -1211,11 +1232,12 @@ $\lambda = \mu$).
 \subsection*{Exercises}
 
 \begin{exer}{\exerused}{exer:rings:zero-ring-domain}
-  Prove that if there is a homomorphism from a zero-ring to a ring
-  $R$, then $R$ is a zero-ring
+  \tolean[Claude]{Prove that if there is a homomorphism from a zero-ring to a ring
+  $R$, then $R$ is a zero-ring}
   [\Cref{subsec:rings:ring-homomorphisms}]
 \end{exer}
 \begin{exer}{}{exer:rings:additive-multiplicative-preserving}
+  \tolean[Claude]{
   Let $R$ and $S$ be rings, and let $\varphi : R \to S$ be a function
   preserving both operations $+$, $\cdot$.
   \begin{itemize}
@@ -1225,17 +1247,19 @@ $\lambda = \mu$).
     then $\varphi(1_R) = 1_S$.
   \end{itemize}
   (Therefore, in both cases $\varphi$ is in fact a ring homomorphism).
+  }
 \end{exer}
 \begin{exer}{}{exer:rings:powerset-vs-z2s}
-  Let $S$ be a set, and consider the power set ring $\mathscr{P}(S)$
+  \tolean[Claude]{Let $S$ be a set, and consider the power set ring $\mathscr{P}(S)$
   (\Cref{exer:rings:power-set-ring}) and the ring $(\Z/2\Z)^S$ you
   constructed in \Cref{exer:rings:function-ring}. Prove that these two
-  rings are isomorphic. (Cf.\ \Cref{exer:prelim:power-set-power-two}.)
+  rings are isomorphic.} (Cf.\ \Cref{exer:prelim:power-set-power-two}.)
 \end{exer}
 \begin{exer}{}{exer:rings:quaternion-matrix-reps}
+  (cf.\ \Cref{exer:rings:matrix-ring,exer:rings:quaternions})
+  \tolean[Claude]{
   Define functions $\field{H} \to \mathfrak{gl}_4(\R)$ and
-  $\field{H} \to \mathfrak{gl}_2(\C)$ (cf.\
-  \Cref{exer:rings:matrix-ring,exer:rings:quaternions}) by
+  $\field{H} \to \mathfrak{gl}_2(\C)$ by
   \[
     a + bi + cj + dk \mapsto \begin{pmatrix} a & b & c & d \\ -b & a &
       -d & c \\ -c & d & a & -b \\ -d & -c & b & a \end{pmatrix},
@@ -1247,8 +1271,10 @@ $\lambda = \mu$).
   for all $a, b, c, d \in \R$. Prove that both functions are injective
   ring homomorphisms. Thus, quaternions may be viewed as real or
   complex matrices.
+  }
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:quaternion-norm}
+  \tolean[Claude]{
   The \emph{norm} of a quaternion $w = a + bi + cj + dk$, with
   $a, b, c, d \in \R$, is the real number
   $N(w) = a^2 + b^2 + c^2 + d^2$.
@@ -1258,7 +1284,8 @@ $\lambda = \mu$).
   positive real numbers, defined by assigning to each nonzero
   quaternion its norm, is a homomorphism. Prove that the kernel of
   this homomorphism is isomorphic to $\mathrm{SU}(2)$ (cf.\
-  \Cref{exer:groups:su2-sphere}). [\ref{exer:rings:z-sqrt-d-subring-of-c},
+  \Cref{exer:groups:su2-sphere}).
+  } [\ref{exer:rings:z-sqrt-d-subring-of-c},
   \ref{exer:groups2:quaternions-as-semidirect-prod},
   \ref{exer:irred:integral-quaternions-ring-basics}]
 \end{exer}
@@ -1267,27 +1294,30 @@ $\lambda = \mu$).
   \Cref{exam:rings:poly-universal-general}. [\Cref{subsec:rings:universal-property-of-polynomial-rings}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:z2-poly-function}
-  Let $R = \Z/2\Z$, and let $f(x) = x^2 - x$; note $f(x) \neq 0$. What
-  is the polynomial function $R \to R$ determined by $f(x)$?
+  \tolean[Claude]{Let $R = \Z/2\Z$, and let $f(x) = x^2 - x$; note $f(x) \neq 0$. What
+  is the polynomial function $R \to R$ determined by $f(x)$?}
   [\Cref{subsec:rings:universal-property-of-polynomial-rings},
   \Cref{subsec:irred:the-field-of-fractions-of-an-integral-domain},
   \Cref{subsec:irred:roots-and-reducibility}]
 \end{exer}
 \begin{exer}{}{exer:rings:subring-of-field-domain}
-  Prove that every subring of a field is an integral domain.
+  \tolean[Claude]{Prove that every subring of a field is an integral domain.}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:center-is-subring}
+  \tolean[Claude]{
   The \emph{center} of a ring $R$ consists of the elements $a$ such
   that $ar = ra$ for all $r \in R$. Prove that the center is a subring
   of $R$.
 
   Prove that the center of a division ring is a
-  field. [\ref{exer:rings:division-ring-p2-commutative},
+  field.
+  } [\ref{exer:rings:division-ring-p2-commutative},
   \ref{exer:groups2:division-ring-ord-64-comm},
   \ref{exer:fields:wedderburn-thm-witts-proof},
   \ref{exer:fields:wedderburn-thm-birkhoff-vandiver-proof}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:centralizer-is-subring}
+  \tolean[Claude]{
   The \emph{centralizer} of an element $a$ of a ring $R$ consists of
   the elements $r \in R$ such that $ar = ra$. Prove that the
   centralizer of $a$ is a subring of $R$, for every $a \in R$.
@@ -1296,11 +1326,13 @@ $\lambda = \mu$).
   centralizers.
 
   Prove that every centralizer in a division ring is a division
-  ring. [\ref{exer:rings:division-ring-p2-commutative},
+  ring.
+  } [\ref{exer:rings:division-ring-p2-commutative},
   \ref{exer:groups2:division-ring-ord-64-comm},
   \ref{exer:fields:wedderburn-thm-birkhoff-vandiver-proof}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:division-ring-p2-commutative}
+  \tolean[Claude]{
   Let $R$ be a division ring consisting of $p^2$ elements, where $p$
   is a prime. Prove that $R$ is commutative, as follows:
   \begin{itemize}
@@ -1314,17 +1346,18 @@ $\lambda = \mu$).
   \item Derive a contradiction, and conclude that $R$ had to be
     commutative (hence, a field).
   \end{itemize}
+  }
   This is a particular case of Wedderburn's theorem: every finite
   division ring is a
   field. [\ref{exer:groups2:division-ring-ord-64-comm},
   \ref{exer:fields:wedderburn-thm-birkhoff-vandiver-proof}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:z-in-q-cokernel}
-  Consider the inclusion map $\iota : \Z \hookrightarrow \Q$. Describe
+  \tolean[Claude]{Consider the inclusion map $\iota : \Z \hookrightarrow \Q$. Describe
   the cokernel of $\iota$ in $\categ{Ab}$ and its cokernel in
   $\categ{Ring}$ (as defined by the appropriate universal property in
   the style of the one given in
-  \Cref{subsec:groups:epimorphisms-and-cokernels}). [\Cref{subsec:rings:monomorphisms-and-epimorphisms},
+  \Cref{subsec:groups:epimorphisms-and-cokernels}).} [\Cref{subsec:rings:monomorphisms-and-epimorphisms},
   \Cref{sec:rings:modules-over-a-ring}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:componentwise-product}
@@ -1334,13 +1367,14 @@ $\lambda = \mu$).
   \Cref{subsec:prelims:products}. [\Cref{subsec:rings:products}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:poly-two-var-coproduct}
-  Verify that $\Z[x_1, x_2]$ (along with the evident morphisms)
+  \tolean[Claude]{Verify that $\Z[x_1, x_2]$ (along with the evident morphisms)
   satisfies the universal property for the coproduct of two copies of
   $\Z[x]$ in the category of \emph{commutative} rings. Explain why it
   does not satisfy it in
-  $\categ{Ring}$. [\Cref{subsec:rings:products}]
+  $\categ{Ring}$.} [\Cref{subsec:rings:products}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:z-mz-isomorphic-groups}
+  \tolean[Claude]{
   For $m > 1$, the abelian groups $(\Z, +)$ and $(m\Z, +)$ are
   manifestly isomorphic: the function $\varphi : \Z \to m\Z$,
   $n \mapsto mn$ is a group isomorphism. Use this isomorphism to
@@ -1350,6 +1384,7 @@ $\lambda = \mu$).
   $\varphi(a \bullet b) = \varphi(a) \cdot \varphi(b)$). Explain why
   structures induced by different positive integers $m$ are
   nonisomorphic as `rings without 1'.
+  }
 
   (This shows that there are many different ways to give a structure
   of ring without identity to the group $(\Z, +)$. Compare this
@@ -1357,8 +1392,8 @@ $\lambda = \mu$).
   [\Cref{subsec:rings:ring-homomorphisms}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:unique-ring-structure-on-z}
-  Prove that there is (up to isomorphism) only one structure of ring
-  \emph{with identity} on the abelian group $(\Z, +)$. (Hint: Let $R$
+  \tolean[Claude]{Prove that there is (up to isomorphism) only one structure of ring
+  \emph{with identity} on the abelian group $(\Z, +)$.} (Hint: Let $R$
   be a ring whose underlying group is $\Z$. By
   \cref{prop:rings:Cayley-ring}, there is an injective ring
   homomorphism $\lambda : R \to \End_{\categ{Ab}}(R)$, and the latter
@@ -1368,10 +1403,10 @@ $\lambda = \mu$).
   \ref{exer:rings:z-mz-isomorphic-groups}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:endab-r}
-  Let $R$ be a ring, and let $E = \End_{\categ{Ab}}(R)$ be the ring of
+  \tolean[Claude]{Let $R$ be a ring, and let $E = \End_{\categ{Ab}}(R)$ be the ring of
   endomorphisms of the underlying abelian group $(R, +)$. Prove that
   the center of $E$ is isomorphic to a subring of the center of
-  $R$. (Prove that if $\alpha \in E$ commutes with all
+  $R$.} (Prove that if $\alpha \in E$ commutes with all
   right-multiplications by elements of $R$, then $\alpha$ is
   left-multiplication by an element of $R$; then use
   \cref{prop:rings:Cayley-ring}.)
@@ -1382,8 +1417,8 @@ $\lambda = \mu$).
   \cref{prop:rings:Cayley-ring}. [\Cref{subsec:rings:endab-g}]
 \end{exer}
 \begin{exer}{}{exer:rings:endab-znz}
-  Prove that for $n \in \Z$ a positive integer,
-  $\End_{\categ{Ab}}(\Z/n\Z)$ is isomorphic to $\Z/n\Z$ as a ring.
+  \tolean[Claude]{Prove that for $n \in \Z$ a positive integer,
+  $\End_{\categ{Ab}}(\Z/n\Z)$ is isomorphic to $\Z/n\Z$ as a ring.}
 \end{exer}
 
 \section{Ideals and quotient rings}
