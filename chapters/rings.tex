@@ -2731,14 +2731,15 @@ homomorphisms from a fixed group to the groups of automorphisms of
 objects of a category.  We can give an analogous definition of the
 action of a ring on an abelian group. Indeed, recall that if $M$ is an
 abelian group, then $\End_{\categ{Ab}}(M) := \Hom_{\categ{Ab}}(M, M)$
-is a ring in a natural way (cf.\ \Cref{subsec:rings:endab-g}). A
+is a ring in a natural way (cf.\ \Cref{subsec:rings:endab-g}). \tolean[Claude]{A
 \emph{left-action} of a ring $R$ on $M$ is then simply a homomorphism
 of rings $\sigma : R \to \End_{\categ{Ab}}(M)$; we will say that
-$\sigma$ makes $M$ into a \emph{left-$R$-module}.  Similarly to the
+$\sigma$ makes $M$ into a \emph{left-$R$-module}.}  Similarly to the
 situation with group actions, it is convenient to spell out this
 definition.
 
 \begin{prop}{}{prop:rings:module-axioms}
+  \tolean[Claude]{
   The datum of a homomorphism $\sigma$ as above is precisely the same
   as the datum of a function $\rho : R \times M \to M$ satisfying the
   following requirements: $(\forall r, s \in R)$
@@ -2749,6 +2750,7 @@ definition.
   \item $\rho(rs, m) = \rho(r, \rho(s, m))$;
   \item $\rho(1, m) = m$.
   \end{itemize}
+  }
 \end{prop}
 
 \begin{proof}
@@ -2764,6 +2766,7 @@ omit mention of it: $\rho(r, m)$ is often just denoted $rm$; this
 makes the requirements listed above a little more
 readable. Summarizing and adopting this shorthand,
 \begin{defn}{}{defn:rings:left-R-module}
+  \tolean[Claude]{
   A \emph{left-$R$-module structure} on an abelian group $M$ consists
   of a map $R \times M \to M$, $(r, m) \mapsto rm$, such that
   \begin{itemize}
@@ -2772,6 +2775,7 @@ readable. Summarizing and adopting this shorthand,
   \item $(rs)m = r(sm)$;
   \item $1m = m$.
   \end{itemize}
+  }
 \end{defn}
 Right-$R$-modules are defined analogously. The reader can glance back
 at \Cref{sec:groups:group-actions}, especially
@@ -2799,16 +2803,18 @@ adapt the various concepts to right-modules.
 \label{subsec:rings:the-category-r-mod}
 The reader should spend some time getting familiar with the notion of
 module, by proving simple properties such as
+\tolean[Claude]{
 \[
   (\forall m \in M) : 0 \cdot m = 0, \qquad (\forall m \in M) : (-1)
   \cdot m = -m,
 \]
+}
 where $M$ is a module over some ring
 (\Cref{exer:rings:module-zero}). The following fancier-sounding (but
 equally trivial) property is also useful in developing a feel for
 modules:
 \begin{prop}{}{prop:rings:Z-module}
-  Every abelian group is a $\Z$-module, in exactly one way.
+  \tolean[Claude]{Every abelian group is a $\Z$-module, in exactly one way.}
 \end{prop}
 
 \begin{proof}
@@ -2821,7 +2827,8 @@ modules:
 Thus, `abelian group' and `$\Z$-module' are one and the same
 notion. Quite concretely, the action of $n \in \Z$ on an element $a$
 of an abelian group simply yields the ordinary `multiple' $na$; this
-operation is trivially compatible with the operations in $\Z$.  A
+operation is trivially compatible with the operations in $\Z$.  \tolean[Claude]{
+A
 homomorphism of $R$-modules is a homomorphism of (abelian) groups
 which is compatible with the module structure. That is, if $M$, $N$
 are $R$-modules and $\phi : M \to N$ is a function, then $\phi$ is a
@@ -2832,6 +2839,7 @@ homomorphism of $R$-modules if and only if
   \phi(m_1) + \phi(m_2)$;
 \item $(\forall r \in R)(\forall m \in M) : \phi(rm) = r\phi(m)$.
 \end{itemize}
+}
 It is hopefully clear that the composition of two $R$-module
 homomorphisms is an $R$-module homomorphism and that the identity is
 an $R$-module homomorphism: $R$-modules form a category which I will
@@ -2839,10 +2847,10 @@ denote\footnote{If $R$ is not commutative, we should agree on whether
   $R$-$\categ{Mod}$ denotes the category of left-modules or of
   right-modules. I will mean `left-modules'.} `$R$-$\categ{Mod}$'.
 \begin{exam}{}{exam:rings:zmod-is-ab}
-  The category $\Z$-$\categ{Mod}$ of $\Z$-modules is `the same as' the
+  \tolean[Claude]{The category $\Z$-$\categ{Mod}$ of $\Z$-modules is `the same as' the
   category $\categ{Ab}$: indeed, every abelian group is a $\Z$-module
-  in exactly one way (\cref{prop:rings:Z-module}), and $\Z$-module
-  homomorphisms are simply homomorphisms of abelian groups.
+  in exactly one way, and $\Z$-module
+  homomorphisms are simply homomorphisms of abelian groups.} (\cref{prop:rings:Z-module})
 \end{exam}
 \begin{exam}{}{exam:rings:k-vect}
   If $R = k$ is a field, $R$-modules are called $k$-vector spaces. I
@@ -2856,13 +2864,13 @@ denote\footnote{If $R$ is not commutative, we should agree on whether
   will be devoted to this subject.
 \end{exam}
 \begin{exam}{}{exam:rings:ring-hom-defines-module}
-  Any homomorphism of rings $\alpha : R \to S$ may be used to define
+  \tolean[Claude]{Any homomorphism of rings $\alpha : R \to S$ may be used to define
   an interesting $R$-module: define $\rho : R \times S \to S$ by
   $\rho(r, s) := \alpha(r)s$ for all $r \in R$ and $s \in S$. The
   operation on the right is simply multiplication in $S$, and the
   axioms of \cref{defn:rings:left-R-module} are immediate consequences
   of the ring axioms and of the fact that $\alpha$ is a
-  homomorphism. For instance, taking $S = R$ and $\alpha = \id_R$
+  homomorphism.} For instance, taking $S = R$ and $\alpha = \id_R$
   makes $R$ a (left-)module over itself. It is common to write $rs$
   rather than $\alpha(r)s$.  The ring operation in $S$ and the
   $R$-module structure induced by $\alpha$ are linked even more
@@ -2882,9 +2890,9 @@ denote\footnote{If $R$ is not commutative, we should agree on whether
 Due to their importance, these examples deserve their own official
 name:
 \begin{defn}{}{defn:rings:R-algebra}
-  Let $R$ be a commutative ring. An \emph{$R$-algebra} is a ring
+  \tolean[Claude]{Let $R$ be a commutative ring. An \emph{$R$-algebra} is a ring
   homomorphism $\alpha : R \to S$ such that $\alpha(R)$ is contained
-  in the center of $S$.
+  in the center of $S$.}
 \end{defn}
 The usual abuse of language leads us to refer to an $R$-algebra by the
 name of the target $S$ of the homomorphism. Thus, an $R$-algebra `is'
@@ -2907,12 +2915,12 @@ well as all their quotients, are commutative $R$-algebras. This is a
 particularly important class of examples; for $R = k$ an algebraically
 closed field, these are the rings used in `classical' affine algebraic
 geometry (cf.\
-\Cref{subsec:fields:a-little-affine-algebraic-geometry}).  The
+\Cref{subsec:fields:a-little-affine-algebraic-geometry}).  \tolean[Claude]{The
 trivial group $0$ has a unique module structure over any ring $R$ and
 is a zero-object in $R$-$\categ{Mod}$, that is, it is both initial and
-final. As in the other main categories we have encountered, a
+final.} As in the other main categories we have encountered, \tolean[Claude]{a
 bijective homomorphism of $R$-modules is automatically an isomorphism
-in $R$-$\categ{Mod}$ (\Cref{exer:rings:bijective-iso}). In these and
+in $R$-$\categ{Mod}$.} (\Cref{exer:rings:bijective-iso}) In these and
 many other respects, the category $R$-$\categ{Mod}$ (for any
 commutative ring $R$) and $\categ{Ab}$ are similar.  If $R$ is
 commutative, the similarity goes further: just as in the category
@@ -2922,6 +2930,7 @@ be seen as an object of the category (cf.\
   convention: One often writes $\Hom_R(M, N)$ for
   $\Hom_{R\text{-}\categ{Mod}}(M, N)$. I will not adopt this
   convention here but I will use it freely in later chapters.}.
+\tolean[Claude]{
 Indeed, let $M$ and $N$ be $R$-modules. Since homomorphisms of
 $R$-modules are in particular homomorphisms of abelian groups,
 $\Hom_{R\text{-}\categ{Mod}}(M, N) \subseteq \Hom_{\categ{Ab}}(M, N)$
@@ -2932,17 +2941,16 @@ preserves $\Hom_{R\text{-}\categ{Mod}}(M, N)$; it follows that the
 latter is an abelian group. For $r \in R$ and
 $\phi \in \Hom_{R\text{-}\categ{Mod}}(M, N)$, the prescription
 $(\forall m \in M) : (r\phi)(m) := r\phi(m)$ defines a
-function\footnote{Parse the notation carefully: $r\phi$ is the name of
-  a function on the left, while $r\phi(m)$ on the right is the action
-  of the element $r \in R$ on the element $\phi(m) \in N$, defined by
-  the $R$-module structure on $N$.} $r\phi : M \to N$. This function
+function $r\phi : M \to N$. This function
 is an $R$-module homomorphism if $R$ is commutative, because
 $(\forall a \in R)$, $(\forall m \in M)$:
 $(r\phi)(am) = r\phi(am) = (ra)\phi(m) = (ar)\phi(m) =
 a(r\phi(m))$. Thus, we have a natural action of $R$ on the abelian
 group $\Hom_{R\text{-}\categ{Mod}}(M, N)$, and it is immediate to
 verify that this makes $\Hom_{R\text{-}\categ{Mod}}(M, N)$ into an
-$R$-module. Watch out: if $R$ is not commutative, then in general
+$R$-module.
+}
+Watch out: if $R$ is not commutative, then in general
 $\Hom_{R\text{-}\categ{Mod}}(M, N)$ is `just' an abelian group. More
 structure is available if $M$, $N$ are bimodules; cf.\
 \Cref{subsec:linrep:bimodules-adjunction-again}.
@@ -2954,28 +2962,31 @@ progress through the usual constructions very quickly, by just
 pointing out that the analogous constructions in $\categ{Ab}$ are
 preserved by the $R$-module structure.
 
+\tolean[Claude]{
 A \emph{submodule} $N$ of an $R$-module $M$ is a subgroup preserved by
 the action of $R$. That is, for all $r \in R$ and $n \in N$, the
 element $rn$ (defined by the $R$-module structure of $M$) is in fact
 in $N$. Put otherwise, and perhaps more transparently, $N$ is itself
 an $R$-module, and the inclusion $N \subseteq M$ is an $R$-module
 homomorphism.
+}
 \begin{exam}{}{}
-  We can view $R$ itself as a (left-)$R$-module (cf.\
-  \Cref{exam:rings:ring-hom-defines-module}); the submodules of $R$
-  are then precisely the (left-)ideals of $R$.
+  \tolean[Claude]{We can view $R$ itself as a (left-)$R$-module; the submodules of $R$
+  are then precisely the (left-)ideals of $R$.} (cf.\
+  \Cref{exam:rings:ring-hom-defines-module})
 \end{exam}
 \begin{exam}{}{}
-  Both the kernel and the image of a homomorphism $\phi : M \to M'$ of
-  $R$-modules are submodules (of $M$, $M'$, respectively).
+  \tolean[Claude]{Both the kernel and the image of a homomorphism $\phi : M \to M'$ of
+  $R$-modules are submodules (of $M$, $M'$, respectively).}
 \end{exam}
 \begin{exam}{}{}
-  If $r$ is in the center of $R$ and $M$ is an $R$-module, then
+  \tolean[Claude]{If $r$ is in the center of $R$ and $M$ is an $R$-module, then
   $rM = \{rm \mid m \in M\}$ is a submodule of $M$. If $I$ is any
   (left-)ideal of $R$, then
   $IM = \{\sum_i r_i m_i \mid r_i \in I, m_i \in M\}$ is a submodule
-  of $M$.
+  of $M$.}
 \end{exam}
+\tolean[Claude]{
 If $N$ is a submodule of $M$, then it is in particular a (normal)
 subgroup of the abelian group $(M, +)$; thus we may define the
 quotient $M/N$ as an abelian group. Of course it would be desirable to
@@ -2984,9 +2995,10 @@ do so: we will want the canonical projection $\pi : M \to M/N$ to be
 an $R$-module homomorphism, and this forces
 $r(m + N) = r\pi(m) = \pi(rm) = rm + N$ for all $m \in M$. That is, we
 are led to define the action of $R$ on $M/N$ by $r(m + N) := rm + N$.
+}
 \begin{prop}{}{prop:rings:quotient-module}
-  For all submodules $N$, this prescription does define a structure of
-  $R$-module on $M/N$.
+  \tolean[Claude]{For all submodules $N$, this prescription does define a structure of
+  $R$-module on $M/N$.}
 \end{prop}
 
 \begin{proof}
@@ -2996,23 +3008,24 @@ are led to define the action of $R$ on $M/N$ by $r(m + N) := rm + N$.
 The $R$-module $M/N$ is (of course) called the \emph{quotient} of $M$
 by $N$.
 \begin{exam}{}{}
-  If $R$ is a ring and $I$ is a two-sided ideal of $R$, then all three
+  \tolean[Claude]{If $R$ is a ring and $I$ is a two-sided ideal of $R$, then all three
   of $I$, $R$, and the quotient ring $R/I$ are $R$-modules: $I$ is a
   submodule of $R$, and the rings $R$ and $R/I$ are in fact
-  $R$-algebras if $R$ is commutative (cf.\
-  \Cref{exam:rings:ring-hom-defines-module}).
+  $R$-algebras if $R$ is commutative.} (cf.\
+  \Cref{exam:rings:ring-hom-defines-module})
 \end{exam}
 \begin{exam}{}{}
-  If $R$ is not commutative and $I$ is just a (say) left-ideal, then
+  \tolean[Claude]{If $R$ is not commutative and $I$ is just a (say) left-ideal, then
   the quotient $R/I$ is not defined as a ring, but it is defined as a
   left-module (the quotient of the module $R$ by the submodule
   $I$). The action of $R$ on $R/I$ is given by left-multiplication:
-  $r(a + I) = ra + I$.
+  $r(a + I) = ra + I$.}
 \end{exam}
 The reader should now expect a universal property for quotients, and
 here it is:
 
 \begin{thm}{}{thm:rings:module-quotient-universal}
+  \tolean[Claude]{
   Let $N$ be a submodule of an $R$-module $M$. Then for every
   homomorphism of $R$-modules $\phi : M \to P$ such that
   $N \subseteq \ker\phi$, there exists a unique homomorphism of
@@ -3021,6 +3034,7 @@ here it is:
       M \arrow[r, "\phi"] \arrow[d, "\pi"'] & P \\
       M/N \arrow[ur, "\exists!\tilde{\phi}"']
     \end{tikzcd}\] commutes.
+  }
 \end{thm}
 \begin{proof}
   As in previous appearances of such statements, this is an immediate
@@ -3031,6 +3045,7 @@ here it is:
   $\tilde{\phi}$ is an $R$-module homomorphism.
 \end{proof}
 
+\tolean[Claude]{
 Since every submodule $N$ is then the kernel of the canonical
 projection $M \to M/N$, our recurring slogan becomes, in the context
 of $R$-$\categ{Mod}$:
@@ -3041,6 +3056,7 @@ unlike as in $\categ{Grp}$ or $\categ{Ring}$, being a kernel poses no
 restriction on the relevant substructures. Put otherwise, `every
 monomorphism in $R$-$\categ{Mod}$ is a kernel'; this is one of the
 distinguishing features of an abelian category.
+}
 
 \subsection{Canonical decomposition and isomorphism theorems}
 \label{subsec:rings:canonical-decomposition-and-isomorphism-theorems}
@@ -3054,6 +3070,7 @@ all the needed details.
 In the context of $R$-modules, the canonical decomposition takes the
 following form:
 \begin{thm}{}{thm:rings:canonical-decomposition}
+  \tolean[Claude]{
   Every $R$-module homomorphism $\phi : M \to M'$ may be decomposed as
   follows:
   \[\begin{tikzcd}
@@ -3061,25 +3078,25 @@ following form:
       M/\ker\phi \arrow[r, "\tilde{\phi}", "\sim"'] & \image\phi
       \arrow[r, hook] & M'
     \end{tikzcd}\] where the isomorphism $\tilde{\phi}$ in the middle
-  is the homomorphism induced by $\phi$ (as in
-  \cref{thm:rings:module-quotient-universal}).
+  is the homomorphism induced by $\phi$.
+  }
 \end{thm}
 
 The `first isomorphism theorem' is the following consequence:
 \begin{coro}{}{coro:rings:module-first-iso}
-  Suppose $\phi : M \to M'$ is a surjective $R$-module
-  homomorphism. Then $M' \cong M / \ker\phi$.
+  \tolean[Claude]{Suppose $\phi : M \to M'$ is a surjective $R$-module
+  homomorphism. Then $M' \cong M / \ker\phi$.}
 \end{coro}
-If $M$ is an $R$-module and $N$ is a submodule of $M$, then there is a
-bijection (cf.\ \Cref{subsec:groups:subgroups-of-quotients})
+\tolean[Claude]{If $M$ is an $R$-module and $N$ is a submodule of $M$, then there is a
+bijection
 $u : \{\text{submodules } P \text{ of } M \text{ containing } N\} \to
-\{\text{submodules of } M/N\}$ preserving inclusions, and the `third
+\{\text{submodules of } M/N\}$ preserving inclusions.} (cf.\ \Cref{subsec:groups:subgroups-of-quotients}) The `third
 isomorphism theorem' holds:
 
 \begin{prop}{}{prop:rings:third-iso-modules}
-  Let $N$ be a submodule of an $R$-module $M$, and let $P$ be a
+  \tolean[Claude]{Let $N$ be a submodule of an $R$-module $M$, and let $P$ be a
   submodule of $M$ containing $N$. Then $P/N$ is a submodule of $M/N$,
-  and $(M/N) / (P/N) \cong M/P$.
+  and $(M/N) / (P/N) \cong M/P$.}
 \end{prop}
 We also have a version of the `second isomorphism theorem' (cf.\
 \Cref{prop:groups:second-isomorphism-theorem}), with simplifications
@@ -3087,24 +3104,27 @@ due to the fact that normality is not an issue in the theory of
 modules:
 
 \begin{prop}{}{prop:rings:second-iso}
+  \tolean[Claude]{
   Let $N$, $P$ be submodules of an $R$-module $M$. Then
   \begin{itemize}
   \item $N + P$ is a submodule of $M$;
   \item $N \cap P$ is a submodule of $P$, and
     $(N + P)/N \cong P/(N \cap P)$.
   \end{itemize}
+  }
 \end{prop}
 
-More generally, it is hopefully clear that the sum
+\tolean[Claude]{More generally, it is hopefully clear that the sum
 $\sum_\alpha N_\alpha$ and the intersection $\bigcap_\alpha N_\alpha$
 of any family $\{N_\alpha\}_\alpha$ of submodules of an $R$-module $M$
-(which are defined as subgroups of the abelian group $M$; cf.\ for
-example \Cref{lem:groups:intersection-of-subgroups}) are submodules of
-$M$.
+are submodules of
+$M$.} (cf.\ for
+example \Cref{lem:groups:intersection-of-subgroups})
 
 \subsection*{Exercises}
 
 \begin{exer}{\exerused}{exer:rings:opposite-ring}
+  \tolean[Claude]{
   Let $R$ be a ring. The opposite ring $R^\circ$ is obtained from $R$
   by reversing the multiplication: that is, the product $a \bullet b$
   in $R^\circ$ is defined to be $ba \in R$. Prove that the identity
@@ -3112,7 +3132,8 @@ $M$.
   commutative. Prove that $M_n(R)$ is isomorphic to its opposite (not
   via the identity map!). Explain how to turn right-$R$-modules into
   left-$R$-modules and conversely, if $R \cong
-  R^\circ$. [\Cref{subsec:rings:definition-of-left-r-module},
+  R^\circ$.
+  } [\Cref{subsec:rings:definition-of-left-r-module},
   \ref{exer:linrep:dual-has-right-module-structure-r-iso-rop}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:prove-prop5.1}
@@ -3125,56 +3146,60 @@ $M$.
   M$. [\Cref{subsec:rings:the-category-r-mod}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:schur}
+  \tolean[Claude]{
   Let $R$ be a ring. A nonzero $R$-module $M$ is \emph{simple} (or
   \emph{irreducible}) if its only submodules are $\{0\}$ and $M$. Let
   $M$, $N$ be simple modules, and let $\phi : M \to N$ be a
   homomorphism of $R$-modules. Prove that either $\phi = 0$ or $\phi$
-  is an isomorphism. (This rather innocent statement is known as
+  is an isomorphism.
+  } (This rather innocent statement is known as
   \emph{Schur's lemma}.)
   [\ref{exer:rings:simple-endomorphism-division},
   \ref{exer:rings:cyclic-module},
   \ref{exer:linalg:jordan-holder-for-modules}]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-R-M}
-  Let $R$ be a commutative ring, viewed as an $R$-module over itself,
+  \tolean[Claude]{Let $R$ be a commutative ring, viewed as an $R$-module over itself,
   and let $M$ be an $R$-module. Prove that
-  $\Hom_{R\text{-}\categ{Mod}}(R, M) \cong M$ as $R$-modules.
+  $\Hom_{R\text{-}\categ{Mod}}(R, M) \cong M$ as $R$-modules.}
 \end{exer}
 \begin{exer}{}{exer:rings:Q-vector-unique}
-  Let $G$ be an abelian group. Prove that if $G$ has a structure of
-  $\Q$-vector space, then it has only one such structure. (Hint: First
+  \tolean[Claude]{Let $G$ be an abelian group. Prove that if $G$ has a structure of
+  $\Q$-vector space, then it has only one such structure.} (Hint: First
   prove that every nonidentity element of $G$ has necessarily infinite
   order. Alternative hint: The unique ring homomorphism $\Z \to \Q$ is
   an epimorphism.)
 \end{exer}
 \begin{exer}{}{exer:rings:field-extension}
-  Let $K$ be a field, and let $k \subseteq K$ be a subfield of
+  \tolean[Claude]{Let $K$ be a field, and let $k \subseteq K$ be a subfield of
   $K$. Show that $K$ is a vector space over $k$ (and in fact a
-  $k$-algebra) in a natural way. In this situation, we say that $K$ is
+  $k$-algebra) in a natural way.} In this situation, we say that $K$ is
   an \emph{extension} of $k$.
 \end{exer}
 \begin{exer}{}{exer:rings:R-alg-initial}
-  What is the initial object of the category $R$-$\categ{Alg}$?
+  \tolean[Claude]{What is the initial object of the category $R$-$\categ{Alg}$?}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:endomorphism-algebra}
+  \tolean[Claude]{
   Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove
   that the operation of composition on the $R$-module
   $\End_{R\text{-}\categ{Mod}}(M)$ makes the latter an $R$-algebra in
-  a natural way. Prove that $M_n(R)$ (cf.\
-  \Cref{exer:rings:matrix-ring}) is an $R$-algebra, in a natural
-  way. [\ref{exer:linalg:ibn-fails-for-endomorphism-ring},
+  a natural way. Prove that $M_n(R)$ is an $R$-algebra, in a natural
+  way.
+  } (cf.\ \Cref{exer:rings:matrix-ring})
+  [\ref{exer:linalg:ibn-fails-for-endomorphism-ring},
   \ref{exer:linalg:mn-r-iso-hom-as-r-algebras}]
 \end{exer}
 \begin{exer}{}{exer:rings:simple-endomorphism-division}
-  Let $R$ be a commutative ring, and let $M$ be a simple $R$-module
-  (cf.\ \Cref{exer:rings:schur}). Prove that
-  $\End_{R\text{-}\categ{Mod}}(M)$ is a division $R$-algebra.
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $M$ be a simple $R$-module.
+  Prove that
+  $\End_{R\text{-}\categ{Mod}}(M)$ is a division $R$-algebra.} (cf.\ \Cref{exer:rings:schur})
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:Rx-module-structures}
-  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove
   that there is a natural bijection between the set of $R[x]$-module
   structures on $M$ (extending the given $R$-module structure) and
-  $\End_{R\text{-}\categ{Mod}}(M)$. [\Cref{subsec:linalg:linear-transformations-of-free-modules-actions-of-polynomial-rings}]
+  $\End_{R\text{-}\categ{Mod}}(M)$.} [\Cref{subsec:linalg:linear-transformations-of-free-modules-actions-of-polynomial-rings}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:bijective-iso}
   Let $R$ be a ring. Let $M$, $N$ be $R$-modules, and let
@@ -3188,25 +3213,26 @@ $M$.
   \Cref{subsec:homol:abelian-categories}]
 \end{exer}
 \begin{exer}{}{exer:rings:principal-ideal-iso-R}
-  Let $R$ be an integral domain, and let $I$ be a nonzero principal
-  ideal of $R$. Prove that $I$ is isomorphic to $R$ as an $R$-module.
+  \tolean[Claude]{Let $R$ be an integral domain, and let $I$ be a nonzero principal
+  ideal of $R$. Prove that $I$ is isomorphic to $R$ as an $R$-module.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:prove-second-iso}
   Prove
   \cref{prop:rings:second-iso}. [\Cref{subsec:rings:canonical-decomposition-and-isomorphism-theorems}]
 \end{exer}
 \begin{exer}{}{exer:rings:ideal-quotient-iso}
-  Let $R$ be a commutative ring, and let $I$, $J$ be ideals of
-  $R$. Prove that $I \cdot (R/J) \cong (I + J)/J$ as $R$-modules.
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $I$, $J$ be ideals of
+  $R$. Prove that $I \cdot (R/J) \cong (I + J)/J$ as $R$-modules.}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:nakayama-nilpotent}
-  Let $R$ be a commutative ring, $M$ an $R$-module, and let $a \in R$
+  \tolean[Claude]{Let $R$ be a commutative ring, $M$ an $R$-module, and let $a \in R$
   be a nilpotent element, determining a submodule $aM$ of $M$. Prove
-  that $M = 0 \iff aM = M$. (This is a particular case of Nakayama's
+  that $M = 0 \iff aM = M$.} (This is a particular case of Nakayama's
   lemma, \Cref{exer:linalg:nakayamas-lemma}.)
   [\ref{exer:linalg:nakayamas-lemma}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:rees-algebra}
+  \tolean[Claude]{
   Let $R$ be a commutative ring, and let $I$ be an ideal of
   $R$. Noting that $I^j \cdot I^k \subseteq I^{j+k}$, define a ring
   structure on the direct sum
@@ -3219,13 +3245,14 @@ $M$.
   called the \emph{Rees algebra} of $I$. Prove that if $a \in R$ is a
   non-zero-divisor, then the Rees algebra of $(a)$ is isomorphic to
   the polynomial ring $R[x]$ (as an
-  $R$-algebra). [\ref{exer:rings:rees-iso}]
+  $R$-algebra).
+  } [\ref{exer:rings:rees-iso}]
 \end{exer}
 \begin{exer}{}{exer:rings:rees-iso}
-  With notation as in \Cref{exer:rings:rees-algebra}, let $a \in R$ be
+  \tolean[Claude]{With notation as in \Cref{exer:rings:rees-algebra}, let $a \in R$ be
   a non-zero-divisor, let $I$ be any ideal of $R$, and let $J$ be the
   ideal $aI$. Prove that
-  $\operatorname{Rees}_R(J) \cong \operatorname{Rees}_R(I)$.
+  $\operatorname{Rees}_R(J) \cong \operatorname{Rees}_R(I)$.}
 \end{exer}
 
 \section{Products, coproducts, etc., in R-Mod}
