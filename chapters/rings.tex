@@ -1442,6 +1442,7 @@ every surjective ring homomorphism with a quotient by a suitable
 substructure. The role of normal subgroups will be played by
 \emph{ideals}.
 \begin{defn}{}{defn:rings:ideal}
+  \tolean[Claude]{
   Let $R$ be a ring. A subgroup $I$ of $(R, +)$ is a \emph{left-ideal}
   of $R$ if $rI \subseteq I$ for all $r \in R$; that is,
   \[
@@ -1454,6 +1455,7 @@ substructure. The role of normal subgroups will be played by
   \]
   A \emph{two-sided ideal} is a subgroup $I$ which is both a left- and
   a right-ideal.
+  }
 \end{defn}
 Of course in a commutative ring there is no distinction between left-
 and right-ideals. Even in the general setting, we will almost
@@ -1466,9 +1468,8 @@ two-sided.
   satisfies the ring axioms with respect to the operations $+$,
   $\cdot$ induced from $R$. Ideals are close to being subrings: they
   are subgroups, and they are closed with respect to
-  multiplication. But the only ideal of a ring $R$ containing $1_R$ is
-  $R$ itself: this is an immediate consequence of the `absorption
-  properties' stated in \cref{defn:rings:ideal}. Thus ideals are in
+  multiplication. \tolean[Claude]{But the only ideal of a ring $R$ containing $1_R$ is
+  $R$ itself.} Thus ideals are in
   general not subrings; they are `rngs'.
 \end{rem}
 Ideals are considerably more important than subrings in the
@@ -1480,8 +1481,8 @@ target; but a lesson learned from
 kernels really capture the structure of a homomorphism, and kernels
 are ideals:
 \begin{exam}{}{exam:rings:kernel-is-ideal}
-  Let $\varphi : R \to S$ be any ring homomorphism. Then
-  $\ker \varphi$ is an ideal of $R$.
+  \tolean[Claude]{Let $\varphi : R \to S$ be any ring homomorphism. Then
+  $\ker \varphi$ is an ideal of $R$.}
 
   Indeed, we know already that $\ker \varphi$ is a subgroup; we have
   to verify the absorption properties. These are an immediate
@@ -1558,6 +1559,7 @@ is it going to be well-defined?
     \tfrac{1}{2} + \Z.
   \]
 \end{exam}
+\tolean[Claude]{
 Assume then that the operation \emph{is} well-defined, so that $R/I$
 is a ring and $\pi : R \to R/I$ is a ring homomorphism. What does this
 say about $I$? Answer: $I$ is the kernel of $R \to R/I$, so
@@ -1579,9 +1581,10 @@ $a'b' + I = a''b'' + I$, proving that the operation is well-defined.
 Summarizing, we have verified that $R/I$ is a ring, in such a way that
 the canonical projection $\pi : R \to R/I$ is a \emph{ring}
 homomorphism, if and only if $I$ is an \emph{ideal} of $R$.
+}
 \begin{defn}{}{defn:rings:quotient-ring}
-  This ring $R/I$ is called the \emph{quotient ring} of $R$
-  \emph{modulo} $I$.
+  \tolean[Claude]{This ring $R/I$ is called the \emph{quotient ring} of $R$
+  \emph{modulo} $I$.}
 \end{defn}
 \begin{exam}{}{}
   We know that all subgroups of $(\Z, +)$ are of the form $n\Z$ for a
@@ -1592,18 +1595,20 @@ homomorphism, if and only if $I$ is an \emph{ideal} of $R$.
   \Cref{subsec:rings:first-examples-and-special-classes-of-rings}
   (and earlier).
 \end{exam}
+\tolean[Claude]{
 The fact that $\Z$ is initial in $\categ{Ring}$ now prompts a natural
 definition. For a ring $R$, let $f : \Z \to R$ be the unique ring
 homomorphism, defined by $a \mapsto a \cdot 1_R$. Then $\ker f = n\Z$
 for a well-defined nonneg­ative integer $n$ determined by $R$.
+}
 
 \begin{defn}{}{defn:rings:characteristic}
-  The \emph{characteristic} of $R$ is this nonneg­ative integer $n$.
+  \tolean[Claude]{The \emph{characteristic} of $R$ is this nonneg­ative integer $n$.}
 \end{defn}
 
-Thus, the characteristic of $R$ is $n > 0$ if the order of $1_R$
+\tolean[Claude]{Thus, the characteristic of $R$ is $n > 0$ if the order of $1_R$
 \emph{as an element of} $(R, +)$ is a positive integer $n$, while the
-characteristic is $0$ if the order of $1_R$ is $\infty$.  I have now
+characteristic is $0$ if the order of $1_R$ is $\infty$.}  \tolean[Claude]{I have now
 fulfilled my promise to identify the notions of ideal and kernel of
 ring homomorphisms: every kernel is an ideal (cf.\
 \Cref{exam:rings:kernel-is-ideal}); and on the other hand every ideal
@@ -1612,7 +1617,7 @@ slogan:
 \[
   \text{kernel} \iff \text{ideal}
 \]
-in the context of ring theory.  The key universal property holds in
+in the context of ring theory.}  The key universal property holds in
 this context as it does for groups; cf.\
 \Cref{thm:groups:quotient-universal-property}. I reproduce the
 statement here for reference, but the reader should realize that very
@@ -1621,6 +1626,7 @@ homomorphism exists and is unique by
 \Cref{thm:groups:quotient-universal-property}, and verifying it is a
 \emph{ring} homomorphism is immediate.
 \begin{thm}{}{thm:rings:quotient-universal}
+  \tolean[Claude]{
   Let $I$ be a two-sided ideal of a ring $R$. Then for every ring
   homomorphism $\varphi : R \to S$ such that
   $I \subseteq \ker \varphi$ there exists a unique ring homomorphism
@@ -1632,6 +1638,7 @@ homomorphism exists and is unique by
     \end{tikzcd}
   \]
   commutes.
+  }
 \end{thm}
 
 As a reminder to the lazy reader, $\tilde{\varphi}$ is defined by
@@ -1653,6 +1660,7 @@ of group homomorphisms obtained in
 \Cref{subsec:groups:canonical-decomposition}. Here is the
 statement:
 \begin{thm}{}{thm:rings:canonical-decomp}
+  \tolean[Claude]{
   Every ring homomorphism $\varphi : R \to S$ may be decomposed as
   follows:
   \[
@@ -1663,8 +1671,8 @@ statement:
     \end{tikzcd}
   \]
   where the isomorphism $\tilde{\varphi}$ in the middle is the
-  homomorphism induced by $\varphi$ (as in
-  \cref{thm:rings:quotient-universal}).
+  homomorphism induced by $\varphi$.
+  }
 \end{thm}
 The reader will realize that this statement requires no proof at this
 point: the decomposition holds at the level of groups (by
@@ -1673,13 +1681,14 @@ homomorphisms as observed earlier in this section.
 
 The `first isomorphism theorem' for rings is an immediate corollary:
 \begin{coro}{}{coro:rings:first-iso}
-  Suppose $\varphi : R \to S$ is a surjective ring homomorphism. Then
-  $S \cong R/\ker\varphi$.
+  \tolean[Claude]{Suppose $\varphi : R \to S$ is a surjective ring homomorphism. Then
+  $S \cong R/\ker\varphi$.}
 \end{coro}
 As in the group case, the reader should develop the healthy
 instinctive reaction of viewing every surjective homomorphism of rings
 as a quotient (by an ideal), up to a natural identification.
 
+\tolean[Claude]{
 Equally instinctive should be the realization that ideals of a
 quotient $R/I$ are in one-to-one correspondence with ideals of $R$
 containing $I$. Once more, not a whole lot is new here: we already
@@ -1691,14 +1700,18 @@ function
 \]
 defined by $u(J) = J/I$ is a bijection preserving inclusions; it takes
 a moment to check that $J/I$ is an ideal of $R/I$ if and only if $J$
-is an ideal of $R$. The main content of this observation is best
+is an ideal of $R$.
+}
+The main content of this observation is best
 packaged in the corresponding `third isomorphism theorem':
 \begin{prop}{}{prop:rings:third-iso}
+  \tolean[Claude]{
   Let $I$ be an ideal of a ring $R$, and let $J$ be an ideal of $R$
   containing $I$. Then $J/I$ is an ideal of $R/I$, and
   \[
     \frac{R/I}{J/I} \cong \frac{R}{J}.
   \]
+  }
 \end{prop}
 \begin{proof}
   Since $I \subseteq J = \ker(R \to R/J)$, we have an induced ring
@@ -1735,17 +1748,18 @@ matter on his/her own; cf.\ \Cref{exer:rings:third-iso-ideals}.
 \subsection*{Exercises}
 
 \begin{exer}{}{exer:rings:image-is-subring}
-  Prove that the image of a ring homomorphism $\varphi : R \to S$ is a
+  \tolean[Claude]{Prove that the image of a ring homomorphism $\varphi : R \to S$ is a
   subring of $S$. What can you say about $\varphi$ if its image is an
   ideal of $S$? What can you say about $\varphi$ if its kernel is a
-  subring of $R$?
+  subring of $R$?}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:preimage-ideal}
-  Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an
+  \tolean[Claude]{Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an
   ideal of $S$. Prove that $I = \varphi^{-1}(J)$ is an ideal of
-  $R$. [\Cref{subsec:rings:ideals}]
+  $R$.} [\Cref{subsec:rings:ideals}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:image-ideal-not-necessarily}
+  \tolean[Claude]{
   Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an
   ideal of $R$.
   \begin{itemize}
@@ -1758,20 +1772,23 @@ matter on his/her own; cf.\ \Cref{exer:rings:third-iso-ideals}.
     point. Prove that
     $\frac{R/I}{\overline{J}} \cong \frac{R}{I + J}$.
   \end{itemize}
+  }
   (Of course this is just a rehash of \cref{prop:rings:third-iso}.)
   [\ref{exer:rings:principal-ideal-with-a}]
 \end{exer}
 \begin{exer}{}{exer:rings:all-subgroups-ideals-znz}
-  Let $R$ be a ring such that every subgroup of $(R, +)$ is in fact an
+  \tolean[Claude]{Let $R$ be a ring such that every subgroup of $(R, +)$ is in fact an
   ideal of $R$. Prove that $R \cong \Z/n\Z$, where $n$ is the
-  characteristic of $R$.
+  characteristic of $R$.}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:matrix-ideal-entries}
+  \tolean[Claude]{
   Let $J$ be a two-sided ideal of the ring $\mathcal{M}_n(R)$ of
   $n \times n$ matrices over a ring $R$. Prove that a matrix
   $A \in \mathcal{M}_n(R)$ belongs to $J$ if and only if the matrices
   obtained by placing any entry of $A$ in any position, and $0$
-  elsewhere, belong to $J$. (Hint: Carefully contemplate the operation
+  elsewhere, belong to $J$.
+  } (Hint: Carefully contemplate the operation
   \[
     \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix}
     \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}
@@ -1781,97 +1798,106 @@ matter on his/her own; cf.\ \Cref{exer:rings:third-iso-ideals}.
   \] [\ref{exer:rings:matrix-ideal-entries-converse}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:matrix-ideal-entries-converse}
-  Let $J$ be a two-sided ideal of the ring $\mathcal{M}_n(R)$ of
+  \tolean[Claude]{Let $J$ be a two-sided ideal of the ring $\mathcal{M}_n(R)$ of
   $n \times n$ matrices over a ring $R$, and let $I \subseteq R$ be
   the set of $(1,1)$ entries of matrices in $J$. Prove that $I$ is a
   two-sided ideal of $R$ and $J$ consists precisely of those matrices
-  whose entries all belong to $I$. (Hint:
+  whose entries all belong to $I$.} (Hint:
   \Cref{exer:rings:matrix-ideal-entries}.)
   [\ref{exer:rings:division-ring-two-sided-counterexample}]
 \end{exer}
 \begin{exer}{}{exer:rings:ra-ar-ideals}
-  Let $R$ be a ring, and let $a \in R$. Prove that $Ra$ is a
+  \tolean[Claude]{Let $R$ be a ring, and let $a \in R$. Prove that $Ra$ is a
   left-ideal of $R$ and $aR$ is a right-ideal of $R$. Prove that $a$
   is a left-, resp.\ right-, unit if and only if $R = aR$, resp.\
-  $R = Ra$.
+  $R = Ra$.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:division-ring-ideals}
+  \tolean[Claude]{
   Prove that a ring $R$ is a division ring if and only if its only
   left-ideals and right-ideals are $\{0\}$ and $R$.
 
   In particular, a commutative ring $R$ is a field if and only if the
   only ideals of $R$ are $\{0\}$ and
-  $R$. [\ref{exer:rings:division-ring-two-sided-counterexample},
+  $R$.
+  } [\ref{exer:rings:division-ring-two-sided-counterexample},
   \Cref{subsec:rings:prime-and-maximal-ideals}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:division-ring-two-sided-counterexample}
-  Counterpoint to \Cref{exer:rings:division-ring-ideals}: It is not
+  Counterpoint to \Cref{exer:rings:division-ring-ideals}: \tolean[Claude]{It is not
   true that a ring $R$ is a division ring if and only if its only
   two-sided ideals are $\{0\}$ and $R$. A nonzero ring with this
-  property is said to be \emph{simple}; by
+  property is said to be \emph{simple}}; by
   \Cref{exer:rings:division-ring-ideals}, fields are the only simple
   commutative rings, and division rings are simple.
 
-  Prove that $\mathcal{M}_n(\R)$ is simple. (Use
+  \tolean[Claude]{Prove that $\mathcal{M}_n(\R)$ is simple.} (Use
   \Cref{exer:rings:matrix-ideal-entries-converse}.)
   [\ref{exer:rings:maximal-iff-simple-quotient}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:field-hom-injective}
-  Let $\varphi : k \to R$ be a ring homomorphism, where $k$ is a field
+  \tolean[Claude]{Let $\varphi : k \to R$ be a ring homomorphism, where $k$ is a field
   and $R$ is a nonzero ring. Prove that $\varphi$ is
-  injective. [\Cref{subsec:irred:the-field-of-fractions-of-an-integral-domain},
+  injective.} [\Cref{subsec:irred:the-field-of-fractions-of-an-integral-domain},
   \Cref{subsec:irred:adding-roots-algebraically-closed-fields}]
 \end{exer}
 \begin{exer}{}{exer:rings:c-subring-no-hom-to-r}
-  Let $R$ be a ring containing $\C$ as a subring. Prove that there are
-  no ring homomorphisms $R \to \R$.
+  \tolean[Claude]{Let $R$ be a ring containing $\C$ as a subring. Prove that there are
+  no ring homomorphisms $R \to \R$.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:nilpotents-form-ideal}
+  \tolean[Claude]{
   Let $R$ be a commutative ring. Prove that the set of nilpotent
-  elements of $R$ is an ideal of $R$. (Cf.\
-  \Cref{exer:rings:nilpotent}. This ideal is called the
+  elements of $R$ is an ideal of $R$. (This ideal is called the
   \emph{nilradical} of $R$.)
 
   Find a noncommutative ring in which the set of nilpotent elements is
-  not an ideal. [\ref{exer:rings:nilradical-quotient-reduced},
+  not an ideal.
+  } (Cf.\ \Cref{exer:rings:nilpotent}.)
+  [\ref{exer:rings:nilradical-quotient-reduced},
   \ref{exer:rings:nilradical-in-every-prime},
   \ref{exer:irred:nilradical-subset-intersection-of-primes},
   \Cref{subsec:fields:a-little-affine-algebraic-geometry}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:nilradical-quotient-reduced}
-  Let $R$ be a commutative ring, and let $N$ be its nilradical (cf.\
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $N$ be its nilradical (cf.\
   \Cref{exer:rings:nilpotents-form-ideal}). Prove that $R/N$ contains
   no nonzero nilpotent elements. (Such a ring is said to be
-  \emph{reduced}.) [\ref{exer:rings:ij-reduced-implies-i-cap-j},
+  \emph{reduced}.)} [\ref{exer:rings:ij-reduced-implies-i-cap-j},
   \ref{exer:fields:radical-ideal-nilradical-correspondence}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:domain-characteristic-0-or-prime}
-  Prove that the characteristic of an integral domain is either $0$ or
-  a prime integer. Do you know any ring of characteristic $1$?
+  \tolean[Claude]{Prove that the characteristic of an integral domain is either $0$ or
+  a prime integer.} Do you know any ring of characteristic $1$?
   [\ref{exer:irred:prime-subfield-char-0-or-p}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:boolean-power-set}
+  \tolean[Claude]{
   A ring $R$ is \emph{Boolean}\footnote{After George Boole.} if
   $a^2 = a$ for all $a \in R$. Prove that $\mathcal{P}(S)$ is Boolean,
-  for every set $S$ (cf.\ \Cref{exer:rings:power-set-ring}). Prove
+  for every set $S$. Prove
   that every nonzero Boolean ring is commutative and has
   characteristic $2$. Prove that if an integral domain $R$ is Boolean,
-  then $R \cong \Z/2\Z$. [\ref{exer:rings:krull-dimension-zero},
+  then $R \cong \Z/2\Z$.
+  } (cf.\ \Cref{exer:rings:power-set-ring})
+  [\ref{exer:rings:krull-dimension-zero},
   \ref{exer:irred:finite-boolean-ring-is-product-of-z2}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:subsets-of-t-form-ideal}
+  \tolean[Claude]{
   Let $S$ be a set and $T \subseteq S$ a subset. Prove that the
   subsets of $S$ contained in $T$ form an ideal of the power set ring
   $\mathcal{P}(S)$. Prove that if $S$ is finite, then every ideal of
   $\mathcal{P}(S)$ is of this form. For $S$ infinite, find an ideal of
   $\mathcal{P}(S)$ that is not of this
-  form. [\ref{exer:irred:power-set-ring-noeth-iff}]
+  form.
+  } [\ref{exer:irred:power-set-ring-noeth-iff}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:third-iso-ideals}
-  Let $I$, $J$ be ideals of a ring $R$. State and prove a precise
+  \tolean[Claude]{Let $I$, $J$ be ideals of a ring $R$. State and prove a precise
   result relating the ideals $(I + J)/I$ of $R/I$ and $J/(I \cap J)$
   of $R/(I \cap
-  J)$. [\Cref{subsec:rings:canonical-decomposition-and-consequences}]
+  J)$.} [\Cref{subsec:rings:canonical-decomposition-and-consequences}]
 \end{exer}
 
 \section{Ideals and quotients: Remarks and examples. Prime and maximal
