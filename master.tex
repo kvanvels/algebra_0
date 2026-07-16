@@ -11,6 +11,12 @@
 \usepackage{tikz-cd}
 \input{fonts}
 \usepackage{etoolbox} % \ifblank, used by \tolean{}/\leaned{}'s optional note
+\usepackage{marginnote} % \marginnote, used by \tolean{}'s optional note --
+% unlike \marginpar, works when called from inside a box (e.g. a
+% defn/prop/exer tcolorbox), not just outer vertical mode. \marginpar
+% there throws "Not in outer par mode" and silently drops/misplaces the
+% note (confirmed empirically 2026-07-16 across 216 of 281 \tolean
+% invocations in rings.tex, all of them nested inside such boxes).
 \usepackage{microtype}
 \usepackage{paralist}
 \usepackage{enumitem}
@@ -134,7 +140,7 @@
 }
 \newcommand{\tolean}[2][]{%
   \begin{toleanbox}#2\end{toleanbox}%
-  \ifblank{#1}{}{\marginpar{\footnotesize #1}}%
+  \ifblank{#1}{}{\marginnote{\footnotesize #1}}%
 }
 \newcommand{\leaned}[2][]{#2}
 
