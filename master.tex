@@ -1,27 +1,5 @@
 \documentclass[onecolumn,oneside,12pt,leqno]{book}
 
-% TODO(remove): the fast-build path below (fastbuild/fonts_fast.tex/
-% environments_fast.tex/check_fast) served its purpose while getting
-% references correct and is no longer needed -- slated for removal
-% (along with those two files and the Makefile's check_fast target).
-% Left in place for now; \tolean{}'s tcolorbox-based box below is not
-% fast-build-safe (plain pdflatex can't process tcolorbox here), so
-% `make check_fast` is broken until this is actually removed.
-%
-% Set \fastbuildtrue for a fast plain-pdflatex reference/syntax-check
-% build: fonts_fast.tex (no fontspec/unicode-math OpenType loading)
-% and environments_fast.tex (plain-text theorem environments instead
-% of tcolorbox's colored/breakable boxes -- the real bottleneck).
-% Same \label/\ref/\Cref behavior, ~3x faster, but NEVER represents
-% the real book's appearance -- only use it to check references and
-% catch errors, never to review layout. Requires pdflatex, not
-% lualatex (unicode-math needs lualatex/xelatex, which is the whole
-% reason this switch exists). Run `make clean` after flipping this,
-% since \include writes per-chapter aux files shared between both
-% modes.
-\newif\iffastbuild
-\fastbuildfalse
-
 \usepackage{imakeidx}
 \makeindex
 \usepackage{amsmath}
@@ -31,11 +9,7 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{tikz-cd}
-\iffastbuild
-  \input{fonts_fast}
-\else
-  \input{fonts}
-\fi
+\input{fonts}
 \usepackage{etoolbox} % \ifblank, used by \tolean{}/\leaned{}'s optional note
 \usepackage{microtype}
 \usepackage{paralist}
@@ -53,11 +27,7 @@
 \usepackage[style=numeric]{biblatex}
 \addbibresource{mybib.bib}
 \input{colors}
-\iffastbuild
-  \input{environments_fast}
-\else
-  \input{environments}
-\fi
+\input{environments}
 
 \titleformat{\chapter}[display]
   {\normalfont\sffamily\huge\bfseries\color{black}}
@@ -202,15 +172,9 @@
 \definecolor{neonBlue}{RGB}{0,180,255}
 \definecolor{neonGreen}{RGB}{57,255,20}
 
-% \mathbfsfup is a unicode-math math alphabet (borrowed from
-% LibertinusSans-Bold in fonts.tex) -- it doesn't exist without
-% unicode-math, so \categ needs a plain-\mathsf fallback under
-% fonts_fast.tex.
-\iffastbuild
-  \newcommand{\categ}[1]{{\color{UCLA_Blue}\mathsf{#1}}}
-\else
-  \newcommand{\categ}[1]{{\color{UCLA_Blue}\mathbfsfup{#1}}}
-\fi
+% \mathbfsfup is a unicode-math math alphabet, borrowed from
+% LibertinusSans-Bold in fonts.tex.
+\newcommand{\categ}[1]{{\color{UCLA_Blue}\mathbfsfup{#1}}}
 \newcommand{\imagtwo}{{\color{neonBlue}\mathbf{i}}}
 \newcommand{\schwartz}{\mathcal{S}}
 \newcommand{\one}{\mbfone}
@@ -312,8 +276,8 @@
 \includeonly{
   % chapters/preface,
   % chapters/intro,
-  chapters/prelims,
-  chapters/groups,
+  % chapters/prelims,
+  % chapters/groups,
   chapters/rings,
   % chapters/groups2,
   % chapters/irreducibility,
