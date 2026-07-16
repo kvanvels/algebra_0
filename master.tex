@@ -1,5 +1,13 @@
 \documentclass[onecolumn,oneside,12pt,leqno]{book}
 
+% TODO(remove): the fast-build path below (fastbuild/fonts_fast.tex/
+% environments_fast.tex/check_fast) served its purpose while getting
+% references correct and is no longer needed -- slated for removal
+% (along with those two files and the Makefile's check_fast target).
+% Left in place for now; \tolean{}'s tcolorbox-based box below is not
+% fast-build-safe (plain pdflatex can't process tcolorbox here), so
+% `make check_fast` is broken until this is actually removed.
+%
 % Set \fastbuildtrue for a fast plain-pdflatex reference/syntax-check
 % build: fonts_fast.tex (no fontspec/unicode-math OpenType loading)
 % and environments_fast.tex (plain-text theorem environments instead
@@ -28,7 +36,6 @@
 \else
   \input{fonts}
 \fi
-\usepackage[normalem]{ulem} % \tolean{}/\leaned{} markers below; normalem keeps \emph italic.
 \usepackage{etoolbox} % \ifblank, used by \tolean{}/\leaned{}'s optional note
 \usepackage{microtype}
 \usepackage{paralist}
@@ -123,10 +130,20 @@
 \newcommand{\TODOCITE}[1]{\textcolor{red}{[\textbf{CITE?} #1]}}
 
 % Marks a statement (definition/proposition/exercise/etc.) as needing
-% to be added to the Algebra0Lean project. Underlines the text in
-% place so it stays readable in context. Optional first argument is a
-% margin note (e.g. which Lean declaration this became, or hints on
-% how to formalize it) rendered in the PDF as a reminder:
+% to be added to the Algebra0Lean project. Highlights the passage with
+% a neon-green background box in place, so it stays readable in
+% context regardless of what it contains (plain prose, inline math,
+% itemize/enumerate lists, amsmath alignment environments like align/
+% gather/cases -- anything). This is a tcolorbox (box-level wrapper),
+% not a token-scanning underline/highlight (like ulem's \uline or
+% soul's \hl): those cannot get through itemize or amsmath alignment
+% environments at all (confirmed: even a single-row, unbroken
+% \begin{align}...\end{align} makes \uline fail outright with
+% cascading "Missing \cr"/"extra }" errors, and \begin{itemize} fails
+% the same way), which is why this design uses a box instead. Optional
+% first argument is a margin note (e.g. which Lean declaration this
+% became, or hints on how to formalize it) rendered in the PDF as a
+% reminder:
 %   \tolean{A partition of $X$ is ...}
 %   \tolean[Formalized as IsPartition.]{A partition of $X$ is ...}
 % Once it's been ported, swap the macro name to \leaned (same
@@ -134,11 +151,19 @@
 % work stays greppable:
 %   grep -c '\\tolean\[\|\\tolean{' chapters/*.tex   -- still to do
 %   grep -c '\\leaned\[\|\\leaned{' chapters/*.tex   -- done
-% \leaned is a true no-op on the rendered text: no underline, and its
+% \leaned is a true no-op on the rendered text: no highlight, and its
 % optional note is source-only documentation (e.g. which declaration
 % this became) -- it is intentionally never printed in the PDF.
+\definecolor{toleangreen}{RGB}{57,255,20} % "neon green"
+\newtcolorbox{toleanbox}{
+  enhanced, breakable,
+  colback=toleangreen!25, colframe=toleangreen!25,
+  boxrule=0pt, arc=0pt,
+  left=6pt, right=6pt, top=3pt, bottom=3pt,
+  boxsep=0pt,
+}
 \newcommand{\tolean}[2][]{%
-  \uline{#2}%
+  \begin{toleanbox}#2\end{toleanbox}%
   \ifblank{#1}{}{\marginpar{\footnotesize #1}}%
 }
 \newcommand{\leaned}[2][]{#2}
@@ -288,8 +313,8 @@
   % chapters/preface,
   % chapters/intro,
   chapters/prelims,
-  % chapters/groups,
-  % chapters/rings,
+  chapters/groups,
+  chapters/rings,
   % chapters/groups2,
   % chapters/irreducibility,
   % chapters/linear_algebra,
