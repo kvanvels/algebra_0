@@ -1017,13 +1017,14 @@ $\categ{Set}$ or $\categ{Ab}$ (can the reader `describe'
 $\coker\iota$? \Cref{exer:rings:z-in-q-cokernel}); \tolean[Claude]{but it \emph{is} an
 epimorphism of rings.  Indeed, if $\alpha_1$, $\alpha_2$ are parallel
 ring homomorphisms
+}
 \[
   \begin{tikzcd}
     \Z \arrow[r, hook, "\iota"] & \Q \arrow[r, shift left, "\alpha_1"]
     \arrow[r, shift right, "\alpha_2"'] & R
   \end{tikzcd}
 \]
-and $\alpha_1$, $\alpha_2$ agree\footnote{As they must, since $\Z$ is
+\tolean[Claude]{and $\alpha_1$, $\alpha_2$ agree\footnote{As they must, since $\Z$ is
   initial.} on $\Z$, say $\alpha = \alpha_1|_{\Z} = \alpha_2|_{\Z}$,
 then they must agree on $\Q$: because for $p, q \in \Z$, $q \neq 0$,
 \[
@@ -1631,14 +1632,14 @@ homomorphism exists and is unique by
   homomorphism $\varphi : R \to S$ such that
   $I \subseteq \ker \varphi$ there exists a unique ring homomorphism
   $\tilde{\varphi} : R/I \to S$ so that the diagram
+  }
   \[
     \begin{tikzcd}
       R \arrow[r, "\varphi"] \arrow[d, "\pi"'] & S \\
       R/I \arrow[ur, "\exists!\tilde{\varphi}"']
     \end{tikzcd}
   \]
-  commutes.
-  }
+  \tolean[Claude]{commutes.}
 \end{thm}
 
 As a reminder to the lazy reader, $\tilde{\varphi}$ is defined by
@@ -1660,9 +1661,8 @@ of group homomorphisms obtained in
 \Cref{subsec:groups:canonical-decomposition}. Here is the
 statement:
 \begin{thm}{}{thm:rings:canonical-decomp}
-  \tolean[Claude]{
-  Every ring homomorphism $\varphi : R \to S$ may be decomposed as
-  follows:
+  \tolean[Claude]{Every ring homomorphism $\varphi : R \to S$ may be decomposed as
+  follows:}
   \[
     \begin{tikzcd}
       R \arrow[r, two heads] \arrow[rrr, bend left, "\varphi"] &
@@ -1670,9 +1670,8 @@ statement:
       \image\varphi \arrow[r, hook] & S
     \end{tikzcd}
   \]
-  where the isomorphism $\tilde{\varphi}$ in the middle is the
-  homomorphism induced by $\varphi$.
-  }
+  \tolean[Claude]{where the isomorphism $\tilde{\varphi}$ in the middle is the
+  homomorphism induced by $\varphi$.}
 \end{thm}
 The reader will realize that this statement requires no proof at this
 point: the decomposition holds at the level of groups (by
@@ -3025,16 +3024,14 @@ The reader should now expect a universal property for quotients, and
 here it is:
 
 \begin{thm}{}{thm:rings:module-quotient-universal}
-  \tolean[Claude]{
-  Let $N$ be a submodule of an $R$-module $M$. Then for every
+  \tolean[Claude]{Let $N$ be a submodule of an $R$-module $M$. Then for every
   homomorphism of $R$-modules $\phi : M \to P$ such that
   $N \subseteq \ker\phi$, there exists a unique homomorphism of
-  $R$-modules $\tilde{\phi} : M/N \to P$ so that the diagram
+  $R$-modules $\tilde{\phi} : M/N \to P$ so that the diagram}
   \[\begin{tikzcd}
       M \arrow[r, "\phi"] \arrow[d, "\pi"'] & P \\
       M/N \arrow[ur, "\exists!\tilde{\phi}"']
-    \end{tikzcd}\] commutes.
-  }
+    \end{tikzcd}\] \tolean[Claude]{commutes.}
 \end{thm}
 \begin{proof}
   As in previous appearances of such statements, this is an immediate
@@ -3070,16 +3067,14 @@ all the needed details.
 In the context of $R$-modules, the canonical decomposition takes the
 following form:
 \begin{thm}{}{thm:rings:canonical-decomposition}
-  \tolean[Claude]{
-  Every $R$-module homomorphism $\phi : M \to M'$ may be decomposed as
-  follows:
+  \tolean[Claude]{Every $R$-module homomorphism $\phi : M \to M'$ may be decomposed as
+  follows:}
   \[\begin{tikzcd}
       M \arrow[r, two heads] \arrow[rr, bend left, "\phi"] &
       M/\ker\phi \arrow[r, "\tilde{\phi}", "\sim"'] & \image\phi
       \arrow[r, hook] & M'
-    \end{tikzcd}\] where the isomorphism $\tilde{\phi}$ in the middle
-  is the homomorphism induced by $\phi$.
-  }
+    \end{tikzcd}\] \tolean[Claude]{where the isomorphism $\tilde{\phi}$ in the middle
+  is the homomorphism induced by $\phi$.}
 \end{thm}
 
 The `first isomorphism theorem' is the following consequence:
@@ -3454,11 +3449,11 @@ called a \emph{free $R$-module on the set $A$}, together with a
 set-function $j : A \to F_R(A)$, such that for all $R$-modules $M$ and
 set-functions $f : A \to M$ there exists a unique $R$-module
 homomorphism $\phi : F_R(A) \to M$ such that the diagram
+}
 \[\begin{tikzcd}
     F_R(A) \arrow[r, "\phi"] & M \\
     A \arrow[u, "j"] \arrow[ur, "f"']
-  \end{tikzcd}\] commutes.
-}
+  \end{tikzcd}\] \tolean[Claude]{commutes.}
 Abstract nonsense guarantees that such an
 $R$-module is unique up to isomorphism if it exists at all
 (\Cref{prop:prelims:initial-final-unique}) and that the function
@@ -3879,6 +3874,7 @@ course in \Cref{chap:homol}.
 
 \subsection{Complexes and exact sequences}
 \label{subsec:rings:complexes-and-exact-sequences}
+\tolean[Claude]{
 A \emph{chain complex} of $R$-modules (or, for simplicity, a
 \emph{complex}) is a sequence of $R$-modules and $R$-module
 homomorphisms
@@ -3886,7 +3882,9 @@ homomorphisms
   \cdots \xrightarrow{d_{i+2}} M_{i+1} \xrightarrow{d_{i+1}} M_i
   \xrightarrow{d_i} M_{i-1} \xrightarrow{d_{i-1}} \cdots
 \]
-such that $(\forall i) : d_i \circ d_{i+1} = 0$. The notation
+such that $(\forall i) : d_i \circ d_{i+1} = 0$.
+}
+The notation
 $(M_\bullet, d_\bullet)$ may be used to denote a complex, or simply
 $M_\bullet$ for simplicity (but do not forget that the homomorphisms
 $d_i$ are part of the information carried by a complex).
@@ -3906,40 +3904,40 @@ the requirement $\image d_{i+1} \subseteq \ker d_i$.  Almost the whole
 point about complexes is to `measure' the difference between
 $\image d_{i+1}$ and $\ker d_i$, which is called the \emph{homology}
 of the complex (cf.\
-\Cref{subsec:rings:homology-and-the-snake-lemma}). We say that a
+\Cref{subsec:rings:homology-and-the-snake-lemma}). \tolean[Claude]{We say that a
 complex is \emph{exact} `at $M_i$' if it has no homology there; that
 is, $\image d_{i+1} = \ker d_i$. For example, if $M_i$ is a trivial
 module (usually denoted simply by $0$), then the complex is
 necessarily exact at $M_i$, since then
 $\image d_{i+1} = \ker d_i = 0$. A complex is \emph{exact} and is
 often called an \emph{exact sequence} if it is exact at all its
-modules.
+modules.}
 \begin{exam}{}{}
-  A complex $\cdots \to 0 \to L \xrightarrow{\alpha} M \to \cdots$ is
-  exact at $L$ if and only if $\alpha$ is a monomorphism. Indeed,
+  \tolean[Claude]{A complex $\cdots \to 0 \to L \xrightarrow{\alpha} M \to \cdots$ is
+  exact at $L$ if and only if $\alpha$ is a monomorphism.} Indeed,
   exactness at $L$ is equivalent to $\ker\alpha = $ image of the
   trivial homomorphism $0 \to L$, that is, to $\ker\alpha = 0$. This
   is equivalent to the injectivity of $\alpha$
   (\cref{prop:rings:kernels-cokernels}).
 \end{exam}
 \begin{exam}{}{exam:rings:exact-at-n-epimorphism}
-  A complex $\cdots \to M \xrightarrow{\beta} N \to 0 \to \cdots$ is
-  exact at $N$ if and only if $\beta$ is an epimorphism. Indeed, the
+  \tolean[Claude]{A complex $\cdots \to M \xrightarrow{\beta} N \to 0 \to \cdots$ is
+  exact at $N$ if and only if $\beta$ is an epimorphism.} Indeed, the
   complex is exact at $N$ if and only if $\image\beta = $ kernel of
   the trivial homomorphism $N \to 0$, that is, $\image\beta = N$.
 \end{exam}
 \begin{defn}{}{defn:rings:short-exact-sequence}
-  A \emph{short exact sequence} is an exact complex of the form
+  \tolean[Claude]{A \emph{short exact sequence} is an exact complex of the form
   \[
     0 \to L \xrightarrow{\alpha} M \xrightarrow{\beta} N \to 0.
-  \]
+  \]}
 \end{defn}
-As seen in the previous two examples, exactness at $L$ and $N$ is
+\tolean[Claude]{As seen in the previous two examples, exactness at $L$ and $N$ is
 equivalent to $\alpha$ being injective and $\beta$ being
 surjective. The extra piece of data carried by a short exact sequence
 is the exactness at $M$, that is, $\image\alpha = \ker\beta$; by the
-first isomorphism theorem (\Cref{coro:rings:module-first-iso}), we
-then have $N \cong M/\ker\beta = M/\image\alpha$.
+first isomorphism theorem, we
+then have $N \cong M/\ker\beta = M/\image\alpha$.} (\Cref{coro:rings:module-first-iso})
 
 All in all, we have good material to work on some more Pavlovian
 conditioning: at the sight of a short exact sequence as above, the
@@ -3947,11 +3945,11 @@ reader should instinctively identify $L$ with a submodule of $M$ (via
 the injective map $\alpha$) and $N$ with the quotient $M/L$ (via the
 isomorphism induced by the surjective map $\beta$, under the auspices
 of the first isomorphism theorem).  Short exact sequences abound in
-nature. For example, a single homomorphism $\phi : M \to M'$ gives
+nature. \tolean[Claude]{For example, a single homomorphism $\phi : M \to M'$ gives
 rise immediately to a short exact sequence
 \[
   0 \to \ker\phi \to M \to \image\phi \to 0.
-\]
+\]}
 In fact, one important reason to focus on short exact sequences is
 that this observation allows us to break up every exact complex into a
 large number of short exact sequences. The diagonal sequences in the
@@ -3962,6 +3960,7 @@ simplifies many arguments; cf.\ for example
 
 \subsection{Split exact sequences}
 \label{subsec:rings:split-exact-sequences}
+\tolean[Claude]{
 A particular case of short exact sequence arises by considering the
 second projection from a direct sum: $M_1 \oplus M_2 \to M_2$; there
 is then an exact sequence
@@ -3976,14 +3975,14 @@ exact sequence
 \]
 `splits' if it is isomorphic to one of these sequences in the sense
 that there is a commutative diagram
+}
 \[\begin{tikzcd}
     0 \arrow[r] & M_1 \arrow[r] \arrow[d, "\sim"'] & N \arrow[r] \arrow[d, "\sim"'] & M_2 \arrow[r] \arrow[d, "\sim"'] & 0 \\
     0 \arrow[r] & M_1' \arrow[r] & M_1' \oplus M_2' \arrow[r] & M_2'
     \arrow[r] & 0
-  \end{tikzcd}\] in which the vertical maps are all
-isomorphisms\footnote{In fact, this last requirement is somewhat
-  redundant; cf.\
-  \Cref{exer:rings:retraction-to-direct-sum-implies-splits}.}.
+  \end{tikzcd}\]
+\tolean[Claude]{in which the vertical maps are all
+isomorphisms.}
 
 \begin{exam}{}{}
   The exact sequence of $\Z$-modules
@@ -3998,6 +3997,7 @@ requirement of being a monomorphism (resp., an epimorphism); can we
 give a more explicit description of such morphisms?
 
 \begin{prop}{}{prop:rings:split-sequence}
+  \tolean[Claude]{
   Let $\phi : M \to N$ be an $R$-module homomorphism. Then
   \begin{itemize}
   \item $\phi$ has a left-inverse if and only if the sequence
@@ -4005,6 +4005,7 @@ give a more explicit description of such morphisms?
   \item $\phi$ has a right-inverse if and only if the sequence
     $0 \to \ker\phi \to M \xrightarrow{\phi} N \to 0$ splits.
   \end{itemize}
+  }
 \end{prop}
 \begin{proof}
   I will prove the first part and leave the other as an exercise to
@@ -4029,10 +4030,10 @@ give a more explicit description of such morphisms?
   \psi(n) = 0$. All necessary verifications are immediate and are left
   to the reader.
 \end{proof}
-Because of \cref{prop:rings:split-sequence}, $R$-module homomorphisms
+Because of \cref{prop:rings:split-sequence}, \tolean[Claude]{$R$-module homomorphisms
 with a left-inverse are called \emph{split monomorphisms}, and
 homomorphisms with a right-inverse are called \emph{split
-  epimorphisms}.
+  epimorphisms}.}
 
 We will come back to split exact sequences (in the more demanding
 context of $\categ{Grp}$) in
@@ -4044,6 +4045,7 @@ abelian categories (Chapters~VIII and~IX).
 \label{subsec:rings:homology-and-the-snake-lemma}
 
 \begin{defn}{}{defn:rings:homology}
+  \tolean[Claude]{
   The \emph{$i$-th homology} of a complex
   $M_\bullet : \cdots \xrightarrow{d_{i+2}} M_{i+1}
   \xrightarrow{d_{i+1}} M_i \xrightarrow{d_i} M_{i-1}
@@ -4051,20 +4053,20 @@ abelian categories (Chapters~VIII and~IX).
   \[
     H_i(M_\bullet) := \frac{\ker d_i}{\image d_{i+1}}.
   \]
+  }
 \end{defn}
 
-That is, $H_i(M_\bullet)$ is a module capturing the failure of
+\tolean[Claude]{That is, $H_i(M_\bullet)$ is a module capturing the failure of
 exactness at $M_i$. Of course
 $H_i(M_\bullet) = 0 \iff \image d_{i+1} = \ker d_i \iff$ the complex
-$M_\bullet$ is exact at $M_i$: that is, the homology modules are a
-measure of the `failure of a complex from being exact'.
+$M_\bullet$ is exact at $M_i$.}
 \begin{exam}{}{exam:rings:homology-generalizes-ker-coker}
-  In fact, homology should be thought of as a (vast) generalization of
+  \tolean[Claude]{In fact, homology should be thought of as a (vast) generalization of
   the notions of kernel and cokernel. Indeed, consider the (very)
   particular case in which $M_\bullet$ is the complex
   $0 \to M_1 \xrightarrow{\phi} M_0 \to 0$. Then
   $H_1(M_\bullet) \cong \ker\phi$ and
-  $H_0(M_\bullet) \cong \coker\phi$.
+  $H_0(M_\bullet) \cong \coker\phi$.}
 \end{exam}
 I will end this very brief excursion into more abstract territories by
 indicating how a commutative diagram involving two short exact
@@ -4089,11 +4091,11 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
     "\beta_0"'] & N_0 \arrow[r] & 0
   \end{tikzcd}\]
 \begin{lem}{The snake lemma}{lem:rings:snake-lemma}
-  With notation as above, there is an exact sequence
+  \tolean[Claude]{With notation as above, there is an exact sequence
   \[
     0 \to \ker\lambda \to \ker\mu \to \ker\nu \xrightarrow{\delta}
     \coker\lambda \to \coker\mu \to \coker\nu \to 0.
-  \]
+  \]}
 \end{lem}
 \begin{rem}{}{}
   Most of the homomorphisms in this sequence are induced in a
@@ -4102,7 +4104,7 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
   one denoted $\delta$; I will discuss its definition below.
 \end{rem}
 \begin{rem}{}{rem:rings:snake-lemma-homology-restatement}
-  In view of \Cref{exam:rings:homology-generalizes-ker-coker}, we
+  In view of \Cref{exam:rings:homology-generalizes-ker-coker}, \tolean[Claude]{we
   could have written the sequence in this statement as
   \[
     0 \to H_1(L_\bullet) \to H_1(M_\bullet) \to H_1(N_\bullet)
@@ -4110,7 +4112,7 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
     H_0(N_\bullet) \to 0
   \]
   where $L_\bullet$ is the complex
-  $0 \to L_1 \xrightarrow{\lambda} L_0 \to 0$, etc. The snake lemma
+  $0 \to L_1 \xrightarrow{\lambda} L_0 \to 0$, etc.} The snake lemma
   generalizes to arbitrary complexes $L_\bullet$, $M_\bullet$,
   $N_\bullet$, producing a `long exact homology sequence' of which
   this is just the tail end. As mentioned above, we will discuss this
@@ -4118,17 +4120,21 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
   (\Cref{subsec:homol:the-long-exact-cohomology-sequence}).
 \end{rem}
 \begin{rem}{}{rem:rings:snake-lemma-relaxed-hypotheses}
+  \tolean[Claude]{
   A popular version of the snake lemma does not assume that $\alpha_1$
   is injective and $\beta_0$ is surjective: that is, we could consider
   a commutative diagram of exact sequences
+  }
   \[\begin{tikzcd}
       L_1 \arrow[r, "\alpha_1"] \arrow[d, "\lambda"'] & M_1 \arrow[r, "\beta_1"] \arrow[d, "\mu"'] & N_1 \arrow[r] \arrow[d, "\nu"'] & 0 \\
       0 \arrow[r] & L_0 \arrow[r, "\alpha_0"'] & M_0 \arrow[r,
       "\beta_0"'] & N_0
-    \end{tikzcd}\] The lemma will then state that there is `only' an
+    \end{tikzcd}\]
+  \tolean[Claude]{The lemma will then state that there is `only' an
   exact sequence
   $\ker\lambda \to \ker\mu \to \ker\nu \xrightarrow{\delta}
   \coker\lambda \to \coker\mu \to \coker\nu$.
+  }
 \end{rem}
 Proving the snake lemma is something that should not be done in
 public, and it is notoriously useless to write down the details of the
@@ -4197,10 +4203,9 @@ several facts, which would not be hard to prove individually, but
 become really straightforward once the lemma is settled. For example,
 
 \begin{coro}{}{}
-  In the same situation presented in the snake lemma (notation as in
-  \Cref{subsec:rings:homology-and-the-snake-lemma}), assume that
+  \tolean[Claude]{In the same situation presented in the snake lemma, assume that
   $\mu$ is surjective and $\nu$ is injective. Then $\lambda$ is
-  surjective and $\nu$ is an isomorphism.
+  surjective and $\nu$ is an isomorphism.}
 \end{coro}
 
 \begin{proof}
@@ -4220,44 +4225,40 @@ should experiment to his or her heart's content.
 
 \subsection*{Exercises}
 \begin{exer}{\exerused}{exer:rings:single-nonzero-term-exact-implies-zero}
-  Assume that the complex $\cdots \to 0 \to M \to 0 \to \cdots$ is
+  \tolean[Claude]{Assume that the complex $\cdots \to 0 \to M \to 0 \to \cdots$ is
   exact. Prove that $M \cong
-  0$. [\Cref{subsec:rings:homology-and-the-snake-lemma}]
+  0$.} [\Cref{subsec:rings:homology-and-the-snake-lemma}]
 \end{exer}
 \begin{exer}{}{exer:rings:two-term-exact-complex-gives-iso}
-  Assume that the complex $\cdots \to 0 \to M \to M' \to 0 \to \cdots$
-  is exact. Prove that $M \cong M'$.
+  \tolean[Claude]{Assume that the complex $\cdots \to 0 \to M \to M' \to 0 \to \cdots$
+  is exact. Prove that $M \cong M'$.}
 \end{exer}
 \begin{exer}{}{exer:rings:five-term-exact-complex-ker-coker-identification}
-  Assume that the complex
+  \tolean[Claude]{Assume that the complex
   $\cdots \to 0 \to L \to M \xrightarrow{\phi} M' \to N \to 0 \to
   \cdots$ is exact. Show that, up to natural identifications,
-  $L = \ker\phi$ and $N = \coker\phi$.
+  $L = \ker\phi$ and $N = \coker\phi$.}
 \end{exer}
 \begin{exer}{}{exer:rings:hilbert-hotel-exact-sequences-with-z-n}
-  Construct short exact sequences of $\Z$-modules
+  \tolean[Claude]{Construct short exact sequences of $\Z$-modules
   \[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z \to 0\] and
-  \[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to 0.\]
-  (Hint: David Hilbert's Grand Hotel.)
+  \[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to 0.\]} (Hint: David Hilbert's Grand Hotel.)
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:noetherian-sandwiched-in-exact-sequence}
-  Assume that the complex $\cdots \to L \to M \to N \to \cdots$ is
+  \tolean[Claude]{Assume that the complex $\cdots \to L \to M \to N \to \cdots$ is
   exact and that $L$ and $N$ are Noetherian. Prove that $M$ is
-  Noetherian. [\Cref{subsec:rings:complexes-and-exact-sequences}]
+  Noetherian.} [\Cref{subsec:rings:complexes-and-exact-sequences}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:split-epimorphism-part-of-split-seq-prop}
   Prove the ``split epimorphism'' part of
   \cref{prop:rings:split-sequence}. [\Cref{subsec:rings:split-exact-sequences}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:hom-contravariant-left-exact-from-ses}
+  \tolean[Claude]{
   Let $0 \to M \to N \to P \to 0$ be a short exact sequence of
   $R$-modules, and let $L$ be an $R$-module.
   \begin{enumerate}[label=(\roman*)]
-  \item Prove that there is an exact sequence\footnote{In general,
-      this will be a sequence of abelian groups; if $R$ is
-      commutative, so that each $\Hom_{R\text{-Mod}}$ is an $R$-module
-      (\Cref{subsec:rings:the-category-r-mod}), then it will be an
-      exact sequence of $R$-modules.}
+  \item Prove that there is an exact sequence
     \[\Hom_{R\text{-Mod}}(P,L) \to \Hom_{R\text{-Mod}}(N,L) \to
       \Hom_{R\text{-Mod}}(M,L).\]
   \item Redo \Cref{exer:rings:hom-cyclic}. (Use the exact sequence
@@ -4267,94 +4268,106 @@ should experiment to his or her heart's content.
   \item Show that if the original sequence splits, then the rightmost
     homomorphism in (i) is onto.
   \end{enumerate}
+  }
   [\ref{exer:rings:hom-sequence-exactness-with-free-quotient},
   \ref{exer:linrep:onto-hom-explicit-restriction-extension-scalars},
   \Cref{subsec:linrep:adjunction-again}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:exact-seq-with-free-quotient-splits}
-  Prove that every exact sequence $0 \to M \to N \to F \to 0$ of
-  $R$-modules, with $F$ free, splits. (Hint:
+  \tolean[Claude]{Prove that every exact sequence $0 \to M \to N \to F \to 0$ of
+  $R$-modules, with $F$ free, splits.} (Hint:
   \Cref{exer:rings:free-projective}.)
   [\Cref{subsec:linrep:duality-and-exactness}]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-sequence-exactness-with-free-quotient}
-  Let $0 \to M \to N \to F \to 0$ be a short exact sequence of
+  \tolean[Claude]{Let $0 \to M \to N \to F \to 0$ be a short exact sequence of
   $R$-modules, with $F$ free, and let $L$ be an $R$-module. Prove that
   there is an exact sequence
   \[\Hom_{R\text{-Mod}}(F,L) \to \Hom_{R\text{-Mod}}(N,L) \to
-    \Hom_{R\text{-Mod}}(M,L) \to 0.\] (Cf.\
+    \Hom_{R\text{-Mod}}(M,L) \to 0.\]} (Cf.\
   \Cref{exer:rings:hom-contravariant-left-exact-from-ses}.)
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:short-five-lemma-via-snake-lemma}
-  In the situation of the snake lemma, assume that $\lambda$ and $\nu$
+  \tolean[Claude]{In the situation of the snake lemma, assume that $\lambda$ and $\nu$
   are isomorphisms. Use the snake lemma and prove that $\mu$ is an
-  isomorphism. This is called the ``short five-lemma,'' as it follows
+  isomorphism.} This is called the ``short five-lemma,'' as it follows
   immediately from the five-lemma (cf.\
   \Cref{exer:rings:five-lemma-for-modules}), as well as from the snake
   lemma. [\ref{exer:linrep:why-ext-is-called-ext-part1},
   \ref{exer:homol:short-five-lemma}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:retraction-to-direct-sum-implies-splits}
+  \tolean[Claude]{
   Let
   \[0 \to M_1 \to N \to M_2 \to 0 \tag{$*$}\] be an exact sequence of
   $R$-modules. (This may be called an ``extension'' of $M_2$ by
   $M_1$.) Suppose there is any $R$-module homomorphism
   $N \to M_1 \oplus M_2$ making the diagram
+  }
   \[\begin{tikzcd}
       0 \ar[r] & M_1 \ar[r] \ar[d,equal] & N \ar[r] \ar[d] & M_2 \ar[r] \ar[d,equal] & 0 \\
       0 \ar[r] & M_1 \ar[r] & M_1 \oplus M_2 \ar[r] & M_2 \ar[r] & 0
-    \end{tikzcd}\] commute, where the bottom sequence is the standard
+    \end{tikzcd}\]
+  \tolean[Claude]{commute, where the bottom sequence is the standard
   sequence of a direct sum. Prove that $(*)$
-  splits. [\Cref{subsec:rings:split-exact-sequences}]
+  splits.
+  } [\Cref{subsec:rings:split-exact-sequences}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:four-lemma-first-version}
   Practice your diagram chasing skills by proving the ``four-lemma'':
-  if
+  \tolean[Claude]{if
+  }
   \[\begin{tikzcd}
       A_1 \ar[r] \ar[d,"\alpha"'] & B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[d,"\delta"'] \\
       A_0 \ar[r] & B_0 \ar[r] & C_0 \ar[r] & D_0
-    \end{tikzcd}\] is a commutative diagram of $R$-modules with exact
+    \end{tikzcd}\]
+  \tolean[Claude]{is a commutative diagram of $R$-modules with exact
   rows, $\alpha$ is an epimorphism, and $\beta$, $\delta$ are
   monomorphisms, then $\gamma$ is a
-  monomorphism. [\ref{exer:rings:four-lemma-second-version},
+  monomorphism.} [\ref{exer:rings:four-lemma-second-version},
   \ref{exer:homol:four-lemma-in-abelian-categories}]
 \end{exer}
 \begin{exer}{}{exer:rings:four-lemma-second-version}
-  Prove another\footnote{It is in fact unnecessary to prove both
-    versions, but to realize this one has to view the matter from the
-    more general context of abelian categories; cf.\
-    \Cref{exer:homol:four-lemma-in-abelian-categories}.}  version of
-  the ``four-lemma'' of \cref{exer:rings:four-lemma-first-version}: if
+  Prove another version of
+  the ``four-lemma'' of \cref{exer:rings:four-lemma-first-version}: \tolean[Claude]{if
+  }
   \[\begin{tikzcd}
       B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[r] \ar[d,"\delta"'] & E_1 \ar[d,"\epsilon"'] \\
       B_0 \ar[r] & C_0 \ar[r] & D_0 \ar[r] & E_0
-    \end{tikzcd}\] is a commutative diagram of $R$-modules with exact
+    \end{tikzcd}\]
+  \tolean[Claude]{is a commutative diagram of $R$-modules with exact
   rows, $\beta$ and $\delta$ are epimorphisms, and $\epsilon$ is a
-  monomorphism, then $\gamma$ is an epimorphism.
+  monomorphism, then $\gamma$ is an epimorphism.}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:five-lemma-for-modules}
-  Prove the ``five-lemma'': if
+  Prove the ``five-lemma'': \tolean[Claude]{if
+  }
   \[\begin{tikzcd}
       A_1 \ar[r] \ar[d,"\alpha"'] & B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[r] \ar[d,"\delta"'] & E_1 \ar[d,"\epsilon"'] \\
       A_0 \ar[r] & B_0 \ar[r] & C_0 \ar[r] & D_0 \ar[r] & E_0
-    \end{tikzcd}\] is a commutative diagram of $R$-modules with exact
+    \end{tikzcd}\]
+  \tolean[Claude]{is a commutative diagram of $R$-modules with exact
   rows, $\beta$ and $\delta$ are isomorphisms, $\alpha$ is an
   epimorphism, and $\epsilon$ is a monomorphism, then $\gamma$ is an
-  isomorphism. (You can avoid the needed diagram chase by pasting
+  isomorphism.} (You can avoid the needed diagram chase by pasting
   together results from previous exercises.)
   [\ref{exer:rings:short-five-lemma-via-snake-lemma}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:nine-lemma}
+  \tolean[Claude]{
   Consider the following commutative diagram of $R$-modules:
+  }
   \[\begin{tikzcd}
       0 \ar[r] & L_2 \ar[r] \ar[d] & M_2 \ar[r] \ar[d,"\alpha"'] & N_2 \ar[r] \ar[d] & 0 \\
       0 \ar[r] & L_1 \ar[r] \ar[d] & M_1 \ar[r] \ar[d,"\beta"'] & N_1 \ar[r] \ar[d] & 0 \\
       0 \ar[r] & L_0 \ar[r] & M_0 \ar[r] & N_0 \ar[r] & 0
-    \end{tikzcd}\] Assume that the three rows are exact and the two
+    \end{tikzcd}\]
+  \tolean[Claude]{Assume that the three rows are exact and the two
   rightmost columns are exact. Prove that the left column is
   exact. Second version: assume that the three rows are exact and the
   two leftmost columns are exact; prove that the right column is
-  exact. This is the ``nine-lemma.'' (You can avoid a diagram chase by
+  exact. This is the ``nine-lemma.''
+  } (You can avoid a diagram chase by
   applying the snake lemma; for this, you will have to turn the
   diagram by $90^\circ$.)
   [\ref{exer:rings:nine-lemma-outer-columns-mono-epi}]
@@ -4363,6 +4376,7 @@ should experiment to his or her heart's content.
   In the same situation as in \cref{exer:rings:nine-lemma}, assume
   that the three rows are exact and that the leftmost and rightmost
   columns are exact.
+  \tolean[Claude]{
   \begin{itemize}
   \item Prove that $\alpha$ is a monomorphism and $\beta$ is an
     epimorphism.
@@ -4373,6 +4387,7 @@ should experiment to his or her heart's content.
     $\beta \circ \alpha = 0$); prove that it is then necessarily
     exact.
   \end{itemize}
+  }
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:infinite-ladder-two-exact-columns-implies-third}
   Generalize the previous two exercises as follows. Consider a
@@ -4383,10 +4398,10 @@ should experiment to his or her heart's content.
       0 \ar[r] & L_i \ar[r] \ar[d] & M_i \ar[r] \ar[d] & N_i \ar[r] \ar[d] & 0 \\
       0 \ar[r] & L_{i-1} \ar[r] \ar[d] & M_{i-1} \ar[r] \ar[d] & N_{i-1} \ar[r] \ar[d] & 0 \\
       & \vdots & \vdots & \vdots &
-    \end{tikzcd}\] in which the central column is a complex and every
+    \end{tikzcd}\] \tolean[Claude]{in which the central column is a complex and every
   row is exact. Prove that the left and right columns are also
   complexes. Prove that if any two of the columns are exact, so is the
-  third. (The first part is straightforward. The second part will take
+  third.} (The first part is straightforward. The second part will take
   you a couple of minutes now due to the needed diagram chases, and a
   couple of seconds later, once you learn about the long exact
   (co)homology sequence in
