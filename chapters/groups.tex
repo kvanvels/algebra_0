@@ -1180,14 +1180,14 @@ later sections (cf.\ \Cref{exam:groups:cyclic-formal-intro}).
   [\Cref{subsec:groups:isomorphisms}]
 \end{exer}
 
-\section{The category Grp}
+\section{The category Grp}%
 \label{sec:groups:the-category-grp}
 
 Groups will be the objects of the category $\categ{Grp}$. In this
 section we define the morphisms in the category and deal with simple
 properties of these morphisms.
 
-\subsection{Group homomorphisms}
+\subsection{Group homomorphisms}%
 \label{subsec:groups:group-homomorphisms}
 As we know, a group consists of two distinct types of information: a
 set $G$ and an operation\footnote{In
@@ -1358,8 +1358,9 @@ $\emptyset$) and this is not the same as the final objects (that is,
 the singletons). Also recall that a trivial group is a group
 consisting of a single element (\Cref{exam:groups:trivial-group}).
 
-\begin{prop}{Trivial groups are both initial and final in
-    $\categ{Grp}$.}{prop:groups:trivial-zero-object}
+\begin{prop}{}{prop:groups:trivial-zero-object}
+    Trivial groups are both initial and final in
+    $\categ{Grp}$.
 \end{prop}
 
 This makes trivial groups `zero-objects' of the category
@@ -1696,9 +1697,10 @@ $g^n = e_G$ for some $n > 0$, then
   \varphi(g)^n = \varphi(g^n) = \varphi(e_G) = e_H.
 \]
 In fact, this observation establishes a more precise statement:
-\begin{prop}{Let $\varphi : G \to H$ be a group homomorphism, and let
+\begin{prop}{}{prop:groups:hom-order-divides}
+  Let $\varphi : G \to H$ be a group homomorphism, and let
     $g \in G$ be an element of finite order. Then $|\varphi(g)|$
-    divides $|g|$.}{prop:groups:hom-order-divides}
+    divides $|g|$.
 \end{prop}
 \begin{proof}
   As observed, $\varphi(g)^{|g|} = e_H$; applying
@@ -1731,9 +1733,10 @@ homomorphism. Taking our cue from $\categ{Set}$, if a homomorphism of
 groups is an isomorphism, then it must in particular be a bijection
 between the underlying sets. Luckily, the converse also holds:
 
-\begin{prop}{Let $\varphi : G \to H$ be a group homomorphism. Then
+\begin{prop}{}{prop:groups:iso-iff-bijection}
+  Let $\varphi : G \to H$ be a group homomorphism. Then
     $\varphi$ is an isomorphism of groups if and only if it is a
-    bijection.}{prop:groups:iso-iff-bijection}
+    bijection.
 \end{prop}
 \begin{proof}
   One implication is immediate, as pointed out above. For the other
@@ -1786,10 +1789,11 @@ $G \to G$; these form a group $\Aut_{\categ{Grp}}(G)$ (cf.\
   notion of isomorphism allows us to give a formal definition:
 \end{exam}
 
-\begin{defn}{A group $G$ is \textbf{cyclic} if it is isomorphic to
-    $\Z$ or to $C_n = \Z/n\Z$ for some\footnote{This includes the
-      possibility that $n = 1$, that is, trivial groups are cyclic.}
-    $n$.}{defn:groups:cyclic}
+\begin{defn}{}{defn:groups:cyclic}
+  A group $G$ is \textbf{cyclic} if it is isomorphic to
+  $\Z$ or to $C_n = \Z/n\Z$ for some\footnote{This includes the
+    possibility that $n = 1$, that is, trivial groups are cyclic.}
+  $n$.
 \end{defn}
 Thus, $C_2 \times C_3$ is cyclic, of order $6$, since
 $C_2 \times C_3 \cong C_6$. More generally
@@ -1827,11 +1831,12 @@ questions\ldots
 Isomorphic objects of a category are essentially indistinguishable in
 that category. Thus, isomorphic groups share every group-theoretic
 structure. In particular,
-\begin{prop}{Let $\varphi : G \to H$ be an isomorphism.
+\begin{prop}{}{prop:groups:iso-preserves-order-commutativity}
+  Let $\varphi : G \to H$ be an isomorphism.
 \begin{enumerate}[label=(\roman*)]
   \item $(\forall g \in G) : |\varphi(g)| = |g|$;
   \item $G$ is commutative if and only if $H$ is commutative.
-  \end{enumerate}}{prop:groups:iso-preserves-order-commutativity}
+  \end{enumerate}
 \end{prop}
 \begin{proof}
   The first assertion follows from
@@ -2218,10 +2223,11 @@ elegantly is a challenge. I will settle for the following.
   possible'; we say that $w$ is a `reduced word' in this case.
 \end{itemize}
 
-\begin{lem}{If $w \in W(A)$ has length $n$,
+\begin{lem}{}{lem:groups:reduction-terminates}
+  If $w \in W(A)$ has length $n$,
     then\footnote{$\lfloor q \rfloor$ denotes the largest integer
       $\leq q$.} $r^{\lfloor n/2 \rfloor} (w)$ is a reduced
-    word.}{lem:groups:reduction-terminates}
+    word.
 \end{lem}
 \begin{proof}
   Indeed, either $r(w) = w$ or the length of $r(w)$ is less than the
@@ -2270,8 +2276,9 @@ associativity; it follows easily from (for example)
 There is a function $j : A \to F(A)$, defined by sending the element
 $a \in A$ to the word consisting of the single `letter' $a$.
 
-\begin{prop}{The pair $(j, F(A))$ satisfies the universal property for
-    free groups on $A$.}{prop:groups:free-group-concrete-construction}
+\begin{prop}{}{prop:groups:free-group-concrete-construction}
+  The pair $(j, F(A))$ satisfies the universal property for
+    free groups on $A$.
 \end{prop}
 \begin{proof}
   This is also essentially evident, once one has absorbed all the
@@ -2392,8 +2399,9 @@ coproduct). There is a function $j : A \to \Z^{\oplus n}$, defined by
   \in \Z^{\oplus n}.
 \]
 
-\begin{prop}{For $A = \{1, \dots, n\}$, $\Z^{\oplus n}$ is a free
-    abelian group on $A$.}{prop:groups:zn-free-abelian}
+\begin{prop}{}{prop:groups:zn-free-abelian}
+  For $A = \{1, \dots, n\}$, $\Z^{\oplus n}$ is a free
+    abelian group on $A$.
 \end{prop}
 \begin{proof}
   Note that every element of $\Z^{\oplus n}$ can be written uniquely
@@ -2478,9 +2486,10 @@ Note that for $A = \{1, \dots, n\}$ and identifying
 $\Z^{\oplus A} \cong \Z^{\oplus n}$, this function $j$ is the same
 function denoted $j$ earlier.
 
-\begin{prop}{For every set $A$,
+\begin{prop}{}{prop:groups:free-abelian-group-concrete-construction}
+  For every set $A$,
     $F^{ab}(A) \cong \Z^{\oplus
-      A}$.}{prop:groups:free-abelian-group-concrete-construction}
+      A}$.
 \end{prop}
 \begin{proof}
   The key point is again that every element of $\Z^{\oplus A}$ may be
@@ -2609,10 +2618,11 @@ $G$ and the inverse of an element $h \in H$ has to be the same as the
 inverse of that element in $G$. The most economical way to say all
 this is
 
-\begin{prop}{A nonempty subset $H$ of a group $G$ is a subgroup if and
+\begin{prop}{}{prop:groups:subgroup-criterion}
+  A nonempty subset $H$ of a group $G$ is a subgroup if and
     only if
     $(\forall a, b \in H) : ab^{-1} \in
-    H$.}{prop:groups:subgroup-criterion}
+    H$.
 \end{prop}
 \begin{proof}
   It is clear that if $H$ is a subgroup, then the stated condition
@@ -2650,12 +2660,13 @@ this is
 This criterion makes it particularly straightforward to check simple
 facts concerning subgroups. For example,
 
-\begin{lem}{If $\{H_\alpha\}_{\alpha \in A}$ is any family of subgroups
+\begin{lem}{}{lem:groups:intersection-of-subgroups}
+  If $\{H_\alpha\}_{\alpha \in A}$ is any family of subgroups
 of a group $G$, then
 \[
   H = \bigcap_{\alpha \in A} H_\alpha
 \]
-is a subgroup of $G$.}{lem:groups:intersection-of-subgroups}
+is a subgroup of $G$.
 \end{lem}
 \begin{proof}
   This follows right away from
@@ -2730,12 +2741,14 @@ kernels are `special' subgroups. As with most constructions of
 importance in algebra, they satisfy a universal property, which may be
 expressed as follows.
 
-\begin{prop}{Let $\varphi : G \to G'$ be a homomorphism. Then the
+\begin{prop}{}{prop:groups:kernel-universal-property}
+  Let $\varphi : G \to G'$ be a homomorphism. Then the
 inclusion $i : \ker\varphi \hookrightarrow G$ is final in the
 category\footnote{The reader should specify what the morphisms are in
 this category.} of group homomorphisms $\alpha : K \to G$ such that
 $\varphi \circ \alpha$ is the trivial
-map.}{prop:groups:kernel-universal-property}
+map.
+
 In other words, every group homomorphism $\alpha : K \to G$ such that
 $\varphi \circ \alpha$ is the trivial homomorphism (denoted `$0$' in
 the diagram) factors uniquely through $\ker\varphi$:
@@ -2868,8 +2881,9 @@ It is convenient to start from $\Z$. For $d \in \Z$ we let
 that is, $d\Z$ denotes the set of integer multiples of $d$. Of course
 this is nothing but the `cyclic subgroup of $\Z$ generated by $d$'.
 
-\begin{prop}{Let $G \subseteq \Z$ be a subgroup. Then $G = d\Z$ for
-    some $d \geq 0$.}{prop:groups:subgroups-of-z}
+\begin{prop}{}{prop:groups:subgroups-of-z}
+  Let $G \subseteq \Z$ be a subgroup. Then $G = d\Z$ for
+    some $d \geq 0$.
 \end{prop}
 The proof will actually show that if $G \subseteq \Z$ is nontrivial,
 then $d$ is the smallest positive element of $G$, and the reader is
@@ -2892,7 +2906,7 @@ invited to remember this useful fact.
   statement either).
 \end{rem}
 
-\begin{proof}[Proof of \cref{prop:groups:subgroups-of-z}]
+\begin{proof}[Proof of \Cref{prop:groups:subgroups-of-z}]
   If $G = \{0\}$, then $G = 0\Z$. If not, note that $G$ must contain
   positive integers: indeed, if $a \in G$ and $a < 0$, then $-a \in G$
   and $-a > 0$. We can then let $d$ be the smallest positive
@@ -2923,10 +2937,11 @@ The `quotient' homomorphism $\pi_n : \Z \to \Z/n\Z$ (cf.\
 \Cref{subsec:groups:examples}) allows us to establish the analogous
 result for finite cyclic groups:
 
-\begin{prop}{Let $n > 0$ be an integer and let $G \subseteq \Z/n\Z$ be
+\begin{prop}{}{prop:groups:subgroups-of-znz}
+  Let $n > 0$ be an integer and let $G \subseteq \Z/n\Z$ be
     a subgroup. Then $G$ is the cyclic subgroup of $\Z/n\Z$ generated
     by $[d]_n$, for some divisor $d$ of
-    $n$.}{prop:groups:subgroups-of-znz}
+    $n$.
 \end{prop}
 \begin{proof}
   Let $\pi_n : \Z \to \Z/n\Z$ be the quotient map, and consider
@@ -3009,15 +3024,16 @@ fact, it is easy to characterize all monomorphisms
 $\varphi \in \Hom_{\categ{Grp}}(G,G')$ (where $G$, $G'$ are any
 groups):
 
-\begin{prop}{The following are equivalent:
-\begin{enumerate}[label=(\alph*)]
+\begin{prop}{}{prop:groups:monomorphism-characterization}
+  The following are equivalent:
+  \begin{enumerate}
   \item $\varphi$ is a monomorphism;
   \item $\ker\varphi = \{e_G\}$;
   \item $\varphi : G \to G'$ is injective (as a set-function).
-  \end{enumerate}}{prop:groups:monomorphism-characterization}
+  \end{enumerate}
 \end{prop}
 \begin{proof}
-  (a) $\implies$ (b): Assume (a) holds, and consider the two parallel
+  (1) $\implies$ (2): Assume (1) holds, and consider the two parallel
   compositions
   \[
     \begin{tikzcd}
@@ -3030,7 +3046,7 @@ groups):
   $\varphi$ is a monomorphism, this implies $i = e$. But $i = e$
   implies that $\ker\varphi$ is trivial, that is, (b) holds.
 
-  (b) $\implies$ (c): Assume $\ker\varphi = \{e_G\}$. Then
+  (2) $\implies$ (3): Assume $\ker\varphi = \{e_G\}$. Then
   \[
     \varphi(g_1) = \varphi(g_2) \implies \varphi(g_1)\varphi(g_2)^{-1}
     = e_{G'} \implies \varphi(g_1 g_2^{-1}) = e_{G'} \implies g_1
@@ -3039,7 +3055,7 @@ groups):
   \]
   This shows that $\varphi$ is injective, as needed.
 
-  (c) $\implies$ (a): If $\varphi$ is injective, then it satisfies the
+  (3) $\implies$ (1): If $\varphi$ is injective, then it satisfies the
   defining property for monomorphisms in $\categ{Set}$: that is, for
   any set $Z$ and any two set-functions $\alpha', \alpha'' : Z \to G$,
   \[
@@ -3051,7 +3067,7 @@ groups):
   monomorphism in $\categ{Grp}$.
 \end{proof}
 
-The equivalence (a) $\iff$ (c) may lead the reader to think that from
+The equivalence (1) $\iff$ (3) may lead the reader to think that from
 the point of view of monomorphisms, $\categ{Grp}$ and $\categ{Set}$
 are pretty much alike. This is not quite so: while it is true that
 homomorphisms with a left-inverse are necessarily monomorphisms, as in
@@ -3314,9 +3330,10 @@ exist noncommutative groups in which every subgroup is normal (one
 example is the `quaternionic group' $Q_8$; cf.\
 \Cref{exer:rings:quaternions} (iv)), but they are very rare.
 
-\begin{lem}{If $\varphi : G \to G'$ is any group homomorphism, then
+\begin{lem}{}{lem:groups:kernel-is-normal}
+  If $\varphi : G \to G'$ is any group homomorphism, then
     $\ker\varphi$ is a normal subgroup of
-    $G$.}{lem:groups:kernel-is-normal}
+    $G$.
 \end{lem}
 \begin{proof}
   We already know that $\ker\varphi$ is a subgroup of $G$; to verify
@@ -3399,7 +3416,8 @@ we need
 \]
 Luckily, this is all that there is to it:
 
-\begin{prop}{With notation as above, the operation
+\begin{prop}{}{prop:groups:quotient-group-universal-property}
+  With notation as above, the operation
     \[ [a] \bullet [b] := [ab]
 \]
 defines a group structure on $G/\!\sim$ if and only if
@@ -3411,7 +3429,7 @@ In this case the quotient function $\pi : G \to G/\!\sim$ is a
 homomorphism and is universal with respect to homomorphisms
 $\varphi : G \to G'$ such that
 $a \sim a' \implies \varphi(a) =
-\varphi(a')$.}{prop:groups:quotient-group-universal-property}
+\varphi(a')$.
 \end{prop}
 \begin{proof}
   We have already noted that the condition is necessary. To prove it
@@ -3491,12 +3509,13 @@ structure on $G/\!\sim$ only if \emph{both} are satisfied.
 
 Let's begin with $(\dagger)$. Here is the description:
 
-\begin{prop}{Let $\sim$ be an equivalence relation on a group $G$,
+\begin{prop}{}{prop:groups:coset-description-dagger}
+  Let $\sim$ be an equivalence relation on a group $G$,
 satisfying $(\dagger)$. Then
 \begin{itemize}
 \item the equivalence class of $e_G$ is a subgroup $H$ of $G$; and
 \item $a \sim b \iff a^{-1}b \in H \iff aH = bH$.
-\end{itemize}}{prop:groups:coset-description-dagger}
+\end{itemize}
 \end{prop}
 \begin{proof}
   Let $H \subseteq G$ be the equivalence class of the identity;
@@ -3544,13 +3563,14 @@ subsets determined by a subgroup $H$ deserve a name.
 Now, a `converse' to
 \Cref{prop:groups:coset-description-dagger} holds:
 
-\begin{prop}{If $H$ is any subgroup of a group $G$, the relation
+\begin{prop}{}{prop:groups:sim-l-satisfies-dagger}
+  If $H$ is any subgroup of a group $G$, the relation
 $\sim_L$ defined by
 \[
   (\forall a, b \in G) : \quad a \sim_L b \iff a^{-1}b \in H
 \]
 is an equivalence relation satisfying
-$(\dagger)$.}{prop:groups:sim-l-satisfies-dagger}
+$(\dagger)$.
 \end{prop}
 \begin{proof}
   This is straightforward and is mostly left to the reader
@@ -3566,11 +3586,12 @@ $(\dagger)$.}{prop:groups:sim-l-satisfies-dagger}
 Taken together,
 \Cref{prop:groups:coset-description-dagger,prop:groups:sim-l-satisfies-dagger} show
 
-\begin{prop}{There is a one-to-one correspondence between subgroups of
+\begin{prop}{}{prop:groups:subgroups-correspond-to-dagger-relations}
+  There is a one-to-one correspondence between subgroups of
     $G$ and equivalence relations on $G$ satisfying $(\dagger)$; for
     the relation $\sim_L$ corresponding to a subgroup $H$,
     $G/\!\sim_L$ may be described as the set of left-cosets $aH$ of
-    $H$.}{prop:groups:subgroups-correspond-to-dagger-relations}
+    $H$.
 \end{prop}
 
 The reader should have no difficulty producing the mirror statements
@@ -3578,12 +3599,13 @@ The reader should have no difficulty producing the mirror statements
 equivalence relations satisfying $(\dagger\dagger)$. The end result
 will be
 
-\begin{prop}{There is a one-to-one correspondence between subgroups of
+\begin{prop}{}{prop:groups:subgroups-correspond-to-daggerdagger-relations}
+  There is a one-to-one correspondence between subgroups of
     $G$ and equivalence relations on $G$ satisfying
     $(\dagger\dagger)$; for the relation $\sim_R$ corresponding to a
     subgroup $H$, $G/\!\sim_R$ may be described as the set of
     right-cosets $Ha$ of
-    $H$.}{prop:groups:subgroups-correspond-to-daggerdagger-relations}
+    $H$.
 \end{prop}
 The relation corresponding to $H$ in this second way is defined by
 \[
@@ -3653,9 +3675,10 @@ condition on $H$: for such `special' subgroups, $(\dagger)$ and
 $(\dagger\dagger)$ get back together. The good news is that this
 condition is easy to identify and is not new to the reader.
 
-\begin{prop}{The relations $\sim_L$, $\sim_R$ corresponding to a
+\begin{prop}{}{prop:groups:sim-l-sim-r-coincide-iff-normal}
+  The relations $\sim_L$, $\sim_R$ corresponding to a
     subgroup $H$ coincide if and only if $H$ is
-    normal.}{prop:groups:sim-l-sim-r-coincide-iff-normal}
+    normal.
 \end{prop}
 \begin{proof}
   Two relations coincide if the corresponding partitions agree.
@@ -3978,10 +4001,11 @@ may be viewed as the composition of a surjective map, followed by a
 bijective map, followed by an injective map. We now know enough to
 state the corresponding (very useful) result in $\categ{Grp}$:
 
-\begin{thm}{Every group homomorphism $\varphi : G \to G'$ may be
+\begin{thm}{}{thm:groups:canonical-decomposition}
+  Every group homomorphism $\varphi : G \to G'$ may be
     decomposed as follows, where the isomorphism $\bar\varphi$ in the
     middle is the homomorphism induced by $\varphi$ (as in
-    \Cref{thm:groups:quotient-universal-property}):}{thm:groups:canonical-decomposition}
+    \Cref{thm:groups:quotient-universal-property}):
   \[
     \begin{tikzcd}
       G \arrow[rr, "\varphi", bend left=15] \arrow[r, two heads] &
@@ -4010,11 +4034,12 @@ $G/\ker\varphi$ as (canonically identified with) a subgroup of $G'$.
 What is usually called the `first isomorphism theorem' is the
 particular case corresponding to surjective homomorphisms:
 
-\begin{coro}{Suppose $\varphi : G \to G'$ is a surjective group
+\begin{coro}{}{coro:groups:first-isomorphism-theorem}
+  Suppose $\varphi : G \to G'$ is a surjective group
 homomorphism. Then
 \[
   G' \cong \frac{G}{\ker\varphi}.
-\]}{coro:groups:first-isomorphism-theorem}
+\]
 \end{coro}
 \begin{proof}
   $\image\varphi = G'$ in
@@ -4034,13 +4059,14 @@ will see in the rest of this section) and in concrete instances.
   \Cref{coro:groups:first-isomorphism-theorem}:
 \end{exam}
 
-\begin{prop}{If $H_1 \subseteq G_1$ and $H_2 \subseteq G_2$ are normal
+\begin{prop}{}{prop:groups:quotient-of-product}
+  If $H_1 \subseteq G_1$ and $H_2 \subseteq G_2$ are normal
 subgroups, then $H_1 \times H_2$ is a normal subgroup of the group
 $G_1 \times G_2$ and
 \[
   \frac{G_1 \times G_2}{H_1 \times H_2} \cong \frac{G_1}{H_1} \times
   \frac{G_2}{H_2}.
-\]}{prop:groups:quotient-of-product}
+\]
 \end{prop}
 \begin{proof}
   Indeed, composing the projections
@@ -4230,7 +4256,8 @@ Here is why this works. First note that if $H \subseteq K$ are
 subgroups of a group $G$ and $H$ is normal in $G$, then $H$ is normal
 in $K$.
 
-\begin{prop}{Let $H$ be a normal subgroup of a group $G$. Then for
+\begin{prop}{}{prop:groups:subgroups-of-quotients-bijection}
+  Let $H$ be a normal subgroup of a group $G$. Then for
 every subgroup $K$ of $G$ containing $H$, $K/H$ may be identified with
 a subgroup of $G/H$. The function
 \[
@@ -4240,7 +4267,7 @@ a subgroup of $G/H$. The function
   \end{gathered}
 \]
 defined by $u(K) = K/H$ is a bijection preserving
-inclusions.}{prop:groups:subgroups-of-quotients-bijection}
+inclusions.
 \end{prop}
 \begin{proof}
   The group $K/H$ consists of the cosets $aH \in G/H$ with $a \in K$,
@@ -4270,12 +4297,13 @@ In fact, the correspondence is even nicer, in the sense that it
 preserves \emph{normality}. The following statement is often called
 the \emph{third isomorphism theorem}:
 
-\begin{prop}{Let $H$ be a normal subgroup of a group $G$, and let $N$
+\begin{prop}{}{prop:groups:third-isomorphism-theorem}
+  Let $H$ be a normal subgroup of a group $G$, and let $N$
 be a subgroup of $G$ containing $H$. Then $N/H$ is normal in $G/H$ if
 and only if $N$ is normal in $G$, and in this case
 \[
   \frac{G/H}{N/H} \cong \frac{G}{N}.
-\]}{prop:groups:third-isomorphism-theorem}
+\]
 \end{prop}
 \begin{proof}
   If $N$ is normal, then consider the projection
@@ -4321,7 +4349,8 @@ general, if $G$ is not commutative. It \emph{is}, however, the case if
 one of the subgroups is normal. The following is often called the
 \emph{second isomorphism theorem}.
 
-\begin{prop}{Let $H$, $K$ be subgroups of a group $G$, and assume that
+\begin{prop}{}{prop:groups:second-isomorphism-theorem}
+  Let $H$, $K$ be subgroups of a group $G$, and assume that
 $H$ is normal in $G$. Then
 \begin{itemize}
 \item $HK$ is a subgroup of $G$, and $H$ is normal in $HK$;
@@ -4329,7 +4358,7 @@ $H$ is normal in $G$. Then
 \[
   \frac{HK}{H} \cong \frac{K}{H \cap K}.
 \]
-\end{itemize}}{prop:groups:second-isomorphism-theorem}
+\end{itemize}
 \end{prop}
 \begin{proof}
   To verify that $HK$ is a subgroup of $G$ when $H$ is normal, note
@@ -4550,14 +4579,15 @@ We can now state a true mirror of
 \Cref{prop:groups:monomorphism-characterization}, in
 $\categ{Ab}$:
 
-\begin{prop}{Let $\varphi : G \to G'$ be a homomorphism of abelian
+\begin{prop}{}{prop:groups:epimorphism-characterization}
+  Let $\varphi : G \to G'$ be a homomorphism of abelian
 groups. The following are equivalent:
 \begin{enumerate}[label=(\alph*)]
   \item $\varphi$ is an epimorphism;
   \item $\coker\varphi$ is trivial;
   \item $\varphi : G \to G'$ is surjective (as a
     set-function).
-  \end{enumerate}}{prop:groups:epimorphism-characterization}
+  \end{enumerate}
 \end{prop}
 \begin{proof}
   (a) $\implies$ (b): Assume (a) holds, and consider the two parallel
@@ -4991,10 +5021,11 @@ we will see in \Cref{chap:groups2}. For instance, an immediate
 consequence is the following counterpart to
 \Cref{subsec:groups:presentations}:
 
-\begin{thm}{(Cayley's theorem) Every group acts faithfully on some
+\begin{thm}{Cayley's theorem}{thm:groups:cayleys-theorem}
+  Every group acts faithfully on some
     set. That is, every group may be realized as a subgroup of a
-    permutation group.}{thm:groups:cayleys-theorem}
-\end{thm}
+    permutation group.
+  \end{thm}
 \begin{proof}
   Indeed, simply observe that the left-multiplication action of $G$ on
   itself is manifestly faithful.
@@ -5071,10 +5102,11 @@ subgroups $H$ of $G$; as noted in
 \Cref{exam:groups:action-on-cosets}, $G$ acts on $G/H$ by
 left-multiplication.
 
-\begin{prop}{Every transitive left-action of $G$ on a nonempty set $A$
+\begin{prop}{}{prop:groups:transitive-action-is-g-mod-h}
+  Every transitive left-action of $G$ on a nonempty set $A$
     is isomorphic to the left-multiplication of $G$ on $G/H$, for
     $H =$ the stabilizer of any
-    $a \in A$.}{prop:groups:transitive-action-is-g-mod-h}
+    $a \in A$.
 \end{prop}
 \begin{proof}
   Let $G$ act transitively on a set $A$, let $a \in A$ be any element,
@@ -5097,9 +5129,10 @@ left-multiplication.
   Equivariance is immediate: $\varphi(g'(gH)) = g'ga = g'\varphi(gH)$.
 \end{proof}
 
-\begin{coro}{If $O$ is an orbit of the action of a finite group $G$ on
+\begin{coro}{}{coro:groups:orbit-divides-order}
+  If $O$ is an orbit of the action of a finite group $G$ on
     a set $A$, then $O$ is a finite set and $|O|$ divides
-    $|G|$.}{coro:groups:orbit-divides-order}
+    $|G|$.
 \end{coro}
 \begin{proof}
   By \Cref{prop:groups:transitive-action-is-g-mod-h} there
@@ -5131,11 +5164,12 @@ There may seem to be an element of arbitrariness in the statement of
 change the element $a$ of which we are taking the stabilizer? The
 stabilizer may change, but it does so in a controlled way:
 
-\begin{prop}{Suppose a group $G$ acts on a set $A$, and let
+\begin{prop}{}{prop:groups:stabilizer-conjugation}
+  Suppose a group $G$ acts on a set $A$, and let
 $a \in A$, $g \in G$, $b = ga$. Then
 \[
   \operatorname{Stab}_G(b) = g\operatorname{Stab}_G(a)g^{-1}.
-\]}{prop:groups:stabilizer-conjugation}
+\]
 \end{prop}
 \begin{proof}
   Indeed, assume $h \in \operatorname{Stab}_G(a)$; then

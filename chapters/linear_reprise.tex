@@ -2,7 +2,8 @@
 \label{chap:linrep}
 
 We come back to linear algebra, with the task of studying slightly
-more sophisticated constructions than those reviewed in
+
+homore sophisticated constructions than those reviewed in
 \Cref{chap:linalg}. My main goals are to discuss some aspects of
 multilinear algebra, tensor products, and Hom, with special attention
 devoted to dual modules. Along the way we will meet several other
@@ -344,7 +345,7 @@ $L$ stands `before' all objects of $\categ{C}$ indexed by $\categ{I}$
 via $\mathscr{F}$ (but it is---up to isomorphisms---the `last' object
 that may do so). This notion is also called \emph{inverse}, or
 \emph{projective}, limit.
-\begin{exam}{(Products)}{exam:linrep:product-as-limit-over-discrete-category}
+\begin{exam}{Products}{exam:linrep:product-as-limit-over-discrete-category}
   Let $\categ{I}$ be the `discrete category' consisting of two objects
   $\mathbf{1}$, $\mathbf{2}$, with only identity
   morphisms\footnote{This latter prescription is what makes the
@@ -493,7 +494,7 @@ Several standard constructions rely on a direct limit: for example,
 \emph{germs} of functions (or, more generally, `stalks of presheaves')
 are defined by means of a direct limit.
 
-\subsection{Comparing functors}
+\subsection{Comparing functors}%
 \label{subsec:linrep:comparing-functors}
 Having introduced functors as the natural notion of `morphisms between
 categories', the next natural step is to consider `morphisms between
@@ -595,12 +596,13 @@ As every good calculus student should readily understand, this says
 that right-adjoint functors are \emph{continuous}. (Needless to say,
 left-adjoint functors turn out to commute with colimits and would
 rightly be termed \emph{cocontinuous}.)  We will not prove
-\Cref{lem:linrep:right-adjoints-commute-with-limits} in gory detail, but I will endeavor to convince the
-reader that such statements are easier than they look and just boil
-down to suitable applications of the universal properties defining the
-various concepts. By contrast, proving that a specific given functor
-preserves products (for instance), without appealing to abstract
-nonsense, may sometimes appear to involve some `real' work.
+\Cref{lem:linrep:right-adjoints-commute-with-limits} in gory detail,
+but I will endeavor to convince the reader that such statements are
+easier than they look and just boil down to suitable applications of
+the universal properties defining the various concepts. By contrast,
+proving that a specific given functor preserves products (for
+instance), without appealing to abstract nonsense, may sometimes
+appear to involve some `real' work.
 
 Assume $G : \categ{D} \to \categ{C}$ is right-adjoint to
 $F : \categ{C} \to \categ{D}$ and
@@ -631,16 +633,18 @@ Summarizing, we have obtained natural morphisms
 The compositions of these are easily checked to be the identity (by
 virtue of the uniqueness part of various universality properties
 invoked in the construction), concluding the verification of
-\Cref{lem:linrep:right-adjoints-commute-with-limits}. What is missing from this outline is the explicit
+\Cref{lem:linrep:right-adjoints-commute-with-limits}. What is missing
+from this outline is the explicit
 verification of the fact that every needed diagram commutes, which is
 necessary in order to apply the universal properties as stated. The
 reader will likely agree that such verifications, while possibly
 somewhat involved, must be routine.
 
-\Cref{lem:linrep:right-adjoints-commute-with-limits} implies, for example, that right-adjoint functors
+\Cref{lem:linrep:right-adjoints-commute-with-limits} implies, for example,
+that right-adjoint functors
 preserve products and that they must `preserve kernels' when kernels
 make sense.
-\begin{exam}{(Exact functors)}{exam:linrep:exact-functor-definition-example}
+\begin{exam}{Exact functors}{exam:linrep:exact-functor-definition-example}
   A functor is \emph{exact} if it preserves exactness, that is, it
   sends exact sequences to exact sequences. So far we have only
   studied exactness in the context of modules over a ring
@@ -1094,7 +1098,7 @@ also exact.
   $R$. [\ref{exer:linrep:morita-equivalence-and-center}]
 \end{exer}
 
-\section{Tensor products and the Tor functors}
+\section{Tensor products and the Tor functors}%
 \label{sec:linrep:tensor-products-and-the-tor-functors}
 
 In the rest of the chapter we will work in the category
@@ -1119,7 +1123,7 @@ terms of conveying the basic intuition on the general features of the
 theory.  Thus, $R$ will denote a fixed commutative ring, unless stated
 otherwise.
 
-\subsection{Bilinear maps and the definition of tensor product}
+\subsection{Bilinear maps and the definition of tensor product}%
 \label{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product}
 If $M$ and $N$ are $R$-modules, we observed in the distant past
 (\Cref{subsec:rings:products-and-coproducts}) that $M \oplus N$
@@ -1193,7 +1197,7 @@ through $N \otimes_R M$, and this is enough to conclude that there is
 a canonical isomorphism $N \otimes_R M \cong M \otimes_R N$.  However,
 such considerations are a little moot unless we establish that
 $M \otimes_R N$ exists to begin with. This requires a bit of work.
-\begin{lem}{}{lem:linrep:tensor-products-exist}
+\begin{lem}{}{lem:linrep:tensor-products-exist}%
   Tensor products exist in $R\text{-}\categ{Mod}$.
 \end{lem}
 \begin{proof}
@@ -1278,7 +1282,7 @@ $\alpha, \beta : M \otimes_R N \to P$ coincide on pure tensors, then
 $\alpha = \beta$. Frequently, computations involving tensor products
 are reduced to simple verifications for pure tensors.
 
-\subsection{Adjunction with Hom and explicit computations}
+\subsection{Adjunction with Hom and explicit computations}%
 \label{subsec:linrep:adjunction-with-hom-and-explicit-computations}
 
 The tensor product $\otimes_R$ is left-adjoint to Hom. Once we parse
@@ -1345,14 +1349,16 @@ natural:
   \Cref{subsec:linrep:comparing-functors}; the interested reader
   should have no problems checking this naturality.
 \end{proof}
-By \Cref{lem:linrep:right-adjoints-commute-with-limits} (or rather its co-version), we can conclude that
-for each $R$-module $N$, the functor $\otimes_R N$ preserves colimits,
-and so does $M \otimes_R \mathord{-}$, by the basic commutativity of
-tensor products verified in
+By \Cref{lem:linrep:right-adjoints-commute-with-limits} (or rather its
+co-version), we can conclude that for each $R$-module $N$, the functor
+$\otimes_R N$ preserves colimits, and so does
+$M \otimes_R \mathord{-}$, by the basic commutativity of tensor
+products verified in
 \Cref{subsec:linrep:bilinear-maps-and-the-definition-of-tensor-product}. In
 particular, and this is good material for another Pavlovian reaction,
 $M \otimes_R \mathord{-}$ and $\mathord{-} \otimes_R N$ are
-right-exact functors (cf.\ \Cref{exam:linrep:exact-functor-definition-example}). These
+right-exact functors (cf.\
+\Cref{exam:linrep:exact-functor-definition-example}). These
 observations have several consequences, which make `computations' with
 tensor products more reasonable. Here is a sample:
 \begin{coro}{}{coro:linrep:tensor-distributes-over-direct-sum}
@@ -1396,8 +1402,8 @@ $R^{\oplus m} \otimes R^{\oplus n}$.  Indeed they generate it; hence
 they must be linearly independent since this module is free of rank
 $mn$. In particular, this is all that can happen if $R$ is a field $k$
 and the modules are, therefore, just $k$-vector spaces
-(\Cref{prop:linalg:lin-indep-extends-to-basis}). Tensor products are more interesting over more
-general rings.
+(\Cref{prop:linalg:lin-indep-extends-to-basis}). Tensor products are
+more interesting over more general rings.
 \begin{coro}{}{coro:linrep:tensor-with-quotient-by-ideal}
   For all $R$-modules $N$ and all ideals $I$ of $R$,
   \[
@@ -1432,7 +1438,8 @@ $I(R/J) = (I+J)/J$.
   (cf.\ \Cref{exer:linrep:coprime-cyclic-tensor-is-zero-by-hand}).
 \end{exam}
 
-\Cref{coro:linrep:tensor-with-quotient-by-ideal} is a template example for a basic application of
+\Cref{coro:linrep:tensor-with-quotient-by-ideal} in
+a template example for a basic application of
 $\otimes$: tensor products may be used to transfer constructions
 involving $R$ (such as quotienting by an ideal $I$) to constructions
 involving $R$-modules (such as quotienting by a corresponding
@@ -1440,12 +1447,13 @@ submodule). There are several instances of this operation; the reader
 will take a look at localization in
 \Cref{exer:linrep:localization-is-tensor-with-localized-ring}.
 
-\subsection{Exactness properties of tensor; flatness}
+\subsection{Exactness properties of tensor; flatness}%
 \label{subsec:linrep:exactness-properties-of-tensor-flatness}
 It is important to remember that the tensor product is not an exact
 functor: left-exactness may very well fail. This can already be
 observed in the sequence appearing in the discussion following
-\Cref{coro:linrep:tensor-with-quotient-by-ideal}: for an ideal $I$ of $R$ and an $R$-module $N$, the
+\Cref{coro:linrep:tensor-with-quotient-by-ideal}: for an
+ideal $I$ of $R$ and an $R$-module $N$, the
 map $I \otimes_R N \to N$ induced by the inclusion $I \subseteq R$
 after tensoring by $N$ may not be injective.
 
@@ -1462,11 +1470,13 @@ On the other hand, if $N \cong R^{\oplus A}$ is free, then
 $\mathord{-} \otimes_R N$ is exact. Indeed, every inclusion
 $M_1 \subseteq M_2$ is mapped to
 $M_1 \otimes_R R^{\oplus A} \to M_2 \otimes_R R^{\oplus A}$, which is
-identified (via \Cref{coro:linrep:tensor-distributes-over-direct-sum}) with the inclusion
-$M_1^{\oplus A} \subseteq M_2^{\oplus A}$.
+identified (via \Cref{coro:linrep:tensor-distributes-over-direct-sum})
+with the inclusion $M_1^{\oplus A} \subseteq M_2^{\oplus A}$.
 
 \begin{exam}{}{exam:linrep:tensoring-exact-for-vector-spaces}
-  Since vector spaces are free (\Cref{prop:linalg:lin-indep-extends-to-basis}), tensoring is exact
+  Since vector spaces are free
+  (\Cref{prop:linalg:lin-indep-extends-to-basis}),
+  tensoring is exact
   in $k\text{-}\categ{Vect}$: if
   \[
     0 \to V_1 \to V_2 \to V_3 \to 0
@@ -1523,7 +1533,7 @@ invariants.
   examples.
 \end{exam}
 
-\subsection{The Tor functors}
+\subsection{The Tor functors}%
 \label{subsec:linrep:the-tor-functors}
 The `failure of exactness' of the functor $\mathord{-} \otimes_R N$ is
 measured by another functor
@@ -1594,7 +1604,7 @@ compute $\Tor^R_i(M, N)$ as the homology of $M \otimes_R N_\bullet$,
 where $N_\bullet$ is a free resolution of $N$.  This is indeed the
 case.
 
-In due time (\Cref{sec:homol:derived-functors} and 8) we will prove
+In due time (\Cref{sec:homol:derived-functors} and OLD:CHECK THIS 8) we will prove
 this and all the other wonderful facts I have stated in this
 subsection. For now, I am asking the reader to believe that the Tor
 functors can be defined as I have indicated, and the facts reviewed
@@ -1608,7 +1618,8 @@ PID $R$ has a free resolution of length 1:
 \[
   0 \to R^{\oplus m_1} \to R^{\oplus m_0} \to M \to 0.
 \]
-This property characterizes PIDs (\Cref{prop:linalg:pid-characterization-via-presentations}). If
+This property characterizes PIDs
+(\Cref{prop:linalg:pid-characterization-via-presentations}). If
 $0 \to A \to B \to C \to 0$ is an exact sequence of $R$-modules, it is
 not hard to see that one can produce `compatible' resolutions, in the
 sense that the rows of the following diagram will be exact as well as
@@ -1779,7 +1790,8 @@ $R$ denotes a fixed commutative ring.
   \item Prove that $k \subseteq F$ is Galois if and only if
     $F \otimes_k F$ is isomorphic to $F^{[F:k]}$ as a ring.
   \end{itemize}
-  (Use \Cref{coro:linrep:tensor-with-quotient-by-ideal} to `compute' the tensor. The CRT from
+  (Use \Cref{coro:linrep:tensor-with-quotient-by-ideal} to `compute' the tensor.
+  The CRT from
   \Cref{subsec:irred:chinese-remainder-theorem} will likely be
   helpful.)
 \end{exer}
@@ -1791,7 +1803,10 @@ $R$ denotes a fixed commutative ring.
   Let $S$ be a multiplicative subset of $R$ (cf.\
   \Cref{exer:irred:localization-construction}).  Prove that $S^{-1}R$
   is flat over $R$. (Hint:
-  \Cref{exer:linrep:localization-is-tensor-with-localized-ring,exer:linrep:localization-is-exact-preserves-homology}.)
+  \Cref{
+    exer:linrep:localization-is-tensor-with-localized-ring,
+    exer:linrep:localization-is-exact-preserves-homology
+  }.)
 \end{exer}
 \begin{exer}{}{exer:linrep:direct-sums-of-flat-are-flat}
   Prove that direct sums of flat modules are flat.
@@ -1813,7 +1828,9 @@ $R$ denotes a fixed commutative ring.
 \begin{exer}{}{exer:linrep:tor1-of-quotients-iso-to-intersection-over-product}
   Let $I$, $J$ be ideals of $R$. Prove that
   $\Tor^R_1(R/I, R/J) \cong (I \cap J)/IJ$. (For example, this
-  $\Tor^R_1$ vanishes if $I + J = R$, by \Cref{lem:irred:pairwise-comaximal-product-equals-intersection}.)  Prove
+  $\Tor^R_1$ vanishes if $I + J = R$, by
+  \Cref{lem:irred:pairwise-comaximal-product-equals-intersection}.)
+  Prove
   that $\Tor^R_i(R/I, R/J)$ is isomorphic to $\Tor^R_{i-1}(I, R/J)$
   for $i > 1$.
 \end{exer}
@@ -1865,7 +1882,10 @@ $R$ denotes a fixed commutative ring.
   prime ideals $\mathfrak{p}$, if and only if $M_{\mathfrak{m}}$ is a
   flat $R_{\mathfrak{m}}$-module for all maximal ideals
   $\mathfrak{m}$. (Hint: Use
-  \Cref{exer:linrep:localization-is-exact-preserves-homology,exer:linrep:tensor-and-localization-commute}.
+  \Cref{
+    exer:linrep:localization-is-exact-preserves-homology,
+    exer:linrep:tensor-and-localization-commute
+  }.
   The
   $\Rightarrow$ direction will be straightforward. For the converse,
   let $A \subseteq B$ be $R$-modules, and let $K$ be the kernel of the
@@ -2047,7 +2067,7 @@ $M \otimes_R N \to G$ is in fact an $R$-linear map.
   recovered if, e.g., $M$ is a two-sided $R$-module.
 \end{rem}
 
-\subsection{Bimodules; adjunction again}
+\subsection{Bimodules; adjunction again}%
 \label{subsec:linrep:bimodules-adjunction-again}
 The enhanced universal property for the tensor will allow us to
 upgrade the adjunction formula given in \Cref{lem:linrep:hom-tensor-adjunction}. This
@@ -2109,16 +2129,18 @@ once one understands what the statement says.
   \]
   where the second equality holds by the $R$-linearity of $\alpha$ and
   the third by the definition of the $R$-module structure on
-  $\Hom_S(N, P)$. Thus $\phi$ is $R$-balanced. By \Cref{lem:linrep:balanced-map-factors-through-tensor},
+  $\Hom_S(N, P)$. Thus $\phi$ is $R$-balanced. By
+  \Cref{lem:linrep:balanced-map-factors-through-tensor},
   such a map determines (and is determined by) a homomorphism of
   abelian groups $\tilde\phi : M \otimes_R N \to P$, with
   $\phi(m, n) = \tilde\phi(m \otimes n)$. I claim that $\tilde\phi$ is
   $S$-linear. Indeed, for all $s \in S$ and all pure tensors
   $m \otimes n$,
   \begin{align*}
-    \tilde\phi(s(m \otimes n)) &= \tilde\phi(m \otimes (sn))
-                                 = \phi(m, sn) = \alpha(m)(sn) \\
-                               &= s\alpha(m)(n) = s\phi(m, n) = s\tilde\phi(m \otimes n),
+    \tilde\phi(s(m \otimes n))
+    &= \tilde\phi(m \otimes (sn))
+      = \phi(m, sn) = \alpha(m)(sn) \\
+    &= s\alpha(m)(n) = s\phi(m, n) = s\tilde\phi(m \otimes n),
   \end{align*}
   where I have used the $S$-linearity of $\alpha(m)$. Thus
   $\tilde\phi \in \Hom_S(M \otimes_R N, P)$. Tracing the argument
@@ -2127,10 +2149,11 @@ once one understands what the statement says.
   are clearly inverses of each other.
 \end{proof}
 
-If $R = S$, we recover the adjunction formula of \Cref{lem:linrep:hom-tensor-adjunction};
+If $R = S$, we recover the adjunction formula of
+\Cref{lem:linrep:hom-tensor-adjunction};
 note that in this case the isomorphism is clearly $R$-linear.
 
-\subsection{Restriction and extension of scalars}
+\subsection{Restriction and extension of scalars}%
 \label{subsec:linrep:restriction-and-extension-of-scalars}
 Coming back to the theme mentioned at the beginning of this section,
 consider the case in which we have a homomorphism $f : R \to S$ of
@@ -2170,7 +2193,8 @@ $S\text{-}\categ{Mod} \to R\text{-}\categ{Mod}$ induced from $f$ by
 restriction of scalars. Note that $f_*$ is trivially exact, because
 the kernels and images of a homomorphism of modules are the same
 regardless of the base ring. In view of the considerations in
-\Cref{exam:linrep:exact-functor-definition-example}, this hints that $f_*$ may have both a
+\Cref{exam:linrep:exact-functor-definition-example},
+this hints that $f_*$ may have both a
 left-adjoint and a right-adjoint functor, and this will be precisely
 the case (\Cref{prop:linrep:restriction-extension-coextension-adjunctions}).
 
@@ -2214,11 +2238,14 @@ covariantly functorial prescription.
     &\cong \Hom_R(M, \Hom_S(S, N)) \\
     &\cong \Hom_S(M \otimes_R S, N) = \Hom_S(f^*(M), N),
   \end{align*}
-  where I have used \Cref{lem:linrep:hom-tensor-adjunction-bimodule}. These bijections are canonical,
-  proving that $f^*$ is left-adjoint to $f_*$.
+  where I have used
+  \Cref{lem:linrep:hom-tensor-adjunction-bimodule}.
+  These bijections are canonical, proving that $f^*$
+  is left-adjoint to $f_*$.
 
   Similarly, there is a canonical isomorphism $N \cong N \otimes_S S$
-  (\Cref{exam:linrep:tensor-with-base-ring-is-identity}); thus $N \otimes_S S \cong f_*(N)$ as
+  (\Cref{exam:linrep:tensor-with-base-ring-is-identity});
+  thus $N \otimes_S S \cong f_*(N)$ as
   $R$-modules, and for every $R$-module $M$,
   \begin{align*}
     \Hom_R(f_*(N), M)
@@ -2226,11 +2253,12 @@ covariantly functorial prescription.
     &\cong \Hom_S(N, \Hom_R(S, M))
       = \Hom_S(N, f^!(M))
   \end{align*}
-  again by \Cref{lem:linrep:hom-tensor-adjunction-bimodule}. This shows that $f^!$ is right-adjoint
+  again by \Cref{lem:linrep:hom-tensor-adjunction-bimodule}.
+  This shows that $f^!$ is right-adjoint
   to $f_*$, concluding the proof.
 \end{proof}
 
-\begin{rem}{(Warning)}{rem:linrep:notation-warning-pushforward}
+\begin{rem}{Warning}{rem:linrep:notation-warning-pushforward}
   My choice of notation, $f_*$, etc., is somewhat nonstandard, and the
   reader should not take it too literally. It is inspired by analogs
   in the context of sheaf theory over schemes, but some of the
@@ -2340,9 +2368,11 @@ In the following exercises, $R$, $S$ denote commutative rings.
 \end{exer}
 \begin{exer}{}{exer:linrep:composition-rules-for-base-change-functors}
   In `geometric' contexts (such as the one hinted at in
-  \Cref{rem:linrep:notation-warning-pushforward}), one would actually work with categories
+  \Cref{rem:linrep:notation-warning-pushforward}), one would actually
+  work with categories
   which are opposite to the category of commutative rings; cf.\
-  \Cref{exam:linrep:category-of-affine-algebraic-sets}. A ring homomorphism $f : R \to S$
+  \Cref{exam:linrep:category-of-affine-algebraic-sets}. A ring
+  homomorphism $f : R \to S$
   corresponds to a morphism $f^\circ : S^\circ \to R^\circ$ in the
   opposite category, and we can simply define $(f^\circ)_*$, etc., to
   be $f_*$, etc. For morphisms $f^\circ : S^\circ \to R^\circ$ and
@@ -2401,7 +2431,8 @@ In the following exercises, $R$, $S$ denote commutative rings.
     $R$-module. Prove that this implies that $g$ is injective.
   \item Conclude that $f$ is an isomorphism.
   \end{itemize}
-  Two rings are \emph{Morita equivalent} if their categories of
+  Two rings are \emph{Morita equivalent}\index{Morita equivalent}
+  if their categories of
   left-modules are equivalent. The result of this exercise is a (very)
   particular case of the fact that two commutative rings are Morita
   equivalent if and only if they are isomorphic. In fact, this more
