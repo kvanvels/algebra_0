@@ -21,16 +21,31 @@
 \@addtoreset{equation}{chapter}
 \makeatother
 
+\newlength{\tcbdescent}
+\settodepth{\tcbdescent}{g}
+
 \tcbset{
   defstyle/.style={
+    enhanced,
+    frame hidden,
     breakable,
     before upper={\parindent15pt\noindent},
     label separator=,
+    attach title to upper={.\ },
     fonttitle=\sffamily\bfseries\upshape,
     fontupper=\upshape,
     colframe=\thmColor,
     colback=white,
-    colupper=black
+    colupper=black,
+    coltitle=black,
+    boxrule=0pt,
+    boxsep=0pt,
+    borderline west={2pt}{0pt}{tcbcolframe},
+    sharp corners,
+    left=8pt,
+    top=0pt,
+    bottom=-\tcbdescent,
+    right=2pt
   }
 }
 
