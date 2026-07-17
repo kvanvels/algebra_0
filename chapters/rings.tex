@@ -41,6 +41,7 @@ $\End_{\categ{Ab}}(G)$ an abelian group), and composition. These two
 operations are compatible with each other in a sense captured by the
 \emph{ring axioms}:
 \begin{defn}{Ring}{defn:rings:ring}
+  \tolean[Claude]{
   A \emph{ring} $(R, +, \cdot)$ is an abelian group $(R, +)$ endowed
   with a second binary operation $\cdot$, satisfying on its own the
   requirements of being associative and having a two-sided identity,
@@ -60,6 +61,7 @@ operations are compatible with each other in a sense captured by the
     $(\forall r, s, t \in R) : (r+s) \cdot t = r \cdot t + s \cdot t$
     and $t \cdot (r+s) = t \cdot r + t \cdot s$.
   \end{itemize}
+  }
 \end{defn}
 The notation $\cdot$ is often omitted in formulas, and we usually
 refer to rings by the name of the underlying set.  \emph{Warning:}
@@ -83,9 +85,10 @@ multiplicative identity is necessarily unique: the argument given for
 element of the abelian group underlying a ring is denoted $0_R$ (or
 simply $0$, in context) and is called the `additive' identity. This is
 a special element with respect to multiplication:
+
 \begin{lem}{}{lem:rings:zero-mult}
-  In a ring $R$, $0 \cdot r = 0 = r \cdot 0$ for all
-    $r \in R$.
+  \tolean[Claude]{In a ring $R$, $0 \cdot r = 0 = r \cdot 0$ for all
+  $r \in R$.}
 \end{lem}
 \begin{proof}
   Indeed, $0 = 0 + 0$; hence, applying distributivity,
@@ -110,10 +113,12 @@ multiplication $(-1) \cdot r$: indeed, using distributivity,
 \label{subsec:rings:first-examples-and-special-classes-of-rings}
 
 \begin{exam}{Zero-ring}{}
+  \tolean[Claude]{
   We can define a ring structure on a trivial group $\{*\}$ by letting
   $* \cdot * = *$ (as well as $* + * = *$); this is often called the
   \emph{zero-ring}. Note that $0 = 1$ in this ring (cf.\
   \Cref{exer:rings:zero-ring}).
+  }
 \end{exam}
 \begin{exam}{Number rings}{}
   More interesting examples are the number-based groups such as $\Z$
@@ -126,10 +131,12 @@ To begin with, note that multiplication is commutative in these
 examples; this is not among the requirements we have posed on rings in
 the official definition given above.
 \begin{defn}{Commutative ring}{defn:rings:commutative}
+  \tolean[Claude]{
   A ring $R$ is \emph{commutative} if
   \begin{itemize}
   \item $(\forall r, s \in R) : r \cdot s = s \cdot r$.
   \end{itemize}
+  }
 \end{defn}
 \emph{Commutative rings} (with identity) form an extremely important
 class of rings; \emph{commutative algebra} is the subfield of algebra
@@ -174,17 +181,21 @@ even though $[4]_6 \neq [1]_6$.  The problem here is that in $\Z/6\Z$
 there are elements $a \neq 0$ such that $a \cdot b = 0$ for some
 $b \neq 0$ (take $a = [2]_6$, $b = [3]_6$).
 \begin{defn}{Left-zero-divisor}{defn:rings:zero-divisor}
+  \tolean[Claude]{
   An element $a$ in a ring $R$ is a \emph{left-zero-divisor} if there
   exist elements $b \neq 0$ in $R$ for which $ab = 0$.
+  }
 \end{defn}
 The reader will have no difficulty figuring out what a
 \emph{right}-zero-divisor should be. The element $0$ is a zero-divisor
 in all nonzero rings $R$; the zero ring is the only ring without
 zero-divisors(!).
 \begin{prop}{}{prop:rings:zero-divisor-injection}
+  \tolean[Claude]{
   In a ring $R$, $a \in R$ is not a left- (resp., right-) zero-divisor
   if and only if left (resp., right) multiplication by $a$ is an
   injective function $R \to R$.
+  }
 \end{prop}
 In other words, $a$ is not a left- (resp., right-) zero-divisor if and
 only if multiplicative left- (resp., right-) cancellation by the
@@ -207,11 +218,13 @@ Rings such as $\Z$, $\Q$, etc., are commutative rings \emph{without}
 (nonzero) zero-divisors.  Such rings are very special, but very
 important, and they deserve their own terminology:
 \begin{defn}{Integral domain}{defn:rings:integral-domain}
+  \tolean[Claude]{
   An \emph{integral domain} is a nonzero commutative ring $R$ (with
   $1$) such that
   \[
     (\forall a, b \in R) : ab = 0 \implies a = 0 \text{ or } b = 0.
   \]
+  }
 \end{defn}
 \Cref{chap:irred} will be entirely devoted to integral domains.  An
 element which is not a zero-divisor is called a
@@ -237,12 +250,15 @@ ideal domain); in fact, it is more special still!, as it is a
 However, $\Q$, $\R$, $\C$ are more special than all of that and then
 some, since they are \emph{fields}.
 \begin{defn}{Left-unit, right-unit, unit}{defn:rings:unit}
+  \tolean[Claude]{
   An element $u$ of a ring $R$ is a \emph{left-unit} if
   $\exists v \in R$ such that $uv = 1$; it is a \emph{right-unit} if
   $\exists v \in R$ such that $vu = 1$. \emph{Units} are two-sided
   units.
+  }
 \end{defn}
 \begin{prop}{}{prop:rings:units}
+  \tolean[Claude]{
   In a ring $R$:
   \begin{itemize}
   \item $u$ is a left- (resp., right-) unit if and only if left-
@@ -254,6 +270,7 @@ some, since they are \emph{fields}.
   \item the inverse of a two-sided unit is unique;
   \item two-sided units form a group under multiplication.
   \end{itemize}
+  }
 \end{prop}
 \begin{proof}
   These assertions are all straightforward. For example, denote by
@@ -290,14 +307,18 @@ name; of course we denote it by $u^{-1}$. The reader should keep in
 mind that inverses of left- or right-units are \emph{not} unique in
 general, so the `inverse notation' is not appropriate for them.
 \begin{defn}{Division ring}{defn:rings:division-ring}
+  \tolean[Claude]{
   A \emph{division ring} is a ring in which every nonzero element is a
   two-sided unit.
+  }
 \end{defn}
 We will mostly be concerned with the commutative case, which has its
 own name:
 \begin{defn}{Field}{defn:rings:field}
+  \tolean[Claude]{
   A \emph{field} is a nonzero commutative ring $R$ (with $1$) in which
   every nonzero element is a unit.
+  }
 \end{defn}
 The whole of \Cref{chap:fields} will be devoted to studying fields.
 
@@ -312,8 +333,10 @@ is not a field. Remember:
 \]
 There is a situation, however, in which the two notions coincide:
 \begin{prop}{}{prop:rings:finite-field-domain}
+  \tolean[Claude]{
   Assume $R$ is a finite commutative ring; then $R$ is an integral
   domain if and only if it is a field.
+  }
 \end{prop}
 \begin{proof}
   One implication holds for all rings, as pointed out above; thus we
@@ -353,10 +376,10 @@ There is a situation, however, in which the two notions coincide:
   prime. Putting this together with
   \Cref{prop:rings:finite-field-domain}, we get the pretty
   classification (for integers $p \neq 0$)
-  \[
+  \tolean[Kent]{\[
     \Z/p\Z \text{ integral domain} \iff \Z/p\Z \text{ field} \iff p
     \text{ prime,}
-  \]
+  \]}
   which the reader is well advised to remember firmly.
 \end{exam}
 \begin{exam}{}{}
@@ -381,6 +404,7 @@ they are another class of examples that is to some extent already
 familiar to our reader. I will capitalize on this familiarity and
 avoid a truly formal (and truly tedious) definition.
 \begin{defn}{Polynomial}{defn:rings:polynomial}
+  \tolean[Claude]{
   Let $R$ be a ring. A \emph{polynomial} $f(x)$ in the
   \emph{indeterminate} $x$ and with \emph{coefficients} in $R$ is a
   finite linear combination of nonnegative `powers' of $x$ with
@@ -395,6 +419,7 @@ avoid a truly formal (and truly tedious) definition.
     \sum_{i \geq 0} a_i x^i = \sum_{i \geq 0} b_i x^i \iff (\forall i
     \geq 0) : a_i = b_i.
   \]
+  }
 \end{defn}
 The set of polynomials in $x$ over $R$ is denoted by $R[x]$. Since all
 but finitely many $a_i$ are assumed to be $0$, one usually employs the
@@ -429,9 +454,9 @@ that is, business as usual.  It is essentially straightforward
 (\Cref{exer:rings:rx-mult-assoc}) to check that $R[x]$, with these
 operations, is a ring; the identity $1$ of $R$ is the identity of
 $R[x]$, when viewed as a polynomial (that is,
-$1_{R[x]} = 1_R + 0x + 0x^2 + \cdots$).  The \emph{degree} of a
+$1_{R[x]} = 1_R + 0x + 0x^2 + \cdots$).  \tolean[Kent]{The \emph{degree} of a
 nonzero polynomial $f(x) = \sum_{i \geq 0} a_i x^i$, denoted
-$\deg f(x)$, is the largest integer $d$ for which $a_d \neq 0$. This
+$\deg f(x)$, is the largest integer $d$ for which $a_d \neq 0$.} This
 notion is very useful, but really behaves well
 (\Cref{exer:rings:degree-inequalities}) only if $R$ is an integral
 domain: for example, note that over $R = \Z/6\Z$
@@ -472,8 +497,8 @@ indeterminates. An honest definition of this ring involves
 $\sum_{i=0}^{\infty} a_i x^i = a_0 + a_1 x + a_2 x^2 + \ldots$ in $x$
 with coefficients in $R$, and evident operations, is denoted
 $R[[x]]$. Regrettably, we will only occasionally encounter these rings
-in this book.  The ring $R[x]$ is (clearly) commutative if $R$ is
-commutative; it is an integral domain if $R$ is an integral domain
+in this book.  \tolean[Kent]{The ring $R[x]$ is (clearly) commutative if $R$ is
+commutative}; \tolean[Kent]{it is an integral domain if $R$ is an integral domain}
 (\Cref{exer:rings:rx-integral-domain}); but it has no chances of being
 a field even if $R$ is a field, since $x$ has no inverse in
 $R[x]$. The question of which properties of $R$ are `inherited' by
@@ -524,10 +549,17 @@ exponents.
 
 \subsection*{Exercises}
 \begin{exer}{\exerused}{exer:rings:zero-ring}
-  Prove that if $0 = 1$ in a ring $R$, then $R$ is a
-  zero-ring. [\Cref{subsec:rings:first-examples-and-special-classes-of-rings}]
+  \tolean[Claude]{Prove that if $0 = 1$ in a ring $R$, then $R$ is a
+  zero-ring.} [\Cref{subsec:rings:first-examples-and-special-classes-of-rings}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:rings:power-set-ring}
+  % TODO: "the solid black contour indicates the set included in the
+  % operation" reads like a caption for a Venn-diagram figure (shading
+  % A+B and A*B), but there's no \includegraphics/tikzpicture/figure
+  % here or anywhere nearby. Investigate whether a diagram is actually
+  % missing (lost in a past edit? never transcribed from the source?)
+  % or whether this phrase is vestigial and should just be reworded.
+  \tolean[Claude]{
   Let $S$ be a set, and define operations on the power set
   $\mathcal{P}(S)$ of $S$ by setting $\forall A, B \in \mathcal{P}(S)$
   \begin{align*}
@@ -536,16 +568,18 @@ exponents.
   \end{align*}
   (where the solid black contour indicates the set included in the
   operation).  Prove that $(\mathcal{P}(S), +, \cdot)$ is a
-  commutative ring. [\ref{exer:rings:powerset-vs-z2s},
+  commutative ring.
+  } [\ref{exer:rings:powerset-vs-z2s},
   \ref{exer:rings:boolean-power-set}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:rings:function-ring}
-  Let $R$ be a ring, and let $S$ be any set. Explain how to endow the
+  \tolean[Claude]{Let $R$ be a ring, and let $S$ be any set. Explain how to endow the
   set $R^S$ of set-functions $S \to R$ of two operations $+$, $\cdot$
   so as to make $R^S$ into a ring, such that $R^S$ is just a copy of
-  $R$ if $S$ is a singleton. [\ref{exer:rings:powerset-vs-z2s}]
+  $R$ if $S$ is a singleton.} [\ref{exer:rings:powerset-vs-z2s}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:matrix-ring}
+  \tolean[Claude]{
   The set of $n \times n$ matrices with entries in a ring $R$ is
   denoted $\mathcal{M}_n(R)$. Prove that componentwise addition and
   matrix multiplication make $\mathcal{M}_n(R)$ into a ring, for any
@@ -576,6 +610,7 @@ exponents.
   rings of these sets by endowing them with ordinary addition and
   multiplication of matrices? (These sets are all Lie algebras; cf.\
   \Cref{exer:linalg:lie-bracket-axioms-and-category}.)
+  }
   [\Cref{subsec:rings:first-examples-and-special-classes-of-rings},
   \ref{exer:rings:quaternion-matrix-reps},
   \ref{exer:rings:endomorphism-algebra},
@@ -583,10 +618,11 @@ exponents.
   \ref{exer:linalg:lie-bracket-axioms-and-category}]
 \end{exer}
 \begin{exer}{}{exer:rings:sum-zero-divisors}
-  Let $R$ be a ring. If $a$, $b$ are zero-divisors in $R$, is $a+b$
-  necessarily a zero-divisor?
+  \tolean[Claude]{Let $R$ be a ring. If $a$, $b$ are zero-divisors in $R$, is $a+b$
+  necessarily a zero-divisor?}
 \end{exer}
 \begin{exer}{$\lnot$}{exer:rings:nilpotent}
+  \tolean[Claude]{
   An element $a$ of a ring $R$ is \emph{nilpotent} if $a^n = 0$ for
   some $n$.
   \begin{itemize}
@@ -594,37 +630,39 @@ exponents.
     then $a+b$ is also nilpotent.
   \item Is the hypothesis $ab = ba$ in the previous statement
     necessary for its conclusion to hold?
-  \end{itemize} [\ref{exer:rings:nilpotents-form-ideal}]
+  \end{itemize}
+  } [\ref{exer:rings:nilpotents-form-ideal}]
 \end{exer}
 \begin{exer}{}{exer:rings:nilpotent-znz}
-  Prove that $[m]$ is nilpotent in $\Z/n\Z$ if and only if $m$ is
-  divisible by all prime factors of $n$.
+  \tolean[Claude]{Prove that $[m]$ is nilpotent in $\Z/n\Z$ if and only if $m$ is
+  divisible by all prime factors of $n$.}
 \end{exer}
 \begin{exer}{}{exer:rings:x-squared-one}
-  Prove that $x = \pm 1$ are the only solutions to the equation
+  \tolean[Claude]{Prove that $x = \pm 1$ are the only solutions to the equation
   $x^2 = 1$ in an integral domain. Find a ring in which the equation
-  $x^2 = 1$ has more than $2$ solutions.
+  $x^2 = 1$ has more than $2$ solutions.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:prop112-proof}
   Prove
   \Cref{prop:rings:units}. [\Cref{subsec:rings:first-examples-and-special-classes-of-rings}]
 \end{exer}
 \begin{exer}{}{exer:rings:right-unit-inverses}
-  Let $R$ be a ring. Prove that if $a \in R$ is a right-unit and has
+  \tolean[Claude]{Let $R$ be a ring. Prove that if $a \in R$ is a right-unit and has
   two or more left-inverses, then $a$ is not a left-zero-divisor and
-  is a right-zero-divisor.
+  is a right-zero-divisor.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:four-element-field}
-  Construct a field with $4$ elements: as mentioned in the text, the
+  \tolean[Claude]{Construct a field with $4$ elements: as mentioned in the text, the
   underlying abelian group will have to be $\Z/2\Z \times \Z/2\Z$;
   $(0, 0)$ will be the zero element, and $(1, 1)$ will be the
   multiplicative identity. The question is what $(0, 1) \cdot (0, 1)$,
   $(0, 1) \cdot (1, 0)$, $(1, 0) \cdot (1, 0)$ must be, in order to
   get a
-  field. [\Cref{subsec:rings:first-examples-and-special-classes-of-rings},
+  field.} [\Cref{subsec:rings:first-examples-and-special-classes-of-rings},
   \Cref{subsec:irred:roots-and-reducibility}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:quaternions}
+  \tolean[Claude]{
   Just as complex numbers may be viewed as combinations $a + bi$,
   where $a, b \in \R$ and $i$ satisfies the relation $i^2 = -1$ (and
   commutes with $\R$), we may construct a ring\footnote{The letter
@@ -652,17 +690,20 @@ exponents.
     $a, b, c, d \in \R$.
   \item Prove that $\field{H}$ is a division ring.
   \end{enumerate}
+  }
   Elements of $\field{H}$ are called \emph{quaternions}. Note that
   $Q_8 := \{\pm 1, \pm i, \pm j, \pm k\}$ forms a subgroup of the
   group of units of $\field{H}$; it is a noncommutative group of order
   $8$, called the \emph{quaternionic group}.
+  \tolean[Claude]{
   \begin{enumerate}[resume, label=(\roman*)]
   \item List all subgroups of $Q_8$, and prove that they are all
     normal.
   \item Prove that $Q_8$, $D_8$ are not isomorphic.
   \item Prove that $Q_8$ admits the presentation
     $\langle x, y \mid x^2 y^{-2}, y^4, xyx^{-1}y \rangle$.
-  \end{enumerate} [\Cref{subsec:groups:normal-subgroups},
+  \end{enumerate}
+  } [\Cref{subsec:groups:normal-subgroups},
   \ref{exer:rings:quaternion-matrix-reps},
   \ref{exer:groups2:class-formula-d8-q8-verify},
   \ref{exer:groups2:q8-not-semidirect-prod},
@@ -670,37 +711,37 @@ exponents.
   \ref{exer:irred:integral-quaternions-ring-basics}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:rx-mult-assoc}
-  Verify that the multiplication defined in $R[x]$ is
-  associative. [\Cref{subsec:rings:polynomial-rings}]
+  \tolean[Claude]{Verify that the multiplication defined in $R[x]$ is
+  associative.} [\Cref{subsec:rings:polynomial-rings}]
 \end{exer}
 
 
 \begin{exer}{\exerused}{exer:rings:degree-inequalities}
   Let $R$ be a ring, and let $f(x), g(x) \in R[x]$ be nonzero
-  polynomials. Prove that
+  polynomials. \tolean[Claude]{Prove that
   \[
     \deg(f(x) + g(x)) \leq \max(\deg(f(x)), \deg(g(x))).
-  \]
-  Assuming that $R$ is an integral domain, prove that
+  \]}
+  \tolean[Claude]{Assuming that $R$ is an integral domain, prove that
   \[
     \deg(f(x) \cdot g(x)) = \deg(f(x)) + \deg(g(x)).
-  \] [\Cref{subsec:rings:polynomial-rings}]
+  \]} [\Cref{subsec:rings:polynomial-rings}]
 \end{exer}
 
 \begin{exer}{\exerused}{exer:rings:rx-integral-domain}
-  Prove that $R[x]$ is an integral domain if and only if $R$ is an
-  integral domain. [\Cref{subsec:rings:polynomial-rings}]
+  \tolean[Claude]{Prove that $R[x]$ is an integral domain if and only if $R$ is an
+  integral domain.} [\Cref{subsec:rings:polynomial-rings}]
 \end{exer}
 
 \begin{exer}{}{exer:rings:power-series-units}
   Let $R$ be a ring, and consider the ring of power series $R[[x]]$
   (cf.\ \Cref{subsec:rings:polynomial-rings}).
   \begin{enumerate}[label=(\roman*)]
-  \item Prove that a power series $a_0 + a_1 x + a_2 x^2 + \cdots$ is
+  \item \tolean[Claude]{Prove that a power series $a_0 + a_1 x + a_2 x^2 + \cdots$ is
     a unit in $R[[x]]$ if and only if $a_0$ is a unit in $R$. What is
-    the inverse of $1 - x$ in $R[[x]]$?
-  \item Prove that $R[[x]]$ is an integral domain if and only if $R$
-    is.
+    the inverse of $1 - x$ in $R[[x]]$?}
+  \item \tolean[Claude]{Prove that $R[[x]]$ is an integral domain if and only if $R$
+    is.}
   \end{enumerate}
 \end{exer}
 
@@ -713,6 +754,7 @@ exponents.
 \label{sec:rings:the-category-ring}
 \subsection{Ring homomorphisms}
 \label{subsec:rings:ring-homomorphisms}
+\tolean[Claude]{
 \emph{Ring homomorphisms} are defined in the natural way: if $R$, $S$
 are rings, a function $\varphi : R \to S$ is a \emph{ring
   homomorphism} if it preserves both operations and the identity
@@ -730,14 +772,17 @@ and finally
 \[
   \varphi(1_R) = 1_S.
 \]
-It is evident that rings form a category, with ring homomorphisms as
-morphisms. I will denote this category by $\categ{Ring}$.  The
+}
+
+\tolean[Claude]{It is evident that rings form a category, with ring homomorphisms as
+morphisms.} I will denote this category by $\categ{Ring}$.  \tolean[Claude]{The
 zero-ring is clearly final in $\categ{Ring}$. However, note that it is
 \emph{not} initial: because of the requirement that ring homomorphisms
 send $1$ to $1$, the only rings to which zero-rings map
 homomorphically are the zero-rings
-(\Cref{exer:rings:zero-ring-domain}).
+(\Cref{exer:rings:zero-ring-domain}).}
 
+\tolean[Claude]{
 The category $\categ{Ring}$ does have initial objects: the ring of
 integers $\Z$ (with the usual operations $+$, $\cdot$) is initial in
 $\categ{Ring}$. Indeed, for every ring $R$ we can define a group
@@ -757,7 +802,9 @@ axiom. This ring homomorphism is unique, since it is determined by the
 requirement that $\varphi(1) = 1_R$ and by the fact that $\varphi$
 preserves addition. Thus for every ring $R$ there exists one and only
 one ring homomorphism $\Z \to R$, showing that $\Z$ is initial in
-$\categ{Ring}$.  This should already convince the reader that $\Z$ is
+$\categ{Ring}$.
+}
+This should already convince the reader that $\Z$ is
 a very special ring. There is in fact nothing arbitrary about $\Z$:
 knowledge of the group $\Z$ determines the ring structure of $\Z$, as
 will be underscored below. This is one of the main reasons why I
@@ -765,7 +812,7 @@ included the `identity' axiom in the list in \Cref{defn:rings:ring}:
 there are many nonisomorphic structures of `ring without identity' on
 the group $(\Z, +)$ (cf.\ \Cref{exer:rings:z-mz-isomorphic-groups}),
 but only one structure of ring with identity
-(\Cref{exer:rings:unique-ring-structure-on-z}).  Ring homomorphisms
+(\Cref{exer:rings:unique-ring-structure-on-z}).  \tolean[Claude]{Ring homomorphisms
 preserve units: that is, if $u$ is a (left-, resp., right-) unit in
 $R$ and $\varphi : R \to S$ is a ring homomorphism, then $\varphi(u)$
 is a (left-, resp., right-) unit. Indeed, if $v$ is a (right-, say)
@@ -773,7 +820,7 @@ inverse of $u$, then
 \[
   \varphi(u)\varphi(v) = \varphi(uv) = \varphi(1_R) = 1_S,
 \]
-so that $\varphi(v)$ is a (right-) inverse of $\varphi(u)$.  On the
+so that $\varphi(v)$ is a (right-) inverse of $\varphi(u)$.}  On the
 other hand, the image of a non-zero-divisor by a ring homomorphism may
 well be a zero-divisor: for example, the canonical projection
 $\pi : \Z \to \Z/6\Z$ is a ring homomorphism, and $2$ is a
@@ -809,7 +856,7 @@ For example, $(i, \Z[x_1, \ldots, x_n])$ is an object of
 $\mathscr{R}_A$, where $i : A \to \Z[x_1, \ldots, x_n]$ sends $a_k$ to
 $x_k$.
 \begin{prop}{}{prop:rings:poly-universal}
-  $(i, \Z[x_1, \ldots, x_n])$ is initial in $\mathscr{R}_A$.
+  \tolean[Claude]{$(i, \Z[x_1, \ldots, x_n])$ is initial in $\mathscr{R}_A$.}
 \end{prop}
 \begin{proof}
   Let $(j, R)$ be an arbitrary object of $\mathscr{R}_A$; we have to
@@ -846,20 +893,20 @@ $x_k$.
   the proof.
 \end{proof}
 \begin{exam}{}{exam:rings:poly-universal-n1}
-  For $n = 1$, \Cref{prop:rings:poly-universal} says that if $s$ is
+  \tolean[Claude]{For $n = 1$, \Cref{prop:rings:poly-universal} says that if $s$ is
   any element of a ring $S$, then there is a unique ring homomorphism
   $\Z[x] \to S$ sending $x$ to $s$ and `extending' the unique ring
-  homomorphism $\iota : \Z \to S$. In this case the commutativity of
+  homomorphism $\iota : \Z \to S$.} In this case the commutativity of
   $S$ is immaterial (why?).
 \end{exam}
 \begin{exam}{}{exam:rings:poly-universal-general}
-  More generally, let $\alpha : R \to S$ be a fixed ring homomorphism,
+  \tolean[Claude]{More generally, let $\alpha : R \to S$ be a fixed ring homomorphism,
   and let $s \in S$ be an element commuting with $\alpha(r)$ for all
   $r \in R$. Then there is a unique ring homomorphism
   $\bar{\alpha} : R[x] \to S$ extending $\alpha$ and sending $x$ to
-  $s$ (\Cref{exer:rings:poly-extension-property}).
+  $s$.} (\Cref{exer:rings:poly-extension-property})
 
-  In particular, we get an `evaluation map' for polynomials over
+  \tolean[Claude]{In particular, we get an `evaluation map' for polynomials over
   commutative rings as follows. Given a polynomial
   $f(x) = \sum_{i \geq 0} a_i x^i \in R[x]$, every $r \in R$
   determines an element
@@ -867,10 +914,10 @@ $x_k$.
     f(r) = \sum_{i \geq 0} a_i r^i\,;
   \]
   this may be viewed as $\bar{\alpha}(f(x))$, where $\bar{\alpha}$ is
-  obtained as above with $\alpha = \id_R : R \to R$ and $s = r$.
+  obtained as above with $\alpha = \id_R : R \to R$ and $s = r$.}
 
-  Thus, every polynomial $f(x)$ determines a \emph{polynomial
-    function} $f : R \to R$, defined by $r \mapsto f(r)$. It is a good
+  \tolean[Claude]{Thus, every polynomial $f(x)$ determines a \emph{polynomial
+    function} $f : R \to R$, defined by $r \mapsto f(r)$.} It is a good
   idea to keep the two concepts of `polynomial' and `polynomial
   \emph{function}' well distinct (cf.\
   \Cref{exer:rings:z2-poly-function}).
@@ -878,13 +925,16 @@ $x_k$.
 
 \subsection{Monomorphisms and epimorphisms}
 \label{subsec:rings:monomorphisms-and-epimorphisms}
+\tolean[Claude]{
 The \emph{kernel} of a homomorphism $\varphi : R \to S$ of rings is
 \[
   \ker \varphi := \{r \in R \mid \varphi(r) = 0\}\,;
 \]
 that is, it is nothing but the kernel of $\varphi$ when the latter is
-viewed as a homomorphism of groups. As such, $\ker \varphi$ is a
-subgroup of $(R, +)$; it satisfies an even stronger
+viewed as a homomorphism of groups.
+}
+\tolean[Claude]{As such, $\ker \varphi$ is a
+subgroup of $(R, +)$;} it satisfies an even stronger
 requirement,\footnote{Note that $\ker \varphi$ cannot be a
   sub\emph{ring} in any reasonable sense, according to our definition
   of ring, since it does not contain a multiplicative identity in all
@@ -896,6 +946,7 @@ The reader may hope that an analog to
 \Cref{prop:groups:monomorphism-characterization} holds in
 $\categ{Ring}$, and this is indeed the case:
 \begin{prop}{}{prop:rings:mono-equiv}
+  \tolean[Claude]{
   For a ring homomorphism $\varphi : R \to S$, the following are
   equivalent:
   \begin{enumerate}[label=(\alph*)]
@@ -903,6 +954,7 @@ $\categ{Ring}$, and this is indeed the case:
   \item $\ker \varphi = \{0\}$;
   \item $\varphi$ is injective (as a set-function).
   \end{enumerate}
+  }
 \end{prop}
 \begin{proof}
   We prove (a) $\implies$ (b), leaving the rest to the reader. Assume
@@ -932,20 +984,22 @@ By \Cref{prop:rings:mono-equiv}, if $S \to R$ is a monomorphism, then
 $S$ may be identified with a subset of $R$; the following definition
 formalizes this situation.
 \begin{defn}{Subring}{defn:rings:subring}
+  \tolean[Claude]{
   A \emph{subring} $S$ of a ring $R$ is a ring whose underlying set is
   a subset of $R$ and such that the inclusion function
   $S \hookrightarrow R$ is a ring homomorphism.
+  }
 \end{defn}
-Equivalently, a subring of $R$ is a subset $S \subseteq R$ which
+\tolean[Claude]{Equivalently, a subring of $R$ is a subset $S \subseteq R$ which
 contains $1_R$ and satisfies the ring axioms with respect to the
 operations $+$, $\cdot$ induced from $R$. It is immediately checked
 that $S \subseteq R$ is a subring if it is a subgroup of $(R, +)$, it
-is closed with respect to $\cdot$, and it contains $1_R$. As a
+is closed with respect to $\cdot$, and it contains $1_R$.} \tolean[Claude]{As a
 nonexample, the zero-ring is \emph{not} a subring of a nonzero ring
-$R$ (because it does not contain $1_R$).  \Cref{prop:rings:mono-equiv}
+$R$ (because it does not contain $1_R$).}  \Cref{prop:rings:mono-equiv}
 may induce the reader to believe that $\categ{Ring}$ and $\categ{Grp}$
 are rather similar from this general categorical standpoint. But a new
-phenomenon occurs concerning epimorphisms. A surjective map of rings
+phenomenon occurs concerning epimorphisms. \tolean[Claude]{A surjective map of rings
 is certainly an epimorphism in $\categ{Ring}$, since it is already an
 epimorphism in $\categ{Set}$---we have run into this argument earlier
 (e.g., `(c) $\implies$ (a)' in
@@ -953,23 +1007,24 @@ epimorphism in $\categ{Set}$---we have run into this argument earlier
 $\categ{Set}$, $\categ{Grp}$, and $\categ{Ab}$, epimorphisms need not
 be surjective\footnote{Unfortunately, some references \emph{define}
   ring epimorphisms as `surjective ring homomorphisms'; this should be
-  discouraged.} in $\categ{Ring}$. Indeed, consider the inclusion
+  discouraged.} in $\categ{Ring}$.} Indeed, consider the inclusion
 homomorphism of rings
 \[
   \iota : \Z \hookrightarrow \Q\,;
 \]
 $\iota$ is not surjective, and hence it is not an epimorphism in
 $\categ{Set}$ or $\categ{Ab}$ (can the reader `describe'
-$\coker\iota$? \Cref{exer:rings:z-in-q-cokernel}); but it \emph{is} an
+$\coker\iota$? \Cref{exer:rings:z-in-q-cokernel}); \tolean[Claude]{but it \emph{is} an
 epimorphism of rings.  Indeed, if $\alpha_1$, $\alpha_2$ are parallel
 ring homomorphisms
+}
 \[
   \begin{tikzcd}
     \Z \arrow[r, hook, "\iota"] & \Q \arrow[r, shift left, "\alpha_1"]
     \arrow[r, shift right, "\alpha_2"'] & R
   \end{tikzcd}
 \]
-and $\alpha_1$, $\alpha_2$ agree\footnote{As they must, since $\Z$ is
+\tolean[Claude]{and $\alpha_1$, $\alpha_2$ agree\footnote{As they must, since $\Z$ is
   initial.} on $\Z$, say $\alpha = \alpha_1|_{\Z} = \alpha_2|_{\Z}$,
 then they must agree on $\Q$: because for $p, q \in \Z$, $q \neq 0$,
 \[
@@ -981,13 +1036,14 @@ is the same for both.\footnote{Note that $\alpha(q)$ must have a
   $1/q$. In particular, $\alpha_1(q^{-1}) = \alpha_2(q^{-1})$ must
   agree, since they must equal this unique inverse of $\alpha(q)$;
   cf.\ \cref{prop:rings:units}.} Thus, $\iota$ satisfies the
-categorical requirement for epimorphisms (cf.\
+categorical requirement for epimorphisms.} (cf.\
 \Cref{subsec:prelims:functions:monomorphisms-and-epimorphisms}).
-\emph{Warning:} Thus, in $\categ{Ring}$, a homomorphism may well be
-both a monomorphism and an epimorphism without being an isomorphism!
+\emph{Warning:} \tolean[Claude]{Thus, in $\categ{Ring}$, a homomorphism may well be
+both a monomorphism and an epimorphism without being an isomorphism!}
 
 \subsection{Products}
 \label{subsec:rings:products}
+\tolean[Claude]{
 \textit{Products} exist in $\categ{Ring}$: if $R_1$, $R_2$ are rings,
 then $R_1 \times R_2$ may be defined by endowing the direct product of
 groups $R_1 \times R_2$ (cf.\ \Cref{subsec:groups:products-et-al})
@@ -1000,9 +1056,10 @@ $\forall (a_1, a_2), (b_1, b_2) \in R_1 \times R_2$,
 \[
   (a_1, a_2) \cdot (b_1, b_2) := (a_1 \cdot b_1, a_2 \cdot b_2).
 \]
-The identity in $R_1 \times R_2$ is $(1_{R_1}, 1_{R_2})$. The reader
-will check (\Cref{exer:rings:componentwise-product}) that
+The identity in $R_1 \times R_2$ is $(1_{R_1}, 1_{R_2})$.
 $R_1 \times R_2$ is indeed a categorical product in $\categ{Ring}$.
+}
+(\Cref{exer:rings:componentwise-product})
 The reader should keep in mind that in general this is \emph{not} the
 only ring structure one can define on the direct product of underlying
 groups. For example, as mentioned in
@@ -1033,17 +1090,19 @@ This is as good a place as any to expand a little on one of the main
 examples of rings, and one that is not quite as special as the
 examples reviewed in
 \Cref{subsec:rings:first-examples-and-special-classes-of-rings}.
+\tolean[Claude]{
 For every abelian group $G$, the group
 $\End_{\categ{Ab}}(G) := \Hom_{\categ{Ab}}(G, G)$ of endomorphisms of
 $G$ is a ring, under the operations of addition and composition (as
 discussed in the paragraph preceding \Cref{defn:rings:ring}). Indeed,
 associativity follows from the category axioms, and distributivity is
 immediately checked.
+}
 
 It is instructive to examine carefully the endomorphism ring of the
 abelian group $(\Z, +)$:
 \begin{prop}{}{prop:rings:endab-Z}
-  $\End_{\categ{Ab}}(\Z) \cong \Z$ as rings.
+  \tolean[Claude]{$\End_{\categ{Ab}}(\Z) \cong \Z$ as rings.}
 \end{prop}
 \begin{proof}
   Consider the function
@@ -1098,23 +1157,25 @@ $\End_{\categ{Ab}}(G)$ is a ring for every abelian group $G$.  Some of
 the notions reviewed in
 \Cref{subsec:rings:first-examples-and-special-classes-of-rings} are
 expressed very concretely in these endomorphism rings; for example,
-the group of units in $\End_{\categ{Ab}}(G)$ is nothing but
-$\Aut_{\categ{Ab}}(G)$.  Every ring $R$ interacts with the ring of
-endomorphisms of the underlying abelian group $(R, +)$. For $r \in R$,
+\tolean[Claude]{the group of units in $\End_{\categ{Ab}}(G)$ is nothing but
+$\Aut_{\categ{Ab}}(G)$.}  Every ring $R$ interacts with the ring of
+endomorphisms of the underlying abelian group $(R, +)$. \tolean[Claude]{For $r \in R$,
 define left- and right-multiplication by $r$ by $\lambda_r$, $\mu_r$,
 respectively. That is, $\forall a \in R$,
 \[
   \lambda_r(a) = ra, \qquad \mu_r(a) = ar.
 \]
+}
 The following observation is nothing more than easy notation juggling,
 but it is useful; it is a `ring analog' of Cayley's theorem
 (\Cref{thm:groups:cayleys-theorem}):
 \begin{prop}{}{prop:rings:Cayley-ring}
-  Let $R$ be a ring. Then the function $r \mapsto \lambda_r$ is an
+  \tolean[Claude]{Let $R$ be a ring. Then the function $r \mapsto \lambda_r$ is an
   injective ring homomorphism
   \[
     \lambda : R \to \End_{\categ{Ab}}(R).
   \]
+  }
 \end{prop}
 \begin{proof}
   For any $r \in R$ and for all $a, b \in R$, distributivity gives
@@ -1152,13 +1213,15 @@ but it is useful; it is a `ring analog' of Cayley's theorem
   \]
   Of course $\lambda_1$ is the identity, completing the verification.
 \end{proof}
+\tolean[Claude]{
 The function $\mu : R \to \End_{\categ{Ab}}(R)$ defined by
-$r \mapsto \mu_r$ is `almost' a ring homomorphism: the reader will
-check (\Cref{exer:rings:right-mult-cayley}) that
+$r \mapsto \mu_r$ is `almost' a ring homomorphism:
 \[
   \mu_{r+s} = \mu_r + \mu_s, \qquad \mu_{rs} = \mu_s \circ \mu_r,
 \]
-and $\mu_1 = \id_R$. That is, $\mu$ would in fact be a ring
+and $\mu_1 = \id_R$.
+}
+(\Cref{exer:rings:right-mult-cayley}) That is, $\mu$ would in fact be a ring
 homomorphism if we `reversed' multiplication\footnote{This issue is
   entirely analogous to the business of right-actions vs.\
   left-actions; cf.\
@@ -1170,11 +1233,12 @@ $\lambda = \mu$).
 \subsection*{Exercises}
 
 \begin{exer}{\exerused}{exer:rings:zero-ring-domain}
-  Prove that if there is a homomorphism from a zero-ring to a ring
-  $R$, then $R$ is a zero-ring
+  \tolean[Claude]{Prove that if there is a homomorphism from a zero-ring to a ring
+  $R$, then $R$ is a zero-ring}
   [\Cref{subsec:rings:ring-homomorphisms}]
 \end{exer}
 \begin{exer}{}{exer:rings:additive-multiplicative-preserving}
+  \tolean[Claude]{
   Let $R$ and $S$ be rings, and let $\varphi : R \to S$ be a function
   preserving both operations $+$, $\cdot$.
   \begin{itemize}
@@ -1184,17 +1248,19 @@ $\lambda = \mu$).
     then $\varphi(1_R) = 1_S$.
   \end{itemize}
   (Therefore, in both cases $\varphi$ is in fact a ring homomorphism).
+  }
 \end{exer}
 \begin{exer}{}{exer:rings:powerset-vs-z2s}
-  Let $S$ be a set, and consider the power set ring $\mathscr{P}(S)$
+  \tolean[Claude]{Let $S$ be a set, and consider the power set ring $\mathscr{P}(S)$
   (\Cref{exer:rings:power-set-ring}) and the ring $(\Z/2\Z)^S$ you
   constructed in \Cref{exer:rings:function-ring}. Prove that these two
-  rings are isomorphic. (Cf.\ \Cref{exer:prelim:power-set-power-two}.)
+  rings are isomorphic.} (Cf.\ \Cref{exer:prelim:power-set-power-two}.)
 \end{exer}
 \begin{exer}{}{exer:rings:quaternion-matrix-reps}
+  (cf.\ \Cref{exer:rings:matrix-ring,exer:rings:quaternions})
+  \tolean[Claude]{
   Define functions $\field{H} \to \mathfrak{gl}_4(\R)$ and
-  $\field{H} \to \mathfrak{gl}_2(\C)$ (cf.\
-  \Cref{exer:rings:matrix-ring,exer:rings:quaternions}) by
+  $\field{H} \to \mathfrak{gl}_2(\C)$ by
   \[
     a + bi + cj + dk \mapsto \begin{pmatrix} a & b & c & d \\ -b & a &
       -d & c \\ -c & d & a & -b \\ -d & -c & b & a \end{pmatrix},
@@ -1206,8 +1272,10 @@ $\lambda = \mu$).
   for all $a, b, c, d \in \R$. Prove that both functions are injective
   ring homomorphisms. Thus, quaternions may be viewed as real or
   complex matrices.
+  }
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:quaternion-norm}
+  \tolean[Claude]{
   The \emph{norm} of a quaternion $w = a + bi + cj + dk$, with
   $a, b, c, d \in \R$, is the real number
   $N(w) = a^2 + b^2 + c^2 + d^2$.
@@ -1217,7 +1285,8 @@ $\lambda = \mu$).
   positive real numbers, defined by assigning to each nonzero
   quaternion its norm, is a homomorphism. Prove that the kernel of
   this homomorphism is isomorphic to $\mathrm{SU}(2)$ (cf.\
-  \Cref{exer:groups:su2-sphere}). [\ref{exer:rings:z-sqrt-d-subring-of-c},
+  \Cref{exer:groups:su2-sphere}).
+  } [\ref{exer:rings:z-sqrt-d-subring-of-c},
   \ref{exer:groups2:quaternions-as-semidirect-prod},
   \ref{exer:irred:integral-quaternions-ring-basics}]
 \end{exer}
@@ -1226,27 +1295,30 @@ $\lambda = \mu$).
   \Cref{exam:rings:poly-universal-general}. [\Cref{subsec:rings:universal-property-of-polynomial-rings}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:z2-poly-function}
-  Let $R = \Z/2\Z$, and let $f(x) = x^2 - x$; note $f(x) \neq 0$. What
-  is the polynomial function $R \to R$ determined by $f(x)$?
+  \tolean[Claude]{Let $R = \Z/2\Z$, and let $f(x) = x^2 - x$; note $f(x) \neq 0$. What
+  is the polynomial function $R \to R$ determined by $f(x)$?}
   [\Cref{subsec:rings:universal-property-of-polynomial-rings},
   \Cref{subsec:irred:the-field-of-fractions-of-an-integral-domain},
   \Cref{subsec:irred:roots-and-reducibility}]
 \end{exer}
 \begin{exer}{}{exer:rings:subring-of-field-domain}
-  Prove that every subring of a field is an integral domain.
+  \tolean[Claude]{Prove that every subring of a field is an integral domain.}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:center-is-subring}
+  \tolean[Claude]{
   The \emph{center} of a ring $R$ consists of the elements $a$ such
   that $ar = ra$ for all $r \in R$. Prove that the center is a subring
   of $R$.
 
   Prove that the center of a division ring is a
-  field. [\ref{exer:rings:division-ring-p2-commutative},
+  field.
+  } [\ref{exer:rings:division-ring-p2-commutative},
   \ref{exer:groups2:division-ring-ord-64-comm},
   \ref{exer:fields:wedderburn-thm-witts-proof},
   \ref{exer:fields:wedderburn-thm-birkhoff-vandiver-proof}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:centralizer-is-subring}
+  \tolean[Claude]{
   The \emph{centralizer} of an element $a$ of a ring $R$ consists of
   the elements $r \in R$ such that $ar = ra$. Prove that the
   centralizer of $a$ is a subring of $R$, for every $a \in R$.
@@ -1255,11 +1327,13 @@ $\lambda = \mu$).
   centralizers.
 
   Prove that every centralizer in a division ring is a division
-  ring. [\ref{exer:rings:division-ring-p2-commutative},
+  ring.
+  } [\ref{exer:rings:division-ring-p2-commutative},
   \ref{exer:groups2:division-ring-ord-64-comm},
   \ref{exer:fields:wedderburn-thm-birkhoff-vandiver-proof}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:division-ring-p2-commutative}
+  \tolean[Claude]{
   Let $R$ be a division ring consisting of $p^2$ elements, where $p$
   is a prime. Prove that $R$ is commutative, as follows:
   \begin{itemize}
@@ -1273,17 +1347,18 @@ $\lambda = \mu$).
   \item Derive a contradiction, and conclude that $R$ had to be
     commutative (hence, a field).
   \end{itemize}
+  }
   This is a particular case of Wedderburn's theorem: every finite
   division ring is a
   field. [\ref{exer:groups2:division-ring-ord-64-comm},
   \ref{exer:fields:wedderburn-thm-birkhoff-vandiver-proof}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:z-in-q-cokernel}
-  Consider the inclusion map $\iota : \Z \hookrightarrow \Q$. Describe
+  \tolean[Claude]{Consider the inclusion map $\iota : \Z \hookrightarrow \Q$. Describe
   the cokernel of $\iota$ in $\categ{Ab}$ and its cokernel in
   $\categ{Ring}$ (as defined by the appropriate universal property in
   the style of the one given in
-  \Cref{subsec:groups:epimorphisms-and-cokernels}). [\Cref{subsec:rings:monomorphisms-and-epimorphisms},
+  \Cref{subsec:groups:epimorphisms-and-cokernels}).} [\Cref{subsec:rings:monomorphisms-and-epimorphisms},
   \Cref{sec:rings:modules-over-a-ring}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:componentwise-product}
@@ -1293,13 +1368,14 @@ $\lambda = \mu$).
   \Cref{subsec:prelims:products}. [\Cref{subsec:rings:products}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:poly-two-var-coproduct}
-  Verify that $\Z[x_1, x_2]$ (along with the evident morphisms)
+  \tolean[Claude]{Verify that $\Z[x_1, x_2]$ (along with the evident morphisms)
   satisfies the universal property for the coproduct of two copies of
   $\Z[x]$ in the category of \emph{commutative} rings. Explain why it
   does not satisfy it in
-  $\categ{Ring}$. [\Cref{subsec:rings:products}]
+  $\categ{Ring}$.} [\Cref{subsec:rings:products}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:z-mz-isomorphic-groups}
+  \tolean[Claude]{
   For $m > 1$, the abelian groups $(\Z, +)$ and $(m\Z, +)$ are
   manifestly isomorphic: the function $\varphi : \Z \to m\Z$,
   $n \mapsto mn$ is a group isomorphism. Use this isomorphism to
@@ -1309,6 +1385,7 @@ $\lambda = \mu$).
   $\varphi(a \bullet b) = \varphi(a) \cdot \varphi(b)$). Explain why
   structures induced by different positive integers $m$ are
   nonisomorphic as `rings without 1'.
+  }
 
   (This shows that there are many different ways to give a structure
   of ring without identity to the group $(\Z, +)$. Compare this
@@ -1316,8 +1393,8 @@ $\lambda = \mu$).
   [\Cref{subsec:rings:ring-homomorphisms}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:unique-ring-structure-on-z}
-  Prove that there is (up to isomorphism) only one structure of ring
-  \emph{with identity} on the abelian group $(\Z, +)$. (Hint: Let $R$
+  \tolean[Claude]{Prove that there is (up to isomorphism) only one structure of ring
+  \emph{with identity} on the abelian group $(\Z, +)$.} (Hint: Let $R$
   be a ring whose underlying group is $\Z$. By
   \cref{prop:rings:Cayley-ring}, there is an injective ring
   homomorphism $\lambda : R \to \End_{\categ{Ab}}(R)$, and the latter
@@ -1327,10 +1404,10 @@ $\lambda = \mu$).
   \ref{exer:rings:z-mz-isomorphic-groups}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:endab-r}
-  Let $R$ be a ring, and let $E = \End_{\categ{Ab}}(R)$ be the ring of
+  \tolean[Claude]{Let $R$ be a ring, and let $E = \End_{\categ{Ab}}(R)$ be the ring of
   endomorphisms of the underlying abelian group $(R, +)$. Prove that
   the center of $E$ is isomorphic to a subring of the center of
-  $R$. (Prove that if $\alpha \in E$ commutes with all
+  $R$.} (Prove that if $\alpha \in E$ commutes with all
   right-multiplications by elements of $R$, then $\alpha$ is
   left-multiplication by an element of $R$; then use
   \cref{prop:rings:Cayley-ring}.)
@@ -1341,8 +1418,8 @@ $\lambda = \mu$).
   \cref{prop:rings:Cayley-ring}. [\Cref{subsec:rings:endab-g}]
 \end{exer}
 \begin{exer}{}{exer:rings:endab-znz}
-  Prove that for $n \in \Z$ a positive integer,
-  $\End_{\categ{Ab}}(\Z/n\Z)$ is isomorphic to $\Z/n\Z$ as a ring.
+  \tolean[Claude]{Prove that for $n \in \Z$ a positive integer,
+  $\End_{\categ{Ab}}(\Z/n\Z)$ is isomorphic to $\Z/n\Z$ as a ring.}
 \end{exer}
 
 \section{Ideals and quotient rings}
@@ -1366,6 +1443,7 @@ every surjective ring homomorphism with a quotient by a suitable
 substructure. The role of normal subgroups will be played by
 \emph{ideals}.
 \begin{defn}{}{defn:rings:ideal}
+  \tolean[Claude]{
   Let $R$ be a ring. A subgroup $I$ of $(R, +)$ is a \emph{left-ideal}
   of $R$ if $rI \subseteq I$ for all $r \in R$; that is,
   \[
@@ -1378,6 +1456,7 @@ substructure. The role of normal subgroups will be played by
   \]
   A \emph{two-sided ideal} is a subgroup $I$ which is both a left- and
   a right-ideal.
+  }
 \end{defn}
 Of course in a commutative ring there is no distinction between left-
 and right-ideals. Even in the general setting, we will almost
@@ -1390,9 +1469,8 @@ two-sided.
   satisfies the ring axioms with respect to the operations $+$,
   $\cdot$ induced from $R$. Ideals are close to being subrings: they
   are subgroups, and they are closed with respect to
-  multiplication. But the only ideal of a ring $R$ containing $1_R$ is
-  $R$ itself: this is an immediate consequence of the `absorption
-  properties' stated in \cref{defn:rings:ideal}. Thus ideals are in
+  multiplication. \tolean[Claude]{But the only ideal of a ring $R$ containing $1_R$ is
+  $R$ itself.} Thus ideals are in
   general not subrings; they are `rngs'.
 \end{rem}
 Ideals are considerably more important than subrings in the
@@ -1404,8 +1482,8 @@ target; but a lesson learned from
 kernels really capture the structure of a homomorphism, and kernels
 are ideals:
 \begin{exam}{}{exam:rings:kernel-is-ideal}
-  Let $\varphi : R \to S$ be any ring homomorphism. Then
-  $\ker \varphi$ is an ideal of $R$.
+  \tolean[Claude]{Let $\varphi : R \to S$ be any ring homomorphism. Then
+  $\ker \varphi$ is an ideal of $R$.}
 
   Indeed, we know already that $\ker \varphi$ is a subgroup; we have
   to verify the absorption properties. These are an immediate
@@ -1482,6 +1560,7 @@ is it going to be well-defined?
     \tfrac{1}{2} + \Z.
   \]
 \end{exam}
+\tolean[Claude]{
 Assume then that the operation \emph{is} well-defined, so that $R/I$
 is a ring and $\pi : R \to R/I$ is a ring homomorphism. What does this
 say about $I$? Answer: $I$ is the kernel of $R \to R/I$, so
@@ -1503,9 +1582,10 @@ $a'b' + I = a''b'' + I$, proving that the operation is well-defined.
 Summarizing, we have verified that $R/I$ is a ring, in such a way that
 the canonical projection $\pi : R \to R/I$ is a \emph{ring}
 homomorphism, if and only if $I$ is an \emph{ideal} of $R$.
+}
 \begin{defn}{}{defn:rings:quotient-ring}
-  This ring $R/I$ is called the \emph{quotient ring} of $R$
-  \emph{modulo} $I$.
+  \tolean[Claude]{This ring $R/I$ is called the \emph{quotient ring} of $R$
+  \emph{modulo} $I$.}
 \end{defn}
 \begin{exam}{}{}
   We know that all subgroups of $(\Z, +)$ are of the form $n\Z$ for a
@@ -1516,18 +1596,20 @@ homomorphism, if and only if $I$ is an \emph{ideal} of $R$.
   \Cref{subsec:rings:first-examples-and-special-classes-of-rings}
   (and earlier).
 \end{exam}
+\tolean[Claude]{
 The fact that $\Z$ is initial in $\categ{Ring}$ now prompts a natural
 definition. For a ring $R$, let $f : \Z \to R$ be the unique ring
 homomorphism, defined by $a \mapsto a \cdot 1_R$. Then $\ker f = n\Z$
 for a well-defined nonneg­ative integer $n$ determined by $R$.
+}
 
 \begin{defn}{}{defn:rings:characteristic}
-  The \emph{characteristic} of $R$ is this nonneg­ative integer $n$.
+  \tolean[Claude]{The \emph{characteristic} of $R$ is this nonneg­ative integer $n$.}
 \end{defn}
 
-Thus, the characteristic of $R$ is $n > 0$ if the order of $1_R$
+\tolean[Claude]{Thus, the characteristic of $R$ is $n > 0$ if the order of $1_R$
 \emph{as an element of} $(R, +)$ is a positive integer $n$, while the
-characteristic is $0$ if the order of $1_R$ is $\infty$.  I have now
+characteristic is $0$ if the order of $1_R$ is $\infty$.}  \tolean[Claude]{I have now
 fulfilled my promise to identify the notions of ideal and kernel of
 ring homomorphisms: every kernel is an ideal (cf.\
 \Cref{exam:rings:kernel-is-ideal}); and on the other hand every ideal
@@ -1536,7 +1618,7 @@ slogan:
 \[
   \text{kernel} \iff \text{ideal}
 \]
-in the context of ring theory.  The key universal property holds in
+in the context of ring theory.}  The key universal property holds in
 this context as it does for groups; cf.\
 \Cref{thm:groups:quotient-universal-property}. I reproduce the
 statement here for reference, but the reader should realize that very
@@ -1545,17 +1627,19 @@ homomorphism exists and is unique by
 \Cref{thm:groups:quotient-universal-property}, and verifying it is a
 \emph{ring} homomorphism is immediate.
 \begin{thm}{}{thm:rings:quotient-universal}
+  \tolean[Claude]{
   Let $I$ be a two-sided ideal of a ring $R$. Then for every ring
   homomorphism $\varphi : R \to S$ such that
   $I \subseteq \ker \varphi$ there exists a unique ring homomorphism
   $\tilde{\varphi} : R/I \to S$ so that the diagram
+  }
   \[
     \begin{tikzcd}
       R \arrow[r, "\varphi"] \arrow[d, "\pi"'] & S \\
       R/I \arrow[ur, "\exists!\tilde{\varphi}"']
     \end{tikzcd}
   \]
-  commutes.
+  \tolean[Claude]{commutes.}
 \end{thm}
 
 As a reminder to the lazy reader, $\tilde{\varphi}$ is defined by
@@ -1577,8 +1661,8 @@ of group homomorphisms obtained in
 \Cref{subsec:groups:canonical-decomposition}. Here is the
 statement:
 \begin{thm}{}{thm:rings:canonical-decomp}
-  Every ring homomorphism $\varphi : R \to S$ may be decomposed as
-  follows:
+  \tolean[Claude]{Every ring homomorphism $\varphi : R \to S$ may be decomposed as
+  follows:}
   \[
     \begin{tikzcd}
       R \arrow[r, two heads] \arrow[rrr, bend left, "\varphi"] &
@@ -1586,9 +1670,8 @@ statement:
       \image\varphi \arrow[r, hook] & S
     \end{tikzcd}
   \]
-  where the isomorphism $\tilde{\varphi}$ in the middle is the
-  homomorphism induced by $\varphi$ (as in
-  \cref{thm:rings:quotient-universal}).
+  \tolean[Claude]{where the isomorphism $\tilde{\varphi}$ in the middle is the
+  homomorphism induced by $\varphi$.}
 \end{thm}
 The reader will realize that this statement requires no proof at this
 point: the decomposition holds at the level of groups (by
@@ -1597,13 +1680,14 @@ homomorphisms as observed earlier in this section.
 
 The `first isomorphism theorem' for rings is an immediate corollary:
 \begin{coro}{}{coro:rings:first-iso}
-  Suppose $\varphi : R \to S$ is a surjective ring homomorphism. Then
-  $S \cong R/\ker\varphi$.
+  \tolean[Claude]{Suppose $\varphi : R \to S$ is a surjective ring homomorphism. Then
+  $S \cong R/\ker\varphi$.}
 \end{coro}
 As in the group case, the reader should develop the healthy
 instinctive reaction of viewing every surjective homomorphism of rings
 as a quotient (by an ideal), up to a natural identification.
 
+\tolean[Claude]{
 Equally instinctive should be the realization that ideals of a
 quotient $R/I$ are in one-to-one correspondence with ideals of $R$
 containing $I$. Once more, not a whole lot is new here: we already
@@ -1615,14 +1699,18 @@ function
 \]
 defined by $u(J) = J/I$ is a bijection preserving inclusions; it takes
 a moment to check that $J/I$ is an ideal of $R/I$ if and only if $J$
-is an ideal of $R$. The main content of this observation is best
+is an ideal of $R$.
+}
+The main content of this observation is best
 packaged in the corresponding `third isomorphism theorem':
 \begin{prop}{}{prop:rings:third-iso}
+  \tolean[Claude]{
   Let $I$ be an ideal of a ring $R$, and let $J$ be an ideal of $R$
   containing $I$. Then $J/I$ is an ideal of $R/I$, and
   \[
     \frac{R/I}{J/I} \cong \frac{R}{J}.
   \]
+  }
 \end{prop}
 \begin{proof}
   Since $I \subseteq J = \ker(R \to R/J)$, we have an induced ring
@@ -1659,17 +1747,18 @@ matter on his/her own; cf.\ \Cref{exer:rings:third-iso-ideals}.
 \subsection*{Exercises}
 
 \begin{exer}{}{exer:rings:image-is-subring}
-  Prove that the image of a ring homomorphism $\varphi : R \to S$ is a
+  \tolean[Claude]{Prove that the image of a ring homomorphism $\varphi : R \to S$ is a
   subring of $S$. What can you say about $\varphi$ if its image is an
   ideal of $S$? What can you say about $\varphi$ if its kernel is a
-  subring of $R$?
+  subring of $R$?}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:preimage-ideal}
-  Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an
+  \tolean[Claude]{Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an
   ideal of $S$. Prove that $I = \varphi^{-1}(J)$ is an ideal of
-  $R$. [\Cref{subsec:rings:ideals}]
+  $R$.} [\Cref{subsec:rings:ideals}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:image-ideal-not-necessarily}
+  \tolean[Claude]{
   Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an
   ideal of $R$.
   \begin{itemize}
@@ -1682,20 +1771,23 @@ matter on his/her own; cf.\ \Cref{exer:rings:third-iso-ideals}.
     point. Prove that
     $\frac{R/I}{\overline{J}} \cong \frac{R}{I + J}$.
   \end{itemize}
+  }
   (Of course this is just a rehash of \cref{prop:rings:third-iso}.)
   [\ref{exer:rings:principal-ideal-with-a}]
 \end{exer}
 \begin{exer}{}{exer:rings:all-subgroups-ideals-znz}
-  Let $R$ be a ring such that every subgroup of $(R, +)$ is in fact an
+  \tolean[Claude]{Let $R$ be a ring such that every subgroup of $(R, +)$ is in fact an
   ideal of $R$. Prove that $R \cong \Z/n\Z$, where $n$ is the
-  characteristic of $R$.
+  characteristic of $R$.}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:matrix-ideal-entries}
+  \tolean[Claude]{
   Let $J$ be a two-sided ideal of the ring $\mathcal{M}_n(R)$ of
   $n \times n$ matrices over a ring $R$. Prove that a matrix
   $A \in \mathcal{M}_n(R)$ belongs to $J$ if and only if the matrices
   obtained by placing any entry of $A$ in any position, and $0$
-  elsewhere, belong to $J$. (Hint: Carefully contemplate the operation
+  elsewhere, belong to $J$.
+  } (Hint: Carefully contemplate the operation
   \[
     \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix}
     \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}
@@ -1705,97 +1797,106 @@ matter on his/her own; cf.\ \Cref{exer:rings:third-iso-ideals}.
   \] [\ref{exer:rings:matrix-ideal-entries-converse}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:matrix-ideal-entries-converse}
-  Let $J$ be a two-sided ideal of the ring $\mathcal{M}_n(R)$ of
+  \tolean[Claude]{Let $J$ be a two-sided ideal of the ring $\mathcal{M}_n(R)$ of
   $n \times n$ matrices over a ring $R$, and let $I \subseteq R$ be
   the set of $(1,1)$ entries of matrices in $J$. Prove that $I$ is a
   two-sided ideal of $R$ and $J$ consists precisely of those matrices
-  whose entries all belong to $I$. (Hint:
+  whose entries all belong to $I$.} (Hint:
   \Cref{exer:rings:matrix-ideal-entries}.)
   [\ref{exer:rings:division-ring-two-sided-counterexample}]
 \end{exer}
 \begin{exer}{}{exer:rings:ra-ar-ideals}
-  Let $R$ be a ring, and let $a \in R$. Prove that $Ra$ is a
+  \tolean[Claude]{Let $R$ be a ring, and let $a \in R$. Prove that $Ra$ is a
   left-ideal of $R$ and $aR$ is a right-ideal of $R$. Prove that $a$
   is a left-, resp.\ right-, unit if and only if $R = aR$, resp.\
-  $R = Ra$.
+  $R = Ra$.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:division-ring-ideals}
+  \tolean[Claude]{
   Prove that a ring $R$ is a division ring if and only if its only
   left-ideals and right-ideals are $\{0\}$ and $R$.
 
   In particular, a commutative ring $R$ is a field if and only if the
   only ideals of $R$ are $\{0\}$ and
-  $R$. [\ref{exer:rings:division-ring-two-sided-counterexample},
+  $R$.
+  } [\ref{exer:rings:division-ring-two-sided-counterexample},
   \Cref{subsec:rings:prime-and-maximal-ideals}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:division-ring-two-sided-counterexample}
-  Counterpoint to \Cref{exer:rings:division-ring-ideals}: It is not
+  Counterpoint to \Cref{exer:rings:division-ring-ideals}: \tolean[Claude]{It is not
   true that a ring $R$ is a division ring if and only if its only
   two-sided ideals are $\{0\}$ and $R$. A nonzero ring with this
-  property is said to be \emph{simple}; by
+  property is said to be \emph{simple}}; by
   \Cref{exer:rings:division-ring-ideals}, fields are the only simple
-  commutative rings.
+  commutative rings, and division rings are simple.
 
-  Prove that $\mathcal{M}_n(\R)$ is simple. (Use
+  \tolean[Claude]{Prove that $\mathcal{M}_n(\R)$ is simple.} (Use
   \Cref{exer:rings:matrix-ideal-entries-converse}.)
   [\ref{exer:rings:maximal-iff-simple-quotient}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:field-hom-injective}
-  Let $\varphi : k \to R$ be a ring homomorphism, where $k$ is a field
+  \tolean[Claude]{Let $\varphi : k \to R$ be a ring homomorphism, where $k$ is a field
   and $R$ is a nonzero ring. Prove that $\varphi$ is
-  injective. [\Cref{subsec:irred:the-field-of-fractions-of-an-integral-domain},
+  injective.} [\Cref{subsec:irred:the-field-of-fractions-of-an-integral-domain},
   \Cref{subsec:irred:adding-roots-algebraically-closed-fields}]
 \end{exer}
 \begin{exer}{}{exer:rings:c-subring-no-hom-to-r}
-  Let $R$ be a ring containing $\C$ as a subring. Prove that there are
-  no ring homomorphisms $R \to \R$.
+  \tolean[Claude]{Let $R$ be a ring containing $\C$ as a subring. Prove that there are
+  no ring homomorphisms $R \to \R$.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:nilpotents-form-ideal}
+  \tolean[Claude]{
   Let $R$ be a commutative ring. Prove that the set of nilpotent
-  elements of $R$ is an ideal of $R$. (Cf.\
-  \Cref{exer:rings:nilpotent}. This ideal is called the
+  elements of $R$ is an ideal of $R$. (This ideal is called the
   \emph{nilradical} of $R$.)
 
   Find a noncommutative ring in which the set of nilpotent elements is
-  not an ideal. [\ref{exer:rings:nilradical-quotient-reduced},
+  not an ideal.
+  } (Cf.\ \Cref{exer:rings:nilpotent}.)
+  [\ref{exer:rings:nilradical-quotient-reduced},
   \ref{exer:rings:nilradical-in-every-prime},
   \ref{exer:irred:nilradical-subset-intersection-of-primes},
   \Cref{subsec:fields:a-little-affine-algebraic-geometry}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:nilradical-quotient-reduced}
-  Let $R$ be a commutative ring, and let $N$ be its nilradical (cf.\
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $N$ be its nilradical (cf.\
   \Cref{exer:rings:nilpotents-form-ideal}). Prove that $R/N$ contains
   no nonzero nilpotent elements. (Such a ring is said to be
-  \emph{reduced}.) [\ref{exer:rings:ij-reduced-implies-i-cap-j},
+  \emph{reduced}.)} [\ref{exer:rings:ij-reduced-implies-i-cap-j},
   \ref{exer:fields:radical-ideal-nilradical-correspondence}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:domain-characteristic-0-or-prime}
-  Prove that the characteristic of an integral domain is either $0$ or
-  a prime integer. Do you know any ring of characteristic $1$?
+  \tolean[Claude]{Prove that the characteristic of an integral domain is either $0$ or
+  a prime integer.} Do you know any ring of characteristic $1$?
   [\ref{exer:irred:prime-subfield-char-0-or-p}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:boolean-power-set}
+  \tolean[Claude]{
   A ring $R$ is \emph{Boolean}\footnote{After George Boole.} if
   $a^2 = a$ for all $a \in R$. Prove that $\mathcal{P}(S)$ is Boolean,
-  for every set $S$ (cf.\ \Cref{exer:rings:power-set-ring}). Prove
+  for every set $S$. Prove
   that every nonzero Boolean ring is commutative and has
   characteristic $2$. Prove that if an integral domain $R$ is Boolean,
-  then $R \cong \Z/2\Z$. [\ref{exer:rings:krull-dimension-zero},
+  then $R \cong \Z/2\Z$.
+  } (cf.\ \Cref{exer:rings:power-set-ring})
+  [\ref{exer:rings:krull-dimension-zero},
   \ref{exer:irred:finite-boolean-ring-is-product-of-z2}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:subsets-of-t-form-ideal}
+  \tolean[Claude]{
   Let $S$ be a set and $T \subseteq S$ a subset. Prove that the
   subsets of $S$ contained in $T$ form an ideal of the power set ring
   $\mathcal{P}(S)$. Prove that if $S$ is finite, then every ideal of
   $\mathcal{P}(S)$ is of this form. For $S$ infinite, find an ideal of
   $\mathcal{P}(S)$ that is not of this
-  form. [\ref{exer:irred:power-set-ring-noeth-iff}]
+  form.
+  } [\ref{exer:irred:power-set-ring-noeth-iff}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:third-iso-ideals}
-  Let $I$, $J$ be ideals of a ring $R$. State and prove a precise
+  \tolean[Claude]{Let $I$, $J$ be ideals of a ring $R$. State and prove a precise
   result relating the ideals $(I + J)/I$ of $R/I$ and $J/(I \cap J)$
   of $R/(I \cap
-  J)$. [\Cref{subsec:rings:canonical-decomposition-and-consequences}]
+  J)$.} [\Cref{subsec:rings:canonical-decomposition-and-consequences}]
 \end{exer}
 
 \section{Ideals and quotients: Remarks and examples. Prime and maximal
@@ -1804,12 +1905,13 @@ matter on his/her own; cf.\ \Cref{exer:rings:third-iso-ideals}.
 
 \subsection{Basic operations}
 \label{subsec:rings:basic-operations}
-In the commutative case, these two subsets coincide and are denoted
+\tolean[Claude]{In the commutative case, these two subsets coincide and are denoted
 $(a)$. This is the \emph{principal ideal generated by $a$}. For
 example, the zero-ideal $\{0\} = (0)$ and the whole ring $R = (1)$ are
-both principal ideals.
+both principal ideals.}
 
-In general (\Cref{exer:rings:family-of-ideals-sum}), if
+\tolean[Claude]{
+In general, if
 $\{I_\alpha\}_{\alpha \in A}$ is a family of ideals of a ring $R$,
 then the sum $\sum_\alpha I_\alpha$ is an ideal of $R$. If $a_\alpha$
 is any collection of elements of a commutative ring $R$, then
@@ -1826,16 +1928,18 @@ consists of the elements of $R$ that may be written as
 $r_1 a_1 + \cdots + r_n a_n$ for $r_1, \ldots, r_n \in R$. An ideal
 $I$ of a commutative ring $R$ is \emph{finitely generated} if
 $I = (a_1, \ldots, a_n)$ for some $a_1, \ldots, a_n \in R$.
+} (\Cref{exer:rings:family-of-ideals-sum})
 
 \begin{exam}{}{exam:rings:calculus-of-ideals}
   It is a good idea to get used to a bit of `calculus' of ideals and
   quotients in terms of generators; judicious use of the isomorphism
-  theorems yields convenient statements. For example, let $R$ be a
+  theorems yields convenient statements. \tolean[Claude]{For example, let $R$ be a
   commutative ring, and let $a, b \in R$; denote by $\bar{b}$ the
   class of $b$ in $R/(a)$. Then
   \[
     (R/(a))/(\bar{b}) \cong R/(a, b).
   \]
+  }
   Indeed, this is a particular case of \cref{prop:rings:third-iso},
   since
   \[
@@ -1849,13 +1953,13 @@ ideals. These notions are so important that we give special names to
 rings in which they are satisfied by every ideal.
 
 \begin{defn}{Noetherian ring}{defn:rings:noetherian}
-  A commutative ring $R$ is \emph{Noetherian} if every ideal of $R$ is
-  finitely generated.
+  \tolean[Claude]{A commutative ring $R$ is \emph{Noetherian} if every ideal of $R$ is
+  finitely generated.}
 \end{defn}
 
 \begin{defn}{PID}{defn:rings:PID}
-  An integral domain $R$ is a \emph{PID} (`Principal Ideal Domain') if
-  every ideal of $R$ is principal.
+  \tolean[Claude]{An integral domain $R$ is a \emph{PID} (`Principal Ideal Domain') if
+  every ideal of $R$ is principal.}
 \end{defn}
 
 Thus, PIDs are (very special) Noetherian rings. In due time we will
@@ -1866,7 +1970,7 @@ geometry.
 The reader is already familiar with an important PID:
 
 \begin{prop}{}{prop:rings:Z-PID}
-  $\Z$ is a PID.
+  \tolean[Claude]{$\Z$ is a PID.}
 \end{prop}
 \begin{proof}
   Let $I \subseteq \Z$ be an ideal. Since $I$ is a subgroup, $I = n\Z$
@@ -1894,9 +1998,8 @@ absorbed in the general theory when we review the general notion of
 `Euclidean domain', in
 \Cref{subsec:irred:euclidean-domain-implies-pid}.
 
-By contrast, the ring $\Z[x]$ is not a PID: indeed, the reader should
-be able to verify that the ideal $(2, x)$ cannot be generated by a
-single element. As we will see in due time, greatest common divisors
+By contrast, \tolean[Claude]{the ring $\Z[x]$ is not a PID: indeed, the ideal $(2, x)$ cannot be generated by a
+single element.} As we will see in due time, greatest common divisors
 make good sense in a ring such as $\Z[x]$, but the matter is a little
 more delicate, since this ring is not a PID\footnote{It is, however, a
   `UFD', that is, a `unique factorization domain'. This suffices for a
@@ -1905,6 +2008,7 @@ more delicate, since this ring is not a PID\footnote{It is, however, a
 
 There are several more basic operations involving ideals; for now, the
 following two will suffice.
+\tolean[Claude]{
 \begin{itemize}
 \item Again assume that $\{I_\alpha\}_{\alpha \in A}$ is a collection
   of ideals of a ring $R$. Then the intersection
@@ -1916,19 +2020,20 @@ following two will suffice.
   the `product' $I_1 \cdots I_n$ denotes the ideal generated by all
   products $i_1 \cdots i_n$ with $i_k \in I_k$.
 \end{itemize}
+}
 The reader should note the clash of notation: in the context of groups
 (especially \Cref{subsec:groups:hk-h-vs-k-h-cap-k}) $IJ$ would mean
 \emph{something else}. Watch out!
 
-It is clear that $IJ \subseteq I \cap J$: every element $ij$ with
+\tolean[Claude]{It is clear that $IJ \subseteq I \cap J$: every element $ij$ with
 $i \in I$ and $j \in J$ is in $I$ (because $I$ is a right-ideal) and
 in $J$ (because $J$ is a left-ideal); therefore $I \cap J$ contains
 all products $ij$, and hence it must contain the ideal $IJ$ they
-generate. Sometime the product agrees with the intersection:
+generate.} Sometimes the product agrees with the intersection:
 \[
   (4) \cap (3) = (12) = (4) \cdot (3) \quad \text{in } \Z;
 \]
-and sometime it does not:
+and sometimes it does not:
 \[
   (4) \cap (6) = (12) \neq (24) = (4) \cdot (6).
 \]
@@ -1960,15 +2065,13 @@ monic, then $\deg(f(x)q(x)) = \deg f(x) + \deg q(x)$ for all
 polynomials $q(x)$.
 
 It is convenient to assume that $f(x)$ is monic because we can then
-\emph{divide} by $f(x)$, with remainder. That is, if $g(x) \in R[x]$
+\emph{divide} by $f(x)$, with remainder. \tolean[Claude]{That is, if $g(x) \in R[x]$
 is another polynomial, then there exist polynomials
 $q(x), r(x) \in R[x]$ such that
 \[
   g(x) = f(x)q(x) + r(x)
 \]
-and\footnote{Note: With the convention that the degree of the
-  polynomial $0$ is $-\infty$, the condition $\deg r(x) < \deg f(x)$
-  is satisfied by $r(x) = 0$.} $\deg r(x) < \deg f(x)$. This is simply
+and $\deg r(x) < \deg f(x)$.} This is simply
 the process of `long division' of polynomials, which is surely
 familiar to the reader, and can be performed over any ring when
 dividing by monic polynomials\footnote{The key point is that if
@@ -1986,12 +2089,14 @@ are uniquely\footnote{This assertion has to be taken with a grain of
   right'.} determined by $g(x)$ and $f(x)$:
 
 \begin{lem}{}{lem:rings:poly-division-unique}
+  \tolean[Claude]{
   Let $f(x)$ be a monic polynomial, and assume
   \[
     f(x)q_1(x) + r_1(x) = f(x)q_2(x) + r_2(x)
   \]
   with both $r_1(x)$ and $r_2(x)$ polynomials of degree $< \deg
   f(x)$. Then $q_1(x) = q_2(x)$ and $r_1(x) = r_2(x)$.
+  }
 \end{lem}
 \begin{proof}
   Indeed, we have
@@ -1999,7 +2104,7 @@ are uniquely\footnote{This assertion has to be taken with a grain of
     f(x)(q_1(x) - q_2(x)) = r_2(x) - r_1(x);
   \]
   if $r_2(x) \neq r_1(x)$, then $r_2(x) - r_1(x)$ has degree
-  $< \deg f(x)$, while $f(x)(q_1(x) - q_2(x))$ has degree
+  $< \deg f(x)$ and $f(x)(q_1(x) - q_2(x)) \neq 0$ has degree
   $\geq \deg f(x)$, giving a contradiction. Therefore
   $r_1(x) = r_2(x)$, and $q_1(x) = q_2(x)$ follows right away since
   monic polynomials are non-zero-divisors.
@@ -2042,6 +2147,7 @@ The next result may be seen as a way to concoct many different and
 interesting ring structures on the direct sum $R^{\oplus d}$:
 
 \begin{prop}{}{prop:rings:poly-group-iso}
+  \tolean[Claude]{
   Let $R$ be a commutative ring, and let $f(x) \in R[x]$ be a monic
   polynomial of degree $d$. Then the function
   $\varphi : R[x] \to R^{\oplus d}$ defined by sending $g(x) \in R[x]$
@@ -2050,6 +2156,7 @@ interesting ring structures on the direct sum $R^{\oplus d}$:
   \[
     \frac{R[x]}{(f(x))} \cong R^{\oplus d}.
   \]
+  }
 \end{prop}
 \begin{proof}
   The given function $\varphi$ is well-defined by
@@ -2085,10 +2192,10 @@ interesting ring structures on the direct sum $R^{\oplus d}$:
 \end{proof}
 
 \begin{exam}{}{exam:rings:remainder-degree-1}
+  \tolean[Claude]{
   Assume $f(x)$ is monic of degree $1$: $f(x) = x - a$ for some
   $a \in R$. Then the remainder of $g(x)$ after division by $f(x)$ is
-  simply the `evaluation' $g(a)$ (cf.\
-  \Cref{exam:rings:poly-universal-general}): indeed,
+  simply the `evaluation' $g(a)$: indeed,
   \[
     g(x) = (x - a)q(x) + r
   \]
@@ -2099,8 +2206,9 @@ interesting ring structures on the direct sum $R^{\oplus d}$:
   \]
   as claimed. In particular, $g(a) = 0$ if and only if
   $g(x) \in (x - a)$.
+  } (cf.\ \Cref{exam:rings:poly-universal-general})
 
-  The content of \cref{prop:rings:poly-group-iso} in this case is that
+  \tolean[Claude]{The content of \cref{prop:rings:poly-group-iso} in this case is that
   the evaluation map
   \[
     R[x] \to R, \quad g(x) \mapsto g(a)
@@ -2109,9 +2217,7 @@ interesting ring structures on the direct sum $R^{\oplus d}$:
   \[
     \frac{R[x]}{(x - a)} \cong R
   \]
-  of abelian groups; the reader will verify (either by hand or by
-  invoking \cref{coro:rings:first-iso}) that this is in fact an
-  isomorphism of rings.
+  of rings.}
 \end{exam}
 
 \begin{exam}{}{exam:rings:higher-degree-quotient}
@@ -2147,21 +2253,21 @@ interesting ring structures on the direct sum $R^{\oplus d}$:
     \varphi((a_0 + a_1 x)(b_0 + b_1 x)) = (a_0 b_0 - a_1 b_1,\; a_0
     b_1 + a_1 b_0).
   \]
-  \emph{Therefore}, the multiplication induced on $R \oplus R$ by this
+  \tolean[Claude]{\emph{Therefore}, the multiplication induced on $R \oplus R$ by this
   procedure is defined by
   \[
     (a_0, a_1) \cdot (b_0, b_1) = (a_0 b_0 - a_1 b_1,\; a_0 b_1 + a_1
     b_0).
-  \]
+  \]}
   This recipe may seem somewhat arbitrary, but note that upon taking
   $R = \R$, the ring of real numbers, and identifying pairs
   $(x, y) \in \R \oplus \R$ with complex numbers $x + iy$, the
   multiplication we obtained on $\R \oplus \R$ matches precisely the
-  ordinary multiplication in $\C$. Therefore,
+  ordinary multiplication in $\C$. \tolean[Claude]{Therefore,
   \[
     \frac{\R[x]}{(x^2 + 1)} \cong \C
   \]
-  as rings. In other words, this procedure constructs the ring $\C$
+  as rings.} In other words, this procedure constructs the ring $\C$
   `from scratch', starting from $\R[x]$.
 \end{exam}
 
@@ -2187,17 +2293,19 @@ due to unforgivable laziness and because that is the only context in
 which we will use these notions.
 
 \begin{defn}{Prime and maximal ideals}{defn:rings:prime-maximal-ideal}
+  \tolean[Claude]{
   Let $I \neq (1)$ be an ideal of a commutative ring $R$.
   \begin{itemize}
   \item $I$ is a \emph{prime ideal} if $R/I$ is an integral domain.
   \item $I$ is a \emph{maximal ideal} if $R/I$ is a field.
   \end{itemize}
+  }
 \end{defn}
 
 \begin{exam}{}{}
-  For all $a \in R$, the ideal $(x - a)$ is prime in $R[x]$ if and
+  \tolean[Claude]{For all $a \in R$, the ideal $(x - a)$ is prime in $R[x]$ if and
   only if $R$ is an integral domain; it is maximal if and only if $R$
-  is a field. Indeed, $R[x]/(x - a) \cong R$, as we have seen in
+  is a field.} Indeed, $R[x]/(x - a) \cong R$, as we have seen in
   \Cref{exam:rings:remainder-degree-1}.
 
   The ideal $(2, x)$ is maximal in $\Z[x]$, since
@@ -2214,6 +2322,7 @@ whether prime and maximal ideals should be defined as in
 \cref{defn:rings:prime-maximal-ideal} or by the following equivalent
 conditions:
 \begin{prop}{}{prop:rings:prime-maximal-equiv}
+  \tolean[Claude]{
   Let $I \neq (1)$ be an ideal of a commutative ring $R$. Then
   \begin{itemize}
   \item $I$ is prime if and only if for all $a, b \in R$:
@@ -2221,6 +2330,7 @@ conditions:
   \item $I$ is maximal if and only if for all ideals $J$ of $R$:
     $I \subseteq J \implies (I = J$ or $J = R)$.
   \end{itemize}
+  }
 \end{prop}
 \begin{proof}
   The ring $R/I$ is an integral domain if and only if
@@ -2239,26 +2349,26 @@ conditions:
   (\Cref{exer:rings:division-ring-ideals}).
 \end{proof}
 From the formulation in terms of quotients, it is completely clear
-that maximal $\implies$ prime; indeed, fields are integral
-domains. This fact is of course easy to check in terms of the other
+that \tolean[Claude]{maximal $\implies$ prime; indeed, fields are integral
+domains.} This fact is of course easy to check in terms of the other
 description, but the argument is a little more cumbersome
 (\Cref{exer:rings:maximal-implies-prime-by-hand}). Prime ideals are
 not necessarily maximal, but note the following:
 \begin{prop}{}{prop:rings:finite-quotient-prime-max}
-  Let $I$ be an ideal of a commutative ring $R$. If $R/I$ is finite,
-  then $I$ is prime if and only if it is maximal.
+  \tolean[Claude]{Let $I$ be an ideal of a commutative ring $R$. If $R/I$ is finite,
+  then $I$ is prime if and only if it is maximal.}
 \end{prop}
 \begin{proof}
   This follows immediately from \Cref{prop:rings:finite-field-domain}.
 \end{proof}
-For example, let $(n)$ be an ideal of $\Z$, with $n > 0$; then $(n)$
-prime $\iff$ $(n)$ maximal $\iff$ $n$ is prime as an integer. Indeed,
+\tolean[Claude]{For example, let $(n)$ be an ideal of $\Z$, with $n > 0$; then $(n)$
+prime $\iff$ $(n)$ maximal $\iff$ $n$ is prime as an integer.} Indeed,
 for nonzero $n$ the ring $\Z/n\Z$ is finite, so
 \Cref{prop:rings:finite-quotient-prime-max} applies; cf.\
-\Cref{exam:rings:znz-units-group}.  In general, the set of prime
+\Cref{exam:rings:znz-units-group}.  \tolean[Claude]{In general, the set of prime
 ideals of a commutative ring $R$ is called\footnote{Believe it or not,
   the term is borrowed from functional analysis.} the \emph{spectrum}
-of $R$, denoted $\operatorname{Spec} R$. We can `draw'
+of $R$, denoted $\operatorname{Spec} R$.} We can `draw'
 $\operatorname{Spec} \Z$ as follows:
 % TODO: Spec Z diagram
 Actually, attributing the fact that nonzero prime ideals of $\Z$ are
@@ -2266,8 +2376,8 @@ maximal to the finiteness of the quotients (as I have just done) is
 slightly misleading; a better `explanation' is that $\Z$ is a PID, and
 this phenomenon is common to all PIDs:
 \begin{prop}{}{prop:rings:PID-prime-maximal}
-  Let $R$ be a PID, and let $I$ be a nonzero ideal in $R$. Then $I$ is
-  prime if and only if it is maximal.
+  \tolean[Claude]{Let $R$ be a PID, and let $I$ be a nonzero ideal in $R$. Then $I$ is
+  prime if and only if it is maximal.}
 \end{prop}
 \begin{proof}
   Maximal ideals are prime in every ring, so we only need to verify
@@ -2294,9 +2404,9 @@ this phenomenon is common to all PIDs:
   of $\operatorname{Spec} \Z$ shown above: with the maximal ideals at
   one level, all containing the prime (and nonmaximal) ideal $(0)$.
   This picture is particularly appealing for fields such as $k = \C$,
-  which are \emph{algebraically closed}, that is, in which for every
+  \tolean[Claude]{which are \emph{algebraically closed}, that is, in which for every
   nonconstant $f(x) \in k[x]$ there exists $r \in k$ such that
-  $f(r) = 0$. It would take us too far afield to discuss this notion
+  $f(r) = 0$.} It would take us too far afield to discuss this notion
   at any length now; but the reader should be aware that $\C$ is
   algebraically closed. We will come back to this\footnote{A
     particularly pleasant proof may be given using elementary complex
@@ -2322,22 +2432,22 @@ this phenomenon is common to all PIDs:
   reflects precisely the fact that the corresponding geometric object
   has dimension $1$.
 
-  In general, the \emph{(Krull) dimension} of a commutative ring $R$
-  is the length of the longest chain of prime ideals in $R$. Thus,
-  \Cref{prop:rings:PID-prime-maximal} tells us that PIDs other than
-  fields, such as $\Z$, have `dimension $1$'. In the lingo of
-  algebraic geometry, they all correspond to curves.
+  \tolean[Claude]{In general, the \emph{(Krull) dimension} of a
+    commutative ring $R$ is the length of the longest chain of prime
+    ideals in $R$.} Thus, \Cref{prop:rings:PID-prime-maximal} tells us
+  that PIDs other than fields, such as $\Z$, have `dimension $1$'. In
+  the lingo of algebraic geometry, they all correspond to curves.
 \end{exam}
 
 \begin{exam}{}{exam:rings:higher-dimension-rings}
   For examples of rings of higher dimension, consider
-  $k[x_1, \ldots, x_n]$, where $k$ is a field. Note that there are
+  $k[x_1, \ldots, x_n]$, where $k$ is a field. \tolean[Claude]{Note that there are
   chains of prime ideals of length $n$
   \[
     (0) \subsetneq (x_1) \subsetneq (x_1, x_2) \subsetneq \cdots
     \subsetneq (x_1, \ldots, x_n)
   \]
-  in this ring. (Why are these ideals prime? Cf.\
+  in this ring.} (Why are these ideals prime? Cf.\
   \Cref{exer:rings:xk-prime-in-polyring}.) This says that
   $k[x_1, \ldots, x_n]$ has dimension $\geq n$. One can show that $n$
   is in fact the longest length of a chain of prime ideals in
@@ -2360,6 +2470,7 @@ after we develop (much) more machinery.
 
 \subsection*{Exercises}
 \begin{exer}{\exerused}{exer:rings:family-of-ideals-sum}
+  \tolean[Claude]{
   Let $R$ be a ring, and let $\{I_\alpha\}_{\alpha \in A}$ be a family
   of ideals of $R$. We let
   \[
@@ -2369,19 +2480,20 @@ after we develop (much) more machinery.
   \]
   Prove that $\sum_\alpha I_\alpha$ is an ideal of $R$ and that it is
   the smallest ideal containing all of the ideals
-  $I_\alpha$. [\Cref{subsec:rings:basic-operations}]
+  $I_\alpha$.
+  } [\Cref{subsec:rings:basic-operations}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:noetherian-homomorphic-image}
-  Prove that the homomorphic image of a Noetherian ring is
+  \tolean[Claude]{Prove that the homomorphic image of a Noetherian ring is
   Noetherian. That is, prove that if $\varphi : R \to S$ is a
   surjective ring homomorphism and $R$ is Noetherian, then $S$ is
-  Noetherian. [\Cref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}]
+  Noetherian.} [\Cref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}]
 \end{exer}
 \begin{exer}{}{exer:rings:2x-not-principal}
-  Prove that the ideal $(2, x)$ of $\Z[x]$ is not principal.
+  \tolean[Claude]{Prove that the ideal $(2, x)$ of $\Z[x]$ is not principal.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:field-poly-ring-pid}
-  Prove that if $k$ is a field, then $k[x]$ is a PID. (Hint: Let
+  \tolean[Claude]{Prove that if $k$ is a field, then $k[x]$ is a PID.} (Hint: Let
   $I \subseteq k[x]$ be any ideal. If $I = (0)$, then $I$ is
   principal. If $I \neq (0)$, let $f(x)$ be a monic polynomial in $I$
   of minimal degree. Use division with remainder to construct a proof
@@ -2395,45 +2507,44 @@ after we develop (much) more machinery.
   \Cref{subsec:fields:simple-extensions}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:coprime-ideals-product-intersection}
-  Let $I$, $J$ be ideals in a commutative ring $R$, such that
+  \tolean[Claude]{Let $I$, $J$ be ideals in a commutative ring $R$, such that
   $I + J = (1)$. Prove that $IJ = I \cap
-  J$. [\Cref{subsec:rings:basic-operations},
+  J$.} [\Cref{subsec:rings:basic-operations},
   \Cref{subsec:irred:chinese-remainder-theorem}]
 \end{exer}
 \begin{exer}{}{exer:rings:ij-reduced-implies-i-cap-j}
-  Let $I$, $J$ be ideals in a commutative ring $R$. Assume that
-  $R/(IJ)$ is reduced (that is, it has no nonzero nilpotent elements;
-  cf.\ \Cref{exer:rings:nilradical-quotient-reduced}). Prove that
-  $IJ = I \cap J$.
+  \tolean[Claude]{Let $I$, $J$ be ideals in a commutative ring $R$. Assume that
+  $R/(IJ)$ is reduced (that is, it has no nonzero nilpotent elements).
+  Prove that
+  $IJ = I \cap J$.} (cf.\ \Cref{exer:rings:nilradical-quotient-reduced})
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:field-poly-ideal-monic-generator}
-  Let $R = k$ be a field. Prove that every nonzero (principal) ideal
+  \tolean[Claude]{Let $R = k$ be a field. Prove that every nonzero (principal) ideal
   in $k[x]$ is generated by a unique monic
-  polynomial. [\Cref{subsec:rings:quotients-of-polynomial-rings},
+  polynomial.} [\Cref{subsec:rings:quotients-of-polynomial-rings},
   \Cref{subsec:linalg:k-t-modules-and-the-rational-canonical-form}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:monic-poly-not-zero-divisor}
-  Let $R$ be a ring and $f(x) \in R[x]$ a monic polynomial. Prove that
+  \tolean[Claude]{Let $R$ be a ring and $f(x) \in R[x]$ a monic polynomial. Prove that
   $f(x)$ is not a (left- or right-)
-  zero-divisor. [\Cref{subsec:rings:quotients-of-polynomial-rings},
+  zero-divisor.} [\Cref{subsec:rings:quotients-of-polynomial-rings},
   \ref{exer:rings:zero-divisor-poly-generalization}]
 \end{exer}
 \begin{exer}{}{exer:rings:zero-divisor-poly-generalization}
-  Generalize the result of
+  \tolean[Claude]{Generalize the result of
   \Cref{exer:rings:monic-poly-not-zero-divisor}, as follows. Let $R$
   be a commutative ring, and let $f(x)$ be a zero-divisor in
   $R[x]$. Prove that $\exists\, b \in R$, $b \neq 0$, such that
-  $f(x)b = 0$. (Hint: Let $f(x) = a_d x^d + \cdots + a_0$, and let
+  $f(x)b = 0$.} (Hint: Let $f(x) = a_d x^d + \cdots + a_0$, and let
   $g(x) = b_e x^e + \cdots + b_0$ be a nonzero polynomial of minimal
   degree $e$ such that $f(x)g(x) = 0$. Deduce that $a_d g(x) = 0$, and
   then prove $a_{d-i} g(x) = 0$ for all $i$. What does this say about
   $b_e$?)
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:z-sqrt-d-subring-of-c}
+  \tolean[Claude]{
   Let $d$ be an integer that is not the square of an integer, and
-  consider the subset of $\C$ defined by\footnote{Of course there are
-    two `square roots of $d$'; but the definition of $\Q(\sqrt{d})$
-    does not depend on which one is used.}
+  consider the subset of $\C$ defined by
   \[
     \Q(\sqrt{d}) := \{a + b\sqrt{d} \mid a, b \in \Q\}.
   \]
@@ -2441,20 +2552,18 @@ after we develop (much) more machinery.
   \item Prove that $\Q(\sqrt{d})$ is a subring of $\C$.
   \item Define a function $N : \Q(\sqrt{d}) \to \Q$ by
     $N(a + b\sqrt{d}) := a^2 - b^2 d$. Prove that $N(zw) = N(z)N(w)$
-    and that $N(z) \neq 0$ if $z \in \Q(\sqrt{d})$, $z \neq 0$. The
-    function $N$ is a `norm'; it is very useful in the study of
-    $\Q(\sqrt{d})$ and of its subrings. (Cf.\ also
-    \Cref{exer:rings:quaternion-norm}.)
+    and that $N(z) \neq 0$ if $z \in \Q(\sqrt{d})$, $z \neq 0$.
   \item Prove that $\Q(\sqrt{d})$ is a field and in fact the smallest
     subfield of $\C$ containing both $\Q$ and $\sqrt{d}$. (Use $N$.)
-  \item Prove that $\Q(\sqrt{d}) \cong \Q[t]/(t^2 - d)$. (Cf.\
-    \Cref{exam:rings:higher-degree-quotient}.)
-  \end{itemize} [\ref{exer:irred:z-sqrt-neg5-not-ufd},
+  \item Prove that $\Q(\sqrt{d}) \cong \Q[t]/(t^2 - d)$.
+  \end{itemize}
+  } [\ref{exer:irred:z-sqrt-neg5-not-ufd},
   \ref{exer:irred:z-1-plus-sqrt-neg19-over-2-not-euclidean},
   \ref{exer:irred:z-sqrt2-euclidean-domain},
   \ref{exer:fields:norm-is-multiplicative}]
 \end{exer}
 \begin{exer}{}{exer:rings:principal-ideal-with-a}
+  \tolean[Claude]{
   Let $R$ be a commutative ring, $a \in R$, and
   $f_1(x), \ldots, f_r(x) \in R[x]$.
   \begin{itemize}
@@ -2465,36 +2574,36 @@ after we develop (much) more machinery.
     $\dfrac{R[x]}{(f_1(x), \ldots, f_r(x), x - a)} \cong
     \dfrac{R}{(f_1(a), \ldots, f_r(a))}$.
   \end{itemize}
-  (Hint: \Cref{exer:rings:image-ideal-not-necessarily}.)
+  } (Hint: \Cref{exer:rings:image-ideal-not-necessarily}.)
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:ideal-generated-by-elements}
-  Let $R$ be a commutative ring and $a_1, \ldots, a_n$ elements of
+  \tolean[Claude]{Let $R$ be a commutative ring and $a_1, \ldots, a_n$ elements of
   $R$. Prove that
   $\dfrac{R[x_1, \ldots, x_n]}{(x_1 - a_1, \ldots, x_n - a_n)} \cong
-  R$. [\Cref{subsec:fields:the-nullstellensatz}]
+  R$.} [\Cref{subsec:fields:the-nullstellensatz}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:xk-prime-in-polyring}
-  Let $R$ be an integral domain. For all $k = 1, \ldots, n$ prove that
+  \tolean[Claude]{Let $R$ be an integral domain. For all $k = 1, \ldots, n$ prove that
   $(x_1, \ldots, x_k)$ is prime in $R[x_1, \ldots,
-  x_n]$. [\Cref{subsec:rings:prime-and-maximal-ideals}]
+  x_n]$.} [\Cref{subsec:rings:prime-and-maximal-ideals}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:maximal-implies-prime-by-hand}
-  Prove `by hand' that maximal ideals are prime, without using
-  quotient rings. [\Cref{subsec:rings:prime-and-maximal-ideals}]
+  \tolean[Claude]{Prove `by hand' that maximal ideals are prime, without using
+  quotient rings.} [\Cref{subsec:rings:prime-and-maximal-ideals}]
 \end{exer}
 \begin{exer}{}{exer:rings:preimage-prime-ideal}
-  Let $\varphi : R \to S$ be a homomorphism of commutative rings, and
+  \tolean[Claude]{Let $\varphi : R \to S$ be a homomorphism of commutative rings, and
   let $I \subseteq S$ be an ideal. Prove that if $I$ is a prime ideal
   in $S$, then $\varphi^{-1}(I)$ is a prime ideal in $R$. Show that
-  $\varphi^{-1}(I)$ is not necessarily maximal if $I$ is maximal.
+  $\varphi^{-1}(I)$ is not necessarily maximal if $I$ is maximal.}
 \end{exer}
 \begin{exer}{}{exer:rings:unique-zero-divisor-prime}
-  Let $R$ be a commutative ring, and let $P$ be a prime ideal of
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $P$ be a prime ideal of
   $R$. Suppose $0$ is the only zero-divisor of $R$ contained in
-  $P$. Prove that $R$ is an integral domain.
+  $P$. Prove that $R$ is an integral domain.}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:continuous-functions-compact}
-  (If you know a little topology\ldots) Let $K$ be a compact
+  (If you know a little topology\ldots) \tolean[Claude]{Let $K$ be a compact
   topological space, and let $R$ be the ring of continuous real-valued
   functions on $K$, with addition and multiplication defined
   pointwise.
@@ -2508,8 +2617,13 @@ after we develop (much) more machinery.
     for some $p \in K$. (Hint: You will use the compactness of $K$ and
     (ii).)
   \end{enumerate}
-  Conclude that $p \mapsto M_p$ defines a bijection from $K$ to the
-  set of maximal ideals of $R$. (The set of maximal ideals of a
+  If further $K$ is Hausdorff (and, as Bourbaki would have it, compact
+  spaces are Hausdorff), then Urysohn's lemma shows that for any two
+  points $p \neq q$ in $K$ there exists a function $f \in R$ such that
+  $f(p) = 0$ and $f(q) = 1$. If this is the case, conclude that
+  $p \mapsto M_p$ defines a bijection from $K$ to the
+  set of maximal ideals of $R$.
+  } (The set of maximal ideals of a
   commutative ring $R$ is called the \emph{maximal spectrum} of $R$;
   it is contained in the (prime) spectrum $\operatorname{Spec} R$
   defined in \Cref{subsec:rings:prime-and-maximal-ideals}. Relating
@@ -2520,15 +2634,15 @@ after we develop (much) more machinery.
   \Cref{exer:irred:maximal-ideals-not-corresponding-to-points}. [\ref{exer:irred:maximal-ideals-not-corresponding-to-points}]
 \end{exer}
 \begin{exer}{}{exer:rings:nilradical-in-every-prime}
-  Let $R$ be a commutative ring, and let $N$ be its nilradical
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $N$ be its nilradical
   (\Cref{exer:rings:nilpotents-form-ideal}). Prove that $N$ is
-  contained in every prime ideal of $R$. (Later on the reader will
+  contained in every prime ideal of $R$.} (Later on the reader will
   check that the nilradical is in fact the intersection of all prime
   ideals of $R$:
   \Cref{exer:irred:nilradical-subset-intersection-of-primes}.)
 \end{exer}
 \begin{exer}{}{exer:rings:prime-ideal-family}
-  Let $R$ be a commutative ring, let $P$ be a prime ideal in $R$, and
+  \tolean[Claude]{Let $R$ be a commutative ring, let $P$ be a prime ideal in $R$, and
   let $I_j$ be ideals of $R$.
   \begin{enumerate}[label=(\roman*)]
   \item Assume that $I_1 \cdots I_r \subseteq P$; prove that
@@ -2538,31 +2652,32 @@ after we develop (much) more machinery.
     $P \supseteq \prod_{j=1}^\infty I_j$, then $P$ contains one of the
     ideals $I_j$.
   \end{enumerate}
+  }
 \end{exer}
 \begin{exer}{}{exer:rings:maximal-iff-simple-quotient}
-  Let $M$ be a two-sided ideal in a (not necessarily commutative) ring
-  $R$. Prove that $M$ is maximal if and only if $R/M$ is a simple ring
+  \tolean[Claude]{Let $M$ be a two-sided ideal in a (not necessarily commutative) ring
+  $R$. Prove that $M$ is maximal if and only if $R/M$ is a simple ring}
   (cf.\ \Cref{exer:rings:division-ring-two-sided-counterexample}).
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:maximal-ideal-linear-poly}
-  Let $k$ be an algebraically closed field, and let $I \subseteq k[x]$
+  \tolean[Claude]{Let $k$ be an algebraically closed field, and let $I \subseteq k[x]$
   be an ideal. Prove that $I$ is maximal if and only if $I = (x - c)$
   for some $c \in
-  k$. [\Cref{subsec:rings:prime-and-maximal-ideals},
+  k$.} [\Cref{subsec:rings:prime-and-maximal-ideals},
   \Cref{subsec:irred:adding-roots-algebraically-closed-fields},
   \Cref{subsec:fields:algebraic-closure},
   \Cref{subsec:fields:the-nullstellensatz}]
 \end{exer}
 \begin{exer}{}{exer:rings:x2plus1-maximal-in-rx}
-  Prove that $(x^2 + 1)$ is maximal in $\R[x]$.
+  \tolean[Claude]{Prove that $(x^2 + 1)$ is maximal in $\R[x]$.}
 \end{exer}
 \begin{exer}{}{exer:rings:krull-dimension-zero}
-  A ring $R$ has \emph{Krull dimension $0$} if every prime ideal in
+  \tolean[Claude]{A ring $R$ has \emph{Krull dimension $0$} if every prime ideal in
   $R$ is maximal. Prove that fields and Boolean rings
-  (\Cref{exer:rings:boolean-power-set}) have Krull dimension $0$.
+  have Krull dimension $0$.} (cf.\ \Cref{exer:rings:boolean-power-set})
 \end{exer}
 \begin{exer}{}{exer:rings:z-x-krull-dimension-2}
-  Prove that the ring $\Z[x]$ has Krull dimension $\geq 2$. (It is in
+  \tolean[Claude]{Prove that the ring $\Z[x]$ has Krull dimension $\geq 2$.} (It is in
   fact exactly $2$; thus it corresponds to a surface from the point of
   view of algebraic geometry.)
 \end{exer}
@@ -2616,14 +2731,15 @@ homomorphisms from a fixed group to the groups of automorphisms of
 objects of a category.  We can give an analogous definition of the
 action of a ring on an abelian group. Indeed, recall that if $M$ is an
 abelian group, then $\End_{\categ{Ab}}(M) := \Hom_{\categ{Ab}}(M, M)$
-is a ring in a natural way (cf.\ \Cref{subsec:rings:endab-g}). A
+is a ring in a natural way (cf.\ \Cref{subsec:rings:endab-g}). \tolean[Claude]{A
 \emph{left-action} of a ring $R$ on $M$ is then simply a homomorphism
 of rings $\sigma : R \to \End_{\categ{Ab}}(M)$; we will say that
-$\sigma$ makes $M$ into a \emph{left-$R$-module}.  Similarly to the
+$\sigma$ makes $M$ into a \emph{left-$R$-module}.}  Similarly to the
 situation with group actions, it is convenient to spell out this
 definition.
 
 \begin{prop}{}{prop:rings:module-axioms}
+  \tolean[Claude]{
   The datum of a homomorphism $\sigma$ as above is precisely the same
   as the datum of a function $\rho : R \times M \to M$ satisfying the
   following requirements: $(\forall r, s \in R)$
@@ -2634,6 +2750,7 @@ definition.
   \item $\rho(rs, m) = \rho(r, \rho(s, m))$;
   \item $\rho(1, m) = m$.
   \end{itemize}
+  }
 \end{prop}
 
 \begin{proof}
@@ -2649,6 +2766,7 @@ omit mention of it: $\rho(r, m)$ is often just denoted $rm$; this
 makes the requirements listed above a little more
 readable. Summarizing and adopting this shorthand,
 \begin{defn}{}{defn:rings:left-R-module}
+  \tolean[Claude]{
   A \emph{left-$R$-module structure} on an abelian group $M$ consists
   of a map $R \times M \to M$, $(r, m) \mapsto rm$, such that
   \begin{itemize}
@@ -2657,6 +2775,7 @@ readable. Summarizing and adopting this shorthand,
   \item $(rs)m = r(sm)$;
   \item $1m = m$.
   \end{itemize}
+  }
 \end{defn}
 Right-$R$-modules are defined analogously. The reader can glance back
 at \Cref{sec:groups:group-actions}, especially
@@ -2684,16 +2803,18 @@ adapt the various concepts to right-modules.
 \label{subsec:rings:the-category-r-mod}
 The reader should spend some time getting familiar with the notion of
 module, by proving simple properties such as
+\tolean[Claude]{
 \[
   (\forall m \in M) : 0 \cdot m = 0, \qquad (\forall m \in M) : (-1)
   \cdot m = -m,
 \]
+}
 where $M$ is a module over some ring
 (\Cref{exer:rings:module-zero}). The following fancier-sounding (but
 equally trivial) property is also useful in developing a feel for
 modules:
 \begin{prop}{}{prop:rings:Z-module}
-  Every abelian group is a $\Z$-module, in exactly one way.
+  \tolean[Claude]{Every abelian group is a $\Z$-module, in exactly one way.}
 \end{prop}
 
 \begin{proof}
@@ -2706,7 +2827,8 @@ modules:
 Thus, `abelian group' and `$\Z$-module' are one and the same
 notion. Quite concretely, the action of $n \in \Z$ on an element $a$
 of an abelian group simply yields the ordinary `multiple' $na$; this
-operation is trivially compatible with the operations in $\Z$.  A
+operation is trivially compatible with the operations in $\Z$.  \tolean[Claude]{
+A
 homomorphism of $R$-modules is a homomorphism of (abelian) groups
 which is compatible with the module structure. That is, if $M$, $N$
 are $R$-modules and $\phi : M \to N$ is a function, then $\phi$ is a
@@ -2717,6 +2839,7 @@ homomorphism of $R$-modules if and only if
   \phi(m_1) + \phi(m_2)$;
 \item $(\forall r \in R)(\forall m \in M) : \phi(rm) = r\phi(m)$.
 \end{itemize}
+}
 It is hopefully clear that the composition of two $R$-module
 homomorphisms is an $R$-module homomorphism and that the identity is
 an $R$-module homomorphism: $R$-modules form a category which I will
@@ -2724,10 +2847,11 @@ denote\footnote{If $R$ is not commutative, we should agree on whether
   $R$-$\categ{Mod}$ denotes the category of left-modules or of
   right-modules. I will mean `left-modules'.} `$R$-$\categ{Mod}$'.
 \begin{exam}{}{exam:rings:zmod-is-ab}
-  The category $\Z$-$\categ{Mod}$ of $\Z$-modules is `the same as' the
-  category $\categ{Ab}$: indeed, every abelian group is a $\Z$-module
-  in exactly one way (\Cref{prop:rings:Z-module}), and $\Z$-module
-  homomorphisms are simply homomorphisms of abelian groups.
+  \tolean[Claude]{The category $\Z$-$\categ{Mod}$ of $\Z$-modules is
+    `the same as' the category $\categ{Ab}$: indeed, every abelian
+    group is a $\Z$-module in exactly one way, and $\Z$-module
+    homomorphisms are simply homomorphisms of abelian groups.}
+  (\Cref{prop:rings:Z-module})
 \end{exam}
 \begin{exam}{}{exam:rings:k-vect}
   If $R = k$ is a field, $R$-modules are called $k$-vector spaces. I
@@ -2741,13 +2865,13 @@ denote\footnote{If $R$ is not commutative, we should agree on whether
   will be devoted to this subject.
 \end{exam}
 \begin{exam}{}{exam:rings:ring-hom-defines-module}
-  Any homomorphism of rings $\alpha : R \to S$ may be used to define
+  \tolean[Claude]{Any homomorphism of rings $\alpha : R \to S$ may be used to define
   an interesting $R$-module: define $\rho : R \times S \to S$ by
   $\rho(r, s) := \alpha(r)s$ for all $r \in R$ and $s \in S$. The
   operation on the right is simply multiplication in $S$, and the
   axioms of \Cref{defn:rings:left-R-module} are immediate consequences
   of the ring axioms and of the fact that $\alpha$ is a
-  homomorphism. For instance, taking $S = R$ and $\alpha = \id_R$
+  homomorphism.} For instance, taking $S = R$ and $\alpha = \id_R$
   makes $R$ a (left-)module over itself. It is common to write $rs$
   rather than $\alpha(r)s$.  The ring operation in $S$ and the
   $R$-module structure induced by $\alpha$ are linked even more
@@ -2767,9 +2891,9 @@ denote\footnote{If $R$ is not commutative, we should agree on whether
 Due to their importance, these examples deserve their own official
 name:
 \begin{defn}{}{defn:rings:R-algebra}
-  Let $R$ be a commutative ring. An \emph{$R$-algebra} is a ring
+  \tolean[Claude]{Let $R$ be a commutative ring. An \emph{$R$-algebra} is a ring
   homomorphism $\alpha : R \to S$ such that $\alpha(R)$ is contained
-  in the center of $S$.
+  in the center of $S$.}
 \end{defn}
 The usual abuse of language leads us to refer to an $R$-algebra by the
 name of the target $S$ of the homomorphism. Thus, an $R$-algebra `is'
@@ -2792,12 +2916,12 @@ well as all their quotients, are commutative $R$-algebras. This is a
 particularly important class of examples; for $R = k$ an algebraically
 closed field, these are the rings used in `classical' affine algebraic
 geometry (cf.\
-\Cref{subsec:fields:a-little-affine-algebraic-geometry}).  The
+\Cref{subsec:fields:a-little-affine-algebraic-geometry}).  \tolean[Claude]{The
 trivial group $0$ has a unique module structure over any ring $R$ and
 is a zero-object in $R$-$\categ{Mod}$, that is, it is both initial and
-final. As in the other main categories we have encountered, a
+final.} As in the other main categories we have encountered, \tolean[Claude]{a
 bijective homomorphism of $R$-modules is automatically an isomorphism
-in $R$-$\categ{Mod}$ (\Cref{exer:rings:bijective-iso}). In these and
+in $R$-$\categ{Mod}$.} (\Cref{exer:rings:bijective-iso}) In these and
 many other respects, the category $R$-$\categ{Mod}$ (for any
 commutative ring $R$) and $\categ{Ab}$ are similar.  If $R$ is
 commutative, the similarity goes further: just as in the category
@@ -2807,6 +2931,7 @@ be seen as an object of the category (cf.\
   convention: One often writes $\Hom_R(M, N)$ for
   $\Hom_{R\text{-}\categ{Mod}}(M, N)$. I will not adopt this
   convention here but I will use it freely in later chapters.}.
+\tolean[Claude]{
 Indeed, let $M$ and $N$ be $R$-modules. Since homomorphisms of
 $R$-modules are in particular homomorphisms of abelian groups,
 $\Hom_{R\text{-}\categ{Mod}}(M, N) \subseteq \Hom_{\categ{Ab}}(M, N)$
@@ -2817,17 +2942,16 @@ preserves $\Hom_{R\text{-}\categ{Mod}}(M, N)$; it follows that the
 latter is an abelian group. For $r \in R$ and
 $\phi \in \Hom_{R\text{-}\categ{Mod}}(M, N)$, the prescription
 $(\forall m \in M) : (r\phi)(m) := r\phi(m)$ defines a
-function\footnote{Parse the notation carefully: $r\phi$ is the name of
-  a function on the left, while $r\phi(m)$ on the right is the action
-  of the element $r \in R$ on the element $\phi(m) \in N$, defined by
-  the $R$-module structure on $N$.} $r\phi : M \to N$. This function
+function $r\phi : M \to N$. This function
 is an $R$-module homomorphism if $R$ is commutative, because
 $(\forall a \in R)$, $(\forall m \in M)$:
 $(r\phi)(am) = r\phi(am) = (ra)\phi(m) = (ar)\phi(m) =
 a(r\phi(m))$. Thus, we have a natural action of $R$ on the abelian
 group $\Hom_{R\text{-}\categ{Mod}}(M, N)$, and it is immediate to
 verify that this makes $\Hom_{R\text{-}\categ{Mod}}(M, N)$ into an
-$R$-module. Watch out: if $R$ is not commutative, then in general
+$R$-module.
+}
+Watch out: if $R$ is not commutative, then in general
 $\Hom_{R\text{-}\categ{Mod}}(M, N)$ is `just' an abelian group. More
 structure is available if $M$, $N$ are bimodules; cf.\
 \Cref{subsec:linrep:bimodules-adjunction-again}.
@@ -2839,28 +2963,31 @@ progress through the usual constructions very quickly, by just
 pointing out that the analogous constructions in $\categ{Ab}$ are
 preserved by the $R$-module structure.
 
+\tolean[Claude]{
 A \emph{submodule} $N$ of an $R$-module $M$ is a subgroup preserved by
 the action of $R$. That is, for all $r \in R$ and $n \in N$, the
 element $rn$ (defined by the $R$-module structure of $M$) is in fact
 in $N$. Put otherwise, and perhaps more transparently, $N$ is itself
 an $R$-module, and the inclusion $N \subseteq M$ is an $R$-module
 homomorphism.
+}
 \begin{exam}{}{}
-  We can view $R$ itself as a (left-)$R$-module (cf.\
-  \Cref{exam:rings:ring-hom-defines-module}); the submodules of $R$
-  are then precisely the (left-)ideals of $R$.
+  \tolean[Claude]{We can view $R$ itself as a (left-)$R$-module; the submodules of $R$
+  are then precisely the (left-)ideals of $R$.} (cf.\
+  \Cref{exam:rings:ring-hom-defines-module})
 \end{exam}
 \begin{exam}{}{}
-  Both the kernel and the image of a homomorphism $\phi : M \to M'$ of
-  $R$-modules are submodules (of $M$, $M'$, respectively).
+  \tolean[Claude]{Both the kernel and the image of a homomorphism $\phi : M \to M'$ of
+  $R$-modules are submodules (of $M$, $M'$, respectively).}
 \end{exam}
 \begin{exam}{}{}
-  If $r$ is in the center of $R$ and $M$ is an $R$-module, then
+  \tolean[Claude]{If $r$ is in the center of $R$ and $M$ is an $R$-module, then
   $rM = \{rm \mid m \in M\}$ is a submodule of $M$. If $I$ is any
   (left-)ideal of $R$, then
   $IM = \{\sum_i r_i m_i \mid r_i \in I, m_i \in M\}$ is a submodule
-  of $M$.
+  of $M$.}
 \end{exam}
+\tolean[Claude]{
 If $N$ is a submodule of $M$, then it is in particular a (normal)
 subgroup of the abelian group $(M, +)$; thus we may define the
 quotient $M/N$ as an abelian group. Of course it would be desirable to
@@ -2869,9 +2996,10 @@ do so: we will want the canonical projection $\pi : M \to M/N$ to be
 an $R$-module homomorphism, and this forces
 $r(m + N) = r\pi(m) = \pi(rm) = rm + N$ for all $m \in M$. That is, we
 are led to define the action of $R$ on $M/N$ by $r(m + N) := rm + N$.
+}
 \begin{prop}{}{prop:rings:quotient-module}
-  For all submodules $N$, this prescription does define a structure of
-  $R$-module on $M/N$.
+  \tolean[Claude]{For all submodules $N$, this prescription does define a structure of
+  $R$-module on $M/N$.}
 \end{prop}
 
 \begin{proof}
@@ -2881,31 +3009,31 @@ are led to define the action of $R$ on $M/N$ by $r(m + N) := rm + N$.
 The $R$-module $M/N$ is (of course) called the \emph{quotient} of $M$
 by $N$.
 \begin{exam}{}{}
-  If $R$ is a ring and $I$ is a two-sided ideal of $R$, then all three
+  \tolean[Claude]{If $R$ is a ring and $I$ is a two-sided ideal of $R$, then all three
   of $I$, $R$, and the quotient ring $R/I$ are $R$-modules: $I$ is a
   submodule of $R$, and the rings $R$ and $R/I$ are in fact
-  $R$-algebras if $R$ is commutative (cf.\
-  \Cref{exam:rings:ring-hom-defines-module}).
+  $R$-algebras if $R$ is commutative.} (cf.\
+  \Cref{exam:rings:ring-hom-defines-module})
 \end{exam}
 \begin{exam}{}{}
-  If $R$ is not commutative and $I$ is just a (say) left-ideal, then
+  \tolean[Claude]{If $R$ is not commutative and $I$ is just a (say) left-ideal, then
   the quotient $R/I$ is not defined as a ring, but it is defined as a
   left-module (the quotient of the module $R$ by the submodule
   $I$). The action of $R$ on $R/I$ is given by left-multiplication:
-  $r(a + I) = ra + I$.
+  $r(a + I) = ra + I$.}
 \end{exam}
 The reader should now expect a universal property for quotients, and
 here it is:
 
 \begin{thm}{}{thm:rings:module-quotient-universal}
-  Let $N$ be a submodule of an $R$-module $M$. Then for every
+  \tolean[Claude]{Let $N$ be a submodule of an $R$-module $M$. Then for every
   homomorphism of $R$-modules $\phi : M \to P$ such that
   $N \subseteq \ker\phi$, there exists a unique homomorphism of
-  $R$-modules $\tilde{\phi} : M/N \to P$ so that the diagram
+  $R$-modules $\tilde{\phi} : M/N \to P$ so that the diagram}
   \[\begin{tikzcd}
       M \arrow[r, "\phi"] \arrow[d, "\pi"'] & P \\
       M/N \arrow[ur, "\exists!\tilde{\phi}"']
-    \end{tikzcd}\] commutes.
+    \end{tikzcd}\] \tolean[Claude]{commutes.}
 \end{thm}
 \begin{proof}
   As in previous appearances of such statements, this is an immediate
@@ -2916,6 +3044,7 @@ here it is:
   $\tilde{\phi}$ is an $R$-module homomorphism.
 \end{proof}
 
+\tolean[Claude]{
 Since every submodule $N$ is then the kernel of the canonical
 projection $M \to M/N$, our recurring slogan becomes, in the context
 of $R$-$\categ{Mod}$:
@@ -2926,6 +3055,7 @@ unlike as in $\categ{Grp}$ or $\categ{Ring}$, being a kernel poses no
 restriction on the relevant substructures. Put otherwise, `every
 monomorphism in $R$-$\categ{Mod}$ is a kernel'; this is one of the
 distinguishing features of an abelian category.
+}
 
 \subsection{Canonical decomposition and isomorphism theorems}
 \label{subsec:rings:canonical-decomposition-and-isomorphism-theorems}
@@ -2939,32 +3069,34 @@ all the needed details.
 In the context of $R$-modules, the canonical decomposition takes the
 following form:
 \begin{thm}{}{thm:rings:canonical-decomposition}
-  Every $R$-module homomorphism $\phi : M \to M'$ may be decomposed as
-  follows:
+  \tolean[Claude]{Every $R$-module homomorphism $\phi : M \to M'$ may be decomposed as
+  follows:}
   \[\begin{tikzcd}
       M \arrow[r, two heads] \arrow[rr, bend left, "\phi"] &
       M/\ker\phi \arrow[r, "\tilde{\phi}", "\sim"'] & \image\phi
       \arrow[r, hook] & M'
-    \end{tikzcd}\] where the isomorphism $\tilde{\phi}$ in the middle
-  is the homomorphism induced by $\phi$ (as in
-  \Cref{thm:rings:module-quotient-universal}).
+    \end{tikzcd}\]
+  \tolean[Claude]{where the isomorphism
+    $\tilde{\phi}$ in the middle
+    is the homomorphism induced by $\phi$.
+  }
 \end{thm}
 
 The `first isomorphism theorem' is the following consequence:
 \begin{coro}{}{coro:rings:module-first-iso}
-  Suppose $\phi : M \to M'$ is a surjective $R$-module
-  homomorphism. Then $M' \cong M / \ker\phi$.
+  \tolean[Claude]{Suppose $\phi : M \to M'$ is a surjective $R$-module
+  homomorphism. Then $M' \cong M / \ker\phi$.}
 \end{coro}
-If $M$ is an $R$-module and $N$ is a submodule of $M$, then there is a
-bijection (cf.\ \Cref{subsec:groups:subgroups-of-quotients})
+\tolean[Claude]{If $M$ is an $R$-module and $N$ is a submodule of $M$, then there is a
+bijection
 $u : \{\text{submodules } P \text{ of } M \text{ containing } N\} \to
-\{\text{submodules of } M/N\}$ preserving inclusions, and the `third
+\{\text{submodules of } M/N\}$ preserving inclusions.} (cf.\ \Cref{subsec:groups:subgroups-of-quotients}) The `third
 isomorphism theorem' holds:
 
 \begin{prop}{}{prop:rings:third-iso-modules}
-  Let $N$ be a submodule of an $R$-module $M$, and let $P$ be a
+  \tolean[Claude]{Let $N$ be a submodule of an $R$-module $M$, and let $P$ be a
   submodule of $M$ containing $N$. Then $P/N$ is a submodule of $M/N$,
-  and $(M/N) / (P/N) \cong M/P$.
+  and $(M/N) / (P/N) \cong M/P$.}
 \end{prop}
 We also have a version of the `second isomorphism theorem' (cf.\
 \Cref{prop:groups:second-isomorphism-theorem}), with simplifications
@@ -2972,24 +3104,27 @@ due to the fact that normality is not an issue in the theory of
 modules:
 
 \begin{prop}{}{prop:rings:second-iso}
+  \tolean[Claude]{
   Let $N$, $P$ be submodules of an $R$-module $M$. Then
   \begin{itemize}
   \item $N + P$ is a submodule of $M$;
   \item $N \cap P$ is a submodule of $P$, and
     $(N + P)/N \cong P/(N \cap P)$.
   \end{itemize}
+  }
 \end{prop}
 
-More generally, it is hopefully clear that the sum
+\tolean[Claude]{More generally, it is hopefully clear that the sum
 $\sum_\alpha N_\alpha$ and the intersection $\bigcap_\alpha N_\alpha$
 of any family $\{N_\alpha\}_\alpha$ of submodules of an $R$-module $M$
-(which are defined as subgroups of the abelian group $M$; cf.\ for
-example \Cref{lem:groups:intersection-of-subgroups}) are submodules of
-$M$.
+are submodules of
+$M$.} (cf.\ for
+example \Cref{lem:groups:intersection-of-subgroups})
 
 \subsection*{Exercises}
 
 \begin{exer}{\exerused}{exer:rings:opposite-ring}
+  \tolean[Claude]{
   Let $R$ be a ring. The opposite ring $R^\circ$ is obtained from $R$
   by reversing the multiplication: that is, the product $a \bullet b$
   in $R^\circ$ is defined to be $ba \in R$. Prove that the identity
@@ -2997,7 +3132,8 @@ $M$.
   commutative. Prove that $M_n(R)$ is isomorphic to its opposite (not
   via the identity map!). Explain how to turn right-$R$-modules into
   left-$R$-modules and conversely, if $R \cong
-  R^\circ$. [\Cref{subsec:rings:definition-of-left-r-module},
+  R^\circ$.
+  } [\Cref{subsec:rings:definition-of-left-r-module},
   \ref{exer:linrep:dual-has-right-module-structure-r-iso-rop}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:prove-prop5.1}
@@ -3010,56 +3146,60 @@ $M$.
   M$. [\Cref{subsec:rings:the-category-r-mod}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:schur}
+  \tolean[Claude]{
   Let $R$ be a ring. A nonzero $R$-module $M$ is \emph{simple} (or
   \emph{irreducible}) if its only submodules are $\{0\}$ and $M$. Let
   $M$, $N$ be simple modules, and let $\phi : M \to N$ be a
   homomorphism of $R$-modules. Prove that either $\phi = 0$ or $\phi$
-  is an isomorphism. (This rather innocent statement is known as
+  is an isomorphism.
+  } (This rather innocent statement is known as
   \emph{Schur's lemma}.)
   [\ref{exer:rings:simple-endomorphism-division},
   \ref{exer:rings:cyclic-module},
   \ref{exer:linalg:jordan-holder-for-modules}]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-R-M}
-  Let $R$ be a commutative ring, viewed as an $R$-module over itself,
+  \tolean[Claude]{Let $R$ be a commutative ring, viewed as an $R$-module over itself,
   and let $M$ be an $R$-module. Prove that
-  $\Hom_{R\text{-}\categ{Mod}}(R, M) \cong M$ as $R$-modules.
+  $\Hom_{R\text{-}\categ{Mod}}(R, M) \cong M$ as $R$-modules.}
 \end{exer}
 \begin{exer}{}{exer:rings:Q-vector-unique}
-  Let $G$ be an abelian group. Prove that if $G$ has a structure of
-  $\Q$-vector space, then it has only one such structure. (Hint: First
-  prove that every element of $G$ has necessarily infinite
+  \tolean[Claude]{Let $G$ be an abelian group. Prove that if $G$ has a structure of
+  $\Q$-vector space, then it has only one such structure.} (Hint: First
+  prove that every nonidentity element of $G$ has necessarily infinite
   order. Alternative hint: The unique ring homomorphism $\Z \to \Q$ is
   an epimorphism.)
 \end{exer}
 \begin{exer}{}{exer:rings:field-extension}
-  Let $K$ be a field, and let $k \subseteq K$ be a subfield of
+  \tolean[Claude]{Let $K$ be a field, and let $k \subseteq K$ be a subfield of
   $K$. Show that $K$ is a vector space over $k$ (and in fact a
-  $k$-algebra) in a natural way. In this situation, we say that $K$ is
+  $k$-algebra) in a natural way.} In this situation, we say that $K$ is
   an \emph{extension} of $k$.
 \end{exer}
 \begin{exer}{}{exer:rings:R-alg-initial}
-  What is the initial object of the category $R$-$\categ{Alg}$?
+  \tolean[Claude]{What is the initial object of the category $R$-$\categ{Alg}$?}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:endomorphism-algebra}
+  \tolean[Claude]{
   Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove
   that the operation of composition on the $R$-module
   $\End_{R\text{-}\categ{Mod}}(M)$ makes the latter an $R$-algebra in
-  a natural way. Prove that $M_n(R)$ (cf.\
-  \Cref{exer:rings:matrix-ring}) is an $R$-algebra, in a natural
-  way. [\ref{exer:linalg:ibn-fails-for-endomorphism-ring},
+  a natural way. Prove that $M_n(R)$ is an $R$-algebra, in a natural
+  way.
+  } (cf.\ \Cref{exer:rings:matrix-ring})
+  [\ref{exer:linalg:ibn-fails-for-endomorphism-ring},
   \ref{exer:linalg:mn-r-iso-hom-as-r-algebras}]
 \end{exer}
 \begin{exer}{}{exer:rings:simple-endomorphism-division}
-  Let $R$ be a commutative ring, and let $M$ be a simple $R$-module
-  (cf.\ \Cref{exer:rings:schur}). Prove that
-  $\End_{R\text{-}\categ{Mod}}(M)$ is a division $R$-algebra.
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $M$ be a simple $R$-module.
+  Prove that
+  $\End_{R\text{-}\categ{Mod}}(M)$ is a division $R$-algebra.} (cf.\ \Cref{exer:rings:schur})
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:Rx-module-structures}
-  Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $M$ be an $R$-module. Prove
   that there is a natural bijection between the set of $R[x]$-module
-  structures on $M$ and
-  $\End_{R\text{-}\categ{Mod}}(M)$. [\Cref{subsec:linalg:linear-transformations-of-free-modules-actions-of-polynomial-rings}]
+  structures on $M$ (extending the given $R$-module structure) and
+  $\End_{R\text{-}\categ{Mod}}(M)$.} [\Cref{subsec:linalg:linear-transformations-of-free-modules-actions-of-polynomial-rings}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:bijective-iso}
   Let $R$ be a ring. Let $M$, $N$ be $R$-modules, and let
@@ -3073,25 +3213,26 @@ $M$.
   \Cref{subsec:homol:abelian-categories}]
 \end{exer}
 \begin{exer}{}{exer:rings:principal-ideal-iso-R}
-  Let $R$ be an integral domain, and let $I$ be a nonzero principal
-  ideal of $R$. Prove that $I$ is isomorphic to $R$ as an $R$-module.
+  \tolean[Claude]{Let $R$ be an integral domain, and let $I$ be a nonzero principal
+  ideal of $R$. Prove that $I$ is isomorphic to $R$ as an $R$-module.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:prove-second-iso}
   Prove
   \Cref{prop:rings:second-iso}. [\Cref{subsec:rings:canonical-decomposition-and-isomorphism-theorems}]
 \end{exer}
 \begin{exer}{}{exer:rings:ideal-quotient-iso}
-  Let $R$ be a commutative ring, and let $I$, $J$ be ideals of
-  $R$. Prove that $I \cdot (R/J) \cong (I + J)/J$ as $R$-modules.
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $I$, $J$ be ideals of
+  $R$. Prove that $I \cdot (R/J) \cong (I + J)/J$ as $R$-modules.}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:nakayama-nilpotent}
-  Let $R$ be a commutative ring, $M$ an $R$-module, and let $a \in R$
+  \tolean[Claude]{Let $R$ be a commutative ring, $M$ an $R$-module, and let $a \in R$
   be a nilpotent element, determining a submodule $aM$ of $M$. Prove
-  that $M = 0 \iff aM = M$. (This is a particular case of Nakayama's
+  that $M = 0 \iff aM = M$.} (This is a particular case of Nakayama's
   lemma, \Cref{exer:linalg:nakayamas-lemma}.)
   [\ref{exer:linalg:nakayamas-lemma}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:rees-algebra}
+  \tolean[Claude]{
   Let $R$ be a commutative ring, and let $I$ be an ideal of
   $R$. Noting that $I^j \cdot I^k \subseteq I^{j+k}$, define a ring
   structure on the direct sum
@@ -3104,13 +3245,14 @@ $M$.
   called the \emph{Rees algebra} of $I$. Prove that if $a \in R$ is a
   non-zero-divisor, then the Rees algebra of $(a)$ is isomorphic to
   the polynomial ring $R[x]$ (as an
-  $R$-algebra). [\ref{exer:rings:rees-iso}]
+  $R$-algebra).
+  } [\ref{exer:rings:rees-iso}]
 \end{exer}
 \begin{exer}{}{exer:rings:rees-iso}
-  With notation as in \Cref{exer:rings:rees-algebra}, let $a \in R$ be
+  \tolean[Claude]{With notation as in \Cref{exer:rings:rees-algebra}, let $a \in R$ be
   a non-zero-divisor, let $I$ be any ideal of $R$, and let $J$ be the
   ideal $aI$. Prove that
-  $\operatorname{Rees}_R(J) \cong \operatorname{Rees}_R(I)$.
+  $\operatorname{Rees}_R(J) \cong \operatorname{Rees}_R(I)$.}
 \end{exer}
 
 \section{Products, coproducts, etc., in R-Mod}
@@ -3138,7 +3280,8 @@ and coproducts coincide, in $R$-$\categ{Mod}$. Indeed, recall the
 construction of the direct sum of two abelian groups
 (\Cref{subsec:groups:abelian-groups}): if $M$ and $N$ are abelian
 groups, then $M \oplus N$ denotes their product, with componentwise
-operation. If $M$ and $N$ are $R$-modules, we can give an $R$-module
+operation. \tolean[Claude]{
+If $M$ and $N$ are $R$-modules, we can give an $R$-module
 structure to $M \oplus N$ by prescribing $\forall r \in R$:
 $r(m, n) := (rm, rn)$. This defines the \emph{direct sum} of $M$, $N$,
 as an $R$-module. Note that $M \oplus N$ comes together with several
@@ -3151,9 +3294,10 @@ sending $(m, n)$ to $m$, $n$, respectively, and
   i_M : M \to M \oplus N, \qquad i_N : N \to M \oplus N
 \]
 sending $m$ to $(m, 0)$ and $n$ to $(0, n)$.
+}
 \begin{prop}{}{prop:rings:direct-sum-product-coproduct}
-  The direct sum $M \oplus N$ satisfies the universal properties of
-  both the product and the coproduct of $M$ and $N$.
+  \tolean[Claude]{The direct sum $M \oplus N$ satisfies the universal properties of
+  both the product and the coproduct of $M$ and $N$.}
 \end{prop}
 
 \begin{proof}
@@ -3246,6 +3390,7 @@ that $\beta \circ \phi = 0$:
     dashed, "\exists!\beta"'] & P
   \end{tikzcd}\]
 \begin{prop}{}{prop:rings:kernels-cokernels}
+  \tolean[Claude]{
   The following hold in $R$-$\categ{Mod}$:
   \begin{itemize}
   \item kernels and cokernels exist;
@@ -3257,6 +3402,7 @@ that $\beta \circ \phi = 0$:
   Further, every monomorphism identifies its source with the kernel of
   some morphism, and every epimorphism identifies its target with the
   cokernel of some morphism.
+  }
 \end{prop}
 \begin{proof}
   This proposition of course simply generalizes to $R$-$\categ{Mod}$
@@ -3286,10 +3432,10 @@ monomorphisms and epimorphisms in $\categ{Set}$
 non-empty source is a monomorphism if and only if it has a
 left-inverse, and it is an epimorphism if and only if it has a
 right-inverse. We have learned not to expect any of this to happen in
-more general categories. Modules are not an exception: the function
+more general categories. \tolean[Claude]{Modules are not an exception: the function
 $\Z \to \Z$ defined by `multiplication by 2' is a monomorphism without
 a left-inverse, and the projection $\Z \to \Z/2\Z$ is an epimorphism
-without a right-inverse. We will come back to this point in
+without a right-inverse.} We will come back to this point in
 \Cref{subsec:rings:split-exact-sequences}.
 
 \subsection{Free modules and free algebras}
@@ -3301,16 +3447,19 @@ most efficient way'. Again, the situation will match the case of
 abelian groups closely, so the reader may want to refer back to
 \Cref{subsec:groups:free-abelian-groups}.
 
+\tolean[Claude]{
 The universal property formalizing the heuristic requirement goes as
 follows: given a set $A$, we are seeking an $R$-module $F_R(A)$,
 called a \emph{free $R$-module on the set $A$}, together with a
 set-function $j : A \to F_R(A)$, such that for all $R$-modules $M$ and
 set-functions $f : A \to M$ there exists a unique $R$-module
 homomorphism $\phi : F_R(A) \to M$ such that the diagram
+}
 \[\begin{tikzcd}
     F_R(A) \arrow[r, "\phi"] & M \\
     A \arrow[u, "j"] \arrow[ur, "f"']
-  \end{tikzcd}\] commutes. Abstract nonsense guarantees that such an
+  \end{tikzcd}\] \tolean[Claude]{commutes.}
+Abstract nonsense guarantees that such an
 $R$-module is unique up to isomorphism if it exists at all
 (\Cref{prop:prelims:initial-final-unique}) and that the function
 $j : A \to F_R(A)$ is necessarily injective (cf.\
@@ -3334,7 +3483,7 @@ function $j_a : A \to R$:
     0 & \text{if } x \neq a. \end{cases}
 \]
 \begin{prop}{}{prop:rings:free-module}
-  $F_R(A) \cong R^{\oplus A}$.
+  \tolean[Claude]{$F_R(A) \cong R^{\oplus A}$.}
 \end{prop}
 
 \begin{proof}
@@ -3364,7 +3513,7 @@ for the polynomial ring $R[x_1, \ldots, x_n]$; we have a set-function
 $j : A \to R[A]$, defined by $j(i) = x_i$.
 
 \begin{prop}{}{prop:rings:free-R-algebra}
-  $R[A]$ is a free commutative $R$-algebra on the set $A$.
+  \tolean[Claude]{$R[A]$ is a free commutative $R$-algebra on the set $A$.}
 \end{prop}
 \begin{proof}
   The statement translates into the following: for every commutative
@@ -3410,7 +3559,7 @@ ring again, but only in the distant future (\Cref{exam:linrep:symmetric-algebra-
 \label{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}
 Let $M$ be an $R$-module, and let $A \subseteq M$ be a subset of
 $M$. By the universal property of free modules, there is a unique
-homomorphism of $R$-modules $\phi_A : R^{\oplus A} \to M$. The image
+homomorphism of $R$-modules $\phi_A : R^{\oplus A} \to M$. \tolean[Claude]{The image
 of this homomorphism is a submodule of $M$, the \emph{submodule
   generated by $A$ in $M$}, usually denoted $\langle A \rangle$ (or
 $\langle a_1, \ldots, a_n \rangle$ if $A = \{a_1, \ldots, a_n\}$ is
@@ -3420,12 +3569,12 @@ finite). Thus,
   \text{ for only finitely many elements } a \in A \Bigr\}.
 \]
 It is hopefully clear that $\langle A \rangle$ is the smallest
-submodule of $M$ containing $A$.
+submodule of $M$ containing $A$.}
 
-The module $M$ is \emph{finitely generated} if $M = \langle A \rangle$
+\tolean[Claude]{The module $M$ is \emph{finitely generated} if $M = \langle A \rangle$
 for a finite set $A$, that is, if and only if there is a surjective
 homomorphism of $R$-modules $R^{\oplus n} \twoheadrightarrow M$ for
-some $n$. One of the highlights of \Cref{chap:linalg} will be the
+some $n$.} One of the highlights of \Cref{chap:linalg} will be the
 classification of finitely generated modules over PIDs
 (\Cref{thm:linalg:structure-theorem-fg-modules-over-pid}). I have already briefly mentioned the case for
 $\Z$ (recall that $\Z$ is a PID and $\Z$-modules are nothing but
@@ -3437,27 +3586,27 @@ may be that a module $M$ is finitely generated, but some submodule of
 $M$ is not finitely generated!
 
 \begin{exam}{}{exam:rings:infinite-poly-ring-fg}
-  Let $R = \Z[x_1, x_2, \ldots]$, a polynomial ring on infinitely many
+  \tolean[Claude]{Let $R = \Z[x_1, x_2, \ldots]$, a polynomial ring on infinitely many
   indeterminates. Then $R$ is finitely generated as an $R$-module:
   indeed, $1$ generates it. However, the ideal $(x_1, x_2, \ldots)$ of
   $R$ generated by all indeterminates is not finitely generated as an
-  $R$-module (\Cref{exer:rings:infinite-ideal-not-fg}).
+  $R$-module.} (\Cref{exer:rings:infinite-ideal-not-fg})
 \end{exam}
 \begin{defn}{}{defn:rings:noetherian-module}
-  An $R$-module $M$ is \emph{Noetherian} if every submodule of $M$ is
-  finitely generated as an $R$-module.
+  \tolean[Claude]{An $R$-module $M$ is \emph{Noetherian} if every submodule of $M$ is
+  finitely generated as an $R$-module.}
 \end{defn}
-Thus, a ring $R$ is Noetherian in the sense of
-\Cref{defn:rings:noetherian} if and only if it is Noetherian `as a
-module over itself'. The ring in
+\tolean[Claude]{Thus, a ring $R$ is Noetherian in the sense of
+\cref{Cefn:rings:noetherian} if and only if it is Noetherian `as a
+module over itself'.} The ring in
 \Cref{exam:rings:infinite-poly-ring-fg} is not Noetherian. We will
 study the Noetherian condition more carefully later on
 (\Cref{subsec:irred:noetherian-rings-revisited}); but we can
 already see one reason why this is a good, `solid' notion.
 
 \begin{prop}{}{prop:rings:noetherian-subquotient}
-  Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Then
-  $M$ is Noetherian if and only if both $N$ and $M/N$ are Noetherian.
+  \tolean[Claude]{Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Then
+  $M$ is Noetherian if and only if both $N$ and $M/N$ are Noetherian.}
 \end{prop}
 \begin{proof}
   If $M$ is Noetherian, then so is $M/N$ (same proof as for
@@ -3478,8 +3627,8 @@ already see one reason why this is a good, `solid' notion.
   \Cref{exer:rings:fg-submodule-quotient}.
 \end{proof}
 \begin{coro}{}{coro:rings:fg-module-over-noetherian-is-noetherian}
-  Let $R$ be a Noetherian ring, and let $M$ be a finitely generated
-  $R$-module. Then $M$ is Noetherian (as an $R$-module).
+  \tolean[Claude]{Let $R$ be a Noetherian ring, and let $M$ be a finitely generated
+  $R$-module. Then $M$ is Noetherian (as an $R$-module).}
 \end{coro}
 
 \begin{proof}
@@ -3506,6 +3655,7 @@ important to keep these two concepts well distinct, although
 unfortunately the language used to express them is very similar.
 
 The following definitions differ in three small details\ldots
+\tolean[Claude]{
 \begin{quote}
   ``$S$ is finitely generated as a module over $R$ if there is an onto
   homomorphism of $R$-modules from the free $R$-module on a finite set
@@ -3516,17 +3666,13 @@ The following definitions differ in three small details\ldots
   onto homomorphism of $R$-algebras from the free $R$-algebra on a
   finite set to $S$.''
 \end{quote}
+}
 The mathematical difference is more substantial than it may appear. As
 we have seen in \Cref{subsec:rings:free-modules-and-free-algebras},
 the free $R$-module over a finite set $A = \{1, \ldots, n\}$ is
 isomorphic to $R^{\oplus n}$; the free commutative $R$-algebra over
 $A$ is isomorphic to $R[x_1, \ldots, x_n]$. Thus, a
-commutative\footnote{We are mostly interested in the commutative case,
-  so I will make this hypothesis here; the only change in the general
-  case is typographical: $\cdots$ rather than $[\cdots]$. Also, note
-  that a commutative ring is finitely generated as an algebra if and
-  only if it is finitely generated as a commutative algebra; cf.\
-  \Cref{exer:rings:commutative-algebra-fg}.} ring $S$ is finitely
+commutative ring $S$ is \tolean[Claude]{finitely
 generated as an $R$-module if there is an onto homomorphism of
 $R$-modules $R^{\oplus n} \twoheadrightarrow S$ for some $n$; it is
 finitely generated as an $R$-algebra if there is an onto homomorphism
@@ -3535,29 +3681,27 @@ $n$. In other words, $S$ is finitely generated as an $R$-module if and
 only if $S \cong R^{\oplus n}/M$ for some $n$ and a submodule $M$ of
 $R^{\oplus n}$; it is a finite-type $R$-algebra if and only if
 $S \cong R[x_1, \ldots, x_n]/I$ for some $n$ and an ideal $I$ of
-$R[x_1, \ldots, x_n]$. We say that $S$ is \emph{finite}\footnote{This
-  is particularly unfortunate, since $S$ may very well be an infinite
-  set.} in the first case and of \emph{finite type} in the second. It
+$R[x_1, \ldots, x_n]$. We say that $S$ is \emph{finite} in the first case and of \emph{finite type} in the second. It
 is clear that `finite' $\implies$ `finite type'; it should be just as
-clear that the converse does not hold.
+clear that the converse does not hold.}
 \begin{exam}{}{}
-  The polynomial ring $R[x]$ is a finite-type $R$-algebra, but it is
-  not finite as an $R$-module.
+  \tolean[Claude]{The polynomial ring $R[x]$ is a finite-type $R$-algebra, but it is
+  not finite as an $R$-module.}
 \end{exam}
 The distinction, while macroscopic in general, may evaporate in
-special, important cases. For example, one can prove that if $k$ and
+special, important cases. \tolean[Claude]{For example, one can prove that if $k$ and
 $K$ are fields and $k \subseteq K$, then $K$ is of finite type over
 $k$ if and only if it is in fact finite as a $k$-module (that is, it
-is a finite-dimensional $k$-vector space). This is one version of
+is a finite-dimensional $k$-vector space).} This is one version of
 Hilbert's Nullstellensatz, a deep result we already mentioned in
 \Cref{exam:rings:calculus-of-ideals}5 and that we will prove (in an
 important class of examples) in
 \Cref{subsec:fields:the-nullstellensatz}.
 
 \name{David Hilbert}'s name is associated to another important result
-concerning finite-type $R$-algebras: if $R$ is Noetherian (as a ring,
+concerning finite-type $R$-algebras: \tolean[Claude]{if $R$ is Noetherian (as a ring,
 that is, as an $R$-module) and $S$ is a finite-type $R$-algebra, then
-$S$ is also Noetherian (as a ring, that is, as an $S$-module). This is
+$S$ is also Noetherian (as a ring, that is, as an $S$-module).} This is
 an immediate consequence of the so-called \emph{Hilbert's basis
   theorem}. The proof of Hilbert's basis theorem is completely
 elementary: it could be given here as an exercise, with a few key
@@ -3571,38 +3715,39 @@ hints; we will see it in
   \Cref{prop:rings:free-module}. [\Cref{subsec:rings:free-modules-and-free-algebras}]
 \end{exer}
 \begin{exer}{}{exer:rings:M-not-iso-MplusM}
-  Prove or disprove that if $R$ is a ring and $M$ is a nonzero
-  $R$-module, then $M$ is not isomorphic to $M \oplus M$.
+  \tolean[Claude]{Prove or disprove that if $R$ is a ring and $M$ is a nonzero
+  $R$-module, then $M$ is not isomorphic to $M \oplus M$.}
 \end{exer}
 \begin{exer}{}{exer:rings:projection-decomposition}
-  Let $R$ be a ring, $M$ an $R$-module, and $p : M \to M$ an
+  \tolean[Claude]{Let $R$ be a ring, $M$ an $R$-module, and $p : M \to M$ an
   $R$-module homomorphism such that $p^2 = p$. (Such a map is called a
-  \emph{projection}.) Prove that $M \cong \ker p \oplus \image p$.
+  \emph{projection}.) Prove that $M \cong \ker p \oplus \image p$.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:free-module-quotient}
-  Let $R$ be a ring, and let $n > 1$. View $R^{\oplus(n-1)}$ as a
+  \tolean[Claude]{Let $R$ be a ring, and let $n > 1$. View $R^{\oplus(n-1)}$ as a
   submodule of $R^{\oplus n}$, via the injective homomorphism
   $R^{\oplus(n-1)} \hookrightarrow R^{\oplus n}$ defined by
   $(r_1, \ldots, r_{n-1}) \mapsto (r_1, \ldots, r_{n-1}, 0)$. Give a
   one-line proof that $R^{\oplus n}/R^{\oplus(n-1)} \cong
-  R$. [\Cref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}]
+  R$.} [\Cref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:free-module-product-sets}
   (Notation as in
-  \Cref{subsec:rings:free-modules-and-free-algebras}.) For any ring
+  \Cref{subsec:rings:free-modules-and-free-algebras}.) \tolean[Claude]{For any ring
   $R$ and any two sets $A_1$, $A_2$, prove that
   $(R^{\oplus A_1})^{\oplus A_2} \cong R^{\oplus(A_1 \times
-    A_2)}$. [\Cref{subsec:linrep:adjunction-with-hom-and-explicit-computations}]
+    A_2)}$.} [\Cref{subsec:linrep:adjunction-with-hom-and-explicit-computations}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:hom-free-dual}
-  Let $R$ be a ring, and let $F = R^{\oplus n}$ be a finitely
+  \tolean[Claude]{Let $R$ be a commutative ring, and let $F = R^{\oplus n}$ be a finitely
   generated free $R$-module. Prove that
   $\Hom_{R\text{-}\categ{Mod}}(F, R) \cong F$. On the other hand, find
   an example of a ring $R$ and a nonzero $R$-module $M$ such that
   $\Hom_{R\text{-}\categ{Mod}}(M, R) =
-  0$. [\ref{exer:rings:hom-free-product}]
+  0$.} [\ref{exer:rings:hom-free-product}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:product-coproduct-infinite}
+  \tolean[Claude]{
   Let $A$ be any set.
   \begin{itemize}
   \item For any family $\{M_a\}_{a \in A}$ of modules over a ring $R$,
@@ -3611,31 +3756,32 @@ hints; we will see it in
     these are denoted $R^A$, $R^{\oplus A}$, respectively.
   \item Prove that $\Z^{\N} \not\cong \Z^{\oplus \N}$. (Hint:
     Cardinality.)
-  \end{itemize} [\Cref{subsec:rings:products-and-coproducts},
+  \end{itemize}
+  } [\Cref{subsec:rings:products-and-coproducts},
   \ref{exer:rings:hom-free-product}]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-free-product}
-  Let $R$ be a ring. If $A$ is any set, prove that
+  \tolean[Claude]{Let $R$ be a commutative ring. If $A$ is any set, prove that
   $\Hom_{R\text{-}\categ{Mod}}(R^{\oplus A}, R)$ satisfies the
   universal property for the product of the family
   $\{R_a\}_{a \in A}$, where $R_a \cong R$ for all $a$; thus,
   $\Hom_{R\text{-}\categ{Mod}}(R^{\oplus A}, R) \cong R^A$. Conclude
   that $\Hom_{R\text{-}\categ{Mod}}(R^{\oplus A}, R)$ is not
-  isomorphic to $R^{\oplus A}$ in general (cf.\
-  \Cref{exer:rings:hom-free-dual,exer:rings:product-coproduct-infinite}).
+  isomorphic to $R^{\oplus A}$ in general.} (cf.\
+  \Cref{exer:rings:hom-free-dual,exer:rings:product-coproduct-infinite})
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:free-projective}
-  Let $R$ be a ring, $F$ a nonzero free $R$-module, and let
+  \tolean[Claude]{Let $R$ be a ring, $F$ a nonzero free $R$-module, and let
   $\phi : M \to N$ be a homomorphism of $R$-modules. Prove that $\phi$
   is onto if and only if for all $R$-module homomorphisms
   $\alpha : F \to N$ there exists an $R$-module homomorphism
-  $\beta : F \to M$ such that $\alpha = \phi \circ \beta$. (Free
+  $\beta : F \to M$ such that $\alpha = \phi \circ \beta$.} (Free
   modules are projective, as we will see in \Cref{chap:linrep}.)
   [\ref{exer:rings:exact-seq-with-free-quotient-splits},
   \ref{exer:linalg:direct-summand-of-free-over-local-is-free}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:fibered-product}
-  (Cf.\ \Cref{exer:prelim:fiber-product}.) Let $M$, $N$, and $Z$ be
+  (Cf.\ \Cref{exer:prelim:fiber-product}.) \tolean[Claude]{Let $M$, $N$, and $Z$ be
   $R$-modules, and let $\mu : M \to Z$, $\nu : N \to Z$ be
   homomorphisms of $R$-modules. Prove that $R$-$\categ{Mod}$ has
   `fibered products': there exists an $R$-module $M \times_Z N$ with
@@ -3644,7 +3790,7 @@ hints; we will see it in
   $\mu \circ \pi_M = \nu \circ \pi_N$, and which is universal with
   respect to this requirement. The module $M \times_Z N$ may be called
   the \emph{pull-back} of $M$ along $\nu$ (or of $N$ along $\mu$,
-  since the construction is symmetric). `Fiber diagrams'
+  since the construction is symmetric).} `Fiber diagrams'
   \[\begin{tikzcd}
       M \times_Z N \arrow[r, "\pi_N"] \arrow[d, "\pi_M"'] \arrow[dr, phantom, "\lrcorner", very near start] & N \arrow[d, "\nu"] \\
       M \arrow[r, "\mu"'] & Z
@@ -3662,17 +3808,17 @@ hints; we will see it in
   \[\begin{tikzcd}
       A \arrow[r, "\nu"] \arrow[d, "\mu"'] \arrow[dr, phantom, "\ulcorner", very near end] & N \arrow[d] \\
       M \arrow[r] & M \oplus_A N
-    \end{tikzcd}\] Prove that fibered coproducts exist in
+    \end{tikzcd}\] \tolean[Claude]{Prove that fibered coproducts exist in
   $R$-$\categ{Mod}$. The fibered coproduct $M \oplus_A N$ is called
   the \emph{push-out} of $M$ along $\nu$ (or of $N$ along
-  $\mu$). [\Cref{subsec:rings:products-and-coproducts}]
+  $\mu$).} [\Cref{subsec:rings:products-and-coproducts}]
 \end{exer}
 \begin{exer}{}{exer:rings:prove-prop-kernels-cokernels}
   Prove \Cref{prop:rings:kernels-cokernels}.
 \end{exer}
 \begin{exer}{}{exer:rings:homomorphic-image-fg}
-  Prove that every homomorphic image of a finitely generated module is
-  finitely generated.
+  \tolean[Claude]{Prove that every homomorphic image of a finitely generated module is
+  finitely generated.}
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:infinite-ideal-not-fg}
   Prove that the ideal $(x_1, x_2, \ldots)$ of the ring
@@ -3681,25 +3827,28 @@ hints; we will see it in
   $R$-module). [\Cref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:commutative-algebra-fg}
-  Let $R$ be a commutative ring. Prove that a commutative $R$-algebra
+  \tolean[Claude]{Let $R$ be a commutative ring. Prove that a commutative $R$-algebra
   $S$ is finitely generated as an algebra over $R$ if and only if it
-  is finitely generated as a commutative algebra over $R$. (Cf.\
+  is finitely generated as a commutative algebra over $R$.} (Cf.\
   \Cref{subsec:rings:finitely-generated-vs-finite-type}.)
   [\Cref{subsec:rings:finitely-generated-vs-finite-type}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:cyclic-module}
+  \tolean[Claude]{
   Let $R$ be a ring. A (left-)$R$-module $M$ is \emph{cyclic} if
   $M = \langle m \rangle$ for some $m \in M$. Prove that simple
-  modules (cf.\ \Cref{exer:rings:schur}) are cyclic. Prove that an
+  modules are cyclic. Prove that an
   $R$-module $M$ is cyclic if and only if $M \cong R/I$ for some
   (left-)ideal $I$. Prove that every quotient of a cyclic module is
-  cyclic. [\ref{exer:rings:hom-cyclic},
+  cyclic.
+  } (cf.\ \Cref{exer:rings:schur}) [\ref{exer:rings:hom-cyclic},
   \Cref{subsec:linalg:torsion}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:hom-cyclic}
   Let $M$ be a cyclic $R$-module, so that $M \cong R/I$ for a
   (left-)ideal $I$ (\Cref{exer:rings:cyclic-module}), and let $N$ be
   another $R$-module.
+  \tolean[Claude]{
   \begin{itemize}
   \item Prove that
     $\Hom_{R\text{-}\categ{Mod}}(M, N) \cong \{n \in N \mid (\forall a
@@ -3707,13 +3856,14 @@ hints; we will see it in
   \item For $a, b \in \Z$, prove that
     $\Hom_{\categ{Ab}}(\Z/a\Z, \Z/b\Z) \cong \Z/\gcd(a,b)\Z$.
   \end{itemize}
+  }
   [\ref{exer:rings:hom-contravariant-left-exact-from-ses}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:fg-submodule-quotient}
-  Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Prove
+  \tolean[Claude]{Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Prove
   that if $N$ and $M/N$ are both finitely generated, then $M$ is
   finitely
-  generated. [\Cref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}]
+  generated.} [\Cref{subsec:rings:submodule-generated-by-a-subset-noetherian-modules}]
 \end{exer}
 
 \section{Complexes and homology}
@@ -3729,6 +3879,7 @@ course in \Cref{chap:homol}.
 
 \subsection{Complexes and exact sequences}
 \label{subsec:rings:complexes-and-exact-sequences}
+\tolean[Claude]{
 A \emph{chain complex} of $R$-modules (or, for simplicity, a
 \emph{complex}) is a sequence of $R$-modules and $R$-module
 homomorphisms
@@ -3736,7 +3887,9 @@ homomorphisms
   \cdots \xrightarrow{d_{i+2}} M_{i+1} \xrightarrow{d_{i+1}} M_i
   \xrightarrow{d_i} M_{i-1} \xrightarrow{d_{i-1}} \cdots
 \]
-such that $(\forall i) : d_i \circ d_{i+1} = 0$. The notation
+such that $(\forall i) : d_i \circ d_{i+1} = 0$.
+}
+The notation
 $(M_\bullet, d_\bullet)$ may be used to denote a complex, or simply
 $M_\bullet$ for simplicity (but do not forget that the homomorphisms
 $d_i$ are part of the information carried by a complex).
@@ -3756,40 +3909,40 @@ the requirement $\image d_{i+1} \subseteq \ker d_i$.  Almost the whole
 point about complexes is to `measure' the difference between
 $\image d_{i+1}$ and $\ker d_i$, which is called the \emph{homology}
 of the complex (cf.\
-\Cref{subsec:rings:homology-and-the-snake-lemma}). We say that a
+\Cref{subsec:rings:homology-and-the-snake-lemma}). \tolean[Claude]{We say that a
 complex is \emph{exact} `at $M_i$' if it has no homology there; that
 is, $\image d_{i+1} = \ker d_i$. For example, if $M_i$ is a trivial
 module (usually denoted simply by $0$), then the complex is
 necessarily exact at $M_i$, since then
 $\image d_{i+1} = \ker d_i = 0$. A complex is \emph{exact} and is
 often called an \emph{exact sequence} if it is exact at all its
-modules.
+modules.}
 \begin{exam}{}{}
-  A complex $\cdots \to 0 \to L \xrightarrow{\alpha} M \to \cdots$ is
-  exact at $L$ if and only if $\alpha$ is a monomorphism. Indeed,
+  \tolean[Claude]{A complex $\cdots \to 0 \to L \xrightarrow{\alpha} M \to \cdots$ is
+  exact at $L$ if and only if $\alpha$ is a monomorphism.} Indeed,
   exactness at $L$ is equivalent to $\ker\alpha = $ image of the
   trivial homomorphism $0 \to L$, that is, to $\ker\alpha = 0$. This
   is equivalent to the injectivity of $\alpha$
   (\Cref{prop:rings:kernels-cokernels}).
 \end{exam}
 \begin{exam}{}{exam:rings:exact-at-n-epimorphism}
-  A complex $\cdots \to M \xrightarrow{\beta} N \to 0 \to \cdots$ is
-  exact at $N$ if and only if $\beta$ is an epimorphism. Indeed, the
+  \tolean[Claude]{A complex $\cdots \to M \xrightarrow{\beta} N \to 0 \to \cdots$ is
+  exact at $N$ if and only if $\beta$ is an epimorphism.} Indeed, the
   complex is exact at $N$ if and only if $\image\beta = $ kernel of
   the trivial homomorphism $N \to 0$, that is, $\image\beta = N$.
 \end{exam}
 \begin{defn}{}{defn:rings:short-exact-sequence}
-  A \emph{short exact sequence} is an exact complex of the form
+  \tolean[Claude]{A \emph{short exact sequence} is an exact complex of the form
   \[
     0 \to L \xrightarrow{\alpha} M \xrightarrow{\beta} N \to 0.
-  \]
+  \]}
 \end{defn}
-As seen in the previous two examples, exactness at $L$ and $N$ is
+\tolean[Claude]{As seen in the previous two examples, exactness at $L$ and $N$ is
 equivalent to $\alpha$ being injective and $\beta$ being
 surjective. The extra piece of data carried by a short exact sequence
 is the exactness at $M$, that is, $\image\alpha = \ker\beta$; by the
-first isomorphism theorem (\Cref{coro:rings:module-first-iso}), we
-then have $N \cong M/\ker\beta = M/\image\alpha$.
+first isomorphism theorem, we
+then have $N \cong M/\ker\beta = M/\image\alpha$.} (\Cref{coro:rings:module-first-iso})
 
 All in all, we have good material to work on some more Pavlovian
 conditioning: at the sight of a short exact sequence as above, the
@@ -3797,11 +3950,11 @@ reader should instinctively identify $L$ with a submodule of $M$ (via
 the injective map $\alpha$) and $N$ with the quotient $M/L$ (via the
 isomorphism induced by the surjective map $\beta$, under the auspices
 of the first isomorphism theorem).  Short exact sequences abound in
-nature. For example, a single homomorphism $\phi : M \to M'$ gives
+nature. \tolean[Claude]{For example, a single homomorphism $\phi : M \to M'$ gives
 rise immediately to a short exact sequence
 \[
   0 \to \ker\phi \to M \to \image\phi \to 0.
-\]
+\]}
 In fact, one important reason to focus on short exact sequences is
 that this observation allows us to break up every exact complex into a
 large number of short exact sequences. The diagonal sequences in the
@@ -3812,6 +3965,7 @@ simplifies many arguments; cf.\ for example
 
 \subsection{Split exact sequences}
 \label{subsec:rings:split-exact-sequences}
+\tolean[Claude]{
 A particular case of short exact sequence arises by considering the
 second projection from a direct sum: $M_1 \oplus M_2 \to M_2$; there
 is then an exact sequence
@@ -3826,14 +3980,14 @@ exact sequence
 \]
 `splits' if it is isomorphic to one of these sequences in the sense
 that there is a commutative diagram
+}
 \[\begin{tikzcd}
     0 \arrow[r] & M_1 \arrow[r] \arrow[d, "\sim"'] & N \arrow[r] \arrow[d, "\sim"'] & M_2 \arrow[r] \arrow[d, "\sim"'] & 0 \\
     0 \arrow[r] & M_1' \arrow[r] & M_1' \oplus M_2' \arrow[r] & M_2'
     \arrow[r] & 0
-  \end{tikzcd}\] in which the vertical maps are all
-isomorphisms\footnote{In fact, this last requirement is somewhat
-  redundant; cf.\
-  \Cref{exer:rings:retraction-to-direct-sum-implies-splits}.}.
+  \end{tikzcd}\]
+\tolean[Claude]{in which the vertical maps are all
+isomorphisms.}
 
 \begin{exam}{}{}
   The exact sequence of $\Z$-modules
@@ -3848,6 +4002,7 @@ requirement of being a monomorphism (resp., an epimorphism); can we
 give a more explicit description of such morphisms?
 
 \begin{prop}{}{prop:rings:split-sequence}
+  \tolean[Claude]{
   Let $\phi : M \to N$ be an $R$-module homomorphism. Then
   \begin{itemize}
   \item $\phi$ has a left-inverse if and only if the sequence
@@ -3855,6 +4010,7 @@ give a more explicit description of such morphisms?
   \item $\phi$ has a right-inverse if and only if the sequence
     $0 \to \ker\phi \to M \xrightarrow{\phi} N \to 0$ splits.
   \end{itemize}
+  }
 \end{prop}
 \begin{proof}
   I will prove the first part and leave the other as an exercise to
@@ -3879,10 +4035,11 @@ give a more explicit description of such morphisms?
   \psi(n) = 0$. All necessary verifications are immediate and are left
   to the reader.
 \end{proof}
-Because of \Cref{prop:rings:split-sequence}, $R$-module homomorphisms
-with a left-inverse are called \emph{split monomorphisms}, and
-homomorphisms with a right-inverse are called \emph{split
-  epimorphisms}.
+
+Because of \Cref{prop:rings:split-sequence},
+\tolean[Claude]{$R$-module homomorphisms with a left-inverse are
+  called \emph{split monomorphisms}, and homomorphisms with a
+  right-inverse are called \emph{split epimorphisms}.}
 
 We will come back to split exact sequences (in the more demanding
 context of $\categ{Grp}$) in
@@ -3894,6 +4051,7 @@ abelian categories (Chapters~VIII and~IX).
 \label{subsec:rings:homology-and-the-snake-lemma}
 
 \begin{defn}{}{defn:rings:homology}
+  \tolean[Claude]{
   The \emph{$i$-th homology} of a complex
   $M_\bullet : \cdots \xrightarrow{d_{i+2}} M_{i+1}
   \xrightarrow{d_{i+1}} M_i \xrightarrow{d_i} M_{i-1}
@@ -3901,20 +4059,20 @@ abelian categories (Chapters~VIII and~IX).
   \[
     H_i(M_\bullet) := \frac{\ker d_i}{\image d_{i+1}}.
   \]
+  }
 \end{defn}
 
-That is, $H_i(M_\bullet)$ is a module capturing the failure of
+\tolean[Claude]{That is, $H_i(M_\bullet)$ is a module capturing the failure of
 exactness at $M_i$. Of course
 $H_i(M_\bullet) = 0 \iff \image d_{i+1} = \ker d_i \iff$ the complex
-$M_\bullet$ is exact at $M_i$: that is, the homology modules are a
-measure of the `failure of a complex from being exact'.
+$M_\bullet$ is exact at $M_i$.}
 \begin{exam}{}{exam:rings:homology-generalizes-ker-coker}
-  In fact, homology should be thought of as a (vast) generalization of
+  \tolean[Claude]{In fact, homology should be thought of as a (vast) generalization of
   the notions of kernel and cokernel. Indeed, consider the (very)
   particular case in which $M_\bullet$ is the complex
   $0 \to M_1 \xrightarrow{\phi} M_0 \to 0$. Then
   $H_1(M_\bullet) \cong \ker\phi$ and
-  $H_0(M_\bullet) \cong \coker\phi$.
+  $H_0(M_\bullet) \cong \coker\phi$.}
 \end{exam}
 I will end this very brief excursion into more abstract territories by
 indicating how a commutative diagram involving two short exact
@@ -3939,11 +4097,11 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
     "\beta_0"'] & N_0 \arrow[r] & 0
   \end{tikzcd}\]
 \begin{lem}{The snake lemma}{lem:rings:snake-lemma}
-  With notation as above, there is an exact sequence
+  \tolean[Claude]{With notation as above, there is an exact sequence
   \[
     0 \to \ker\lambda \to \ker\mu \to \ker\nu \xrightarrow{\delta}
     \coker\lambda \to \coker\mu \to \coker\nu \to 0.
-  \]
+  \]}
 \end{lem}
 \begin{rem}{}{}
   Most of the homomorphisms in this sequence are induced in a
@@ -3952,7 +4110,7 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
   one denoted $\delta$; I will discuss its definition below.
 \end{rem}
 \begin{rem}{}{rem:rings:snake-lemma-homology-restatement}
-  In view of \Cref{exam:rings:homology-generalizes-ker-coker}, we
+  In view of \Cref{exam:rings:homology-generalizes-ker-coker}, \tolean[Claude]{we
   could have written the sequence in this statement as
   \[
     0 \to H_1(L_\bullet) \to H_1(M_\bullet) \to H_1(N_\bullet)
@@ -3960,7 +4118,7 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
     H_0(N_\bullet) \to 0
   \]
   where $L_\bullet$ is the complex
-  $0 \to L_1 \xrightarrow{\lambda} L_0 \to 0$, etc. The snake lemma
+  $0 \to L_1 \xrightarrow{\lambda} L_0 \to 0$, etc.} The snake lemma
   generalizes to arbitrary complexes $L_\bullet$, $M_\bullet$,
   $N_\bullet$, producing a `long exact homology sequence' of which
   this is just the tail end. As mentioned above, we will discuss this
@@ -3968,17 +4126,21 @@ homomorphisms, so as to form a commutative diagram\footnote{In fact,
   (\Cref{subsec:homol:the-long-exact-cohomology-sequence}).
 \end{rem}
 \begin{rem}{}{rem:rings:snake-lemma-relaxed-hypotheses}
+  \tolean[Claude]{
   A popular version of the snake lemma does not assume that $\alpha_1$
   is injective and $\beta_0$ is surjective: that is, we could consider
   a commutative diagram of exact sequences
+  }
   \[\begin{tikzcd}
       L_1 \arrow[r, "\alpha_1"] \arrow[d, "\lambda"'] & M_1 \arrow[r, "\beta_1"] \arrow[d, "\mu"'] & N_1 \arrow[r] \arrow[d, "\nu"'] & 0 \\
       0 \arrow[r] & L_0 \arrow[r, "\alpha_0"'] & M_0 \arrow[r,
       "\beta_0"'] & N_0
-    \end{tikzcd}\] The lemma will then state that there is `only' an
+    \end{tikzcd}\]
+  \tolean[Claude]{The lemma will then state that there is `only' an
   exact sequence
   $\ker\lambda \to \ker\mu \to \ker\nu \xrightarrow{\delta}
   \coker\lambda \to \coker\mu \to \coker\nu$.
+  }
 \end{rem}
 Proving the snake lemma is something that should not be done in
 public, and it is notoriously useless to write down the details of the
@@ -4047,10 +4209,9 @@ several facts, which would not be hard to prove individually, but
 become really straightforward once the lemma is settled. For example,
 
 \begin{coro}{}{}
-  In the same situation presented in the snake lemma (notation as in
-  \Cref{subsec:rings:homology-and-the-snake-lemma}), assume that
+  \tolean[Claude]{In the same situation presented in the snake lemma, assume that
   $\mu$ is surjective and $\nu$ is injective. Then $\lambda$ is
-  surjective and $\nu$ is an isomorphism.
+  surjective and $\nu$ is an isomorphism.}
 \end{coro}
 
 \begin{proof}
@@ -4070,44 +4231,40 @@ should experiment to his or her heart's content.
 
 \subsection*{Exercises}
 \begin{exer}{\exerused}{exer:rings:single-nonzero-term-exact-implies-zero}
-  Assume that the complex $\cdots \to 0 \to M \to 0 \to \cdots$ is
+  \tolean[Claude]{Assume that the complex $\cdots \to 0 \to M \to 0 \to \cdots$ is
   exact. Prove that $M \cong
-  0$. [\Cref{subsec:rings:homology-and-the-snake-lemma}]
+  0$.} [\Cref{subsec:rings:homology-and-the-snake-lemma}]
 \end{exer}
 \begin{exer}{}{exer:rings:two-term-exact-complex-gives-iso}
-  Assume that the complex $\cdots \to 0 \to M \to M' \to 0 \to \cdots$
-  is exact. Prove that $M \cong M'$.
+  \tolean[Claude]{Assume that the complex $\cdots \to 0 \to M \to M' \to 0 \to \cdots$
+  is exact. Prove that $M \cong M'$.}
 \end{exer}
 \begin{exer}{}{exer:rings:five-term-exact-complex-ker-coker-identification}
-  Assume that the complex
+  \tolean[Claude]{Assume that the complex
   $\cdots \to 0 \to L \to M \xrightarrow{\phi} M' \to N \to 0 \to
   \cdots$ is exact. Show that, up to natural identifications,
-  $L = \ker\phi$ and $N = \coker\phi$.
+  $L = \ker\phi$ and $N = \coker\phi$.}
 \end{exer}
 \begin{exer}{}{exer:rings:hilbert-hotel-exact-sequences-with-z-n}
-  Construct short exact sequences of $\Z$-modules
+  \tolean[Claude]{Construct short exact sequences of $\Z$-modules
   \[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z \to 0\] and
-  \[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to 0.\]
-  (Hint: David Hilbert's Grand Hotel.)
+  \[0 \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to \Z^{\oplus\N} \to 0.\]} (Hint: David Hilbert's Grand Hotel.)
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:noetherian-sandwiched-in-exact-sequence}
-  Assume that the complex $\cdots \to L \to M \to N \to \cdots$ is
+  \tolean[Claude]{Assume that the complex $\cdots \to L \to M \to N \to \cdots$ is
   exact and that $L$ and $N$ are Noetherian. Prove that $M$ is
-  Noetherian. [\Cref{subsec:rings:complexes-and-exact-sequences}]
+  Noetherian.} [\Cref{subsec:rings:complexes-and-exact-sequences}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:split-epimorphism-part-of-split-seq-prop}
   Prove the ``split epimorphism'' part of
   \Cref{prop:rings:split-sequence}. [\Cref{subsec:rings:split-exact-sequences}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:hom-contravariant-left-exact-from-ses}
+  \tolean[Claude]{
   Let $0 \to M \to N \to P \to 0$ be a short exact sequence of
   $R$-modules, and let $L$ be an $R$-module.
   \begin{enumerate}[label=(\roman*)]
-  \item Prove that there is an exact sequence\footnote{In general,
-      this will be a sequence of abelian groups; if $R$ is
-      commutative, so that each $\Hom_{R\text{-Mod}}$ is an $R$-module
-      (\Cref{subsec:rings:the-category-r-mod}), then it will be an
-      exact sequence of $R$-modules.}
+  \item Prove that there is an exact sequence
     \[\Hom_{R\text{-Mod}}(P,L) \to \Hom_{R\text{-Mod}}(N,L) \to
       \Hom_{R\text{-Mod}}(M,L).\]
   \item Redo \Cref{exer:rings:hom-cyclic}. (Use the exact sequence
@@ -4117,56 +4274,63 @@ should experiment to his or her heart's content.
   \item Show that if the original sequence splits, then the rightmost
     homomorphism in (i) is onto.
   \end{enumerate}
+  }
   [\ref{exer:rings:hom-sequence-exactness-with-free-quotient},
   \ref{exer:linrep:onto-hom-explicit-restriction-extension-scalars},
   \Cref{subsec:linrep:adjunction-again}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:exact-seq-with-free-quotient-splits}
-  Prove that every exact sequence $0 \to M \to N \to F \to 0$ of
-  $R$-modules, with $F$ free, splits. (Hint:
+  \tolean[Claude]{Prove that every exact sequence $0 \to M \to N \to F \to 0$ of
+  $R$-modules, with $F$ free, splits.} (Hint:
   \Cref{exer:rings:free-projective}.)
   [\Cref{subsec:linrep:duality-and-exactness}]
 \end{exer}
 \begin{exer}{}{exer:rings:hom-sequence-exactness-with-free-quotient}
-  Let $0 \to M \to N \to F \to 0$ be a short exact sequence of
+  \tolean[Claude]{Let $0 \to M \to N \to F \to 0$ be a short exact sequence of
   $R$-modules, with $F$ free, and let $L$ be an $R$-module. Prove that
   there is an exact sequence
   \[\Hom_{R\text{-Mod}}(F,L) \to \Hom_{R\text{-Mod}}(N,L) \to
-    \Hom_{R\text{-Mod}}(M,L) \to 0.\] (Cf.\
+    \Hom_{R\text{-Mod}}(M,L) \to 0.\]} (Cf.\
   \Cref{exer:rings:hom-contravariant-left-exact-from-ses}.)
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:short-five-lemma-via-snake-lemma}
-  In the situation of the snake lemma, assume that $\lambda$ and $\nu$
+  \tolean[Claude]{In the situation of the snake lemma, assume that $\lambda$ and $\nu$
   are isomorphisms. Use the snake lemma and prove that $\mu$ is an
-  isomorphism. This is called the ``short five-lemma,'' as it follows
+  isomorphism.} This is called the ``short five-lemma,'' as it follows
   immediately from the five-lemma (cf.\
   \Cref{exer:rings:five-lemma-for-modules}), as well as from the snake
   lemma. [\ref{exer:linrep:why-ext-is-called-ext-part1},
   \ref{exer:homol:short-five-lemma}]
 \end{exer}
 \begin{exer}{\exerused}{exer:rings:retraction-to-direct-sum-implies-splits}
+  \tolean[Claude]{
   Let
   \[0 \to M_1 \to N \to M_2 \to 0 \tag{$*$}\] be an exact sequence of
   $R$-modules. (This may be called an ``extension'' of $M_2$ by
   $M_1$.) Suppose there is any $R$-module homomorphism
   $N \to M_1 \oplus M_2$ making the diagram
+  }
   \[\begin{tikzcd}
       0 \ar[r] & M_1 \ar[r] \ar[d,equal] & N \ar[r] \ar[d] & M_2 \ar[r] \ar[d,equal] & 0 \\
       0 \ar[r] & M_1 \ar[r] & M_1 \oplus M_2 \ar[r] & M_2 \ar[r] & 0
-    \end{tikzcd}\] commute, where the bottom sequence is the standard
+    \end{tikzcd}\]
+  \tolean[Claude]{commute, where the bottom sequence is the standard
   sequence of a direct sum. Prove that $(*)$
-  splits. [\Cref{subsec:rings:split-exact-sequences}]
+  splits.
+  } [\Cref{subsec:rings:split-exact-sequences}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:four-lemma-first-version}
   Practice your diagram chasing skills by proving the ``four-lemma'':
-  if
+  \tolean[Claude]{if
+  }
   \[\begin{tikzcd}
       A_1 \ar[r] \ar[d,"\alpha"'] & B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[d,"\delta"'] \\
       A_0 \ar[r] & B_0 \ar[r] & C_0 \ar[r] & D_0
-    \end{tikzcd}\] is a commutative diagram of $R$-modules with exact
+    \end{tikzcd}\]
+  \tolean[Claude]{is a commutative diagram of $R$-modules with exact
   rows, $\alpha$ is an epimorphism, and $\beta$, $\delta$ are
   monomorphisms, then $\gamma$ is a
-  monomorphism. [\ref{exer:rings:four-lemma-second-version},
+  monomorphism.} [\ref{exer:rings:four-lemma-second-version},
   \ref{exer:homol:four-lemma-in-abelian-categories}]
 \end{exer}
 \begin{exer}{}{exer:rings:four-lemma-second-version}
@@ -4174,37 +4338,45 @@ should experiment to his or her heart's content.
     versions, but to realize this one has to view the matter from the
     more general context of abelian categories; cf.\
     \Cref{exer:homol:four-lemma-in-abelian-categories}.}  version of
-  the ``four-lemma'' of \Cref{exer:rings:four-lemma-first-version}: if
+  the ``four-lemma'' of \Cref{exer:rings:four-lemma-first-version}:
+  \tolean[Claude]{if}
   \[\begin{tikzcd}
       B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[r] \ar[d,"\delta"'] & E_1 \ar[d,"\epsilon"'] \\
       B_0 \ar[r] & C_0 \ar[r] & D_0 \ar[r] & E_0
-    \end{tikzcd}\] is a commutative diagram of $R$-modules with exact
+    \end{tikzcd}\]
+  \tolean[Claude]{is a commutative diagram of $R$-modules with exact
   rows, $\beta$ and $\delta$ are epimorphisms, and $\epsilon$ is a
-  monomorphism, then $\gamma$ is an epimorphism.
+  monomorphism, then $\gamma$ is an epimorphism.}
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:five-lemma-for-modules}
-  Prove the ``five-lemma'': if
+  Prove the ``five-lemma'': \tolean[Claude]{if
+  }
   \[\begin{tikzcd}
       A_1 \ar[r] \ar[d,"\alpha"'] & B_1 \ar[r] \ar[d,"\beta"'] & C_1 \ar[r] \ar[d,"\gamma"'] & D_1 \ar[r] \ar[d,"\delta"'] & E_1 \ar[d,"\epsilon"'] \\
       A_0 \ar[r] & B_0 \ar[r] & C_0 \ar[r] & D_0 \ar[r] & E_0
-    \end{tikzcd}\] is a commutative diagram of $R$-modules with exact
+    \end{tikzcd}\]
+  \tolean[Claude]{is a commutative diagram of $R$-modules with exact
   rows, $\beta$ and $\delta$ are isomorphisms, $\alpha$ is an
   epimorphism, and $\epsilon$ is a monomorphism, then $\gamma$ is an
-  isomorphism. (You can avoid the needed diagram chase by pasting
+  isomorphism.} (You can avoid the needed diagram chase by pasting
   together results from previous exercises.)
   [\ref{exer:rings:short-five-lemma-via-snake-lemma}]
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:nine-lemma}
+  \tolean[Claude]{
   Consider the following commutative diagram of $R$-modules:
+  }
   \[\begin{tikzcd}
       0 \ar[r] & L_2 \ar[r] \ar[d] & M_2 \ar[r] \ar[d,"\alpha"'] & N_2 \ar[r] \ar[d] & 0 \\
       0 \ar[r] & L_1 \ar[r] \ar[d] & M_1 \ar[r] \ar[d,"\beta"'] & N_1 \ar[r] \ar[d] & 0 \\
       0 \ar[r] & L_0 \ar[r] & M_0 \ar[r] & N_0 \ar[r] & 0
-    \end{tikzcd}\] Assume that the three rows are exact and the two
+    \end{tikzcd}\]
+  \tolean[Claude]{Assume that the three rows are exact and the two
   rightmost columns are exact. Prove that the left column is
   exact. Second version: assume that the three rows are exact and the
   two leftmost columns are exact; prove that the right column is
-  exact. This is the ``nine-lemma.'' (You can avoid a diagram chase by
+  exact. This is the ``nine-lemma.''
+  } (You can avoid a diagram chase by
   applying the snake lemma; for this, you will have to turn the
   diagram by $90^\circ$.)
   [\ref{exer:rings:nine-lemma-outer-columns-mono-epi}]
@@ -4213,6 +4385,7 @@ should experiment to his or her heart's content.
   In the same situation as in \Cref{exer:rings:nine-lemma}, assume
   that the three rows are exact and that the leftmost and rightmost
   columns are exact.
+  \tolean[Claude]{
   \begin{itemize}
   \item Prove that $\alpha$ is a monomorphism and $\beta$ is an
     epimorphism.
@@ -4223,6 +4396,7 @@ should experiment to his or her heart's content.
     $\beta \circ \alpha = 0$); prove that it is then necessarily
     exact.
   \end{itemize}
+  }
 \end{exer}
 \begin{exer}{\lnot}{exer:rings:infinite-ladder-two-exact-columns-implies-third}
   Generalize the previous two exercises as follows. Consider a
@@ -4233,16 +4407,18 @@ should experiment to his or her heart's content.
       0 \ar[r] & L_i \ar[r] \ar[d] & M_i \ar[r] \ar[d] & N_i \ar[r] \ar[d] & 0 \\
       0 \ar[r] & L_{i-1} \ar[r] \ar[d] & M_{i-1} \ar[r] \ar[d] & N_{i-1} \ar[r] \ar[d] & 0 \\
       & \vdots & \vdots & \vdots &
-    \end{tikzcd}\] in which the central column is a complex and every
+    \end{tikzcd}\]
+  \tolean[Claude]{in which the central column is a complex and every
   row is exact. Prove that the left and right columns are also
   complexes. Prove that if any two of the columns are exact, so is the
-  third. (The first part is straightforward. The second part will take
+  third.} (The first part is straightforward. The second part will take
   you a couple of minutes now due to the needed diagram chases, and a
   couple of seconds later, once you learn about the long exact
   (co)homology sequence in
   \Cref{subsec:homol:the-long-exact-cohomology-sequence}.)
   [\ref{exer:homol:two-exact-columns-implies-third-abelian-category}]
 \end{exer}
+
 
 %%% Local Variables:
 %%% mode: LaTeX

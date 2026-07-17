@@ -106,7 +106,7 @@ In \Cref{subsec:irred:adding-roots-algebraically-closed-fields} we
 have encountered a prototypical example of finite field extension: a
 procedure starting from an irreducible polynomial $f(x) \in k[x]$ with
 coefficients in a field and producing an extension $K$ of $k$ in which
-$f(t)$ has a root. Explicitly,
+$f(x)$ has a root. Explicitly,
 \[K = \frac{k[t]}{(f(t))}\] is such an extension
 (\Cref{prop:irred:quotient-by-irreducible-poly-is-a-field}). The quotient is a field because $k[t]$ is a
 PID;\@ hence irreducible elements generate maximal ideals---prime
@@ -173,8 +173,8 @@ is the precise statement.
     $k \subseteq k(\alpha)$ is finite. In this case there exists a
     unique monic irreducible nonconstant polynomial $p(t) \in k[t]$ of
     degree $n = [k(\alpha) : k]$ such that
-    \[k(\alpha) \cong \frac{k[t]}{(p(t))}.\] Via this isomorphism,
-    $\alpha$ corresponds to the coset of $t$. The polynomial $p(t)$ is
+    \[k(\alpha) \cong \frac{k[t]}{(p(t))}\] and such that, via this
+    isomorphism, $\alpha$ corresponds to the coset of $t$. The polynomial $p(t)$ is
     the monic polynomial of smallest degree in $k[t]$ such that
     $p(\alpha) = 0$ in $k(\alpha)$.
   \end{itemize}
@@ -235,7 +235,7 @@ the `versality' part of \Cref{prop:irred:quotient-by-irreducible-poly-is-a-field
   this homomorphism with $\Q(\alpha) \subseteq \R$.  This is hopefully
   crystal clear; however, note that even this simple example shows
   that the induced morphism $\epsilon$ is not unique (hence the `lack
-  of \emph{uni}'): because there are more than one root of $x^2 - 2$
+  of \emph{uni}'): because there is more than one root of $x^2 - 2$
   in $\R$. Concretely, there are two possible choices for $\alpha$:
   $\alpha = +\sqrt{2}$ and $\alpha = -\sqrt{2}$. The choice of
   $\alpha$ determines the evaluation map $\epsilon$ and therefore the
@@ -527,7 +527,7 @@ We will use the notation
 \]
 for the field $k(\alpha_1)(\alpha_2)\dots(\alpha_n)$. For
 $k \subseteq F$ and $\alpha_1, \dots, \alpha_n \in F$, the elements of
-the field $F = k(\alpha_1, \dots, \alpha_n)$ are all the elements of
+the field $k(\alpha_1, \dots, \alpha_n) \subseteq F$ are all the elements of
 $F$ which may be written as rational functions in the $\alpha_i$'s,
 with coefficients in $k$ (cf.\
 \Cref{exer:fields:k-alpha-is-rational-fns-in-alpha}). Put otherwise,
@@ -915,7 +915,7 @@ following. This should serve as an encouragement to look at many more.
 
 \begin{exer}{}{exer:fields:restr-scalars-degree-inequality}
   Let $k \subseteq L \subseteq F$ be fields, and let $\alpha \in
-  F$. If $k \subseteq k(\alpha)$ is a finite extension, then
+  F$. Prove that if $k \subseteq k(\alpha)$ is a finite extension, then
   $L \subseteq L(\alpha)$ is finite and
   $[L(\alpha) : L] \leq [k(\alpha) : k]$.
 \end{exer}
@@ -2155,7 +2155,7 @@ spectrum of a ring $R$, $\operatorname{Spec} R$, back in
   \[
     (c_1, \dots, c_n) \mapsto (1 : c_1 : \cdots : c_n)
   \]
-  is a bijection. This function is used to realize $\A^n_K$ as a
+  is a bijection onto its image. This function is used to realize $\A^n_K$ as a
   subset of $\P^n_K$. By using similar functions, prove that $\P^n_K$
   can be covered with $n+1$ copies of $\A^n_K$, and relate this fact
   to the cell decomposition obtained in
@@ -2265,8 +2265,8 @@ listed above have an illustrious history; they apparently date back to
 at least 414 B.C., if one is to take this fragment from
 \name{Aristophanes}' ``The Birds'' as an indication:\footnote{I thank
   \name{Matilde Marcolli} for the translation. For those who are less
-  ignorant than I am: ὀρθῷ μετρήσω κανόνι προστιθεὶς ἵνα, / ὁ κύκλος
-  γένηταί σοι τετράγωνος κἂν μέσωι ἀγορά.}
+  ignorant than I am: {\greekfont ὀρθῷ μετρήσω κανόνι προστιθεὶς ἵνα, /
+    ὁ κύκλος γένηταί σοι τετράγωνος κἂν μέσωι ἀγορά.}}
 \begin{quote}
   \textsc{Meton}: By measuring with a straightedge there \\
   the circle becomes a square with a court within.
@@ -2547,8 +2547,9 @@ Eisenstein's criterion), so $[\Q(\gamma) : \Q] = 6$. By
 exist constructible angles which cannot be trisected.  Similarly,
 cubes cannot be doubled because that would imply the constructibility
 of $\sqrt[3]{2}$, which has degree $3$ over $\Q$, contradicting
-\Cref{coro:fields:constructible-degree-power-of-two}. Squaring circles amounts to constructing
-$\pi$, and $\pi$ is not even algebraic (although, as I have mentioned,
+\Cref{coro:fields:constructible-degree-power-of-two}. Squaring circles requires constructing
+$\sqrt{\pi}$. But if $\sqrt{\pi}$ were algebraic, then $\pi$ would be
+algebraic, and it is not (although, as I have mentioned,
 the proof of this fact is not elementary), so this is also not
 possible.  As another example, constructing a regular $7$-gon would
 amount to constructing a $7$th (complex) root of $1$, $\zeta$. By
@@ -3308,8 +3309,9 @@ for the minimal polynomial of $\beta$? It does, by virtue of
 \end{exer}
 \begin{exer}{}{exer:fields:splitting-field-contains-factor-splitting-field}
   Let $F$ be a splitting field for a polynomial $f(x) \in k[x]$, and
-  let $g(x) \in k[x]$ be a factor of $f(x)$. Prove that $F$ contains a
-  unique copy of the splitting field of
+  let $g(x) \in k[x]$ be a factor of $f(x)$. Prove that there is a
+  unique intermediate field $k \subseteq G \subseteq F$ such
+  that $k \subseteq G$ is a splitting field for
   $g(x)$. [\Cref{subsec:fields:finite-fields}]
 \end{exer}
 \begin{exer}{}{exer:fields:intersection-composite-of-splitting-fields}
@@ -3330,7 +3332,7 @@ for the minimal polynomial of $\beta$? It does, by virtue of
 \end{exer}
 \begin{exer}{}{exer:fields:freshmans-dream-char-p}
   Let $p$ be a prime, and let $k$ be a field of characteristic
-  $p$. For $a, b \in k$, prove that\footnote{This is sometimes
+  $p > 0$. For $a, b \in k$, prove that\footnote{This is sometimes
     referred to as the \emph{freshman's dream}, for painful reasons
     that are likely all too familiar to the reader.}
   $(a + b)^p = a^p +
@@ -5037,7 +5039,10 @@ equations.
   are in $F$, and $F$ is generated by them; therefore $F$ is the
   splitting field of the separable (since $\mathrm{char}\,k$ does not
   divide $m$) polynomial $x^m - c$ over $k$; hence
-  (\Cref{thm:fields:galois-extension-tfae}, part~(1)) $k \subseteq F$ is Galois. To see
+  (\Cref{thm:fields:galois-extension-tfae}, part~(1)) $k \subseteq F$ is Galois. Note
+  that since $F = k(\delta)$ has degree $m$ over $k$, and $\delta$ is
+  a root of $x^m - c$, it follows that the polynomial $x^m - c$ is
+  irreducible. To see
   that $\Aut_k(F)$ is cyclic, note that every $\phi \in \Aut_k(F)$ is
   determined by $\phi(\delta)$, which is necessarily a root of
   $x^m - c$; therefore $\phi(\delta) = \zeta^i \delta$ for some $i$,
@@ -5465,7 +5470,7 @@ Let $t_1, \dots, t_n$ be indeterminates. The polynomial
 \[
   P_n(x) := (x - t_1)\cdots(x - t_n) \in \Z[t_1, \dots, t_n][x]
 \]
-is universal in the sense that every polynomial of degree $n$ with
+is universal in the sense that every monic polynomial of degree $n$ with
 coefficients in (say) an integral domain may be obtained from $P_n(x)$
 by suitably specifying $t_1, \dots, t_n$, possibly in a larger ring
 (\Cref{exer:fields:specialize-universal-polynomial}). The coefficients
@@ -5555,8 +5560,8 @@ you, \name{Schur} showed (1931) that the splitting field of the
 \[
   1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!}
 \]
-has Galois group $S_n$ over $\Q$ for $n \neq 4$ (and $A_n$ for
-$n = 4$).  It is known (\name{Shafarevich}, 1954) that every finite
+has Galois group $S_n$ over $\Q$ if $4 \nmid n$ (and $A_n$ if
+$4 \mid n$).  It is known (\name{Shafarevich}, 1954) that every finite
 solvable group is the Galois group of a Galois extension over
 $\Q$. The inverse Galois problem may be rephrased as asking whether
 every finite group is a quotient of the Galois group of $\Q$ over
@@ -5606,7 +5611,7 @@ are famously solved (in\footnote{The formula requires extracting a
   square root; in characteristic $2$ this may not be possible.}
 characteristic $\neq 2$) by the quadratic formula:
 \[
-  x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2}.
+  x = \frac{-b \pm \sqrt{b^2 - 4c}}{2}.
 \]
 Analogous, but more complicated, formulas exist for equations of
 degree $3$ and $4$ (\name{Tartaglia}/\name{Cardano}/\name{Ferrari},
@@ -5732,7 +5737,7 @@ The reader may want to revisit
 \Cref{subsec:groups2:the-commutator-subgroup-derived-series-and-solvability}
 now, for a reminder on solvability in group theory. (We are
 approaching an explanation for the `solvable' terminology!) Just as
-radical extensions decompose as a sequence of cyclic extensions,
+radical extensions decompose as sequences of cyclic extensions,
 solvable groups have cyclic composition factors
 (\Cref{prop:groups2:solvable-equiv}). I will say\footnote{This is a
   harmless simplification; the precise condition is a little more
@@ -5792,13 +5797,13 @@ $\mathrm{char}\,k$ does not divide the relevant degrees.
   ($x^M - 1$ is separable since $k$ has characteristic $0$). By
   \Cref{prop:fields:galois-extension-lifted-by-compositum}, the extension $k(\zeta) \subseteq F(\zeta)$
   is also Galois, with Galois group isomorphic to
-  $\Aut_{k(\zeta) \cap F}(F)$.  It follows that
-  $\Aut_{k(\zeta)}(F(\zeta))$ is solvable, since
-  $\Aut_{k(\zeta) \cap F}(F)$ is a subgroup of $\Aut_k(F)$ and the
-  latter is solvable by assumption. (See the comment following
-  \Cref{coro:groups2:solvable-normal}.) Since
-  $k(\zeta) \subseteq F(\zeta)$ has enough roots of $1$,
-  \Cref{lem:fields:radical-iff-solvable-with-roots-of-unity} implies that it is radical. So is
+  $\Aut_{k(\zeta) \cap F}(F)$. As $k(\zeta) \cap F$ is Galois over $k$
+  (\Cref{exer:fields:composite-and-intersection-of-galois-are-galois}), this subgroup is normal, and
+  it follows (\Cref{prop:groups2:comp-series-normal}, \Cref{coro:groups2:solvable-normal}) that
+  $\Aut_{k(\zeta)}(F(\zeta))$ is solvable and its cyclic quotients are
+  among those for $\Aut_k(F)$. In particular,
+  $k(\zeta) \subseteq F(\zeta)$ has enough roots of $1$, and hence it
+  is radical, by \Cref{lem:fields:radical-iff-solvable-with-roots-of-unity}. So is
   $k \subseteq F(\zeta)$, since $k \subseteq k(\zeta)$ is itself
   trivially radical. This proves that $k \subseteq F$ is contained in
   a radical extension, hence in a Galois radical extension by
@@ -6041,7 +6046,7 @@ field.
   extension $\Q \subseteq \Q(\zeta_{10})$.
 \end{exer}
 \begin{exer}{}{exer:fields:specialize-universal-polynomial}
-  Let $R$ be an integral domain, and let $f(x) \in R[x]$ be a
+  Let $R$ be an integral domain, and let $f(x) \in R[x]$ be a monic
   polynomial of degree $n$. Show how to obtain $f(x)$ by specializing
   the `universal' polynomial $P_n(x)$ defined in
   \Cref{subsec:fields:fundamental-theorem-on-symmetric-functions}. [\Cref{subsec:fields:fundamental-theorem-on-symmetric-functions}]

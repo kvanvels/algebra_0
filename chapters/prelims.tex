@@ -430,9 +430,9 @@ further clarifications, if necessary.
   and their union is $S$. [\Cref{subsec:prelims:equiv-relations}]
 \end{exer}
 \begin{exer}{}{exer:prelim:equiv-rel-of-prtn}
-  \exerused{} Given a partition $P$ on a set $S$, show how to define a
-  relation $\sim$ on $S$ such that $P$ is the corresponding
-  partition. [\Cref{subsec:prelims:equiv-relations}]
+  \exerused{} Given a partition $P$ on a set $S$, show how to define
+  an equivalence relation $\sim$ on $S$ such that $P$ is the
+  corresponding partition. [\Cref{subsec:prelims:equiv-relations}]
 \end{exer}
 \begin{exer}{}{exer:prelim:count-equivalence-relations-on-three-element-set}
   How many different equivalence relations may be defined on the set
@@ -821,6 +821,9 @@ holds: for all sets $Z$ and all functions $\alpha', \alpha'' Z \to A$
   A function is injective if and only if it is a monomorphism.
 \end{prop}
 \begin{proof}
+  This is true if the source $A$ of the function is $\emptyset$
+  (why?), so assume $A \neq \emptyset$.
+
   ($\Rightarrow$) By \Cref{prop:prelim:inv-inj-sur}, if a function
   $f : A \to B$ is injective, then it has a left-inverse
   $g : B \to A$. Now assume that $\alpha' ,\alpha''$ are arbitrary
@@ -868,11 +871,11 @@ definition of `surjective', is left to the reader\footnote{This is a
 
 \subsection{Basic examples}%
 \label{subsec:prelims:basic-examples}
-The basic operations on sets provided us with several important
+The basic operations on sets provide us with several important
 examples of injective and surjective functions.
 
 \begin{exam}{}{exam:prelims:projections-surjective}
-  Let $A$, $B$ be sets. Then there are natural \emph{projections}
+  Let $A$, $B$ be nonempty sets. Then there are natural \emph{projections}
   $\pi_A$, $\pi_B$:
   \[
     \begin{tikzcd}
@@ -1056,7 +1059,8 @@ categories.
   \Cref{subsec:prelims:functions:monomorphisms-and-epimorphisms},
   and prove a result analogous to
   \Cref{prop:prelims:injective-iff-monomorphism}, for epimorphisms and
-  surjections. [\Cref{subsec:prelims:functions:monomorphisms-and-epimorphisms},
+  surjections. (Hint: Flip all the arrows.)
+  [\Cref{subsec:prelims:functions:monomorphisms-and-epimorphisms},
   \Cref{subsec:prelims:morphisms:monomorphisms-and-epimorphisms}]
 \end{exer}
 
@@ -1363,7 +1367,8 @@ interesting project.
     \Cref{exer:prelim:power-set-power-two});
   \item for $A$, $B$ objects of $\widehat{\categ{S}}$ (that is,
     $A \subseteq S$ and $B \subseteq S$) let
-    $\Hom_{\widehat{\categ{S}}}(A, B)$ be the pair $(A, B)$ if
+    $\Hom_{\widehat{\categ{S}}}(A, B)$ be the set consisting of the
+    pair $(A, B)$ if
     $A \subseteq B$, and let
     $\Hom_{\widehat{\categ{S}}}(A, B) = \emptyset$ otherwise.
   \end{itemize}
@@ -1691,7 +1696,8 @@ interesting project.
 \begin{exer}{}{exer:prelim:subobject-class}
   Since the objects of a category $\categ{C}$ are not (necessarily
   interpreted as) sets, it is not clear how to make sense of a notion
-  of `subobject' in general. In some situations it does make sense to
+  of `subobject' in general, extrapolating the notion of
+  \emph{subset.} In some situations it does make sense to
   talk about subobjects, and the subobjects of any given object $A$ in
   $\categ{C}$ are in one-to-one correspondence with the morphisms
   $A \to \Omega$ for a fixed, special object $\Omega$ of $\categ{C}$,

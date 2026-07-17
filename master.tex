@@ -1,19 +1,5 @@
 \documentclass[onecolumn,oneside,12pt,leqno]{book}
 
-% Set \fastbuildtrue for a fast plain-pdflatex reference/syntax-check
-% build: fonts_fast.tex (no fontspec/unicode-math OpenType loading)
-% and environments_fast.tex (plain-text theorem environments instead
-% of tcolorbox's colored/breakable boxes -- the real bottleneck).
-% Same \label/\ref/\Cref behavior, ~3x faster, but NEVER represents
-% the real book's appearance -- only use it to check references and
-% catch errors, never to review layout. Requires pdflatex, not
-% lualatex (unicode-math needs lualatex/xelatex, which is the whole
-% reason this switch exists). Run `make clean` after flipping this,
-% since \include writes per-chapter aux files shared between both
-% modes.
-\newif\iffastbuild
-\fastbuildfalse
-
 \usepackage{imakeidx}
 \makeindex
 \usepackage{amsmath}
@@ -23,11 +9,14 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{tikz-cd}
-\iffastbuild
-  \input{fonts_fast}
-\else
-  \input{fonts}
-\fi
+\input{fonts}
+\usepackage{etoolbox} % \ifblank, used by \tolean{}/\leaned{}'s optional note
+\usepackage{marginnote} % \marginnote, used by \tolean{}'s optional note --
+% unlike \marginpar, works when called from inside a box (e.g. a
+% defn/prop/exer tcolorbox), not just outer vertical mode. \marginpar
+% there throws "Not in outer par mode" and silently drops/misplaces the
+% note (confirmed empirically 2026-07-16 across 216 of 281 \tolean
+% invocations in rings.tex, all of them nested inside such boxes).
 \usepackage{microtype}
 \usepackage{paralist}
 \usepackage{enumitem}
@@ -44,11 +33,7 @@
 \usepackage[style=numeric]{biblatex}
 \addbibresource{mybib.bib}
 \input{colors}
-\iffastbuild
-  \input{environments_fast}
-\else
-  \input{environments}
-\fi
+\input{environments}
 
 \titleformat{\chapter}[display]
   {\normalfont\sffamily\huge\bfseries\color{black}}
@@ -120,6 +105,45 @@
 \newcommand{\TODOREF}[1]{\textcolor{red}{[\textbf{REF?} #1]}}
 \newcommand{\TODOCITE}[1]{\textcolor{red}{[\textbf{CITE?} #1]}}
 
+% Marks a statement (definition/proposition/exercise/etc.) as needing
+% to be added to the Algebra0Lean project. Highlights the passage with
+% a neon-green background box in place, so it stays readable in
+% context regardless of what it contains (plain prose, inline math,
+% itemize/enumerate lists, amsmath alignment environments like align/
+% gather/cases -- anything). This is a tcolorbox (box-level wrapper),
+% not a token-scanning underline/highlight (like ulem's \uline or
+% soul's \hl): those cannot get through itemize or amsmath alignment
+% environments at all (confirmed: even a single-row, unbroken
+% \begin{align}...\end{align} makes \uline fail outright with
+% cascading "Missing \cr"/"extra }" errors, and \begin{itemize} fails
+% the same way), which is why this design uses a box instead. Optional
+% first argument is a margin note (e.g. which Lean declaration this
+% became, or hints on how to formalize it) rendered in the PDF as a
+% reminder:
+%   \tolean{A partition of $X$ is ...}
+%   \tolean[Formalized as IsPartition.]{A partition of $X$ is ...}
+% Once it's been ported, swap the macro name to \leaned (same
+% signature) instead of deleting the wrapper, so remaining/completed
+% work stays greppable:
+%   grep -c '\\tolean\[\|\\tolean{' chapters/*.tex   -- still to do
+%   grep -c '\\leaned\[\|\\leaned{' chapters/*.tex   -- done
+% \leaned is a true no-op on the rendered text: no highlight, and its
+% optional note is source-only documentation (e.g. which declaration
+% this became) -- it is intentionally never printed in the PDF.
+\definecolor{toleangreen}{RGB}{57,255,20} % "neon green"
+\newtcolorbox{toleanbox}{
+  enhanced, breakable,
+  colback=toleangreen!25, colframe=toleangreen!25,
+  boxrule=0pt, arc=0pt,
+  left=6pt, right=6pt, top=3pt, bottom=3pt,
+  boxsep=0pt,
+}
+\newcommand{\tolean}[2][]{%
+  \begin{toleanbox}#2\end{toleanbox}%
+  \ifblank{#1}{}{\marginnote{\footnotesize #1}{}}%
+}
+\newcommand{\leaned}[2][]{#2}
+
 \newcommand{\pheader}[1]{\textbf{#1}}
 \newcommand{\name}[1]{\textcolor{brown}{\textsc{#1}}} %So Aspell can ignore it.
 \newcommand{\abrev}[1]{#1} %So Aspell can ignore it.
@@ -154,15 +178,9 @@
 \definecolor{neonBlue}{RGB}{0,180,255}
 \definecolor{neonGreen}{RGB}{57,255,20}
 
-% \mathbfsfup is a unicode-math math alphabet (borrowed from
-% LibertinusSans-Bold in fonts.tex) -- it doesn't exist without
-% unicode-math, so \categ needs a plain-\mathsf fallback under
-% fonts_fast.tex.
-\iffastbuild
-  \newcommand{\categ}[1]{{\color{UCLA_Blue}\mathsf{#1}}}
-\else
-  \newcommand{\categ}[1]{{\color{UCLA_Blue}\mathbfsfup{#1}}}
-\fi
+% \mathbfsfup is a unicode-math math alphabet, borrowed from
+% LibertinusSans-Bold in fonts.tex.
+\newcommand{\categ}[1]{{\color{UCLA_Blue}\mathbfsfup{#1}}}
 \newcommand{\imagtwo}{{\color{neonBlue}\mathbf{i}}}
 \newcommand{\schwartz}{\mathcal{S}}
 \newcommand{\one}{\mbfone}

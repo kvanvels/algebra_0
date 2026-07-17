@@ -201,6 +201,22 @@
   BoldFont    = *-Bold
 ]
 
+% None of the main-text font options above (texgyrepagella, etc.)
+% include the precomposed accented/breathing-mark glyphs polytonic
+% (ancient) Greek needs -- LuaTeX silently renders those as
+% missing-glyph boxes. LibertinusSerif does have full coverage and is
+% already a dependency of this document (it supplies the math and sans
+% fonts), so it's reused here rather than pulling in a new font just
+% for the handful of Greek quotations. Wrap Greek text as
+% {\greekfont ...} where it appears.
+\newfontfamily\greekfont{LibertinusSerif}[
+  Extension = {.otf}, % braces prevent chktex warning 26 (space before punctuation)
+  UprightFont    = *-Regular,
+  ItalicFont     = *-Italic,
+  BoldFont       = *-Bold,
+  BoldItalicFont = *-BoldItalic
+]
+
 % Force \mathrm/\mathit/\mathbf/\mathsf/\mathtt to draw from the math
 % font (LibertinusMath) instead of unicode-math's default of routing
 % them through the text fonts (\setmainfont/\setsansfont/etc.) -- see

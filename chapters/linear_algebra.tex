@@ -301,48 +301,57 @@ a somewhat stronger statement.
   space.
 
   We have to prove that there is an injective map
-  $j : S \hookrightarrow B$, and this can be done by an inductive
-  process, replacing elements of $B$ by elements of $S$
-  `one-by-one'. For this, let $\leq$ be a well-ordering on $S$, let
-  $v \in S$, and assume we have defined $j$ for all $w \in S$ with
-  $w < v$. Let $B'$ be the set obtained from $B$ by replacing all
-  $j(w)$ by $w$, for $w < v$, and assume (inductively) that $B'$ is
-  still a maximal linearly independent subset of $V$. Then I claim
-  that $j(v) \in B'$ may be defined so that
-  \begin{itemize}
-  \item $j(v) \neq j(w)$ for all $w < v$;
-  \item the set $B''$ obtained from $B'$ by replacing $j(v)$ by $v$ is
-    still a maximal linearly independent subset.
-  \end{itemize}
-  (Transfinite) induction (\Cref{fact:irred:induction-holds-for-wosets}) then shows
-  that $j$ is defined and injective on $S$, as needed.
-
-  To verify my claim, since $B'$ is a maximal linearly independent
-  set, $B' \cup \{v\}$ is linearly dependent (as an indexed
-  set\footnote{This allows for the possibility that $v \in B'$
-    `already'. In this case, the reader can check that the process I
-    am about to describe gives $j(v) = v$.}), so that there exists a
-  linear dependence relation
+  $j : S \hookrightarrow B$. Endow both $S$ and $B$ with a
+  well-ordering $\leq$. Every $v$ in $S$ is in the span of $B$, by
+  \Cref{lem:linalg:field-maximal-lin-indep-is-basis}. \emph{A
+    fortiori}, $v$ is in the span of $B \cup \{w \in S \mid w < v\}$,
+  so there exists a $b \in B$ such that
   \[
-    \tag{$*$} c_0v + c_1b_1 + \dots + c_tb_t = 0
+    v \in \langle w \in S \mid w < v \rangle + \langle a \in B \mid a \leq b \rangle
   \]
-  with not all $c_i$ equal to zero and the $b_i$ distinct in $B'$.
-  Necessarily $c_0 \neq 0$ (because $B'$ is linearly independent);
-  also, necessarily not all the $b_i$ with $c_i \neq 0$ are elements
-  of $S$ (because $S$ is linearly independent). Without loss of
-  generality we may then assume that $c_1 \neq 0$ and
-  $b_1 \in B' \setminus S$. This guarantees that $b_1 \neq j(w)$ for
-  all $w < v$; I set $j(v) = b_1$.
+  where $\langle \cdots \rangle$ denotes `span'. Since $B$ is
+  well-ordered, there is a least such $b$. Define $j(v)$ to be this
+  element $b$.
 
-  All that is left now is the verification that the set $B''$ obtained
-  by replacing $b_1$ by $v$ in $B'$ is a maximal linearly independent
-  subset. But by using $(*)$ to write
+  I claim that the function $j$ is injective. Indeed, argue by
+  contradiction and assume that $b = j(v) = j(v')$ with $v < v'$. Then
   \[
-    v = -c_0^{-1}c_1b_1 - \dots - c_0^{-1}c_tb_t,
+    v = \sum_{w \in S,\, w < v} c_w w + \sum_{a \in B,\, a < b} c_a a + c_b b, \qquad
+    v' = \sum_{w' \in S,\, w' < v'} c'_{w'} w' + \sum_{a' \in B,\, a' < b} c'_{a'} a' + c'_b b
   \]
-  this is an easy consequence of the fact that $B'$ is a maximal
-  linearly independent subset. Further details are left to the reader.
+  with $c_b \neq 0$ and $c'_b \neq 0$ (and all summations only involve
+  finitely many nonzero terms). Solving for $b$ in the first identity
+  and substituting in the second shows that
+  \[
+    v' \in \langle w' \in S \mid w' < v' \rangle + \langle a' \in B \mid a' \leq b' \rangle
+  \]
+  for some $b' < b$. But this cannot be, since $b = j(v')$ is
+  \emph{the least} element of $B$ for which such a containment can
+  hold.
 \end{proof}
+
+I am borrowing the definition of the function $j$ in this proof from
+N.\,J.\,S.\ Hughes\footnote{`Steinitz' exchange theorem for infinite
+  bases. II', \emph{Compositio Math.} 17 (1965--1966), 152--155.}. A
+minor refinement guarantees that if $S$ and $B$ are not disjoint, then
+$j$ acts as the identity on $S \cap B$.
+
+In fact, Hughes proves that the set obtained from $B$ by replacing
+$j(S)$ with $S$ \emph{is still a maximal linearly independent set}.
+Try to prove this on your own! (For linear independence: if
+$(B \setminus j(S)) \cup S$ were \emph{not} linearly independent, we
+could find $b \in B \setminus j(S)$ in a span
+$\langle a \in B \mid a < b \rangle + \langle w \in S \mid w \leq v \rangle$,
+with $v$ minimal. Use the expression defining $j(v)$ to contradict the
+minimality of $v$. To see that every $b \in j(S)$ is in
+$\langle (B \setminus j(S)) \cup S \rangle$, assume this is not the
+case, let $b = j(v)$ be the least counterexample, and again get a
+contradiction by considering the expression defining $j(v)$.)
+
+Therefore, we can construct a new basis from any given basis $B$ and
+any linearly independent set $S$ by swapping (`exchanging') part of
+$B$ with $S$. This result is known as the `exchange lemma'; its
+version for finite dimensional spaces is named after Ernst Steinitz.
 
 \begin{exam}{}{exam:linalg:uncountable-subset-of-poly-ring-dependent}
   An \emph{uncountable} subset of $\C[x]$ is necessarily linearly
@@ -361,18 +370,21 @@ a somewhat stronger statement.
 \end{proof}
 
 \begin{rem}{}{rem:linalg:completing-linearly-independent-subsets}
-  We have learned in \Cref{lem:linalg:maximal-linearly-independent-subset-exists} that we can `complete' every
-  linearly independent subset $S$ to a maximal one. The argument used
-  in the proof of \Cref{prop:linalg:basis-cardinality-comparison} shows that we can in fact do this
-  by borrowing elements of a given maximal linearly independent
-  subset.
+  We have learned in
+  \Cref{lem:linalg:maximal-linearly-independent-subset-exists} that we
+  can `complete' every linearly independent subset $S$ to a maximal
+  one. The argument used in the proof of
+  \Cref{prop:linalg:basis-cardinality-comparison} shows that we can in
+  fact do this by borrowing elements of a given maximal linearly
+  independent subset.
 \end{rem}
 
 \begin{rem}{}{rem:linalg:invariant-basis-number-property}
-  As a particular case of \Cref{coro:linalg:free-module-iso-iff-bijection-of-sets}, we see that if $R$ is an
-  integral domain, then $R^m \cong R^n$ if and only if $m = n$. This
-  says that integral domains satisfy the `IBN (Invariant Basis Number)
-  property'.
+  As a particular case of
+  \Cref{coro:linalg:free-module-iso-iff-bijection-of-sets}, we see
+  that if $R$ is an integral domain, then $R^m \cong R^n$ if and only
+  if $m = n$. This says that integral domains satisfy the `IBN
+  (Invariant Basis Number) property'.
 
   Strange as it may seem, this obvious-looking fact does \emph{not}
   hold over arbitrary rings: for example, the ring of endomorphisms of
@@ -641,7 +653,7 @@ cardinality higher than or equal to the rank. Indeed,
 \end{exer}
 \begin{exer}{}{exer:linalg:poly-multiple-with-prime-exponents}
   Let $k$ be a field, and let $f(x) \in k[x]$ be any polynomial. Prove
-  that there exists a multiple of $f(x)$ in which all exponents of
+  that there exists a nonzero multiple of $f(x)$ in which all exponents of
   nonzero monomials are prime integers. (Example: for
   $f(x) = 1+x^5+x^6$,
   \[
@@ -1484,7 +1496,7 @@ finite abelian groups
 \end{exer}
 \begin{exer}{\exerused}{exer:linalg:row-equivalent-same-row-space}
   The \emph{row space} of a matrix $M$ is the span of its rows; the
-  \emph{column space} of $M$ is the span of its column. Prove that
+  \emph{column space} of $M$ is the span of its columns. Prove that
   row-equivalent matrices have the same row space and isomorphic
   column
   spaces. [\ref{exer:linalg:bijection-row-equiv-classes-and-subspaces},
@@ -1674,8 +1686,9 @@ solves itself:
   \end{cases}
 \]
 has solutions if and only if $d_j \mid c_j$ for all $j$ and $c_j = 0$
-for $j > r$; moreover, in this case $y_j = d_j^{-1} c_j$ for
-$j = 1, \dots, r$, and $y_j$ is arbitrary for $j > r$. This yields
+for $j > r$; moreover, in this case for
+$j = 1, \dots, r$, $y_j$ is the unique element of $R$ such that
+$c_j = d_j y_j$, while $y_j$ is arbitrary for $j > r$. This yields
 $\mathbf{y}$, and the reader will check that
 $\mathbf{x} = N\mathbf{y}$ gives all solutions to the original system.
 
@@ -1710,10 +1723,10 @@ $R$. This may be detected by computing the \emph{determinant} of $A$.
   \]
 \end{defn}
 Here $S_n$ denotes the symmetric group on $\{1, \dots, n\}$, and I
-write\footnote{Consistency with previous encounters with the symmetric
-  group (e.g., \Cref{sec:groups2:the-symmetric-group}) would demand
-  that I write $i\sigma$; but then I would end up with things like
-  `$a_{i\sigma i}$', which are very hard to parse.} $\sigma(i)$ for
+write\footnote{I will opt for the \emph{left} action here, as in
+  \Cref{sec:groups2:the-symmetric-group}. Acting on the right and
+  writing $i\sigma$ would lead to notation such as `$a_{i i\sigma}$',
+  which is very hard to parse.} $\sigma(i)$ for
 the action of $\sigma \in S_n$ on $i \in \{1, \dots, n\}$;
 $(-1)^\sigma$ is the \emph{sign} of a permutation
 (\Cref{defn:groups2:sign}, \Cref{lem:groups2:parity-well-defined}).
@@ -2073,7 +2086,7 @@ is the dimension of the column (row) space of $P$.
   $P \in \mathcal{M}_{m,n}(k)$; the row space of $P$ consists of all
   row vectors
   \[
-    \begin{pmatrix} a_1 & \dots & a_m \end{pmatrix} =
+    \begin{pmatrix} a_1 & \dots & a_n \end{pmatrix} =
     \begin{pmatrix} v_1 & \dots & v_m \end{pmatrix} \cdot P
   \]
   obtained as each $v_i$ ranges in $k$. If $Q = MPN$, with $M$ and $N$
@@ -2082,7 +2095,7 @@ is the dimension of the column (row) space of $P$.
   \[
     \begin{pmatrix} w_1 & \dots & w_m \end{pmatrix} \cdot Q =
     \begin{pmatrix} v_1 & \dots & v_m \end{pmatrix} M^{-1}(MPN) =
-    \begin{pmatrix} a_1 & \dots & a_m \end{pmatrix} \cdot N.
+    \begin{pmatrix} a_1 & \dots & a_n \end{pmatrix} \cdot N.
   \]
   This shows that multiplication on the right by $N$ maps the row
   space of $P$ (isomorphically, since $N$ is invertible) to the row
@@ -2652,19 +2665,19 @@ an immediate consequence of the first isomorphism theorem for modules
 \Cref{exer:rings:cyclic-module}.
 
 Cyclic modules are witness to the difference between fields and more
-general rings: over a field $k$, a cyclic module is just a
+general rings: over a field $k$, a nonzero cyclic module is just a
 1-dimensional vector space, that is a `copy of $k$'; over more general
 rings, cyclic modules may be very interesting (think of the many hours
 spent contemplating cyclic groups). In fact, we can tell that a ring
 is a field by just looking at its cyclic modules:
 \begin{lem}{}{lem:linalg:cyclic-modules-torsion-free-implies-field}
-  Let $R$ be an integral domain. Assume that every cyclic $R$-module
+  Let $R$ be a nonzero ring. Assume that every cyclic $R$-module
   is torsion-free. Then $R$ is a field.
 \end{lem}
 \begin{proof}
   Let $c \in R$, $c \neq 0$; then $M = R/(c)$ is a cyclic module. Note
-  that $\Tor(M) = M$: indeed, the class of $1$ generates $R/(c)$ and
-  belongs to $\Tor(M)$ since $c \cdot 1$ is $0$ mod $(c)$ and
+  that $\Tor(M) = M$: indeed, for all $r \in R$, the class of $r$ in
+  $R/(c)$ is a torsion element since $c \cdot r$ is $0$ mod $(c)$ and
   $c \neq 0$. However, by hypothesis $M$ is torsion-free; that is,
   $\Tor(M) = \{0\}$. Therefore $M = \Tor(M)$ is the zero module.
 
@@ -2804,7 +2817,7 @@ very carefully later on, in \Cref{chap:homol}.
 
 However, we can already learn something by considering coarse
 questions, such as `how long' a resolution can be. \emph{A priori},
-there is no reason to expect a free resolutions to be `finite', that
+there is no reason to expect a free resolution to be `finite', that
 is, such that $m_i = 0$ for $i \gg 0$. Such finiteness conditions tell
 us something special about the base ring $R$.
 
@@ -3086,7 +3099,7 @@ generate $\mathrm{GL}$; cf.\ \Cref{rem:linalg:elementary-matrices-generate-gln-e
   \ref{exer:linalg:primes-in-elem-divisors-are-assoc-primes}]
 \end{exer}
 \begin{exer}{$\lnot$}{exer:linalg:maximal-annihilators-are-prime}
-  Let $M$ be a module over a commutative ring $R$, and consider the
+  Let $M$ be a nonzero module over a commutative ring $R$, and consider the
   family of ideals $\operatorname{Ann}(m)$, as $m$ ranges over the
   nonzero elements of $M$. Prove that the maximal elements in this
   family are prime ideals of $R$. Conclude that if $R$ is Noetherian,
@@ -4430,7 +4443,7 @@ every eigenvalue of $\alpha$ is an eigenvalue of $\beta$.
 If $F$ is finitely generated, then we have the following useful
 translation of the notion of eigenvalue:
 \begin{lem}{}{lem:linalg:eigenvalues-are-roots-of-characteristic-poly}
-  Let $F$ be a finitely generated $R$-module, and let
+  Let $F$ be a finitely generated free $R$-module, and let
   $\alpha \in \End_R(F)$. Then the set of eigenvalues of $\alpha$ is
   precisely the set of roots in $R$ of the characteristic polynomial
   $P_\alpha(t)$.
@@ -4543,16 +4556,17 @@ Thus, the geometric multiplicity of the eigenvalue is $1$ in this
 example.
 
 Contemplating this example will convince the reader that the geometric
-multiplicity of an eigenvalue is always \emph{less than} its algebraic
-multiplicity. In the neatest possible situation, an operator $\alpha$
-on a free module $F$ of rank $n$ may have all its $n$ eigenvalues in
-the base ring $R$, and each algebraic multiplicity may agree with the
-corresponding geometric multiplicity. If this is the case, $F$ may
+multiplicity of an eigenvalue is always \emph{less than or equal to}
+its algebraic multiplicity. In the neatest possible situation, and
+working over a field for simplicity, an operator $\alpha$
+on a vector space $V$ of dimension $n$ may have all its $n$ eigenvalues in
+the base field, and each algebraic multiplicity may agree with the
+corresponding geometric multiplicity. If this is the case, $V$ may
 then be expressed as a direct sum of the eigenspaces, producing the
-so-called \emph{spectral decomposition} of $F$ determined by $\alpha$
+so-called \emph{spectral decomposition} of $V$ determined by $\alpha$
 (cf.\ \Cref{exer:linalg:eigenvectors-distinct-eigenvalues-lin-indep}
 for a concrete instance of this situation). The action of $\alpha$ on
-$F$ is then completely transparent, as it amounts to simply applying a
+$V$ is then completely transparent, as it amounts to simply applying a
 (possibly) different scaling factor on each piece of the spectral
 decomposition.
 
@@ -4726,8 +4740,9 @@ In these exercises, $R$ denotes an integral domain.
   $r_j \in R$, $r_j \neq 0$. Compare the action of $\alpha$ on this
   linear combination with the product by $\lambda_{i_1}$.)
 
-  It follows that if $F$ has rank $n$ and $\alpha$ has $n$ distinct
-  eigenvalues, then $\alpha$ induces a spectral decomposition of $F$.
+  It follows that if a vector space $V$ has dimension $n$ and
+  $\alpha : V \to V$ has $n$ distinct
+  eigenvalues, then $\alpha$ induces a spectral decomposition of $V$.
   [\Cref{subsec:linalg:eigenvalues-eigenvectors-eigenspaces},
   \ref{exer:fields:distinct-automorphisms-linearly-independent}]
 \end{exer}
@@ -4863,7 +4878,7 @@ In these exercises, $R$ denotes an integral domain.
 \begin{exer}{$\lnot$}{exer:linalg:symmetric-hermitian-iff-self-adjoint}
   A matrix $M \in \mathcal{M}_n(\R)$ is \emph{symmetric} if $M^t =
   M$. Prove that $M$ is symmetric if and only if
-  $(\forall \mathbf{v}, \mathbf{w} \in \C^n)$,
+  $(\forall \mathbf{v}, \mathbf{w} \in \R^n)$,
   $(M\mathbf{v}, \mathbf{w}) = (\mathbf{v}, M\mathbf{w})$.
 
   A matrix $M \in \mathcal{M}_n(\C)$ is \emph{hermitian} if

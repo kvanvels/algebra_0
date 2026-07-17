@@ -1,8 +1,7 @@
 LUALATEX = lualatex -file-line-error -interaction=nonstopmode -synctex=1
-PDFLATEX = pdflatex -file-line-error -interaction=nonstopmode -synctex=1
 MASTER   = master
 
-.PHONY: pdf quick check_syntax check_fast clean chktex warnings
+.PHONY: pdf quick check_syntax clean chktex warnings
 
 pdf: $(MASTER).pdf
 
@@ -31,19 +30,6 @@ quick:
 # without paying for font loading and page output.
 check_syntax:
 	$(LUALATEX) --draftmode $(MASTER)
-
-# Much faster reference/syntax-only check: plain pdflatex against the
-# same master.tex, with \fastbuildtrue set at the top of the file to
-# swap in fonts_fast.tex/environments_fast.tex. Same \label/\ref
-# behavior, ~3x faster. NEVER represents the real book's appearance;
-# only use it to check references/errors, never to review layout.
-# Requires \fastbuildtrue to be set in master.tex first (it toggles
-# back to lualatex/tcolorbox otherwise, which plain pdflatex can't
-# process). \include writes per-chapter aux files shared with the real
-# build -- run `make clean` after flipping the switch to avoid stale
-# cross-contaminated aux state.
-check_fast:
-	$(PDFLATEX) --draftmode $(MASTER)
 
 # Fail if the log contains any warning/error other than Overfull/Underfull box warnings.
 warnings: pdf
